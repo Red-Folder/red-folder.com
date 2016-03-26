@@ -1,0 +1,248 @@
+@media (min-width: 768px) {
+  .skill-label {
+    color: white;
+    display: inline-block;
+    background: #4C4C4C;
+    padding: 5px 10px 5px 10px;
+  }
+  .center-content h3,
+  .center-content .row {
+    width: 753px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+/*
+=================================================================================================================
+Mixin functions
+=================================================================================================================
+*/
+/*
+=================================================================================================================
+Defaults
+=================================================================================================================
+*/
+body {
+  padding-top: 70px;
+  /* To give room for the fixed nabar */
+}
+footer .footer-image {
+  height: 50px;
+  background: url(/images/WebsiteFooter.png) repeat-x;
+}
+footer .footer-content {
+  background-color: #e74c3c;
+  color: white;
+  padding: 5px;
+  /* Float to bottom using http://jsfiddle.net/silb3r/0srp42pb/11/ */
+  font-size: 0;
+}
+footer .footer-content > * {
+  float: none;
+  display: inline-block;
+  font-size: 14px;
+}
+footer .footer-content > *:last-child {
+  vertical-align: bottom;
+}
+footer .footer-content .social-icon {
+  position: relative;
+  float: left;
+}
+a,
+a:visited,
+a:active {
+  color: #4C4C4C;
+  -moz-transition: color 1.5s;
+  -o-transition: color 1.5s;
+  -webkit-transition: color 1.5s;
+  transition: color 1.5s;
+}
+a:hover,
+a:focus {
+  text-decoration: none;
+  color: #e74c3c;
+}
+/*
+=================================================================================================================
+Navigation
+=================================================================================================================
+*/
+#rfc-logo {
+  display: block;
+  height: 60px;
+  padding-top: 6px;
+  padding-bottom: 6px;
+}
+.navbar-inverse {
+  background-color: #e74c3c;
+}
+.navbar {
+  margin-bottom: 0;
+  padding: 5px 15px;
+  -moz-transition: all 0.5s;
+  -o-transition: all 0.5s;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+}
+.cbp-af-header-shrink {
+  padding-top: 1px;
+  padding-bottom: 1px;
+  opacity: 0.7;
+}
+/*
+=================================================================================================================
+Summary Tiles
+=================================================================================================================
+*/
+.icon-services {
+  height: 128px;
+  background: url('/images/icons/IconServicesGrey.png') no-repeat center;
+  -moz-transition: background-image 1.5s;
+  -o-transition: background-image 1.5s;
+  -webkit-transition: background-image 1.5s;
+  transition: background-image 1.5s;
+}
+.icon-services:hover {
+  background: url('/images/icons/IconServicesRed.png') no-repeat center;
+}
+.icon-bio {
+  height: 128px;
+  background: url('/images/icons/IconBioGrey.png') no-repeat center;
+  -moz-transition: background-image 1.5s;
+  -o-transition: background-image 1.5s;
+  -webkit-transition: background-image 1.5s;
+  transition: background-image 1.5s;
+}
+.icon-bio:hover {
+  background: url('/images/icons/IconBioRed.png') no-repeat center;
+}
+.icon-projects {
+  height: 128px;
+  background: url('/images/icons/IconProjectsGrey.png') no-repeat center;
+  -moz-transition: background-image 1.5s;
+  -o-transition: background-image 1.5s;
+  -webkit-transition: background-image 1.5s;
+  transition: background-image 1.5s;
+}
+.icon-projects:hover {
+  background: url('/images/icons/IconProjectsRed.png') no-repeat center;
+}
+.summary-tile {
+  padding: 5px;
+  margin-bottom: 15px;
+  text-align: center;
+  color: #4C4C4C;
+  -moz-transition: color 1.5s;
+  -o-transition: color 1.5s;
+  -webkit-transition: color 1.5s;
+  transition: color 1.5s;
+}
+.summary-tile:hover {
+  color: #e74c3c;
+}
+.summary-tile:hover h3 {
+  border-top: 3px solid #e74c3c;
+  border-bottom: 3px solid #e74c3c;
+}
+.summary-tile:hover .icon-services {
+  background: url('/images/icons/IconServicesRed.png') no-repeat center;
+}
+.summary-tile:hover .icon-bio {
+  background: url('/images/icons/IconBioRed.png') no-repeat center;
+}
+.summary-tile:hover .icon-projects {
+  background: url('/images/icons/IconProjectsRed.png') no-repeat center;
+}
+.show-more-icon {
+  font-size: 36px;
+}
+h3 {
+  padding: 5px;
+  border-top: 3px solid #4C4C4C;
+  border-bottom: 3px solid #4C4C4C;
+  -moz-transition: border-top 1.5s,  border-bottom 1.5s;
+  -o-transition: border-top 1.5s,  border-bottom 1.5s;
+  -webkit-transition: border-top 1.5s,  border-bottom 1.5s;
+  transition: border-top 1.5s,  border-bottom 1.5s;
+}
+/*
+=================================================================================================================
+Home page specific
+=================================================================================================================
+*/
+.rfc-header {
+  background-size: cover;
+  padding: 50px 20px;
+  margin-bottom: 10px;
+}
+.rfc-header.home-page {
+  background-image: url(/images/moods/MoodNoteTaking.jpg);
+}
+.rfc-header.services-page {
+  background-image: url(/images/moods/MoodWhiteBoard.jpg);
+}
+.rfc-header.bio-page {
+  background-image: url(/images/moods/MoodMeeting.jpg);
+}
+.rfc-header.recent-projects-page {
+  background-image: url(/images/moods/MoodProjects.jpg);
+}
+.rfc-header span,
+.rfc-header h1 {
+  color: white;
+  display: inline-block;
+  background: #e74c3c;
+  padding: 5px 10px 5px 10px;
+}
+/*
+=================================================================================================================
+???
+=================================================================================================================
+*/
+.skills .highlight {
+  color: white;
+  background: #e74c3c;
+  padding: 5px 10px;
+  -moz-background-clip: content-box;
+  -webkit-background-clip: content-box;
+  background-clip: content-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.skills .highlight div {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  text-align: center;
+}
+.rfc-list-title {
+  display: inline;
+}
+.certification .row div:nth-child(2) {
+  padding-top: 15px;
+}
+/*
+=================================================================================================================
+Helpers
+=================================================================================================================
+*/
+/* Used for setting same high for columns */
+/* Note that using it breaks the correct row wrap round */
+.row-eq-height {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.services .row:not(:last-child) {
+  border-bottom: 3px solid #e74c3c;
+}
+.services .consultancy div:nth-child(2) {
+  background: url(/images/icons/Consultancy.png) no-repeat center;
+}
+.services .interim div:nth-child(2) {
+  background: url(/images/icons/Team.png) no-repeat center;
+}
+.services .development div:nth-child(2) {
+  background: url(/images/icons/Development.png) no-repeat center;
+}

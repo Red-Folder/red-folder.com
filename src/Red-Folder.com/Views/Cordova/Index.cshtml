@@ -1,0 +1,19 @@
+﻿@model List<RedFolder.ViewModels.SummaryTile>
+
+@{
+    ViewBag.Title = "Cordova Plugins";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="row rfc-header recent-projects-page">
+    <h1>Cordova Plugins</h1>
+</div>
+
+<div class="center-content">
+    @if (Model != null && Model.Count > 0)
+    {
+        foreach (var tile in Model)
+        {
+            await Html.RenderPartialAsync("_SummaryRow", tile);
+        }
+    }
+</div>

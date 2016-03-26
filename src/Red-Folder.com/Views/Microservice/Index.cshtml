@@ -1,0 +1,91 @@
+﻿@{
+    ViewBag.Title = "Microservices";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="row rfc-header recent-projects-page">
+    <span>"microservices is a software architecture style in which complex applications are composed of small, independent processes communicating with each other using language-agnostic APIs.</span><br />
+    <span>These services are small, highly decoupled and focus on doing a small task, facilitating a modular approach to system-building."</span><br />
+    <span><small><cite title="Source Title"><a href="https://en.wikipedia.org/wiki/Microservices">Wikipedia</a></cite></small></span>
+</div>
+
+<div class="center-content">
+    <div class="row">
+        <div class="col-xs-12">
+            <p>
+                I've really become intrigued by Microservice architecture.  So much of it feels like a natural progression of many wonderful development practices, techniques and tools – a natural evolution.
+            </p>
+            <p>
+                Microservices are quite a hot topic currently - moving to fine grained, small, distributed services from “monolith”.  I’d expect it to be an important topic for the next 3-5 years.
+            </p>
+            <p>
+                I wanted to spend some time exploring the pros and cons of the architecture.  I’ve started to blog about this and will be providing sample code via my Github account and a management tools via this website.
+            </p>
+        </div>
+    </div>
+
+    <div class="hidden-xs">
+        <h3>Dependancy Graph</h3>
+        <div class="row">
+            @{ await Html.RenderPartialAsync("_MicroServiceDependanyGraph"); }
+
+            @section Scripts
+            {
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.js"></script>
+                <script src="~/scripts/dependancy.graph.js"></script>
+            }
+
+            @section Styles
+            {
+                <link rel="stylesheet" type="text/css" href="~/css/dependancy.graph.css" />
+            }
+        </div>
+    </div>
+
+    <h3>Blog articles</h3>
+    <div class="row">
+        <ul>
+            <li>
+                <a href="http://red-folder.blogspot.co.uk/2015/06/microservices-practical-use.html"><h4>Practical Use</h4></a>
+                <p>
+                    This article starts to explore Microsevices from a practical perspective and is an introduction the series.
+                </p>
+            </li>
+            <li>
+                <a href="http://red-folder.blogspot.co.uk/2015/06/microservices-source-code-management.html"><h4>Source code management</h4></a>
+                <p>
+                    Any good development project should have source control at its heart.  And with microservice, by their nature being small and independant, all source code dependancies need to managed carefully.  This article starts looking an options to allow collaboration - yet provides seperate microservices to be developed with loose dependancies to "library" code.
+                </p>
+            </li>
+        </ul>
+    </div>
+
+    <h3>Source code</h3>
+    <div class="row">
+        <ul>
+            <li>
+                <a href="https://github.com/Red-Folder/MS-Common-Library"><h4>Common Library</h4></a>
+                <p>
+                    Common Library code for the Microservices
+                </p>
+            </li>
+            <li>
+                <a href="https://github.com/Red-Folder/MS-Base-WebAPI"><h4>Base WebAPI</h4></a>
+                <p>
+                    Base code for Microservice WebAPI
+                </p>
+            </li>
+            <li>
+                <a href="https://github.com/Red-Folder/MS-Logger"><h4>Logger</h4></a>
+                <p>
+                    Logger Microservice - provides services via WebAPI
+                </p>
+            </li>
+            <li>
+                <a href="https://github.com/Red-Folder/MS-Projects"><h4>Projects</h4></a>
+                <p>
+                    Projects Microservice - provides details for my GutHub projects
+                </p>
+            </li>
+        </ul>
+    </div>
+</div>

@@ -1,0 +1,117 @@
+﻿@model List<RedFolder.ViewModels.Employment>
+
+@{
+    ViewBag.Title = "MyBio";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row rfc-header bio-page">
+    <span>"We are the sum total of our experiences.</span><br />
+    <span>Those experiences – be they positive or negative – make us the person we are, at any given point in our lives.</span><br />
+    <span>And, like a flowing river, those same experiences, and those yet to come, continue to influence and reshape the person we are, and the person we become.</span><br />
+    <span>None of us are the same as we were yesterday, nor will be tomorrow."</span><br />
+    <span><small>B.J. Neblett From the short story <cite title="Source Title">George</cite></small></span>
+</div>
+
+@Html.Partial("_SkillHighlights")
+
+<div class="center-content">
+    <h3>About me</h3>
+    <div class="row">
+        <div id="bio-photo" class="col-md-2 col-sm-3 hidden-xs">
+            <img class="img-responsive" src="~/Images/Me2.jpg" />
+        </div>
+
+        <div id="bio-summary" class="col-md-10 col-sm-9 col-xs-12">
+            <p>
+                I’ve had the pleasure of working within IT for over 20 years.  During that time I’ve been privileged to work with many great people, languages, technologies, systems and process.
+            </p>
+            <p>
+                After all that time and all the changes, I still love IT – especially development.  As an art form (yes, if done right it is an art form) it continues to evolve and grow.  And we must remember that it is still very young – yet to reach its hundredth birthday.  Compare it to something like architecture which has been in existence for thousands – we have such a long way to go – exciting times.
+            </p>
+        </div>
+    </div>
+</div>
+
+<div class="center-content">
+    <h3>Certifications</h3>
+    <div class="certification">
+        <div class="row">
+            <div class="hidden-xs col-sm-3">
+                <img src="~/Images/PSMI.png" />
+            </div>
+            <div class="col-xs-12 col-sm-9">
+                <h4 class="rfc-list-title">Scrum.Org: Professional Scrum Master (PSM I)</h4>
+                <p><small>Feb 2016</small></p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="hidden-xs col-sm-3">
+                <img src="~/Images/MCSD_2013(rgb)_1477.png" />
+            </div>
+            <div class="col-xs-12 col-sm-9">
+                <h4 class="rfc-list-title">Microsoft Certified Solutions Developer: Web Developer</h4>
+                <p><small>Dec 2013, Re-certified December 2015</small></p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="hidden-xs col-sm-3">
+                <img src="~/Images/MS_2013(rgb)_1485.png" />
+            </div>
+            <div class="col-xs-12 col-sm-9">
+                <h4 class="rfc-list-title">Microsoft Specialist: Programming in HTML5 with JavaScript and CSS3</h4>
+                <p><small>Feb 2013</small></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+    @*<h3>Thumbs up wall</h3>
+        <div class="thumbs-up-wall">
+            <div class="col-xs-12 col-sm-3">
+                <img src="~/Images/PhilHaackThumbsUp.gif" />
+            </div>
+            <div class="col-xs-12 col-sm-9">
+                <h4 class="rfc-list-title">From Phil Haack for contribution to the Octokit.net project</h4>
+                <p><small>Jun 2015</small></p>
+                <p>
+                    Added getratelimits to miscellaneousclient to the <a href="https://github.com/octokit/octokit.net">Octokit.net</a> project under pull request <a href="https://github.com/octokit/octokit.net/pull/848#issuecomment-125341327">#848</a>
+                </p>
+            </div>
+        </div>*@
+
+<div class="center-content">
+    <h3>Work History</h3>
+    @foreach (var employment in Model)
+    {
+        <div class="row">
+            <div class="col-xs-12">
+                <h4 class="rfc-list-title">@employment.Title</h4>
+                <p><small>@employment.From to @employment.To</small></p>
+
+                @if (employment.Summary != null)
+                {
+                    <p>
+                        @employment.Summary
+                    </p>
+                }
+
+                @if (employment.Technologies != null && employment.Technologies.Count > 0)
+                {
+                    <p>
+                        Key Technologies:
+                        <ul>
+                            @foreach (var technology in employment.Technologies)
+                            {
+                                <li class="skill-label">@technology</li>
+                            }
+                        </ul>
+
+                    </p>
+                }
+            </div>
+        </div>
+    }
+</div>
+

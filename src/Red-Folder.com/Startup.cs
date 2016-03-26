@@ -7,7 +7,7 @@ using Microsoft.AspNet.Hosting;
 using Microsoft.AspNet.Http;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace Red_Folder
+namespace RedFolder
 {
     public class Startup
     {

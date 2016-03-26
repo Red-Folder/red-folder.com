@@ -1,0 +1,16 @@
+﻿@model RedFolder.ViewModels.SummaryTile
+
+<a class="summary-tile" asp-controller="@Model.Controller" asp-action="@Model.Action">
+
+    <h3>@Model.Title</h3>
+    <div class="row">
+        @foreach (var paragraph in Model.Description)
+        {
+            <p>@paragraph</p>
+        }
+        <div class="show-more-icon">
+            <i class="icon-chevron-sign-right"></i>
+        </div>
+    </div>
+</a>
+
