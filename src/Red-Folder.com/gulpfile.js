@@ -1,12 +1,9 @@
-﻿/// <binding AfterBuild='less' />
-/*
-This file in the main entry point for defining Gulp tasks and using Gulp plugins.
-Click here to learn more. http://go.microsoft.com/fwlink/?LinkId=518007
-*/
+﻿/// <binding AfterBuild='less, minify' />
 "use strict";
 
 var gulp = require('gulp');
 var less = require('gulp-less');
+var uglify = require('gulp-uglify');
 var path = require('path');
 
 var paths = {
@@ -15,6 +12,8 @@ var paths = {
 
 paths.lessSrc = paths.wwwroot + "css/**/*.less";
 paths.lessDest = paths.wwwroot + "css/";
+paths.jsSrc = [paths.wwwroot + "scripts/**/*.js", "!" + paths.wwwroot + "scripts/**/*.js"];
+paths.jsDest = paths.wwwroot + "scripts/min";
 
 gulp.task('less', function () {
     return gulp.src(paths.lessSrc)
@@ -27,3 +26,12 @@ gulp.task('less', function () {
 gulp.task('watch-less', function() {
     return gulp.watch(paths.lessSrc, ['less']);
 });
+
+gulp.task('minify', function () {
+    return gulp.src(paths.jsSrc)
+        .pipe(uglify())
+        .pipe(gulp.dest(paths.jsDest));
+});
+
+gulp.task('deployment-prepare', ['less', 'minify']);
+

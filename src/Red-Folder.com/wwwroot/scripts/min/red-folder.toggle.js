@@ -1,0 +1,1 @@
+function toggle(d,l){var s=$(d),l=$(l);null!=d&&null!=l&&(l.hasClass("hidden")?(s.addClass("hidden"),l.removeClass("hidden")):l.addClass("hidden"))}
