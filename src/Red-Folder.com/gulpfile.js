@@ -24,4 +24,6 @@ gulp.task('less', function () {
       .pipe(gulp.dest(paths.lessDest));
 });
 
-gulp.watch(paths.lessSrc, ['less']);
+gulp.task('watch-less', function() {
+    return gulp.watch(paths.lessSrc, ['less']);
+});
