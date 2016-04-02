@@ -29,7 +29,7 @@ gulp.task('compile-less', function () {
 
 gulp.task('autoprefix-css', function () {
     log("Autoprefix CSS");
-    return gulp.src(config.destination.css)
+    return gulp.src(config.destination.css + '*.css')
         .pipe($.print())
         .pipe($.autoprefixer({ browser: ['last 2 versions', '> 5%'] }))
         .pipe(gulp.dest(config.destination.css));
@@ -47,9 +47,9 @@ gulp.task('validate-js', function () {
 
     return gulp.src(config.source.jsToValidate)
         .pipe($.print())
-        .pipe($.jscs({ configPath: config.tools.jscsConfig }))
-        .pipe($.jscs.reporter())
-        .pipe($.jscs.reporter('fail'))
+        //.pipe($.jscs({ configPath: config.tools.jscsConfig }))
+        //.pipe($.jscs.reporter())
+        //.pipe($.jscs.reporter('fail'))
         .pipe($.jshint())
         .pipe($.jshint.reporter('jshint-stylish', { verbose: true }))
         .pipe($.jshint.reporter('fail'));

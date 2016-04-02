@@ -78,15 +78,15 @@
     <script type="text/javascript" src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
 
     <environment names="Development">
-        <script type="text/javascript" src="~/scripts/classie.js"></script>
-        <script type="text/javascript" src="~/scripts/cbpAnimatedHeader.js"></script>
+        <script type="text/javascript" src="~/scripts/3rdParty/classie.js"></script>
+        <script type="text/javascript" src="~/scripts/3rdParty/cbpAnimatedHeader.js"></script>
         <script type="text/javascript" src="~/scripts/red-folder.toggle.js"></script>
     </environment>
 
     <environment names="Production,Staging">
-        <script type="text/javascript" src="~/scripts/min/classie.js"></script>
-        <script type="text/javascript" src="~/scripts/min/cbpAnimatedHeader.js"></script>
-        <script type="text/javascript" src="~/scripts/min/red-folder.toggle.js"></script>
+        <script type="text/javascript" src="~/scripts/3rdParty/classie.min.js"></script>
+        <script type="text/javascript" src="~/scripts/3rdParty/cbpAnimatedHeader.min.js"></script>
+        <script type="text/javascript" src="~/scripts/red-folder.toggle.min.js"></script>
     </environment>
 
     @RenderSection("scripts", required: false)

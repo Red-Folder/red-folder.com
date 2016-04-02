@@ -17,8 +17,8 @@
     config.source.js3rdParty = config.source.root + "scripts/3rdParty/**/*.js";
     config.source.jsToValidate = [config.source.js, "!" + config.source.js3rdParty];
 
-    config.destination.css = config.destination + "/css";
-    config.destination.js = config.destination + "/scripts";
+    config.destination.css = config.destination.root + "/css";
+    config.destination.js = config.destination.root + "/scripts";
 
     return config;
 };
