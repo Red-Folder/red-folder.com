@@ -1,19 +1,19 @@
 ﻿function toggle(group, item)
 {
-    var groupItems = $(group);
+    var $group = $(group);
 
-    var item = $(item);
+    var $item = $(item);
 
-    if (group != null && item != null)
+    if ($group !== null && $item !== null)
     {
-        if (!item.hasClass('hidden'))
+        if (!$item.hasClass('hidden'))
         {
-            item.addClass('hidden');
+            $item.addClass("hidden");
         }
         else
         {
-            groupItems.addClass('hidden');
-            item.removeClass('hidden');
+            $group.addClass('hidden');
+            $item.removeClass('hidden');
         }
     }
 }

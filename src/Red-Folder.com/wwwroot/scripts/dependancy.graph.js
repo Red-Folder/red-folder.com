@@ -25,14 +25,15 @@ d3.json(url, function (error, graph) {
     for (var i = 0; i < graph.nodes.length; i++) {
         labelAnchors.push({ node: graph.nodes[i] });
         labelAnchors.push({ node: graph.nodes[i] });
-    };
-    for (var i = 0; i < graph.nodes.length; i++) {
+    }
+
+    for (i = 0; i < graph.nodes.length; i++) {
         labelAnchorLinks.push({
             source: i * 2,
             target: i * 2 + 1,
             weight: 1
         });
-    };
+    }
 
     var force = d3.layout.force()
                     .charge(-3000)
@@ -111,7 +112,7 @@ d3.json(url, function (error, graph) {
 
     var labelNode = anchorNode
                         .filter(function (d, i) {
-                            return i % 2 == 1
+                            return i % 2 == 1;
                         })
                         .append("g");
     labelNode
@@ -132,7 +133,7 @@ d3.json(url, function (error, graph) {
         //.text(function (d, i) {
         //    return i % 2 == 0 ? "" : d.node.name
         //})
-        .text(function (d, i) { return d.node.name })
+        .text(function (d, i) { return d.node.name; })
         .style("fill", "#555")
         .style("font-family", "Arial")
         .style("font-size", 12);
@@ -148,15 +149,13 @@ d3.json(url, function (error, graph) {
         }).attr("y2", function (d) {
             return d.target.y;
         });
-
-    }
+    };
 
     var updateNode = function () {
         this.attr("transform", function (d) {
             return "translate(" + d.x + "," + d.y + ")";
         });
-
-    }
+    };
 
     var updateLabels = function () {
         //console.debug(this.select("text").node().getBBox().width);
@@ -165,16 +164,16 @@ d3.json(url, function (error, graph) {
             //console.debug(d.select("text").node().getBBox().width);
             //console.debug(r.select("rect"));
             var w = r.select("text").node().getBBox().width;
-            var h = r.select("text").node().getBBox().height; 
+            var h = r.select("text").node().getBBox().height;
             r.select("rect").attr("width", w + 10);
-            r.select("rect").attr("height",h + 10);
+            r.select("rect").attr("height", h + 10);
             r.select("text").attr("x", 5);
             r.select("text").attr("y", h + 5);
         });
 
         //this
         //    .select("rect").attr("width", this.select("text").node().getBBox().width);
-    }
+    };
 
     force.on("tick", function () {
         force2.start();
@@ -182,7 +181,7 @@ d3.json(url, function (error, graph) {
         node.call(updateNode);
 
         anchorNode.each(function (d, i) {
-            if (i % 2 == 0) {
+            if (i % 2 === 0) {
                 d.x = d.node.x;
                 d.y = d.node.y;
             } else {
