@@ -1,0 +1,6 @@
+body {
+  color: aqua;
+}
+h1 {
+  transition: background-image 1.5s;
+}

@@ -7,39 +7,90 @@
 var gulp = require('gulp');
 var path = require('path');
 var del = require('del');
+var eventStream = require('event-stream');
 var config = require('./gulp.config')();
+var merge = require('merge-stream');
 var $ = require('gulp-load-plugins')({ lazy: true });
 
 /*
  * CSS
  */
-gulp.task('clean-css', function () {
-    clean(config.destination.css);
+/*
+gulp.task('clean-css', function (done) {
+    clean(config.destination.css, done);
+});
+*/
+gulp.task('validate-less', function () {
+    log("Validating Less");
+
+    var tasks = config.lessToCompile().map(function (element) {
+        return gulp.src(element.src)
+            .pipe($.print())
+            .pipe($.lesshint())
+            .pipe($.lesshint.reporter());
+    });
+
+    return merge(tasks);
 });
 
 gulp.task('compile-less', function () {
     log("Compiling Less to CSS");
-    return gulp.src(config.source.less)
-        .pipe($.print())
-        .pipe($.less({
-            paths: [path.join(__dirname, 'less', 'includes')]
-        }))
-        .pipe(gulp.dest(config.destination.css));
+
+    var tasks = config.lessToCompile().map(function (element) {
+        return gulp.src(element.src)
+            .pipe($.print())
+            .pipe($.less({
+                paths: [path.join(__dirname, 'less', 'includes')]
+            }))
+            .pipe(gulp.dest(element.dest));
+    });
+
+    return merge(tasks);
 });
 
 gulp.task('autoprefix-css', function () {
-    log("Autoprefix CSS");
-    return gulp.src(config.destination.css + '*.css')
-        .pipe($.print())
-        .pipe($.autoprefixer({ browser: ['last 2 versions', '> 5%'] }))
-        .pipe(gulp.dest(config.destination.css));
+    log("Autoprefixing CSS");
+
+    var tasks = config.cssToValidate().map(function (element) {
+        return gulp.src(element.src)
+            .pipe($.print())
+            .pipe($.autoprefixer({ browser: ['last 2 versions', '> 5%'] }))
+            .pipe(gulp.dest(element.dest));
+    });
+
+    return merge(tasks);
 });
+
+gulp.task('inject-css', ['compile-less'], function () {
+    log("Injecting CSS");
+
+    var tasks = config.cssToInject().map(function (element) {
+        var task = gulp.src(element.src)
+                        .pipe($.print());
+
+        for (var i = 0; i < element.tags.length; i++)
+        {
+            task = task.pipe($.inject(gulp.src(element.tags[i].css, {read: false}),
+                                {
+                                    ignorePath: element.tags[i].ignorePath,
+                                    name: element.tags[i].tagName
+                                }))
+        }
+        
+        return task.pipe(gulp.dest(element.dest));
+    });
+
+    return merge(tasks);
+});
+
+
+
 
 /*
  * JavaScript
  */
-gulp.task('clean-js', function () {
-    clean(config.destination.js);
+gulp.task('clean-js', function (done) {
+    clean(config.destination.js, done);
 });
 
 gulp.task('validate-js', function () {
@@ -62,7 +113,31 @@ gulp.task('minify-js', function () {
         .pipe($.rename({
             suffix: '.min'
         }))
+        .pipe($.concat('site.js'))
+        .pipe($.rev())
         .pipe(gulp.dest(config.destination.js));
+});
+
+gulp.task('inject', function () {
+    var optionsList = config.wiredep.optionsList;
+    var wiredep = require('wiredep').stream;
+
+    var tmp = gulp.src(config.layoutFiles);
+
+    optionsList.map(function (options)
+    {
+        tmp = tmp.pipe(wiredep(options));
+    });
+
+    return tmp
+            .pipe($.inject(gulp.src(config.destination.js + "/**/*.js"),
+                {
+                    starttag: '<!-- injectdev:js -->',
+                    endtag: '<!-- endinjectdev -->'
+                }))
+            .pipe(gulp.dest(config.layoutFolder));
+            //.pipe(wiredep(action.options))
+            
 });
 
 /*
@@ -76,15 +151,16 @@ gulp.task('deployment-prepare', ['deployment-prepare-css', 'deployment-prepare-j
  * File watchers
  */
 gulp.task('watch-less', function () {
-    return gulp.watch(config.source.less, ['less']);
+    return gulp.watch(config.lessToWatch(), ['validate-less','compile-less', 'autoprefix-css', 'inject-css']);
 });
+
 
 /*
  * Local utilities
  */
-function clean(path) {
+function clean(path, done) {
     log("Cleaning: " + path);
-    del(path);
+    del(path, done);
 }
 
 function log(msg) {

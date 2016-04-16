@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
     <link rel="SHORTCUT ICON" href="/Images/favicon.ico" />
@@ -8,6 +8,19 @@
 
     <link rel="stylesheet" type="text/css" href="~/lib/bootswatch/flatly/bootstrap.min.css" />
     <link rel="stylesheet" type="text/css" href="~/css/Site.css" />
+
+    <environment names="Development">
+        <!-- sharedDevelopment:css -->
+        <link rel="stylesheet" href="/css/shared/Site.css">
+        <!-- endinject -->
+
+        <!-- testAppDevelopment:css -->
+        <link rel="stylesheet" href="/css/testApp/testApp.css">
+        <!-- endinject -->
+    </environment>
+
+    <environment names="Production,Staging">
+    </environment>
 
     @RenderSection("styles", required: false)
 </head>
@@ -78,15 +91,25 @@
     <script type="text/javascript" src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
 
     <environment names="Development">
+        <!-- bowerdev:js -->
+        <!-- endbowerdev -->
         <script type="text/javascript" src="~/scripts/3rdParty/classie.js"></script>
         <script type="text/javascript" src="~/scripts/3rdParty/cbpAnimatedHeader.js"></script>
         <script type="text/javascript" src="~/scripts/red-folder.toggle.js"></script>
+
+        <!-- injectdev:js -->
+        <!-- endinjectdev -->
     </environment>
 
     <environment names="Production,Staging">
+        <!-- bowerprod:js -->
+        <!-- endbowerprod -->
         <script type="text/javascript" src="~/scripts/3rdParty/classie.min.js"></script>
         <script type="text/javascript" src="~/scripts/3rdParty/cbpAnimatedHeader.min.js"></script>
         <script type="text/javascript" src="~/scripts/red-folder.toggle.min.js"></script>
+
+        <!-- injectprod:js -->
+        <!-- endinjectprod -->
     </environment>
 
     @RenderSection("scripts", required: false)
