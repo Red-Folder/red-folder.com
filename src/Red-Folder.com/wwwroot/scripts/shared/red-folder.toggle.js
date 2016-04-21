@@ -1,19 +1,18 @@
-﻿function toggle(group, item)
-{
-    var $group = $(group);
+﻿(function() {
+    'use strict';
 
-    var $item = $(item);
+    function toggle(group, item) {
+        var $group = $(group);
 
-    if ($group !== null && $item !== null)
-    {
-        if (!$item.hasClass('hidden'))
-        {
-            $item.addClass("hidden");
-        }
-        else
-        {
-            $group.addClass('hidden');
-            $item.removeClass('hidden');
+        var $item = $(item);
+
+        if ($group !== null && $item !== null) {
+            if (!$item.hasClass('hidden')) {
+                $item.addClass('hidden');
+            } else {
+                $group.addClass('hidden');
+                $item.removeClass('hidden');
+            }
         }
     }
-}
+}());
