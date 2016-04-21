@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
     <link rel="SHORTCUT ICON" href="/Images/favicon.ico" />
@@ -103,8 +103,14 @@
         <script type="text/javascript" src="~/scripts/3rdParty/cbpAnimatedHeader.js"></script>
         <script type="text/javascript" src="~/scripts/red-folder.toggle.js"></script>
 
-        <!-- injectdev:js -->
-        <!-- endinjectdev -->
+        <!-- sharedDevelopment:js -->
+        <script src="/scripts/shared/3rdParty/cbpAnimatedHeader.js"></script>
+        <script src="/scripts/shared/3rdParty/classie.js"></script>
+        <script src="/scripts/shared/red-folder.toggle.js"></script>
+        <!-- endinject -->
+        <!-- testAppDevelopment:js -->
+        <script src="/scripts/testApp/testApp.js"></script>
+        <!-- endinject -->
     </environment>
 
     <environment names="Production,Staging">
@@ -114,8 +120,10 @@
         <script type="text/javascript" src="~/scripts/3rdParty/cbpAnimatedHeader.min.js"></script>
         <script type="text/javascript" src="~/scripts/red-folder.toggle.min.js"></script>
 
-        <!-- injectprod:js -->
-        <!-- endinjectprod -->
+        <!-- sharedProduction:js -->
+        <!-- endinject -->
+        <!-- testAppProduction:js -->
+        <!-- endinject -->
     </environment>
 
     @RenderSection("scripts", required: false)

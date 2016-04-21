@@ -146,6 +146,26 @@ gulp.task('validate-js', function () {
     return merge(tasks);
 });
 
+gulp.task('inject-js', ['validate-js'], function () {
+    log("Inject JS");
+
+    var tasks = config.jsToInject().map(function (element) {
+        var task = gulp.src(element.src)
+                        .pipe($.print());
+
+        for (var i = 0; i < element.tags.length; i++) {
+            task = task.pipe($.inject(gulp.src(element.tags[i].js, { read: false }),
+                                {
+                                    ignorePath: element.tags[i].ignorePath,
+                                    name: element.tags[i].tagName
+                                }))
+        }
+
+        return task.pipe(gulp.dest(element.dest));
+    });
+
+    return merge(tasks);
+});
 
 
 gulp.task('minify-js', function () {

@@ -29,7 +29,7 @@ RedFolder.Utils.WireDepOptions = function(bowserJson, directory, ignorePath, loc
     return options;
 }
 
-RedFolder.Utils.GulpAppConfig = function (htmlDestination, htmlInjectionTag, jsFolder, lessFolder) {
+RedFolder.Utils.GulpAppConfig = function (htmlDestination, htmlInjectionTag, jsFolder, hasThirdPartyJs, lessFolder) {
     return {
         htmlDestination: htmlDestination,
         //htmlInjectionStartTag: "<!-- injection"+ htmlInjectionTag + " -->",
@@ -37,7 +37,14 @@ RedFolder.Utils.GulpAppConfig = function (htmlDestination, htmlInjectionTag, jsF
 
         hasJs: jsFolder ? true : false,
         js: {
-            folder: jsFolder
+            folder: jsFolder,
+            hasThirdParty: hasThirdPartyJs,
+            development: {
+                htmlInjection: {
+                    tagName: htmlInjectionTag + "Development"
+                }
+            }
+
             //custom: jsFolder + "*.js",
             //thirdParty: jsFolder + "3rdParty",
             /*
@@ -122,6 +129,7 @@ module.exports = function () {
             './views/shared/_layout.cshtml',          // htmlDestination
             'shared',                                    // htmlInjectionTag
             './wwwroot/scripts/shared/',                       // jsFolder
+            true,                       // hasThirdPartyJs
             './wwwroot/css/shared/',    // lessFolder
             null                        // ccsFolder
         ),
@@ -131,6 +139,7 @@ module.exports = function () {
             './views/shared/_layout.cshtml',          // htmlDestination
             'testApp',                                    // htmlInjectionTag
             './wwwroot/scripts/testApp/',     // jsFolder
+            false,                       // hasThirdPartyJs
             './wwwroot/css/testApp/',   // lessFolder
             null                        // ccsFolder
         )
@@ -242,6 +251,38 @@ module.exports = function () {
             };
         });
     };
+
+    config.jsToInject = function () {
+        var results = [];
+        config.apps.forEach(function (app) {
+            if (results.filter(function (result) { return result.src === app.htmlDestination; }).length == 0) {
+                results.push({
+                    src: app.htmlDestination,
+                    dest: path.dirname(app.htmlDestination),
+                    tags: []
+                });
+            }
+
+            var tags = results.filter(function (result) { return result.src === app.htmlDestination; })[0].tags;
+
+            if (tags.filter(function (tag) { return tag.tagName == app.js.development.htmlInjection.tagName; })) {
+                tags.push({
+                    ignorePath: '/wwwroot',
+                    tagName: app.js.development.htmlInjection.tagName,
+                    js: []
+                });
+            }
+
+            var js = tags.filter(function (tag) { return tag.tagName == app.js.development.htmlInjection.tagName; })[0].js;
+            if (app.js.hasThirdParty) {
+                js.push(app.js.folder + '3rdParty/*.js');
+            }
+            js.push(app.js.folder + '*.js');
+        });
+
+        return results;
+    };
+
 
 
     // Shared JS/ CSS
