@@ -23,6 +23,8 @@
     "gulp-concat": "~2.6.0",
     "gulp-rev": "~7.0.0",
     "merge-stream": "~1.0.0",
-    "gulp-lesshint": "~1.1.0"
+    "gulp-lesshint": "~1.1.0",
+    "gulp-minify-css": "~1.2.4",
+    "yargs": "~4.6.0"
   }
 }

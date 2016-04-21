@@ -29,7 +29,7 @@ RedFolder.Utils.WireDepOptions = function(bowserJson, directory, ignorePath, loc
     return options;
 }
 
-RedFolder.Utils.GulpAppConfig = function (htmlDestination, htmlInjectionTag, jsFolder, lessFolder, cssFolder) {
+RedFolder.Utils.GulpAppConfig = function (htmlDestination, htmlInjectionTag, jsFolder, lessFolder) {
     return {
         htmlDestination: htmlDestination,
         //htmlInjectionStartTag: "<!-- injection"+ htmlInjectionTag + " -->",
@@ -59,10 +59,25 @@ RedFolder.Utils.GulpAppConfig = function (htmlDestination, htmlInjectionTag, jsF
 
         hasLess: lessFolder ? true : false,
         less: {
-            folder: lessFolder
+            folder: lessFolder,
+
+            development: {
+                htmlInjection: {
+                    tagName: htmlInjectionTag + "Development"
+                }
+            },
+
+            production: {
+                folder: lessFolder + "production/",
+                bundleName: htmlInjectionTag + ".css",
+                htmlInjection: {
+                    tagName: htmlInjectionTag + "Production"
+                }
+            }
         },
 
-        hasCss: cssFolder ? true : false,
+        //,
+        /*
         css: {
             folder: cssFolder,
             custom: cssFolder + "*.css",
@@ -82,6 +97,7 @@ RedFolder.Utils.GulpAppConfig = function (htmlDestination, htmlInjectionTag, jsF
                 }
             }
         }
+        */
     }
 };
 
@@ -160,40 +176,59 @@ module.exports = function () {
 
             var tags = results.filter(function (result) { return result.src === app.htmlDestination; })[0].tags;
 
-            if (tags.filter(function (tag) { return tag.tagName == app.css.development.htmlInjection.tagName; })) {
+            if (tags.filter(function (tag) { return tag.tagName == app.less.development.htmlInjection.tagName; })) {
                 tags.push({
                     ignorePath: '/wwwroot',
-                    tagName: app.css.development.htmlInjection.tagName,
+                    tagName: app.less.development.htmlInjection.tagName,
                     css: []
                 });
             }
 
-            var css = tags.filter(function (tag) { return tag.tagName == app.css.development.htmlInjection.tagName; })[0].css;
+            var css = tags.filter(function (tag) { return tag.tagName == app.less.development.htmlInjection.tagName; })[0].css;
             css.push(app.less.folder + '*.css');
         });
 
-        /*
-        console.log(results);
-        console.log(results[0].tags[0]);
-        console.log(results[0].tags[1]);
-        */
-
         return results;
+    };
 
-        /*
+    config.cssToBundle = function () {
         return config.apps.filter(function (app) {
             return app.hasLess;
         }).map(function (app) {
             return {
-                src: app.htmlDestination,
-                dest: app.htmlDestination + 'test',
-                startTag: app.css.development.htmlInjection.startTag,
-                endTag: app.css.development.htmlInjection.endTag,
-                css: app.less.folder + '*.css'
-                
+                src: app.less.folder + '*.css',
+                dest: app.less.production.folder,
+                bundleName: app.less.production.bundleName
             };
         });
-        */
+    };
+
+    config.cssToDeploy = function () {
+        var results = [];
+        config.apps.forEach(function (app) {
+            if (results.filter(function (result) { return result.src === app.htmlDestination; }).length == 0) {
+                results.push({
+                    src: app.htmlDestination,
+                    dest: path.dirname(app.htmlDestination),
+                    tags: []
+                });
+            }
+
+            var tags = results.filter(function (result) { return result.src === app.htmlDestination; })[0].tags;
+
+            if (tags.filter(function (tag) { return tag.tagName == app.less.production.htmlInjection.tagName; })) {
+                tags.push({
+                    ignorePath: '/wwwroot',
+                    tagName: app.less.production.htmlInjection.tagName,
+                    css: []
+                });
+            }
+
+            var css = tags.filter(function (tag) { return tag.tagName == app.less.production.htmlInjection.tagName; })[0].css;
+            css.push(app.less.production.folder + '*.css');
+        });
+
+        return results;
     };
 
     // Shared JS/ CSS

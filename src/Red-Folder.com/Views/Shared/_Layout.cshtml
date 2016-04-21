@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 <head>
     <link rel="SHORTCUT ICON" href="/Images/favicon.ico" />
@@ -7,7 +7,6 @@
     <title>@ViewBag.Title</title>
 
     <link rel="stylesheet" type="text/css" href="~/lib/bootswatch/flatly/bootstrap.min.css" />
-    <link rel="stylesheet" type="text/css" href="~/css/Site.css" />
 
     <environment names="Development">
         <!-- sharedDevelopment:css -->
@@ -20,6 +19,13 @@
     </environment>
 
     <environment names="Production,Staging">
+        <!-- sharedProduction:css -->
+        <link rel="stylesheet" href="/css/shared/production/shared-b3875e73f5.css">
+        <!-- endinject -->
+
+        <!-- testAppProduction:css -->
+        <link rel="stylesheet" href="/css/testApp/production/testApp-dd1c78a99c.css">
+        <!-- endinject -->
     </environment>
 
     @RenderSection("styles", required: false)

@@ -2,5 +2,6 @@ body {
   color: aqua;
 }
 h1 {
-  transition: background-image 1.5s;
+  -webkit-transition: background-image 2s;
+  transition: background-image 2s;
 }
