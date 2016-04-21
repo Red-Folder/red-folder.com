@@ -37,10 +37,10 @@ RedFolder.Utils.GulpAppConfig = function (htmlDestination, htmlInjectionTag, jsF
 
         hasJs: jsFolder ? true : false,
         js: {
-            folder: jsFolder,
-            custom: jsFolder + "*.js",
-            thirdParty: jsFolder + "3rdParty",
-
+            folder: jsFolder
+            //custom: jsFolder + "*.js",
+            //thirdParty: jsFolder + "3rdParty",
+            /*
             development: {
                 htmlInjection: {
                     startTag: "<!-- injection" + htmlInjectionTag + "Development:js -->",
@@ -55,6 +55,7 @@ RedFolder.Utils.GulpAppConfig = function (htmlDestination, htmlInjectionTag, jsF
                     endTag: "<!-- endinjection" + htmlInjectionTag + "Production:js -->"
                 }
             }
+            */
         },
 
         hasLess: lessFolder ? true : false,
@@ -120,7 +121,7 @@ module.exports = function () {
         RedFolder.Utils.GulpAppConfig (
             './views/shared/_layout.cshtml',          // htmlDestination
             'shared',                                    // htmlInjectionTag
-            null,                       // jsFolder
+            './wwwroot/scripts/shared/',                       // jsFolder
             './wwwroot/css/shared/',    // lessFolder
             null                        // ccsFolder
         ),
@@ -129,7 +130,7 @@ module.exports = function () {
         RedFolder.Utils.GulpAppConfig(
             './views/shared/_layout.cshtml',          // htmlDestination
             'testApp',                                    // htmlInjectionTag
-            null,                       // jsFolder
+            './wwwroot/scripts/testApp/',     // jsFolder
             './wwwroot/css/testApp/',   // lessFolder
             null                        // ccsFolder
         )
@@ -152,12 +153,12 @@ module.exports = function () {
         });
     };
 
-    config.cssToValidate = function () {
+    config.lessToValidate = function () {
         return config.apps.filter(function (app) {
                                 return app.hasLess;
                             }).map(function (app) {
                                 return {
-                                    src: app.less.folder + '*.css',
+                                    src: app.less.folder + '*.less',
                                     dest: app.less.folder
                                 };
                             });
@@ -230,6 +231,18 @@ module.exports = function () {
 
         return results;
     };
+
+    config.jsToValidate = function () {
+        return config.apps.filter(function (app) {
+            return app.hasJs;
+        }).map(function (app) {
+            return {
+                src: app.js.folder + '*.js',
+                dest: app.js.folder
+            };
+        });
+    };
+
 
     // Shared JS/ CSS
     // js.folder = "./wwwroot/scripts/shared/"

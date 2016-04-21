@@ -23,7 +23,7 @@ gulp.task('clean-css', function (done) {
 gulp.task('validate-less', function () {
     log("Validating Less");
 
-    var tasks = config.lessToCompile().map(function (element) {
+    var tasks = config.lessToValidate().map(function (element) {
         return gulp.src(element.src)
             .pipe($.print())
             .pipe($.lesshint())
@@ -125,22 +125,28 @@ gulp.task('deploy-css', ['bundle-css'], function () {
 /*
  * JavaScript
  */
-gulp.task('clean-js', function (done) {
-    clean(config.destination.js, done);
-});
+//gulp.task('clean-js', function (done) {
+//    clean(config.destination.js, done);
+//});
 
 gulp.task('validate-js', function () {
-    log('Analysing source with JSHint and JSCS');
+    log('Validating JS with JSHint and JSCS');
 
-    return gulp.src(config.source.jsToValidate)
-        .pipe($.print())
-        //.pipe($.jscs({ configPath: config.tools.jscsConfig }))
-        //.pipe($.jscs.reporter())
-        //.pipe($.jscs.reporter('fail'))
-        .pipe($.jshint())
-        .pipe($.jshint.reporter('jshint-stylish', { verbose: true }))
-        .pipe($.jshint.reporter('fail'));
+    var tasks = config.jsToValidate().map(function (element) {
+        return gulp.src(element.src)
+            .pipe($.print())
+            .pipe($.jscs({ configPath: config.tools.jscsConfig }))
+            .pipe($.jscs.reporter())
+            .pipe($.jscs.reporter('fail'))
+            .pipe($.jshint())
+            .pipe($.jshint.reporter('jshint-stylish', { verbose: true }))
+            .pipe($.jshint.reporter('fail'));
+    });
+
+    return merge(tasks);
 });
+
+
 
 gulp.task('minify-js', function () {
     log("Minify JavaScript")
