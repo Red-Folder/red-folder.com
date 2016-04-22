@@ -6,11 +6,13 @@ var RedFolder = RedFolder || {};
 
 RedFolder.Utils = RedFolder.Utils || {};
 
-RedFolder.Utils.WireDepOptions = function(bowserJson, directory, ignorePath, locationTag) {
+RedFolder.Utils.WireDepOptions = function (bowserJson, directory, ignorePath, locationTag, dependencies, devDependencies) {
     var options = {
         bowerJson: bowserJson,
         directory: directory,
         ignorePath: ignorePath,
+        dependencies: dependencies,
+        devDependencies: devDependencies,
         fileTypes: {
             cshtml: {
                 block: new RegExp("(([ \\t]*)<!--\\s*" + locationTag + ":*(\\S*)\\s*-->)(\\n|\\r|.)*?(<!--\\s*end" + locationTag + "\\s*-->)", "gi"),
@@ -32,8 +34,6 @@ RedFolder.Utils.WireDepOptions = function(bowserJson, directory, ignorePath, loc
 RedFolder.Utils.GulpAppConfig = function (htmlDestination, htmlInjectionTag, jsFolder, hasThirdPartyJs, lessFolder) {
     return {
         htmlDestination: htmlDestination,
-        //htmlInjectionStartTag: "<!-- injection"+ htmlInjectionTag + " -->",
-        //htmlInjectionStartTag: "<!-- injection" + htmlInjectionTag + " -->",
 
         hasJs: jsFolder ? true : false,
         js: {
@@ -51,25 +51,6 @@ RedFolder.Utils.GulpAppConfig = function (htmlDestination, htmlInjectionTag, jsF
                     tagName: htmlInjectionTag + "Production"
                 }
             }
-
-            //custom: jsFolder + "*.js",
-            //thirdParty: jsFolder + "3rdParty",
-            /*
-            development: {
-                htmlInjection: {
-                    startTag: "<!-- injection" + htmlInjectionTag + "Development:js -->",
-                    endTag: "<!-- endinjection" + htmlInjectionTag + "Development:js -->"
-                }
-            },
-
-            production: {
-                folder: jsFolder + "production/",
-                htmlInjection: {
-                    startTag: "<!-- injection" + htmlInjectionTag + "Production:js -->",
-                    endTag: "<!-- endinjection" + htmlInjectionTag + "Production:js -->"
-                }
-            }
-            */
         },
 
         hasLess: lessFolder ? true : false,
@@ -90,29 +71,6 @@ RedFolder.Utils.GulpAppConfig = function (htmlDestination, htmlInjectionTag, jsF
                 }
             }
         },
-
-        //,
-        /*
-        css: {
-            folder: cssFolder,
-            custom: cssFolder + "*.css",
-            thirdParty: cssFolder + "3rdParty",
-
-            development: {
-                htmlInjection: {
-                    tagName: htmlInjectionTag + "Development"
-                }
-            },
-
-            production: {
-                folder: cssFolder + "production/",
-                htmlInjection: {
-                    startTag: "<!-- injection" + htmlInjectionTag + "Production:css -->",
-                    endTag: "<!-- endinjection" + htmlInjectionTag + "Production:css -->"
-                }
-            }
-        }
-        */
     }
 };
 
@@ -129,7 +87,6 @@ module.exports = function () {
         }
     };
 
-    // htmlDestination, htmlInjectionTag, jsFolder, lessFolder, cssFolder
     config.apps = [
         // Shared
         RedFolder.Utils.GulpAppConfig (
@@ -334,27 +291,18 @@ module.exports = function () {
     };
 
 
+    //config.source.less = config.source.root + "css/**/*.less";
+    //config.source.css = config.source.root + "css/**/*.css";
+    //config.source.js = config.source.root + "scripts/**/*.js";
+    //config.source.js3rdParty = config.source.root + "scripts/3rdParty/**/*.js";
+    //config.source.jsToValidate = [config.source.js, "!" + config.source.js3rdParty];
 
-    // Shared JS/ CSS
-    // js.folder = "./wwwroot/scripts/shared/"
-    // js.source = js.source + "**/*.js"
-    // css.folder = "./wwwroot/css/shared/"
-    // less.source = css.folder + "**/*.less"
-    // css.source = css.folder + "**/*.css"
+    //config.destination.css = config.destination.root + "/css";
+    //config.destination.js = config.destination.root + "/scripts";
 
-
-    config.source.less = config.source.root + "css/**/*.less";
-    config.source.css = config.source.root + "css/**/*.css";
-    config.source.js = config.source.root + "scripts/**/*.js";
-    config.source.js3rdParty = config.source.root + "scripts/3rdParty/**/*.js";
-    config.source.jsToValidate = [config.source.js, "!" + config.source.js3rdParty];
-
-    config.destination.css = config.destination.root + "/css";
-    config.destination.js = config.destination.root + "/scripts";
-
-    config.layoutBaseFolder = "./views/shared/"
-    config.layoutFolder = config.layoutBaseFolder + "output/";
-    config.layoutFiles = config.layoutBaseFolder + "_Layout.cshtml";
+    //config.layoutBaseFolder = "./views/shared/"
+    //config.layoutFolder = config.layoutBaseFolder + "output/";
+    //config.layoutFiles = config.layoutBaseFolder + "_Layout.cshtml";
 
     config.bower = {
         json: require('./bower.json'),
@@ -364,10 +312,10 @@ module.exports = function () {
 
     config.wiredep = {};
 
-    config.wiredep.optionsList = [
-        RedFolder.Utils.WireDepOptions(config.bower.json, config.bower.directory, config.bower.ignorePath, "bowerDevelopment"),
-        RedFolder.Utils.WireDepOptions(config.bower.json, config.bower.directory, config.bower.ignorePath, "bowerProduction")
-    ];
+    config.wiredep.src = './views/shared/_layout.cshtml';
+    config.wiredep.dest = './views/shared/';
+    config.wiredep.development = RedFolder.Utils.WireDepOptions(config.bower.json, config.bower.directory, config.bower.ignorePath, "bowerDevelopment", false, true);
+    config.wiredep.production = RedFolder.Utils.WireDepOptions(config.bower.json, config.bower.directory, config.bower.ignorePath, "bowerProduction", true, false);
 
     return config;
 };

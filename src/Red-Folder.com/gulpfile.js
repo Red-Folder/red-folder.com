@@ -146,6 +146,35 @@ gulp.task('validate-js', function () {
     return merge(tasks);
 });
 
+//    
+
+//    var tmp = gulp.src(config.layoutFiles);
+
+//    optionsList.map(function (options)
+//    {
+//        tmp = tmp.pipe(wiredep(options));
+//    });
+
+//    return tmp
+//            .pipe($.inject(gulp.src(config.destination.js + "/**/*.js"),
+//                {
+//                    starttag: '<!-- injectdev:js -->',
+//                    endtag: '<!-- endinjectdev -->'
+//                }))
+//            .pipe(gulp.dest(config.layoutFolder));
+//            //.pipe(wiredep(action.options))
+gulp.task('inject-bower', function () {
+    log("Inject Bower dependancies");
+
+    var wiredep = require('wiredep').stream;
+
+    return gulp.src(config.wiredep.src)
+                .pipe($.print())
+                .pipe(wiredep(config.wiredep.development))
+                .pipe(wiredep(config.wiredep.production))
+                .pipe(gulp.dest(config.wiredep.dest));
+});
+
 gulp.task('inject-js', ['validate-js'], function () {
     log("Inject JS");
 
@@ -205,43 +234,44 @@ gulp.task('deploy-js', ['bundle-js'], function () {
 
 
 
+
 ///
 /// OLD Stuff
 ///
 
-gulp.task('minify-js', function () {
-    log("Minify JavaScript")
-    return gulp.src(config.source.js)
-        .pipe($.uglify())
-        .pipe($.rename({
-            suffix: '.min'
-        }))
-        .pipe($.concat('site.js'))
-        .pipe($.rev())
-        .pipe(gulp.dest(config.destination.js));
-});
+//gulp.task('minify-js', function () {
+//    log("Minify JavaScript")
+//    return gulp.src(config.source.js)
+//        .pipe($.uglify())
+//        .pipe($.rename({
+//            suffix: '.min'
+//        }))
+//        .pipe($.concat('site.js'))
+//        .pipe($.rev())
+//        .pipe(gulp.dest(config.destination.js));
+//});
 
-gulp.task('inject', function () {
-    var optionsList = config.wiredep.optionsList;
-    var wiredep = require('wiredep').stream;
+//gulp.task('inject', function () {
+//    var optionsList = config.wiredep.optionsList;
+//    var wiredep = require('wiredep').stream;
 
-    var tmp = gulp.src(config.layoutFiles);
+//    var tmp = gulp.src(config.layoutFiles);
 
-    optionsList.map(function (options)
-    {
-        tmp = tmp.pipe(wiredep(options));
-    });
+//    optionsList.map(function (options)
+//    {
+//        tmp = tmp.pipe(wiredep(options));
+//    });
 
-    return tmp
-            .pipe($.inject(gulp.src(config.destination.js + "/**/*.js"),
-                {
-                    starttag: '<!-- injectdev:js -->',
-                    endtag: '<!-- endinjectdev -->'
-                }))
-            .pipe(gulp.dest(config.layoutFolder));
-            //.pipe(wiredep(action.options))
+//    return tmp
+//            .pipe($.inject(gulp.src(config.destination.js + "/**/*.js"),
+//                {
+//                    starttag: '<!-- injectdev:js -->',
+//                    endtag: '<!-- endinjectdev -->'
+//                }))
+//            .pipe(gulp.dest(config.layoutFolder));
+//            //.pipe(wiredep(action.options))
             
-});
+//});
 
 /*
  * Batched tasks
@@ -277,10 +307,10 @@ gulp.task('watch-less', function () {
 /*
  * Local utilities
  */
-function clean(path, done) {
-    log("Cleaning: " + path);
-    del(path, done);
-}
+//function clean(path, done) {
+//    log("Cleaning: " + path);
+//    del(path, done);
+//}
 
 function log(msg) {
     if (typeof (msg) === 'object') {

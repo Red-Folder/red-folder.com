@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 <head>
     <link rel="SHORTCUT ICON" href="/Images/favicon.ico" />
@@ -9,6 +9,9 @@
     <link rel="stylesheet" type="text/css" href="~/lib/bootswatch/flatly/bootstrap.min.css" />
 
     <environment names="Development">
+        <!-- bowerDevelopment:css -->
+        <!-- endbowerDevelopment -->
+
         <!-- sharedDevelopment:css -->
         <link rel="stylesheet" href="/css/shared/Site.css">
         <!-- endinject -->
@@ -19,6 +22,9 @@
     </environment>
 
     <environment names="Production,Staging">
+        <!-- bowerProduction:css -->
+        <!-- endbowerProduction -->
+
         <!-- sharedProduction:css -->
         <link rel="stylesheet" href="/css/shared/production/shared-b3875e73f5.css">
         <!-- endinject -->
@@ -96,9 +102,13 @@
     <script type="text/javascript" src="~/lib/jquery/dist/jquery.min.js"></script>
     <script type="text/javascript" src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
 
+    <!-- bowerDevelopment:js -->
+    <!-- endbowerDevelopment -->
+
+
     <environment names="Development">
-        <!-- bowerdev:js -->
-        <!-- endbowerdev -->
+        <!-- bowerDevelopment:js -->
+        <!-- endbowerDevelopment -->
         <script type="text/javascript" src="~/scripts/3rdParty/classie.js"></script>
         <script type="text/javascript" src="~/scripts/3rdParty/cbpAnimatedHeader.js"></script>
         <script type="text/javascript" src="~/scripts/red-folder.toggle.js"></script>
@@ -114,8 +124,10 @@
     </environment>
 
     <environment names="Production,Staging">
-        <!-- bowerprod:js -->
-        <!-- endbowerprod -->
+        <!-- bowerProduction:js -->
+        <script type="text/javascript" src="~/lib/jquery/dist/jquery.js"></script>
+        <script type="text/javascript" src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+        <!-- endbowerProduction -->
         <script type="text/javascript" src="~/scripts/3rdParty/classie.min.js"></script>
         <script type="text/javascript" src="~/scripts/3rdParty/cbpAnimatedHeader.min.js"></script>
         <script type="text/javascript" src="~/scripts/red-folder.toggle.min.js"></script>
