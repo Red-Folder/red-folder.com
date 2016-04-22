@@ -170,12 +170,11 @@ gulp.task('inject-bower', function () {
 
     return gulp.src(config.wiredep.src)
                 .pipe($.print())
-                .pipe(wiredep(config.wiredep.development))
-                //.pipe(wiredep(config.wiredep.production))
+                .pipe(wiredep(config.wiredep.options))
                 .pipe(gulp.dest(config.wiredep.dest));
 });
 
-gulp.task('inject-js', ['validate-js'], function () {
+gulp.task('inject-js', ['validate-js', 'inject-bower'], function () {
     log("Inject JS");
 
     var tasks = config.jsToInject().map(function (element) {
@@ -211,7 +210,7 @@ gulp.task('bundle-js', ['inject-js'], function () {
     return merge(tasks);
 });
 
-gulp.task('deploy-js', ['bundle-js'], function () {
+gulp.task('deploy-js', ['bundle-js', 'inject-bower'], function () {
     log('Deploy JS');
 
     var tasks = config.jsToDeploy().map(function (element) {

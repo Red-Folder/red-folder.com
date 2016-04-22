@@ -306,18 +306,17 @@ module.exports = function () {
     //config.layoutFolder = config.layoutBaseFolder + "output/";
     //config.layoutFiles = config.layoutBaseFolder + "_Layout.cshtml";
 
-    config.bower = {
-        json: require('./bower.json'),
-        directory: './wwwroot/lib',
-        ignorePath: '../../wwwroot'
+    config.wiredep = {
+        src: './views/shared/_layout.cshtml',
+        dest: './views/shared/',
+
+        options: {
+            bowerJson: require('./bower.json'),
+            directory: './wwwroot/lib',
+            ignorePath: '../../wwwroot'
+        }
     };
 
-    config.wiredep = {};
-
-    config.wiredep.src = './views/shared/_layout.cshtml';
-    config.wiredep.dest = './views/shared/';
-    config.wiredep.development = RedFolder.Utils.WireDepOptions(config.bower.json, config.bower.directory, config.bower.ignorePath, "bowerDevelopment", false, true);
-    config.wiredep.production = RedFolder.Utils.WireDepOptions(config.bower.json, config.bower.directory, config.bower.ignorePath, "bowerProduction", true, false);
 
     return config;
 };
