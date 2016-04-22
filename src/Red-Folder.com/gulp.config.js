@@ -43,6 +43,13 @@ RedFolder.Utils.GulpAppConfig = function (htmlDestination, htmlInjectionTag, jsF
                 htmlInjection: {
                     tagName: htmlInjectionTag + "Development"
                 }
+            },
+            production: {
+                folder: jsFolder + "production/",
+                bundleName: htmlInjectionTag + ".js",
+                htmlInjection: {
+                    tagName: htmlInjectionTag + "Production"
+                }
             }
 
             //custom: jsFolder + "*.js",
@@ -278,6 +285,49 @@ module.exports = function () {
                 js.push(app.js.folder + '3rdParty/*.js');
             }
             js.push(app.js.folder + '*.js');
+        });
+
+        return results;
+    };
+
+    config.jsToBundle = function () {
+        return config.apps.filter(function (app) {
+            return app.hasJs;
+        }).map(function (app) {
+            return {
+                src: [
+                    app.js.folder + '3rdParty/*.js',
+                    app.js.folder + '*.js'
+                ],
+                dest: app.js.production.folder,
+                bundleName: app.js.production.bundleName
+            };
+        });
+    };
+
+    config.jsToDeploy = function () {
+        var results = [];
+        config.apps.forEach(function (app) {
+            if (results.filter(function (result) { return result.src === app.htmlDestination; }).length == 0) {
+                results.push({
+                    src: app.htmlDestination,
+                    dest: path.dirname(app.htmlDestination),
+                    tags: []
+                });
+            }
+
+            var tags = results.filter(function (result) { return result.src === app.htmlDestination; })[0].tags;
+
+            if (tags.filter(function (tag) { return tag.tagName == app.js.production.htmlInjection.tagName; })) {
+                tags.push({
+                    ignorePath: '/wwwroot',
+                    tagName: app.js.production.htmlInjection.tagName,
+                    js: []
+                });
+            }
+
+            var js = tags.filter(function (tag) { return tag.tagName == app.js.production.htmlInjection.tagName; })[0].js;
+            js.push(app.js.production.folder + '*.js');
         });
 
         return results;
