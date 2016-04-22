@@ -10,7 +10,8 @@ RedFolder.Utils.WireDepOptions = function (bowserJson, directory, ignorePath, lo
     var options = {
         bowerJson: bowserJson,
         directory: directory,
-        ignorePath: ignorePath,
+        ignorePath: ignorePath
+        /*,
         dependencies: dependencies,
         devDependencies: devDependencies,
         fileTypes: {
@@ -26,6 +27,7 @@ RedFolder.Utils.WireDepOptions = function (bowserJson, directory, ignorePath, lo
                 }
             }
         }
+        */
     };
 
     return options;

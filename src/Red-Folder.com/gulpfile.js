@@ -171,7 +171,7 @@ gulp.task('inject-bower', function () {
     return gulp.src(config.wiredep.src)
                 .pipe($.print())
                 .pipe(wiredep(config.wiredep.development))
-                .pipe(wiredep(config.wiredep.production))
+                //.pipe(wiredep(config.wiredep.production))
                 .pipe(gulp.dest(config.wiredep.dest));
 });
 
