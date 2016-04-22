@@ -51,7 +51,7 @@ gulp.task('compile-less', ['validate-less'], function () {
 gulp.task('autoprefix-css', ['compile-less'], function () {
     log("Autoprefixing CSS");
 
-    var tasks = config.cssToValidate().map(function (element) {
+    var tasks = config.cssToAutoPrefix().map(function (element) {
         return gulp.src(element.src)
             .pipe($.print())
             .pipe($.autoprefixer({ browser: ['last 2 versions', '> 5%'] }))
@@ -283,7 +283,8 @@ gulp.task('deployment-prepare', function () {
     if (isRelease) {
         log("Preparing for deployment");
 
-        return gulp.start('deploy-css');
+        return gulp.start('deploy-css')
+                .start('deploy-js');
     }
 
     return gulp.noop;
@@ -301,6 +302,7 @@ gulp.task('deployment-prepare', ['deployment-prepare-css', 'deployment-prepare-j
 gulp.task('watch-less', function () {
     return gulp.watch(config.lessToWatch(), ['validate-less','compile-less', 'autoprefix-css', 'inject-css']);
 });
+
 
 
 /*

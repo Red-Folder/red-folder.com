@@ -139,6 +139,17 @@ module.exports = function () {
                             });
     };
 
+    config.cssToAutoPrefix = function () {
+        return config.apps.filter(function (app) {
+            return app.hasLess;
+        }).map(function (app) {
+            return {
+                src: app.less.folder + '*.css',
+                dest: app.less.folder
+            };
+        });
+    }
+
     config.cssToInject = function () {
         var results = [];
         config.apps.forEach(function (app) {
