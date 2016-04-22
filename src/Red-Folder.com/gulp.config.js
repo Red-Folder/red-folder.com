@@ -303,6 +303,13 @@ module.exports = function () {
         return results;
     };
 
+    config.jsToWatch = function () {
+        return config.jsToValidate().map(function (js) {
+            return js.src;
+        });
+    };
+
+
 
     //config.source.less = config.source.root + "css/**/*.less";
     //config.source.css = config.source.root + "css/**/*.css";

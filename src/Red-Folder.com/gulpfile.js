@@ -303,6 +303,10 @@ gulp.task('watch-less', function () {
     return gulp.watch(config.lessToWatch(), ['validate-less','compile-less', 'autoprefix-css', 'inject-css']);
 });
 
+gulp.task('watch-js', function () {
+    console.log(config.jsToWatch());
+    return gulp.watch(config.jsToWatch(), ['validate-js', 'inject-js']);
+});
 
 
 /*
