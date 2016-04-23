@@ -80,8 +80,7 @@ module.exports = function() {
             'shared',                                    // HtmlInjectionTag
             './wwwroot/scripts/shared/',                       // JsFolder
             true,                       // HasThirdPartyJs
-            './wwwroot/css/shared/',    // LessFolder
-            null                        // CcsFolder
+            './wwwroot/css/shared/'    // LessFolder
         ),
 
         // DependancyGraph
@@ -90,8 +89,7 @@ module.exports = function() {
             'DependancyGraph',                                    // HtmlInjectionTag
             './wwwroot/scripts/dependancyGraph/',                       // JsFolder
             false,                       // HasThirdPartyJs
-            './wwwroot/css/dependancyGraph/',    // LessFolder
-            null                        // CcsFolder
+            './wwwroot/css/dependancyGraph/'    // LessFolder
         ),
     ];
 
