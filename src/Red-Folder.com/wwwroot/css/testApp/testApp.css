@@ -1,7 +1,0 @@
-body {
-  color: aqua;
-}
-h1 {
-  -webkit-transition: background-image 2s;
-  transition: background-image 2s;
-}

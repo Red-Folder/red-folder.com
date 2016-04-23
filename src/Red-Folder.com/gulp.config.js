@@ -93,16 +93,6 @@ module.exports = function() {
             './wwwroot/css/dependancyGraph/',    // LessFolder
             null                        // CcsFolder
         ),
-
-        // TestApp
-        RedFolder.Utils.GulpAppConfig(
-            './views/shared/_layout.cshtml',          // HtmlDestination
-            'testApp',                                    // HtmlInjectionTag
-            './wwwroot/scripts/testApp/',     // JsFolder
-            false,                       // HasThirdPartyJs
-            './wwwroot/css/testApp/',   // LessFolder
-            null                        // CcsFolder
-        ),
     ];
 
     config.lessToCompile = function() {
