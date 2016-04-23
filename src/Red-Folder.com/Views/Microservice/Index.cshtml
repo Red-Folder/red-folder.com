@@ -1,4 +1,4 @@
-﻿@{
+@{
     ViewBag.Title = "Microservices";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
@@ -32,11 +32,32 @@
             {
                 <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.js"></script>
                 <script src="~/scripts/dependancy.graph.js"></script>
+                <environment names="Development">
+                    <!-- dependancyGraphDevelopment:js -->
+                    <script src="/scripts/dependancyGraph/dependancy.graph.js"></script>
+                    <!-- endinject -->
+                </environment>
+                <environment names="Production,Staging">
+                    <!-- dependancyGraphProduction:js -->
+                    <script src="/scripts/dependancyGraph/production/DependancyGraph-fe13b3370b.js"></script>
+                    <!-- endinject -->
+                </environment>
             }
 
             @section Styles
             {
                 <link rel="stylesheet" type="text/css" href="~/css/dependancy.graph.css" />
+
+                <environment names="Development">
+                    <!-- dependancyGraphDevelopment:css -->
+                    <link rel="stylesheet" href="/css/dependancyGraph/dependancy.graph.css">
+                    <!-- endinject -->
+                </environment>
+                <environment names="Production,Staging">
+                    <!-- dependancyGraphProduction:css -->
+                    <link rel="stylesheet" href="/css/dependancyGraph/production/DependancyGraph-44f0c67616.css">
+                    <!-- endinject -->
+                </environment>
             }
         </div>
     </div>

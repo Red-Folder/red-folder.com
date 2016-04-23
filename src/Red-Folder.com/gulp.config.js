@@ -84,6 +84,16 @@ module.exports = function() {
             null                        // CcsFolder
         ),
 
+        // DependancyGraph
+        RedFolder.Utils.GulpAppConfig(
+            './views/Microservice/Index.cshtml',          // HtmlDestination
+            'DependancyGraph',                                    // HtmlInjectionTag
+            './wwwroot/scripts/dependancyGraph/',                       // JsFolder
+            false,                       // HasThirdPartyJs
+            './wwwroot/css/dependancyGraph/',    // LessFolder
+            null                        // CcsFolder
+        ),
+
         // TestApp
         RedFolder.Utils.GulpAppConfig(
             './views/shared/_layout.cshtml',          // HtmlDestination
