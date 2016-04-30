@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 <head>
     <link rel="SHORTCUT ICON" href="/Images/favicon.ico" />
@@ -25,6 +25,31 @@
     </environment>
 
     @RenderSection("styles", required: false)
+
+    <!-- bower:js -->
+    <script src="/lib/jquery/dist/jquery.js"></script>
+    <script src="/lib/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="/lib/angular/angular.js"></script>
+    <script src="/lib/angular-resource/angular-resource.js"></script>
+    <script src="/lib/bootstrap-switch/dist/js/bootstrap-switch.js"></script>
+    <script src="/lib/angular-bootstrap-switch/dist/angular-bootstrap-switch.js"></script>
+    <!-- endbower -->
+
+    <environment names="Development">
+        <!-- sharedDevelopment:js -->
+        <script src="/scripts/shared/red-folder.toggle.js"></script>
+        <script src="/scripts/shared/3rdParty/classie.js"></script>
+        <script src="/scripts/shared/3rdParty/cbpAnimatedHeader.js"></script>
+        <!-- endinject -->
+    </environment>
+
+    <environment names="Production,Staging">
+        <!-- sharedProduction:js -->
+        <script src="/scripts/shared/production/shared-f2dfc0b46f.js"></script>
+        <!-- endinject -->
+    </environment>
+
+    @RenderSection("scripts", required: false)
 </head>
 <body>
     <header>
@@ -89,28 +114,5 @@
         </div>
     </footer>
 
-    <!-- bower:js -->
-    <script src="/lib/jquery/dist/jquery.js"></script>
-    <script src="/lib/bootstrap/dist/js/bootstrap.js"></script>
-    <script src="/lib/angular/angular.js"></script>
-    <script src="/lib/bootstrap-switch/dist/js/bootstrap-switch.js"></script>
-    <script src="/lib/angular-bootstrap-switch/dist/angular-bootstrap-switch.js"></script>
-    <!-- endbower -->
-
-    <environment names="Development">
-        <!-- sharedDevelopment:js -->
-        <script src="/scripts/shared/red-folder.toggle.js"></script>
-        <script src="/scripts/shared/3rdParty/classie.js"></script>
-        <script src="/scripts/shared/3rdParty/cbpAnimatedHeader.js"></script>
-        <!-- endinject -->
-    </environment>
-
-    <environment names="Production,Staging">
-        <!-- sharedProduction:js -->
-        <script src="/scripts/shared/production/shared-f2dfc0b46f.js"></script>
-        <!-- endinject -->
-    </environment>
-
-    @RenderSection("scripts", required: false)
 </body>
 </html>

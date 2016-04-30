@@ -3,6 +3,7 @@
 
     angular.module('app', [
         // Angular modules
+        'ngResource',
         // Ingore 'ngRoute',
 
         // Custom modules

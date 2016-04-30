@@ -3,37 +3,54 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<div ng-app="app">
+<div class="row rfc-header recent-projects-page">
+    <h1>My Opensource projects</h1>
+</div>
 
-    <div ng-controller="dashboard">
-        <h1>{{title}}</h1>
-
-        <div>
-            <span ng-repeat="option in filterOptions">
-                {{option.name}}
-                <input bs-switch type="checkbox" ng-model="option.show">
-            </span>
+<div ng-app="app" class="center-content">
+    <div class="panel panel-warning">
+        <div class="panel-heading">
+            WARNING
         </div>
-
-        <div ng-repeat="repo in repos | tagFilter:selectedFilters()">
-            <h2>{{repo.name}}</h2>
-            <div>{{repo.description}}</div>
-            <div><strong>Stars:</strong>{{repo.stars}}</div>
-            <div><strong>Open Issues:</strong>{{repo.openIssues}}</div>
-            <div>
-                <span class="label label-default" ng-repeat="tag in repo.tags">{{tag}}</span>
-            </div>
+        <div class="panel-body">
+            Please be aware that I am currently using test data for this page.
         </div>
     </div>
 
+    <div ng-controller="dashboard">
+        <div ng-show="repos.length === 0 && !errorred" class="row">
+            Please wait while the repos are loaded ....
+        </div>
+
+        <div ng-show="errorred"class="row panel-danger">
+            Something has gone wrong ... ohhh dear
+        </div>
+
+        <div class="ng-cloak" ng-show="repos.length > 0">
+            <div class="row">
+                <span ng-repeat="option in filterOptions">
+                    {{option.name}}
+                    <input bs-switch type="checkbox" ng-model="option.show">
+                </span>
+            </div>
+
+            <div class="row">
+                <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3" ng-repeat="repo in repos | tagFilter:selectedFilters()">
+                    <h2>{{repo.name}}</h2>
+                    <div>{{repo.description}}</div>
+                    <div><strong>Stars:</strong>{{repo.stars}}</div>
+                    <div><strong>Open Issues:</strong>{{repo.openIssues}}</div>
+                    <div>
+                        <span class="label label-default" ng-repeat="tag in repo.tags">{{tag}}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
 @section Scripts
 {
-    @*<script type="text/javascript">
-        $("input[type='checkbox']").bootstrapSwitch();
-    </script>*@
-
     <environment names="Development">
         <!-- repoExplorerDevelopment:js -->
         <script src="/scripts/repoExplorer/app.js"></script>
