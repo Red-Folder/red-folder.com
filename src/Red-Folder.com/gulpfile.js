@@ -152,9 +152,9 @@ gulp.task('inject-js', ['validate-js', 'inject-bower'], function() {
     var tasks = config.jsToInject().map(function(element) {
         var task = gulp.src(element.src)
                         .pipe($.print());
-
+        
         for (var i = 0; i < element.tags.length; i++) {
-            task = task.pipe($.inject(gulp.src(element.tags[i].js, { read: false, }), {
+            task = task.pipe($.inject(gulp.src(element.tags[i].js).pipe($.angularFilesort()), {
                 ignorePath: element.tags[i].ignorePath,
                 name: element.tags[i].tagName,
             }));

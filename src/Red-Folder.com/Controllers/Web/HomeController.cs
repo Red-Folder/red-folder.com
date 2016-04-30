@@ -182,5 +182,10 @@ namespace RedFolder.Controllers.Web
 
             return View(tiles);
         }
+
+        public ActionResult Repo()
+        {
+            return View();
+        }
     }
 }

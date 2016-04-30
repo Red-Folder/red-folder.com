@@ -91,6 +91,15 @@ module.exports = function() {
             false,                       // HasThirdPartyJs
             './wwwroot/css/dependancyGraph/'    // LessFolder
         ),
+
+        RedFolder.Utils.GulpAppConfig(
+            './views/Home/Repo.cshtml',          // HtmlDestination
+            'repoExplorer',                                    // HtmlInjectionTag
+            './wwwroot/scripts/repoExplorer/',                       // JsFolder
+            false,                       // HasThirdPartyJs
+            './wwwroot/css/repoExplorer/'    // LessFolder
+        ),
+
     ];
 
     config.lessToCompile = function() {
