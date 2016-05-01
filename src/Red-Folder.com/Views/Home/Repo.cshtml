@@ -18,7 +18,7 @@
     </div>
 
     <div ng-controller="dashboard">
-        <div ng-show="repos.length === 0 && !errorred" class="row">
+        <div ng-show="repos.length === 0 && errorred === false" class="row">
             Please wait while the repos are loaded ....
         </div>
 
@@ -27,24 +27,9 @@
         </div>
 
         <div class="ng-cloak" ng-show="repos.length > 0">
-            <div class="row">
-                <span ng-repeat="option in filterOptions">
-                    {{option.name}}
-                    <input bs-switch type="checkbox" ng-model="option.show">
-                </span>
-            </div>
+            <rfc-toggle-group options="filterOptions"></rfc-toggle-group>
 
-            <div class="row">
-                <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3" ng-repeat="repo in repos | tagFilter:selectedFilters()">
-                    <h2>{{repo.name}}</h2>
-                    <div>{{repo.description}}</div>
-                    <div><strong>Stars:</strong>{{repo.stars}}</div>
-                    <div><strong>Open Issues:</strong>{{repo.openIssues}}</div>
-                    <div>
-                        <span class="label label-default" ng-repeat="tag in repo.tags">{{tag}}</span>
-                    </div>
-                </div>
-            </div>
+            <rfc-repo-group repos="repos"></rfc-repo-group>
         </div>
     </div>
 </div>
@@ -55,6 +40,10 @@
         <!-- repoExplorerDevelopment:js -->
         <script src="/scripts/repoExplorer/app.js"></script>
         <script src="/scripts/repoExplorer/tagFilter.js"></script>
+        <script src="/scripts/repoExplorer/RFCToggleGroupDirective.js"></script>
+        <script src="/scripts/repoExplorer/RFCToggleDirective.js"></script>
+        <script src="/scripts/repoExplorer/RFCRepoGroupDirective.js"></script>
+        <script src="/scripts/repoExplorer/RFCRepoDirective.js"></script>
         <script src="/scripts/repoExplorer/repoService.js"></script>
         <script src="/scripts/repoExplorer/dashboard.js"></script>
         <!-- endinject -->

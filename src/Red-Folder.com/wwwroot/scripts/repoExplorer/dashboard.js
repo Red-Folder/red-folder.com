@@ -35,7 +35,7 @@
                 }
             )
             .catch(
-                function (response) {
+                function(response) {
                     $scope.errorred = true;
                     $scope.repos = [];
                 }
