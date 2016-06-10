@@ -14,7 +14,8 @@
             restrict: 'E',
             templateUrl: '/scripts/repoExplorer/templates/RFCToggle.html',
             scope: {
-                name: '=',
+                option: '=',
+                onToggle: '&',
                 show: '=',
             },
         };

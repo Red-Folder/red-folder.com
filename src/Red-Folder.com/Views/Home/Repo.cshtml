@@ -17,19 +17,19 @@
         </div>
     </div>
 
-    <div ng-controller="dashboard">
-        <div ng-show="repos.length === 0 && errorred === false" class="row">
+    <div ng-controller="DashboardController as dashboard">
+        <div ng-show="dashboard.repos.length === 0 && dashboard.errorred === false" class="row">
             Please wait while the repos are loaded ....
         </div>
 
-        <div ng-show="errorred"class="row panel-danger">
+        <div ng-show="dashboard.errorred"class="row panel-danger">
             Something has gone wrong ... ohhh dear
         </div>
 
-        <div class="ng-cloak" ng-show="repos.length > 0">
-            <rfc-toggle-group options="filterOptions"></rfc-toggle-group>
+        <div class="ng-cloak" ng-show="dashboard.repos.length > 0">
+            <rfc-toggle-group options="dashboard.options" selected="selected"></rfc-toggle-group>
 
-            <rfc-repo-group repos="repos"></rfc-repo-group>
+            <rfc-repo-group repos="dashboard.repos" selected="selected"></rfc-repo-group>
         </div>
     </div>
 </div>

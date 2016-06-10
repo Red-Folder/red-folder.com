@@ -15,6 +15,19 @@
             templateUrl: '/scripts/repoExplorer/templates/RFCToggleGroup.html',
             scope: {
                 options: '=',
+                selected: '=',
+            },
+            controller: function($scope) {
+                $scope.onToggle = function (option) {
+                    var index = $scope.selected.indexOf(option);
+                    if (index > -1) {
+                        $scope.selected.splice(index, 1);
+                    } else {
+                        $scope.selected.push(option);
+                    }
+                };
+
+                $scope.defaultShow = true;
             },
         };
         return directive;

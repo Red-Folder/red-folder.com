@@ -15,6 +15,7 @@
             templateUrl: '/scripts/repoExplorer/templates/RFCRepoGroup.html',
             scope: {
                 repos: '=',
+                selected: '=',
             },
         };
         return directive;

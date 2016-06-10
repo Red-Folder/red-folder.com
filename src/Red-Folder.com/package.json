@@ -26,6 +26,21 @@
     "gulp-lesshint": "~1.1.0",
     "gulp-minify-css": "~1.2.4",
     "yargs": "~4.6.0",
-    "gulp-angular-filesort": "~1.1.1"
+    "gulp-angular-filesort": "~1.1.1",
+    "karma": "~0.13.22",
+    "jasmine-core": "~2.4.1",
+    "gulp-shell": "~0.5.2",
+    "karma-jasmine": "~1.0.2",
+    "phantomjs": "~2.1.7",
+    "karma-phantomjs-launcher": "~1.0.0",
+    "karma-html-detailed-reporter": "~1.1.8",
+    "chai": "~3.5.0",
+    "sinon": "~1.17.4",
+    "sinon-chai": "~2.8.0",
+    "mocha": "~2.4.5",
+    "karma-mocha": "~1.0.1",
+    "karma-chai": "~0.1.0",
+    "karma-sinon": "~1.0.5",
+    "karma-chai-sinon": "~0.1.5"
   }
 }

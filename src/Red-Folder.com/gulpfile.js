@@ -202,6 +202,13 @@ gulp.task('deploy-js', ['bundle-js', 'inject-bower'], function() {
 });
 
 /*
+ * Testing
+ */
+gulp.task('karma', function (done) {
+    startTest(true /* singleRun */, done);
+});
+
+/*
  * Batched tasks
  */
 gulp.task('deployment-prepare', function() {
@@ -230,6 +237,9 @@ gulp.task('watch-js', function() {
     return gulp.watch(config.jsToWatch(), ['validate-js', 'inject-js']);
 });
 
+/*
+ * Methods
+ */
 function log(msg) {
     if (typeof (msg) === 'object') {
         for (var item in msg) {
@@ -239,6 +249,27 @@ function log(msg) {
         }
     } else {
         $.util.log($.util.colors.blue(msg));
+    }
+}
+
+function startTest(singleRun, done) {
+    log('Karma started');
+    var excludeFiles = [];
+    var Server = require('karma').Server;
+    
+    new Server({
+        configFile: __dirname + '/karma.conf.js',
+        exclude: excludeFiles,
+        singleRun: !!singleRun
+    }, karmaCompleted).start();
+
+    function karmaCompleted(karmaResults) {
+        log('Karma Completed!');
+        if (karmaResults === 1) {
+            done('karma: tests failed with code ' + karmaResults);
+        } else {
+            done();
+        }
     }
 }
 
