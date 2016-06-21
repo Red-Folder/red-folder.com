@@ -3,7 +3,8 @@
     var ctrl = null;
     var sampleData = [
                         { tags: ['tag1']},
-                        { tags: ['tag1','tag2']},
+                        { tags: ['tag1'] },
+                        { tags: ['tag1', 'tag2'] },
                         { tags: ['tag3']}
                     ];
 
@@ -26,10 +27,26 @@
         expect(ctrl.title).to.equal('dashboard');
     });
 
+    it("repos should have no values", function () {
+        expect(ctrl.repos.length).to.equal(0);
+    });
+
+    it("options should have no values", function () {
+        expect(ctrl.options.length).to.equal(0);
+    });
+
+    it("selected should have no values", function () {
+        expect(ctrl.selected.length).to.equal(0);
+    });
+
     describe("after activation", function () {
 
         beforeEach(function () {
             $rootScope.$apply();
+        });
+
+        it("repos should have four values", function () {
+            expect(ctrl.repos.length).to.equal(4);
         });
 
         it("options should have three values", function () {

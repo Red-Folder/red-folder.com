@@ -12,7 +12,6 @@
         vm.title = 'dashboard';
         vm.errorred = false;
         vm.repos = [];
-        vm.filterOptions = [];
 
         vm.options = [];
         vm.selected = [];
