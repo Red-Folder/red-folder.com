@@ -1,6 +1,11 @@
 ﻿describe("Dashboard controller", function () {
     var $scope = null;
     var ctrl = null;
+    var sampleData = [
+                        { tags: ['tag1']},
+                        { tags: ['tag1','tag2']},
+                        { tags: ['tag3']}
+                    ];
 
     beforeEach(function () {
         bard.appModule('app');
@@ -8,24 +13,23 @@
     });
 
     beforeEach(function () {
-        $scope = $rootScope.$new();
-        ctrl = $controller('DashboardController', { $scope: $scope, repoService: null });
+        //var service = sinon.stub(repoService, 'getAll').returns($q.when(sampleData));
+        var rs = {
+            getAll: function () {
+                return $q.when(sampleData);
+            }
+        };
+        ctrl = $controller('DashboardController', { repoService: rs });
     });
 
     it("should have a title of dashboard", function () {
         expect(ctrl.title).to.equal('dashboard');
     });
 
-    describe("after Repo has changed", function () {
+    describe("after activation", function () {
 
         beforeEach(function () {
-            $scope.$apply(function () {
-                ctrl.repos = [
-                    { tags: ['tag1']},
-                    { tags: ['tag1','tag2']},
-                    { tags: ['tag3']}
-                ];
-            });
+            $rootScope.$apply();
         });
 
         it("options should have three values", function () {

@@ -14,7 +14,10 @@ var del = require('del');
 var eventStream = require('event-stream');
 var config = require('./gulp.config')();
 var merge = require('merge-stream');
+var browserSync = require('browser-sync');
 var $ = require('gulp-load-plugins')({ lazy: true });
+
+var port = 8001;    //config.defaultPort;
 
 /*
  * CSS
@@ -205,8 +208,59 @@ gulp.task('deploy-js', ['bundle-js', 'inject-bower'], function() {
  * Testing
  */
 gulp.task('karma', function (done) {
-    startTest(true /* singleRun */, done);
+    startTests(true /* singleRun */, done);
 });
+
+gulp.task('serve-specs', ['build-specs'], function (done) {
+    log('run the spec runner');
+    //serve(true /* isDev */, true /* specRunner */);
+    startBrowserSync(true /* isDev */, true /* specRunner */);
+    done();
+});
+
+gulp.task('build-specs', function (done) {
+    log('building the spec runner');
+
+    var wiredep = require('wiredep').stream;
+    //var templateCache = config.temp + config.templateCache.file;
+    //var options = config.getWiredepDefaultOptions();
+    //var specs = config.specs;
+
+    var appJs = ['./wwwroot/scripts/repoExplorer/app.js',
+        './wwwroot/scripts/repoExplorer/*.controller.js',
+        './wwwroot/scripts/repoExplorer/*.directive.js',
+        './wwwroot/scripts/repoExplorer/*.service.js'
+    ];
+    var nodeModules = 'node_modules';
+    var testlibraries = [
+            nodeModules + '/mocha/mocha.js',
+            nodeModules + '/chai/chai.js',
+            nodeModules + '/mocha-clean/index.js',
+            nodeModules + '/sinon-chai/lib/sinon-chai.js'
+    ];
+    //var specHelpers = ['./wwwroot/scripts/test-helpers/*.js'];
+    var specs = ['./wwwroot/scripts/repoExplorer/*.spec.js'];
+
+    //if (args.startServers) {
+    //    specs = [].concat(specs, config.serverIntegrationSpecs);
+    //}
+    //options.devDependencies = true;
+
+    var wiredepOptions = config.wiredep.options;
+    wiredepOptions.devDependencies = true;
+
+    return gulp
+        .src('./wwwroot/scripts/repoExplorer/specs.html')  // config.specRunner)
+        .pipe(wiredep(wiredepOptions))
+        .pipe($.inject(gulp.src(appJs, { read: false }), { relative: true }))
+        .pipe($.inject(gulp.src(testlibraries, { read: false, }), { name: 'testlibraries', relative: true } ))
+        //.pipe($.inject(gulp.src(specHelpers, { read: false, }), { name: 'spechelpers' }))
+        .pipe($.inject(gulp.src(specs, { read: false, }), { name: 'specs', relative: true }))
+        //.pipe(inject(templateCache, 'templates'))
+        .pipe(gulp.dest('./wwwroot/scripts/repoExplorer'));
+});
+
+//gulp.task('browserSyncReload', [], browserSync.reload);
 
 /*
  * Batched tasks
@@ -252,21 +306,63 @@ function log(msg) {
     }
 }
 
-function startTest(singleRun, done) {
-    log('Karma started');
-    var excludeFiles = [];
-    var Server = require('karma').Server;
+//function startTest(singleRun, done) {
+//    var excludeFiles = [];
+//    var Server = require('karma').Server;
     
+//    new Server({
+//        configFile: __dirname + '/karma.conf.js',
+//        exclude: excludeFiles,
+//        singleRun: !!singleRun
+//    }, karmaCompleted).start();
+
+//    function karmaCompleted(karmaResults) {
+//        log('Karma Completed!');
+//        if (karmaResults === 1) {
+//            done('karma: tests failed with code ' + karmaResults);
+//        } else {
+//            done();
+//        }
+//    }
+//}
+
+// Gulp example with Karma directly
+function startTests(singleRun, done) {
+    log('Karma started');
+    var child;
+    var excludeFiles = [];
+    var fork = require('child_process').fork;
+    var Server = require('karma').Server;
+    var serverSpecs = config.serverIntegrationSpecs;
+
+    //if (args.startServers) {
+    //    log('Starting servers');
+    //    var savedEnv = process.env;
+    //    savedEnv.NODE_ENV = 'dev';
+    //    savedEnv.PORT = 8888;
+    //    child = fork(config.nodeServer);
+    //} else {
+    //    if (serverSpecs && serverSpecs.length) {
+    //        excludeFiles = serverSpecs;
+    //    }
+    //}
+
     new Server({
         configFile: __dirname + '/karma.conf.js',
         exclude: excludeFiles,
         singleRun: !!singleRun
     }, karmaCompleted).start();
 
-    function karmaCompleted(karmaResults) {
-        log('Karma Completed!');
-        if (karmaResults === 1) {
-            done('karma: tests failed with code ' + karmaResults);
+    ////////////////
+
+    function karmaCompleted(karmaResult) {
+        log('Karma completed');
+        if (child) {
+            log('shutting down the child process');
+            child.kill();
+        }
+        if (karmaResult === 1) {
+            done('karma: tests failed with code ' + karmaResult);
         } else {
             done();
         }
@@ -285,3 +381,108 @@ gulp.task('validate-gulp', function() {
         .pipe($.jshint.reporter('jshint-stylish', { verbose: true, }))
         .pipe($.jshint.reporter('fail'));
 });
+
+/**
+ * serve the code
+ * --debug-brk or --debug
+ * --nosync
+ * @param  {Boolean} isDev - dev or build mode
+ * @param  {Boolean} specRunner - server spec runner html
+ */
+//function serve(isDev, specRunner) {
+//    // var debug = args.debug || args.debugBrk;
+//    // var debugMode = args.debug ? '--debug' : args.debugBrk ? '--debug-brk' : '';
+//    // var debugMode = '--debug';
+//    var nodeOptions = getNodeOptions(isDev);
+
+//    if (isDev) {
+//        //        runNodeInspector();
+//        nodeOptions.nodeArgs = ['--debug=5858'];
+//    }
+
+//    //if (args.verbose) {
+//    //    console.log(nodeOptions);
+//    //}
+
+//    return $.nodemon(nodeOptions)
+//        .on('restart', ['vet'], function (ev) {
+//            log('*** nodemon restarted');
+//            log('files changed:\n' + ev);
+//            setTimeout(function () {
+//                browserSync.notify('reloading now ...');
+//                browserSync.reload({ stream: false });
+//            }, config.browserReloadDelay);
+//        })
+//        .on('start', function () {
+//            log('*** nodemon started');
+//            startBrowserSync(isDev, specRunner);
+//        })
+//        .on('crash', function () {
+//            log('*** nodemon crashed: script crashed for some reason');
+//        })
+//        .on('exit', function () {
+//            log('*** nodemon exited cleanly');
+//        });
+//}
+
+//function getNodeOptions(isDev) {
+//    return {
+//        script: config.nodeServer,
+//        delayTime: 1,
+//        env: {
+//            'PORT': port,
+//            'NODE_ENV': isDev ? 'dev' : 'build'
+//        },
+//        watch: [config.server]
+//    };
+//}
+
+/**
+ * Start BrowserSync
+ * --nosync will avoid browserSync
+ */
+function startBrowserSync(isDev, specRunner) {
+    if (/*args.nosync ||*/ browserSync.active) {
+        return;
+    }
+
+    log('Starting BrowserSync on port ' + port);
+
+    // If build: watches the files, builds, and restarts browser-sync.
+    // If dev: watches less, compiles it to css, browser-sync handles reload
+    // TODO - need to fix the load of all teh details
+    //if (isDev) {
+    //    gulp.watch([config.less], ['styles'])
+    //        .on('change', changeEvent);
+    //} else {
+    //    gulp.watch([config.less, config.js, config.html], ['browserSyncReload'])
+    //        .on('change', changeEvent);
+    //}
+
+    var options = {
+        proxy: 'localhost:' + port,
+        port: 3000,
+        files: isDev ? [
+            config.client + '**/*.*',
+            '!' + config.less,
+            config.temp + '**/*.css'
+        ] : [],
+        ghostMode: { // these are the defaults t,f,t,t
+            clicks: true,
+            location: false,
+            forms: true,
+            scroll: true
+        },
+        injectChanges: true,
+        logFileChanges: true,
+        logLevel: 'debug',
+        logPrefix: 'gulp-patterns',
+        notify: true,
+        reloadDelay: 0 //1000
+    };
+    if (specRunner) {
+        options.startPath = './wwwroot/scripts/repoExplorer/specs.html';    //config.specRunnerFile;
+    }
+
+    browserSync(options);
+}

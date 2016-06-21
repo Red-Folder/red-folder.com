@@ -5,9 +5,9 @@
         .module('app')
         .controller('DashboardController', DashboardController);
 
-    DashboardController.$inject = ['$scope', 'repoService'];
+    DashboardController.$inject = ['repoService'];
 
-    function DashboardController($scope, repoService) {
+    function DashboardController(repoService) {
         var vm = this;
         vm.title = 'dashboard';
         vm.errorred = false;
@@ -17,7 +17,24 @@
         vm.options = [];
         vm.selected = [];
 
-        $scope.$watch('vm.repos', function() {
+        function getData() {
+            repoService.getAll()
+                .then(
+                    function (repos) {
+                        vm.errorred = false;
+                        populateData(repos);
+                    }
+                )
+                .catch(
+                    function(response) {
+                        vm.errorred = true;
+                        populateData([]);
+                    }
+                );
+        }
+
+        function populateData(data) {
+            vm.repos = data;
             vm.options = [];
             vm.repos.forEach(function(repo) {
                 repo.tags.forEach(function(tag) {
@@ -27,24 +44,12 @@
                 });
             });
             vm.selected = vm.options.slice(0);
-        });
+        }
 
-        //repoService.getAll()
-        //    .$promise
-        //    .then(
-        //        function(repos) {
-        //            $scope.repos = repos;
-        //        }
-        //    )
-        //    .catch(
-        //        function(response) {
-        //            $scope.errorred = true;
-        //            $scope.repos = [];
-        //        }
-        //    );
+        function activate() {
+            getData();
+        }
 
         activate();
-
-        function activate() { }
     }
 })();

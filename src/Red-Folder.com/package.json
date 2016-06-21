@@ -41,6 +41,8 @@
     "karma-mocha": "~1.0.1",
     "karma-chai": "~0.1.0",
     "karma-sinon": "~1.0.5",
-    "karma-chai-sinon": "~0.1.5"
+    "karma-chai-sinon": "~0.1.5",
+    "browser-sync": "~2.13.0",
+    "gulp-nodemon": "~2.1.0"
   }
 }
