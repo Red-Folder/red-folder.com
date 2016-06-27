@@ -10,17 +10,12 @@
 
     beforeEach(function () {
         bard.appModule('app');
-        bard.inject('$controller', '$q', '$rootScope');
+        bard.inject('$controller', '$q', '$rootScope', 'repoService');
     });
 
     beforeEach(function () {
-        //var service = sinon.stub(repoService, 'getAll').returns($q.when(sampleData));
-        var rs = {
-            getAll: function () {
-                return $q.when(sampleData);
-            }
-        };
-        ctrl = $controller('DashboardController', { repoService: rs });
+        sinon.stub(repoService, 'getAll').returns($q.when(sampleData));
+        ctrl = $controller('DashboardController');
     });
 
     it("should have a title of dashboard", function () {

@@ -3,13 +3,18 @@
 
     angular
         .module('app')
-        .service('repoService', RepoService);
+        .factory('repoService', repoService);
 
-    RepoService.$inject = ['$http', '$q'];
+    repoService.$inject = ['$http', '$q'];
 
-    function RepoService($resource) {
-        var webservice = $resource('/api/Repo');
-        this.getAll = function() {
+    function repoService($http, $q) {
+        var service = {
+            getAll: getAll
+        };
+
+        return service;
+
+        function getAll() {
             return $http.get('/api/Repo')
                 .then(success)
                 .catch(fail);
@@ -18,8 +23,9 @@
                 return response.data;
             }
 
-            function fail(e) {
-                //return exception.catcher('XHR Failed for getAll')(e);
+            function fail(error) {
+                var msg = 'Query for Repos for people failed. ' + error.data.description;
+                return $q.reject(msg);
             }
         };
     }
