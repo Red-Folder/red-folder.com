@@ -247,16 +247,25 @@ gulp.task('build-specs', function (done) {
 
     var wiredepOptions = config.wiredep.options;
     wiredepOptions.devDependencies = true;
+    wiredepOptions.fileTypes = {
+        html: {
+            replace: {
+                js: '<script src="../{{filePath}}"></script>'
+            }
+        }
+    };
+    wiredepOptions.ignorePath = '../'
 
     return gulp
-        .src('./wwwroot/scripts/repoExplorer/specs.html')  // config.specRunner)
+        .src('./Utils/SpecServer/templates/spec.html')  // config.specRunner)
         .pipe(wiredep(wiredepOptions))
         .pipe($.inject(gulp.src(appJs, { read: false }), { relative: true }))
         .pipe($.inject(gulp.src(testlibraries, { read: false, }), { name: 'testlibraries', relative: true } ))
         //.pipe($.inject(gulp.src(specHelpers, { read: false, }), { name: 'spechelpers' }))
         .pipe($.inject(gulp.src(specs, { read: false, }), { name: 'specs', relative: true }))
         //.pipe(inject(templateCache, 'templates'))
-        .pipe(gulp.dest('./wwwroot/scripts/repoExplorer'));
+        .pipe($.rename('repoExplorer.html'))
+        .pipe(gulp.dest('./Utils/SpecServer/output'));
 });
 
 /*
@@ -397,7 +406,7 @@ function serve(isDev, specRunner) {
 
 function getNodeOptions(isDev) {
     return {
-        script: './Utils/app.js',  //config.nodeServer,
+        script: './Utils/SpecServer/app.js',  //config.nodeServer,
         delayTime: 1,
         env: {
             'PORT': 8001,           // port,
@@ -446,7 +455,7 @@ function startBrowserSync(isDev, specRunner) {
         reloadDelay: 0 //1000
     };
     if (specRunner) {
-        options.startPath = 'specs.html';   //config.specRunnerFile;
+        options.startPath = './Utils/SpecServer/output/repoExplorer.html';   //config.specRunnerFile;
     }
 
     browserSync(options);
