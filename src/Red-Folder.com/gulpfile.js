@@ -213,59 +213,47 @@ gulp.task('karma', function (done) {
 
 gulp.task('serve-specs', ['build-specs'], function (done) {
     log('run the spec runner');
-    serve(true /* isDev */, true /* specRunner */);
+
+    $.nodemon(config.specRunner.server)
+        .on('restart', /*['vet'],*/ function (ev) {
+            log('*** nodemon restarted');
+            log('files changed:\n' + ev);
+            setTimeout(function () {
+                browserSync.notify('reloading now ...');
+                browserSync.reload({ stream: false });
+            }, config.specRunner.browserReloadDelay);
+        })
+        .on('start', function () {
+            log('*** nodemon started');
+            startBrowserSync();
+        })
+        .on('crash', function () {
+            log('*** nodemon crashed: script crashed for some reason');
+        })
+        .on('exit', function () {
+            log('*** nodemon exited cleanly');
+        });
+
     done();
 });
 
 gulp.task('build-specs', function (done) {
-    log('building the spec runner');
+    log('building the spec runner pages');
 
     var wiredep = require('wiredep').stream;
-    //var templateCache = config.temp + config.templateCache.file;
-    //var options = config.getWiredepDefaultOptions();
-    //var specs = config.specs;
 
-    var appJs = ['./wwwroot/scripts/repoExplorer/app.js',
-        './wwwroot/scripts/repoExplorer/*.controller.js',
-        './wwwroot/scripts/repoExplorer/*.directive.js',
-        './wwwroot/scripts/repoExplorer/*.service.js'
-    ];
-    var nodeModules = 'node_modules';
-    var testlibraries = [
-            nodeModules + '/mocha/mocha.js',
-            nodeModules + '/chai/chai.js',
-            nodeModules + '/mocha-clean/index.js',
-            nodeModules + '/sinon-chai/lib/sinon-chai.js'
-    ];
-    //var specHelpers = ['./wwwroot/scripts/test-helpers/*.js'];
-    var specs = ['./wwwroot/scripts/repoExplorer/*.spec.js'];
+    var tasks = config.specsToBuild().map(function (element) {
+        return gulp
+            .src(config.specRunner.specTemplate)
+            .pipe(wiredep(config.specRunner.wiredep.options))
+            .pipe($.inject(gulp.src(element.appJs, { read: false }), { relative: true }))
+            .pipe($.inject(gulp.src(element.testlibraries, { read: false, }), { name: 'testlibraries', relative: true }))
+            .pipe($.inject(gulp.src(element.specs, { read: false, }), { name: 'specs', relative: true }))
+            .pipe($.rename(element.name + '.html'))
+            .pipe(gulp.dest(config.specRunner.specOutput));
+    });
 
-    //if (args.startServers) {
-    //    specs = [].concat(specs, config.serverIntegrationSpecs);
-    //}
-    //options.devDependencies = true;
-
-    var wiredepOptions = config.wiredep.options;
-    wiredepOptions.devDependencies = true;
-    wiredepOptions.fileTypes = {
-        html: {
-            replace: {
-                js: '<script src="../{{filePath}}"></script>'
-            }
-        }
-    };
-    wiredepOptions.ignorePath = '../'
-
-    return gulp
-        .src('./Utils/SpecServer/templates/spec.html')  // config.specRunner)
-        .pipe(wiredep(wiredepOptions))
-        .pipe($.inject(gulp.src(appJs, { read: false }), { relative: true }))
-        .pipe($.inject(gulp.src(testlibraries, { read: false, }), { name: 'testlibraries', relative: true } ))
-        //.pipe($.inject(gulp.src(specHelpers, { read: false, }), { name: 'spechelpers' }))
-        .pipe($.inject(gulp.src(specs, { read: false, }), { name: 'specs', relative: true }))
-        //.pipe(inject(templateCache, 'templates'))
-        .pipe($.rename('repoExplorer.html'))
-        .pipe(gulp.dest('./Utils/SpecServer/output'));
+    return merge(tasks);
 });
 
 /*
@@ -321,18 +309,6 @@ function startTests(singleRun, done) {
     var Server = require('karma').Server;
     var serverSpecs = config.serverIntegrationSpecs;
 
-    //if (args.startServers) {
-    //    log('Starting servers');
-    //    var savedEnv = process.env;
-    //    savedEnv.NODE_ENV = 'dev';
-    //    savedEnv.PORT = 8888;
-    //    child = fork(config.nodeServer);
-    //} else {
-    //    if (serverSpecs && serverSpecs.length) {
-    //        excludeFiles = serverSpecs;
-    //    }
-    //}
-
     new Server({
         configFile: __dirname + '/karma.conf.js',
         exclude: excludeFiles,
@@ -368,60 +344,11 @@ gulp.task('validate-gulp', function() {
         .pipe($.jshint.reporter('fail'));
 });
 
-function serve(isDev, specRunner) {
-    // var debug = args.debug || args.debugBrk;
-    // var debugMode = args.debug ? '--debug' : args.debugBrk ? '--debug-brk' : '';
-    // var debugMode = '--debug';
-    var nodeOptions = getNodeOptions(isDev);
-
-    if (isDev) {
-        //        runNodeInspector();
-        nodeOptions.nodeArgs = ['--debug=5858'];
-    }
-
-    //if (args.verbose) {
-    //    console.log(nodeOptions);
-    //}
-
-    return $.nodemon(nodeOptions)
-        .on('restart', /*['vet'],*/ function (ev) {
-            log('*** nodemon restarted');
-            log('files changed:\n' + ev);
-            setTimeout(function () {
-                browserSync.notify('reloading now ...');
-                browserSync.reload({ stream: false });
-            }, 1000 /*config.browserReloadDelay*/);
-        })
-        .on('start', function () {
-            log('*** nodemon started');
-            startBrowserSync(isDev, specRunner);
-        })
-        .on('crash', function () {
-            log('*** nodemon crashed: script crashed for some reason');
-        })
-        .on('exit', function () {
-            log('*** nodemon exited cleanly');
-        });
-}
-
-function getNodeOptions(isDev) {
-    return {
-        script: './Utils/SpecServer/app.js',  //config.nodeServer,
-        delayTime: 1,
-        env: {
-            'PORT': 8001,           // port,
-            'NODE_ENV': 'dev'       //isDev ? 'dev' : 'build'
-        }//,
-        //watch: [config.server]
-    };
-}
-
-function startBrowserSync(isDev, specRunner) {
-    //if (args.nosync || browserSync.active) {
-    //    return;
-    //}
-
+function startBrowserSync() {
     log('Starting BrowserSync on port ' + port);
+
+    // TODO - Load these from the config
+    // Will need to cycle through all of the relevant JavaScript
 
     // If build: watches the files, builds, and restarts browser-sync.
     // If dev: watches less, compiles it to css, browser-sync handles reload
@@ -452,11 +379,9 @@ function startBrowserSync(isDev, specRunner) {
         logLevel: 'debug',
         logPrefix: 'gulp-patterns',
         notify: true,
-        reloadDelay: 0 //1000
+        reloadDelay: 0, //1000
+        startPath: config.specRunner.startPath
     };
-    if (specRunner) {
-        options.startPath = './Utils/SpecServer/output/repoExplorer.html';   //config.specRunnerFile;
-    }
 
     browserSync(options);
 }

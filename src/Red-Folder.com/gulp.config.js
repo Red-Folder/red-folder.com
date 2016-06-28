@@ -300,6 +300,29 @@ module.exports = function() {
         });
     };
 
+    config.specsToBuild = function () {
+        return [
+            {
+                appJs: [
+                    './wwwroot/scripts/repoExplorer/app.js',
+                    './wwwroot/scripts/repoExplorer/*.controller.js',
+                    './wwwroot/scripts/repoExplorer/*.directive.js',
+                    './wwwroot/scripts/repoExplorer/*.service.js'
+                ],
+                testlibraries: [
+                    'node_modules/mocha/mocha.js',
+                    'node_modules/chai/chai.js',
+                    'node_modules/mocha-clean/index.js',
+                    'node_modules/sinon-chai/lib/sinon-chai.js'
+                ],
+                specs: [
+                    './wwwroot/scripts/repoExplorer/*.spec.js'
+                ],
+                name: 'repoExplorer'
+            }
+        ];
+    }
+
     config.wiredep = {
         src: './views/shared/_layout.cshtml',
         dest: './views/shared/',
@@ -309,6 +332,30 @@ module.exports = function() {
             directory: './wwwroot/lib',
             ignorePath: '../../wwwroot',
         },
+    };
+
+    config.specRunner = {
+        server: {
+            script: './Utils/SpecServer/app.js',
+            delayTime: 1,
+            env: {
+                'PORT': 8001
+            },
+            watch: './Utils/SpecServer/app.js'
+        },
+
+        browserReloadDelay: 1000,
+        
+        specTemplate: './Utils/SpecServer/templates/spec.html',
+        specOutput: './Utils/SpecServer/output',
+        startPath: './Utils/SpecServer/output/repoExplorer.html',
+
+        wiredep: {
+            options: {
+                bowerJson: require('./bower.json'),
+                devDependencies: true
+            }
+        }
     };
 
 
