@@ -2,63 +2,7 @@
 
 /* jshint node: true */
 var path = require('path');
-
-var RedFolder = RedFolder || {};
-
-RedFolder.Utils = RedFolder.Utils || {};
-
-RedFolder.Utils.GulpAppConfig = function(name, htmlDestination, htmlInjectionTag, jsFolder, hasThirdPartyJs, lessFolder, isAngular) {
-    return {
-        name: name,
-        htmlDestination: htmlDestination,
-
-        hasJs: jsFolder ? true : false,
-        js: {
-            isAngular: isAngular,
-            folder: jsFolder,
-            files: isAngular ? [
-                jsFolder + 'app.js',
-                jsFolder + '*.controller.js',
-                jsFolder + '*.directive.js',
-                jsFolder + '*.service.js'
-            ] : jsFolder + '*.js',
-            specs: jsFolder + '*.spec.js',
-
-            hasThirdParty: hasThirdPartyJs,
-            development: {
-                htmlInjection: {
-                    tagName: htmlInjectionTag + 'Development',
-                },
-            },
-            production: {
-                folder: jsFolder + 'production/',
-                bundleName: htmlInjectionTag + '.js',
-                htmlInjection: {
-                    tagName: htmlInjectionTag + 'Production',
-                },
-            },
-        },
-
-        hasLess: lessFolder ? true : false,
-        less: {
-            folder: lessFolder,
-
-            development: {
-                htmlInjection: {
-                    tagName: htmlInjectionTag + 'Development',
-                },
-            },
-
-            production: {
-                folder: lessFolder + 'production/',
-                bundleName: htmlInjectionTag + '.css',
-                htmlInjection: {
-                    tagName: htmlInjectionTag + 'Production',
-                },
-            },
-        },
-    };
-};
+var rfcUtils = require('./Utils/rfcUtils.js');
 
 module.exports = function() {
     var config = {
@@ -75,7 +19,7 @@ module.exports = function() {
 
     config.apps = [
         // Shared
-        RedFolder.Utils.GulpAppConfig (
+        rfcUtils.builder(
             'shared',
             './views/shared/_layout.cshtml',          // HtmlDestination
             'shared',                                    // HtmlInjectionTag
@@ -86,7 +30,7 @@ module.exports = function() {
         ),
 
         // DependancyGraph
-        RedFolder.Utils.GulpAppConfig(
+        rfcUtils.builder(
             'DependancyGraph',
             './views/Microservice/Index.cshtml',          // HtmlDestination
             'DependancyGraph',                                    // HtmlInjectionTag
@@ -96,7 +40,7 @@ module.exports = function() {
             false
         ),
 
-        RedFolder.Utils.GulpAppConfig(
+        rfcUtils.builder(
             'repoExplorer',
             './views/Home/Repo.cshtml',          // HtmlDestination
             'repoExplorer',                                    // HtmlInjectionTag
