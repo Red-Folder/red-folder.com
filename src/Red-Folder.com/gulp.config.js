@@ -7,23 +7,23 @@ var RedFolder = RedFolder || {};
 
 RedFolder.Utils = RedFolder.Utils || {};
 
-RedFolder.Utils.WireDepOptions = function(bowserJson, directory, ignorePath, locationTag, dependencies, devDependencies) {
-    var options = {
-        bowerJson: bowserJson,
-        directory: directory,
-        ignorePath: ignorePath,
-    };
-
-    return options;
-};
-
-RedFolder.Utils.GulpAppConfig = function(htmlDestination, htmlInjectionTag, jsFolder, hasThirdPartyJs, lessFolder) {
+RedFolder.Utils.GulpAppConfig = function(name, htmlDestination, htmlInjectionTag, jsFolder, hasThirdPartyJs, lessFolder, isAngular) {
     return {
+        name: name,
         htmlDestination: htmlDestination,
 
         hasJs: jsFolder ? true : false,
         js: {
+            isAngular: isAngular,
             folder: jsFolder,
+            files: isAngular ? [
+                jsFolder + 'app.js',
+                jsFolder + '*.controller.js',
+                jsFolder + '*.directive.js',
+                jsFolder + '*.service.js'
+            ] : jsFolder + '*.js',
+            specs: jsFolder + '*.spec.js',
+
             hasThirdParty: hasThirdPartyJs,
             development: {
                 htmlInjection: {
@@ -76,30 +76,35 @@ module.exports = function() {
     config.apps = [
         // Shared
         RedFolder.Utils.GulpAppConfig (
+            'shared',
             './views/shared/_layout.cshtml',          // HtmlDestination
             'shared',                                    // HtmlInjectionTag
             './wwwroot/scripts/shared/',                       // JsFolder
             true,                       // HasThirdPartyJs
-            './wwwroot/css/shared/'    // LessFolder
+            './wwwroot/css/shared/',    // LessFolder
+            false
         ),
 
         // DependancyGraph
         RedFolder.Utils.GulpAppConfig(
+            'DependancyGraph',
             './views/Microservice/Index.cshtml',          // HtmlDestination
             'DependancyGraph',                                    // HtmlInjectionTag
             './wwwroot/scripts/dependancyGraph/',                       // JsFolder
             false,                       // HasThirdPartyJs
-            './wwwroot/css/dependancyGraph/'    // LessFolder
+            './wwwroot/css/dependancyGraph/',    // LessFolder
+            false
         ),
 
         RedFolder.Utils.GulpAppConfig(
+            'repoExplorer',
             './views/Home/Repo.cshtml',          // HtmlDestination
             'repoExplorer',                                    // HtmlInjectionTag
             './wwwroot/scripts/repoExplorer/',                       // JsFolder
             false,                       // HasThirdPartyJs
-            './wwwroot/css/repoExplorer/'    // LessFolder
+            './wwwroot/css/repoExplorer/',    // LessFolder
+            true                        // isAngular
         ),
-
     ];
 
     config.lessToCompile = function() {
@@ -214,7 +219,7 @@ module.exports = function() {
             return app.hasJs;
         }).map(function(app) {
             return {
-                src: app.js.folder + '*.js',
+                src: app.js.files,
                 dest: app.js.folder,
             };
         });
@@ -245,7 +250,7 @@ module.exports = function() {
             if (app.js.hasThirdParty) {
                 js.push(app.js.folder + '3rdParty/*.js');
             }
-            js.push(app.js.folder + '*.js');
+            js.push(app.js.files);
         });
 
         return results;
@@ -258,7 +263,7 @@ module.exports = function() {
             return {
                 src: [
                     app.js.folder + '3rdParty/*.js',
-                    app.js.folder + '*.js',
+                    app.js.files,
                 ],
                 dest: app.js.production.folder,
                 bundleName: app.js.production.bundleName,
@@ -301,26 +306,23 @@ module.exports = function() {
     };
 
     config.specsToBuild = function () {
-        return [
-            {
-                appJs: [
-                    './wwwroot/scripts/repoExplorer/app.js',
-                    './wwwroot/scripts/repoExplorer/*.controller.js',
-                    './wwwroot/scripts/repoExplorer/*.directive.js',
-                    './wwwroot/scripts/repoExplorer/*.service.js'
-                ],
+        return config.apps.filter(function (app) {
+            return app.js.isAngular;
+        }).map(function (app) {
+            return {
+                src: app.js.files,
                 testlibraries: [
                     'node_modules/mocha/mocha.js',
                     'node_modules/chai/chai.js',
                     'node_modules/mocha-clean/index.js',
                     'node_modules/sinon-chai/lib/sinon-chai.js'
                 ],
-                specs: [
-                    './wwwroot/scripts/repoExplorer/*.spec.js'
-                ],
-                name: 'repoExplorer'
-            }
-        ];
+                specs: app.js.specs,
+                name: app.name
+                //dest: app.js.production.folder,
+                //bundleName: app.js.production.bundleName,
+            };
+        });
     }
 
     config.wiredep = {

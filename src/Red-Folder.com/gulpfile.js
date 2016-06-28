@@ -242,11 +242,13 @@ gulp.task('build-specs', function (done) {
 
     var wiredep = require('wiredep').stream;
 
+    log(config.specsToBuild());
+
     var tasks = config.specsToBuild().map(function (element) {
         return gulp
             .src(config.specRunner.specTemplate)
             .pipe(wiredep(config.specRunner.wiredep.options))
-            .pipe($.inject(gulp.src(element.appJs, { read: false }), { relative: true }))
+            .pipe($.inject(gulp.src(element.src, { read: false }), { relative: true }))
             .pipe($.inject(gulp.src(element.testlibraries, { read: false, }), { name: 'testlibraries', relative: true }))
             .pipe($.inject(gulp.src(element.specs, { read: false, }), { name: 'specs', relative: true }))
             .pipe($.rename(element.name + '.html'))
