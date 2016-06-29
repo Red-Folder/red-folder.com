@@ -19,36 +19,26 @@ module.exports = function() {
 
     config.apps = [
         // Shared
-        rfcUtils.builder(
-            'shared',
-            './views/shared/_layout.cshtml',          // HtmlDestination
-            'shared',                                    // HtmlInjectionTag
-            './wwwroot/scripts/shared/',                       // JsFolder
-            true,                       // HasThirdPartyJs
-            './wwwroot/css/shared/',    // LessFolder
-            false
-        ),
+        new rfcUtils.AppBuilder('shared')
+                            .setHtmlDestination('./views/shared/_layout.cshtml')
+                            .addJs('./wwwroot/scripts/shared/')
+                            .hasThirdPartyJs()
+                            .addLess('./wwwroot/css/shared/')
+                            .build(),
 
         // DependancyGraph
-        rfcUtils.builder(
-            'DependancyGraph',
-            './views/Microservice/Index.cshtml',          // HtmlDestination
-            'DependancyGraph',                                    // HtmlInjectionTag
-            './wwwroot/scripts/dependancyGraph/',                       // JsFolder
-            false,                       // HasThirdPartyJs
-            './wwwroot/css/dependancyGraph/',    // LessFolder
-            false
-        ),
+        new rfcUtils.AppBuilder('DependancyGraph')
+                            .setHtmlDestination('./views/Microservice/Index.cshtml')
+                            .addJs('./wwwroot/scripts/dependancyGraph/')
+                            .addLess('./wwwroot/css/dependancyGraph/')
+                            .build(),
 
-        rfcUtils.builder(
-            'repoExplorer',
-            './views/Home/Repo.cshtml',          // HtmlDestination
-            'repoExplorer',                                    // HtmlInjectionTag
-            './wwwroot/scripts/repoExplorer/',                       // JsFolder
-            false,                       // HasThirdPartyJs
-            './wwwroot/css/repoExplorer/',    // LessFolder
-            true                        // isAngular
-        ),
+        // repoExplorer
+        new rfcUtils.AppBuilder('repoExplorer')
+                            .setHtmlDestination('./views/Home/Repo.cshtml')
+                            .addAngularJs('./wwwroot/scripts/repoExplorer/')
+                            .hasAngularSpecs()
+                            .build()
     ];
 
     config.lessToCompile = function() {
@@ -251,20 +241,18 @@ module.exports = function() {
 
     config.specsToBuild = function () {
         return config.apps.filter(function (app) {
-            return app.js.isAngular;
+            return app.hasAngular;
         }).map(function (app) {
             return {
-                src: app.js.files,
+                src: app.angular.files,
                 testlibraries: [
                     'node_modules/mocha/mocha.js',
                     'node_modules/chai/chai.js',
                     'node_modules/mocha-clean/index.js',
                     'node_modules/sinon-chai/lib/sinon-chai.js'
                 ],
-                specs: app.js.specs,
+                specs: app.angular.specs,
                 name: app.name
-                //dest: app.js.production.folder,
-                //bundleName: app.js.production.bundleName,
             };
         });
     }
