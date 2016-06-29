@@ -25,7 +25,7 @@ var port = 8001;    //config.defaultPort;
 gulp.task('validate-less', function() {
     log('Validating Less');
 
-    var tasks = config.lessToValidate().map(function(element) {
+    var tasks = config.lessToValidate.map(function(element) {
         return gulp.src(element.src)
             .pipe($.print())
             .pipe($.lesshint())
@@ -38,7 +38,7 @@ gulp.task('validate-less', function() {
 gulp.task('compile-less', ['validate-less'], function() {
     log('Compiling Less to CSS');
 
-    var tasks = config.lessToCompile().map(function(element) {
+    var tasks = config.lessToCompile.map(function(element) {
         return gulp.src(element.src)
             .pipe($.print())
             .pipe($.less({
@@ -53,7 +53,7 @@ gulp.task('compile-less', ['validate-less'], function() {
 gulp.task('autoprefix-css', ['compile-less'], function() {
     log('Autoprefixing CSS');
 
-    var tasks = config.cssToAutoPrefix().map(function(element) {
+    var tasks = config.cssToAutoPrefix.map(function(element) {
         return gulp.src(element.src)
             .pipe($.print())
             .pipe($.autoprefixer({ browser: ['last 2 versions', '> 5%'], }))
@@ -66,7 +66,7 @@ gulp.task('autoprefix-css', ['compile-less'], function() {
 gulp.task('inject-css', ['compile-less', 'autoprefix-css'], function() {
     log('Injecting CSS');
 
-    var tasks = config.cssToInject().map(function(element) {
+    var tasks = config.cssToInject.map(function(element) {
         var task = gulp.src(element.src)
                         .pipe($.print());
 
@@ -86,7 +86,7 @@ gulp.task('inject-css', ['compile-less', 'autoprefix-css'], function() {
 gulp.task('bundle-css', ['compile-less', 'autoprefix-css', 'inject-css'], function() {
     log('Bundle CSS');
 
-    var tasks = config.cssToBundle().map(function(element) {
+    var tasks = config.cssToBundle.map(function(element) {
         return gulp.src(element.src)
                     .pipe($.print())
                     .pipe($.minifyCss())
@@ -101,7 +101,7 @@ gulp.task('bundle-css', ['compile-less', 'autoprefix-css', 'inject-css'], functi
 gulp.task('deploy-css', ['bundle-css'], function() {
     log('Deploy CSS');
 
-    var tasks = config.cssToDeploy().map(function(element) {
+    var tasks = config.cssToDeploy.map(function(element) {
         var task = gulp.src(element.src)
                         .pipe($.print());
 
@@ -124,7 +124,7 @@ gulp.task('deploy-css', ['bundle-css'], function() {
 gulp.task('validate-js', function() {
     log('Validating JS with JSHint and JSCS');
 
-    var tasks = config.jsToValidate().map(function(element) {
+    var tasks = config.jsToValidate.map(function(element) {
         return gulp.src(element.src)
             .pipe($.print())
             .pipe($.jscs({ configPath: config.tools.jscsConfig }))
@@ -152,7 +152,7 @@ gulp.task('inject-bower', function() {
 gulp.task('inject-js', ['validate-js', 'inject-bower'], function() {
     log('Inject JS');
 
-    var tasks = config.jsToInject().map(function(element) {
+    var tasks = config.jsToInject.map(function(element) {
         var task = gulp.src(element.src)
                         .pipe($.print());
         
@@ -172,7 +172,7 @@ gulp.task('inject-js', ['validate-js', 'inject-bower'], function() {
 gulp.task('bundle-js', ['inject-js'], function() {
     log('Bundle JS');
 
-    var tasks = config.jsToBundle().map(function(element) {
+    var tasks = config.jsToBundle.map(function(element) {
         return gulp.src(element.src)
                     .pipe($.print())
                     .pipe($.uglify())
@@ -187,7 +187,7 @@ gulp.task('bundle-js', ['inject-js'], function() {
 gulp.task('deploy-js', ['bundle-js', 'inject-bower'], function() {
     log('Deploy JS');
 
-    var tasks = config.jsToDeploy().map(function(element) {
+    var tasks = config.jsToDeploy.map(function(element) {
         var task = gulp.src(element.src)
                         .pipe($.print());
 
@@ -242,9 +242,7 @@ gulp.task('build-specs', function (done) {
 
     var wiredep = require('wiredep').stream;
 
-    log(config.specsToBuild());
-
-    var tasks = config.specsToBuild().map(function (element) {
+    var tasks = config.specsToBuild.map(function (element) {
         return gulp
             .src(config.specRunner.specTemplate)
             .pipe(wiredep(config.specRunner.wiredep.options))
@@ -280,11 +278,11 @@ gulp.task('deployment-prepare', function() {
  * File watchers
  */
 gulp.task('watch-less', function() {
-    return gulp.watch(config.lessToWatch(), ['validate-less','compile-less', 'autoprefix-css', 'inject-css']);
+    return gulp.watch(config.lessToWatch, ['validate-less','compile-less', 'autoprefix-css', 'inject-css']);
 });
 
 gulp.task('watch-js', function() {
-    return gulp.watch(config.jsToWatch(), ['validate-js', 'inject-js']);
+    return gulp.watch(config.jsToWatch, ['validate-js', 'inject-js']);
 });
 
 /*
@@ -333,10 +331,10 @@ function startTests(singleRun, done) {
     }
 }
 
-gulp.task('validate-gulp', function() {
-    log('Validating Gulp & Config');
+gulp.task('validate-tools', function() {
+    log('Validating Gulp, Config & tools');
 
-    return gulp.src(['./gulpfile.js', './gulp.config.js'])
+    return gulp.src(['./gulpfile.js', './gulp.config.js', './Utils/rfcUtils.js', './Utils/SpecServer/app.js'])
         .pipe($.print())
         .pipe($.jscs({ configPath: config.tools.jscsConfig }))
         .pipe($.jscs.reporter())

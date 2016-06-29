@@ -1,5 +1,7 @@
 ﻿'use strict';
 
+var path = require('path');
+
 module.exports = {
     AppBuilder: function(name) {
         this.name = name;
@@ -145,56 +147,232 @@ module.exports = {
         }
     },
 
-    builder: function(name, htmlDestination, htmlInjectionTag, jsFolder, hasThirdPartyJs, lessFolder, isAngular) {
-        return {
-            name: name,
-            htmlDestination: htmlDestination,
+    SuiteBuilder: function (apps) {
+        this.apps = apps;
 
-            hasJs: jsFolder ? true : false,
-            js: {
-                isAngular: isAngular,
-                folder: jsFolder,
-                files: isAngular ? [
-                    jsFolder + 'app.js',
-                    jsFolder + '*.controller.js',
-                    jsFolder + '*.directive.js',
-                    jsFolder + '*.service.js'
-                ] : jsFolder + '*.js',
-                specs: jsFolder + '*.spec.js',
-
-                hasThirdParty: hasThirdPartyJs,
-                development: {
-                    htmlInjection: {
-                        tagName: htmlInjectionTag + 'Development',
-                    },
-                },
-                production: {
-                    folder: jsFolder + 'production/',
-                    bundleName: htmlInjectionTag + '.js',
-                    htmlInjection: {
-                        tagName: htmlInjectionTag + 'Production',
-                    },
-                },
-            },
-
-            hasLess: lessFolder ? true : false,
-            less: {
-                folder: lessFolder,
-
-                development: {
-                    htmlInjection: {
-                        tagName: htmlInjectionTag + 'Development',
-                    },
-                },
-
-                production: {
-                    folder: lessFolder + 'production/',
-                    bundleName: htmlInjectionTag + '.css',
-                    htmlInjection: {
-                        tagName: htmlInjectionTag + 'Production',
-                    },
-                },
-            },
+        this.BuildLessToCompile = function () {
+            return this.apps.filter(function (app) {
+                return app.hasLess;
+            }).map(function (app) {
+                return {
+                    src: app.less.folder + '*.less',
+                    dest: app.less.folder,
+                };
+            });
         };
+
+        this.BuildLessToWatch = function () {
+            return this.BuildLessToCompile().map(function (less) {
+                return less.src;
+            });
+        };
+
+        this.BuildLessToValidate = function () {
+            return this.apps.filter(function (app) {
+                return app.hasLess;
+            }).map(function (app) {
+                return {
+                    src: app.less.folder + '*.less',
+                    dest: app.less.folder,
+                };
+            });
+        };
+
+        this.BuildCssToAutoPrefix = function () {
+            return this.apps.filter(function (app) {
+                return app.hasLess;
+            }).map(function (app) {
+                return {
+                    src: app.less.folder + '*.css',
+                    dest: app.less.folder,
+                };
+            });
+        };
+
+        this.BuildCssToInject = function () {
+            var results = [];
+            this.apps.forEach(function (app) {
+                if (app.hasLess) {
+                    if (results.filter(function (result) { return result.src === app.htmlDestination; }).length === 0) {
+                        results.push({
+                            src: app.htmlDestination,
+                            dest: path.dirname(app.htmlDestination),
+                            tags: [],
+                        });
+                    }
+
+                    var tags = results.filter(function (result) { return result.src === app.htmlDestination; })[0].tags;
+
+                    if (tags.filter(function (tag) { return tag.tagName == app.less.development.htmlInjection.tagName; })) {
+                        tags.push({
+                            ignorePath: '/wwwroot',
+                            tagName: app.less.development.htmlInjection.tagName,
+                            css: [],
+                        });
+                    }
+
+                    var css = tags.filter(function (tag) { return tag.tagName == app.less.development.htmlInjection.tagName; })[0].css;
+                    css.push(app.less.folder + '*.css');
+                }
+            });
+
+            return results;
+        };
+
+        this.BuildCssToBundle = function () {
+            return this.apps.filter(function (app) {
+                return app.hasLess;
+            }).map(function (app) {
+                return {
+                    src: app.less.folder + '*.css',
+                    dest: app.less.production.folder,
+                    bundleName: app.less.production.bundleName,
+                };
+            });
+        };
+
+        this.BuildCssToDeploy = function () {
+            var results = [];
+            this.apps.forEach(function (app) {
+                if (app.hasLess) {
+                    if (results.filter(function (result) { return result.src === app.htmlDestination; }).length === 0) {
+                        results.push({
+                            src: app.htmlDestination,
+                            dest: path.dirname(app.htmlDestination),
+                            tags: [],
+                        });
+                    }
+
+                    var tags = results.filter(function (result) { return result.src === app.htmlDestination; })[0].tags;
+
+                    if (tags.filter(function (tag) { return tag.tagName == app.less.production.htmlInjection.tagName; })) {
+                        tags.push({
+                            ignorePath: '/wwwroot',
+                            tagName: app.less.production.htmlInjection.tagName,
+                            css: [],
+                        });
+                    }
+
+                    var css = tags.filter(function (tag) { return tag.tagName == app.less.production.htmlInjection.tagName; })[0].css;
+                    css.push(app.less.production.folder + '*.css');
+                }
+            });
+
+            return results;
+        };
+
+        this.BuildJsToValidate = function () {
+            return this.apps.filter(function (app) {
+                return app.hasJs;
+            }).map(function (app) {
+                return {
+                    src: app.js.files,
+                    dest: app.js.folder,
+                };
+            });
+        };
+
+        this.BuildJsToInject = function () {
+            var results = [];
+            this.apps.forEach(function (app) {
+                if (app.hasJs) {
+                    if (results.filter(function (result) { return result.src === app.htmlDestination; }).length === 0) {
+                        results.push({
+                            src: app.htmlDestination,
+                            dest: path.dirname(app.htmlDestination),
+                            tags: [],
+                        });
+                    }
+
+                    var tags = results.filter(function (result) { return result.src === app.htmlDestination; })[0].tags;
+
+                    if (tags.filter(function (tag) { return tag.tagName == app.js.development.htmlInjection.tagName; })) {
+                        tags.push({
+                            ignorePath: '/wwwroot',
+                            tagName: app.js.development.htmlInjection.tagName,
+                            js: [],
+                        });
+                    }
+
+                    var js = tags.filter(function (tag) { return tag.tagName == app.js.development.htmlInjection.tagName; })[0].js;
+                    if (app.js.hasThirdParty) {
+                        js.push(app.js.folder + '3rdParty/*.js');
+                    }
+                    js.push(app.js.files);
+                }
+            });
+
+            return results;
+        };
+
+        this.BuildJsToBundle = function () {
+            return this.apps.filter(function (app) {
+                return app.hasJs;
+            }).map(function (app) {
+                return {
+                    src: [
+                        app.js.folder + '3rdParty/*.js',
+                        app.js.files,
+                    ],
+                    dest: app.js.production.folder,
+                    bundleName: app.js.production.bundleName,
+                };
+            });
+        };
+
+        this.BuildJsToDeploy = function () {
+            var results = [];
+            this.apps.forEach(function (app) {
+                if (app.hasJs) {
+                    if (results.filter(function (result) { return result.src === app.htmlDestination; }).length === 0) {
+                        results.push({
+                            src: app.htmlDestination,
+                            dest: path.dirname(app.htmlDestination),
+                            tags: [],
+                        });
+                    }
+
+                    var tags = results.filter(function (result) { return result.src === app.htmlDestination; })[0].tags;
+
+                    if (tags.filter(function (tag) { return tag.tagName == app.js.production.htmlInjection.tagName; })) {
+                        tags.push({
+                            ignorePath: '/wwwroot',
+                            tagName: app.js.production.htmlInjection.tagName,
+                            js: [],
+                        });
+                    }
+
+                    var js = tags.filter(function (tag) { return tag.tagName == app.js.production.htmlInjection.tagName; })[0].js;
+                    js.push(app.js.production.folder + '*.js');
+                }
+            });
+
+            return results;
+        };
+
+        this.BuildJsToWatch = function () {
+            return this.BuildJsToValidate().map(function (js) {
+                return js.src;
+            });
+        };
+
+        this.BuildSpecsToBuild = function () {
+            return this.apps.filter(function (app) {
+                return app.hasAngular;
+            }).map(function (app) {
+                return {
+                    src: app.angular.files,
+                    testlibraries: [
+                        'node_modules/mocha/mocha.js',
+                        'node_modules/chai/chai.js',
+                        'node_modules/mocha-clean/index.js',
+                        'node_modules/sinon-chai/lib/sinon-chai.js'
+                    ],
+                    specs: app.angular.specs,
+                    name: app.name
+                };
+            });
+        }
+
     }
 };
