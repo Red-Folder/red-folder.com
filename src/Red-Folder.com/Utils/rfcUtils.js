@@ -89,7 +89,9 @@ module.exports = {
                     }
                 };
 
+                config.angular.hasSpecs = false;
                 if (this.hasAngularSpecs) {
+                    config.angular.hasSpecs = true;
                     config.angular.specs = this.angularFolder + '*.spec.js';
                 }
 
@@ -262,14 +264,32 @@ module.exports = {
         };
 
         this.BuildJsToValidate = function () {
-            return this.apps.filter(function (app) {
-                return app.hasJs;
-            }).map(function (app) {
-                return {
-                    src: app.js.files,
-                    dest: app.js.folder,
-                };
-            });
+            return [].concat(
+                    this.apps.filter(function (app) {
+                        return app.hasJs;
+                    }).map(function (app) {
+                        return {
+                            src: app.js.files,
+                            dest: app.js.folder,
+                        };
+                    }),
+                    this.apps.filter(function (app) {
+                        return app.hasAngular;
+                    }).map(function (app) {
+                        return {
+                            src: app.angular.files,
+                            dest: app.angular.folder,
+                        };
+                    }),
+                    this.apps.filter(function (app) {
+                        return app.hasAngular && app.angular.hasSpecs;
+                    }).map(function (app) {
+                        return {
+                            src: app.angular.specs,
+                            dest: app.angular.folder,
+                        };
+                    })
+            );
         };
 
         this.BuildJsToInject = function () {

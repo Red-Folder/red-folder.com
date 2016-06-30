@@ -1,11 +1,11 @@
-﻿describe("Dashboard controller", function () {
+﻿describe('Dashboard controller', function () {
     var $scope = null;
     var ctrl = null;
     var sampleData = [
-                        { tags: ['tag1']},
-                        { tags: ['tag1'] },
-                        { tags: ['tag1', 'tag2'] },
-                        { tags: ['tag3']}
+                        {tags: ['tag1']},
+                        {tags: ['tag1']},
+                        {tags: ['tag1', 'tag2']},
+                        {tags: ['tag3']}
                     ];
 
     beforeEach(function () {
@@ -18,53 +18,53 @@
         ctrl = $controller('DashboardController');
     });
 
-    it("should have a title of dashboard", function () {
+    it('should have a title of dashboard', function () {
         expect(ctrl.title).to.equal('dashboard');
     });
 
-    it("repos should have no values", function () {
+    it('repos should have no values', function () {
         expect(ctrl.repos.length).to.equal(0);
     });
 
-    it("options should have no values", function () {
+    it('options should have no values', function () {
         expect(ctrl.options.length).to.equal(0);
     });
 
-    it("selected should have no values", function () {
+    it('selected should have no values', function () {
         expect(ctrl.selected.length).to.equal(0);
     });
 
-    describe("after activation", function () {
+    describe('after activation', function () {
 
         beforeEach(function () {
             $rootScope.$apply();
         });
 
-        it("repos should have four values", function () {
+        it('repos should have four values', function () {
             expect(ctrl.repos.length).to.equal(4);
         });
 
-        it("options should have three values", function () {
+        it('options should have three values', function () {
             expect(ctrl.options.length).to.equal(3);
         });
 
-        it("options should contain 'tag1'", function () {
+        it('options should contain \'tag1\'', function () {
             expect(ctrl.options).to.include('tag1');
         });
 
-        it("options should not contain 'tag4'", function () {
+        it('options should not contain \'tag4\'', function () {
             expect(ctrl.options).to.not.include('tag4');
         });
 
-        it("selected should have three values", function () {
+        it('selected should have three values', function () {
             expect(ctrl.selected.length).to.equal(3);
         });
 
-        it("selected should contain 'tag1'", function () {
+        it('selected should contain \'tag1\'', function () {
             expect(ctrl.selected).to.include('tag1');
         });
 
-        it("selected should not contain 'tag4'", function () {
+        it('selected should not contain \'tag4\'', function () {
             expect(ctrl.selected).to.not.include('tag4');
         });
 

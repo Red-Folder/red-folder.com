@@ -274,6 +274,19 @@ gulp.task('deployment-prepare', function() {
     return gulp.noop;
 });
 
+gulp.task('validate-tools', function () {
+    log('Validating Gulp, Config & tools');
+
+    return gulp.src(['./gulpfile.js', './gulp.config.js', './Utils/rfcUtils.js', './Utils/SpecServer/app.js'])
+        .pipe($.print())
+        .pipe($.jscs({ configPath: config.tools.jscsConfig }))
+        .pipe($.jscs.reporter())
+        .pipe($.jscs.reporter('fail'))
+        .pipe($.jshint())
+        .pipe($.jshint.reporter('jshint-stylish', { verbose: true, }))
+        .pipe($.jshint.reporter('fail'));
+});
+
 /*
  * File watchers
  */
@@ -331,18 +344,7 @@ function startTests(singleRun, done) {
     }
 }
 
-gulp.task('validate-tools', function() {
-    log('Validating Gulp, Config & tools');
 
-    return gulp.src(['./gulpfile.js', './gulp.config.js', './Utils/rfcUtils.js', './Utils/SpecServer/app.js'])
-        .pipe($.print())
-        .pipe($.jscs({ configPath: config.tools.jscsConfig }))
-        .pipe($.jscs.reporter())
-        .pipe($.jscs.reporter('fail'))
-        .pipe($.jshint())
-        .pipe($.jshint.reporter('jshint-stylish', { verbose: true, }))
-        .pipe($.jshint.reporter('fail'));
-});
 
 function startBrowserSync() {
     log('Starting BrowserSync on port ' + port);

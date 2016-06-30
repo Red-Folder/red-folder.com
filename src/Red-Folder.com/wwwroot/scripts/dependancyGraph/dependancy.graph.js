@@ -25,8 +25,8 @@ d3.json(url, function(error, graph) {
     var labelAnchors = [];
     var labelAnchorLinks = [];
     for (var i = 0; i < graph.nodes.length; i++) {
-        labelAnchors.push({ node: graph.nodes[i] });
-        labelAnchors.push({ node: graph.nodes[i] });
+        labelAnchors.push({node: graph.nodes[i]});
+        labelAnchors.push({node: graph.nodes[i]});
     }
 
     for (i = 0; i < graph.nodes.length; i++) {
@@ -116,7 +116,6 @@ d3.json(url, function(error, graph) {
         .style('fill', '#555')
         .style('font-family', 'Arial')
         .style('font-size', 12);
-
 
     var updateLink = function() {
         this.attr('x1', function(d) {
