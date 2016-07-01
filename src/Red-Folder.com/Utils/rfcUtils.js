@@ -355,18 +355,36 @@ module.exports = function() {
         };
 
         this.BuildJsToBundle = function () {
-            return this.apps.filter(function (app) {
-                return app.hasJs;
-            }).map(function (app) {
-                return {
-                    src: [
-                        app.js.folder + '3rdParty/*.js',
-                        app.js.files,
-                    ],
-                    dest: app.js.production.folder,
-                    bundleName: app.js.production.bundleName,
-                };
-            });
+            return [].concat(
+                this.apps.filter(function (app) {
+                    return app.hasJs;
+                }).map(function (app) {
+                    return {
+                        src: [
+                            app.js.folder + '3rdParty/*.js',
+                            app.js.files,
+                        ],
+                        dest: app.js.production.folder,
+                        bundleName: app.js.production.bundleName,
+                    };
+                }),
+                this.apps.filter(function (app) {
+                    return app.hasAngular;
+                }).map(function (app) {
+                    var src = [];
+                    if (app.angular.hasSpecs)
+                    {
+                        src.push(app.angular.folder + '3rdParty/*.js');
+                    }
+
+                    Array.prototype.push.apply(src, app.angular.files);
+                    return {
+                        src: src,
+                        dest: app.angular.production.folder,
+                        bundleName: app.angular.production.bundleName,
+                    };
+                })
+            );
         };
 
         this.BuildJsToDeploy = function () {
