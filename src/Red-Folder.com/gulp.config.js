@@ -59,7 +59,6 @@ module.exports = function (logger) {
 
     config.specsToBuild = suite.BuildSpecsToBuild();
 
-
     config.wiredep = {
         src: './views/shared/_layout.cshtml',
         dest: './views/shared/',
@@ -82,7 +81,7 @@ module.exports = function (logger) {
         },
 
         browserReloadDelay: 1000,
-        
+
         specTemplate: './Utils/SpecServer/templates/spec.html',
         specOutput: './Utils/SpecServer/output',
         startPath: './Utils/SpecServer/output/repoExplorer.html',
@@ -94,7 +93,6 @@ module.exports = function (logger) {
             }
         }
     };
-
 
     return config;
 };

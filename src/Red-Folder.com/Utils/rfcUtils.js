@@ -1,15 +1,18 @@
-﻿'use strict';
+﻿/* jshint -W097 */
+'use strict';
 
+/* jshint -W117 */
 var path = require('path');
 
-module.exports = function() {
+/* jshint -W117 */
+module.exports = function () {
     var utils = {};
 
     utils.AppBuilder = function (logger, name) {
         this.logger = logger;
         this.name = name;
         this.htmlDestination = null;
-        
+
         this.angular = {
             folder: null,
             hasSpecs: false,
@@ -23,42 +26,42 @@ module.exports = function() {
 
         this.less = {
             folder: null
-        }
+        };
 
         this.setHtmlDestination = function (file) {
             this.htmlDestination = file;
             return this;
-        },
+        };
 
         this.addAngularJs = function (folder) {
             this.angular.folder = folder;
             return this;
-        },
+        };
 
         this.hasAngularSpecs = function () {
             this.angular.hasSpecs = true;
             return this;
-        },
+        };
 
         this.hasAngularThirdPartyJs = function () {
             this.angular.hasThirdParty = true;
             return this;
-        },
+        };
 
         this.addJs = function (folder) {
             this.js.folder = folder;
             return this;
-        },
+        };
 
         this.hasThirdPartyJs = function () {
             this.js.hasThirdParty = true;
             return this;
-        },
+        };
 
         this.addLess = function (folder) {
             this.less.folder = folder;
             return this;
-        },
+        };
 
         this.build = function () {
             var config = {
@@ -68,13 +71,11 @@ module.exports = function() {
                 hasLess: false
             };
 
-            if (this.htmlDestination != null)
-            {
+            if (this.htmlDestination !== null) {
                 config.htmlDestination = this.htmlDestination;
             }
-                
-            if (this.angular.folder != null)
-            {
+
+            if (this.angular.folder !== null) {
                 config.hasAngular = true;
                 config.angular = {
                     folder: this.angular.folder,
@@ -110,8 +111,7 @@ module.exports = function() {
                 }
             }
 
-            if (this.js.folder != null)
-            {
+            if (this.js.folder !== null) {
                 config.hasJs = true;
                 config.js = {
                     folder: this.js.folder,
@@ -136,8 +136,7 @@ module.exports = function() {
                 }
             }
 
-            if (this.less.folder != null)
-            {
+            if (this.less.folder !== null) {
                 config.hasLess = true;
                 config.less = {
                     folder: this.less.folder,
@@ -157,7 +156,7 @@ module.exports = function() {
             }
 
             return config;
-        }
+        };
     };
 
     utils.SuiteBuilder = function (logger, apps) {
@@ -215,9 +214,13 @@ module.exports = function() {
                         });
                     }
 
-                    var tags = results.filter(function (result) { return result.src === app.htmlDestination; })[0].tags;
+                    var tags = results.filter(function (result) {
+                        return result.src === app.htmlDestination;
+                    })[0].tags;
 
-                    if (tags.filter(function (tag) { return tag.tagName == app.less.development.htmlInjection.tagName; })) {
+                    if (tags.filter(function (tag) {
+                        return tag.tagName == app.less.development.htmlInjection.tagName;
+                    })) {
                         tags.push({
                             ignorePath: '/wwwroot',
                             tagName: app.less.development.htmlInjection.tagName,
@@ -225,7 +228,9 @@ module.exports = function() {
                         });
                     }
 
-                    var css = tags.filter(function (tag) { return tag.tagName == app.less.development.htmlInjection.tagName; })[0].css;
+                    var css = tags.filter(function (tag) {
+                        return tag.tagName == app.less.development.htmlInjection.tagName;
+                    })[0].css;
                     css.push(app.less.folder + '*.css');
                 }
             });
@@ -257,9 +262,13 @@ module.exports = function() {
                         });
                     }
 
-                    var tags = results.filter(function (result) { return result.src === app.htmlDestination; })[0].tags;
+                    var tags = results.filter(function (result) {
+                        return result.src === app.htmlDestination;
+                    })[0].tags;
 
-                    if (tags.filter(function (tag) { return tag.tagName == app.less.production.htmlInjection.tagName; })) {
+                    if (tags.filter(function (tag) {
+                        return tag.tagName == app.less.production.htmlInjection.tagName;
+                    })) {
                         tags.push({
                             ignorePath: '/wwwroot',
                             tagName: app.less.production.htmlInjection.tagName,
@@ -267,7 +276,9 @@ module.exports = function() {
                         });
                     }
 
-                    var css = tags.filter(function (tag) { return tag.tagName == app.less.production.htmlInjection.tagName; })[0].css;
+                    var css = tags.filter(function (tag) {
+                        return tag.tagName == app.less.production.htmlInjection.tagName;
+                    })[0].css;
                     css.push(app.less.production.folder + '*.css');
                 }
             });
@@ -316,10 +327,14 @@ module.exports = function() {
                         });
                     }
 
-                    var tags = results.filter(function (result) { return result.src === app.htmlDestination; })[0].tags;
+                    var tags = results.filter(function (result) {
+                        return result.src === app.htmlDestination;
+                    })[0].tags;
 
                     if (app.hasJs) {
-                        if (tags.filter(function (tag) { return tag.tagName == app.js.development.htmlInjection.tagName; }).length === 0) {
+                        if (tags.filter(function (tag) {
+                            return tag.tagName == app.js.development.htmlInjection.tagName;
+                        }).length === 0) {
                             tags.push({
                                 ignorePath: '/wwwroot',
                                 tagName: app.js.development.htmlInjection.tagName,
@@ -327,14 +342,18 @@ module.exports = function() {
                             });
                         }
 
-                        var js = tags.filter(function (tag) { return tag.tagName == app.js.development.htmlInjection.tagName; })[0].js;
+                        var js = tags.filter(function (tag) {
+                            return tag.tagName == app.js.development.htmlInjection.tagName;
+                        })[0].js;
                         if (app.js.hasThirdParty) {
                             js.push(app.js.folder + '3rdParty/*.js');
                         }
                         js.push(app.js.files);
                     }
                     if (app.hasAngular) {
-                        if (tags.filter(function (tag) { return tag.tagName == app.angular.development.htmlInjection.tagName; }).length === 0) {
+                        if (tags.filter(function (tag) {
+                            return tag.tagName == app.angular.development.htmlInjection.tagName;
+                        }).length === 0) {
                             tags.push({
                                 ignorePath: '/wwwroot',
                                 tagName: app.angular.development.htmlInjection.tagName,
@@ -342,11 +361,13 @@ module.exports = function() {
                             });
                         }
 
-                        var js = tags.filter(function (tag) { return tag.tagName == app.angular.development.htmlInjection.tagName; })[0].js;
+                        var angular = tags.filter(function (tag) {
+                            return tag.tagName == app.angular.development.htmlInjection.tagName;
+                        })[0].js;
                         if (app.angular.hasThirdParty) {
-                            js.push(app.angular.folder + '3rdParty/*.js');
+                            angular.push(app.angular.folder + '3rdParty/*.js');
                         }
-                        Array.prototype.push.apply(js, app.angular.files);
+                        Array.prototype.push.apply(angular, app.angular.files);
                     }
                 }
             });
@@ -372,8 +393,7 @@ module.exports = function() {
                     return app.hasAngular;
                 }).map(function (app) {
                     var src = [];
-                    if (app.angular.hasSpecs)
-                    {
+                    if (app.angular.hasSpecs) {
                         src.push(app.angular.folder + '3rdParty/*.js');
                     }
 
@@ -399,10 +419,14 @@ module.exports = function() {
                         });
                     }
 
-                    var tags = results.filter(function (result) { return result.src === app.htmlDestination; })[0].tags;
+                    var tags = results.filter(function (result) {
+                        return result.src === app.htmlDestination;
+                    })[0].tags;
 
                     if (app.hasJs) {
-                        if (tags.filter(function (tag) { return tag.tagName == app.js.production.htmlInjection.tagName; })) {
+                        if (tags.filter(function (tag) {
+                            return tag.tagName == app.js.production.htmlInjection.tagName;
+                        })) {
                             tags.push({
                                 ignorePath: '/wwwroot',
                                 tagName: app.js.production.htmlInjection.tagName,
@@ -410,12 +434,16 @@ module.exports = function() {
                             });
                         }
 
-                        var js = tags.filter(function (tag) { return tag.tagName == app.js.production.htmlInjection.tagName; })[0].js;
+                        var js = tags.filter(function (tag) {
+                            return tag.tagName == app.js.production.htmlInjection.tagName;
+                        })[0].js;
                         js.push(app.js.production.folder + '*.js');
                     }
 
                     if (app.hasAngular) {
-                        if (tags.filter(function (tag) { return tag.tagName == app.angular.production.htmlInjection.tagName; })) {
+                        if (tags.filter(function (tag) {
+                            return tag.tagName == app.angular.production.htmlInjection.tagName;
+                        })) {
                             tags.push({
                                 ignorePath: '/wwwroot',
                                 tagName: app.angular.production.htmlInjection.tagName,
@@ -423,8 +451,10 @@ module.exports = function() {
                             });
                         }
 
-                        var js = tags.filter(function (tag) { return tag.tagName == app.angular.production.htmlInjection.tagName; })[0].js;
-                        js.push(app.angular.production.folder + '*.js');
+                        var angular = tags.filter(function (tag) {
+                            return tag.tagName == app.angular.production.htmlInjection.tagName;
+                        })[0].js;
+                        angular.push(app.angular.production.folder + '*.js');
                     }
 
                 }
@@ -455,9 +485,9 @@ module.exports = function() {
                     name: app.name
                 };
             });
-        }
+        };
 
-    }
+    };
 
     return utils;
 };

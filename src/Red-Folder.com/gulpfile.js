@@ -14,7 +14,7 @@ var del = require('del');
 var eventStream = require('event-stream');
 var merge = require('merge-stream');
 var browserSync = require('browser-sync');
-var $ = require('gulp-load-plugins')({ lazy: true });
+var $ = require('gulp-load-plugins')({lazy: true});
 
 var config = require('./gulp.config')(log);
 
@@ -43,7 +43,7 @@ gulp.task('compile-less', ['validate-less'], function() {
         return gulp.src(element.src)
             .pipe($.print())
             .pipe($.less({
-                paths: [path.join(__dirname, 'less', 'includes')],
+                paths: [path.join(__dirname, 'less', 'includes')]
             }))
             .pipe(gulp.dest(element.dest));
     });
@@ -57,7 +57,7 @@ gulp.task('autoprefix-css', ['compile-less'], function() {
     var tasks = config.cssToAutoPrefix.map(function(element) {
         return gulp.src(element.src)
             .pipe($.print())
-            .pipe($.autoprefixer({ browser: ['last 2 versions', '> 5%'], }))
+            .pipe($.autoprefixer({browser: ['last 2 versions', '> 5%']}))
             .pipe(gulp.dest(element.dest));
     });
 
@@ -72,9 +72,9 @@ gulp.task('inject-css', ['compile-less', 'autoprefix-css'], function() {
                         .pipe($.print());
 
         for (var i = 0; i < element.tags.length; i++) {
-            task = task.pipe($.inject(gulp.src(element.tags[i].css, { read: false }), {
+            task = task.pipe($.inject(gulp.src(element.tags[i].css, {read: false}), {
                 ignorePath: element.tags[i].ignorePath,
-                name: element.tags[i].tagName,
+                name: element.tags[i].tagName
             }));
         }
 
@@ -107,9 +107,9 @@ gulp.task('deploy-css', ['bundle-css'], function() {
                         .pipe($.print());
 
         for (var i = 0; i < element.tags.length; i++) {
-            task = task.pipe($.inject(gulp.src(element.tags[i].css, { read: false, }), {
+            task = task.pipe($.inject(gulp.src(element.tags[i].css, {read: false}), {
                 ignorePath: element.tags[i].ignorePath,
-                name: element.tags[i].tagName,
+                name: element.tags[i].tagName
             }));
         }
 
@@ -128,11 +128,11 @@ gulp.task('validate-js', function() {
     var tasks = config.jsToValidate.map(function(element) {
         return gulp.src(element.src)
             .pipe($.print())
-            .pipe($.jscs({ configPath: config.tools.jscsConfig }))
+            .pipe($.jscs({configPath: config.tools.jscsConfig}))
             .pipe($.jscs.reporter())
             .pipe($.jscs.reporter('fail'))
             .pipe($.jshint())
-            .pipe($.jshint.reporter('jshint-stylish', { verbose: true, }))
+            .pipe($.jshint.reporter('jshint-stylish', {verbose: true}))
             .pipe($.jshint.reporter('fail'));
     });
 
@@ -156,11 +156,11 @@ gulp.task('inject-js', ['validate-js', 'inject-bower'], function() {
     var tasks = config.jsToInject.map(function (element) {
         var task = gulp.src(element.src)
                         .pipe($.print());
-        
+
         for (var i = 0; i < element.tags.length; i++) {
             task = task.pipe($.inject(gulp.src(element.tags[i].js).pipe($.angularFilesort()), {
                 ignorePath: element.tags[i].ignorePath,
-                name: element.tags[i].tagName,
+                name: element.tags[i].tagName
             }));
         }
 
@@ -193,9 +193,9 @@ gulp.task('deploy-js', ['bundle-js', 'inject-bower'], function() {
                         .pipe($.print());
 
         for (var i = 0; i < element.tags.length; i++) {
-            task = task.pipe($.inject(gulp.src(element.tags[i].js, { read: false, }), {
+            task = task.pipe($.inject(gulp.src(element.tags[i].js, {read: false}), {
                 ignorePath: element.tags[i].ignorePath,
-                name: element.tags[i].tagName,
+                name: element.tags[i].tagName
             }));
         }
 
@@ -221,7 +221,7 @@ gulp.task('serve-specs', ['build-specs'], function (done) {
             log('files changed:\n' + ev);
             setTimeout(function () {
                 browserSync.notify('reloading now ...');
-                browserSync.reload({ stream: false });
+                browserSync.reload({stream: false});
             }, config.specRunner.browserReloadDelay);
         })
         .on('start', function () {
@@ -247,9 +247,9 @@ gulp.task('build-specs', function (done) {
         return gulp
             .src(config.specRunner.specTemplate)
             .pipe(wiredep(config.specRunner.wiredep.options))
-            .pipe($.inject(gulp.src(element.src, { read: false }), { relative: true }))
-            .pipe($.inject(gulp.src(element.testlibraries, { read: false, }), { name: 'testlibraries', relative: true }))
-            .pipe($.inject(gulp.src(element.specs, { read: false, }), { name: 'specs', relative: true }))
+            .pipe($.inject(gulp.src(element.src, {read: false}), {relative: true}))
+            .pipe($.inject(gulp.src(element.testlibraries, {read: false}), {name: 'testlibraries', relative: true}))
+            .pipe($.inject(gulp.src(element.specs, {read: false}), {name: 'specs', relative: true}))
             .pipe($.rename(element.name + '.html'))
             .pipe(gulp.dest(config.specRunner.specOutput));
     });
@@ -280,11 +280,11 @@ gulp.task('validate-tools', function () {
 
     return gulp.src(['./gulpfile.js', './gulp.config.js', './Utils/rfcUtils.js', './Utils/SpecServer/app.js'])
         .pipe($.print())
-        .pipe($.jscs({ configPath: config.tools.jscsConfig }))
+        .pipe($.jscs({configPath: config.tools.jscsConfig}))
         .pipe($.jscs.reporter())
         .pipe($.jscs.reporter('fail'))
         .pipe($.jshint())
-        .pipe($.jshint.reporter('jshint-stylish', { verbose: true, }))
+        .pipe($.jshint.reporter('jshint-stylish', {verbose: true}))
         .pipe($.jshint.reporter('fail'));
 });
 
@@ -345,8 +345,6 @@ function startTests(singleRun, done) {
         }
     }
 }
-
-
 
 function startBrowserSync() {
     log('Starting BrowserSync on port ' + port);
