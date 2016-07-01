@@ -2,9 +2,9 @@
 
 /* jshint node: true */
 
-var rfcUtils = require('./Utils/rfcUtils.js');
+var rfcUtils = require('./Utils/rfcUtils.js')();
 
-module.exports = function() {
+module.exports = function (logger) {
     var config = {
         source: {
             root: './wwwroot-src/',
@@ -17,9 +17,10 @@ module.exports = function() {
         },
     };
 
-    var suite = new rfcUtils.SuiteBuilder([
+    var suite = new rfcUtils.SuiteBuilder(logger,
+        [
         // Shared
-        new rfcUtils.AppBuilder('shared')
+        new rfcUtils.AppBuilder(logger, 'shared')
                             .setHtmlDestination('./views/shared/_layout.cshtml')
                             .addJs('./wwwroot/scripts/shared/')
                             .hasThirdPartyJs()
@@ -27,14 +28,14 @@ module.exports = function() {
                             .build(),
 
         // DependancyGraph
-        new rfcUtils.AppBuilder('DependancyGraph')
+        new rfcUtils.AppBuilder(logger, 'DependancyGraph')
                             .setHtmlDestination('./views/Microservice/Index.cshtml')
                             .addJs('./wwwroot/scripts/dependancyGraph/')
                             .addLess('./wwwroot/css/dependancyGraph/')
                             .build(),
 
         // repoExplorer
-        new rfcUtils.AppBuilder('repoExplorer')
+        new rfcUtils.AppBuilder(logger, 'repoExplorer')
                             .setHtmlDestination('./views/Home/Repo.cshtml')
                             .addAngularJs('./wwwroot/scripts/repoExplorer/')
                             .hasAngularSpecs()

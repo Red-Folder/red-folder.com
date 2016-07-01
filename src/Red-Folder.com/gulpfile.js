@@ -12,10 +12,11 @@ var gulp = require('gulp');
 var path = require('path');
 var del = require('del');
 var eventStream = require('event-stream');
-var config = require('./gulp.config')();
 var merge = require('merge-stream');
 var browserSync = require('browser-sync');
 var $ = require('gulp-load-plugins')({ lazy: true });
+
+var config = require('./gulp.config')(log);
 
 var port = 8001;    //config.defaultPort;
 
@@ -152,7 +153,7 @@ gulp.task('inject-bower', function() {
 gulp.task('inject-js', ['validate-js', 'inject-bower'], function() {
     log('Inject JS');
 
-    var tasks = config.jsToInject.map(function(element) {
+    var tasks = config.jsToInject.map(function (element) {
         var task = gulp.src(element.src)
                         .pipe($.print());
         
@@ -303,11 +304,12 @@ gulp.task('watch-js', function() {
  */
 function log(msg) {
     if (typeof (msg) === 'object') {
-        for (var item in msg) {
-            if (msg.hasOwnProperty(item)) {
-                $.util.log($.util.colors.blue(msg[item]));
-            }
-        }
+        $.util.log($.util.colors.blue(JSON.stringify(msg)));
+        //for (var item in msg) {
+        //    if (msg.hasOwnProperty(item)) {
+        //        $.util.log($.util.colors.blue(msg[item]));
+        //    }
+        //}
     } else {
         $.util.log($.util.colors.blue(msg));
     }

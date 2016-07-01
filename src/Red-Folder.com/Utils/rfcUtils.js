@@ -2,19 +2,28 @@
 
 var path = require('path');
 
-module.exports = {
-    AppBuilder: function(name) {
+module.exports = function() {
+    var utils = {};
+
+    utils.AppBuilder = function (logger, name) {
+        this.logger = logger;
         this.name = name;
         this.htmlDestination = null;
         
-        this.angularFolder = null;
-        this.hasAngularSpecs = false;
-        this.hasAngularThirdPartyJs = null;
+        this.angular = {
+            folder: null,
+            hasSpecs: false,
+            hasThirdParty: false
+        };
 
-        this.jsFolder = null;
-        this.hasThirdPartyJs = null;
+        this.js = {
+            folder: null,
+            hasThirdParty: false
+        };
 
-        this.lessFolder = null;
+        this.less = {
+            folder: null
+        }
 
         this.setHtmlDestination = function (file) {
             this.htmlDestination = file;
@@ -22,32 +31,32 @@ module.exports = {
         },
 
         this.addAngularJs = function (folder) {
-            this.angularFolder = folder;
+            this.angular.folder = folder;
             return this;
         },
 
         this.hasAngularSpecs = function () {
-            this.hasAngularSpecs = true;
+            this.angular.hasSpecs = true;
             return this;
         },
 
         this.hasAngularThirdPartyJs = function () {
-            this.hasAngularThirdPartyJs = true;
+            this.angular.hasThirdParty = true;
             return this;
         },
 
         this.addJs = function (folder) {
-            this.jsFolder = folder;
+            this.js.folder = folder;
             return this;
         },
 
         this.hasThirdPartyJs = function () {
-            this.hasThirdPartyJs = true;
+            this.js.hasThirdParty = true;
             return this;
         },
 
         this.addLess = function (folder) {
-            this.lessFolder = folder;
+            this.less.folder = folder;
             return this;
         },
 
@@ -64,16 +73,16 @@ module.exports = {
                 config.htmlDestination = this.htmlDestination;
             }
                 
-            if (this.angularFolder != null)
+            if (this.angular.folder != null)
             {
                 config.hasAngular = true;
                 config.angular = {
-                    folder: this.angularFolder,
+                    folder: this.angular.folder,
                     files: [
-                        this.angularFolder + 'app.js',
-                        this.angularFolder + '*.controller.js',
-                        this.angularFolder + '*.directive.js',
-                        this.angularFolder + '*.service.js'
+                        this.angular.folder + 'app.js',
+                        this.angular.folder + '*.controller.js',
+                        this.angular.folder + '*.directive.js',
+                        this.angular.folder + '*.service.js'
                     ],
                     development: {
                         htmlInjection: {
@@ -81,7 +90,7 @@ module.exports = {
                         },
                     },
                     production: {
-                        folder: this.angularFolder + 'production/',
+                        folder: this.angular.folder + 'production/',
                         bundleName: this.name + '.js',
                         htmlInjection: {
                             tagName: this.name + 'Production',
@@ -90,29 +99,30 @@ module.exports = {
                 };
 
                 config.angular.hasSpecs = false;
-                if (this.hasAngularSpecs) {
+                if (this.angular.hasSpecs) {
                     config.angular.hasSpecs = true;
-                    config.angular.specs = this.angularFolder + '*.spec.js';
+                    config.angular.specs = this.angular.folder + '*.spec.js';
                 }
 
-                if (this.hasAngularThirdPartyJs != null) {
+                config.angular.hasThirdParty = false;
+                if (this.angular.hasThirdParty) {
                     config.angular.hasThirdParty = true;
                 }
             }
 
-            if (this.jsFolder != null)
+            if (this.js.folder != null)
             {
                 config.hasJs = true;
                 config.js = {
-                    folder: this.jsFolder,
-                    files: this.jsFolder + '*.js',
+                    folder: this.js.folder,
+                    files: this.js.folder + '*.js',
                     development: {
                         htmlInjection: {
                             tagName: this.name + 'Development',
                         },
                     },
                     production: {
-                        folder: this.angularFolder + 'production/',
+                        folder: this.js.folder + 'production/',
                         bundleName: this.name + '.js',
                         htmlInjection: {
                             tagName: this.name + 'Production',
@@ -120,23 +130,24 @@ module.exports = {
                     }
                 };
 
-                if (this.hasThirdPartyJs) {
+                config.js.hasThirdParty = false;
+                if (this.js.hasThirdParty) {
                     config.js.hasThirdParty = true;
                 }
             }
 
-            if (this.lessFolder != null)
+            if (this.less.folder != null)
             {
                 config.hasLess = true;
                 config.less = {
-                    folder: this.lessFolder,
+                    folder: this.less.folder,
                     development: {
                         htmlInjection: {
                             tagName: this.name + 'Development',
                         },
                     },
                     production: {
-                        folder: this.lessFolder + 'production/',
+                        folder: this.less.folder + 'production/',
                         bundleName: this.name + '.css',
                         htmlInjection: {
                             tagName: this.name + 'Production',
@@ -147,9 +158,10 @@ module.exports = {
 
             return config;
         }
-    },
+    };
 
-    SuiteBuilder: function (apps) {
+    utils.SuiteBuilder = function (logger, apps) {
+        this.logger = logger;
         this.apps = apps;
 
         this.BuildLessToCompile = function () {
@@ -295,7 +307,7 @@ module.exports = {
         this.BuildJsToInject = function () {
             var results = [];
             this.apps.forEach(function (app) {
-                if (app.hasJs) {
+                if (app.hasJs || app.hasAngular) {
                     if (results.filter(function (result) { return result.src === app.htmlDestination; }).length === 0) {
                         results.push({
                             src: app.htmlDestination,
@@ -306,19 +318,36 @@ module.exports = {
 
                     var tags = results.filter(function (result) { return result.src === app.htmlDestination; })[0].tags;
 
-                    if (tags.filter(function (tag) { return tag.tagName == app.js.development.htmlInjection.tagName; })) {
-                        tags.push({
-                            ignorePath: '/wwwroot',
-                            tagName: app.js.development.htmlInjection.tagName,
-                            js: [],
-                        });
-                    }
+                    if (app.hasJs) {
+                        if (tags.filter(function (tag) { return tag.tagName == app.js.development.htmlInjection.tagName; }).length === 0) {
+                            tags.push({
+                                ignorePath: '/wwwroot',
+                                tagName: app.js.development.htmlInjection.tagName,
+                                js: [],
+                            });
+                        }
 
-                    var js = tags.filter(function (tag) { return tag.tagName == app.js.development.htmlInjection.tagName; })[0].js;
-                    if (app.js.hasThirdParty) {
-                        js.push(app.js.folder + '3rdParty/*.js');
+                        var js = tags.filter(function (tag) { return tag.tagName == app.js.development.htmlInjection.tagName; })[0].js;
+                        if (app.js.hasThirdParty) {
+                            js.push(app.js.folder + '3rdParty/*.js');
+                        }
+                        js.push(app.js.files);
                     }
-                    js.push(app.js.files);
+                    if (app.hasAngular) {
+                        if (tags.filter(function (tag) { return tag.tagName == app.angular.development.htmlInjection.tagName; }).length === 0) {
+                            tags.push({
+                                ignorePath: '/wwwroot',
+                                tagName: app.angular.development.htmlInjection.tagName,
+                                js: [],
+                            });
+                        }
+
+                        var js = tags.filter(function (tag) { return tag.tagName == app.angular.development.htmlInjection.tagName; })[0].js;
+                        if (app.angular.hasThirdParty) {
+                            js.push(app.angular.folder + '3rdParty/*.js');
+                        }
+                        Array.prototype.push.apply(js, app.angular.files);
+                    }
                 }
             });
 
@@ -395,4 +424,6 @@ module.exports = {
         }
 
     }
+
+    return utils;
 };
