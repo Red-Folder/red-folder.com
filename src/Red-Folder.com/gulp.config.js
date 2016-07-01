@@ -14,6 +14,12 @@ module.exports = function (logger) {
         },
         tools: {
             jscsConfig: './.jsjc.json',
+            src: [
+                './gulpfile.js',
+                './gulp.config.js',
+                './Utils/rfcUtils.js',
+                './Utils/SpecServer/app.js'
+            ]
         },
     };
 
@@ -77,7 +83,7 @@ module.exports = function (logger) {
             env: {
                 'PORT': 8001
             },
-            watch: './Utils/SpecServer/app.js'
+            watch: config.tools.src
         },
 
         browserReloadDelay: 1000,

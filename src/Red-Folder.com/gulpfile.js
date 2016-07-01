@@ -278,7 +278,7 @@ gulp.task('deployment-prepare', function() {
 gulp.task('validate-tools', function () {
     log('Validating Gulp, Config & tools');
 
-    return gulp.src(['./gulpfile.js', './gulp.config.js', './Utils/rfcUtils.js', './Utils/SpecServer/app.js'])
+    return gulp.src(config.tools.src)
         .pipe($.print())
         .pipe($.jscs({configPath: config.tools.jscsConfig}))
         .pipe($.jscs.reporter())
