@@ -390,7 +390,7 @@ module.exports = function() {
         this.BuildJsToDeploy = function () {
             var results = [];
             this.apps.forEach(function (app) {
-                if (app.hasJs) {
+                if (app.hasJs || app.hasAngular) {
                     if (results.filter(function (result) { return result.src === app.htmlDestination; }).length === 0) {
                         results.push({
                             src: app.htmlDestination,
@@ -401,16 +401,32 @@ module.exports = function() {
 
                     var tags = results.filter(function (result) { return result.src === app.htmlDestination; })[0].tags;
 
-                    if (tags.filter(function (tag) { return tag.tagName == app.js.production.htmlInjection.tagName; })) {
-                        tags.push({
-                            ignorePath: '/wwwroot',
-                            tagName: app.js.production.htmlInjection.tagName,
-                            js: [],
-                        });
+                    if (app.hasJs) {
+                        if (tags.filter(function (tag) { return tag.tagName == app.js.production.htmlInjection.tagName; })) {
+                            tags.push({
+                                ignorePath: '/wwwroot',
+                                tagName: app.js.production.htmlInjection.tagName,
+                                js: [],
+                            });
+                        }
+
+                        var js = tags.filter(function (tag) { return tag.tagName == app.js.production.htmlInjection.tagName; })[0].js;
+                        js.push(app.js.production.folder + '*.js');
                     }
 
-                    var js = tags.filter(function (tag) { return tag.tagName == app.js.production.htmlInjection.tagName; })[0].js;
-                    js.push(app.js.production.folder + '*.js');
+                    if (app.hasAngular) {
+                        if (tags.filter(function (tag) { return tag.tagName == app.angular.production.htmlInjection.tagName; })) {
+                            tags.push({
+                                ignorePath: '/wwwroot',
+                                tagName: app.angular.production.htmlInjection.tagName,
+                                js: [],
+                            });
+                        }
+
+                        var js = tags.filter(function (tag) { return tag.tagName == app.angular.production.htmlInjection.tagName; })[0].js;
+                        js.push(app.angular.production.folder + '*.js');
+                    }
+
                 }
             });
 
