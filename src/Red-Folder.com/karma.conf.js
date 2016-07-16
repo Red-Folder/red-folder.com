@@ -1,7 +1,9 @@
 // Karma configuration
 // Generated on Sat May 07 2016 18:01:33 GMT+0100 (GMT Daylight Time)
 
-module.exports = function(config) {
+module.exports = function (config) {
+  var gulpConfig = require('./gulp.config')();
+
   config.set({
 
     // base path that will be used to resolve all patterns (eg. files, exclude)
@@ -14,42 +16,23 @@ module.exports = function(config) {
 
 
     // list of files / patterns to load in the browser
-    files: [
-        './wwwroot/lib/angular/angular.js',
-        './wwwroot/lib/angular-resource/angular-resource.js',
-        './wwwroot/lib/angular-mocks/angular-mocks.js',
-        './wwwroot/lib/bardjs/dist/bard.js',
-
-        './wwwroot/lib/jquery/dist/jquery.js',
-        './wwwroot/lib/bootstrap/dist/js/bootstrap.js',
-        './wwwroot/lib/bootstrap-switch/dist/js/bootstrap-switch.js',
-        './wwwroot/lib/angular-bootstrap-switch/dist/angular-bootstrap-switch.js',
-
-        './wwwroot/scripts/*/app.js',
-        './wwwroot/scripts/*/*.controller.js',
-        './wwwroot/scripts/*/*.directive.js',
-        './wwwroot/scripts/*/*.service.js',
-        './wwwroot/scripts/*/*.spec.js'
-    ],
+    files: gulpConfig.karma.files,
       // TODO
       // Need to load the source files from the config.  Then need to get the spec files.
     
 
     // list of files to exclude
-    exclude: [
-    ],
+    exclude: gulpConfig.karma.exclude,
 
 
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
-    preprocessors: {
-    },
-
+    preprocessors: gulpConfig.karma.preprocessors,
 
     // test results reporter to use
     // possible values: 'dots', 'progress'
     // available reporters: https://npmjs.org/browse/keyword/karma-reporter
-    reporters: ['progress','htmlDetailed'],
+    reporters: ['progress', 'coverage'],
 
 
     // web server port
@@ -66,7 +49,7 @@ module.exports = function(config) {
 
 
     // enable / disable watching file and executing tests whenever any file changes
-    autoWatch: false,
+    autoWatch: true,
 
 
     // start these browsers
@@ -89,9 +72,10 @@ module.exports = function(config) {
     //    'karma-html-detailed-reporter'
     //],
 
-    // Configure the HTML-Detailed-Reporter to put all results in one file
-    htmlDetailed: {
-        splitResults: false
+    coverageReporter: {
+        dir: gulpConfig.karma.coverage.dir,
+        reporters: gulpConfig.karma.coverage.reporters
     }
+
   })
 }

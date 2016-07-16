@@ -3,6 +3,7 @@
 /* jshint node: true */
 
 var rfcUtils = require('./Utils/rfcUtils.js')();
+var report = './report/';
 
 module.exports = function (logger) {
     var config = {
@@ -100,5 +101,42 @@ module.exports = function (logger) {
         }
     };
 
+    config.karma = getKarmaOptions();
+
     return config;
+
+    function getKarmaOptions() {
+        var options = {
+            files: [
+                './wwwroot/lib/angular/angular.js',
+                './wwwroot/lib/angular-resource/angular-resource.js',
+                './wwwroot/lib/angular-mocks/angular-mocks.js',
+                './wwwroot/lib/bardjs/dist/bard.js',
+
+                './wwwroot/lib/jquery/dist/jquery.js',
+                './wwwroot/lib/bootstrap/dist/js/bootstrap.js',
+                './wwwroot/lib/bootstrap-switch/dist/js/bootstrap-switch.js',
+                './wwwroot/lib/angular-bootstrap-switch/dist/angular-bootstrap-switch.js',
+
+                './wwwroot/scripts/*/app.js',
+                './wwwroot/scripts/*/*.controller.js',
+                './wwwroot/scripts/*/*.directive.js',
+                './wwwroot/scripts/*/*.service.js',
+                './wwwroot/scripts/*/*.spec.js'
+            ],
+            exclude: [],
+            coverage: {
+                dir: report + 'coverage',
+                reporters: [
+                    // reporters not supporting the `file` property
+                    { type: 'html', subdir: 'report-html' },
+                    { type: 'lcov', subdir: 'report-lcov' },
+                    { type: 'text-summary' } //, subdir: '.', file: 'text-summary.txt'}
+                ]
+            },
+            preprocessors: {}
+        };
+        options.preprocessors['./wwwroot/scripts/**/!(*.spec)+(.js)'] = ['coverage'];
+        return options;
+    }
 };
