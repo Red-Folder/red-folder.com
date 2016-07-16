@@ -352,24 +352,16 @@ function startBrowserSync() {
     // TODO - Load these from the config
     // Will need to cycle through all of the relevant JavaScript
 
-    // If build: watches the files, builds, and restarts browser-sync.
-    // If dev: watches less, compiles it to css, browser-sync handles reload
-    //if (isDev) {
-    //    gulp.watch([config.less], ['styles'])
-    //        .on('change', changeEvent);
-    //} else {
-    //    gulp.watch([config.less, config.js, config.html], ['browserSyncReload'])
-    //        .on('change', changeEvent);
-    //}
-
+    gulp.watch(config.lessToCompile.map(function(element) { return element.src; }), ['compile-less'])
+        .on('change', changeEvent);
+    
     var options = {
         proxy: 'localhost:' + port,
         port: 3000,
-        //files: isDev ? [
-        //    config.client + '**/*.*',
-        //    '!' + config.less,
-        //    config.temp + '**/*.css'
-        //] : [],
+        files: [
+            './wwwroot/scripts/**/*.*',
+            './wwwroot/css/**/*.css'
+        ],
         ghostMode: { // these are the defaults t,f,t,t
             clicks: true,
             location: false,
@@ -386,4 +378,9 @@ function startBrowserSync() {
     };
 
     browserSync(options);
+}
+
+function changeEvent(event) {
+    var srcPattern = new RegExp('/.*(?=/' + config.source + ')/');
+    log('File ' + event.path.replace(srcPattern, '') + ' ' + event.type);
 }
