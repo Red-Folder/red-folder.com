@@ -24,7 +24,7 @@
             }
 
             function fail(error) {
-                var msg = 'Query for Repos for people failed. ' + error.data.description;
+                var msg = 'Query for Repos failed. ' + error.data.description;
                 return $q.reject(msg);
             }
         }
