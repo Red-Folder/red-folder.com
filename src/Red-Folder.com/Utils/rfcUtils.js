@@ -83,6 +83,7 @@ module.exports = function () {
                         this.angular.folder + 'app.js',
                         this.angular.folder + '*.controller.js',
                         this.angular.folder + '*.directive.js',
+                        this.angular.folder + '*.filter.js',
                         this.angular.folder + '*.service.js'
                     ],
                     development: {

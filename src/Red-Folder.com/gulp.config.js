@@ -122,6 +122,7 @@ module.exports = function (logger) {
                 './wwwroot/scripts/*/*.controller.js',
                 './wwwroot/scripts/*/*.directive.js',
                 './wwwroot/scripts/*/*.service.js',
+                './wwwroot/scripts/*/*.filter.js',
                 './wwwroot/scripts/*/*.spec.js'
             ],
             exclude: [],

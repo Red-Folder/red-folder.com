@@ -27,9 +27,9 @@
         </div>
 
         <div class="ng-cloak" ng-show="dashboard.repos.length > 0">
-            <rfc-toggle-group options="dashboard.options" selected="selected"></rfc-toggle-group>
+            <rfc-toggle-group options="dashboard.options" selected="dashboard.selected"></rfc-toggle-group>
 
-            <rfc-repo-group repos="dashboard.repos" selected="selected"></rfc-repo-group>
+            <rfc-repo-group repos="dashboard.repos" selected="dashboard.selected"></rfc-repo-group>
         </div>
     </div>
 </div>
@@ -40,6 +40,7 @@
         <!-- repoExplorerDevelopment:js -->
         <script src="/scripts/repoExplorer/app.js"></script>
         <script src="/scripts/repoExplorer/repo.service.js"></script>
+        <script src="/scripts/repoExplorer/tag.filter.js"></script>
         <script src="/scripts/repoExplorer/toggle.directive.js"></script>
         <script src="/scripts/repoExplorer/toggle-group.directive.js"></script>
         <script src="/scripts/repoExplorer/repo.directive.js"></script>
