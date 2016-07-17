@@ -10,15 +10,34 @@ using RedFolder.Services;
 using Microsoft.AspNet.Mvc;
 using Microsoft.AspNet.Mvc.Formatters;
 using Newtonsoft.Json.Serialization;
+using RedFolder.Data;
+using RedFolder.Models;
+using Microsoft.Extensions.Configuration;
+using System.IO;
+using Microsoft.Extensions.Logging;
 
 namespace RedFolder
 {
     public class Startup
     {
+
+        public static IConfigurationRoot Configuration { get; private set; }
+
+        public Startup(IHostingEnvironment env)
+        {
+            var builder = new ConfigurationBuilder()
+                .AddJsonFile("appsettings.json");
+
+            Configuration = builder.Build();
+        }
+
         // This method gets called by the runtime. Use this method to add services to the container.
         // For more information on how to configure your application, visit http://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
+            //services.AddOptions();
+            //services.Configure<ConfigurationOptions>(_configuration);
+
             services.AddMvc()
                 .AddMvcOptions(options => {
                       var jsonOutputFormatter = new JsonOutputFormatter();
@@ -27,12 +46,22 @@ namespace RedFolder
                       options.OutputFormatters.Insert(0, jsonOutputFormatter);
                   });
 
+            services.AddLogging();
+
+            services.AddEntityFramework()
+                .AddSqlServer()
+                .AddDbContext<RepoContext>();
+
+            services.AddTransient<RepoContextSeedData>();
+
             services.AddSingleton<IRepoRepository, RepoRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app)
+        public void Configure(IApplicationBuilder app, RepoContextSeedData seeder, ILoggerFactory loggerFactory)
         {
+            loggerFactory.AddDebug(LogLevel.Warning);
+
             app.UseStaticFiles();
 
             app.UseMvc(config =>
@@ -43,6 +72,8 @@ namespace RedFolder
                     defaults: new { controller = "Home", action = "Index" }
                 );
             });
+
+            seeder.EnsureSeedData();
         }
 
         // Entry point for the application.

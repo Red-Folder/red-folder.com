@@ -1,58 +1,44 @@
-﻿using System;
+﻿using Microsoft.Extensions.Logging;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using RedFolder.Models.Api;
 
 namespace RedFolder.Services
 {
     public class RepoRepository : IRepoRepository
     {
-        public IEnumerable<Repo> GetAll()
+        private RedFolder.Data.RepoContext _context = null;
+        private ILogger<RepoRepository> _logger = null;
+
+        public RepoRepository(RedFolder.Data.RepoContext context, ILogger<RepoRepository> logger)
         {
-            return new List<Repo>
+            _context = context;
+            _logger = logger;
+        }
+
+        public IEnumerable<RedFolder.Models.Api.Repo> GetAll()
+        {
+            try
             {
-                new Repo
-                {
-                     Name = "Repo 1",
-                     Description = "Repo 1 desciption",
-                     Stars = 5,
-                     OpenIssues = 7,
-                     Tags = new List<string>
-                     {
-                        "Cordova",
-                        "Java"
-                     }
-                },
+                var result = from repo in _context.Repos
+                             select new RedFolder.Models.Api.Repo
+                             {
+                                 Name = repo.Name,
+                                 Description = repo.Description,
+                                 Stars = repo.Stars,
+                                 OpenIssues = repo.OpenIssues,
+                                 Tags = (from tag in repo.Tags
+                                         select tag.Description).ToList()
+                             };
 
-                new Repo
-                {
-                     Name = "Repo 2",
-                     Description = "Repo 2 desciption",
-                     Stars = 3,
-                     OpenIssues = 0,
-                     Tags = new List<string>
-                     {
-                        "Cordova",
-                        "JavaScript",
-                        "GPS"
-                     }
-                },
-
-                new Repo
-                {
-                     Name = "Repo 3",
-                     Description = "Repo 3 desciption",
-                     Stars = 10,
-                     OpenIssues = 100,
-                     Tags = new List<string>
-                     {
-                        "C#",
-                        "CSS",
-                        "JavaScript"
-                     }
-                }
-            };
+                return result;
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError("Could not get Repos from the Database", ex);
+                return null;
+            }
         }
     }
 }
