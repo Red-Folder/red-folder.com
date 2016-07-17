@@ -17,7 +17,7 @@
                 options: '=',
                 selected: '=',
             },
-            controller: function($scope) {
+            controller: ['$scope', function($scope) {
                 $scope.onToggle = function (option) {
                     var index = $scope.selected.indexOf(option);
                     if (index > -1) {
@@ -28,7 +28,7 @@
                 };
 
                 $scope.defaultShow = true;
-            },
+            }]
         };
         return directive;
 
