@@ -15,6 +15,7 @@ using RedFolder.Models;
 using Microsoft.Extensions.Configuration;
 using System.IO;
 using Microsoft.Extensions.Logging;
+using Microsoft.AspNet.Diagnostics;
 
 namespace RedFolder
 {
@@ -26,7 +27,8 @@ namespace RedFolder
         public Startup(IHostingEnvironment env)
         {
             var builder = new ConfigurationBuilder()
-                .AddJsonFile("appsettings.json");
+                .AddJsonFile("appsettings.json")
+                .AddEnvironmentVariables();
 
             Configuration = builder.Build();
         }
@@ -35,8 +37,6 @@ namespace RedFolder
         // For more information on how to configure your application, visit http://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
-            //services.AddOptions();
-            //services.Configure<ConfigurationOptions>(_configuration);
 
             services.AddMvc()
                 .AddMvcOptions(options => {
@@ -60,6 +60,8 @@ namespace RedFolder
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, RepoContextSeedData seeder, ILoggerFactory loggerFactory)
         {
+            app.UseDeveloperExceptionPage();
+
             loggerFactory.AddDebug(LogLevel.Warning);
 
             app.UseStaticFiles();
