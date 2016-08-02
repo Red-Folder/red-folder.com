@@ -8,7 +8,25 @@ namespace RedFolder.Controllers.Web
     {
         public ActionResult Index()
         {
-            var tiles = new List<SummaryTile>()
+            var model = new HomePage();
+            model.Content = GetTiles();
+            model.Contact = new ContactRequest();
+            return View(model);
+        }
+
+        //[HttpPost]
+        //public ActionResult Index(HomePage request)
+        //{
+        //    var model = new HomePage();
+        //    model.Content = GetTiles();
+
+        //    model.Contact = request.Contact;
+        //    return View(model);
+        //}
+
+        private List<SummaryTile> GetTiles()
+        {
+            return new List<SummaryTile>()
             {
                 new SummaryTile(
                         "Key Services",
@@ -42,7 +60,7 @@ namespace RedFolder.Controllers.Web
 
                 new SummaryTile(
                         "Recent Projects",
-                        new Paragraphs() 
+                        new Paragraphs()
                         {
                             "Microservices",
                             "Cordova/ Phonegap"
@@ -53,8 +71,9 @@ namespace RedFolder.Controllers.Web
                         "icon-projects"
                     )
             };
-            return View(tiles);
+
         }
+
         public ActionResult Services()
         {
             return View();

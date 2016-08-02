@@ -1,4 +1,4 @@
-﻿@model List<RedFolder.ViewModels.SummaryTile>
+﻿@model RedFolder.ViewModels.HomePage
 
 @{
     ViewBag.Title = "Red Folder Consultancy Ltd";
@@ -8,4 +8,65 @@
     <h1>Better ROI from Software Development</h1>
 </div>
 
-@Html.Partial("_SummaryTiles", Model)
+@Html.Partial("_SummaryTiles", Model.Content)
+
+<div class="contact-form">
+    <h3>Got a question?</h3>
+    <div class="row">
+
+        <!--
+        <div class="col-md-6 col-xs-12">
+            @using (Html.BeginForm(FormMethod.Post))
+            {
+                <div>
+                    <strong>Your email address:</strong>@Html.TextBoxFor(x => x.Contact.Email)
+                </div>
+
+                <div>
+                    <strong>Your message:</strong>
+                </div>
+
+                <div>
+                    @Html.TextAreaFor(x => x.Contact.Message)
+                </div>
+
+                <div>
+                    <input type="submit" class="btn btn-info" value="Submit Button">
+                </div>
+            }
+        </div>
+            -->
+        <div class="col-md-offset-3 col-md-6 col-xs-12">
+            <div class="row">
+                <a href="mailto:mark@red-folder.com" class="social-icon">
+                    <div class="col-xs-6 icon">
+                        <img src="/images/icons/social/mail-dreamstale47.png" class="img-responsive" />
+                    </div>
+                    <div class="col-xs-6 text">
+                        <strong>Email:</strong>mark@red-folder.com
+                    </div>
+                </a>
+            </div>
+            <div class="row">
+                <a href="https://twitter.com/folderred" class="social-icon">
+                    <div class="col-xs-6 icon">
+                        <img src="/images/icons/social/twitter-dreamstale71.png" class="img-responsive" />
+                    </div>
+                    <div class="col-xs-6 text">
+                        <strong>Twitter:</strong>FolderRed
+                    </div>
+                </a>
+            </div>
+            <div class="row">
+                <a href="skype:red-folder?chat" class="social-icon">
+                    <div class="col-xs-6 icon">
+                        <img src="/images/icons/social/skype-dreamstale61.png" class="img-responsive" />
+                    </div>
+                    <div class="col-xs-6 text">
+                        <strong>Skype:</strong>red-folder
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,9 +1,11 @@
 {
-  "version": "1.0.0-*",
+  "commands": {
+    "web": "Microsoft.AspNet.Server.Kestrel",
+    "ef": "EntityFramework.Commands"
+  },
   "compilationOptions": {
     "emitEntryPoint": true
   },
-
   "dependencies": {
     "Microsoft.AspNet.IISPlatformHandler": "1.0.0-rc1-final",
     "Microsoft.AspNet.Mvc": "6.0.0-rc1-final",
@@ -16,12 +18,10 @@
     "Microsoft.Extensions.Logging.Debug": "1.0.0-rc1-final",
     "Microsoft.AspNet.Diagnostics": "1.0.0-rc1-final"
   },
-
-  "commands": {
-    "web": "Microsoft.AspNet.Server.Kestrel",
-    "ef": "EntityFramework.Commands"
-  },
-
+  "exclude": [
+    "wwwroot",
+    "node_modules"
+  ],
   "frameworks": {
     "dnx451": {
       "dependencies": {
@@ -29,11 +29,6 @@
     },
     "dnxcore50": { }
   },
-
-  "exclude": [
-    "wwwroot",
-    "node_modules"
-  ],
   "publishExclude": [
     "**.user",
     "**.vspscc"
@@ -41,5 +36,6 @@
   "scripts": {
     "prepublish": [ "npm install", "bower install" ],
     "prebuild": [ "gulp deployment-prepare --%build:Configuration%" ]
-  }
+  },
+  "version": "1.0.0-*"
 }
