@@ -270,6 +270,8 @@ gulp.task('deployment-prepare', function() {
 
         return gulp.start('deploy-css')
                 .start('deploy-js');
+    } else {
+        log('Not in release mode - thus skipping');
     }
 
     return gulp.noop;

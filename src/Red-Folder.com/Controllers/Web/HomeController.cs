@@ -1,6 +1,6 @@
 ﻿using RedFolder.ViewModels;
 using System.Collections.Generic;
-using Microsoft.AspNet.Mvc;
+using Microsoft.AspNetCore.Mvc;
 
 namespace RedFolder.Controllers.Web
 {

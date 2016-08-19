@@ -1,18 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.Data.Entity;
-using Microsoft.Extensions.OptionsModel;
-using RedFolder.Models;
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 
 namespace RedFolder.Data
 {
     public class RepoContext: DbContext
     {
-        public RepoContext()
+        private IConfigurationRoot _config;
+
+        public RepoContext(IConfigurationRoot config, DbContextOptions options): base(options)
         {
-            Database.EnsureCreated();
+            _config = config;
+            Database.Migrate();
         }
 
         public DbSet<Repo> Repos { get; set; }
@@ -20,11 +18,13 @@ namespace RedFolder.Data
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            var connString = Startup.Configuration["Data:RepoContext:ConnectionString"];
+            base.OnConfiguring(optionsBuilder);
+
+            //var connString = _config["Data:RepoContext:ConnectionString"];
+            var connString = _config.GetConnectionString("RepoContext");
 
             optionsBuilder.UseSqlServer(connString);
 
-            base.OnConfiguring(optionsBuilder);
         }
     }
 }

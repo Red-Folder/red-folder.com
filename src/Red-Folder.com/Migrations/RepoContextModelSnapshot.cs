@@ -1,8 +1,8 @@
-using System;
-using Microsoft.Data.Entity;
-using Microsoft.Data.Entity.Infrastructure;
-using Microsoft.Data.Entity.Metadata;
-using Microsoft.Data.Entity.Migrations;
+﻿using System;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using RedFolder.Data;
 
 namespace RedFolder.com.Migrations
@@ -13,7 +13,7 @@ namespace RedFolder.com.Migrations
         protected override void BuildModel(ModelBuilder modelBuilder)
         {
             modelBuilder
-                .HasAnnotation("ProductVersion", "7.0.0-rc1-16348")
+                .HasAnnotation("ProductVersion", "1.0.0-rtm-21431")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
             modelBuilder.Entity("RedFolder.Data.Repo", b =>
@@ -30,6 +30,8 @@ namespace RedFolder.com.Migrations
                     b.Property<int>("Stars");
 
                     b.HasKey("Id");
+
+                    b.ToTable("Repos");
                 });
 
             modelBuilder.Entity("RedFolder.Data.Tag", b =>
@@ -42,12 +44,16 @@ namespace RedFolder.com.Migrations
                     b.Property<int?>("RepoId");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("RepoId");
+
+                    b.ToTable("Tags");
                 });
 
             modelBuilder.Entity("RedFolder.Data.Tag", b =>
                 {
                     b.HasOne("RedFolder.Data.Repo")
-                        .WithMany()
+                        .WithMany("Tags")
                         .HasForeignKey("RepoId");
                 });
         }

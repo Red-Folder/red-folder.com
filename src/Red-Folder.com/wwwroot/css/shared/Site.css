@@ -53,8 +53,6 @@ a,
 a:visited,
 a:active {
   color: #4C4C4C;
-  -moz-transition: color 1.5s;
-  -o-transition: color 1.5s;
   -webkit-transition: color 1.5s;
   transition: color 1.5s;
 }
@@ -80,8 +78,6 @@ Navigation
 .navbar {
   margin-bottom: 0;
   padding: 5px 15px;
-  -moz-transition: all 0.5s;
-  -o-transition: all 0.5s;
   -webkit-transition: all 0.5s;
   transition: all 0.5s;
 }
@@ -98,8 +94,6 @@ Summary Tiles
 .icon-services {
   height: 128px;
   background: url('/images/icons/IconServicesGrey.png') no-repeat center;
-  -moz-transition: background-image 1.5s;
-  -o-transition: background-image 1.5s;
   -webkit-transition: background-image 1.5s;
   transition: background-image 1.5s;
 }
@@ -109,8 +103,6 @@ Summary Tiles
 .icon-bio {
   height: 128px;
   background: url('/images/icons/IconBioGrey.png') no-repeat center;
-  -moz-transition: background-image 1.5s;
-  -o-transition: background-image 1.5s;
   -webkit-transition: background-image 1.5s;
   transition: background-image 1.5s;
 }
@@ -120,8 +112,6 @@ Summary Tiles
 .icon-projects {
   height: 128px;
   background: url('/images/icons/IconProjectsGrey.png') no-repeat center;
-  -moz-transition: background-image 1.5s;
-  -o-transition: background-image 1.5s;
   -webkit-transition: background-image 1.5s;
   transition: background-image 1.5s;
 }
@@ -133,8 +123,6 @@ Summary Tiles
   margin-bottom: 15px;
   text-align: center;
   color: #4C4C4C;
-  -moz-transition: color 1.5s;
-  -o-transition: color 1.5s;
   -webkit-transition: color 1.5s;
   transition: color 1.5s;
 }
@@ -161,8 +149,6 @@ h3 {
   padding: 5px;
   border-top: 3px solid #4C4C4C;
   border-bottom: 3px solid #4C4C4C;
-  -moz-transition: border-top 1.5s,  border-bottom 1.5s;
-  -o-transition: border-top 1.5s,  border-bottom 1.5s;
   -webkit-transition: border-top 1.5s,  border-bottom 1.5s;
   transition: border-top 1.5s,  border-bottom 1.5s;
 }
@@ -225,12 +211,19 @@ Contact Form
   color: white;
   background: #e74c3c;
   padding: 5px 10px;
-  -moz-background-clip: content-box;
-  -webkit-background-clip: content-box;
   background-clip: content-box;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 .skills .highlight div {
   padding-top: 15px;
@@ -253,6 +246,7 @@ Helpers
 .row-eq-height {
   display: -webkit-box;
   display: -ms-flexbox;
+  display: -webkit-flex;
   display: flex;
 }
 .services .row:not(:last-child) {

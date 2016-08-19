@@ -14,7 +14,7 @@ namespace RedFolder.Data
             _context = context;
         }
 
-        public void EnsureSeedData()
+        public async Task EnsureSeedData()
         {
             if(!_context.Repos.Any())
             {
@@ -66,7 +66,7 @@ namespace RedFolder.Data
                 _context.Tags.AddRange(repo2.Tags);
                 _context.Tags.AddRange(repo3.Tags);
 
-                _context.SaveChanges();
+                await _context.SaveChangesAsync();
             }
         }
     }

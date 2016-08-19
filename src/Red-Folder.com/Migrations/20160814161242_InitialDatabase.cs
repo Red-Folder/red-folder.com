@@ -1,7 +1,7 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
-using Microsoft.Data.Entity.Migrations;
-using Microsoft.Data.Entity.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
+using Microsoft.EntityFrameworkCore.Metadata;
 
 namespace RedFolder.com.Migrations
 {
@@ -10,7 +10,7 @@ namespace RedFolder.com.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "Repo",
+                name: "Repos",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
@@ -22,10 +22,11 @@ namespace RedFolder.com.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Repo", x => x.Id);
+                    table.PrimaryKey("PK_Repos", x => x.Id);
                 });
+
             migrationBuilder.CreateTable(
-                name: "Tag",
+                name: "Tags",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
@@ -35,20 +36,28 @@ namespace RedFolder.com.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Tag", x => x.Id);
+                    table.PrimaryKey("PK_Tags", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Tag_Repo_RepoId",
+                        name: "FK_Tags_Repos_RepoId",
                         column: x => x.RepoId,
-                        principalTable: "Repo",
+                        principalTable: "Repos",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                 });
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Tags_RepoId",
+                table: "Tags",
+                column: "RepoId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.DropTable("Tag");
-            migrationBuilder.DropTable("Repo");
+            migrationBuilder.DropTable(
+                name: "Tags");
+
+            migrationBuilder.DropTable(
+                name: "Repos");
         }
     }
 }
