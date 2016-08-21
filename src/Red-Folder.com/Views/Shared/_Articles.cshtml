@@ -1,0 +1,24 @@
+﻿@model IEnumerable<RedFolder.ViewModels.BlogArticle>
+@{
+    var counter = 0;
+    foreach (var article in Model)
+    {
+        if (counter % 3 == 0)
+        {
+            <div class="clearfix visible-md-block visible-lg-block"></div>
+        }
+        if (counter % 2 == 0)
+        {
+            <div class="clearfix visible-sm-block"></div>
+        }
+        counter++;
+
+        <div class="col-xs-12 col-sm-6 col-md-4">
+            @{
+                await Html.RenderPartialAsync("_Article", article);
+            }
+        </div>
+    }
+}
+
+

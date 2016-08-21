@@ -37,6 +37,7 @@ namespace RedFolder
             services.AddLogging();
 
             services.AddScoped<IRepoRepository, RepoRepository>();
+            services.AddScoped<IArticleRepository, ArticleRepository>();
 
             services.AddTransient<RepoContextSeedData>();
         }
@@ -61,6 +62,11 @@ namespace RedFolder
 
             app.UseMvc(config =>
             {
+                config.MapRoute(
+                    name: "Projects",
+                    template: "projects/{action}",
+                    defaults: new { controller = "Home", action = "RecentProjects" }
+                );
                 config.MapRoute(
                     name: "Default",
                     template: "{controller}/{action}/{id?}",
