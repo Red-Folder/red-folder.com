@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"> 
+  <url>
+    <loc>https://www.red-folder.com</loc> 
+    <loc>https://www.red-folder.com/Services</loc> 
+    <loc>https://www.red-folder.com/Projects</loc> 
+    <loc>https://www.red-folder.com/Projects/ROI</loc> 
+    <loc>https://www.red-folder.com/Projects/AspNetCore</loc> 
+    <loc>https://www.red-folder.com/Projects/Microservice</loc> 
+    <loc>https://www.red-folder.com/Projects/Cordova</loc> 
+    <loc>https://www.red-folder.com/Projects/Cordova/BackgroundServicePlugin</loc>
+    <loc>https://www.red-folder.com/Projects/Cordova/GPSServicePlugin</loc>
+    <loc>https://www.red-folder.com/Projects/Cordova/SchedulerPlugin</loc>
+    <loc>https://www.red-folder.com/Projects/Cordova/AvailabilityMonitorPlugin</loc>
+    <loc>https://www.red-folder.com/Projects/Cordova/SMSHandlerPlugin</loc>
+    <loc>https://www.red-folder.com/MyBio</loc> 
+  </url>
+</urlset>

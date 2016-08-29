@@ -1,0 +1,24 @@
+@model string
+
+@{
+    ViewBag.Title = "Status: " + Model;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="row rfc-header recent-projects-page">
+    <span>Well done.  You've found a status @Model page.</span><br />
+</div>
+
+<div class="center-content">
+    <div class="row">
+        <div class="col-xs-12">
+            <img src="~/images/Error.png" class="img-responsive"/>
+            <p>
+                Well I'm suprised.  I really wasn't expecting that.  I'm going to have to have a lay down in a darkened room.
+            </p>
+            <p>
+                I can only appologise for any inconvience I've caused.  Rest assured that I shall not eat any more cakes until this is resolved.
+            </p>
+        </div>
+    </div>
+
+</div>

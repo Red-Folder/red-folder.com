@@ -7,6 +7,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.EntityFrameworkCore;
+using System.Threading.Tasks;
 
 namespace RedFolder
 {
@@ -55,7 +56,8 @@ namespace RedFolder
             }
             else
             {
-                app.UseExceptionHandler("/Home/Error");
+                app.UseExceptionHandler("/Errors/Status/500");
+                app.UseStatusCodePagesWithReExecute("/Errors/Status/{0}");
             }
 
             app.UseStaticFiles();
@@ -63,16 +65,36 @@ namespace RedFolder
             app.UseMvc(config =>
             {
                 config.MapRoute(
-                    name: "Projects",
-                    template: "projects/{action}",
-                    defaults: new { controller = "Home", action = "RecentProjects" }
+                    name: "Projects - Cordova",
+                    template: "Projects/Cordova/{action}",
+                    defaults: new { controller = "Cordova", action = "Index" }
                 );
+
+                config.MapRoute(
+                    name: "Projects - Microservice",
+                    template: "Projects/Microservice/{action}",
+                    defaults: new { controller = "Cordova", action = "Index" }
+                );
+
                 config.MapRoute(
                     name: "Default",
                     template: "{controller}/{action}/{id?}",
                     defaults: new { controller = "Home", action = "Index" }
                 );
+
+                //config.MapRoute(
+                //    name: "CatchAll",
+                //    template: "{url}",
+                //    defaults: new { controller = "Error", action = "NotFound" }
+                //);
+
             });
+
+            //app.Run(context =>
+            //{
+            //    context.Response.StatusCode = 404;
+            //    return Task.FromResult(0);
+            //});
 
             seeder.EnsureSeedData().Wait();
         }
