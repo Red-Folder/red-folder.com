@@ -71,9 +71,9 @@ namespace RedFolder
                 );
 
                 config.MapRoute(
-                    name: "Projects - Microservice",
-                    template: "Projects/Microservice/{action}",
-                    defaults: new { controller = "Microservices", action = "Index" }
+                    name: "Projects - Microservices",
+                    template: "Projects/Microservices/{action}",
+                    defaults: new { controller = "Microservice", action = "Index" }
                 );
 
                 config.MapRoute(
