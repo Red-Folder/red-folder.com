@@ -73,7 +73,7 @@ namespace RedFolder
                 config.MapRoute(
                     name: "Projects - Microservice",
                     template: "Projects/Microservice/{action}",
-                    defaults: new { controller = "Cordova", action = "Index" }
+                    defaults: new { controller = "Microservices", action = "Index" }
                 );
 
                 config.MapRoute(
