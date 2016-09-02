@@ -42,8 +42,8 @@ namespace RedFolder.Controllers.Web
                             "Interim team leadership",
                             "Software Development"
                         },
+                        "Index",
                         "Services",
-                        "Home",
                         "Find out more >>>",
                         "icon-services"
                     ),
@@ -58,8 +58,8 @@ namespace RedFolder.Controllers.Web
                             "Scrum Master Certified -Scrum.org PSM I",
                             "Specialist in improving legacy systems & teams"
                         },
+                        "Index",
                         "MyBio",
-                        "Home",
                         "Find out more >>>",
                         "icon-bio"
                     ),
@@ -71,8 +71,8 @@ namespace RedFolder.Controllers.Web
                             "Microservices",
                             "Cordova/ Phonegap"
                         },
-                        "RecentProjects",
-                        "Home",
+                        "Index",
+                        "Projects",
                         "Find out more >>>",
                         "icon-projects"
                     )
