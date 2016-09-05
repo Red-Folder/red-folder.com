@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Red_Folder.WebCrawl.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
@@ -6,16 +7,15 @@ using System.Threading.Tasks;
 
 namespace Red_Folder.WebCrawl.Helpers
 {
-    public class LinksExtractor
+    public class LinksExtractor: ILinksExtractor
     {
-        private IClientWrapper _client;
-        private string _prefix = "https://www.red-folder.com";
+        private string _domain;
 
         private IList<string> patterns = new List<string>();
 
-        public LinksExtractor(IClientWrapper client)
+        public LinksExtractor(string domain)
         {
-            _client = client;
+            _domain = domain;
 
             // Inlcude spaces to avoid JavaScript object setup
             patterns.Add(@" src(\s*)=(\s*)(""|')(?<url>.*?)(""|')");
@@ -23,17 +23,16 @@ namespace Red_Folder.WebCrawl.Helpers
             patterns.Add(@"<loc>(?<url>.*?)</loc>");
         }
 
-        public List<string> Extract()
+        public IList<IUrlInfo> Extract(string content)
         {
-            var links = new List<string>();
-
-            var content = _client.GetLastResponse().ToLower();
+            var links = new List<IUrlInfo>();
 
             foreach (var pattern in patterns)
             {
-                foreach (Match match in Regex.Matches(content, pattern))
+                foreach (Match match in Regex.Matches(content, pattern, RegexOptions.IgnoreCase))
                 {
-                    links.Add(Format(match.Groups["url"].Value));
+                    var formattedUrl = Format(match.Groups["url"].Value);
+                    links.Add(new AwaitingProcessingUrlInfo(formattedUrl));
                 }
             }
 
@@ -47,13 +46,28 @@ namespace Red_Folder.WebCrawl.Helpers
 
         private string EnsurePrefixed(string url)
         {
-            if (url.ToLower().StartsWith("http"))
+            if (url.ToLower().StartsWith("http") ||
+                url.ToLower().StartsWith("skype"))
             {
                 return url;
             }
             else
             {
-                return _prefix + url;
+                if (url.ToLower().StartsWith("//"))
+                {
+                    return "https:" + url;
+                }
+                else
+                {
+                    if (url.ToLower().StartsWith("/"))
+                    {
+                        return _domain + url;
+                    }
+                    else
+                    {
+                        return _domain + "/" + url;
+                    }
+                }
             }
         }
     }

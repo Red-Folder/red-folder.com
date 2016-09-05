@@ -10,23 +10,9 @@ namespace Red_Folder.WebCrawl.Helpers
 {
     public class ClientWrapper: IClientWrapper
     {
-        private static string _url;
-
-        private HttpStatusCode _lastHttpStatusCode = HttpStatusCode.OK;
+        private HttpStatusCode _lastHttpStatusCode = HttpStatusCode.Unused;
         private string _lastResponse = null;
         private HttpResponseHeaders _lastHttpResponseHeaders;
-
-        private string _relativePath;
-
-        public ClientWrapper(string url)
-        {
-            _url = url;
-        }
-
-        public string GetLastUrl()
-        {
-            return _url;
-        }
 
         public HttpStatusCode GetLastHttpStatusCode()
         {
@@ -43,7 +29,7 @@ namespace Red_Folder.WebCrawl.Helpers
             return _lastHttpResponseHeaders;
         }
 
-        public void Process()
+        public void Process(string url)
         {
             using (HttpClientHandler httpClientHanlder = new HttpClientHandler())
             {
@@ -51,7 +37,7 @@ namespace Red_Folder.WebCrawl.Helpers
 
                 using (HttpClient client = new HttpClient(httpClientHanlder))
                 {
-                    using (HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Get, _url))
+                    using (HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Get, url))
                     {
                         using (HttpResponseMessage response = client.SendAsync(request).Result)
                         {

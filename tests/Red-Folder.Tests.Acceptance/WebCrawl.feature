@@ -5,6 +5,6 @@
 
 Scenario: Check for deadlinks
 	Given I have a web crawler
-	And I populate it with http://www.red-folder.com
+	And I populate it with https://www.red-folder.com
 	When I run it
 	Then there should be no invalid urls

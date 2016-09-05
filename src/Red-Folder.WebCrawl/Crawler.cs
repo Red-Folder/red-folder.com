@@ -1,4 +1,5 @@
-﻿using Red_Folder.WebCrawl.Helpers;
+﻿using Red_Folder.WebCrawl.Command;
+using Red_Folder.WebCrawl.Helpers;
 using Red_Folder.WebCrawl.Models;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,30 +10,38 @@ namespace Red_Folder.WebCrawl
 {
     public class Crawler
     {
-        private IDictionary<string, UrlInfo> urls = new Dictionary<string, UrlInfo>();
+        private IDictionary<string, IUrlInfo> urls = new Dictionary<string, IUrlInfo>();
+        private int _maxDepth = 1000;
+        private string _domain = "https://www.red-folder.com";
+
+        private IProcessUrl _processor;
 
         public Crawler()
         {
-
+            _processor = new CloudflareCgiProcesser()
+                            .Next(new ImageProcessor(new ClientWrapper())
+                            .Next(new ContentProcessor(new ClientWrapper())
+                            .Next(new ExternalPageProcessor(_domain)
+                            .Next(new PageProcessor(_domain, new ClientWrapper(), new LinksExtractor(_domain))
+                            .Next(new UnknownProcessor())))));
         }
 
         public void AddUrl(string url)
         {
-            urls.Add(url, null);
+            urls.Add(url, new AwaitingProcessingUrlInfo(url));
         }
 
         public void Crawl()
         {
-            while (urls.Where(x => x.Value == null).Count() > 0)
+            var currentDepth = 0;
+            while (urls.Where(x => x.Value is AwaitingProcessingUrlInfo).Count() > 0  && currentDepth < _maxDepth)
             {
-                var urlsToAdd = new List<UrlInfo>();
-                foreach (var key in urls.Where(x => x.Value == null).Select(x => x.Key))
+                currentDepth++;
+
+                var urlsToAdd = new List<IUrlInfo>();
+                foreach (var key in urls.Where(x => x.Value is AwaitingProcessingUrlInfo).Select(x => x.Key))
                 {
-                    var client = new ClientWrapper(key);
-
-                    client.Process();
-
-                    var info = PopulateUrl(client);
+                    var info = ProcessUrl(key);
 
                     urlsToAdd.Add(info);
                 }
@@ -44,6 +53,16 @@ namespace Red_Folder.WebCrawl
                 }
 
                 // Populate with any new links
+                var newUrls = urlsToAdd.Where(x => x.HasLinks).SelectMany(x => x.Links).Distinct();
+
+                var newUrlsToAdd = newUrls.Where(x => !urls.Keys.Contains(x.Url)).ToList();
+                foreach (var newUrl in newUrls)
+                {
+                    if (!urls.Keys.Contains(newUrl.Url))
+                    {
+                        urls.Add(newUrl.Url, newUrl);
+                    }
+                }
             }
         }
 
@@ -60,23 +79,19 @@ namespace Red_Folder.WebCrawl
             {
                 var urlInfo = urls[url];
 
-                if (urlInfo.HasLinks)
+                if (!urlInfo.Valid)
                 {
-                    foreach (var link in urlInfo.Links)
-                    {
-                        builder.AppendFormat("{0} links to {1}\n\r", url, link);
-                    }
+                    builder.AppendLine(urlInfo.ToString());
                 }
+
             }
 
             return builder.ToString();
         }
 
-        private UrlInfo PopulateUrl(ClientWrapper client)
+        private IUrlInfo ProcessUrl(string url)
         {
-            var links = new LinksExtractor(client).Extract();
-
-            return new UrlInfo(client.GetLastUrl(), client.GetLastHttpStatusCode(), links);
+            return _processor.Process(url);
         }
     }
 }

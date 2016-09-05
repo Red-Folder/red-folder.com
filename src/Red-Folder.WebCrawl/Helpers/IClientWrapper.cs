@@ -9,10 +9,9 @@ namespace Red_Folder.WebCrawl.Helpers
 {
     public interface IClientWrapper
     {
-        string GetLastUrl();
         HttpStatusCode GetLastHttpStatusCode();
         string GetLastResponse();
         HttpResponseHeaders GetLastHttpResponseHeaders();
-        void Process();
+        void Process(string url);
     }
 }
