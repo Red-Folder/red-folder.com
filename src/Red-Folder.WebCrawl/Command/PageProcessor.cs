@@ -39,7 +39,7 @@ namespace Red_Folder.WebCrawl.Command
         private IUrlInfo Handle(string url)
         {
             HttpGet(url);
-            if (LastHttpStatusCode == System.Net.HttpStatusCode.OK)
+            if (LastHttpStatusCode == System.Net.HttpStatusCode.OK || LastHttpStatusCode == System.Net.HttpStatusCode.MovedPermanently)
             {
                 if (_linksExtrator == null)
                 {
@@ -47,7 +47,16 @@ namespace Red_Folder.WebCrawl.Command
                 }
                 else
                 {
-                    var links = _linksExtrator.Extract(LastHttpResponse);
+                    IList<IUrlInfo> links = null;
+                    if (_linksExtrator is ContentLinksExtractor)
+                    {
+                        links = _linksExtrator.Extract(LastHttpResponse);
+                    }
+                    else
+                    {
+                        links = _linksExtrator.Extract(LastHttpResponseHeaders.GetValues("location").FirstOrDefault());
+                    }
+
                     if (links == null)
                     {
                         return new PageUrlInfo(url);

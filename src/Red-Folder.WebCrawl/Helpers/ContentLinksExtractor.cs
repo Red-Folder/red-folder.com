@@ -7,13 +7,13 @@ using System.Threading.Tasks;
 
 namespace Red_Folder.WebCrawl.Helpers
 {
-    public class LinksExtractor: ILinksExtractor
+    public class ContentLinksExtractor: ILinksExtractor
     {
         private string _domain;
 
         private IList<string> patterns = new List<string>();
 
-        public LinksExtractor(string domain)
+        public ContentLinksExtractor(string domain)
         {
             _domain = domain;
 

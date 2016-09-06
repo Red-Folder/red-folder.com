@@ -9,7 +9,7 @@ namespace Red_Folder.WebCrawl.Tests
         [Fact]
         public void ReturnsLinkForSrcWithDoubleQuote()
         {
-            var extractor = new LinksExtractor(@"https://www,red-folder.com");
+            var extractor = new ContentLinksExtractor(@"https://www,red-folder.com");
 
             var results = extractor.Extract(@"<script src=""/test.js""></script>");
 
@@ -21,7 +21,7 @@ namespace Red_Folder.WebCrawl.Tests
         [Fact]
         public void ReturnsLinkForSrcWithSingleQuote()
         {
-            var extractor = new LinksExtractor(@"https://www,red-folder.com");
+            var extractor = new ContentLinksExtractor(@"https://www,red-folder.com");
 
             var results = extractor.Extract(@"<script src='/test.js'></script>");
 
@@ -33,7 +33,7 @@ namespace Red_Folder.WebCrawl.Tests
         [Fact]
         public void ReturnsLinkForSrcWithDoubleQuoteAndAdditonalSpaces()
         {
-            var extractor = new LinksExtractor(@"https://www,red-folder.com");
+            var extractor = new ContentLinksExtractor(@"https://www,red-folder.com");
 
             var results = extractor.Extract(@"<script src = ""/test.js""></script>");
 
@@ -45,7 +45,7 @@ namespace Red_Folder.WebCrawl.Tests
         [Fact]
         public void ReturnsLinkForSitemapLoc()
         {
-            var extractor = new LinksExtractor(@"https://www,red-folder.com");
+            var extractor = new ContentLinksExtractor(@"https://www,red-folder.com");
 
             var results = extractor.Extract(@"<loc>https://www.red-folder.com/test.js</loc>");
 
@@ -62,7 +62,7 @@ namespace Red_Folder.WebCrawl.Tests
                           @"<script src='/test.js'></script>" +
                           @"<script src=""/test.js""></script>";
 
-            var extractor = new LinksExtractor(@"https://www,red-folder.com");
+            var extractor = new ContentLinksExtractor(@"https://www,red-folder.com");
 
             var results = extractor.Extract(content);
 

@@ -39,8 +39,8 @@ namespace Red_Folder.WebCrawl
                             .Next(new ExternalPageProcessor(internalDomains)
                             .Next(new PageProcessor(_githubDomain, new ClientWrapper(), null)
                             .Next(new PageProcessor(_blogDomain, new ClientWrapper(), null)
-                            .Next(new PageProcessor(_oldBlogDomain, new ClientWrapper(), null)
-                            .Next(new PageProcessor(_websiteDomain, new ClientWrapper(), new LinksExtractor(_websiteDomain))
+                            .Next(new PageProcessor(_oldBlogDomain, new ClientWrapper(), new RedirectLinksExtractor())
+                            .Next(new PageProcessor(_websiteDomain, new ClientWrapper(), new ContentLinksExtractor(_websiteDomain))
                             .Next(new UnknownProcessor())))))))));
         }
 

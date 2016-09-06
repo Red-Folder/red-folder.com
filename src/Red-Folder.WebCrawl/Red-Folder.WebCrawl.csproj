@@ -53,7 +53,8 @@
     <Compile Include="Helpers\ClientWrapper.cs" />
     <Compile Include="Helpers\IClientWrapper.cs" />
     <Compile Include="Helpers\ILinksExtractor.cs" />
-    <Compile Include="Helpers\LinksExtractor.cs" />
+    <Compile Include="Helpers\ContentLinksExtractor.cs" />
+    <Compile Include="Helpers\RedirectLinksExtractor.cs" />
     <Compile Include="Models\AwaitingProcessingUrlInfo.cs" />
     <Compile Include="Models\BaseUrlInfo.cs" />
     <Compile Include="Models\CloudflareCgiUrlInfo.cs" />
