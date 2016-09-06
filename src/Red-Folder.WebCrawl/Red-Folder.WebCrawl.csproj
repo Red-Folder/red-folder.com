@@ -44,6 +44,7 @@
     <Compile Include="Command\CloudflareCgiProcesser.cs" />
     <Compile Include="Command\ContentProcessor.cs" />
     <Compile Include="Command\ExternalPageProcessor.cs" />
+    <Compile Include="Command\KnownPageProcessor.cs" />
     <Compile Include="Command\HttpClientBaseProcessor.cs" />
     <Compile Include="Command\ImageProcessor.cs" />
     <Compile Include="Command\IProcessUrl.cs" />
@@ -58,6 +59,7 @@
     <Compile Include="Models\CloudflareCgiUrlInfo.cs" />
     <Compile Include="Models\ContentUrlInfo.cs" />
     <Compile Include="Models\ExternalPageUrlInfo.cs" />
+    <Compile Include="Models\KnownPageUrlInfo.cs" />
     <Compile Include="Models\ImageUrlInfo.cs" />
     <Compile Include="Models\IUrlInfo.cs" />
     <Compile Include="Models\PageUrlInfo.cs" />

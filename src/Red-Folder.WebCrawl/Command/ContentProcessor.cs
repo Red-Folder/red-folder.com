@@ -28,8 +28,8 @@ namespace Red_Folder.WebCrawl.Command
 
         private bool CanBeHandled(string url)
         {
-            if (url.EndsWith(".css")) return false;
-            if (url.EndsWith(".js")) return false;
+            if (url.EndsWith(".css")) return true;
+            if (url.EndsWith(".js")) return true;
 
             return false;
         }

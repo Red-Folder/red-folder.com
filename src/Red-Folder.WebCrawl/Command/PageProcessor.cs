@@ -41,14 +41,21 @@ namespace Red_Folder.WebCrawl.Command
             HttpGet(url);
             if (LastHttpStatusCode == System.Net.HttpStatusCode.OK)
             {
-                var links = _linksExtrator.Extract(LastHttpResponse);
-                if (links == null)
+                if (_linksExtrator == null)
                 {
                     return new PageUrlInfo(url);
                 }
                 else
                 {
-                    return new PageUrlInfo(url, links);
+                    var links = _linksExtrator.Extract(LastHttpResponse);
+                    if (links == null)
+                    {
+                        return new PageUrlInfo(url);
+                    }
+                    else
+                    {
+                        return new PageUrlInfo(url, links);
+                    }
                 }
             }
             else

@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 
 namespace Red_Folder.WebCrawl.Models
 {
-    class ExternalPageUrlInfo : BaseUrlInfo
+    public class KnownPageUrlInfo : BaseUrlInfo
     {
-        public ExternalPageUrlInfo(string url)
+        public KnownPageUrlInfo(string url)
         {
             _url = url;
         }
 
-        public ExternalPageUrlInfo(string url, string invalidationMessage)
+        public KnownPageUrlInfo(string url, string invalidationMessage)
         {
             _url = url;
             _invalidationMessage = invalidationMessage;

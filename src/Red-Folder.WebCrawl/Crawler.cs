@@ -11,19 +11,37 @@ namespace Red_Folder.WebCrawl
     public class Crawler
     {
         private IDictionary<string, IUrlInfo> urls = new Dictionary<string, IUrlInfo>();
-        private int _maxDepth = 1000;
-        private string _domain = "https://www.red-folder.com";
+        private int _maxDepth = 10;
+        private string _websiteDomain = @"https://www.red-folder.com";
+        private string _blogDomain = @"http://blog.red-folder.com";
+        private string _oldBlogDomain = @"http://red-folder.blogspot.co.uk";
+        private string _githubDomain = @"https://github.com/red-folder";
+
 
         private IProcessUrl _processor;
 
+        private string _problems = "";
+
         public Crawler()
         {
+            var internalDomains = new List<string>
+            {
+                _websiteDomain,
+                _blogDomain,
+                _oldBlogDomain,
+                _githubDomain
+            };
+
             _processor = new CloudflareCgiProcesser()
                             .Next(new ImageProcessor(new ClientWrapper())
                             .Next(new ContentProcessor(new ClientWrapper())
-                            .Next(new ExternalPageProcessor(_domain)
-                            .Next(new PageProcessor(_domain, new ClientWrapper(), new LinksExtractor(_domain))
-                            .Next(new UnknownProcessor())))));
+                            .Next(new KnownPageProcessor()
+                            .Next(new ExternalPageProcessor(internalDomains)
+                            .Next(new PageProcessor(_githubDomain, new ClientWrapper(), null)
+                            .Next(new PageProcessor(_blogDomain, new ClientWrapper(), null)
+                            .Next(new PageProcessor(_oldBlogDomain, new ClientWrapper(), null)
+                            .Next(new PageProcessor(_websiteDomain, new ClientWrapper(), new LinksExtractor(_websiteDomain))
+                            .Next(new UnknownProcessor())))))))));
         }
 
         public void AddUrl(string url)
@@ -64,14 +82,16 @@ namespace Red_Folder.WebCrawl
                     }
                 }
             }
+
+            CheckForProblems();
         }
 
         public bool Valid()
         {
-            return false;
+            return _problems.Length == 0;
         }
 
-        public string Problems()
+        private void CheckForProblems()
         {
             StringBuilder builder = new StringBuilder();
 
@@ -82,16 +102,28 @@ namespace Red_Folder.WebCrawl
                 if (!urlInfo.Valid)
                 {
                     builder.AppendLine(urlInfo.ToString());
+
+                    var referencedIn = urls.Where(x => x.Value.HasLinks && x.Value.Links.Where(y => y.Url == urlInfo.Url).Count() > 0).Select(x => x.Key);
+                    foreach (var reference in referencedIn)
+                    {
+                        builder.AppendFormat("\tReferenced in: {0}", reference);
+                        builder.AppendLine();
+                    }
                 }
 
             }
 
-            return builder.ToString();
+            _problems = builder.ToString();
         }
 
         private IUrlInfo ProcessUrl(string url)
         {
             return _processor.Process(url);
+        }
+
+        public override string ToString()
+        {
+            return _problems;
         }
     }
 }

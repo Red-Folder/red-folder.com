@@ -31,7 +31,7 @@ namespace Red_Folder.Tests.Acceptance
         [Then(@"there should be no invalid urls")]
         public void ThenThereShouldBeNoInvalidUrls()
         {
-            Assert.True(_crawler.Valid(), _crawler.Problems());
+            Assert.True(_crawler.Valid(), _crawler.ToString());
         }
     }
 }
