@@ -6,6 +6,8 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 
+using Microsoft.Azure.WebJobs.Host;
+
 namespace Red_Folder.WebCrawl
 {
     public class Crawler
@@ -22,7 +24,7 @@ namespace Red_Folder.WebCrawl
 
         private string _problems = "";
 
-        public Crawler()
+        public Crawler(TraceWriter log)
         {
             var internalDomains = new List<string>
             {
@@ -33,14 +35,14 @@ namespace Red_Folder.WebCrawl
             };
 
             _processor = new CloudflareCgiProcesser()
-                            .Next(new ImageProcessor(new ClientWrapper())
-                            .Next(new ContentProcessor(new ClientWrapper())
+                            .Next(new ImageProcessor(new ClientWrapper(log))
+                            .Next(new ContentProcessor(new ClientWrapper(log))
                             .Next(new KnownPageProcessor()
                             .Next(new ExternalPageProcessor(internalDomains)
-                            .Next(new PageProcessor(_githubDomain, new ClientWrapper(), null)
-                            .Next(new PageProcessor(_blogDomain, new ClientWrapper(), null)
-                            .Next(new PageProcessor(_oldBlogDomain, new ClientWrapper(), new RedirectLinksExtractor())
-                            .Next(new PageProcessor(_websiteDomain, new ClientWrapper(), new ContentLinksExtractor(_websiteDomain))
+                            .Next(new PageProcessor(_githubDomain, new ClientWrapper(log), null)
+                            .Next(new PageProcessor(_blogDomain, new ClientWrapper(log), null)
+                            .Next(new PageProcessor(_oldBlogDomain, new ClientWrapper(log), new RedirectLinksExtractor())
+                            .Next(new PageProcessor(_websiteDomain, new ClientWrapper(log), new ContentLinksExtractor(_websiteDomain))
                             .Next(new UnknownProcessor())))))))));
         }
 
@@ -49,7 +51,7 @@ namespace Red_Folder.WebCrawl
             urls.Add(url, new AwaitingProcessingUrlInfo(url));
         }
 
-        public void Crawl()
+        public CrawlResults Crawl(string crawlId)
         {
             var currentDepth = 0;
             while (urls.Where(x => x.Value is AwaitingProcessingUrlInfo).Count() > 0  && currentDepth < _maxDepth)
@@ -83,8 +85,22 @@ namespace Red_Folder.WebCrawl
                 }
             }
 
-            CheckForProblems();
+            return ProduceResult(crawlId);
         }
+
+        private CrawlResults ProduceResult(string crawlId)
+        {
+            // Get all the urls
+            var tmpUrls = urls.Values.Select(x => new Url(x.Url, x.Valid, x.InvalidationMessage)).ToList();
+
+            // Get all the links
+            var tmpLinks = urls.Values.Where(x => x.HasLinks)
+                            .SelectMany(x =>
+                                x.Links.Select(y => new Link(x.Url, y.Url))).ToList();
+
+            return new CrawlResults(crawlId, tmpUrls, tmpLinks);
+        }
+
 
         public bool Valid()
         {
