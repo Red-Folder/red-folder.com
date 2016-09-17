@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.Serialization;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Runtime.Serialization;
 
-namespace Red_Folder.WebCrawl.Models
+namespace Red_Folder.WebCrawl.Data
 {
     [DataContract]
     public class Link

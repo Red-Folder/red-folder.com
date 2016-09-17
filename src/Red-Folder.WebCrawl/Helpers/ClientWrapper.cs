@@ -1,11 +1,8 @@
-﻿using Microsoft.Azure.WebJobs.Host;
+﻿using Red_Folder.Logging;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Net.Http.Headers;
-using System.Threading.Tasks;
 
 namespace Red_Folder.WebCrawl.Helpers
 {
@@ -15,9 +12,9 @@ namespace Red_Folder.WebCrawl.Helpers
         private string _lastResponse = null;
         private HttpResponseHeaders _lastHttpResponseHeaders;
 
-        private TraceWriter _log;
+        private ILogger _log;
 
-        public ClientWrapper(TraceWriter log)
+        public ClientWrapper(ILogger log)
         {
             _log = log;
         }
@@ -71,9 +68,12 @@ namespace Red_Folder.WebCrawl.Helpers
             }
             catch (Exception ex)
             {
-                _log.Error("Exception occured during Processing");
-                _log.Error(String.Format("Excpetion message: {0}", ex.Message));
-                _log.Error(String.Format("Stack trace: {0}", ex.StackTrace));
+                //_log.Error("Exception occured during Processing");
+                //_log.Error(String.Format("Excpetion message: {0}", ex.Message));
+                //_log.Error(String.Format("Stack trace: {0}", ex.StackTrace));
+                _log.Info("Exception occured during Processing");
+                _log.Info(String.Format("Excpetion message: {0}", ex.Message));
+                _log.Info(String.Format("Stack trace: {0}", ex.StackTrace));
                 throw ex;
             }
         }

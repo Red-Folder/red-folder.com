@@ -20,6 +20,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Red-Folder.WebCrawl.Tests.U
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Red-Folder.Tests.Acceptance", "tests\Red-Folder.Tests.Acceptance\Red-Folder.Tests.Acceptance.csproj", "{8BD4B1D2-926A-4180-BE39-D365F2C62E2B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Red-Folder.WebCrawl.Data", "src\Red-Folder.WebCrawl.Data\Red-Folder.WebCrawl.Data.csproj", "{F2437A83-F441-4B75-BB59-665AB714B7DC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Red-Folder.Logging", "src\Red-Folder.Logging\Red-Folder.Logging.csproj", "{5BB23577-86A1-4ECF-B5B7-84B693180C48}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -42,6 +46,14 @@ Global
 		{8BD4B1D2-926A-4180-BE39-D365F2C62E2B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8BD4B1D2-926A-4180-BE39-D365F2C62E2B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8BD4B1D2-926A-4180-BE39-D365F2C62E2B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F2437A83-F441-4B75-BB59-665AB714B7DC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F2437A83-F441-4B75-BB59-665AB714B7DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F2437A83-F441-4B75-BB59-665AB714B7DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F2437A83-F441-4B75-BB59-665AB714B7DC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5BB23577-86A1-4ECF-B5B7-84B693180C48}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5BB23577-86A1-4ECF-B5B7-84B693180C48}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5BB23577-86A1-4ECF-B5B7-84B693180C48}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5BB23577-86A1-4ECF-B5B7-84B693180C48}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -51,5 +63,7 @@ Global
 		{BF953130-8936-4CCC-932E-EE96C002507E} = {8053AD3E-4A33-4F5D-BB27-0218C2DAAF28}
 		{1CBDE3B1-9070-44C5-9BF8-A65A6CD04376} = {6F66B00A-27DE-4700-8DA8-AEFFA7AE0BDC}
 		{8BD4B1D2-926A-4180-BE39-D365F2C62E2B} = {6F66B00A-27DE-4700-8DA8-AEFFA7AE0BDC}
+		{F2437A83-F441-4B75-BB59-665AB714B7DC} = {8053AD3E-4A33-4F5D-BB27-0218C2DAAF28}
+		{5BB23577-86A1-4ECF-B5B7-84B693180C48} = {8053AD3E-4A33-4F5D-BB27-0218C2DAAF28}
 	EndGlobalSection
 EndGlobal

@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Red-Folder.WebCrawl")]
-[assembly: AssemblyDescription("Simple Web Crawler")]
+[assembly: AssemblyTitle("Red-Folder.WebCrawl.Data")]
+[assembly: AssemblyDescription("Data models for the Red-Folder.WebCrawl")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Red Folder Consultancy Ltd")]
-[assembly: AssemblyProduct("Red-Folder.WebCrawl")]
+[assembly: AssemblyProduct("Red-Folder.WebCrawl.Data")]
 [assembly: AssemblyCopyright("Copyright ©  2016")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("bf953130-8936-4ccc-932e-ee96c002507e")]
+[assembly: Guid("f2437a83-f441-4b75-bb59-665ab714b7dc")]
 
 // Version information for an assembly consists of the following four values:
 //

@@ -1,5 +1,4 @@
-﻿using Red_Folder.WebCrawl;
-using System;
+﻿using Red_Folder.Tests.Acceptance.Helpers;
 using TechTalk.SpecFlow;
 using Xunit;
 
@@ -8,18 +7,18 @@ namespace Red_Folder.Tests.Acceptance
     [Binding]
     public class WebCrawlSteps
     {
-        private Crawler _crawler = null;
+        private CrawlWrapper _crawler = null;
 
         [Given(@"I have a web crawler")]
         public void GivenIHaveAWebCrawler()
         {
-            _crawler = new Crawler();
+            _crawler = new CrawlWrapper();
         }
         
         [Given(@"I populate it with (.*)")]
         public void GivenIPopulateItWith(string url)
         {
-            _crawler.AddUrl(url);
+            //_crawler.AddUrl(url);
         }
         
         [When(@"I run it")]

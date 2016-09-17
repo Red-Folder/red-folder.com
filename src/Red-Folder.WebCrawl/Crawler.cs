@@ -4,9 +4,9 @@ using Red_Folder.WebCrawl.Models;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Text.RegularExpressions;
 
-using Microsoft.Azure.WebJobs.Host;
+using Red_Folder.WebCrawl.Data;
+using Red_Folder.Logging;
 
 namespace Red_Folder.WebCrawl
 {
@@ -24,7 +24,7 @@ namespace Red_Folder.WebCrawl
 
         private string _problems = "";
 
-        public Crawler(TraceWriter log)
+        public Crawler(ILogger log)
         {
             var internalDomains = new List<string>
             {
