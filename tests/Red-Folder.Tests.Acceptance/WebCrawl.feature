@@ -5,6 +5,5 @@
 
 Scenario: Check for deadlinks
 	Given I have a web crawler
-	And I populate it with https://www.red-folder.com/sitemap.xml
 	When I run it
 	Then there should be no invalid urls

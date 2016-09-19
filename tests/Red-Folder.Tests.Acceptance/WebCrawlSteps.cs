@@ -15,12 +15,6 @@ namespace Red_Folder.Tests.Acceptance
             _crawler = new CrawlWrapper();
         }
         
-        [Given(@"I populate it with (.*)")]
-        public void GivenIPopulateItWith(string url)
-        {
-            //_crawler.AddUrl(url);
-        }
-        
         [When(@"I run it")]
         public void WhenIRunIt()
         {

@@ -83,10 +83,8 @@ this.ScenarioSetup(scenarioInfo);
 #line 7
  testRunner.Given("I have a web crawler", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 8
- testRunner.And("I populate it with https://www.red-folder.com/sitemap.xml", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 9
  testRunner.When("I run it", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 10
+#line 9
  testRunner.Then("there should be no invalid urls", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
