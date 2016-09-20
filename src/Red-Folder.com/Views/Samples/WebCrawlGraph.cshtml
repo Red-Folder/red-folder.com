@@ -1,0 +1,41 @@
+@{
+    ViewBag.Title = "Web Crawl Graph";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="row rfc-header recent-projects-page">
+    <span>Web Crawl Graph sample</span><br />
+</div>
+
+<div id="webcrawl-container">
+    <div id="loading-message">Please wait ... loading</div>
+</div>
+
+@section Scripts
+{
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.js"></script>
+                
+    <environment names="Development">
+        <!-- webCrawlGraphDevelopment:js -->
+        <script src="/scripts/webCrawlGraph/webcrawl.graph.js"></script>
+        <!-- endinject -->
+    </environment>
+    <environment names="Production,Staging">
+        <!-- webCrawlGraphProduction:js -->
+        <script src="/scripts/webCrawlGraph/production/WebCrawlGraph-40dc220bbe.js"></script>
+        <!-- endinject -->
+    </environment>
+}
+
+@section Styles
+{
+    <environment names="Development">
+        <!-- webCrawlGraphDevelopment:css -->
+        <link rel="stylesheet" href="/css/webCrawlGraph/webcrawl.graph.css">
+        <!-- endinject -->
+    </environment>
+    <environment names="Production,Staging">
+        <!-- webCrawlGraphProduction:css -->
+        <link rel="stylesheet" href="/css/webCrawlGraph/production/WebCrawlGraph-44f0c67616.css">
+        <!-- endinject -->
+    </environment>
+}

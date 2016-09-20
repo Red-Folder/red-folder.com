@@ -41,6 +41,13 @@ module.exports = function (logger) {
                             .addLess('./wwwroot/css/dependancyGraph/')
                             .build(),
 
+        // WebCrawlGraph
+        new rfcUtils.AppBuilder(logger, 'webCrawlGraph')
+                            .setHtmlDestination('./views/Samples/WebCrawlGraph.cshtml')
+                            .addJs('./wwwroot/scripts/webCrawlGraph/')
+                            .addLess('./wwwroot/css/webCrawlGraph/')
+                            .build(),
+
         // repoExplorer
         new rfcUtils.AppBuilder(logger, 'repoExplorer')
                             .setHtmlDestination('./views/Home/Repo.cshtml')
