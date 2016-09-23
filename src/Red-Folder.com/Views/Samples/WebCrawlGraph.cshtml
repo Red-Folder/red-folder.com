@@ -6,22 +6,31 @@
     <span>Web Crawl Graph sample</span><br />
 </div>
 
-<div id="webcrawl-container">
-    <div id="loading-message">Please wait ... loading</div>
+<div id="webcrawl-container" class="center-content">
+    
+</div>
+
+<div ng-app="app" ng-controller="WebCrawlController as vm">
+    <div id="loading-message" ng-show="vm.loading">Please wait ... loading</div>
+    <div id="error-message" ng-show="vm.errorred">Please wait ... loading</div>
+    <rfc-web-crawl-graph data="vm.graphData" ng-hide="vm.errorred"></rfc-web-crawl-graph>
 </div>
 
 @section Scripts
 {
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.js"></script>
-                
     <environment names="Development">
         <!-- webCrawlGraphDevelopment:js -->
-        <script src="/scripts/webCrawlGraph/webcrawl.graph.js"></script>
+        <script src="/scripts/webCrawlGraph/app.js"></script>
+        <script src="/scripts/webCrawlGraph/webCrawlData.service.js"></script>
+        <script src="/scripts/webCrawlGraph/d3.service.js"></script>
+        <script src="/scripts/webCrawlGraph/webCrawlGraph.directive.js"></script>
+        <script src="/scripts/webCrawlGraph/webCrawl.controller.js"></script>
         <!-- endinject -->
     </environment>
     <environment names="Production,Staging">
         <!-- webCrawlGraphProduction:js -->
-        <script src="/scripts/webCrawlGraph/production/WebCrawlGraph-40dc220bbe.js"></script>
+        <script src="/scripts/webCrawlGraph/production/webCrawlGraph-c7286a0240.js"></script>
+        <script src="/scripts/webCrawlGraph/production/webCrawlGraph-e7db6e4e51.js"></script>
         <!-- endinject -->
     </environment>
 }

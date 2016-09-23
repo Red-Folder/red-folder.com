@@ -44,7 +44,7 @@ module.exports = function (logger) {
         // WebCrawlGraph
         new rfcUtils.AppBuilder(logger, 'webCrawlGraph')
                             .setHtmlDestination('./views/Samples/WebCrawlGraph.cshtml')
-                            .addJs('./wwwroot/scripts/webCrawlGraph/')
+                            .addAngularJs('./wwwroot/scripts/webCrawlGraph/')
                             .addLess('./wwwroot/css/webCrawlGraph/')
                             .build(),
 
