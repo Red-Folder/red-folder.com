@@ -15,7 +15,8 @@
         var directive = {
             restrict: 'E',
             scope: {
-                data: '='
+                data: '=',
+                onClick: '&'
             },
             link: function (scope, element, attrs) {
                 d3Service.d3().then(function(d3) {
@@ -78,11 +79,15 @@
                                             .append('svg:g')
                                             .attr('class', 'node');
                         node.append('svg:circle')
-                            .attr('r', 5)
+                            .attr('r', 50)
                             .style('fill', '#555')
                             .style('stroke', '#FFF')
                             .style('stroke-width', 3);
-                        node.call(force.drag);
+                        node.call(force.drag)
+                            .on('dblclick', function (d) {
+                                console.log("dblclick event");
+                                return scope.onClick({ item: d.title });
+                            });
 
                         node.append('title')
                             .text(function (d) { return d.title; });

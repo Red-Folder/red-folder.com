@@ -13,7 +13,7 @@
 <div ng-app="app" ng-controller="WebCrawlController as vm">
     <div id="loading-message" ng-show="vm.loading">Please wait ... loading</div>
     <div id="error-message" ng-show="vm.errorred">Please wait ... loading</div>
-    <rfc-web-crawl-graph data="vm.graphData" ng-hide="vm.errorred"></rfc-web-crawl-graph>
+    <rfc-web-crawl-graph data="vm.graphData" ng-hide="vm.errorred" on-click="vm.onClick(item)"></rfc-web-crawl-graph>
 </div>
 
 @section Scripts

@@ -8,6 +8,9 @@ using Microsoft.Extensions.Logging;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.EntityFrameworkCore;
 using System.Threading.Tasks;
+using Microsoft.Extensions.FileProviders;
+using System.IO;
+using Microsoft.AspNetCore.Http;
 
 namespace RedFolder
 {
@@ -46,8 +49,17 @@ namespace RedFolder
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, RepoContextSeedData seeder, ILoggerFactory loggerFactory)
         {
+
+            app.UseStaticFiles();
+
             if (env.IsDevelopment())
             {
+                app.UseStaticFiles(new StaticFileOptions()
+                {
+                    FileProvider = new PhysicalFileProvider(@"C:\inetpub\mediaroot"),
+                    RequestPath = new PathString("/media")
+                });
+
                 app.UseDeveloperExceptionPage();
                 app.UseDatabaseErrorPage();
                 app.UseBrowserLink();
@@ -56,11 +68,16 @@ namespace RedFolder
             }
             else
             {
+                app.UseStaticFiles(new StaticFileOptions()
+                {
+                    FileProvider = new PhysicalFileProvider(@"D:\home\site\mediaroot"),
+                    RequestPath = new PathString("/media")
+                });
+
                 app.UseExceptionHandler("/Errors/Status/500");
                 app.UseStatusCodePagesWithReExecute("/Errors/Status/{0}");
             }
 
-            app.UseStaticFiles();
 
             app.UseMvc(config =>
             {
