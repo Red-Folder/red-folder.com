@@ -5,7 +5,9 @@
     background: #4C4C4C;
     padding: 5px 10px 5px 10px;
   }
+  .center-content h2,
   .center-content h3,
+  .center-content p,
   .center-content .row {
     width: 753px;
     margin-left: auto;

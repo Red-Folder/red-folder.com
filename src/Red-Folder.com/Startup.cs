@@ -42,6 +42,7 @@ namespace RedFolder
 
             services.AddScoped<IRepoRepository, RepoRepository>();
             services.AddScoped<IArticleRepository, ArticleRepository>();
+            services.AddScoped<IBlogRepository, BlogRepository>();
 
             services.AddTransient<RepoContextSeedData>();
         }
@@ -81,6 +82,12 @@ namespace RedFolder
 
             app.UseMvc(config =>
             {
+                config.MapRoute(
+                    name: "Blog",
+                    template: "Blog/{title}",
+                    defaults: new { controller = "Blog", action = "Index" }
+                );
+
                 config.MapRoute(
                     name: "Projects - Cordova",
                     template: "Projects/Cordova/{action}",
