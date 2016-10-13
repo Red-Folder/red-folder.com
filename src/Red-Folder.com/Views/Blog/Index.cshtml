@@ -10,8 +10,38 @@
 </div>
 
 <div class="center-content">
-    @Html.Raw(Model.Text)
-
-
-    @Html.Partial("_TwitterSummaryCardWithLargeImage", Model.Twitter)
+    <div class="row">
+        @Html.Raw(Model.Text)
+    </div>
 </div>
+
+@section metas
+{
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@Model.TwitterHandle" />
+    <meta name="twitter:title" content="@Model.Title" />
+    <meta name="twitter:description" content="@Model.Description" />
+    <meta name="twitter:image" content="@Model.Image" />
+}
+
+@section Scripts
+{
+<script type="application/ld+json">
+    { 
+        "@@context": "http://schema.org",
+        "@@type": "BlogPosting",
+        "headline": @Model.Title,
+        "image": @Model.Image,
+        "publisher": "Red Folder Consultancy Ltd",
+        "url": @Model.Url,
+        "datePublished": @Model.Published.ToString("yyyy-MM-dd"),
+        "dateCreated": @Model.Published.ToString("yyyy-MM-dd"),
+        "dateModified": @Model.Modified.ToString("yyyy-MM-dd"),
+        "description": @Model.Description,
+        "author": {
+            "@@type": "Person",
+            "name": "Mark Taylor"
+        }
+    }
+</script>
+}
