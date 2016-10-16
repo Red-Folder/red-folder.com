@@ -18,7 +18,7 @@ namespace RedFolder.Services
         {
             var blog = new Blog
             {
-                Url = "\rfc-weekly-10th-October-2016",
+                Url = "/rfc-weekly-10th-October-2016",
                 Author = "Mark Taylor",
                 Published = new DateTime(2016, 10, 10),
                 Modified = new DateTime(2016, 10, 10),

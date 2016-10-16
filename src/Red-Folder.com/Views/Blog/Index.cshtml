@@ -19,9 +19,9 @@
 {
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="@Model.TwitterHandle" />
-    <meta name="twitter:title" content="@Model.Title" />
-    <meta name="twitter:description" content="@Model.Description" />
-    <meta name="twitter:image" content="@Model.Image" />
+    <meta property="og:title" name="twitter:title" content="@Model.Title" />
+    <meta property="og:description" name="twitter:description" content="@Model.Description" />
+    <meta property="og:image" name="twitter:image" content="@Model.Image" />
 }
 
 @section Scripts
@@ -30,17 +30,32 @@
     { 
         "@@context": "http://schema.org",
         "@@type": "BlogPosting",
-        "headline": @Model.Title,
-        "image": @Model.Image,
-        "publisher": "Red Folder Consultancy Ltd",
-        "url": @Model.Url,
-        "datePublished": @Model.Published.ToString("yyyy-MM-dd"),
-        "dateCreated": @Model.Published.ToString("yyyy-MM-dd"),
-        "dateModified": @Model.Modified.ToString("yyyy-MM-dd"),
-        "description": @Model.Description,
+        "headline": "@Model.Title",
+        "image": {
+            "@@type": "ImageObject",
+            "url": "@Model.Image",
+            "height": "150", 
+            "width": " 280"
+        },
+        "publisher": {
+            "@@type": "Organization",
+            "name": "Red Folder Consultancy Ltd",
+            "logo": {
+                "@@type": "ImageObject",
+                "url": "https://www.red-folder.com/media/RFCLogo.png"
+            }
+        },
+        "url": "https://www.red-folder.com/blog/@Model.Url",
+        "datePublished": "@Model.Published.ToString("yyyy-MM-dd")",
+        "dateCreated": "@Model.Published.ToString("yyyy-MM-dd")",
+        "dateModified": "@Model.Modified.ToString("yyyy-MM-dd")",
+        "description": "@Model.Description",
         "author": {
             "@@type": "Person",
             "name": "Mark Taylor"
+        },
+        "mainEntityOfPage": {
+            "@@type": "WebPage"
         }
     }
 </script>
