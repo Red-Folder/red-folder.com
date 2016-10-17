@@ -1,0 +1,25 @@
+﻿@model IList<Red_Folder.Website.Data.Blog>
+
+@{
+    ViewBag.Title = "Blog";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row rfc-header home-page">
+    <h1>Blog</h1>
+</div>
+
+<div class="center-content">
+    @foreach (var blog in Model)
+    {
+        <div class="row">
+            <a href="/blog/@blog.Url">
+                <img class="image-responsive" src="@blog.Image" />
+                <h2>@blog.Title</h2>
+            </a>
+            <p>
+                @blog.Description
+            </p>
+        </div>
+    }
+</div>

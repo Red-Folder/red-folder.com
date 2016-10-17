@@ -84,7 +84,7 @@ namespace RedFolder
             {
                 config.MapRoute(
                     name: "Blog",
-                    template: "Blog/{title}",
+                    template: "Blog/{url}",
                     defaults: new { controller = "Blog", action = "Index" }
                 );
 

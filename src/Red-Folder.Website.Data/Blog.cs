@@ -20,5 +20,7 @@ namespace Red_Folder.Website.Data
         public string Description { get; set; }
 
         public string TwitterHandle { get; set; }
+
+        public bool Enabled { get; set; }
     }
 }
