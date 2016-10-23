@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Red_Folder.Website.Data
+namespace RedFolder.Website.Data
 {
     public class Blog
     {

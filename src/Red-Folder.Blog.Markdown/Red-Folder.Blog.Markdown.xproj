@@ -6,8 +6,8 @@
   </PropertyGroup>
   <Import Project="$(VSToolsPath)\DotNet\Microsoft.DotNet.Props" Condition="'$(VSToolsPath)' != ''" />
   <PropertyGroup Label="Globals">
-    <ProjectGuid>b8d1c8fc-2f25-45f9-8f94-6e950fb913b3</ProjectGuid>
-    <RootNamespace>Red-Folder.Website.Data</RootNamespace>
+    <ProjectGuid>d20690fa-d0e3-448d-a997-813e7831f0d6</ProjectGuid>
+    <RootNamespace>Red-Folder.Blog.Markdown</RootNamespace>
     <BaseIntermediateOutputPath Condition="'$(BaseIntermediateOutputPath)'=='' ">.\obj</BaseIntermediateOutputPath>
     <OutputPath Condition="'$(OutputPath)'=='' ">.\bin\</OutputPath>
   </PropertyGroup>

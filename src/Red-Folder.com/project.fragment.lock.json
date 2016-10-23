@@ -1,0 +1,22 @@
+{
+  "version": 2,
+  "exports": {
+    "Red-Folder.Website.Data/1.0.0": {
+      "type": "project",
+      "framework": ".NETStandard,Version=v1.2",
+      "compile": {
+        "bin/Release/Red-Folder.Website.Data.dll": {}
+      },
+      "runtime": {
+        "bin/Release/Red-Folder.Website.Data.dll": {}
+      },
+      "contentFiles": {
+        "bin/Release/Red-Folder.Website.Data.pdb": {
+          "buildAction": "None",
+          "codeLanguage": "any",
+          "copyToOutput": true
+        }
+      }
+    }
+  }
+}
