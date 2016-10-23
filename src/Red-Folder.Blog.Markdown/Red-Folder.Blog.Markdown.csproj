@@ -39,7 +39,13 @@
     <!-- A reference to the entire .NET Framework is automatically included -->
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BlogLoader.cs" />
+    <Compile Include="FileSystemWrapper.cs" />
+    <Compile Include="IBlogLoader.cs" />
+    <Compile Include="IFileSystem.cs" />
+    <Compile Include="IMarkdownTransformer.cs" />
     <Compile Include="MarkdownRepository.cs" />
+    <Compile Include="MarkdownTransformer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
