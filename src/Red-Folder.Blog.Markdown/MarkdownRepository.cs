@@ -10,7 +10,8 @@ namespace RedFolder.Blog.Markdown
 
         public MarkdownRepository()
         {
-            throw new NotImplementedException("Not yet added the REAL filesystem wrapper");
+            _fileSystem = new FileSystemWrapper();
+            _blogLoader = new BlogLoader();
         }
 
         public MarkdownRepository(IFileSystem fileSystem, IBlogLoader blogLoader)

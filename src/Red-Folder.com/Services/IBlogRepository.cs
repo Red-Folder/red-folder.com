@@ -8,7 +8,7 @@ namespace RedFolder.Services
 {
     public interface IBlogRepository
     {
-        IList<Blog> GetAll();
-        Blog Get(string url);
+        IList<RedFolder.Website.Data.Blog> GetAll();
+        RedFolder.Website.Data.Blog Get(string url);
     }
 }

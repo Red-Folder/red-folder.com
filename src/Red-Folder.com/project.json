@@ -48,6 +48,9 @@
         "portable-net45+win8"
       ],
       "dependencies": {
+        "Red-Folder.Blog.Markdown": {
+          "target": "project"
+        },
         "Red-Folder.Website.Data": {
           "target": "project"
         }

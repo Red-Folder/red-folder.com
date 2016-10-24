@@ -15,7 +15,8 @@ namespace RedFolder.Blog.Markdown
 
         public BlogLoader()
         {
-            throw new NotImplementedException("Not yet setup the real markdownTransformer");
+            _fileSystem = new FileSystemWrapper();
+            _markdownTransformer = new MarkdownTransformer();
         }
 
         public BlogLoader(IFileSystem fileSystem, IMarkdownTransformer markdownTransformer)
