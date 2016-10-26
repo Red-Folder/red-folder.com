@@ -3,6 +3,7 @@
 	"name": "ASP.NET",
 	"private": true,
   "devDependencies": {
+	  "jshint": "2.9.4",
     "gulp": "~3.9.1",
     "gulp-less": "~3.0.5",
     "gulp-uglify": "~1.5.3",
