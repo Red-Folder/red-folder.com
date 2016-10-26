@@ -5,7 +5,7 @@
     "Microsoft.NETCore.Portable.Compatibility": "1.0.1",
     "NETStandard.Library": "1.6.0",
     "Newtonsoft.Json": "9.0.2-beta1",
-    "RedFolder.Website.Data" : {
+    "Red-Folder.Website.Data" : {
       "target": "project"
     }
   },
