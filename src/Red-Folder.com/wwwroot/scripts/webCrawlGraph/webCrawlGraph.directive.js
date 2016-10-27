@@ -85,8 +85,8 @@
                             .style('stroke-width', 3);
                         node.call(force.drag)
                             .on('dblclick', function (d) {
-                                console.log("dblclick event");
-                                return scope.onClick({ item: d.title });
+                                console.log('dblclick event');
+                                return scope.onClick({item: d.title});
                             });
 
                         node.append('title')
