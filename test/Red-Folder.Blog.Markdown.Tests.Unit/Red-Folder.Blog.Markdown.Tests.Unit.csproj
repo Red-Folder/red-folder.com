@@ -98,13 +98,12 @@
     <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\src\Red-Folder.Blog.Markdown\Red-Folder.Blog.Markdown.csproj">
-      <Project>{62055d65-a23a-46b1-8b52-101da9068657}</Project>
-      <Name>Red-Folder.Blog.Markdown</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\src\Red-Folder.Website.Data\Red-Folder.Website.Data.csproj">
       <Project>{f2937ec0-d8fa-41e8-9c7e-93f1c4125dc1}</Project>
       <Name>Red-Folder.Website.Data</Name>
+    </ProjectReference>    <ProjectReference Include="..\..\src\Red-Folder.Blog.Markdown\Red-Folder.Blog.Markdown.csproj">
+      <Project>{62055d65-a23a-46b1-8b52-101da9068657}</Project>
+      <Name>Red-Folder.Blog.Markdown</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
