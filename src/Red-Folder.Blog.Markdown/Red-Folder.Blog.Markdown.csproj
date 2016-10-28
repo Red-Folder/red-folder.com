@@ -52,6 +52,7 @@
     <ProjectReference Include="..\Red-Folder.Website.Data\Red-Folder.Website.Data.csproj">
       <Project>{f2937ec0-d8fa-41e8-9c7e-93f1c4125dc1}</Project>
       <Name>Red-Folder.Website.Data</Name>
+      <Package>..\Red-Folder.Website.Data\</Package>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
