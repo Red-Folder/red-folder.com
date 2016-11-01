@@ -1,11 +1,10 @@
 ﻿using System.Net;
 using System.Net.Http;
-using System.Configuration;
 using System.Net.Http.Headers;
 
 namespace Red_Folder.Tests.Acceptance.Helpers
 {
-    public class ClientWrapper
+    public class WebClient
     {
         private static string _baseUrl;
 
@@ -15,10 +14,10 @@ namespace Red_Folder.Tests.Acceptance.Helpers
 
         private string _relativePath;
 
-        public ClientWrapper(string relativePath)
+        public WebClient(string host, string relativePath)
         {
+            _baseUrl = host;
             _relativePath = relativePath;
-            _baseUrl = ConfigurationManager.AppSettings["Host"];
         }
 
         public HttpStatusCode LastHttpStatusCode

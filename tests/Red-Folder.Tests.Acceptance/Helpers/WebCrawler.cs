@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace Red_Folder.Tests.Acceptance.Helpers
 {
-    public class CrawlWrapper
+    public class WebCrawler
     {
         private const string ENDPOINT_START = "https://rfc-webcrawl.azurewebsites.net/api/WebCrawlStart";
         private const string ENDPOINT_RESULTS = "https://rfc-webcrawl.azurewebsites.net/api/WebCrawlResults";
@@ -22,9 +22,11 @@ namespace Red_Folder.Tests.Acceptance.Helpers
 
         private CrawlResults _results;
 
-        public CrawlWrapper()
-        {
+        private string _host;
 
+        public WebCrawler(string host)
+        {
+            host = _host;
         }
 
         public void Crawl()
