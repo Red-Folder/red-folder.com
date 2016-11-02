@@ -143,6 +143,9 @@ module.exports = function (logger) {
                     { type: 'text-summary' } //, subdir: '.', file: 'text-summary.txt'}
                 ]
             },
+            junitReporter: {
+                outputDir: report + 'results'
+            },
             preprocessors: {}
         };
         options.preprocessors['./wwwroot/scripts/**/!(*.spec)+(.js)'] = ['coverage'];
