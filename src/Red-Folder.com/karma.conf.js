@@ -78,7 +78,7 @@ module.exports = function (config) {
     },
     
     junitReporter: {
-      outputDir: gulpConfig.karam.junitReporter.outputDir
+      outputDir: gulpConfig.karma.junitReporter.outputDir
     }
 
   })
