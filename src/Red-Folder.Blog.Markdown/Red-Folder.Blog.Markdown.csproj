@@ -48,12 +48,6 @@
     <Compile Include="MarkdownTransformer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Red-Folder.Website.Data\Red-Folder.Website.Data.csproj">
-      <Project>{f2937ec0-d8fa-41e8-9c7e-93f1c4125dc1}</Project>
-      <Name>Red-Folder.Website.Data</Name>
-    </ProjectReference>
-  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

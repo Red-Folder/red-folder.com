@@ -9,13 +9,6 @@
       },
       "runtime": {
         "bin/Debug/Red-Folder.Blog.Markdown.dll": {}
-      },
-      "contentFiles": {
-        "bin/Debug/Red-Folder.Blog.Markdown.pdb": {
-          "buildAction": "None",
-          "codeLanguage": "any",
-          "copyToOutput": true
-        }
       }
     },
     "Red-Folder.Website.Data/1.0.0": {

@@ -1,10 +1,20 @@
 ﻿{
   "supports": {},
   "dependencies": {
-    "NETStandard.Library": "1.6.0",
-    "Microsoft.NETCore.Portable.Compatibility": "1.0.1"
   },
   "frameworks": {
-    "netstandard1.2": {}
+    "netstandard1.2": {
+      "dependencies": {
+        "NETStandard.Library": "1.6.0",
+        "Microsoft.NETCore.Portable.Compatibility": "1.0.1"
+      }
+    },
+    "net46": {
+      "frameworkAssemblies": {
+        "System.Runtime.Serialization": "",
+        "System.Net": "",
+        "System.Net.Http": ""
+      }
+    }
   }
 }

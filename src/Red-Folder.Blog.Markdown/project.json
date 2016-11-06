@@ -2,17 +2,24 @@
   "supports": {},
   "dependencies": {
     "Markdown": "2.2.0",
-    "Microsoft.NETCore.Portable.Compatibility": "1.0.1",
-    "NETStandard.Library": "1.6.0",
-    "Newtonsoft.Json": "9.0.2-beta1"
+    "Newtonsoft.Json": "9.0.2-beta1",
+    "Red-Folder.Website.Data": {
+      "target": "project",
+      "version": "*"
+    }
   },
   "frameworks": {
     "netstandard1.3": {
       "dependencies": {
-        "Red-Folder.Website.Data": {
-          "target": "project",
-          "version": "*"
-        }
+        "Microsoft.NETCore.Portable.Compatibility": "1.0.1",
+        "NETStandard.Library": "1.6.0"
+      }
+    },
+    "net46": {
+      "frameworkAssemblies": {
+        "System.Runtime.Serialization": "",
+        "System.Net": "",
+        "System.Net.Http": ""
       }
     }
   }

@@ -3,24 +3,17 @@
   "exports": {
     "Red-Folder.Blog.Markdown/1.0.0": {
       "type": "project",
-      "framework": ".NETStandard,Version=v1.3",
+      "framework": ".NETFramework,Version=v4.6",
       "compile": {
         "bin/Debug/Red-Folder.Blog.Markdown.dll": {}
       },
       "runtime": {
         "bin/Debug/Red-Folder.Blog.Markdown.dll": {}
-      },
-      "contentFiles": {
-        "bin/Debug/Red-Folder.Blog.Markdown.pdb": {
-          "buildAction": "None",
-          "codeLanguage": "any",
-          "copyToOutput": true
-        }
       }
     },
     "Red-Folder.Website.Data/1.0.0": {
       "type": "project",
-      "framework": ".NETStandard,Version=v1.2",
+      "framework": ".NETFramework,Version=v4.6",
       "compile": {
         "bin/Debug/Red-Folder.Website.Data.dll": {}
       },
