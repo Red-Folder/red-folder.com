@@ -26,7 +26,7 @@ namespace Red_Folder.Tests.Acceptance.Helpers
 
         public WebCrawler(string host)
         {
-            host = _host;
+            _host = host;
         }
 
         public void Crawl()
@@ -80,9 +80,12 @@ namespace Red_Folder.Tests.Acceptance.Helpers
         {
             var crawlId = "";
 
-            using (HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Get, ENDPOINT_START))
+            var crawlRequest = new CrawlRequest(Guid.NewGuid().ToString(), _host);
+
+            using (HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Post, ENDPOINT_START))
             {
                 request.Headers.Add("x-functions-key", _startKey);
+                request.Content = new StringContent(JsonConvert.SerializeObject(crawlRequest), Encoding.UTF8, "application/json");
 
                 using (HttpResponseMessage response = client.SendAsync(request).Result)
                 {

@@ -12,7 +12,7 @@ namespace Red_Folder.Tests.Acceptance
         [Fact]
         public void Check_For_Deadlinks()
         {
-            var uat = new WebCrawlerBuilder("https://www.red-folder.com")
+            var uat = new WebCrawlerBuilder(Config.Host)
                             .Build();
 
             uat.Crawl();

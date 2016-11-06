@@ -13,7 +13,7 @@ namespace Red_Folder.Tests.Acceptance
         [Fact]
         public void Going_to_the_homepage_is_valid()
         {
-            var client = new WebClientBuilder("https://www.red-folder.com", "/")
+            var client = new WebClientBuilder(Config.Host, "/")
                             .Build();
 
             client.Get();
@@ -24,7 +24,7 @@ namespace Red_Folder.Tests.Acceptance
         [Fact]
         public void Going_to_the_services_page_is_valid()
         {
-            var client = new WebClientBuilder("https://www.red-folder.com", "/services")
+            var client = new WebClientBuilder(Config.Host, "/services")
                             .Build();
 
             client.Get();
@@ -35,7 +35,7 @@ namespace Red_Folder.Tests.Acceptance
         [Fact]
         public void Going_to_the_projects_page_is_valid()
         {
-            var client = new WebClientBuilder("https://www.red-folder.com", "/projects")
+            var client = new WebClientBuilder(Config.Host, "/projects")
                             .Build();
 
             client.Get();
@@ -46,7 +46,7 @@ namespace Red_Folder.Tests.Acceptance
         [Fact]
         public void Going_to_the_roi_page_is_valid()
         {
-            var client = new WebClientBuilder("https://www.red-folder.com", "/projects/roi")
+            var client = new WebClientBuilder(Config.Host, "/projects/roi")
                             .Build();
 
             client.Get();
@@ -57,7 +57,7 @@ namespace Red_Folder.Tests.Acceptance
         [Fact]
         public void Going_to_the_aspnetcore_page_is_valid()
         {
-            var client = new WebClientBuilder("https://www.red-folder.com", "/projects/aspnetcore")
+            var client = new WebClientBuilder(Config.Host, "/projects/aspnetcore")
                             .Build();
 
             client.Get();
@@ -68,7 +68,7 @@ namespace Red_Folder.Tests.Acceptance
         [Fact]
         public void Going_to_the_microservices_page_is_valid()
         {
-            var client = new WebClientBuilder("https://www.red-folder.com", "/projects/microservices")
+            var client = new WebClientBuilder(Config.Host, "/projects/microservices")
                             .Build();
 
             client.Get();
@@ -79,7 +79,7 @@ namespace Red_Folder.Tests.Acceptance
         [Fact]
         public void Going_to_the_cordova_page_is_valid()
         {
-            var client = new WebClientBuilder("https://www.red-folder.com", "/projects/cordova")
+            var client = new WebClientBuilder(Config.Host, "/projects/cordova")
                             .Build();
 
             client.Get();
@@ -90,7 +90,7 @@ namespace Red_Folder.Tests.Acceptance
         [Fact]
         public void Going_to_the_cordova_background_service_plugin_page_is_valid()
         {
-            var client = new WebClientBuilder("https://www.red-folder.com", "/projects/cordova/backgroundserviceplugin")
+            var client = new WebClientBuilder(Config.Host, "/projects/cordova/backgroundserviceplugin")
                             .Build();
 
             client.Get();
@@ -101,7 +101,7 @@ namespace Red_Folder.Tests.Acceptance
         [Fact]
         public void Going_to_the_cordova_gps_service_plugin_page_is_valid()
         {
-            var client = new WebClientBuilder("https://www.red-folder.com", "/projects/cordova/gpsserviceplugin")
+            var client = new WebClientBuilder(Config.Host, "/projects/cordova/gpsserviceplugin")
                             .Build();
 
             client.Get();
@@ -112,7 +112,7 @@ namespace Red_Folder.Tests.Acceptance
         [Fact]
         public void Going_to_the_cordova_scheduler_plugin_page_is_valid()
         {
-            var client = new WebClientBuilder("https://www.red-folder.com", "/projects/cordova/schedulerplugin")
+            var client = new WebClientBuilder(Config.Host, "/projects/cordova/schedulerplugin")
                             .Build();
 
             client.Get();
@@ -123,7 +123,7 @@ namespace Red_Folder.Tests.Acceptance
         [Fact]
         public void Going_to_the_cordova_availability_monitor_plugin_page_is_valid()
         {
-            var client = new WebClientBuilder("https://www.red-folder.com", "/projects/cordova/availabilitymonitorplugin")
+            var client = new WebClientBuilder(Config.Host, "/projects/cordova/availabilitymonitorplugin")
                             .Build();
 
             client.Get();
@@ -134,7 +134,7 @@ namespace Red_Folder.Tests.Acceptance
         [Fact]
         public void Going_to_the_cordova_sms_handler_plugin_page_is_valid()
         {
-            var client = new WebClientBuilder("https://www.red-folder.com", "/projects/cordova/smshandlerplugin")
+            var client = new WebClientBuilder(Config.Host, "/projects/cordova/smshandlerplugin")
                             .Build();
 
             client.Get();
@@ -145,7 +145,7 @@ namespace Red_Folder.Tests.Acceptance
         [Fact]
         public void Going_to_the_my_bio_page_is_valid()
         {
-            var client = new WebClientBuilder("https://www.red-folder.com", "/mybio")
+            var client = new WebClientBuilder(Config.Host, "/mybio")
                             .Build();
 
             client.Get();
@@ -156,7 +156,7 @@ namespace Red_Folder.Tests.Acceptance
         [Fact]
         public void Going_to_the_legacy_recent_projects_page_should_return_redirect()
         {
-            var client = new WebClientBuilder("https://www.red-folder.com", "/home/recentprojects")
+            var client = new WebClientBuilder(Config.Host, "/home/recentprojects")
                             .Build();
 
             client.Get();
@@ -168,7 +168,7 @@ namespace Red_Folder.Tests.Acceptance
         [Fact]
         public void Going_to_the_exception_page_should_return_error()
         {
-            var client = new WebClientBuilder("https://www.red-folder.com", "/home/throw")
+            var client = new WebClientBuilder(Config.Host, "/home/throw")
                             .Build();
 
             client.Get();
@@ -179,7 +179,7 @@ namespace Red_Folder.Tests.Acceptance
         [Fact]
         public void Going_to_a_non_existent_page_should_return_not_found()
         {
-            var client = new WebClientBuilder("https://www.red-folder.com", "/home/idontexist")
+            var client = new WebClientBuilder(Config.Host, "/home/idontexist")
                             .Build();
 
             client.Get();
