@@ -137,7 +137,7 @@ module.exports = function (logger) {
                 dir: report + 'coverage',
                 reporters: [
                     // reporters not supporting the `file` property
-                    { type: 'html', subdir: 'report-html' },
+                    { type: 'html' },
                     { type: 'cobertura', subdir: 'cobertura', file: 'cobertura.txt' },
                     { type: 'lcov', subdir: 'report-lcov' },
                     { type: 'text-summary' } //, subdir: '.', file: 'text-summary.txt'}
