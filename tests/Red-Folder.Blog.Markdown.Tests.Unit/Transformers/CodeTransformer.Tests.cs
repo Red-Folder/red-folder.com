@@ -18,7 +18,7 @@ namespace Red_Folder.Blog.Markdown.Tests.Unit.Transformers
                             ""enabled"":  ""true""
                         }");
             var markdown = "<p>Line1\n<code>Line2\nLine3\n</code>\nLine4</p>";
-            var expected = "<p>Line1\n<code>Line2<br/>\nLine3<br/>\n</code>\nLine4</p>";
+            var expected = "<p>Line1\n<pre><code>Line2\nLine3\n</code></pre>\nLine4</p>";
 
             var uat = new CodeTransformer();
 
