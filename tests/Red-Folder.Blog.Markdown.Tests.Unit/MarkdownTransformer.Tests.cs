@@ -9,7 +9,7 @@ namespace RedFolder.Blog.Markdown.Tests.Unit
     public class MarkdownTransformerTests
     {
         [Fact]
-        public void Blog_From_Valid_Meta_And_Markdown_With_No_Inner()
+        public void Blog_From_Valid_Meta_And_Markdown_With_Empty_Inner()
         {
             var meta = JObject.Parse(
                         @"{
@@ -19,9 +19,10 @@ namespace RedFolder.Blog.Markdown.Tests.Unit
                             ""title"": ""RFC Weekly - 17th October 2016"",
                             ""enabled"":  ""true""
                         }");
-            var markdown = "Hello World\r\n-----------\r\nText\r\n";
+            var markdown = "Hello World\n-----------\nText\n";
 
-            var uat = new MarkdownTransformer();
+            // Using default contructor will create inner - passing null in will ensure no inner
+            var uat = new MarkdownTransformer(null);
 
             var result = uat.Transform(meta, markdown);
 
@@ -47,7 +48,7 @@ namespace RedFolder.Blog.Markdown.Tests.Unit
                             ""title"": ""RFC Weekly - 17th October 2016"",
                             ""enabled"":  ""true""
                         }");
-            var markdown = "Hello World\r\n-----------\r\nText\r\n";
+            var markdown = "Hello World\n-----------\nText\n";
 
             Mock<ITransformer> mock = new Mock<ITransformer>();
             mock.Setup(m => m.TransformMarkdown(It.IsAny<JObject>(), It.IsAny<string>())).Returns("ABCDEF");

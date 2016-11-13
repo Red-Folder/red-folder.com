@@ -17,8 +17,8 @@ namespace Red_Folder.Blog.Markdown.Tests.Unit.Transformers
                             ""title"": ""RFC Weekly - 17th October 2016"",
                             ""enabled"":  ""true""
                         }");
-            var markdown = "<p>Line1\r\n<code>Line2\r\nLine3\r\n</code>\r\nLine4</p>";
-            var expected = "<p>Line1\r\n<code>Line2<br/>\r\nLine3<br/>\r\n</code>\r\nLine4</p>";
+            var markdown = "<p>Line1\n<code>Line2\nLine3\n</code>\nLine4</p>";
+            var expected = "<p>Line1\n<code>Line2<br/>\nLine3<br/>\n</code>\nLine4</p>";
 
             var uat = new CodeTransformer();
 

@@ -17,8 +17,7 @@ namespace RedFolder.Blog.Markdown.Transformers
 
         protected override string PostTransform(JObject meta, string markdown)
         {
-            //return Regex.Replace(markdown, "<code>(.*)</code>", m => Regex.Replace(m.Value, "\r\n", "<br/>\r\n", RegexOptions.Singleline), RegexOptions.Singleline);
-            return Regex.Replace(markdown, "<code>(.*)</code>", m => m.Value.Replace("\n\r", "<br/>"), RegexOptions.Singleline);
+            return Regex.Replace(markdown, "<code>(.*)</code>", m => m.Value.Replace("\n", "<br/>\n"), RegexOptions.Singleline);
         }
     }
 }

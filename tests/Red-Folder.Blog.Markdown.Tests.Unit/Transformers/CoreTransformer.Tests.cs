@@ -17,7 +17,7 @@ namespace Red_Folder.Blog.Markdown.Tests.Unit.Transformers
                             ""title"": ""RFC Weekly - 17th October 2016"",
                             ""enabled"":  ""true""
                         }");
-            var markdown = "Hello World\r\n-----------\r\nText\r\n";
+            var markdown = "Hello World\n-----------\nText\n";
 
             var uat = new CoreTransformer();
 
