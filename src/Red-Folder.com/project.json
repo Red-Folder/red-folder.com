@@ -37,7 +37,16 @@
     "Microsoft.VisualStudio.Web.CodeGenerators.Mvc": {
       "version": "1.0.0-preview2-final",
       "type": "build"
+    },
+    "Red-Folder.Blog.Markdown": {
+      "target": "project",
+      "version": "1.0.0-*"
+    },
+    "Red-Folder.Website.Data": {
+      "target": "project",
+      "version": "1.0.0-*"
     }
+
   },
 
   "frameworks": {
@@ -46,15 +55,7 @@
         "dotnet5.6",
         "dnxcore50",
         "portable-net45+win8"
-      ],
-      "dependencies": {
-        "Red-Folder.Blog.Markdown": {
-          "target": "project"
-        },
-        "Red-Folder.Website.Data": {
-          "target": "project"
-        }
-      }
+      ]
     }
   },
 

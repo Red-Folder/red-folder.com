@@ -26,8 +26,6 @@
     <DnxInvisibleContent Include="package.json" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Red-Folder.Blog.Markdown\Red-Folder.Blog.Markdown.csproj" />
-    <ProjectReference Include="..\Red-Folder.Website.Data\Red-Folder.Website.Data.csproj" />
   </ItemGroup>
   <Import Project="$(VSToolsPath)\DNX\Microsoft.DNX.targets" Condition="'$(VSToolsPath)' != ''" />
 </Project>

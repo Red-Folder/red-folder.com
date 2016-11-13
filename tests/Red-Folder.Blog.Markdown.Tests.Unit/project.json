@@ -7,14 +7,6 @@
         "Microsoft.NETCore.App": {
           "type": "platform",
           "version": "1.0.0"
-        },
-        "Red-Folder.Blog.Markdown": {
-          "target": "project",
-          "version": "*"
-        },
-        "Red-Folder.Website.Data": {
-          "target": "project",
-          "version": "*"
         }
       }
     }
@@ -22,6 +14,8 @@
   "dependencies": {
     "dotnet-test-xunit": "2.2.0-preview2-build1029",
     "Moq": "4.6.38-alpha",
+    "Red-Folder.Blog.Markdown": "1.0.0-*",
+    "Red-Folder.Website.Data": "1.0.0-*",
     "xunit": "2.2.0-beta3-build3402",
     "xunit.runner.visualstudio": "2.2.0-beta3-build1187"
   }
