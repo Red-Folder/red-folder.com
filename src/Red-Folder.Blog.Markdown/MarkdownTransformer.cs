@@ -18,7 +18,8 @@ namespace RedFolder.Blog.Markdown
             var core = new CoreTransformer();
             var code = new CodeTransformer(core);
             var acclaim = new AcclaimTransformer(code);
-            _innerTransformer = acclaim;
+            var image = new ImageTransformer(acclaim);
+            _innerTransformer = image;
         }
 
         public MarkdownTransformer(ITransformer innerTransformer)
