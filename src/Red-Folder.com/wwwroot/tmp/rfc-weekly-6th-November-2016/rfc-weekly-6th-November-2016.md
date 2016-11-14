@@ -16,7 +16,7 @@ I really like the idea, mentioned in the article, of using it to explain to the 
 --------
 I've long been a fan of carving out time for staff to focus on non-BAU.  In prior roles I've managed to implement a 10% innovation time which produced interesting results.
 
-This (article)[https://www.infoq.com/news/2016/10/learning-autonomy-time] touches on talk given regarding the observed benefits of 10% time.  The slides for the referenced presentation can be found (here)[http://www.slideshare.net/giusdesimone/managing-in-the-century-of-networked-society-66173512]
+This [article](https://www.infoq.com/news/2016/10/learning-autonomy-time) touches on talk given regarding the observed benefits of 10% time.  The slides for the referenced presentation can be found [here](http://www.slideshare.net/giusdesimone/managing-in-the-century-of-networked-society-66173512)
 
 Probably not a surprise that some of the content looks familiar to an amount of my ROI articles.  Nice to see Drive by Daniel Pink being referenced.
 
