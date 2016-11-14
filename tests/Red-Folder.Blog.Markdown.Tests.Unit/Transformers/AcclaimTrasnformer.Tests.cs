@@ -27,7 +27,7 @@ namespace Red_Folder.Blog.Markdown.Tests.Unit.Transformers
         }
 
         [Fact]
-        public void Correctly_Convert_APPBUILDER()
+        public void Correctly_Convert_WEBAPPLICATIONS()
         {
             var meta = JObject.Parse(
             @"{

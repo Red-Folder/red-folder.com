@@ -7,7 +7,7 @@ namespace RedFolder.Blog.Markdown.Transformers
     {
         private const string APPBUILDER = @"
           <div data-iframe-width='150' data-iframe-height='270' data-share-badge-id='f57a78d2-31ae-42d5-a39d-48eaa1bd06cd'></div>
-          <script type="text/javascript">
+          <script type='text/javascript'>
             (function() {
               var s = document.createElement('script');
               s.type = 'text/javascript';
@@ -20,7 +20,7 @@ namespace RedFolder.Blog.Markdown.Transformers
         ";
         private const string WEBAPPLICATIONS = @"
           <div data-iframe-width='150' data-iframe-height='270' data-share-badge-id='9ffb89e1-1f12-4382-9033-028aaebe793b'></div>
-          <script type="text/javascript">
+          <script type='text/javascript'>
             (function() {
               var s = document.createElement('script');
               s.type = 'text/javascript';
