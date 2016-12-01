@@ -18,7 +18,7 @@ namespace Red_Folder.Tests.Acceptance.Helpers
         private const int SECONDS_TO_SLEEP_BETWEEN_RESULT_ATTEMPTS = 10 * 1000;     // 10 Seconds
         private const int RESULT_RETRIES = 10;
 
-        private string _startKey = Environment.GetEnvironmentVariable("Red-Folder.Tests.Acceptance.CrawlWrapper.StartKey");
+        private string _startKey = Environment.GetEnvironmentVariable("Red-Folder_Tests_Acceptance_CrawlWrapper_StartKey");
 
         private CrawlResults _results;
 
