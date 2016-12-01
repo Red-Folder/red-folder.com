@@ -3,10 +3,32 @@
 
 /* jshint -W117 */
 var path = require('path');
+var fs = require("fs");
 
 /* jshint -W117 */
 module.exports = function () {
     var utils = {};
+
+    utils.GetRevFileName = function (productionFolder) {
+        // Get the production filename from the rev-manifest.json file
+        //console.log("Looking for file: \n" + productionFolder + "rev-manifest.json");
+        var revFile = fs.readFileSync(productionFolder + "rev-manifest.json");
+        //console.log("Got contents: \n" + revFile);
+        var rev = JSON.parse(revFile);
+
+        var first;
+        for (var i in rev) {
+            if (rev.hasOwnProperty(i) && typeof (i) !== 'function') {
+                first = rev[i];
+                break;
+            }
+        }
+
+        //console.log("Got file: \n", first);
+
+        return productionFolder + first;
+    };
+
 
     utils.AppBuilder = function (logger, name) {
         this.logger = logger;
@@ -270,17 +292,25 @@ module.exports = function () {
                     if (tags.filter(function (tag) {
                         return tag.tagName == app.less.production.htmlInjection.tagName;
                     })) {
-                        tags.push({
+                        var cssObj = {
                             ignorePath: '/wwwroot',
                             tagName: app.less.production.htmlInjection.tagName,
-                            css: [],
+                            internalCss: [],
+                        };
+                        Object.defineProperty(cssObj, 'css', {
+                            get: function () {
+                                return cssObj.internalCss.map(function (folder) {
+                                    return utils.GetRevFileName(folder);
+                                });
+                            }
                         });
+                        tags.push(cssObj);
                     }
 
                     var css = tags.filter(function (tag) {
                         return tag.tagName == app.less.production.htmlInjection.tagName;
-                    })[0].css;
-                    css.push(app.less.production.folder + '*.css');
+                    })[0].internalCss;
+                    css.push(app.less.production.folder);
                 }
             });
 
@@ -428,34 +458,63 @@ module.exports = function () {
                         if (tags.filter(function (tag) {
                             return tag.tagName == app.js.production.htmlInjection.tagName;
                         })) {
-                            tags.push({
+                            /*
+                            var foo = { bar: 123 };
+                            Object.defineProperty(foo, 'bar', {
+                                get: function () { return bar; },
+                                set: function (value) { this.bar = value; }
+                            });
+                            console.log(foo.bar);
+                            foo.bar = 456;
+                            console.log(foo.bar);
+                            */
+
+                            var jsObj = {
                                 ignorePath: '/wwwroot',
                                 tagName: app.js.production.htmlInjection.tagName,
-                                js: [],
+                                internalJs: []
+                            };
+                            Object.defineProperty(jsObj, 'js', {
+                                get: function() {
+                                    return jsObj.internalJs.map(function (folder) {
+                                        return utils.GetRevFileName(folder);
+                                    });
+                                }
                             });
+                            tags.push(jsObj);
                         }
 
                         var js = tags.filter(function (tag) {
                             return tag.tagName == app.js.production.htmlInjection.tagName;
-                        })[0].js;
-                        js.push(app.js.production.folder + '*.js');
+                        })[0].internalJs;
+
+                        js.push(app.js.production.folder);
                     }
 
                     if (app.hasAngular) {
                         if (tags.filter(function (tag) {
                             return tag.tagName == app.angular.production.htmlInjection.tagName;
                         })) {
-                            tags.push({
+                            var jsObj = {
                                 ignorePath: '/wwwroot',
                                 tagName: app.angular.production.htmlInjection.tagName,
-                                js: [],
+                                internalJs: [],
+                            };
+                            Object.defineProperty(jsObj, 'js', {
+                                get: function () {
+                                    return jsObj.internalJs.map(function (folder) {
+                                        return utils.GetRevFileName(folder);
+                                    });
+                                }
                             });
+                            tags.push(jsObj);
                         }
 
                         var angular = tags.filter(function (tag) {
                             return tag.tagName == app.angular.production.htmlInjection.tagName;
-                        })[0].js;
-                        angular.push(app.angular.production.folder + '*.js');
+                        })[0].internalJs;
+
+                        angular.push(app.angular.production.folder);
                     }
 
                 }
@@ -487,7 +546,6 @@ module.exports = function () {
                 };
             });
         };
-
     };
 
     return utils;

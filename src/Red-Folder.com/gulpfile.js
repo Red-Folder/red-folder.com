@@ -16,6 +16,7 @@ var merge = require('merge-stream');
 var browserSync = require('browser-sync');
 var $ = require('gulp-load-plugins')({lazy: true});
 
+var rfcUtils = require('./Utils/rfcUtils.js')();
 var config = require('./gulp.config')(log);
 
 var port = 8001;    //config.defaultPort;
@@ -93,6 +94,8 @@ gulp.task('bundle-css', ['compile-less', 'autoprefix-css', 'inject-css'], functi
                     .pipe($.minifyCss())
                     .pipe($.concat(element.bundleName))
                     .pipe($.rev())
+                    .pipe(gulp.dest(element.dest))
+                    .pipe($.rev.manifest())
                     .pipe(gulp.dest(element.dest));
     });
 
@@ -102,14 +105,15 @@ gulp.task('bundle-css', ['compile-less', 'autoprefix-css', 'inject-css'], functi
 gulp.task('deploy-css', ['bundle-css'], function() {
     log('Deploy CSS');
 
-    var tasks = config.cssToDeploy.map(function(element) {
+    var tasks = config.cssToDeploy.map(function (element) {
         var task = gulp.src(element.src)
                         .pipe($.print());
 
         for (var i = 0; i < element.tags.length; i++) {
             task = task.pipe($.inject(gulp.src(element.tags[i].css, {read: false}), {
                 ignorePath: element.tags[i].ignorePath,
-                name: element.tags[i].tagName
+                name: element.tags[i].tagName,
+                empty: true
             }));
         }
 
@@ -179,6 +183,8 @@ gulp.task('bundle-js', ['inject-js'], function() {
                     .pipe($.uglify())
                     .pipe($.concat(element.bundleName))
                     .pipe($.rev())
+                    .pipe(gulp.dest(element.dest))
+                    .pipe($.rev.manifest())
                     .pipe(gulp.dest(element.dest));
     });
 
@@ -193,7 +199,7 @@ gulp.task('deploy-js', ['bundle-js', 'inject-bower'], function() {
                         .pipe($.print());
 
         for (var i = 0; i < element.tags.length; i++) {
-            task = task.pipe($.inject(gulp.src(element.tags[i].js, {read: false}), {
+            task = task.pipe($.inject(gulp.src(element.tags[i].js, { read: false }).pipe($.print()), {
                 ignorePath: element.tags[i].ignorePath,
                 name: element.tags[i].tagName
             }));

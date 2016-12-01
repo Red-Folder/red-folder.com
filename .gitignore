@@ -218,3 +218,7 @@ src/Red-Folder.com/wwwroot/lib/*
 /src/Red-Folder.com/Properties/PublishProfiles/red-folder - Web Deploy-publish.ps1
 /src/Red-Folder.com/Properties/PublishProfiles/red-folder - FTP.pubxml
 /src/Red-Folder.com/test./views/shared/_layout.cshtml/_layout.cshtml
+
+
+# Rev file
+rev-manifest.json
