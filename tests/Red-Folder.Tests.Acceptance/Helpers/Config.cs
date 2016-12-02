@@ -14,7 +14,7 @@ namespace Red_Folder.Tests.Acceptance.Helpers
             get {
                 if (_host == null)
                 {
-                    _host = Environment.GetEnvironmentVariable("REDFOLDER_HOST");
+                    _host = Environment.GetEnvironmentVariable("Red-Folder_Tests_Acceptance_Host");
                     if (_host == null)
                     {
                         _host = "https://www.red-folder.com";
