@@ -1,4 +1,7 @@
 ﻿{
+  "id": "279faf90-e0b3-4947-af2e-22d5e0b63cc3",
+  "image": "/media/blog/rfc-weekly/RFCWeeklyTwitterCard.png",
+  "description": "RFC Weekly - a summary of things that I find interesting.  It is an indulgence; its the weekly update that I would like to receive.  Unfortunately no-one else is producing it so I figured I best get on with it.  Hopefully someone else will also find useful.",
   "url": "rfc-weekly-31st-October-2016",
   "published": "2016-10-31",
   "modified": "2016-10-31",

@@ -29,8 +29,24 @@ namespace RedFolder.Blog.Markdown
 
         public Website.Data.Blog Transform(JObject meta, string markdown)
         {
+            var redirects = new List<Redirect>();
+            if (meta["redirect"] != null)
+            {
+                foreach (var redirect  in meta["redirect"])
+                {
+                    redirects.Add(new Redirect
+                    {
+                        RedirectType = (string)redirect["redirectType"] == "301" ? System.Net.HttpStatusCode.MovedPermanently : System.Net.HttpStatusCode.TemporaryRedirect,
+                        Url = (string)redirect["url"],
+                        RedirectByRoute = Boolean.Parse((string)redirect["redirectByRoute"]),
+                        RedirectByParameter = Boolean.Parse((string)redirect["redirectByParameter"])
+                    });
+                }
+            }
+
             return new Website.Data.Blog
             {
+                Id = (string)meta["id"],
                 Url = (string)meta["url"],
                 Author = "Mark Taylor",
                 Published = ConvertJsonToDateTime((string)meta["published"]),
@@ -39,9 +55,10 @@ namespace RedFolder.Blog.Markdown
                 Text = MarkdownToHtml(meta, markdown),
                 Enabled = Boolean.Parse((string)meta["enabled"]),
 
-                Description = "RFC Weekly - a summary of things that I find interesting.  It is an indulgence; its the weekly update that I would like to receive.  Unfortunately no-one else is producing it so I figured I best get on with it.  Hopefully someone else will also find useful.",
-                Image = @"https://www.red-folder.com/media/blog/rfc-weekly/RFCWeeklyTwitterCard.png",
-                TwitterHandle = "@folderred"
+                Description = (string)meta["description"],
+                Image = (string)meta["image"],
+
+                Redirects = redirects
             };
         }
 
