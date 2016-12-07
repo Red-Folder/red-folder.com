@@ -30,9 +30,9 @@ namespace RedFolder.Blog.Markdown
         public Website.Data.Blog Transform(JObject meta, string markdown)
         {
             var redirects = new List<Redirect>();
-            if (meta["redirect"] != null)
+            if (meta["redirects"] != null)
             {
-                foreach (var redirect  in meta["redirect"])
+                foreach (var redirect  in meta["redirects"])
                 {
                     redirects.Add(new Redirect
                     {

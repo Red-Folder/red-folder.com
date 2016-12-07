@@ -18,9 +18,11 @@ namespace RedFolder
     {
 
         private IConfigurationRoot _config;
+        private IHostingEnvironment _env;
 
         public Startup(IHostingEnvironment env)
         {
+            _env = env;
             var builder = new ConfigurationBuilder()
                 .SetBasePath(env.ContentRootPath)
                 .AddJsonFile("appsettings.json")
@@ -42,7 +44,10 @@ namespace RedFolder
 
             services.AddScoped<IRepoRepository, RepoRepository>();
             services.AddScoped<IArticleRepository, ArticleRepository>();
-            services.AddScoped<IBlogRepository, BlogRepository>();
+
+            var blogRepo = new BlogRepository(_env);
+            services.AddSingleton<IBlogRepository>(blogRepo);
+            services.AddSingleton<IRedirectRepository>(new RedirectRepository(new System.Collections.Generic.List<IRedirectRepository> { blogRepo }));
 
             services.AddTransient<RepoContextSeedData>();
         }
@@ -98,6 +103,12 @@ namespace RedFolder
                     name: "Projects - Microservices",
                     template: "Projects/Microservices/{action}",
                     defaults: new { controller = "Microservice", action = "Index" }
+                );
+
+                config.MapRoute(
+                    name: "Redirect",
+                    template: "redirect",
+                    defaults: new { controller = "Home", action = "Redirect" }
                 );
 
                 config.MapRoute(

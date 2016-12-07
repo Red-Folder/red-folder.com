@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
 using RedFolder.Services;
+using System.Linq;
 
 namespace RedFolder.Controllers.Web
 {
@@ -13,6 +14,21 @@ namespace RedFolder.Controllers.Web
             model.Content = GetTiles();
             model.Contact = new ContactRequest();
             return View(model);
+        }
+
+        public ActionResult Redirect([FromServices] IRedirectRepository repository, string url)
+        {
+            var redirect = repository.GetRedirects().Where(x => x.Value.Where(y => y.Url == url && y.RedirectByParameter).Count() > 0);
+            if (redirect == null || redirect.Count() == 0)
+            {
+                return new RedirectResult("/errors/status/404");
+            }
+            else
+            {
+                var redirectUrl = "/blog/" + redirect.First().Key;
+                var perm = redirect.First().Value.Where(y => y.Url == url && y.RedirectByParameter).First().RedirectType == System.Net.HttpStatusCode.MovedPermanently;
+                return new RedirectResult(redirectUrl, perm);
+            }
         }
 
         public ActionResult Throw()

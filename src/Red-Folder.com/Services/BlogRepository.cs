@@ -9,12 +9,13 @@ using System.Linq;
 
 namespace RedFolder.Services
 {
-    public class BlogRepository : IBlogRepository
+    public class BlogRepository : IBlogRepository, IRedirectRepository
     {
         //private IHostingEnvironment _hostingEnvironment;
         private string _folder;
-
         private MarkdownRepository _markdownRepository;
+
+        private IList<RedFolder.Website.Data.Blog> _blogs;
 
         public BlogRepository(IHostingEnvironment hostingEnvironment)
         {
@@ -24,14 +25,27 @@ namespace RedFolder.Services
             _markdownRepository = new MarkdownRepository();
         }
 
+        private IList<RedFolder.Website.Data.Blog> Blogs
+        {
+            get
+            {
+                if (_blogs == null)
+                {
+                    _blogs = _markdownRepository.Import(_folder);
+                }
+
+                return _blogs;
+            }
+        }
+
         public IList<RedFolder.Website.Data.Blog> GetAll()
         {
-            return _markdownRepository.Import(_folder).Where(b => b.Enabled).OrderByDescending(b => b.Published).ToList();
+            return Blogs.Where(b => b.Enabled).OrderByDescending(b => b.Published).ToList();
         }
 
         public RedFolder.Website.Data.Blog Get(string url)
         {
-            var blogs = _markdownRepository.Import(_folder);
+            var blogs = Blogs;
             var matchingBlogs = blogs.Where(b => b.Url == url);
 
             if (matchingBlogs == null || matchingBlogs.Count() != 1)
@@ -49,6 +63,22 @@ namespace RedFolder.Services
             {
                 throw new BlogNotEnabledException();
             }
+        }
+
+        public Dictionary<string, List<Redirect>> GetRedirects()
+        {
+            var query = Blogs
+                    .Where(b => b.Enabled)
+                    .Where(b => b.Redirects != null && b.Redirects.Count > 0)
+                    .Select(b => new KeyValuePair<string, List<Redirect>>(b.Url, b.Redirects ));
+
+            var redirects = new Dictionary<string, List<Redirect>>();
+            foreach (var redirect in query)
+            {
+                redirects.Add(redirect.Key, redirect.Value);
+            }
+
+            return redirects;
         }
     }
 
