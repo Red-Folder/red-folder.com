@@ -1,0 +1,24 @@
+Having supported my background service plugin for Phonegap/ Cordova for sometime, it is clear that many developers are jumping into the technology without fully understanding the platform.
+
+Don't get me wrong; Phonegap/ Cordova is a great tool - when used for the right job.  This post is about taking the time to consider if it is right for your project.
+
+### Before you start any project
+Ok, for a moment lets step back from any specific technology.
+When, as a developer, you are present with a project you should always break it down into the component parts.  From those component parts, you should be looking for those that are the most risky or complex - these are the parts that will derail your project - almost certainly at the wrong time in your project.
+Risky and complex parts should be handled early in a project - you should be aiming to fail quickly.### Failing quickly
+Every software project has a chance of failure.  Some of the best software projects have multiple failures - failures that allow the development team to adjust their project to produce better software.
+Acceptance of failure may be a culture change for you, your development team or even your organisation.  Please believe me when I say you need to get over this (maybe I should write a blog on that) - for now just trust me.
+The important thing with failure is to fail quickly.  This wastes lest effort &amp; money than failing slowly.  The worst time to fail is towards the end of the project.  It really doesn't take much searching of the internet to find case studies of projects that have been on track until the 11th hour - only to fail spectacularly - generally leading to the entire project having to be scrapped.### So, how does failing quickly apply to my project
+If you are able to assess your risky/ complex tasks early and prove you can or cannot perform with your chosen technology, team, etc - you greatly improve the likelihood that the project will be a success.
+With Phonegap/ Cordova; the risky/ complex tasks come to play when you have to develop functionality outside of the standard app.
+Lets take a scenario where your project requires that the app actively talks to a web service every 15 minutes - and should take actions based on it.
+You break the task down - your comfort area is the UI (HTML, CSS, JavaScript) - Phonegap seems just the framework to develop your application.  Phonegap however has no native means of checking a web service every 15 minutes.  Yes, you could use JavaScript for when the app is open and running, but (due to the Android Application Life-cycle) that will not work if you app goes into the background or is closed.
+At this point, you are probably looking at my background service plugin.  This does give you a means for how to handle this 15 minutes check - however, you need to understand that you need Java (not JavaScript) skills and the relevant technical expertise to develop an Android Native app.
+So, in the development of your application, you now how have critical failure - you don't have the Java/ Native app experience or the funds to acquire them.  So, at which point would you prefer to find this:<ol>* 80% of the way through your project when you have developed the UI - investing a lot of time and effort
+* 10% of the way through your project when you have invested considerable less time &amp; effort
+</ol>If you fail at the 10%, this is great.  You've just save yourself or your organisation 70% of the effort than if you left it till the end.  Both options have let to the project failing - the but the second options is considerably better value for you.### Summary
+The principals of dealing with the risky/ complex tasks early in the project should be applied to all projects (not just development in truth).
+However, we as humans will go for what we know.  How cool is it that we can use our HTML/ CSS/ JavaScript skills to develop a great app quickly to impress the boss?
+But, as I talk about above, this can be a false economy.
+I have worked on many projects over the years that have failed - initially they have been developed quickly and perceived to be successful as the developers has used their "comfort zone" skills to develop a first phase or prototype.  As the project then moves outside of the developers "comfort zone", you then start to see the cracks appearing.  The developer starts to fall behind, is definitely not delivering to the same cadence as initially set.  Before long confidence is lost in the developer and the application.
+As such, please take some time when you look at your project.  Rather than jump in, take the time to map out the tasks and identify the tasks that are risky/ complex.  Then do your research - make sure that the framework you use will support what you need do.  More often than not, this means doing the hard stuff first.  Your future self will thank you for it.
