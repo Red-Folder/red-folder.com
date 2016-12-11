@@ -30,37 +30,55 @@ namespace RedFolder.Blog.Markdown
 
         public Website.Data.Blog Transform(JObject meta, string markdown)
         {
-            var redirects = new List<Redirect>();
-            if (meta["redirects"] != null)
+            try
             {
-                foreach (var redirect  in meta["redirects"])
+                var redirects = new List<Redirect>();
+                if (meta["redirects"] != null)
                 {
-                    redirects.Add(new Redirect
+                    foreach (var redirect in meta["redirects"])
                     {
-                        RedirectType = (string)redirect["redirectType"] == "301" ? System.Net.HttpStatusCode.MovedPermanently : System.Net.HttpStatusCode.TemporaryRedirect,
-                        Url = (string)redirect["url"],
-                        RedirectByRoute = Boolean.Parse((string)redirect["redirectByRoute"]),
-                        RedirectByParameter = Boolean.Parse((string)redirect["redirectByParameter"])
-                    });
+                        redirects.Add(new Redirect
+                        {
+                            RedirectType = (string)redirect["redirectType"] == "301" ? System.Net.HttpStatusCode.MovedPermanently : System.Net.HttpStatusCode.TemporaryRedirect,
+                            Url = (string)redirect["url"],
+                            RedirectByRoute = Boolean.Parse((string)redirect["redirectByRoute"]),
+                            RedirectByParameter = Boolean.Parse((string)redirect["redirectByParameter"])
+                        });
+                    }
                 }
+
+                var keyWords = new List<string>();
+                if (meta["keyWords"] != null)
+                {
+                    foreach (var keyWord in meta["keyWords"])
+                    {
+                        keyWords.Add((string)keyWord);
+                    }
+                }
+
+                return new Website.Data.Blog
+                {
+                    Id = (string)meta["id"],
+                    Url = (string)meta["url"],
+                    Author = "Mark Taylor",
+                    Published = meta["published"].Value<DateTime>(),
+                    Modified = meta["modified"].Value<DateTime>(),
+                    Title = (string)meta["title"],
+                    Text = MarkdownToHtml(meta, markdown),
+                    Enabled = Boolean.Parse((string)meta["enabled"]),
+
+                    Description = (string)meta["description"],
+                    Image = (string)meta["image"],
+
+                    Redirects = redirects,
+                    KeyWords = keyWords
+                };
             }
-
-            return new Website.Data.Blog
+            catch (Exception ex)
             {
-                Id = (string)meta["id"],
-                Url = (string)meta["url"],
-                Author = "Mark Taylor",
-                Published = ConvertJsonToDateTime((string)meta["published"]),
-                Modified = ConvertJsonToDateTime((string)meta["modified"]),
-                Title = (string)meta["title"],
-                Text = MarkdownToHtml(meta, markdown),
-                Enabled = Boolean.Parse((string)meta["enabled"]),
-
-                Description = (string)meta["description"],
-                Image = (string)meta["image"],
-
-                Redirects = redirects
-            };
+                // TODO - Need to add some logging
+                return null;
+            }
         }
 
         private string MarkdownToHtml(JObject meta, string markdown)
@@ -72,23 +90,6 @@ namespace RedFolder.Blog.Markdown
             else
             {
                 return _innerTransformer.TransformMarkdown(meta, markdown);
-            }
-        }
-
-        private DateTime ConvertJsonToDateTime(string value)
-        {
-            if (value.Split('-').Length == 3)
-            {
-                var valueArray = value.Split('-');
-                var year = int.Parse(valueArray[0]);
-                var month = int.Parse(valueArray[1]);
-                var day = int.Parse(valueArray[2]);
-
-                return new DateTime(year, month, day);
-            }
-            else
-            {
-                return DateTime.Now;
             }
         }
     }
