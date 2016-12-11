@@ -5,7 +5,7 @@ I've recently introduced Specflow into a client.  If you've never come across Sp
 
 It uses a Gherkin style language:
 
-![Image](/media/blog/rfc-weekly-30th-may-2016GettingStarted-FirstFeatureFile.png)
+![Image](/media/blog/rfc-weekly-30th-may-2016/GettingStarted-FirstFeatureFile.png)
 
 I will then generally use it with xUnit as a test runner.
 

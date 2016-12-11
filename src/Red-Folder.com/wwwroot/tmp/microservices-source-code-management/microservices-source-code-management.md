@@ -12,7 +12,7 @@ For the purposes of this article, I will be using three projects:
 * MS-Projects - my first Microservice.  This Microservice will perform double service in this article.  More on this later - for now just assume its an implementation.
 
 All of the projects will be developed in Visual Studio.  Three solutions will be used:
-![Image](/media/blog/microservices-source-code-managementProjectSummary.png)
+![Image](/media/blog/microservices-source-code-management/ProjectSummary.png)
 
 The MS-Common-Library solution will consist of only the MS-Common-Library project.  The MS-Common-Library project will also be used by the MS-Base-WebAPI and MS-Project so it is included in their solutions as well.
 It should be explained at this points that I am not planning for each solution to reference the same file version of the project.  Each solution will have it's own copy of the project.  See the next section on versioning.
@@ -21,17 +21,17 @@ The MS-Projects solution will consist of the MS-Common-Library, MS-Base-WebAPI a
 ### Versioning
 At this point its important to note the versioning allows for the solutions to have different versions - not to force versions down onto dependent projects.  This allows the project teams to decide when (and if) to take newer versions for the dependent projects.  This keeps the dependent projects loosely-coupled.
 So here's an example of what I'm trying to achieve;
-We will focus with the MS-Common-Library.  When we start, all are version 1:![Image](/media/blog/microservices-source-code-managementProjectVersioning01.png)
+We will focus with the MS-Common-Library.  When we start, all are version 1:![Image](/media/blog/microservices-source-code-management/ProjectVersioning01.png)
 
-We update MS-Common-Library (via the MS-Common-Library solution) to version 2:![Image](/media/blog/microservices-source-code-managementProjectVersioning02.png)
+We update MS-Common-Library (via the MS-Common-Library solution) to version 2:![Image](/media/blog/microservices-source-code-management/ProjectVersioning02.png)
 
-At this point we choose to pull those changes into the MS-Base-WebAPI - updating it's MS-Common-Library to V2.  Note that we choose not to pull the changes into MS-Projects - there is no need and could stay this way for week, months or even years (or until the relevant project team get round to it):![Image](/media/blog/microservices-source-code-managementProjectVersioning03.png)
+At this point we choose to pull those changes into the MS-Base-WebAPI - updating it's MS-Common-Library to V2.  Note that we choose not to pull the changes into MS-Projects - there is no need and could stay this way for week, months or even years (or until the relevant project team get round to it):![Image](/media/blog/microservices-source-code-management/ProjectVersioning03.png)
 
-We now decide to make further changes in the MS-Base-WebAPI solutions version of MS-Common-Library - effectively creating Version 3:![Image](/media/blog/microservices-source-code-managementProjectVersioning04.png)
+We now decide to make further changes in the MS-Base-WebAPI solutions version of MS-Common-Library - effectively creating Version 3:![Image](/media/blog/microservices-source-code-management/ProjectVersioning04.png)
 
-We can then push those changes back up to the MS-Common-Library solution version:![Image](/media/blog/microservices-source-code-managementProjectVersioning05.png)
+We can then push those changes back up to the MS-Common-Library solution version:![Image](/media/blog/microservices-source-code-management/ProjectVersioning05.png)
 
-And at some later point, the MS-Projects development team finally decide to update.  They can then of course choose to pull the latest version:![Image](/media/blog/microservices-source-code-managementProjectVersioning06.png)
+And at some later point, the MS-Projects development team finally decide to update.  They can then of course choose to pull the latest version:![Image](/media/blog/microservices-source-code-management/ProjectVersioning06.png)
 
 At which point everyone is up to date.
 For three projects, this may seem very complex.  When you get into an enterprise environment with tens or hundreds of projects, it allows you to make changes to specific projects without having to change every project (thus making the change easier to developer, test &amp; release).
@@ -46,15 +46,15 @@ From the articles (and a fair amount of experimentation) I settled on submodules
 You will notice in my GitHub account I now have three projects (probably more by the time you read it) one for each of the solutions.  (Note that I've called them all MS- something to group all my Microservice projects in GitHub).
 (Additional note; I've realised during review that I've reference MS-Project above and given examples for MS-Logger below.  Both are Microservices I plan to build - I've just managed to forget which one I was planning for the article - that's what I get for writing half one day and half the next.  The MS-Logger solution has the same structure as the MS-Project solution referenced above).
 I first created three almost empty repositories on GitHub (just had an auto created README.md).  I then cloned all three projects to my development PC.
-![Image](/media/blog/microservices-source-code-managementTopLevelFolderStructure.png)
+![Image](/media/blog/microservices-source-code-management/TopLevelFolderStructure.png)
 
 I've then created my (generally empty) solutions into their relevant folder.  The below is an example for the MS-Logger solution (File -> New Project):
-![Image](/media/blog/microservices-source-code-managementNewProjectMS-Logger.png)
+![Image](/media/blog/microservices-source-code-management/NewProjectMS-Logger.png)
 
 Note that I choose to add to Source Control but deselect the "Create directory for solution" (we've already done this by cloning the folder from GitHub).
 
 At this stage I save the solution and use Visual Studio commit the changes, then sync the project to GitHub:
-![Image](/media/blog/microservices-source-code-managementMSLoggerGitHubInitial.png)
+![Image](/media/blog/microservices-source-code-management/MSLoggerGitHubInitial.png)
 
 Ok, so I now have a default solution for my MS-Logger.  As per the above, I also need MS-Common-Library and MS-Base-WebAPI adding to my MS-Logger solution.
 
@@ -76,7 +76,7 @@ Note that if for any reason the remote folders/ projects aren't committed to the
 
 Within GitHub you should be able to see how the submodules are represented:
 
-![Image](/media/blog/microservices-source-code-managementGitHubRemotes.png)
+![Image](/media/blog/microservices-source-code-management/GitHubRemotes.png)
 
 You will see that the submodules are reference by commit SHA.  This allows our MS-Logger project to reference any MS-Common-Library/ MS-Base-WebAPI commit.  This permits us to choose when we clone new versions into our projects (using the <span style="font-family: Courier New, Courier, monospace; font-size: xx-small;">git submodule update --init --recursive</span> command).
 The added benefit of this approach is that it allows us to automated the version checking.  Which leads us to the next post.

@@ -21,10 +21,10 @@ From within Confluence (based on 3.5.1):
 HTML to paste in:%[https://gist.github.com/Red-Folder/37ce29b60b54173e315b.js]
 Then within your Confluence page, just add:
 
-![Image](/media/blog/websequencediagramscom-and-confluence-v3Confluence%2BWSD%2Bcode.png)
+![Image](/media/blog/websequencediagramscom-and-confluence-v3/Confluence-2BWSD-2Bcode.png)
 
 Which should give you:
 
-![Image](/media/blog/websequencediagramscom-and-confluence-v3Confluence%2BWSD%2Bresult.png)
+![Image](/media/blog/websequencediagramscom-and-confluence-v3/Confluence-2BWSD-2Bresult.png)
 
 All good

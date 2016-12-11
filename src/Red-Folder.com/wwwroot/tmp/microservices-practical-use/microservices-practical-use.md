@@ -8,7 +8,7 @@ This will be the first of a series of posts as I start to explore the the archit
 Ha.  I'm not even going to attempt to answer that one.  There are greater minds than mine attempting to define the architecture.  If new to the term, I'd suggest having a search round the internet, but the best resource (in my opinion) is the book Building Microservices by Sam Newman:
 
 
-![Image](/media/blog/microservices-practical-useBuildingMicroservices.jpg)
+![Image](/media/blog/microservices-practical-use/BuildingMicroservices.jpg)
 
 This book will form the majority of the basis for my work.
 ### 

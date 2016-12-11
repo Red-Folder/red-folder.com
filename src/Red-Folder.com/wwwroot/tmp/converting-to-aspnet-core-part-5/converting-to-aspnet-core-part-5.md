@@ -28,13 +28,13 @@ And that was pretty much about it.  From a file perspective, take a look at:
 
 This gives the following Api -> [http://www.red-folder.com/api/Repo](http://www.red-folder.com/api/Repo)
 Results can be seen here in this Postman screenshot (I've talked previously about Postman - a Chrome Extension which is great for Api testing):
-![Image](/media/blog/converting-to-aspnet-core-part-52016-07-17%2B-%2BRepo%2BApi.PNG)
+![Image](/media/blog/converting-to-aspnet-core-part-5/2016-07-17-2B--2BRepo-2BApi.PNG)
 
 The Api at this stage, along with everything else, is very basic and is intended to be a placeholder to build on later.### The App
 The "app" is where I've spent most of the time - although as I've said, not a great deal to look at.
 Currently that app can be seen on a secret page: [http://www.red-folder.com/Home/Repo](http://www.red-folder.com/Home/Repo)
 At this stage it looks something like the below and just allows a fairly simple toggling of the Repositories shown based on tags.  Again something to be built on in the future.
-![Image](/media/blog/converting-to-aspnet-core-part-52016-07-17%2B-%2BRepo%2BPage.PNG)
+![Image](/media/blog/converting-to-aspnet-core-part-5/2016-07-17-2B--2BRepo-2BPage.PNG)
 
 The code is a bit more interesting and can be found [here](https://github.com/Red-Folder/red-folder.com/tree/master/src/Red-Folder.com/wwwroot/scripts/repoExplorer).  Hopefully I should be able to have time to evolve it into something meaningful - but for now it had given me a chance to get across the majority of the basics of Angular 1.x - certainly enough to pick up an existing projects and to know good practice when I see it.### What next
 In the next article I will look at EF7 and pluming the WebApi into the database.

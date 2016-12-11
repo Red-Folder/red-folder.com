@@ -1,4 +1,4 @@
-![Image](/media/blog/rfc-weekly-14th-march-2016RFC%2BWeekly%2BHeader.png)
+![Image](/media/blog/rfc-weekly-14th-march-2016/RFC-2BWeekly-2BHeader.png)
 
 <span style="color: #444444; font-family: arial, tahoma, helvetica, freesans, sans-serif;"><span style="background-color: white; font-size: 13px; line-height: 18.2px;">This is the next of my RFC Weeklies - a summary of things that I find interesting.  It is an indulgence; its the weekly update that I would like to receive.  Unfortunately no-one else is producing it so I figured I best get on with it.  Hopefully someone else also find useful.</span></span>
 <span style="color: #444444; font-family: arial, tahoma, helvetica, freesans, sans-serif;"><span style="background-color: white; font-size: 13px; line-height: 18.2px;">

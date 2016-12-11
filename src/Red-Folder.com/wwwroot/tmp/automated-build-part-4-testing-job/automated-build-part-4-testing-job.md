@@ -67,7 +67,7 @@ To create the job;
 
 4) Under Build Environment, enable "Run an Android emulator during build":
 
-![Image](/media/blog/automated-build-part-4-testing-jobBuildEnv.png)
+![Image](/media/blog/automated-build-part-4-testing-job/BuildEnv.png)
 
 [UPDATE]: Version 3 of Cordova needs Android OS 2.2 as a minimum.  As such I have since changes the above Android OS version.  I also tick the "Use emulator snapshots" as it speeds the whole process up.
 

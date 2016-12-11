@@ -13,7 +13,7 @@ Instructions on downloading these file (and where to put them in you project) ca
 
 ## Create the Service Class
 Add a new class within the src\com.red_folder.sample folder.  Set the Name of the class to "TwitterService" and the superclass to "com.red_folder.phonegap.plugin.backgroundservice.BackgroundService":
-![Image](/media/blog/phonegap-service-tutorial-part-2Image1.png)
+![Image](/media/blog/phonegap-service-tutorial-part-2/Image1.png)
 
 
 If you have the Inherited abstract methods, your class should look like this:%[https://gist.github.com/3778201.js] If Eclipse hasn't automatically created the abstract methods, then copy them in now.  
@@ -59,7 +59,7 @@ The Background Service must be started before you can perform many functions.  O
 
 You should now be able to finally re-compile and run the application.  If all works, you should see the logcat message every 60 seconds:
 
-![Image](/media/blog/phonegap-service-tutorial-part-2Image2.png)
+![Image](/media/blog/phonegap-service-tutorial-part-2/Image2.png)
 
 If you close the Phonegap Application, you will continue to see the logcat message every minute.  You should be able to start and stop the Application and the logcat will continue.
 

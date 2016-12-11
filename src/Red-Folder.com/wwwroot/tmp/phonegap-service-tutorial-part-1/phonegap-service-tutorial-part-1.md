@@ -27,7 +27,7 @@ This just gives us some titles and pulls in the cordova-1.8.1.js file.  For Cord
 
 Run this just to make sure you get what you'd expect:
 
-![Image](/media/blog/phonegap-service-tutorial-part-1image1.png)
+![Image](/media/blog/phonegap-service-tutorial-part-1/image1.png)
 
 Now lets put some contents into it.  For this I'm going to use jQuery and Handlebars, so first add the following below the cordova-x.x.x.js import:
 %[https://gist.github.com/3778311.js] You will need to download the latest version of the js files - these can be found with a quick google search.
@@ -58,13 +58,13 @@ We then need to make one change to the res\xml\cordova.xml file (for Cordova 2.x
 
 Ok, time to run the Application again.  This time you should get something similar to the below:
 
-![Image](/media/blog/phonegap-service-tutorial-part-1image2.png)
+![Image](/media/blog/phonegap-service-tutorial-part-1/image2.png)
 
 Lets put a little styling into the app.  Add the following within the &lt;head> block:
 
 %[https://gist.github.com/3778344.js]This should give us a slightly better looking list:  
 
-![Image](/media/blog/phonegap-service-tutorial-part-1image3.png)
+![Image](/media/blog/phonegap-service-tutorial-part-1/image3.png)
 
 ## Next steps ...
 This completes Part 1.  This gives us a basic Twitter app using Phonegap.

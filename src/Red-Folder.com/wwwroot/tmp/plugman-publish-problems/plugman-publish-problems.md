@@ -6,4 +6,4 @@ After some experimentation, I realized that I had the Plugin block wrong - I sim
 
 This gave me a confirmation message as per the below:
 
-![Image](/media/blog/plugman-publish-problemsPublishResults.png)
+![Image](/media/blog/plugman-publish-problems/PublishResults.png)

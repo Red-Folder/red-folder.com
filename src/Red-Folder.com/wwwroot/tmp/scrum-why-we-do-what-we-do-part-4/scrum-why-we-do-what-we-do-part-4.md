@@ -51,7 +51,7 @@ As the card is moved through the process, we move them through the following col
 
 All cards move between the columns in parallel with the actual work.
 
-![Image](/media/blog/scrum-why-we-do-what-we-do-part-4Trello.png)
+![Image](/media/blog/scrum-why-we-do-what-we-do-part-4/Trello.png)
 
 ### Prioritization
 We run a fortnightly meeting to, as a team, prioritise our Trello cards into a business priority.
@@ -71,7 +71,7 @@ The estimate will be based on a sequence of numbers that becomes wider spaces as
 
 For this we use hatjitsu ([http://hat.jit.su](http://hat.jit.su/)) which allows for the blind vote:
 
-![Image](/media/blog/scrum-why-we-do-what-we-do-part-4hatjitsu.png)
+![Image](/media/blog/scrum-why-we-do-what-we-do-part-4/hatjitsu.png)
 
 
 The principle being that each developer, after discussing the card and asking any questions, would make their own estimate.

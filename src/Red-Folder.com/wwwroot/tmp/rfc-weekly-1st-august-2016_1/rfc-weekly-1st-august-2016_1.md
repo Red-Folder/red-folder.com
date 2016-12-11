@@ -12,7 +12,7 @@ The Paths feature collates a number of courses and puts them into skill level (b
 
 I’m currently working through the Angular path.  I’m probably about half way through the material (have some experience with Angular previously) and have a achieved a reasonable score.
 
-![Image](/media/blog/rfc-weekly-1st-august-2016_1AngularScore.PNG)
+![Image](/media/blog/rfc-weekly-1st-august-2016_1/AngularScore.PNG)
 
 There is an argument to question the assessment quality – but anything that motivates learning is a good thing by me.
 

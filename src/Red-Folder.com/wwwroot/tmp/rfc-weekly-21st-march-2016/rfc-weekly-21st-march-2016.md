@@ -1,4 +1,4 @@
-![Image](/media/blog/rfc-weekly-21st-march-2016RFC%2BWeekly%2BHeader.png)
+![Image](/media/blog/rfc-weekly-21st-march-2016/RFC-2BWeekly-2BHeader.png)
 
 
 

@@ -24,11 +24,11 @@ The Core Plugin are files and configuration that will be needed for any implemen
 
 2) Refresh the project (right click project and refresh) to ensure that the jar is visible in the library.
 
-![Image](/media/blog/phonegap-android-background-serviceimage+1.png)
+![Image](/media/blog/phonegap-android-background-service/image-1.png)
 
 3) Ensure that the jar is listed in the Build Path for the project.  Right click on the /libs folder and go to Build Paths/ Configure Build Paths.  Then in the Libraries tab, add the jar library to the project.
 
-![Image](/media/blog/phonegap-android-background-serviceimage+2.png)
+![Image](/media/blog/phonegap-android-background-service/image-2.png)
 
 
 4) Cordova 1.8.1 > Copy the backgroundService.js into assets/www.
@@ -37,7 +37,7 @@ The Core Plugin are files and configuration that will be needed for any implemen
 
 5) Refresh the project to ensure that the js file is visible in the folder.
 
-![Image](/media/blog/phonegap-android-background-serviceimage+3.png)
+![Image](/media/blog/phonegap-android-background-service/image-3.png)
 
 
 6) Cordova 1.8,1 > Add the following line to res/xml/plugins.xml
@@ -51,7 +51,7 @@ The Core Plugin are files and configuration that will be needed for any implemen
 
 %[https://gist.github.com/3778398.js]9) Your manifest file should look similar to the below:
 
-![Image](/media/blog/phonegap-android-background-serviceimage+4.png)
+![Image](/media/blog/phonegap-android-background-service/image-4.png)
 
 This completes the steps to install the core Plugin.  The next steps are for specific Background Service.
 
@@ -63,19 +63,19 @@ The files and setup for a Background Service will be unique to the service.  In 
 
 2) Copy the MyService.java file into src\com\yournamespace\yourappname folder (and refresh the project):
 
-![Image](/media/blog/phonegap-android-background-serviceimage+5.png)
+![Image](/media/blog/phonegap-android-background-service/image-5.png)
 
 
 3) Cordova 1.81 > Copy the myService.js and index.html files into assets\www folder:
      or
      Cordova 2.x.x > Copy the myService-2.0.0.js and index-2.0.0.js into assets\www folder:
-![Image](/media/blog/phonegap-android-background-serviceimage+6.png)
+![Image](/media/blog/phonegap-android-background-service/image-6.png)
 
 
 4) Add the following lines to the AndroidManifest.xml.  This should be added within the Application node:
 
 %[https://gist.github.com/3778404.js] 5) Your manifest file should look similar to the below: 
-![Image](/media/blog/phonegap-android-background-serviceimage+7.png)
+![Image](/media/blog/phonegap-android-background-service/image-7.png)
 
 
 6) Cordova 2.0.0 only > Update the MainActivity to load index-2.0.0.html rather than index.html.
@@ -83,7 +83,7 @@ The files and setup for a Background Service will be unique to the service.  In 
 The application is now good to go.
 
 ## Running the application
-Running the application should give you the following screen initially:![Image](/media/blog/phonegap-android-background-serviceimage+8.png)
+Running the application should give you the following screen initially:![Image](/media/blog/phonegap-android-background-service/image-8.png)
 
 From here you can:
 
@@ -95,7 +95,7 @@ From here you can:
 * Refresh the latest result - displays the latest result to screen.
 
 When the service is running (and the timer is enabled), you should get messages similar to the below in the LogCat:
-![Image](/media/blog/phonegap-android-background-serviceimage+9.png)
+![Image](/media/blog/phonegap-android-background-service/image-9.png)
 
 
 ## Next Steps

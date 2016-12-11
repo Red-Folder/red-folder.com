@@ -4,7 +4,7 @@ The course I was following was [Customizing and Extending Visual Studio 2010 by 
 
 But when I ran the demo (chapter 2), I received the following error:
 
-![Image](/media/blog/compositioncontractmismatchexceptionException+message.png)
+![Image](/media/blog/compositioncontractmismatchexception/Exception-message.png)
 
 When I reviewed the log I found the following exception details:
 
@@ -16,10 +16,10 @@ After some playing around, I realized it was a result of me putting the attribut
 
 Originally I added the attributes at the method level:
 
-![Image](/media/blog/compositioncontractmismatchexceptionBefore.png)
+![Image](/media/blog/compositioncontractmismatchexception/Before.png)
 
 This was incorrect, it needed to be at the class level:
 
-![Image](/media/blog/compositioncontractmismatchexceptionAfter.png)
+![Image](/media/blog/compositioncontractmismatchexception/After.png)
 
 Hopefully by posting this, anyone else getting the same problem will find it through web search rather than trial and error ;)

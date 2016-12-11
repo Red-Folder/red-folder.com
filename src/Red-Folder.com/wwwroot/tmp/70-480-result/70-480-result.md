@@ -13,7 +13,7 @@ The other great thing about the webcast was that it provided a free exam for 70-
 I believe is exam voucher is available until end of March 2013.
 ## JavaScript: The Definitive Guide
 This is a great, if heavy going, book.  Luckily for me we have a copy of this book in our work's library.  So I took the opportunity to wade (yes I mean wade) through the 700 pages of guide.
-![Image](/media/blog/70-480-resultjavascript-definitive-guide.jpg)
+![Image](/media/blog/70-480-result/javascript-definitive-guide.jpg)
 
 Reading it became a labor of love with me averaging around 25 pages an hour.  I had a fair amount of time off over the Christmas/ New Year period so I managed to get some heavy studying in.  I do feel that my family may have questioned my sanity when I was reading this on Christmas day - but I have to admit, once I started I actually enjoyed it.
 If like me, you have picked up JavaScript along the way - I'd recommend reading this or similar to really understand how the language works and why it behaves the way it does.
@@ -39,17 +39,17 @@ About a fortnight before I was due to take the exam, I re-visited Smarter to see
 
 As an overall, I'd improved in all areas:
 
-![Image](/media/blog/70-480-resulthtml.png)
+![Image](/media/blog/70-480-result/html.png)
 
-![Image](/media/blog/70-480-resulthtml5.png)
+![Image](/media/blog/70-480-result/html5.png)
 
-![Image](/media/blog/70-480-resultcss.png)
+![Image](/media/blog/70-480-result/css.png)
 
-![Image](/media/blog/70-480-resultcss3.png)
+![Image](/media/blog/70-480-result/css3.png)
  
-![Image](/media/blog/70-480-resultjavascript.png)
+![Image](/media/blog/70-480-result/javascript.png)
 
-![Image](/media/blog/70-480-resultjquery.png)
+![Image](/media/blog/70-480-result/jquery.png)
 
 
 While this was great to see - and a great boost to the ego - it probably didn't help greatly.  Unfortunately due to the way that Smarterer works it can quickly run out of questions - meaning there is no way to check your improvement.  Avoid the temptation to "have another go" if you feel the original score isn't reflective - otherwise you just burn through their available questions.  For example, I've done more work on jQuery since that last test - but I've run out of questions - so no means of being able to re-calibrate.
