@@ -24,9 +24,15 @@ Python and Ruby are new to me - but easy enough to pick up the parts I needed fo
 Just goes to show that experience really does matter when dealing with the oddity projects.
 
 ### ... and shameless self promotion
-This week should see the continuation of my ROI series of articles on LinkedIn.  After 3 months gap, it's good to get back to it.  I left the series talking about Agile.  I will return looking at Scrum over the course of probably 4 articles.  As with all the ROI series articles, the intended audience will be decision makers and those that sign the cheques rather than the tech community.
+This week should see the continuation of my ROI series of articles on LinkedIn.
+
+After 3 months gap, it's good to get back to it.  I left the series talking about Agile.  I will return looking at Scrum over the course of probably 4 articles.  As with all the ROI series articles, the intended audience will be decision makers and those that sign the cheques rather than the tech community.
+
 I hope to get into the regular habit of weekly ROI article.  I may make them a little smaller than historically to allow my time to produce them - but we'll see how I get on.
+
 Following on from the last few weeks, I've still got some work to do on my Azure Functions experimentation.  I've still got work to do on the visualisation of the web crawl activities, a bit of tidy up and then an article to wrap it up.  Maybe a couple of weeks off dependant on priorities.
+
 In the meanwhile, I've released two short articles (more tips) on working with Azure Functions.  I've found the documentation for Azure Functions fairly sparse, so wanted to get my thoughts out earlier than the main article.  The articles are:
+
 * [Working with GitHub](http://blog.red-folder.com/2016/10/azure-functions-working-with-github.html)
 * [Personal Nuget sources](http://blog.red-folder.com/2016/10/azure-functions-personal-nuget-sources.html)
