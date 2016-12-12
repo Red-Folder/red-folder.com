@@ -1,1 +1,20 @@
-{"id":"aa51c8d7-163c-42ca-bbf3-ba4b2ea2b83d","url":"rfc-weekly-3rd-october-2016","author":"Mark Taylor","published":"2016-10-03T20:59:00.001+01:00","modified":"2016-10-03T21:04:29.459+01:00","title":"RFC Weekly - 3rd October 2016","image":"/media/blog/rfc-weekly/RFCWeeklyTwitterCard.png","description":"RFC Weekly - a summary of things that I find interesting.  It is an indulgence; its the weekly update that I would like to receive.  Unfortunately no-one else is producing it so I figured I best get on with it.  Hopefully someone else will also find useful.","enabled":true,"keyWords":["RFCWeekly"],"redirects":[{"redirectType":301,"url":"http://blog.red-folder.com/2016/10/rfc-weekly-3rd-october-2016.html","redirectByRoute":false,"redirectByParameter":true}]}
+{
+  "id":"aa51c8d7-163c-42ca-bbf3-ba4b2ea2b83d",
+  "url":"rfc-weekly-3rd-october-2016",
+  "author":"Mark Taylor",
+  "published":"2016-10-03T20:59:00.001+01:00",
+  "modified":"2016-10-03T21:04:29.459+01:00",
+  "title":"RFC Weekly - 3rd October 2016",
+  "image":"/media/blog/rfc-weekly/RFCWeeklyTwitterCard.png",
+  "description":"This week I talk about DotNetNorth (meet up group in Manchester) and a bit of DDD and muscle memory when it comes to working with *nux",
+  "enabled":true,
+  "keyWords":["RFCWeekly", "DDD", "DotNetNorth"],
+  "redirects":[
+    {
+      "redirectType":301,
+      "url":"http://blog.red-folder.com/2016/10/rfc-weekly-3rd-october-2016.html",
+      "redirectByRoute":false,
+      "redirectByParameter":true
+    }
+  ]
+}
