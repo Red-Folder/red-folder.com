@@ -1,5 +1,3 @@
-RFC Weekly - a summary of things that I find interesting. It is an indulgence; its the weekly update that I would like to receive. Unfortunately no-one else is producing it so I figured I best get on with it. Hopefully someone else will also find useful.
-
 A year in review.
 -----------------
 I thought it would be interesting (if nothing else for my own sanity) to look at the past contracting year. I went from perm to contracting around his time last year - so 12 months, 2 engagements (one with a renewal), what happened?
