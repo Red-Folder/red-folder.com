@@ -1,10 +1,12 @@
 ﻿{
   "id": "600feddd-79b8-43fa-a9a1-ab0762569eb0",
   "image": "/media/blog/rfc-weekly/RFCWeeklyTwitterCard.png",
-  "description": "RFC Weekly - a summary of things that I find interesting.  It is an indulgence; its the weekly update that I would like to receive.  Unfortunately no-one else is producing it so I figured I best get on with it.  Hopefully someone else will also find useful.",
+  "description": "This week I take a look at an Agile in the Enterprise article, the value of internal tech conferences and 10% time.",
   "url": "rfc-weekly-6th-November-2016",
   "published": "2016-11-06",
   "modified": "2016-11-06",
   "title": "RFC Weekly - 6th November 2016",
-  "enabled": "true"
+  "enabled": "true",
+   "keyWords": ["RFCWeekly", "Agile", "10% time"],
+  "author" : "Mark Taylor"
 }
