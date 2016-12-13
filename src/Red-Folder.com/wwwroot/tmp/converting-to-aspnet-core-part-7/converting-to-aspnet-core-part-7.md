@@ -14,12 +14,12 @@ The [sixth article](http://red-folder.blogspot.co.uk/2016/07/converting-to-aspne
 
 In this, the last of my articles of converting to Asp.Net Core, I’ll look at upgrading from RC1 to RTM.
 
-### Change of direction
+## Change of direction
 From what I’ve read there appears to have been quite shift in thinking between RC1, RC2 and RTM – decisions were made that changes the direction quite a bit during that period.  This upset many in the community.  The final decisions however seem to have been the correct ones – and while there may have been some pain during the transition, it is worth it to get the framework to the right place.
 
 If it is anything like previous incarnations of .Net – then we will live with the decisions made for over the next ten years.  Time will ultimately tell if the correct decision was made.
 
-### In hindsight
+## In hindsight
 I’m adding this section after having converted it – so, in hindsight …
 
 I probably should have started with a new empty project and copied all the content in – it would have been cleaner.
@@ -28,12 +28,12 @@ And I should have used the [I Can Has .Net Core site](https://icanhasdot.net/). 
 
 Ok … back to the stream of consciousness …
 
-### Upgrade Visual Studio 2015 to Update 3
+## Upgrade Visual Studio 2015 to Update 3
 Possibly the most time consuming part of the whole process.
 
 The Update can be found [here](https://www.visualstudio.com/en-us/news/releasenotes/vs2015-update3-vs).
 
-### Install .Net Core 1.0.0 – VS 2015 Tooling
+## Install .Net Core 1.0.0 – VS 2015 Tooling
 I had originally thought this was done by Update 3 – but it didn’t seem to be case so I added separately.
 
 I seemed to suffer from an installer bug which claimed that Update 3 hadn’t been applied – telling me to run a fix.
@@ -42,33 +42,27 @@ Following the instructions [here](https://docs.microsoft.com/en-us/dotnet/articl
 
 I would expect given time that the tools will be rolled into the Visual Studio updates and it will be relatively automatic.  At this stage, the extra step seems a little tedious.
 
-### Upgrade NuGet
+## Upgrade NuGet
 Again, not sure if this is a step that is needed, but seems to be advise to upgrade to 3.5.
 
 I already had 3.5.0.1484 installed, so nothing to do there.
 
-### Migrate from DNX to .Net Core CLI
+## Migrate from DNX to .Net Core CLI
 Most of this was based on this [article](https://docs.microsoft.com/en-us/dotnet/articles/core/migrating-from-dnx)
 
 Where I have previously talked about DNVM (Dot New Version Manager) and DNX (Dotnet Execution Runtime), these have now been replaced by the .Net Core CLI (Command Line Interface).
 
 I’ve had to make the following changes:
 
-
 * Update the Globals.json sdk version.  Following the above article, I decided to remove the version node so that Visual Studio assumed latest
 * I’ve then used “dotnet new –t web” to create a new project.json.  From that I’ve copied most of the setup into my project
 * I’ve then run “dotnet restore”
 
-
-
 ### Reference changes
 This [document](https://docs.asp.net/en/latest/migration/rc1-to-rtm.html) provides details of references that have changed ().
 
-
 * Added a Program.cs
 * Make updates to the new libraries (see the Can I has .Net Core site I mentioned above – it’s easier than going through the document)
-
-
 
 ### Json Serialiser
 Json.Net is now defaulting to CamelCase so I could remove the serialiser.  The JsonOutputFormatter setup (so the Json response was CamelCase) need to be changed as the this [article](http://maciejskuratowski.com/2016/03/07/asp-net-core-1-0-camel-case-json/)
@@ -121,11 +115,6 @@ But I think I’ll do that in new posts as I get to them (for the next few weeks
 ### Additional links
 A collection of additional links that I used during the process:
 
-
 * [https://wildermuth.com/2016/05/17/Converting-an-ASP-NET-Core-RC1-Project-to-RC2](https://wildermuth.com/2016/05/17/Converting-an-ASP-NET-Core-RC1-Project-to-RC2)
 * [https://blog.3d-logic.com/2016/06/08/running-asp-net-core-applications-with-iis-and-antares/](https://blog.3d-logic.com/2016/06/08/running-asp-net-core-applications-with-iis-and-antares/)
 * [https://docs.asp.net/en/latest/tutorials/publish-to-azure-webapp-using-vs.html](https://docs.asp.net/en/latest/tutorials/publish-to-azure-webapp-using-vs.html)
-
-
-
- 
