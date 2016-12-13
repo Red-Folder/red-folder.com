@@ -1,5 +1,3 @@
-RFC Weekly - a summary of things that I find interesting. It is an indulgence; its the weekly update that I would like to receive. Unfortunately no-one else is producing it so I figured I best get on with it. Hopefully someone else will also find useful.
-
 Developing apps in Windows Containers using Docker
 --------------------------------------------------
 Last week I attended another excellent meetup hosted by DotNetNorth. During the meetup Naeem Safraz gave an excellent introduction to containers in general and the capabilities of the Windows container using Docker.
