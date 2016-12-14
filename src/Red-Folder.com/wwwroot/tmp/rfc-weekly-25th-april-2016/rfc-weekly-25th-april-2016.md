@@ -1,7 +1,3 @@
-<a href="https://3.bp.blogspot.com/-I_oaP90FoII/VwLSGdVpg-I/AAAAAAAACVI/k8qLuxwepagPz6AVDvfPbqLj0uXtgr0Iw/s1600/RFCWeeklyLogo.png" imageanchor="1">
-<img border="0" src="https://3.bp.blogspot.com/-I_oaP90FoII/VwLSGdVpg-I/AAAAAAAACVI/k8qLuxwepagPz6AVDvfPbqLj0uXtgr0Iw/s1600/RFCWeeklyLogo.png" />
-</a>
-
 ## Angular Style Guides
 Angular like so many technologies – especially JavaScript – provide a lot of options – possibly to many.
 
@@ -10,6 +6,7 @@ The Angular Style Guides aim to provide advice on a common way to use the Framew
 The Angular 1 style guide can be found [here](https://github.com/johnpapa/angular-styleguide).
 
 The Angular 2 style guide is very much work in progress and can found [here](https://github.com/johnpapa/angular-styleguide/blob/master/a2/README.md).   This guide is set to evolve as experience with Angular 2 emerges.
+
 ## Plain English JavaScript Prototypes
 Great [article](http://sporto.github.io/blog/2013/02/22/a-plain-english-guide-to-javascript-prototypes/) on explaining about JavaScript prototypes.
 
