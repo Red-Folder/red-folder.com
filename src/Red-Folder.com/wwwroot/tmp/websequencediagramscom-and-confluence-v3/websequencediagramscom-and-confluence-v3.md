@@ -8,7 +8,6 @@ However, not all is lost, simply create your own Macro.
 
 From within Confluence (based on 3.5.1):
 
-
 * Browse -> Confluence Admin
 * Select User Macros on the left hand side menu
 * Click on Create a User Macro
@@ -18,7 +17,9 @@ From within Confluence (based on 3.5.1):
 * Copy the below into the Template
 * Click Save
 
-HTML to paste in:%[https://gist.github.com/Red-Folder/37ce29b60b54173e315b.js]
+HTML to paste in:
+%[https://gist.github.com/Red-Folder/37ce29b60b54173e315b.js]
+
 Then within your Confluence page, just add:
 
 ![Image](/media/blog/websequencediagramscom-and-confluence-v3/Confluence-2BWSD-2Bcode.png)
