@@ -1,1 +1,13 @@
-{"id":"dc6b043c-db83-4b7f-98d0-972f7f1cf27e","url":"rfc-weekly-21st-march-2016","author":"Mark Taylor","published":"2016-03-21T20:46:00.002Z","modified":"2016-03-21T20:46:45.052Z","title":"RFC Weekly - 21st March 2016","image":"/media/blog/rfc-weekly/RFCWeeklyTwitterCard.png","description":"RFC Weekly - a summary of things that I find interesting.  It is an indulgence; its the weekly update that I would like to receive.  Unfortunately no-one else is producing it so I figured I best get on with it.  Hopefully someone else will also find useful.","enabled":true,"keyWords":["RFCWeekly"],"redirects":[{"redirectType":301,"url":"http://blog.red-folder.com/2016/03/rfc-weekly-21st-march-2016.html","redirectByRoute":false,"redirectByParameter":true}]}
+{
+  "id":"dc6b043c-db83-4b7f-98d0-972f7f1cf27e",
+  "url":"rfc-weekly-21st-march-2016",
+  "author":"Mark Taylor",
+  "published":"2016-03-21T20:46:00.002Z",
+  "modified":"2016-03-21T20:46:45.052Z",
+  "title":"RFC Weekly - 21st March 2016",
+  "image":"/media/blog/rfc-weekly/RFCWeeklyTwitterCard.png",
+  "description":"This week I look at Entity Framework 7, JavaScript frameworks, Octopus Deploy, Azure Continuous Delivery and security.",
+  "enabled":true,
+  "keyWords":["RFCWeekly", "Entity Framework", "JavaScript", "Octopus Deploy", "Azure", "Continuous Delivery", "Security"],
+  "redirects":[{"redirectType":301,"url":"http://blog.red-folder.com/2016/03/rfc-weekly-21st-march-2016.html","redirectByRoute":false,"redirectByParameter":true}]
+}
