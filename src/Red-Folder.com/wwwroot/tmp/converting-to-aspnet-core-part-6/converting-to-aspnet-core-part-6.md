@@ -18,8 +18,9 @@ So for this article I converted the hard coded Repository information being prov
 At time of writing, the article was up to the following commit -> [https://github.com/Red-Folder/red-folder.com/commit/f27cd74842fa47da04e0f2215508e71503aecca8](https://github.com/Red-Folder/red-folder.com/commit/f27cd74842fa47da04e0f2215508e71503aecca8)
 
 ## Changes
-As I say above, the work to add a code first repository is very similar to EF6.  Based on the articles I followed, there does seem to be some question over how much will change as EF7 is readied for release - especially the database seeding.<ol>* I've added RepoContext along with DB specific objects.  I wanted to keep separation between the models I used for persistence and the WebApi - so I created new models under the data folder/ namespace.
+As I say above, the work to add a code first repository is very similar to EF6.  Based on the articles I followed, there does seem to be some question over how much will change as EF7 is readied for release - especially the database seeding.
 
+* I've added RepoContext along with DB specific objects.  I wanted to keep separation between the models I used for persistence and the WebApi - so I created new models under the data folder/ namespace.
 * I've created a Seeding class which populates the DB will data.  Currently the data is just a copy of the hard coded data I had in the WebApi.  There does seems to be suggestion that EF7 may improve on this seeding in the future.
 * Enabled EF7 database migrations - this created the Migrations folder and code.  Again this seems the same as EF6.  So far however I've not needed to update it - but I expect it to be the same.
 * Changed the RepoRepository to use the RepoContext (rather than the hard coded values).  It also converts the persistence models to models used by the WebApi
