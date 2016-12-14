@@ -1,1 +1,13 @@
-{"id":"5e695cff-ef22-4a9a-a823-e132626b19dc","url":"rfc-weekly-18th-april-2016","author":"Mark Taylor","published":"2016-04-18T21:06:00.004+01:00","modified":"2016-04-18T21:06:40.961+01:00","title":"RFC Weekly - 18th April 2016","image":"/media/blog/rfc-weekly/RFCWeeklyTwitterCard.png","description":"RFC Weekly - a summary of things that I find interesting.  It is an indulgence; its the weekly update that I would like to receive.  Unfortunately no-one else is producing it so I figured I best get on with it.  Hopefully someone else will also find useful.","enabled":true,"keyWords":["RFCWeekly"],"redirects":[{"redirectType":301,"url":"http://blog.red-folder.com/2016/04/rfc-weekly-18th-april-2016.html","redirectByRoute":false,"redirectByParameter":true}]}
+{
+  "id":"5e695cff-ef22-4a9a-a823-e132626b19dc",
+  "url":"rfc-weekly-18th-april-2016",
+  "author":"Mark Taylor",
+  "published":"2016-04-18T21:06:00.004+01:00",
+  "modified":"2016-04-18T21:06:40.961+01:00",
+  "title":"RFC Weekly - 18th April 2016",
+  "image":"/media/blog/rfc-weekly/RFCWeeklyTwitterCard.png",
+  "description":"This week I take a look as CSS modules, Angular learning, imposter syndrome and the economy of keystrokes.",
+  "enabled":true,
+  "keyWords":["RFCWeekly"],
+  "redirects":[{"redirectType":301,"url":"http://blog.red-folder.com/2016/04/rfc-weekly-18th-april-2016.html","redirectByRoute":false,"redirectByParameter":true}]
+}
