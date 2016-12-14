@@ -1,1 +1,13 @@
-{"id":"7174b35a-0ea6-4933-8d50-bbf7af52f2de","url":"websequencediagramscom-and-confluence-v3","author":"Mark Taylor","published":"2016-02-11T15:10:00.001Z","modified":"2016-02-11T15:10:37.47Z","title":"WebSequenceDiagrams.com and Confluence V3","image":null,"description":"Currently producing a number of UML Sequence diagrams for a project using the superb https://www.websequencediagrams.com/ site.\r\n\r\nTo save for posterity, I wanted to add the diagrams to the clients internal Confluence server.\r\n\r\nWebSequenceDiagrams provide a plugin for Confluence V4+\r\n\r\nHowever, not all is lost, simply create your own Macro.\r\n\r\n","enabled":true,"keyWords":[],"redirects":[{"redirectType":301,"url":"http://blog.red-folder.com/2016/02/websequencediagramscom-and-confluence-v3.html","redirectByRoute":false,"redirectByParameter":true}]}
+{
+  "id":"7174b35a-0ea6-4933-8d50-bbf7af52f2de",
+  "url":"websequencediagramscom-and-confluence-v3",
+  "author":"Mark Taylor",
+  "published":"2016-02-11T15:10:00.001Z",
+  "modified":"2016-02-11T15:10:37.47Z",
+  "title":"WebSequenceDiagrams.com and Confluence V3",
+  "image":null,
+  "description":"In this article I talk about using the superb https://www.websequencediagrams.com/ site for create UML sequence diagrams.  I then make them available via Confluence.",
+  "enabled":true,
+  "keyWords":[],
+  "redirects":[{"redirectType":301,"url":"http://blog.red-folder.com/2016/02/websequencediagramscom-and-confluence-v3.html","redirectByRoute":false,"redirectByParameter":true}]
+}
