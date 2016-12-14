@@ -1,6 +1,3 @@
-<a href="https://3.bp.blogspot.com/-I_oaP90FoII/VwLSGdVpg-I/AAAAAAAACVI/k8qLuxwepagPz6AVDvfPbqLj0uXtgr0Iw/s1600/RFCWeeklyLogo.png" imageanchor="1">
-<img border="0" src="https://3.bp.blogspot.com/-I_oaP90FoII/VwLSGdVpg-I/AAAAAAAACVI/k8qLuxwepagPz6AVDvfPbqLj0uXtgr0Iw/s1600/RFCWeeklyLogo.png" />
-</a>
 ## Angular Testing
 Recently started playing with Angular tests (1.x).  As with all things JavaScript there are a dizzying array of tools out there.  So I thought I’d write a quick summary on what seem to be the key ones and how they fit together.
 
@@ -21,6 +18,7 @@ I'm basing most of this on the [Angular 1 Style guide by John Papa](https://gith
 [PhantomJS](http://phantomjs.org/) is a “headless” web browser.  It provides the functionality of a web browser – but without the visual element.  This makes it useless for humans – but great for automated testing.  You can achieve the same with Chrome, IE, Firefox, etc – but the absence of the visual element makes it much faster.
 
 Good article for how most it plumbs together can be found [here](http://jasonwatmore.com/post/2015/04/09/Unit-Testing-in-AngularJS-So-many-libraries-what-does-what.aspx)
+
 ## Koa
 If you are familiar with the NodeJs world, you will probably be aware of Express – a framework for providing lightweight web application and APIs.
 
@@ -31,15 +29,20 @@ The team behind Express are now bringing forward Koa which “aims to be a small
 Given how popular Express is, then I would expect similar interested in Koa.
 
 The project website can be found [here](http://koajs.com/)
+
 ## Why and how testing can make you happier
-A great little [article](http://mikbe.com/code/testing/dx/2016/03/11/why-and-how-testing-can-make-you-happier.html) () on why writing tests are a good thing.
+A great little [article](http://mikbe.com/code/testing/dx/2016/03/11/why-and-how-testing-can-make-you-happier.html) on why writing tests are a good thing.
+
 ## Webpack module bundler
 I've written previously about using Gulp &amp; Grunt for assisting in your web deployment pipeline.  [Webpack](https://webpack.github.io/) provides similar functionality.  It seems to be a bit more firmly aimed at the just deployment.  Possibly this may make it an easier entry than Gulp &amp; Grunt which allow you to do everything.
 
 At the moment I'm not seeing a reason to adopt if you are already using Gulp or Grunt.
+
 ## Sitespeed.io
 Another [tool](https://www.sitespeed.io/) for identifying problems with you website.
+
 ## Codenamer
 Great fun little [tool](http://mikbe.com/awesome/projects/2016/02/14/generate-awesome-codenames-with-codenamer.html) for helping you create names for projects or releases .  Often the most difficult part of development.
+
 ## Shameless self-promotion
 Within my ROI series on LinkedIn, I've asked the question of [“When will you admit you are technology company?”](https://www.linkedin.com/pulse/when-you-going-admit-technology-company-mark-taylor).  With the disruption caused through technology, organisations need to assess if they are thinking about it in the correct way.  Is IT seen as a cost or an enabler?
