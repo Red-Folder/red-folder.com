@@ -24,7 +24,8 @@ As I say above, the work to add a code first repository is very similar to EF6. 
 * Enabled EF7 database migrations - this created the Migrations folder and code.  Again this seems the same as EF6.  So far however I've not needed to update it - but I expect it to be the same.
 * Changed the RepoRepository to use the RepoContext (rather than the hard coded values).  It also converts the persistence models to models used by the WebApi
 * The Startup has been amended to load configuration settings (see below), create a RepoContext &amp; RepoContextSeedData for dependency injection (see below) and runs the Seeder on Configure
-</ol>And that was pretty much it.  All I'm currently doing is creating a couple of tables, seeding them and reading from them at run-time.
+
+And that was pretty much it.  All I'm currently doing is creating a couple of tables, seeding them and reading from them at run-time.
 
 ## Configuration
 As with any database connection string, this needed to come from configuration.
