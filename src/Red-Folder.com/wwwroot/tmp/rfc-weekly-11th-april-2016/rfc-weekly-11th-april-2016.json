@@ -1,1 +1,13 @@
-{"id":"05ae4615-dd59-48bf-97cd-dff87f23a752","url":"rfc-weekly-11th-april-2016","author":"Mark Taylor","published":"2016-04-11T20:21:00+01:00","modified":"2016-04-11T20:21:20.424+01:00","title":"RFC Weekly - 11th April 2016","image":"/media/blog/rfc-weekly/RFCWeeklyTwitterCard.png","description":"RFC Weekly - a summary of things that I find interesting.  It is an indulgence; its the weekly update that I would like to receive.  Unfortunately no-one else is producing it so I figured I best get on with it.  Hopefully someone else will also find useful.","enabled":true,"keyWords":["RFCWeekly"],"redirects":[{"redirectType":301,"url":"http://blog.red-folder.com/2016/04/rfc-weekly-11th-april-2016.html","redirectByRoute":false,"redirectByParameter":true}]}
+{
+  "id":"05ae4615-dd59-48bf-97cd-dff87f23a752",
+  "url":"rfc-weekly-11th-april-2016",
+  "author":"Mark Taylor",
+  "published":"2016-04-11T20:21:00+01:00",
+  "modified":"2016-04-11T20:21:20.424+01:00",
+  "title":"RFC Weekly - 11th April 2016",
+  "image":"/media/blog/rfc-weekly/RFCWeeklyTwitterCard.png",
+  "description":"This week I look at using Gulp to build and deploy .Net apps, Microsoft Graph, MS Deploy, Azure Functions, PostCSS and Azure Service Fabric.",
+  "enabled":true,
+  "keyWords":["RFCWeekly", "Gulp", "C#", "Azure Functions", "CSS", "Azure"],
+  "redirects":[{"redirectType":301,"url":"http://blog.red-folder.com/2016/04/rfc-weekly-11th-april-2016.html","redirectByRoute":false,"redirectByParameter":true}]
+}
