@@ -5,7 +5,7 @@
   "published":"2016-04-23T17:54:00+01:00",
   "modified":"2016-04-23T18:42:17.356+01:00",
   "title":"Converting to ASP.Net Core - Part 4",
-  "image":null,
+  "image":"/images/blog/AspNetCoreSeries.png",
   "description":"In this, the fourth in my series of converting my website to ASP.Net Core & MVC 6, I take a deeper dive into the Gulp pipeline.",
   "enabled":true,
   "keyWords":["ASP.Net Core","MVC 6","Gulp","Javascript"],
