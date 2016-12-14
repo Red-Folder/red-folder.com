@@ -5,7 +5,7 @@
   "published":"2016-08-19T14:01:00.003+01:00",
   "modified":"2016-08-19T14:01:45.795+01:00",
   "title":"Converting to ASP.Net Core - Part 7",
-  "image":null,
+  "image":"/images/blog/AspNetCoreSeries.png",
   "description":"In the seventh (and last) in my series on converting my red-folder.com website over to Asp.Net Core & MVC6, I take the upgrade from RC1 to RTM",
   "enabled":true,
   "keyWords":["EF Core","ASP.Net Core","Azure","MVC 6", "Azure"],
