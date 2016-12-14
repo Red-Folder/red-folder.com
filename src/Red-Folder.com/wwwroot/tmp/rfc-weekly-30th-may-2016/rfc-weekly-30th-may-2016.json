@@ -1,1 +1,13 @@
-{"id":"1eb1756c-4b1a-4aa7-8e55-b22a90e4c923","url":"rfc-weekly-30th-may-2016","author":"Mark Taylor","published":"2016-05-30T17:42:00.002+01:00","modified":"2016-05-30T17:42:47.247+01:00","title":"RFC Weekly - 30th May 2016","image":"/media/blog/rfc-weekly/RFCWeeklyTwitterCard.png","description":"RFC Weekly - a summary of things that I find interesting.  It is an indulgence; its the weekly update that I would like to receive.  Unfortunately no-one else is producing it so I figured I best get on with it.  Hopefully someone else will also find useful.","enabled":true,"keyWords":["RFCWeekly"],"redirects":[{"redirectType":301,"url":"http://blog.red-folder.com/2016/05/rfc-weekly-30th-may-2016.html","redirectByRoute":false,"redirectByParameter":true}]}
+{
+  "id":"1eb1756c-4b1a-4aa7-8e55-b22a90e4c923",
+  "url":"rfc-weekly-30th-may-2016",
+  "author":"Mark Taylor",
+  "published":"2016-05-30T17:42:00.002+01:00",
+  "modified":"2016-05-30T17:42:47.247+01:00",
+  "title":"RFC Weekly - 30th May 2016",
+  "image":"/media/blog/rfc-weekly/RFCWeeklyTwitterCard.png",
+  "description":"This week I take a look at SpecFlow, Regular Expressions, Prefix.IO, Postman (great tool for testing APIs) and Xamarin.",
+  "enabled":true,
+  "keyWords":["RFCWeekly", "SpecFlow", "BDD"],
+  "redirects":[{"redirectType":301,"url":"http://blog.red-folder.com/2016/05/rfc-weekly-30th-may-2016.html","redirectByRoute":false,"redirectByParameter":true}]
+}
