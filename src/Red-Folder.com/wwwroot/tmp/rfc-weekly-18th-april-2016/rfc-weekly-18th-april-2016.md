@@ -1,6 +1,3 @@
-<a href="https://3.bp.blogspot.com/-I_oaP90FoII/VwLSGdVpg-I/AAAAAAAACVI/k8qLuxwepagPz6AVDvfPbqLj0uXtgr0Iw/s1600/RFCWeeklyLogo.png" imageanchor="1">
-<img border="0" src="https://3.bp.blogspot.com/-I_oaP90FoII/VwLSGdVpg-I/AAAAAAAACVI/k8qLuxwepagPz6AVDvfPbqLj0uXtgr0Iw/s1600/RFCWeeklyLogo.png" />
-</a>
 ## CSS Modules
 CSS Modules are mean of scoping CSS rules locally.
 
@@ -18,7 +15,8 @@ This [podcast](https://devchat.tv/adventures-in-angular/085-aia-looking-at-angul
 One of the main takeaways from the discussion is that transition from 1 to 2 isn't easy.  The benefits are there, but you need to think of Angular 2 as almost a completely different framework.
 
 ## Imposter Syndrome
-<blockquote class="tr_bq">“… referring to high-achieving individuals marked by an inability to internalize their accomplishments and a persistent fear of being exposed as a "fraud"” [Wikipedia](https://en.wikipedia.org/wiki/Impostor_syndrome)</blockquote>
+> “… referring to high-achieving individuals marked by an inability to internalize their accomplishments and a persistent fear of being exposed as a "fraud"” [Wikipedia](https://en.wikipedia.org/wiki/Impostor_syndrome)
+
 This really interesting [talk](http://www.infoq.com/presentations/impostor-syndrome) discusses the Imposter Syndrome and how and why it affects developers (or any professional for that matter).  If nothing else, it gives some great tips on public speaking.
 
 ## Angular Learning Graph
