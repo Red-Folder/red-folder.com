@@ -1,1 +1,13 @@
-{"id":"f5741682-0637-4f5a-adfd-923d020957e2","url":"rfc-weekly-2nd-may-2016","author":"Mark Taylor","published":"2016-05-02T21:23:00.001+01:00","modified":"2016-05-02T21:23:16.252+01:00","title":"RFC Weekly - 2nd May 2016","image":"/media/blog/rfc-weekly/RFCWeeklyTwitterCard.png","description":"RFC Weekly - a summary of things that I find interesting.  It is an indulgence; its the weekly update that I would like to receive.  Unfortunately no-one else is producing it so I figured I best get on with it.  Hopefully someone else will also find useful.","enabled":true,"keyWords":["RFCWeekly"],"redirects":[{"redirectType":301,"url":"http://blog.red-folder.com/2016/05/rfc-weekly-2nd-may-2016.html","redirectByRoute":false,"redirectByParameter":true}]}
+{
+  "id":"f5741682-0637-4f5a-adfd-923d020957e2",
+  "url":"rfc-weekly-2nd-may-2016",
+  "author":"Mark Taylor",
+  "published":"2016-05-02T21:23:00.001+01:00",
+  "modified":"2016-05-02T21:23:16.252+01:00",
+  "title":"RFC Weekly - 2nd May 2016",
+  "image":"/media/blog/rfc-weekly/RFCWeeklyTwitterCard.png",
+  "description":"This week I take a look at being a good Opensource citizen, how bugs are normal and Angular 2.",
+  "enabled":true,
+  "keyWords":["RFCWeekly", "Agile", "Angular"],
+  "redirects":[{"redirectType":301,"url":"http://blog.red-folder.com/2016/05/rfc-weekly-2nd-may-2016.html","redirectByRoute":false,"redirectByParameter":true}]
+}
