@@ -6,8 +6,8 @@
   "modified":"2016-05-30T17:42:47.247+01:00",
   "title":"RFC Weekly - 30th May 2016",
   "image":"/media/blog/rfc-weekly/RFCWeeklyTwitterCard.png",
-  "description":"This week I take a look at SpecFlow, Regular Expressions, Prefix.IO, Postman (great tool for testing APIs) and Xamarin.",
+  "description":"This week I take a look at SpecFlow, Regular Expressions, Prefix.IO, Postman (great tool for testing APIs) and Xamarin.  I also talk a little about a vunerability validation tool I've built.",
   "enabled":true,
-  "keyWords":["RFCWeekly", "SpecFlow", "BDD"],
+  "keyWords":["RFCWeekly", "SpecFlow", "BDD", "Security"],
   "redirects":[{"redirectType":301,"url":"http://blog.red-folder.com/2016/05/rfc-weekly-30th-may-2016.html","redirectByRoute":false,"redirectByParameter":true}]
 }
