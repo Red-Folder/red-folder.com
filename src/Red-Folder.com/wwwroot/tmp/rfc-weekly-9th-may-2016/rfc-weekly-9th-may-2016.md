@@ -1,6 +1,4 @@
-<a href="https://3.bp.blogspot.com/-I_oaP90FoII/VwLSGdVpg-I/AAAAAAAACVI/k8qLuxwepagPz6AVDvfPbqLj0uXtgr0Iw/s1600/RFCWeeklyLogo.png" imageanchor="1">
-<img border="0" src="https://3.bp.blogspot.com/-I_oaP90FoII/VwLSGdVpg-I/AAAAAAAACVI/k8qLuxwepagPz6AVDvfPbqLj0uXtgr0Iw/s1600/RFCWeeklyLogo.png" />
-</a>## NativeScript
+## NativeScript
 Within mobile development there are many different ways to develop them.
 
 You can start with just building web apps.  Then move to likes of Cordova/ Phonegap if you need additional functionality.  You've then got native where you have the full coding experience for when you need it.

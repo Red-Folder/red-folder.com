@@ -1,65 +1,46 @@
-![Image](/media/blog/rfc-weekly-14th-march-2016/RFC-2BWeekly-2BHeader.png)
+## Development
+### Learn X in Y minutes
+Useful little [helper site](https://learnxinyminutes.com/) providing cheat sheets for getting a quick start on a program language.
 
-<span style="color: #444444; font-family: arial, tahoma, helvetica, freesans, sans-serif;"><span style="background-color: white; font-size: 13px; line-height: 18.2px;">This is the next of my RFC Weeklies - a summary of things that I find interesting.  It is an indulgence; its the weekly update that I would like to receive.  Unfortunately no-one else is producing it so I figured I best get on with it.  Hopefully someone else also find useful.</span></span>
-<span style="color: #444444; font-family: arial, tahoma, helvetica, freesans, sans-serif;"><span style="background-color: white; font-size: 13px; line-height: 18.2px;">
-</span></span><span style="color: #444444; font-family: arial, tahoma, helvetica, freesans, sans-serif; font-size: x-large;"><span style="background-color: white; line-height: 18.2px;">
-</span></span><span style="color: #444444; font-family: arial, tahoma, helvetica, freesans, sans-serif; font-size: x-large;"><span style="background-color: white; line-height: 18.2px;">Development</span></span>
-<span style="color: #444444; font-family: arial, tahoma, helvetica, freesans, sans-serif;"><span style="background-color: white; font-size: 13px; line-height: 18.2px;">
-</span></span><span style="color: #444444; font-family: arial, tahoma, helvetica, freesans, sans-serif; font-size: large;"><span style="background-color: white; line-height: 18.2px;">Learn X in Y minutes</span></span>
-<span style="color: #444444; font-family: arial, tahoma, helvetica, freesans, sans-serif;"><span style="background-color: white; font-size: 13px; line-height: 18.2px;">
-</span></span><span style="color: #444444; font-family: arial, tahoma, helvetica, freesans, sans-serif;"><span style="background-color: white; font-size: 13px; line-height: 18.2px;">Useful little [helper site](https://learnxinyminutes.com/) providing cheat sheets for getting a quick start on a program language.</span></span>
-<span style="color: #444444; font-family: arial, tahoma, helvetica, freesans, sans-serif;"><span style="background-color: white; font-size: 13px; line-height: 18.2px;">
-</span></span><span style="background-color: white; line-height: 18.2px;"><span style="color: #444444; font-family: arial, tahoma, helvetica, freesans, sans-serif; font-size: large;">Building Microservices with Event Sourcing and CQRS</span></span>
-<span style="background-color: white; font-size: 13px; line-height: 18.2px;"><span style="color: #444444; font-family: arial, tahoma, helvetica, freesans, sans-serif;">
-</span></span><span style="background-color: white;"><span style="color: #444444; font-family: arial, tahoma, helvetica, freesans, sans-serif;"><span style="font-size: 13px; line-height: 18.2px;">This [presentation](http://www.infoq.com/presentations/microservices-event-sourcing-cqrs) talks about Event Sourcing and CQRS within the Microservice world.</span></span></span>
-<span style="background-color: white;"><span style="color: #444444; font-family: arial, tahoma, helvetica, freesans, sans-serif;"><span style="font-size: 13px; line-height: 18.2px;">
-</span></span></span><span style="color: #444444; font-family: arial, tahoma, helvetica, freesans, sans-serif;"><span style="background-color: white;"><span style="font-size: 13px; line-height: 18.2px;">Both Event Sourcing and CQRS are quite popular within software architecture.  They build on DDD principles (although can be used separately from it).</span></span></span>
-<span style="color: #444444; font-family: arial, tahoma, helvetica, freesans, sans-serif;"><span style="background-color: white; font-size: 13px; line-height: 18.2px;">
-</span></span><span style="color: #444444; font-family: arial, tahoma, helvetica, freesans, sans-serif;"><span style="background-color: white;"><span style="font-size: 13px; line-height: 18.2px;">Event Sourcing looks at retaining data in an event stream rather than a snapshot of time that we are familiar with in RDMS.  This about it as a list of all the transactions (credits and debits) that have been made against your bank account rather than a current balance.  The events allow you to have a full audit where as the current balance is just the current snapshot in time.</span></span></span>
-<span style="color: #444444; font-family: arial, tahoma, helvetica, freesans, sans-serif;"><span style="background-color: white;"><span style="font-size: 13px; line-height: 18.2px;">
-</span></span></span><span style="color: #444444; font-family: arial, tahoma, helvetica, freesans, sans-serif;"><span style="background-color: white;"><span style="font-size: 13px; line-height: 18.2px;">The current balance can be calculated by totalling (sum in this case) of the transactions.</span></span></span>
-<span style="color: #444444; font-family: arial, tahoma, helvetica, freesans, sans-serif;"><span style="background-color: white;"><span style="font-size: 13px; line-height: 18.2px;">
-</span></span></span><span style="color: #444444; font-family: arial, tahoma, helvetica, freesans, sans-serif;"><span style="background-color: white;"><span style="font-size: 13px; line-height: 18.2px;">To avoid the performance overhead of a walk through the event stack for the current state, you can implement event listeners which would produce a snapshot of the current state (a read only version that you may have had in the RDMS).  You can register multiple listeners so that you could generate multiple optimised views of the event stream - think of it like fact tables in data warehouses.</span></span></span>
-<span style="color: #444444; font-family: arial, tahoma, helvetica, freesans, sans-serif;"><span style="background-color: white;"><span style="font-size: 13px; line-height: 18.2px;">
-</span></span></span><span style="color: #444444; font-family: arial, tahoma, helvetica, freesans, sans-serif;"><span style="background-color: white;"><span style="font-size: 13px; line-height: 18.2px;">Event Streams aren't appropriate for all problems - but are great for being able to see the version at any point.  Look at source control systems for an example.</span></span></span>
-<span style="color: #444444; font-family: arial, tahoma, helvetica, freesans, sans-serif;"><span style="background-color: white;"><span style="font-size: 13px; line-height: 18.2px;">
-</span></span></span><span style="color: #444444; font-family: arial, tahoma, helvetica, freesans, sans-serif;"><span style="background-color: white;"><span style="font-size: 13px; line-height: 18.2px;">CQRS is Command/ Query Responsibility Separation.  This talks about separating the logic of command (insert, update, delete) from query (select).  By separating the two distinct activities you can make services more focused (easier to dev &amp; test) and allow scaling independently.</span></span></span>
-<span style="color: #444444; font-family: arial, tahoma, helvetica, freesans, sans-serif;"><span style="background-color: white;"><span style="font-size: 13px; line-height: 18.2px;">
-</span></span></span><span style="color: #444444; font-family: arial, tahoma, helvetica, freesans, sans-serif;"><span style="background-color: white;"><span style="font-size: 13px; line-height: 18.2px;">
-</span></span></span><span style="color: #444444; font-family: arial, tahoma, helvetica, freesans, sans-serif; font-size: x-large;"><span style="background-color: white; line-height: 18.2px;">Development Process</span></span>
-<span style="color: #444444; font-family: arial, tahoma, helvetica, freesans, sans-serif; font-size: large;"><span style="background-color: white; line-height: 18.2px;">
-</span></span><span style="color: #444444; font-family: arial, tahoma, helvetica, freesans, sans-serif; font-size: large;"><span style="background-color: white; line-height: 18.2px;">Agile Productivity: Willpower and the Neuroscience approach</span></span>
-<span style="color: #444444; font-family: arial, tahoma, helvetica, freesans, sans-serif;"><span style="background-color: white; font-size: 13px; line-height: 18.2px;">
-</span></span><span style="color: #444444; font-family: arial, tahoma, helvetica, freesans, sans-serif;"><span style="background-color: white; font-size: 13px; line-height: 18.2px;">This great [article](http://www.infoq.com/articles/agile-productivity-willpower-neuroscience) talks about agile productivity and how it is influenced by willpower - or more importantly by avoiding the need to rely on it.  It talks about the neuroscience behind willpower and techniques of how to use that willpower effectively in relation to performance.</span></span>
-<span style="color: #444444; font-family: arial, tahoma, helvetica, freesans, sans-serif;"><span style="background-color: white; font-size: 13px; line-height: 18.2px;">
-</span></span><span style="color: #444444; font-family: arial, tahoma, helvetica, freesans, sans-serif;"><span style="background-color: white; font-size: 13px; line-height: 18.2px;">Good news here is that a lot Scrum practices play to those techniques.</span></span>
-<span style="color: #444444; font-family: arial, tahoma, helvetica, freesans, sans-serif;"><span style="background-color: white; font-size: 13px; line-height: 18.2px;">
-</span></span><span style="color: #444444; font-family: arial, tahoma, helvetica, freesans, sans-serif; font-size: large;"><span style="background-color: white; line-height: 18.2px;">Scrum with Trello</span></span>
-<span style="color: #444444; font-family: arial, tahoma, helvetica, freesans, sans-serif;"><span style="background-color: white; font-size: 13px; line-height: 18.2px;">
-</span></span><span style="color: #444444; font-family: arial, tahoma, helvetica, freesans, sans-serif;"><span style="background-color: white; font-size: 13px; line-height: 18.2px;">I love Trello.  This [article](http://www.infoq.com/articles/scrum-trello) isn't ground breaking - but most of the suggestions are ones I've used before - so useful if you've not played with Trello before.</span></span>
-<span style="color: #444444; font-family: arial, tahoma, helvetica, freesans, sans-serif;"><span style="background-color: white; font-size: 13px; line-height: 18.2px;">
-</span></span><span style="color: #444444; font-family: arial, tahoma, helvetica, freesans, sans-serif; font-size: large;"><span style="background-color: white; line-height: 18.2px;">It's Just a White Board</span></span>
-<span style="color: #444444; font-family: arial, tahoma, helvetica, freesans, sans-serif;"><span style="background-color: white; font-size: 13px; line-height: 18.2px;">
-</span></span><span style="color: #444444; font-family: arial, tahoma, helvetica, freesans, sans-serif;"><span style="background-color: white; font-size: 13px; line-height: 18.2px;">In this [presentation](http://www.infoq.com/presentations/kanban-why), Jim Benson discusses why Kanban is helpful.  While he does give an overview of Kanban, he also talks about the physiological positive effects of physically moving a sticky to done.</span></span>
-<span style="color: #444444; font-family: arial, tahoma, helvetica, freesans, sans-serif;"><span style="background-color: white; font-size: 13px; line-height: 18.2px;">
-</span></span><span style="color: #444444; font-family: arial, tahoma, helvetica, freesans, sans-serif;"><span style="background-color: white; font-size: 13px; line-height: 18.2px;">If you're following my ROI series on LinkedIn, then you will see the tie into the promoting the Intrinsic Motivators.</span></span>
-<span style="color: #444444; font-family: arial, tahoma, helvetica, freesans, sans-serif;"><span style="background-color: white; font-size: 13px; line-height: 18.2px;">
-</span></span><span style="color: #444444; font-family: arial, tahoma, helvetica, freesans, sans-serif; font-size: x-large;"><span style="background-color: white; line-height: 18.2px;">
-</span></span><span style="color: #444444; font-family: arial, tahoma, helvetica, freesans, sans-serif; font-size: x-large;"><span style="background-color: white; line-height: 18.2px;">Infrastructure</span></span>
-<span style="color: #444444; font-family: arial, tahoma, helvetica, freesans, sans-serif;"><span style="background-color: white; font-size: 13px; line-height: 18.2px;">
-</span></span><span style="color: #444444; font-family: arial, tahoma, helvetica, freesans, sans-serif; font-size: large;"><span style="background-color: white; line-height: 18.2px;">Azure/ AWS Mapping</span></span>
-<span style="color: #444444; font-family: arial, tahoma, helvetica, freesans, sans-serif;"><span style="background-color: white; font-size: 13px; line-height: 18.2px;">
-</span></span><span style="color: #444444; font-family: arial, tahoma, helvetica, freesans, sans-serif;"><span style="background-color: white; font-size: 13px; line-height: 18.2px;">Useful [article](https://azure.microsoft.com/en-us/campaigns/azure-vs-aws/mapping/) here to compare between Azure &amp; AWS.</span></span>
+### Building Microservices with Event Sourcing and CQRS
+This [presentation](http://www.infoq.com/presentations/microservices-event-sourcing-cqrs) talks about Event Sourcing and CQRS within the Microservice world.
 
-<span style="background-color: white; line-height: 18.2px;"><span style="color: #444444; font-family: &quot;arial&quot; , &quot;tahoma&quot; , &quot;helvetica&quot; , &quot;freesans&quot; , sans-serif; font-size: x-large;">
-</span></span><span style="background-color: white; line-height: 18.2px;"><span style="color: #444444; font-family: &quot;arial&quot; , &quot;tahoma&quot; , &quot;helvetica&quot; , &quot;freesans&quot; , sans-serif; font-size: x-large;">Self Promotion</span></span>
-<span style="background-color: white; font-size: 13px; line-height: 18.2px;"><span style="color: #444444; font-family: &quot;arial&quot; , &quot;tahoma&quot; , &quot;helvetica&quot; , &quot;freesans&quot; , sans-serif;">
-</span></span><span style="background-color: white; font-size: 13px; line-height: 18.2px;"><span style="color: #444444; font-family: &quot;arial&quot; , &quot;tahoma&quot; , &quot;helvetica&quot; , &quot;freesans&quot; , sans-serif;">In the latest article of my LinkedIn series on better ROI from software development, I have released part 2 on Agile Software Development.</span></span>
-<span style="background-color: white; font-size: 13px; line-height: 18.2px;"><span style="color: #444444; font-family: &quot;arial&quot; , &quot;tahoma&quot; , &quot;helvetica&quot; , &quot;freesans&quot; , sans-serif;">
-</span></span><span style="background-color: white; font-size: 13px; line-height: 18.2px;"><span style="color: #444444; font-family: &quot;arial&quot; , &quot;tahoma&quot; , &quot;helvetica&quot; , &quot;freesans&quot; , sans-serif;">You can read there article [here](https://www.linkedin.com/pulse/what-agile-software-development-part-2-mark-taylor).</span></span>
-<span style="background-color: white; font-size: 13px; line-height: 18.2px;"><span style="color: #444444; font-family: &quot;arial&quot; , &quot;tahoma&quot; , &quot;helvetica&quot; , &quot;freesans&quot; , sans-serif;">
-</span></span><span style="background-color: white; line-height: 18.2px;"><span style="color: #444444; font-family: &quot;arial&quot; , &quot;tahoma&quot; , &quot;helvetica&quot; , &quot;freesans&quot; , sans-serif; font-size: x-large;">And finally ...</span></span>
-<span style="background-color: white; font-size: 13px; line-height: 18.2px;"><span style="color: #444444; font-family: &quot;arial&quot; , &quot;tahoma&quot; , &quot;helvetica&quot; , &quot;freesans&quot; , sans-serif;">
-</span></span><span style="background-color: white; font-size: 13px; line-height: 18.2px;"><span style="color: #444444; font-family: &quot;arial&quot; , &quot;tahoma&quot; , &quot;helvetica&quot; , &quot;freesans&quot; , sans-serif;">This [website](http://whichcatisyourjavascriptframework.com/) shows you what type of cat your JavaScript framework is.</span></span>
-<span style="background-color: white; font-size: 13px; line-height: 18.2px;"><span style="color: #444444; font-family: &quot;arial&quot; , &quot;tahoma&quot; , &quot;helvetica&quot; , &quot;freesans&quot; , sans-serif;">
-</span></span><span style="background-color: white; font-size: 13px; line-height: 18.2px;"><span style="color: #444444; font-family: &quot;arial&quot; , &quot;tahoma&quot; , &quot;helvetica&quot; , &quot;freesans&quot; , sans-serif;">Probably the most important thing you'll learn this week.</span></span>
+Both Event Sourcing and CQRS are quite popular within software architecture.  They build on DDD principles (although can be used separately from it).
+
+Event Sourcing looks at retaining data in an event stream rather than a snapshot of time that we are familiar with in RDMS.  This about it as a list of all the transactions (credits and debits) that have been made against your bank account rather than a current balance.  The events allow you to have a full audit where as the current balance is just the current snapshot in time.
+
+The current balance can be calculated by totalling (sum in this case) of the transactions.
+
+To avoid the performance overhead of a walk through the event stack for the current state, you can implement event listeners which would produce a snapshot of the current state (a read only version that you may have had in the RDMS).  You can register multiple listeners so that you could generate multiple optimised views of the event stream - think of it like fact tables in data warehouses.
+
+Event Streams aren't appropriate for all problems - but are great for being able to see the version at any point.  Look at source control systems for an example.
+
+CQRS is Command/ Query Responsibility Separation.  This talks about separating the logic of command (insert, update, delete) from query (select).  By separating the two distinct activities you can make services more focused (easier to dev &amp; test) and allow scaling independently.
+
+## Development Process
+### Agile Productivity: Willpower and the Neuroscience approach
+This great [article](http://www.infoq.com/articles/agile-productivity-willpower-neuroscience) talks about agile productivity and how it is influenced by willpower - or more importantly by avoiding the need to rely on it.  It talks about the neuroscience behind willpower and techniques of how to use that willpower effectively in relation to performance.
+
+Good news here is that a lot Scrum practices play to those techniques.
+
+### Scrum with Trello
+I love Trello.  This [article](http://www.infoq.com/articles/scrum-trello) isn't ground breaking - but most of the suggestions are ones I've used before - so useful if you've not played with Trello before.
+
+### It's Just a White Board
+In this [presentation](http://www.infoq.com/presentations/kanban-why), Jim Benson discusses why Kanban is helpful.  While he does give an overview of Kanban, he also talks about the physiological positive effects of physically moving a sticky to done.
+
+If you're following my ROI series on LinkedIn, then you will see the tie into the promoting the Intrinsic Motivators.
+
+## Infrastructure
+### Azure/ AWS Mapping
+Useful [article](https://azure.microsoft.com/en-us/campaigns/azure-vs-aws/mapping/) here to compare between Azure &amp; AWS.
+
+## Self Promotion
+In the latest article of my LinkedIn series on better ROI from software development, I have released part 2 on Agile Software Development.
+
+You can read there article [here](https://www.linkedin.com/pulse/what-agile-software-development-part-2-mark-taylor).
+
+## And finally ...
+This [website](http://whichcatisyourjavascriptframework.com/) shows you what type of cat your JavaScript framework is.
+
+Probably the most important thing you'll learn this week.

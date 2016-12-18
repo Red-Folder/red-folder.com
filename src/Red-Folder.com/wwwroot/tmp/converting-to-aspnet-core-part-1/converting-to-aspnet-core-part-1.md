@@ -20,7 +20,7 @@ However, before I get carried away, we need to start with the source repository.
 
 So you can follow allow I've created this [here.](https://github.com/Red-Folder/red-folder.com)
 
-<span style="font-size: x-large;">Getting started</span>
+## Getting started
 Simple enough start, install the ASP.Net 5 RC1 from [get.asp.net](http://get.asp.net/).
 
 (Helps if you have Visual Studio 2015 installed first).
@@ -39,7 +39,7 @@ Ok, at this point the project does very little.
 
 We now need to set it up for MVC.
 
-<span style="font-size: x-large;">Configure for MVC</span>
+## Configure for MVC
 Ok, a fair amount of stuff to do here from the empty project.
 
 I create the following folders:
@@ -56,12 +56,13 @@ I create the following folders:
 * wwwroot\js
 
 I then need to configure MVC within Startup.cs (see the commit for the difference).
+
 I've also added the following:
+
 * Views\_ViewImports.cshtml - to import the Tag Helpers (see more in the next article)
 * "Microsoft.AspNet.Mvc.TagHelpers": "6.0.0-rc1-final" to the project.json dependencies
 
-
-<span style="font-size: x-large;">Installing JavaScript libraries</span>
+## Installing JavaScript libraries
 Ok, so rather than using Nuget for JavaScript libraries we now use Bower.
 
 Bower is a JavaScript client side package loader.
@@ -81,7 +82,8 @@ Bower will download the file and place them into a wwwroot\lib folder within the
 I've also added "src/red-folder.com/wwwroot/lib/*" to .gitignore to avoid storing the packages into github.
 Fingers crossed, this should have set up the project ready to start copying across my existing code.
 I've checked in at this point under this [commit](https://github.com/Red-Folder/red-folder.com/commit/9879d4f6aaaea2ddb04020127c1c481333017d35).
-<span style="font-size: x-large;">Good place to stop</span>
+
+## Good place to stop
 That seems like a good place to start for this article.
 
 The next article will consist of a fair amount of copy &amp; paste of existing content - then any refactoring work.

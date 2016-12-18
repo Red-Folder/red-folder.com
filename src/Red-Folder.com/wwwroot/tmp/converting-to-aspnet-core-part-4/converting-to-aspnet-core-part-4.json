@@ -1,1 +1,13 @@
-{"id":"e6ae1409-4465-4fd5-9151-e7b99a0443fd","url":"converting-to-aspnet-core-part-4","author":"Mark Taylor","published":"2016-04-23T17:54:00+01:00","modified":"2016-04-23T18:42:17.356+01:00","title":"Converting to ASP.Net Core - Part 4","image":null,"description":null,"enabled":true,"keyWords":["ASP.Net Core","MVC 6","Gulp","Javascript"],"redirects":[{"redirectType":301,"url":"http://blog.red-folder.com/2016/04/converting-to-aspnet-core-part-4.html","redirectByRoute":false,"redirectByParameter":true}]}
+{
+  "id":"e6ae1409-4465-4fd5-9151-e7b99a0443fd",
+  "url":"converting-to-aspnet-core-part-4",
+  "author":"Mark Taylor",
+  "published":"2016-04-23T17:54:00+01:00",
+  "modified":"2016-04-23T18:42:17.356+01:00",
+  "title":"Converting to ASP.Net Core - Part 4",
+  "image":"/images/blog/AspNetCoreSeries.png",
+  "description":"In this, the fourth in my series of converting my website to ASP.Net Core & MVC 6, I take a deeper dive into the Gulp pipeline.",
+  "enabled":true,
+  "keyWords":["ASP.Net Core","MVC 6","Gulp","Javascript"],
+  "redirects":[{"redirectType":301,"url":"http://blog.red-folder.com/2016/04/converting-to-aspnet-core-part-4.html","redirectByRoute":false,"redirectByParameter":true}]
+}

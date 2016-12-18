@@ -1,1 +1,13 @@
-{"id":"944eae34-44ec-41f1-acf6-7e3ae0654da3","url":"rfc-weekly-8th-august-2016","author":"Mark Taylor","published":"2016-08-08T20:44:00.001+01:00","modified":"2016-08-08T20:44:41.303+01:00","title":"RFC Weekly - 8th August 2016","image":"/media/blog/rfc-weekly/RFCWeeklyTwitterCard.png","description":"RFC Weekly - a summary of things that I find interesting.  It is an indulgence; its the weekly update that I would like to receive.  Unfortunately no-one else is producing it so I figured I best get on with it.  Hopefully someone else will also find useful.","enabled":true,"keyWords":["RFCWeekly"],"redirects":[{"redirectType":301,"url":"http://blog.red-folder.com/2016/08/rfc-weekly-8th-august-2016.html","redirectByRoute":false,"redirectByParameter":true}]}
+{
+  "id":"944eae34-44ec-41f1-acf6-7e3ae0654da3",
+  "url":"rfc-weekly-8th-august-2016",
+  "author":"Mark Taylor",
+  "published":"2016-08-08T20:44:00.001+01:00",
+  "modified":"2016-08-08T20:44:41.303+01:00",
+  "title":"RFC Weekly - 8th August 2016",
+  "image":"/media/blog/rfc-weekly/RFCWeeklyTwitterCard.png",
+  "description":"This week I look at Katacode - a training/ learning facility, the humanitarian toolbox, Bootstrap 4, Angular 2 tools and Progressive Web Apps.",
+  "enabled":true,
+  "keyWords":["RFCWeekly", "Bootstrap", "Angular"],
+  "redirects":[{"redirectType":301,"url":"http://blog.red-folder.com/2016/08/rfc-weekly-8th-august-2016.html","redirectByRoute":false,"redirectByParameter":true}]
+}

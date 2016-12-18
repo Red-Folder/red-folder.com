@@ -1,6 +1,4 @@
-<a href="https://3.bp.blogspot.com/-I_oaP90FoII/VwLSGdVpg-I/AAAAAAAACVI/k8qLuxwepagPz6AVDvfPbqLj0uXtgr0Iw/s1600/RFCWeeklyLogo.png" imageanchor="1">
-<img border="0" src="https://3.bp.blogspot.com/-I_oaP90FoII/VwLSGdVpg-I/AAAAAAAACVI/k8qLuxwepagPz6AVDvfPbqLj0uXtgr0Iw/s1600/RFCWeeklyLogo.png" />
-</a>## Specflow Cookbook
+## Specflow Cookbook
 I've recently introduced Specflow into a client.  If you've never come across Specflow, it is a BDD (Behaviour Driven Development) tool for .Net.
 
 It uses a Gherkin style language:
@@ -12,20 +10,24 @@ I will then generally use it with xUnit as a test runner.
 You can find more on Specflow [here](http://www.specflow.org/)
 
 The [Specflow Cookbook](http://specflowcookbook.com/) is a great collection of recipes to help you get started.
+
 ## [Regular Expressions](http://www.regular-expressions.info/)
 When using Specflow, I've found having a great regular expression website to hand is a godsend.  Of course generally useful to have anyway.
+
 ## [Prefix.io](http://www.prefix.io/)
 This is one of those tools that I post here so I remember to try it (or more likely have the link when I need it).
 
 Prefix.io provides a lot of insight into your code – stuff likes bugs, performance, etc.  It’s aimed at being used in development rather than production.  But that is because it is being provided free by Stackify – who want to sell you their production version (can’t blame them – and I really like this free for dev approach).
 
 I've added myself a Trello card to try it out on my own site.
+
 ## [Postman](https://chrome.google.com/webstore/detail/postman/fhbjgbiflinjbdggehcddcbncdddomop?hl=en)
 My new favourite Chrome extension (remember when that was a thing?)
 
 Postman is a tool that provides a test client for REST APIs.  Really nice clean interface allowing you to save queries and share them with your team.
 
 I've found this an easier tool for REST calls than Fiddler or SOAPUI.
+
 ## Xamarin
 I've been having a bit of a play with Xamarin on Android this week.  Not gone very far into it, but the Android implementation is very similar to the native development.
 

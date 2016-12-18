@@ -1,20 +1,21 @@
-<a href="https://3.bp.blogspot.com/-I_oaP90FoII/VwLSGdVpg-I/AAAAAAAACVI/k8qLuxwepagPz6AVDvfPbqLj0uXtgr0Iw/s1600/RFCWeeklyLogo.png" imageanchor="1">
-<img border="0" src="https://3.bp.blogspot.com/-I_oaP90FoII/VwLSGdVpg-I/AAAAAAAACVI/k8qLuxwepagPz6AVDvfPbqLj0uXtgr0Iw/s1600/RFCWeeklyLogo.png" />
-</a>
 ## [Azure DNS](https://azure.microsoft.com/en-gb/services/dns/)
 Azure DNS has recently only gone into preview.  This fell well for a little project I wanted to try (see below).  I've had my domain with 1&amp;1 for many years, but their DNS servers have always been fairly lacking in features.
 
 Moving over to the Azure DNS was smooth and easy and so far everything is working fine.
+
 ## [12 Extremely Useful Hacks for JavaScipt](https://blog.jscrambler.com/12-extremely-useful-hacks-for-javascript/)
 The title pretty tells you what is going on. Something every JavaScript developer should have read.
+
 ## [.Net Core RC2 release](https://blogs.msdn.microsoft.com/dotnet/2016/05/16/announcing-net-core-rc2/)
 While I've yet to finish the shift of my website to .Net Core RC1, they have released RC2.
 
 Microsoft say there are improvements over RC1 in terms of performance and reliability (not that I've noticed any problems in RC1).  Also seems to include Docker support which maybe interesting to play with.
 
 At the time of the announcement, Azure wasn't RC2 ready so I'm unlikely to adopt it quite yet.  I may finish my mini-series on converting to RC1 first (although I am constantly distracting myself).
+
 ## [A debugging thought process](https://remysharp.com/2016/04/04/a-debugging-thought-process)
 A nice little article describing the steps taken to debug a slow loading website.  Great to see the steps taken and the mind-set behind them.  Would really recommend a read to anyone new to debugging a slow page load.
+
 ## [Rise of the Bootcamp developer](https://uselessdevblog.wordpress.com/2016/04/11/js-developers-who-dont-know-what-closure-is-are-fine/)
 This article tackles the question of if you really need to understand programming to be a programmer.
 
@@ -25,6 +26,7 @@ Yes they know the basics.  Yes they can build a program.
 But they have severe limitations because they do not have the wide foundation that comes with proper study.  That of course can be built up over time, but involves the commitment of the developer and the organisation.
 
 Really quite thought provoking in terms of where our industry is going and how it will need to adapt into the future.
+
 ## Shameless self-promotion
 Within my ROI series on LinkedIn, I've taken a look at the [Software Development maturity model](https://www.linkedin.com/pulse/software-development-maturity-model-mark-taylor).  It’s a method of building towards a well-oiled IT.
 

@@ -1,1 +1,13 @@
-{"id":"c19e30b0-7de1-4b05-b599-e9fded5d35c7","url":"azure-functions-personal-nuget-sources","author":"Mark Taylor","published":"2016-10-03T11:01:00.003+01:00","modified":"2016-10-03T20:54:14.288+01:00","title":"Azure Functions - Personal Nuget sources","image":null,"description":null,"enabled":true,"keyWords":["MyGet.Org","Nuget","Azure Functions"],"redirects":[{"redirectType":301,"url":"http://blog.red-folder.com/2016/10/azure-functions-personal-nuget-sources.html","redirectByRoute":false,"redirectByParameter":true}]}
+{
+  "id":"c19e30b0-7de1-4b05-b599-e9fded5d35c7",
+  "url":"azure-functions-personal-nuget-sources",
+  "author":"Mark Taylor",
+  "published":"2016-10-03T11:01:00.003+01:00",
+  "modified":"2016-10-03T20:54:14.288+01:00",
+  "title":"Azure Functions - Personal Nuget sources",
+  "image":null,
+  "description":"In this article I look at how to use Azure Functions with your own Personal Nuget feed.  In this case I am using the MyGet.Org service.",
+  "enabled":true,
+  "keyWords":["MyGet.Org","Nuget","Azure Functions"],
+  "redirects":[{"redirectType":301,"url":"http://blog.red-folder.com/2016/10/azure-functions-personal-nuget-sources.html","redirectByRoute":false,"redirectByParameter":true}]
+}

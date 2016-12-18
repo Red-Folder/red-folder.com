@@ -5,7 +5,7 @@
   "modified": "2016-12-12",
   "title": "RFC Weekly - 12th December 2016",
   "enabled": "true",
-  "keyWords": ["RFCWeekly", "Ethical Hacking", "Security", "DevOps", "VSTS", "ASP.Net Core", "Jest", "xUnit", "OpenCover", "WebPack"],
+  "keyWords": ["RFCWeekly", "Ethical Hacking", "Security", "DevOps", "VSTS", "ASP.Net Core", "Jest", "xUnit", "OpenCover", "WebPack", "React"],
   "description": "This week I update my progress on the PluralSight Ethical Hacking training path and looks at DevOps for .Net Core and React using Visual Studio Team Services.",
  	"image" : "/media/blog/rfc-weekly/RFCWeeklyTwitterCard.png",
   "author" : "Mark Taylor"

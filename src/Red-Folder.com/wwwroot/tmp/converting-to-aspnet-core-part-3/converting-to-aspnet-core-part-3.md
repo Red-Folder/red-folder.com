@@ -34,14 +34,20 @@ So first thing, I've reverted the file back to the Visual Studio default.  No jo
 
 Ok, after much playing, it appears to be the following line:
 
-<blockquote class="tr_bq">gulp.watch(paths.lessSrc, ['less']);</blockquote>
+```
+gulp.watch(paths.lessSrc, ['less']);
+```
+
 I think it is because I’m providing this outside of a task – which makes sense.  The gulp.watch returns a watcher object.  This makes me think that I need to handle within a task.
 
 And doing this seems to resolve it.
 
-<blockquote class="tr_bq">gulp.task('watch-less', function() {
+```
+gulp.task('watch-less', function() {
 return gulp.watch(paths.lessSrc, ['less']);
-});</blockquote>
+});
+```
+
 Committed this fix [here](https://github.com/Red-Folder/red-folder.com/commit/15f0d8921e91cb0ddbe7b332f3688235ad2ac316).
 
 ## Getting ready for deployment
@@ -51,13 +57,11 @@ For this, I’m going to follow on with Shawns course – specifically his ASP.N
 
 I performed the following:
 
-
 * Added “gulp-uglify” to package.json
 * Added a “minify task” into gulpfile.js – this just minifies my JavaScript (using uglify and puts into the scripts/min folder)
 * Added a “deployment-prepare” task into gulpfile.js – this in in readiness for deployment and will be all the tasks that I want a fresh deployment to do (at this point run the less &amp; minify tasks)
 * Added a “scripts” block to project.json – a “prepublish” which runs npm &amp; bower to download dependencies and a “prepare” which runs the “deployment-prepare” gulp task I added above
 * Add environment blocks to _Layout.cshtml – one for Development, another for Production &amp; Staging (see below).
-
 
 There is a lot more that I want to do with the gulp tasks – I'm currently not touching CSS or bundling any files.  I’ll look at this in more detail in the next article.  For now, this is hopefully good enough to deploy.
 
@@ -68,11 +72,9 @@ The Hosting:Environment can be set by going into Project Properties -> Debug.
 
 I believe you can use whatever name you want for your environments; I've chosen to use:
 
-
 * Development
 * Staging
 * Production
-
 
 Then within my _Layout.cshtml I add two environment blocks – one with the names attribute of “Development”, the other with “Staging,Production”.
 

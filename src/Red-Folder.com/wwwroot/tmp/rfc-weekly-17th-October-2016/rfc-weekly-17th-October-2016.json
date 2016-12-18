@@ -1,10 +1,12 @@
 ﻿{
   "id": "27bfcc29-ece7-4d13-a91c-e49e540c7251",
   "image": "/media/blog/rfc-weekly/RFCWeeklyTwitterCard.png",
-  "description": "RFC Weekly - a summary of things that I find interesting.  It is an indulgence; its the weekly update that I would like to receive.  Unfortunately no-one else is producing it so I figured I best get on with it.  Hopefully someone else will also find useful.",
+  "description": "This week I take a look at Windows Containers, Azure UK Datacentres, Flexbox and HTTP2",
   "url": "rfc-weekly-17th-October-2016",
   "published": "2016-10-17",
   "modified": "2016-10-17",
   "title": "RFC Weekly - 17th October 2016",
-  "enabled": "true"
+  "enabled": "true",
+     "keyWords": ["RFCWeekly", "DotNetNorth", "Windows Containers", "Docker", "Azure", "HTML", "HTTP2"],
+  "author" : "Mark Taylor"
 }

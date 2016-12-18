@@ -1,1 +1,13 @@
-{"id":"c475f6b6-c8c8-440e-9977-c6d61b6cf645","url":"rfc-weekly-27th-june-2016","author":"Mark Taylor","published":"2016-06-27T20:37:00.001+01:00","modified":"2016-06-27T20:37:19.807+01:00","title":"RFC Weekly - 27th June 2016","image":"/media/blog/rfc-weekly/RFCWeeklyTwitterCard.png","description":"RFC Weekly - a summary of things that I find interesting.  It is an indulgence; its the weekly update that I would like to receive.  Unfortunately no-one else is producing it so I figured I best get on with it.  Hopefully someone else will also find useful.","enabled":true,"keyWords":["RFCWeekly"],"redirects":[{"redirectType":301,"url":"http://blog.red-folder.com/2016/06/rfc-weekly-27th-june-2016.html","redirectByRoute":false,"redirectByParameter":true}]}
+{
+  "id":"c475f6b6-c8c8-440e-9977-c6d61b6cf645",
+  "url":"rfc-weekly-27th-june-2016",
+  "author":"Mark Taylor",
+  "published":"2016-06-27T20:37:00.001+01:00",
+  "modified":"2016-06-27T20:37:19.807+01:00",
+  "title":"RFC Weekly - 27th June 2016",
+  "image":"/media/blog/rfc-weekly/RFCWeeklyTwitterCard.png",
+  "description":"This week I take a look at Agile, Cyber Dojo (a training tool), JavaScript Service Workders (they are the future), an interesting testing tool and Datadog.",
+  "enabled":true,
+  "keyWords":["RFCWeekly", "Agile", "JavaScript" ],
+  "redirects":[{"redirectType":301,"url":"http://blog.red-folder.com/2016/06/rfc-weekly-27th-june-2016.html","redirectByRoute":false,"redirectByParameter":true}]
+}

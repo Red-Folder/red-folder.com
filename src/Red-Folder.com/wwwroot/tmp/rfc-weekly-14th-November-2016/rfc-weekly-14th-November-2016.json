@@ -1,10 +1,13 @@
 {
   "id": "ad5a0d2e-63a5-4183-a29d-261cfba879b1",
   "image": "/media/blog/rfc-weekly/RFCWeeklyTwitterCard.png",
-  "description": "RFC Weekly - a summary of things that I find interesting.  It is an indulgence; its the weekly update that I would like to receive.  Unfortunately no-one else is producing it so I figured I best get on with it.  Hopefully someone else will also find useful.",
+  "description": "This week I look at the Microsoft Bot Framework, Skype Translations, and Acclaim Badges.",
   "url": "rfc-weekly-14th-November-2016",
   "published": "2016-11-14",
   "modified": "2016-11-14",
   "title": "RFC Weekly - 14th November 2016",
-  "enabled": "true"
+  "enabled": "true",
+    "keyWords": ["RFCWeekly", "Bot Framework", "DotNetNorth", "Certification"],
+  "author" : "Mark Taylor"
+
 }

@@ -1,10 +1,12 @@
 ﻿{
   "id": "7d3b0995-fc3d-45b8-9c84-7ff6ff5a672e",
   "image": "/media/blog/rfc-weekly/RFCWeeklyTwitterCard.png",
-  "description": "RFC Weekly - a summary of things that I find interesting.  It is an indulgence; its the weekly update that I would like to receive.  Unfortunately no-one else is producing it so I figured I best get on with it.  Hopefully someone else will also find useful.",
+  "description": "This week I take a look back at the past year.  After 12 months of contracting I take a look at were I am now.  I look at the certification and learning that I've gone through to make sure that I'm as employable as possible.",
   "url": "rfc-weekly-10th-October-2016",
   "published": "2016-10-10",
   "modified": "2016-10-10",
   "title": "RFC Weekly - 10th October 2016",
-  "enabled": "true"
+  "enabled": "true",
+     "keyWords": ["RFCWeekly", "Certification", "PluralSight", "Learning" ],
+  "author" : "Mark Taylor"
 }
