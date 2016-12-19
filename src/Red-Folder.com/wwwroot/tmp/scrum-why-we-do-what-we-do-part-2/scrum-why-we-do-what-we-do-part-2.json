@@ -1,1 +1,12 @@
-{"id":"5861784c-2541-4b81-af91-42481c04036c","url":"scrum-why-we-do-what-we-do-part-2","author":"Mark Taylor","published":"2014-08-17T21:34:00+01:00","modified":"2014-08-18T17:20:20.798+01:00","title":"Scrum - Why we do what we do - part 2, Waterfall","image":null,"description":"In this series of articles I am looking to outline why Scrum works for us.  During the series I’ll be looking at the challenges in software development today, firstly in general and then specifically with two “traditional” approaches – waterfall and solo working.  In the final part of the series I demonstrate how Scrum works for us to address those challenges.\r\n\r\nI was motivated to produce these articles to educate our wider business.  While we have been operating in a Scrum manner for over two years, acquisition has brought many new faces to the table – many of whom are confused by the way we are working.  It’s also a great opportunity to refresh those that have been working with it for a while.\r\n\r\n### Introduction\r\nThis article addresses waterfall development and the challenges to be overcome.  The [previous article](http://red-folder.blogspot.co.uk/2014/08/scrum-why-we-do-what-we-do-part-1.html) looked at development in general.  In the [next article](http://red-folder.blogspot.co.uk/2014/08/scrum-why-we-do-what-we-do-part-3-solo.html) we'll be looking at solo working.  In the [final part](http://red-folder.blogspot.co.uk/2014/08/scrum-why-we-do-what-we-do-part-4.html) of the series I demonstrate how Scrum works for us to resolve those challenges.\r\n\r\n","enabled":true,"keyWords":["IT Management","Scrum"],"redirects":[{"redirectType":301,"url":"http://blog.red-folder.com/2014/08/scrum-why-we-do-what-we-do-part-2.html","redirectByRoute":false,"redirectByParameter":true}]}
+{
+  "id":"5861784c-2541-4b81-af91-42481c04036c",
+  "url":"scrum-why-we-do-what-we-do-part-2",
+  "author":"Mark Taylor",
+  "published":"2014-08-17T21:34:00+01:00",
+  "modified":"2014-08-18T17:20:20.798+01:00",
+  "title":"Scrum - Why we do what we do - part 2, Waterfall",
+  "image":null,"description":"In this the second in my case study of why Scrum work for us, I look at the more traditional waterfall development and the challenges that is raises.",
+  "enabled":true,
+  "keyWords":["IT Management","Scrum"],
+  "redirects":[{"redirectType":301,"url":"http://blog.red-folder.com/2014/08/scrum-why-we-do-what-we-do-part-2.html","redirectByRoute":false,"redirectByParameter":true}]
+}
