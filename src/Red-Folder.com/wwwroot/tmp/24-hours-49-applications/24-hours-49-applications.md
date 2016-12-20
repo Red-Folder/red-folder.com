@@ -1,6 +1,6 @@
 I've been doing a fair amount of system support work this week as holiday cover.  Great to be using some of the rustier skills.  Occurred to be yesterday that I was using a large range of applications - so over the last 24 hours I decided to document just how many.
 
-<ol>* Android native email client
+* Android native email client
 * Android Yahoo email client
 * Windows 7
 * Chrome
@@ -49,7 +49,9 @@ I've been doing a fair amount of system support work this week as holiday cover.
 * ntdsutil.exe
 * Server Manager
 * Active Directory User and Computers
-</ol>For anyone that's interested, most of the above boiled down to:
+
+For anyone that's interested, most of the above boiled down to:
+
 * Adding a feature to an opensource project
 * Fixing hybrid configuration between Office 365 and on premise Exchange 2013
 * Manually removing a legacy AD controller  
