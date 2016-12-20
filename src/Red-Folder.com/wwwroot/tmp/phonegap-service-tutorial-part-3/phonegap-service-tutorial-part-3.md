@@ -37,7 +37,7 @@ I'm using API 8 for my project so will be using the "Older Version" icons.  Note
 
 |         | Older Versions | API 9     | API 11   |
 |---------|----------------|-----------|----------|
-| ldpi | [Image](/media/blog/phonegap-service-tutorial-part-3/ic_stat_notification-255Bldpi-255D.png) | ![Image](/media/blog/phonegap-service-tutorial-part-3/ic_stat_notification-255Bldpi-v9-255D.png) | ![Image](/media/blog/phonegap-service-tutorial-part-3/ic_stat_notification-255Bldpi-v11-255D.png) | 
+| ldpi | ![Image](/media/blog/phonegap-service-tutorial-part-3/ic_stat_notification-255Bldpi-255D.png) | ![Image](/media/blog/phonegap-service-tutorial-part-3/ic_stat_notification-255Bldpi-v9-255D.png) | ![Image](/media/blog/phonegap-service-tutorial-part-3/ic_stat_notification-255Bldpi-v11-255D.png) | 
 | mdpi | ![Image](/media/blog/phonegap-service-tutorial-part-3/ic_stat_notification-255Bmdpi-255D.png) | ![Image](/media/blog/phonegap-service-tutorial-part-3/ic_stat_notification-255Bmdpi-v9-255D.png) | ![Image](/media/blog/phonegap-service-tutorial-part-3/ic_stat_notification-255Bmpdi-v11-255D.png) | 
 | hdpi | ![Image](/media/blog/phonegap-service-tutorial-part-3/ic_stat_notification-255Bhdpi-255D.png) | ![Image](/media/blog/phonegap-service-tutorial-part-3/ic_stat_notification-255Bhdpi-v9-255D.png) | ![Image](/media/blog/phonegap-service-tutorial-part-3/ic_stat_notification-255Bhdpi-v11-255D.png) | 
 | xhdpi | ![Image](/media/blog/phonegap-service-tutorial-part-3/ic_stat_notification-255Bxhdpi-255D.png) | ![Image](/media/blog/phonegap-service-tutorial-part-3/ic_stat_notification-255Bxhdpi-v9-255D.png) | ![Image](/media/blog/phonegap-service-tutorial-part-3/ic_stat_notification-255Bxhdpi-v11-255D.png) |
