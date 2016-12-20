@@ -13,9 +13,9 @@ For this part, I'll be using the following tools:
 * Jenkins Version 1.522 (http://jenkins-ci.org/)
 * CloudBees Build Flow plugin 0.10 (https://wiki.jenkins-ci.org/display/JENKINS/Build+Flow+Plugin)
 
-<h2>
-</h2>## The Job
+## The Job
 To create the job;
+
 1) Create a new "Build Flow" project called "BackgroundServicePlugin Build All"
 2) Set Source Code Management to None (we will run this manually)
 3) Add the following to the Define build flow:
@@ -25,4 +25,5 @@ And save the Job - yes that's it.
 
 ## Wrap up
 This really is the easier job to create because all of the heavy lifting is done by the build &amp; test projects.
+
 We will add some additional steps to this job in the next and final part to help prepare for GitHub upload.
