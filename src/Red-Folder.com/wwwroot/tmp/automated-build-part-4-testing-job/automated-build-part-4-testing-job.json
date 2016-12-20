@@ -1,1 +1,13 @@
-{"id":"d10cac96-a23d-4d75-b78f-2e21bfa8cc8e","url":"automated-build-part-4-testing-job","author":"Mark Taylor","published":"2013-08-16T20:11:00+01:00","modified":"2013-09-20T21:51:37.734+01:00","title":"Automated Build - Part 4 - The testing job ","image":null,"description":"This is part of my automated build series.  The aim is to automate a lot of the Cordova Background Service plugin process.\r\n\r\nIn this blog I'll use the tools I created in the previous part to build a Jenkins job that tests the plugin.\r\n","enabled":true,"keyWords":["Jasmine","Cordova","BDD","Continuous Integration","Jenkins","Android","Background Service"],"redirects":[{"redirectType":301,"url":"http://blog.red-folder.com/2013/08/automated-build-part-4-testing-job.html","redirectByRoute":false,"redirectByParameter":true}]}
+{
+  "id":"d10cac96-a23d-4d75-b78f-2e21bfa8cc8e",
+  "url":"automated-build-part-4-testing-job",
+  "author":"Mark Taylor",
+  "published":"2013-08-16T20:11:00+01:00",
+  "modified":"2013-09-20T21:51:37.734+01:00",
+  "title":"Automated Build - Part 4 - The testing job ",
+  "image":null,
+  "description":"This is part of my automated build series.  The aim is to automate a lot of the Cordova Background Service plugin process.  In this blog I'll use the tools I created in the previous part to build a Jenkins job that tests the plugin.",
+  "enabled":true,
+  "keyWords":["Jasmine","Cordova","BDD","Continuous Integration","Jenkins","Android","Background Service"],
+  "redirects":[{"redirectType":301,"url":"http://blog.red-folder.com/2013/08/automated-build-part-4-testing-job.html","redirectByRoute":false,"redirectByParameter":true}]
+}
