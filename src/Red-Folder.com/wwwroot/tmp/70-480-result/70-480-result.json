@@ -1,1 +1,13 @@
-{"id":"0f933b61-2c25-4dbf-a4d9-fecea0c47c2c","url":"70-480-result","author":"Mark Taylor","published":"2013-02-11T19:28:00.004Z","modified":"2013-02-11T19:28:36.849Z","title":"70-480 - The result","image":null,"description":"Ok, I've passed.  Score of 840 last Saturday.\r\n\r\nThis is a bit of a catch up blog on the steps I took to revise and prepare for the exam.  I'm conscious that it's been a long time between this and my original posting so this will cover a fair amount of ground.\r\n\r\nGood news is that there is a tremendous amount of good information available out there.\r\n\r\n\r\n","enabled":true,"keyWords":["MCSD: Web Applications","70-480"],"redirects":[{"redirectType":301,"url":"http://blog.red-folder.com/2013/02/70-480-result.html","redirectByRoute":false,"redirectByParameter":true}]}
+{
+  "id":"0f933b61-2c25-4dbf-a4d9-fecea0c47c2c",
+  "url":"70-480-result",
+  "author":"Mark Taylor",
+  "published":"2013-02-11T19:28:00.004Z",
+  "modified":"2013-02-11T19:28:36.849Z",
+  "title":"70-480 - The result",
+  "image":null,
+  "description":"This post covers some of the resources I used to pass 70-480.",
+  "enabled":true,
+  "keyWords":["MCSD: Web Applications","70-480"],
+  "redirects":[{"redirectType":301,"url":"http://blog.red-folder.com/2013/02/70-480-result.html","redirectByRoute":false,"redirectByParameter":true}]
+}
