@@ -16,11 +16,9 @@ For this part, I'll be using the following tools:
 ## The Job
 To create the job;
 
-1) Create a new "Build Flow" project called "BackgroundServicePlugin Build All"
-
-2) Set Source Code Management to None (we will run this manually)
-
-3) Add the following to the Define build flow:
+1. Create a new "Build Flow" project called "BackgroundServicePlugin Build All"
+2. Set Source Code Management to None (we will run this manually)
+3. Add the following to the Define build flow:
 %[https://gist.github.com/Red-Folder/6642918.js] 
 
 And save the Job - yes that's it.
