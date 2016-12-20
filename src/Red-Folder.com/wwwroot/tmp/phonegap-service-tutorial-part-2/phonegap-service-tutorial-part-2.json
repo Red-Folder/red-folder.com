@@ -1,1 +1,13 @@
-{"id":"b540ee27-cdb2-46c4-8a40-f485ea90868d","url":"phonegap-service-tutorial-part-2","author":"Mark Taylor","published":"2012-09-17T22:17:00.001+01:00","modified":"2013-10-23T19:43:06.149+01:00","title":"Phonegap Service Tutorial - Part 2","image":null,"description":"## Summary\r\nThis blog is a continuation of the Service Tutorial.\r\nIn [Part 1](http://red-folder.blogspot.com/2012/09/phonegap-service-tutorial-part-1.html) we created a simple application using Phonegap.  In this part we will add the code for our skeleton service.\r\n","enabled":true,"keyWords":["Cordova","Phonegap","Android","Background Service","Plugin"],"redirects":[{"redirectType":301,"url":"http://blog.red-folder.com/2012/09/phonegap-service-tutorial-part-2.html","redirectByRoute":false,"redirectByParameter":true}]}
+{
+  "id":"b540ee27-cdb2-46c4-8a40-f485ea90868d",
+  "url":"phonegap-service-tutorial-part-2",
+  "author":"Mark Taylor",
+  "published":"2012-09-17T22:17:00.001+01:00",
+  "modified":"2013-10-23T19:43:06.149+01:00",
+  "title":"Phonegap Service Tutorial - Part 2",
+  "image":null,
+  "description":"This blog is a continuation of the Service Tutorial. In Part 1 we created a simple application using Phonegap.  In this part we will add the code for our skeleton service.",
+  "enabled":true,
+  "keyWords":["Cordova","Phonegap","Android","Background Service","Plugin"],
+  "redirects":[{"redirectType":301,"url":"http://blog.red-folder.com/2012/09/phonegap-service-tutorial-part-2.html","redirectByRoute":false,"redirectByParameter":true}]
+}
