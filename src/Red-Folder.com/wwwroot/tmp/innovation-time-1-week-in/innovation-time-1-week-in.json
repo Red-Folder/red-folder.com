@@ -1,1 +1,13 @@
-{"id":"d1fc16a4-6634-4282-8113-f79140964eb7","url":"innovation-time-1-week-in","author":"Mark Taylor","published":"2012-10-16T20:25:00.002+01:00","modified":"2012-10-16T20:25:53.145+01:00","title":"Innovation time - 1 week in","image":null,"description":"## Summary\r\nWe've recently implemented a 1 day in 10 innovation time as a trial.  As I have found few examples of people's experiences on the web I thought it would be useful to provide updates as we go.\r\nThis is a quick update after the first innovation day.\r\n","enabled":true,"keyWords":["Innovation Time","IT Management","Google 20%"],"redirects":[{"redirectType":301,"url":"http://blog.red-folder.com/2012/10/innovation-time-1-week-in.html","redirectByRoute":false,"redirectByParameter":true}]}
+{
+  "id":"d1fc16a4-6634-4282-8113-f79140964eb7",
+  "url":"innovation-time-1-week-in",
+  "author":"Mark Taylor",
+  "published":"2012-10-16T20:25:00.002+01:00",
+  "modified":"2012-10-16T20:25:53.145+01:00",
+  "title":"Innovation time - 1 week in",
+  "image":null,
+  "description":"We've recently implemented a 1 day in 10 innovation time as a trial.  As I have found few examples of people's experiences on the web I thought it would be useful to provide updates as we go.  This is a quick update after the first innovation day.",
+  "enabled":true,
+  "keyWords":["Innovation Time","IT Management","Google 20%"],
+  "redirects":[{"redirectType":301,"url":"http://blog.red-folder.com/2012/10/innovation-time-1-week-in.html","redirectByRoute":false,"redirectByParameter":true}]
+}

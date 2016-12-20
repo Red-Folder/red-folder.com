@@ -1,1 +1,13 @@
-{"id":"18818325-ec18-4008-9046-d605403cccf9","url":"plugin-updated-for-cordova-280-281-290","author":"Mark Taylor","published":"2013-08-27T13:49:00.001+01:00","modified":"2013-10-23T19:52:14.919+01:00","title":"Plugin updated for Cordova 2.8.0, 2.8.1, 2.9.0 and 3.0.0","image":null,"description":"I'm pleased to announce that the updates for the above Cordova versions have been released to Github.\r\n\r\nThe changes for Cordova 3.0.0 does require a change to /res/xml/config.xml - so please follow the instructions in the README\r\n\r\nAny questions or issues, then please raise an issue in the relevant Github repository.\r\n\r\nI should get back to my automation series in the next week or so.  It has proved a real time save in preparing the above.  Doing the above also helped me to validate (and fix) the automation steps - thus I'm likely to update the existing articles before finishing the series.\r\n\r\n\r\n","enabled":true,"keyWords":["Cordova","Phonegap","Background Service","Plugin"],"redirects":[{"redirectType":301,"url":"http://blog.red-folder.com/2013/08/plugin-updated-for-cordova-280-281-290.html","redirectByRoute":false,"redirectByParameter":true}]}
+{
+  "id":"18818325-ec18-4008-9046-d605403cccf9",
+  "url":"plugin-updated-for-cordova-280-281-290",
+  "author":"Mark Taylor",
+  "published":"2013-08-27T13:49:00.001+01:00",
+  "modified":"2013-10-23T19:52:14.919+01:00",
+  "title":"Plugin updated for Cordova 2.8.0, 2.8.1, 2.9.0 and 3.0.0",
+  "image":null,
+  "description":"Plugin now updated.",
+  "enabled":true,
+  "keyWords":["Cordova","Phonegap","Background Service","Plugin"],
+  "redirects":[{"redirectType":301,"url":"http://blog.red-folder.com/2013/08/plugin-updated-for-cordova-280-281-290.html","redirectByRoute":false,"redirectByParameter":true}]
+}

@@ -1,1 +1,13 @@
-{"id":"c0b33816-cf0c-4e72-844e-83c1d13c2fca","url":"70-480-day-1","author":"Mark Taylor","published":"2012-11-19T21:02:00.002Z","modified":"2012-11-19T21:02:26.27Z","title":"70-480 - Day 1","image":null,"description":"## Summary\r\nThis is the first post on preparing for exam 70-480 Programming in HTML5 with JavaScript and CSS3.\r\nIt has been sometime since I posted about starting this, so this will be a bit of catch up, where I am now and how I intend to continue.","enabled":true,"keyWords":["MCSD: Web Applications","70-480"],"redirects":[{"redirectType":301,"url":"http://blog.red-folder.com/2012/11/70-480-day-1.html","redirectByRoute":false,"redirectByParameter":true}]}
+{
+  "id":"c0b33816-cf0c-4e72-844e-83c1d13c2fca",
+  "url":"70-480-day-1",
+  "author":"Mark Taylor",
+  "published":"2012-11-19T21:02:00.002Z",
+  "modified":"2012-11-19T21:02:26.27Z",
+  "title":"70-480 - Day 1",
+  "image":null,
+  "description":"This is the first post on preparing for exam 70-480 Programming in HTML5 with JavaScript and CSS3.  It has been sometime since I posted about starting this, so this will be a bit of catch up, where I am now and how I intend to continue.",
+  "enabled":true,
+  "keyWords":["MCSD: Web Applications","70-480"],
+  "redirects":[{"redirectType":301,"url":"http://blog.red-folder.com/2012/11/70-480-day-1.html","redirectByRoute":false,"redirectByParameter":true}]
+}

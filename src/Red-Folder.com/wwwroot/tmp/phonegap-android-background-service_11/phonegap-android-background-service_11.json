@@ -1,1 +1,13 @@
-{"id":"b1d820bc-2252-4c9c-9758-3264ff2fcd5a","url":"phonegap-android-background-service_11","author":"Mark Taylor","published":"2012-09-11T21:08:00+01:00","modified":"2013-10-23T19:42:23.888+01:00","title":"Phonegap Android Background Service Plugin - Explained","image":null,"description":"## Summary\r\nThe blog will provide some background behind my Phonegap Background Service Plugin.\r\n\r\nA future blog will cover how to use the Plugin to create your own service, however I would recommend reading the below so that the concepts make sense.\r\n\r\n","enabled":true,"keyWords":["Cordova","Phonegap","Android","Background Service","Plugin"],"redirects":[{"redirectType":301,"url":"http://blog.red-folder.com/2012/09/phonegap-android-background-service_11.html","redirectByRoute":false,"redirectByParameter":true}]}
+{
+  "id":"b1d820bc-2252-4c9c-9758-3264ff2fcd5a",
+  "url":"phonegap-android-background-service_11",
+  "author":"Mark Taylor",
+  "published":"2012-09-11T21:08:00+01:00",
+  "modified":"2013-10-23T19:42:23.888+01:00",
+  "title":"Phonegap Android Background Service Plugin - Explained",
+  "image":null,
+  "description":"This blog will provide some background behind my Phonegap Background Service Plugin.  A future blog will cover how to use the Plugin to create your own service, however I would recommend reading this article so that the concepts make sense.",
+  "enabled":true,
+  "keyWords":["Cordova","Phonegap","Android","Background Service","Plugin"],
+  "redirects":[{"redirectType":301,"url":"http://blog.red-folder.com/2012/09/phonegap-android-background-service_11.html","redirectByRoute":false,"redirectByParameter":true}]
+}

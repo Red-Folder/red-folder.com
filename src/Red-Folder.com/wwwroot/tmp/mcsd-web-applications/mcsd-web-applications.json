@@ -1,1 +1,13 @@
-{"id":"4ab562cc-e200-49b5-b16b-2a8134bb53e5","url":"mcsd-web-applications","author":"Mark Taylor","published":"2012-10-16T21:19:00.003+01:00","modified":"2012-10-16T21:19:29.549+01:00","title":"MCSD: Web Applications","image":null,"description":"## Summary\r\nI've recently decided to look at Microsoft Certification for development.  In this series, I am looking to document my progress through ultimately (hopefully) taking and gaining the certification.\r\nIn this first blog, I'm going to outline primarily the why and my initial steps.","enabled":true,"keyWords":["70-486","MCSD: Web Applications","70-487","70-480"],"redirects":[{"redirectType":301,"url":"http://blog.red-folder.com/2012/10/mcsd-web-applications.html","redirectByRoute":false,"redirectByParameter":true}]}
+{
+  "id":"4ab562cc-e200-49b5-b16b-2a8134bb53e5",
+  "url":"mcsd-web-applications",
+  "author":"Mark Taylor",
+  "published":"2012-10-16T21:19:00.003+01:00",
+  "modified":"2012-10-16T21:19:29.549+01:00",
+  "title":"MCSD: Web Applications",
+  "image":null,
+  "description":"I've decided to look at Microsoft Certification for development.  In this series, I am looking to document my progress through ultimately (hopefully) taking and gaining the certification.  In this first blog, I'm going to outline primarily the why and my initial steps.",
+  "enabled":true,
+  "keyWords":["70-486","MCSD: Web Applications","70-487","70-480"],
+  "redirects":[{"redirectType":301,"url":"http://blog.red-folder.com/2012/10/mcsd-web-applications.html","redirectByRoute":false,"redirectByParameter":true}]
+}

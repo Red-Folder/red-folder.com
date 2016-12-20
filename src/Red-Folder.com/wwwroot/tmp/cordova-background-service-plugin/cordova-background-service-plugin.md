@@ -4,7 +4,6 @@ I've taken this opportunity to now separate my plugin from the main repository t
 
 The repository can be found here: [BackgroundService Plugin Repository](https://github.com/Red-Folder/Cordova-Plugin-BackgroundService)
 
-
 ## Source code
 
 I have also released the source code.  It is easier to use the .jar files from the above repository - but should you be interested then go to the [BackgroundService Plugin Source Repository](https://github.com/Red-Folder/Cordova-Plugin-BackgroundService-Source)
