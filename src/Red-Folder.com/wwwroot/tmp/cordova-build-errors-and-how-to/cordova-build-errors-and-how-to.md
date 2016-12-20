@@ -1,7 +1,8 @@
 I automate Jenkins &amp; Cordova CLI to automate my plugin build and test.  Occasionally I will get errors when running "cordova build".  The error messages reported from a build failure doesn't tell you why it went wrong ... so we need to do some digging.
 
 Ok, so to start with I'm getting the following error (from Jenkins logs) when running "cordova build"
-<pre><code>
+
+```
 C:\Program Files\Jenkins\jobs\Scheduler Plugin BDD Tests\workspace>C:\JenkinsWorkspace\CordovaCLI\node_modules\.bin\cordova build 
 Generating config.xml from defaults for platform "android"
 Preparing android project
@@ -16,14 +17,15 @@ Error: An error occurred while building the android project.
     at maybeClose (child_process.js:735:16)
     at Process.ChildProcess._handle.onexit (child_process.js:802:5)
 Build step 'Execute Windows batch command' marked build as failure
-</anonymous></code>
-</pre>This unfortunately just tells us that the build failed ... but not why.  For that we need to look deeper.
+```
+
+This unfortunately just tells us that the build failed ... but not why.  For that we need to look deeper.
 
 You'll see that Cordova is calling platforms/android/cordova/build.  So, I open up a node.js command prompt (which is configured to run Cordova CLI), cd into platforms/android/cordova/ and run the build.
 
 This givens me loads more info.  I've tried to tidy this up as much as possible to make it someway readable - by default (on Windows) it will display with lots of "\r\n" (carriage return &amp; line feed) and be a fair jumble to read.  Generally you'll need to search through for BUILD FAILED which is likely to be towards the end:
 
-<pre><code>
+```
 exec: ant clean -f "C:\Program Files\Jenkins\jobs\Scheduler Plugin BDD Tests\workspace\platforms\android\build.xml"
 [ 'ant clean -f "C:\\Program Files\\Jenkins\\jobs\\Scheduler Plugin BDD Tests\\workspace\\platforms\\android\\build.xml"',
   null,
@@ -251,8 +253,10 @@ C:\Program Files\Android\android-sdk\tools\ant\build.xml:720: The following erro
 C:\Program Files\Android\android-sdk\tools\ant\build.xml:734: Compile failed; see the compiler error output for details.
 
 Total time: 7 seconds
-</code></pre>
+```
 
 So in this case the error I'm getting is compile failure in the AlarmDictionary.java - this of course allows me to go dig into the code and resolve.
 
-In this particular example, the AlarmDictionary.java is a legacy file from prior to a refactor and hasn't been removed from the build.  Remove the file and all is good.  Obviously your resolution will depend on the error you get - good luck.
+In this particular example, the AlarmDictionary.java is a legacy file from prior to a refactor and hasn't been removed from the build.  
+
+Remove the file and all is good.  Obviously your resolution will depend on the error you get - good luck.
