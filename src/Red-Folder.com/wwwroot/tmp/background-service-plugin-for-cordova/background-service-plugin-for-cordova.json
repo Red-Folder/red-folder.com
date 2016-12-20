@@ -1,1 +1,13 @@
-{"id":"6010b215-d0c2-4656-bbed-8b794006475a","url":"background-service-plugin-for-cordova","author":"Mark Taylor","published":"2012-09-27T22:47:00.004+01:00","modified":"2013-10-23T19:44:05.188+01:00","title":"Background Service Plugin for Cordova 2.0.0","image":null,"description":"A quite note to say I've added Cordova 2.x.x support to the Background Service Plugin.  This can be found [here.](https://github.com/Red-Folder/phonegap-plugins/tree/master/Android/BackgroundService/2.0.0)\r\n\r\nIt has only been through very basic testing at this stage, and only been run against Cordova 2.0.0.\r\n\r\nI shall be running through my previous blog postings to highlight differences over the course of the next few days.\r\n\r\nAny feedback then please let me know so that I can improve the Plugin.\r\n\r\n","enabled":true,"keyWords":["Cordova","Phonegap","Android","Background Service","Plugin"],"redirects":[{"redirectType":301,"url":"http://blog.red-folder.com/2012/09/background-service-plugin-for-cordova.html","redirectByRoute":false,"redirectByParameter":true}]}
+{
+  "id":"6010b215-d0c2-4656-bbed-8b794006475a",
+  "url":"background-service-plugin-for-cordova",
+  "author":"Mark Taylor",
+  "published":"2012-09-27T22:47:00.004+01:00",
+  "modified":"2013-10-23T19:44:05.188+01:00",
+  "title":"Background Service Plugin for Cordova 2.0.0",
+  "image":null,
+  "description":"A quick note to say I've added Cordova 2.x.x support to the Background Service Plugin.",
+  "enabled":true,
+  "keyWords":["Cordova","Phonegap","Android","Background Service","Plugin"],
+  "redirects":[{"redirectType":301,"url":"http://blog.red-folder.com/2012/09/background-service-plugin-for-cordova.html","redirectByRoute":false,"redirectByParameter":true}]
+}
