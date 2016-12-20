@@ -31,27 +31,27 @@ I've saved this as a separate file to make usage easier.
 ## The job (source)
 To create the job:
 
-1) Create a new free-style project called "BackgroundServicePlugin Source Prepare For Github"
-2) Tick the "This build is parameterized" and add SOURCEPATH
-3) Add Git Respository under Source Code Management for "https://github.com/Red-Folder/Cordova-Plugin-BackgroundService-Source.git"
-4) Add a Windows Powershell script to rename the version specific plugin from .txt to .java (I store them as .txt in my build projects to avoid conflicts):
+1. Create a new free-style project called "BackgroundServicePlugin Source Prepare For Github"
+2. Tick the "This build is parameterized" and add SOURCEPATH
+3. Add Git Respository under Source Code Management for "https://github.com/Red-Folder/Cordova-Plugin-BackgroundService-Source.git"
+4. Add a Windows Powershell script to rename the version specific plugin from .txt to .java (I store them as .txt in my build projects to avoid conflicts):
 %[https://gist.github.com/Red-Folder/6643336.js] 
 
-5) Add a Windows Powershell script to sync up the source code changes
+5. Add a Windows Powershell script to sync up the source code changes
 %[https://gist.github.com/Red-Folder/6643353.js] 
 
-6) And save the project
+6. And save the project
 
 ## The job (compiled plugin)
 To create the job:
 
-1) Create a new free-style project called "BackgroundServicePlugin Prepare For Github"
-2) Tick the "This build is parameterized" and add BUILDOUTPUTPATH
-3) Add Git Respository under Source Code Management for "https://github.com/Red-Folder/Cordova-Plugin-BackgroundService.git"
-4) Add a Windows Powershell script to sync up the source code changes
+1. Create a new free-style project called "BackgroundServicePlugin Prepare For Github"
+2. Tick the "This build is parameterized" and add BUILDOUTPUTPATH
+3. Add Git Respository under Source Code Management for "https://github.com/Red-Folder/Cordova-Plugin-BackgroundService.git"
+4. Add a Windows Powershell script to sync up the source code changes
 %[https://gist.github.com/Red-Folder/6643353.js] 
 
-5) And save the project
+5. And save the project
 
 ## And add it into the master project
 Now we add the following to the end of the "BackgroundServicePlugin Build All" job:
