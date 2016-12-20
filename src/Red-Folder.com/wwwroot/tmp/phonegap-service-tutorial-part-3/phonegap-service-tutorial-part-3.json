@@ -1,1 +1,12 @@
-{"id":"e01880dd-499c-4b0a-9a79-2112a45ce283","url":"phonegap-service-tutorial-part-3","author":"Mark Taylor","published":"2012-09-20T21:03:00+01:00","modified":"2013-10-23T19:43:23.982+01:00","title":"Phonegap Service Tutorial - Part 3","image":null,"description":"## Summary\r\nIn this final part of this tutorial we shall complete the TwitterService.\r\n\r\nThe Service shall use the Twitter webservice to get the latest \"Max ID\".  If that Max ID is different from the last time the service ran then it will post a notification to the status bar.\r\n\r\n","enabled":true,"keyWords":["Cordova","Phonegap","Android","Background Service","Plugin"],"redirects":[{"redirectType":301,"url":"http://blog.red-folder.com/2012/09/phonegap-service-tutorial-part-3.html","redirectByRoute":false,"redirectByParameter":true}]}
+{
+  "id":"e01880dd-499c-4b0a-9a79-2112a45ce283",
+  "url":"phonegap-service-tutorial-part-3",
+  "author":"Mark Taylor",
+  "published":"2012-09-20T21:03:00+01:00",
+  "modified":"2013-10-23T19:43:23.982+01:00",
+  "title":"Phonegap Service Tutorial - Part 3",
+  "image":null,
+  "description":"In this final part of this tutorial we shall complete the TwitterService.  The Service shall use the Twitter webservice to get the latest Max ID.  If that Max ID is different from the last time the service ran then it will post a notification to the status bar.",
+  "enabled":true,
+  "keyWords":["Cordova","Phonegap","Android","Background Service","Plugin"],"redirects":[{"redirectType":301,"url":"http://blog.red-folder.com/2012/09/phonegap-service-tutorial-part-3.html","redirectByRoute":false,"redirectByParameter":true}]
+}
