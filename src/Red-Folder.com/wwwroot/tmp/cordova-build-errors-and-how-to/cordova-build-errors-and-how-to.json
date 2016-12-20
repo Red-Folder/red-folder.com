@@ -1,1 +1,13 @@
-{"id":"22630cfb-241c-4ee7-b69f-133b8d65ce02","url":"cordova-build-errors-and-how-to","author":"Mark Taylor","published":"2014-07-09T21:19:00+01:00","modified":"2014-07-09T21:19:08.715+01:00","title":"Cordova build errors and how to investigate","image":null,"description":"I automate Jenkins &amp; Cordova CLI to automate my plugin build and test.  Occasionally I will get errors when running \"cordova build\".  The error messages reported from a build failure doesn't tell you why it went wrong ... so we need to do some digging.\r\n\r\n","enabled":true,"keyWords":["Cordova","Phonegap","Continuous Integration","Jenkins"],"redirects":[{"redirectType":301,"url":"http://blog.red-folder.com/2014/07/cordova-build-errors-and-how-to.html","redirectByRoute":false,"redirectByParameter":true}]}
+{
+  "id":"22630cfb-241c-4ee7-b69f-133b8d65ce02",
+  "url":"cordova-build-errors-and-how-to",
+  "author":"Mark Taylor",
+  "published":"2014-07-09T21:19:00+01:00",
+  "modified":"2014-07-09T21:19:08.715+01:00",
+  "title":"Cordova build errors and how to investigate",
+  "image":null,
+  "description":"This post take you through how I investigated and resolved occassional errors when running cordova build",
+  "enabled":true,
+  "keyWords":["Cordova","Phonegap","Continuous Integration","Jenkins"],
+  "redirects":[{"redirectType":301,"url":"http://blog.red-folder.com/2014/07/cordova-build-errors-and-how-to.html","redirectByRoute":false,"redirectByParameter":true}]
+}
