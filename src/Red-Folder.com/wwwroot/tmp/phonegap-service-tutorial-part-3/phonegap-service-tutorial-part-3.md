@@ -35,12 +35,38 @@ We now need to create and add the notification icons that appears in the status 
 
 I'm using API 8 for my project so will be using the "Older Version" icons.  Note that I've set the generator name to notification so that images are generated as ic_stat_notification.
 
-|         | Older Versions | API 9     | API 11   |
-|---------|----------------|-----------|----------|
-| ldpi | ![Image](/media/blog/phonegap-service-tutorial-part-3/ic_stat_notification-255Bldpi-255D.png) | ![Image](/media/blog/phonegap-service-tutorial-part-3/ic_stat_notification-255Bldpi-v9-255D.png) | ![Image](/media/blog/phonegap-service-tutorial-part-3/ic_stat_notification-255Bldpi-v11-255D.png) | 
-| mdpi | ![Image](/media/blog/phonegap-service-tutorial-part-3/ic_stat_notification-255Bmdpi-255D.png) | ![Image](/media/blog/phonegap-service-tutorial-part-3/ic_stat_notification-255Bmdpi-v9-255D.png) | ![Image](/media/blog/phonegap-service-tutorial-part-3/ic_stat_notification-255Bmpdi-v11-255D.png) | 
-| hdpi | ![Image](/media/blog/phonegap-service-tutorial-part-3/ic_stat_notification-255Bhdpi-255D.png) | ![Image](/media/blog/phonegap-service-tutorial-part-3/ic_stat_notification-255Bhdpi-v9-255D.png) | ![Image](/media/blog/phonegap-service-tutorial-part-3/ic_stat_notification-255Bhdpi-v11-255D.png) | 
-| xhdpi | ![Image](/media/blog/phonegap-service-tutorial-part-3/ic_stat_notification-255Bxhdpi-255D.png) | ![Image](/media/blog/phonegap-service-tutorial-part-3/ic_stat_notification-255Bxhdpi-v9-255D.png) | ![Image](/media/blog/phonegap-service-tutorial-part-3/ic_stat_notification-255Bxhdpi-v11-255D.png) |
+<table>
+	<tr>
+		<th/>
+		<th>Older Versions</th>
+		<th>API 9</th>
+		<th>API 11</th>
+	</tr>
+	<tr>
+		<td>ldpi</td>
+		<td><img src="/media/blog/phonegap-service-tutorial-part-3/ic_stat_notification-255Bldpi-255D.png"/></td>
+		<td><img src="/media/blog/phonegap-service-tutorial-part-3/ic_stat_notification-255Bldpi-v9-255D.png"/></td>
+		<td style="background-color: #555555;"><img src="/media/blog/phonegap-service-tutorial-part-3/ic_stat_notification-255Bldpi-v11-255D.png"/></td>
+	</tr>
+	<tr>
+		<td>mdpi</td>
+		<td><img src="/media/blog/phonegap-service-tutorial-part-3/ic_stat_notification-255Bmdpi-255D.png"/></td>
+		<td><img src="/media/blog/phonegap-service-tutorial-part-3/ic_stat_notification-255Bmdpi-v9-255D.png"/></td>
+		<td style="background-color: #555555;"><img src="/media/blog/phonegap-service-tutorial-part-3/ic_stat_notification-255Bmpdi-v11-255D.png"/></td>
+	</tr>
+	<tr>
+		<td>hdpi</td>
+		<td><img src="/media/blog/phonegap-service-tutorial-part-3/ic_stat_notification-255Bhdpi-255D.png"/></td>
+		<td><img src="/media/blog/phonegap-service-tutorial-part-3/ic_stat_notification-255Bhdpi-v9-255D.png"/></td>
+		<td style="background-color: #555555;"><img src="/media/blog/phonegap-service-tutorial-part-3/ic_stat_notification-255Bhdpi-v11-255D.png"/></td>
+	</tr>
+	<tr>
+		<td>xhdpi</td>
+		<td><img src="/media/blog/phonegap-service-tutorial-part-3/ic_stat_notification-255Bxhdpi-255D.png"/></td>
+		<td><img src="/media/blog/phonegap-service-tutorial-part-3/ic_stat_notification-255Bxhdpi-v9-255D.png"/></td>
+		<td style="background-color: #555555;"><img src="/media/blog/phonegap-service-tutorial-part-3/ic_stat_notification-255Bxhdpi-v11-255D.png"/></td>
+	</tr>
+</table>
 
 The relevant version of icons then need to be copied into the relevant res folders.  Once done (and you've refreshed the Eclipse project) you should have something similar to the below:
 ![Image](/media/blog/phonegap-service-tutorial-part-3/image1.png)
