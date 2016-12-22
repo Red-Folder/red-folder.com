@@ -4,6 +4,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using RedFolder.Services;
+using RedFolder.ViewModels;
+using static RedFolder.ViewModels.BlogCollection;
 
 // For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -12,14 +14,20 @@ namespace RedFolder.Controllers.Web
     public class BlogController : Controller
     {
         // GET: /<controller>/
-        public IActionResult Index([FromServices] IBlogRepository repository, string url)
+        public IActionResult Index([FromServices] IBlogRepository repository, 
+                                    string url, 
+                                    int pageNo = 1, 
+                                    int blogsPerPage = 12, 
+                                    string filterBy = null,
+                                    OrderBy orderBy = OrderBy.PublishedDescending)
         {
             try
             {
                 if (url == null || url.Length == 0)
                 {
                     var blogs = repository.GetAll();
-                    return View("BlogList", blogs);
+                    var collection = new BlogCollection(blogs, pageNo, blogsPerPage, filterBy, orderBy);
+                    return View("BlogList", collection);
                 }
                 else
                 {

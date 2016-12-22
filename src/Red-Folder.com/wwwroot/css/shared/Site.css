@@ -260,3 +260,93 @@ Helpers
 .services .development div:nth-child(2) {
   background: url(/images/icons/Development.png) no-repeat center;
 }
+/*
+=================================================================================================================
+Blog
+=================================================================================================================
+*/
+.blog-tiles {
+  background-color: antiquewhite;
+  margin-top: -10px;
+  padding-top: 10px;
+  /*
+    [class*="col-"] {
+        float: none;
+        display: table-cell;
+        vertical-align: top;
+    }
+    */
+  /*
+        > .col-xs-12:nth-child(1n+1) {
+            clear: both;
+        }
+        > .col-sm-6:nth-child(2n+1) {
+            clear: both;
+        }
+        > .col-md-4:nth-child(3n+1) {
+            clear: both;
+        }
+        > .col-md-3:nth-child(4n+1) {
+            clear: both;
+        }
+    */
+}
+.blog-tiles .blog-tile {
+  padding: 5px;
+}
+.blog-tiles .blog-tile .blog-tile-inner {
+  border: 2px solid #e74c3c;
+  background-color: white;
+  padding: 5px;
+  text-align: center;
+}
+.blog-tiles .blog-tile .blog-tile-inner h2 {
+  font-size: 20px;
+}
+.blog-tiles .blog-tile .blog-tile-inner .blog-tile-date {
+  font-size: 12px;
+}
+.blog-tiles .blog-tile .blog-tile-inner .blog-tile-image img {
+  max-height: 150px;
+}
+.blog-tiles .blog-tile .blog-tile-inner .blog-tile-keywords ul {
+  padding: 0px;
+}
+.blog-tiles .blog-tile .blog-tile-inner .blog-tile-keywords ul li {
+  margin: 2px;
+}
+@media (min-width: 0px) and (max-width: 767px) {
+  .blog-tiles .col-xs-12:nth-child(1n+1) {
+    clear: both;
+  }
+}
+@media (min-width: 768px) and (max-width: 991px) {
+  .blog-tiles .col-sm-6:nth-child(2n+1) {
+    clear: both;
+  }
+}
+@media (min-width: 992px) and (max-width: 1199px) {
+  .blog-tiles .col-md-4:nth-child(3n+1) {
+    clear: both;
+  }
+}
+@media (min-width: 1200px) {
+  .blog-tiles .col-lg-3:nth-child(4n+1) {
+    clear: both;
+  }
+}
+/*
+=================================================================================================================
+Pager
+=================================================================================================================
+*/
+.pager {
+  text-align: center;
+}
+.pager a:link,
+.pager a:visited {
+  color: white;
+}
+.pager .page-no {
+  display: inline;
+}
