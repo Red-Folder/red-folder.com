@@ -1,0 +1,80 @@
+﻿@model RedFolder.ViewModels.IPager
+
+@if (Model.Pages > 1)
+{
+    <div class="row pager">
+        @if (Model.PageNo == 1)
+        {
+            <div class="btn btn-default disabled btn-xs">
+                First
+            </div>
+
+            <div class="btn btn-default disabled btn-xs">
+                Previous
+            </div>
+        }
+        else
+        {
+            <div class="btn btn-default btn-xs">
+                <a asp-controller="Blog"
+                   asp-action="Index"
+                   asp-route-pageNo="1"
+                   asp-route-blogsPerPage="@Model.BlogsPerPage"
+                   asp-route-orderBy="@Model.OrderedBy"
+                   asp-route-filterBy="@Model.FilterBy">
+                    First
+                </a>
+            </div>
+
+            <div class="btn btn-default btn-xs">
+                <a asp-controller="Blog"
+                   asp-action="Index"
+                   asp-route-pageNo="@(Model.PageNo - 1)"
+                   asp-route-blogsPerPage="@Model.BlogsPerPage"
+                   asp-route-orderBy="@Model.OrderedBy"
+                   asp-route-filterBy="@Model.FilterBy">
+                    Previous
+                </a>
+            </div>
+        }
+
+        <div class="page-no">
+            @Model.PageNo of @Model.Pages
+        </div>
+
+        @if (Model.PageNo == Model.Pages)
+        {
+            <div class="btn btn-default disabled btn-xs">
+                Next
+            </div>
+
+            <div class="btn btn-default disabled btn-xs">
+                Last
+            </div>
+        }
+        else
+        {
+            <div class="btn btn-default btn-xs">
+                <a asp-controller="Blog"
+                   asp-action="Index"
+                   asp-route-pageNo="@(Model.PageNo + 1)"
+                   asp-route-blogsPerPage="@Model.BlogsPerPage"
+                   asp-route-orderBy="@Model.OrderedBy"
+                   asp-route-filterBy="@Model.FilterBy">
+                    Next
+                </a>
+            </div>
+
+            <div class="btn btn-default btn-xs">
+                <a asp-controller="Blog"
+                   asp-action="Index"
+                   asp-route-pageNo="@Model.Pages"
+                   asp-route-blogsPerPage="@Model.BlogsPerPage"
+                   asp-route-orderBy="@Model.OrderedBy"
+                   asp-route-filterBy="@Model.FilterBy">
+                    Last
+                </a>
+            </div>
+        }
+    </div>
+}

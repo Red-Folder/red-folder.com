@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace RedFolder.ViewModels
 {
-    public class BlogCollection
+    public class BlogCollection: IPager
     {
         private int _pageNo;
         private int _blogsPerPage;
@@ -13,8 +13,7 @@ namespace RedFolder.ViewModels
         private OrderBy _orderedBy;
         private IList<RedFolder.Website.Data.Blog> _blogs;
 
-        public int PageNo
-        {
+        public int PageNo       {
             get
             {
                 return _pageNo;
