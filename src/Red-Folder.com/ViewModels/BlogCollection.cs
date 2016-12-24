@@ -54,7 +54,14 @@ namespace RedFolder.ViewModels
                 }
                 else
                 {
-                    return Blogs.Count / BlogsPerPage;
+                    if (Blogs.Count % BlogsPerPage == 0)
+                    {
+                        return Blogs.Count / BlogsPerPage;
+                    }
+                    else
+                    {
+                        return (Blogs.Count / BlogsPerPage) + 1;
+                    }
                 }
             }
         }

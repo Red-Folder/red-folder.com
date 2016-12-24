@@ -48,18 +48,6 @@ footer .footer-content .social-icon {
   position: relative;
   float: left;
 }
-a,
-a:visited,
-a:active {
-  color: #4C4C4C;
-  -webkit-transition: color 1.5s;
-  transition: color 1.5s;
-}
-a:hover,
-a:focus {
-  text-decoration: none;
-  color: #e74c3c;
-}
 /*
 =================================================================================================================
 Navigation
@@ -144,13 +132,6 @@ Summary Tiles
 .show-more-icon {
   font-size: 36px;
 }
-h3 {
-  padding: 5px;
-  border-top: 3px solid #4C4C4C;
-  border-bottom: 3px solid #4C4C4C;
-  -webkit-transition: border-top 1.5s,  border-bottom 1.5s;
-  transition: border-top 1.5s,  border-bottom 1.5s;
-}
 /*
 =================================================================================================================
 Home page specific
@@ -159,7 +140,6 @@ Home page specific
 .rfc-header {
   background-size: cover;
   padding: 50px 20px;
-  margin-bottom: 10px;
 }
 .rfc-header.home-page {
   background-image: url(/images/moods/MoodNoteTaking.jpg);
@@ -267,29 +247,6 @@ Blog
 */
 .blog-tiles {
   background-color: antiquewhite;
-  margin-top: -10px;
-  padding-top: 10px;
-  /*
-    [class*="col-"] {
-        float: none;
-        display: table-cell;
-        vertical-align: top;
-    }
-    */
-  /*
-        > .col-xs-12:nth-child(1n+1) {
-            clear: both;
-        }
-        > .col-sm-6:nth-child(2n+1) {
-            clear: both;
-        }
-        > .col-md-4:nth-child(3n+1) {
-            clear: both;
-        }
-        > .col-md-3:nth-child(4n+1) {
-            clear: both;
-        }
-    */
 }
 .blog-tiles .blog-tile {
   padding: 5px;
@@ -311,9 +268,6 @@ Blog
 }
 .blog-tiles .blog-tile .blog-tile-inner .blog-tile-keywords ul {
   padding: 0px;
-}
-.blog-tiles .blog-tile .blog-tile-inner .blog-tile-keywords ul li {
-  margin: 2px;
 }
 @media (min-width: 0px) and (max-width: 767px) {
   .blog-tiles .col-xs-12:nth-child(1n+1) {
@@ -349,4 +303,94 @@ Pager
 }
 .pager .page-no {
   display: inline;
+}
+/*
+=================================================================================================================
+KeyWords
+=================================================================================================================
+*/
+.keyword {
+  margin: 2px;
+  color: white;
+  display: inline-block;
+  background: #4C4C4C;
+  padding: 5px 10px 5px 10px;
+}
+.keyword a,
+.keyword a:visited,
+.keyword a:active {
+  color: white;
+  -webkit-transition: color 1.5s;
+  transition: color 1.5s;
+}
+.keyword a:hover,
+.keyword a:focus {
+  text-decoration: none;
+  color: #e74c3c;
+}
+.keyword.filter-by {
+  background-color: #e74c3c;
+}
+.keyword.filter-by a:hover,
+.keyword.filter-by a:focus {
+  text-decoration: none;
+  color: #4C4C4C;
+}
+/*
+=================================================================================================================
+RFC-Panel
+=================================================================================================================
+*/
+.rfc-panel {
+  padding: 5px;
+}
+.rfc-panel .rfc-panel-inner {
+  border: 2px solid #e74c3c;
+  background-color: white;
+  padding: 5px;
+}
+.rfc-center {
+  text-align: center;
+}
+/*
+=================================================================================================================
+Work In Progress
+=================================================================================================================
+*/
+.filter-switch a,
+.filter-switch a:visited,
+.filter-switch a:active {
+  color: #4C4C4C;
+  -webkit-transition: color 1.5s;
+  transition: color 1.5s;
+}
+.filter-switch a:hover,
+.filter-switch a:focus {
+  text-decoration: none;
+  color: #e74c3c;
+}
+.new-css {
+  background-color: antiquewhite;
+}
+.old-css .rfc-header {
+  margin-bottom: 10px;
+}
+.old-css a,
+.old-css a:visited,
+.old-css a:active {
+  color: #4C4C4C;
+  -webkit-transition: color 1.5s;
+  transition: color 1.5s;
+}
+.old-css a:hover,
+.old-css a:focus {
+  text-decoration: none;
+  color: #e74c3c;
+}
+.old-css h3 {
+  padding: 5px;
+  border-top: 3px solid #4C4C4C;
+  border-bottom: 3px solid #4C4C4C;
+  -webkit-transition: border-top 1.5s,  border-bottom 1.5s;
+  transition: border-top 1.5s,  border-bottom 1.5s;
 }

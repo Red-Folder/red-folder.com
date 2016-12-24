@@ -11,5 +11,14 @@
             $group.addClass('hidden');
             $item.removeClass('hidden');
         }
+    } else {
+        if ($item !== null)
+        {
+            if (!$item.hasClass('hidden')) {
+                $item.addClass('hidden');
+            } else {
+                $item.removeClass('hidden');
+            }
+        }
     }
 }

@@ -2,7 +2,7 @@
 
 @{
     ViewBag.Title = "Blog";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = "~/Views/Shared/_Layout2.cshtml";
 }
 
 <div class="row rfc-header home-page">
@@ -10,22 +10,33 @@
 </div>
 
 <div class="row">
-    <div class="col-xs-12">
-        <ul>
-            @foreach (var keyWord in Model.KeyWords)
-            {
-                <li class="skill-label">
-                    <a asp-controller="Blog"
-                       asp-action="Index"
-                       asp-route-pageNo="@Model.PageNo"
-                       asp-route-blogsPerPage="@Model.BlogsPerPage"
-                       asp-route-orderBy="@Model.OrderedBy"
-                       asp-route-filterBy="@keyWord.Key">
-                        @keyWord.Key (@keyWord.Value)
+    <div class="col-xs-12 rfc-panel rfc-block-link rfc-panel-center">
+        <div class="rfc-panel-inner">
+            <div class="row blog-header">
+                <div class="col-md-1 filter-switch">
+                    <a onclick="toggle(null, '.filter-chooser')">
+                        Filter: @(Model.FilterBy == null || Model.FilterBy.Length == 0 ? "None" : Model.FilterBy)
                     </a>
-                </li>
-            }
-        </ul>
+                </div>
+            </div>
+            <div class="filter-chooser hidden">
+                <ul>
+                    @foreach (var keyWord in Model.KeyWords)
+                    {
+                        <li class="keyword @(Model.FilterBy != null && Model.FilterBy.Contains(keyWord.Key)? "filter-by": "")">
+                            <a asp-controller="Blog"
+                               asp-action="Index"
+                               asp-route-pageNo="@Model.PageNo"
+                               asp-route-blogsPerPage="@Model.BlogsPerPage"
+                               asp-route-orderBy="@Model.OrderedBy"
+                               asp-route-filterBy="@keyWord.Key">
+                                @keyWord.Key (@keyWord.Value)
+                            </a>
+                        </li>
+                    }
+                </ul>
+            </div>
+        </div>
     </div>
 </div>
 
