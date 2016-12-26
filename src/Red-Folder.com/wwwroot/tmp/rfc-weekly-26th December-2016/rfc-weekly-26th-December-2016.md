@@ -15,11 +15,11 @@ I found that adding an Azure Powershell task before attempting to deploy which r
 ```
 if ("#{Octopus.Environment.Name}" -like "Production")
 {
-    Restart-AzureWebSite –Name [Name of Production Site]
+    Restart-AzureWebSite -Name [Name of Production Site]
 }
 else
 {
-    Restart-AzureWebSite –Name [Name of Staging Site]
+    Restart-AzureWebSite -Name [Name of Staging Site]
 }
 ```
 I'm not completely happy with this aprroach - a restart seems rather heavy.  But seems to work for now.
@@ -30,7 +30,7 @@ Better progress on the [Pluralsight Ethical Hacking](https://app.pluralsight.com
 Now 25% through:
 ![Ethical Hacking Progress](/media/blog/rfc-weekly-26th-December-2016/PluralsightEHPath.PNG)
 
-I've completed the [Enumeration](https://app.pluralsight.com/library/courses/ethical-hacking-enumeration/table-of-contents), for which I got 9/10
+I've completed the [Enumeration](https://app.pluralsight.com/library/courses/ethical-hacking-enumeration/table-of-contents), for which I got 10/10
 ![Enumeration Learning Check](/media/blog/rfc-weekly-26th-December-2016/enumeration-LearningCheck.PNG)
 
 ##Shameless self-promotion
