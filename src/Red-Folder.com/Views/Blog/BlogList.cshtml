@@ -26,14 +26,7 @@
                         @foreach (var keyWord in Model.KeyWords)
                         {
                             <li class="selectable keyword @(Model.FilterBy != null && Model.FilterBy.Contains(keyWord.Key)? "filter-by": "")" onclick="pageConfig.toggleFeature('@keyWord.Key')">
-                                @*<a asp-controller="Blog"
-                                   asp-action="Index"
-                                   asp-route-pageNo="@Model.PageNo"
-                                   asp-route-blogsPerPage="@Model.BlogsPerPage"
-                                   asp-route-orderBy="@Model.OrderedBy"
-                                   asp-route-filterBy="@keyWord.Key">*@
-                                    @keyWord.Key (@keyWord.Value)
-                                @*</a>*@
+                                @keyWord.Key (@keyWord.Value)
                             </li>
                         }
                     }
@@ -108,9 +101,10 @@
                 }
             ];
             this.orderBy = '@Model.OrderedBy';
+            this.pages = @Model.Pages;
 
-            this.submit = function(destination) {
-                var newUrl = destination +
+            this.submit = function() {
+                var newUrl = '/blog' +
                             '?pageNo=' + this.pageNo +
                             '&blogsPerPage=' + this.blogsPerPage +
                             '&filterBy=' + this.filterBy.join() +
@@ -125,8 +119,33 @@
                 } else {
                     this.filterBy.splice(index, 1);
                 }
-                this.submit('/blog');
+                this.submit();
             };
+
+            this.firstPage = function() {
+                this.pageNo = 1;
+                this.submit();
+            }
+
+            this.previousPage = function() {
+                if (this.pageNo > 1) {
+                    this.pageNo--;
+                    this.submit();
+                }
+            }
+
+            this.nextPage = function() {
+                if (this.pageNo < this.pages) {
+                    this.pageNo++;
+                    this.submit();
+                }
+            }
+
+            this.lastPage = function() {
+                this.pageNo = this.pages;
+                this.submit();
+            }
+
         };
 
         var pageConfig = new listConfig();

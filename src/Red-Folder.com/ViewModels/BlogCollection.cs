@@ -111,6 +111,14 @@ namespace RedFolder.ViewModels
             _blogsPerPage = blogsPerPage;
             _filterBy = filterBy;
             _orderedBy = orderedBy;
+
+            // Reset the page no if its greater than the number of pages
+            // This can happen if a filter is applied which reduces the number of pages beyond
+            // the current page no
+            if (_pageNo > Pages)
+            {
+                _pageNo = 1;
+            }
         }
 
         public enum OrderBy
