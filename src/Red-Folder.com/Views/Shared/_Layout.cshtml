@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html prefix="og: http://ogp.me/ns#">
 <head>
     <meta charset="utf-8" />
@@ -52,7 +52,7 @@
 
     @RenderSection("scripts", required: false)
 </head>
-<body class="old-css">
+<body class="@(ViewBag.BodyCssClass == null || ViewBag.BodyCssClass.Length == 0 ? "old-css" : ViewBag.BodyCssClass)">
     <!-- Google Tag Manager -->
     <noscript>
         <iframe src="//www.googletagmanager.com/ns.html?id=GTM-N69LS5" height="0" width="0" style="display:none;visibility:hidden"></iframe>
