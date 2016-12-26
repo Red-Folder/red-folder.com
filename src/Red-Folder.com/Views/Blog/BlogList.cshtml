@@ -36,9 +36,13 @@
     </div>
 </div>
 
-@{
-    await Html.RenderPartialAsync("_Pager", Model);
-}
+<rfc-pager  page-no="@Model.PageNo" 
+            pages="@Model.Pages"
+            on-first-page="pageConfig.firstPage()"
+            on-previous-page="pageConfig.previousPage()"
+            on-next-page="pageConfig.nextPage()"
+            on-last-page="pageConfig.lastPage()">
+</rfc-pager>
 
 <div class="blog-tiles row">
     @foreach (var blog in Model.BlogsForCurrentPage)
@@ -80,9 +84,13 @@
     }
 </div>
 
-@{
-    await Html.RenderPartialAsync("_Pager", Model);
-}
+<rfc-pager page-no="@Model.PageNo"
+           pages="@Model.Pages"
+           on-first-page="pageConfig.firstPage()"
+           on-previous-page="pageConfig.previousPage()"
+           on-next-page="pageConfig.nextPage()"
+           on-last-page="pageConfig.lastPage()">
+</rfc-pager>
 
 @section Scripts
 {
