@@ -10,28 +10,26 @@
 </div>
 
 <div class="row">
-    <div class="col-xs-12 rfc-panel rfc-block-link rfc-panel-center">
-        <div class="rfc-panel-inner">
-            <div class="row blog-header">
-                <div class="col-xs-12 col-md-3 filter-switch selectable">
-                    <a onclick="toggle(null, '.filter-chooser')">
-                        <strong>Filter: </strong>@(Model.FilterBy == null || Model.FilterBy.Length == 0 ? "None" : Model.FilterBy)
-                    </a>
-                </div>
+    <div class="col-xs-12 rfc-panel rfc-block-link rfc-panel-center" rfc-inner-border>
+        <div class="row blog-header">
+            <div class="col-xs-12 col-md-3 filter-switch selectable">
+                <a onclick="toggle(null, '.filter-chooser')">
+                    <strong>Filter: </strong>@(Model.FilterBy == null || Model.FilterBy.Length == 0 ? "None" : Model.FilterBy)
+                </a>
             </div>
-            <div class="filter-chooser hidden">
-                <ul>
-                    @if(Model.KeyWords != null && Model.KeyWords.Count() > 0)
+        </div>
+        <div class="filter-chooser hidden">
+            <ul>
+                @if(Model.KeyWords != null && Model.KeyWords.Count() > 0)
+                {
+                    @foreach (var keyWord in Model.KeyWords)
                     {
-                        @foreach (var keyWord in Model.KeyWords)
-                        {
-                            <li class="selectable keyword @(Model.FilterBy != null && Model.FilterBy.Contains(keyWord.Key)? "filter-by": "")" onclick="pageConfig.toggleFeature('@keyWord.Key')">
-                                @keyWord.Key (@keyWord.Value)
-                            </li>
-                        }
+                        <li class="selectable keyword @(Model.FilterBy != null && Model.FilterBy.Contains(keyWord.Key)? "filter-by": "")" onclick="pageConfig.toggleFeature('@keyWord.Key')">
+                            @keyWord.Key (@keyWord.Value)
+                        </li>
                     }
-                </ul>
-            </div>
+                }
+            </ul>
         </div>
     </div>
 </div>
