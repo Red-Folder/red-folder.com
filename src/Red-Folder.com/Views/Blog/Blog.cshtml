@@ -2,38 +2,36 @@
 
 @{
     ViewBag.Title = Model.Title;
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = "~/Views/Shared/_Layout2.cshtml";
 }
 
 <div class="row rfc-header home-page">
     <h1>@Model.Title</h1>
 </div>
 
-<div class="center-content">
-    <div class="row">
-        @Html.Raw(Model.Text)
-    </div>
+<div class="col-xs-12 col-lg-8 col-lg-offset-2 rfc-panel" rfc-inner-border>
+    @Html.Raw(Model.Text)
+</div>
 
-    <div id="disqus_thread" class="row"></div>
+<div class="col-xs-12 col-lg-8 col-lg-offset-2 rfc-panel" rfc-inner-border>
+    <div id="disqus_thread"></div>
 
-    <script>
+    <script type="text/javascript">
+        /**
+        *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+        *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+        var disqus_config = function () {
+            this.page.url = "https://www.red-folder.com/blog/@Model.Url";
+            //this.page.identifier = "@Model.Id";
+        };
 
-/**
-*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
-var disqus_config = function () {
-    this.page.url = "https://www.red-folder.com/blog/@Model.Url";
-    //this.page.identifier = "@Model.Id";
-};
-
-(function () { // DON'T EDIT BELOW THIS LINE
-var d = document, s = d.createElement('script');
-s.src = '//red-folder.disqus.com/embed.js';
-s.setAttribute('data-timestamp', +new Date());
-(d.head || d.body).appendChild(s);
-})();
+        (function () { // DON'T EDIT BELOW THIS LINE
+            var d = document, s = d.createElement('script');
+            s.src = '//red-folder.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+        })();
     </script>
-
 </div>
 
 @section metas
@@ -47,39 +45,37 @@ s.setAttribute('data-timestamp', +new Date());
 
 @section Scripts
 {
-<script type="application/ld+json">
-    { 
-        "@@context": "http://schema.org",
-        "@@type": "BlogPosting",
-        "headline": "@Model.Title",
-        "image": {
-            "@@type": "ImageObject",
-            "url": "@Model.Image",
-            "height": "150", 
-            "width": " 280"
-        },
-        "publisher": {
-            "@@type": "Organization",
-            "name": "Red Folder Consultancy Ltd",
-            "logo": {
+    <script type="application/ld+json">
+        { 
+            "@@context": "http://schema.org",
+            "@@type": "BlogPosting",
+            "headline": "@Model.Title",
+            "image": {
                 "@@type": "ImageObject",
-                "url": "https://www.red-folder.com/media/RFCLogo.png"
+                "url": "@Model.Image",
+                "height": "150", 
+                "width": " 280"
+            },
+            "publisher": {
+                "@@type": "Organization",
+                "name": "Red Folder Consultancy Ltd",
+                "logo": {
+                    "@@type": "ImageObject",
+                    "url": "https://www.red-folder.com/media/RFCLogo.png"
+                }
+            },
+            "url": "https://www.red-folder.com/blog/@Model.Url",
+            "datePublished": "@Model.Published.ToString("yyyy-MM-dd")",
+            "dateCreated": "@Model.Published.ToString("yyyy-MM-dd")",
+            "dateModified": "@Model.Modified.ToString("yyyy-MM-dd")",
+            "description": "@Model.Description",
+            "author": {
+                "@@type": "Person",
+                "name": "Mark Taylor"
+            },
+            "mainEntityOfPage": {
+                "@@type": "WebPage"
             }
-        },
-        "url": "https://www.red-folder.com/blog/@Model.Url",
-        "datePublished": "@Model.Published.ToString("yyyy-MM-dd")",
-        "dateCreated": "@Model.Published.ToString("yyyy-MM-dd")",
-        "dateModified": "@Model.Modified.ToString("yyyy-MM-dd")",
-        "description": "@Model.Description",
-        "author": {
-            "@@type": "Person",
-            "name": "Mark Taylor"
-        },
-        "mainEntityOfPage": {
-            "@@type": "WebPage"
         }
-    }
-</script>
-
-
+    </script>
 }
