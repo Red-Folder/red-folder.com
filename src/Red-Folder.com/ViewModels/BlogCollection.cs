@@ -139,7 +139,8 @@ namespace RedFolder.ViewModels
             }
             else
             {
-                return list.Where(x => x.KeyWords.Contains(filter)).ToList();
+                var filterList = filter.Split(',').ToList();
+                return list.Where(x => filterList.All(f => x.KeyWords.Contains(f))).ToList();
             }
         }
     }

@@ -13,26 +13,29 @@
     <div class="col-xs-12 rfc-panel rfc-block-link rfc-panel-center">
         <div class="rfc-panel-inner">
             <div class="row blog-header">
-                <div class="col-md-1 filter-switch">
+                <div class="col-xs-12 col-md-3 filter-switch selectable">
                     <a onclick="toggle(null, '.filter-chooser')">
-                        Filter: @(Model.FilterBy == null || Model.FilterBy.Length == 0 ? "None" : Model.FilterBy)
+                        <strong>Filter: </strong>@(Model.FilterBy == null || Model.FilterBy.Length == 0 ? "None" : Model.FilterBy)
                     </a>
                 </div>
             </div>
             <div class="filter-chooser hidden">
                 <ul>
-                    @foreach (var keyWord in Model.KeyWords)
+                    @if(Model.KeyWords != null && Model.KeyWords.Count() > 0)
                     {
-                        <li class="keyword @(Model.FilterBy != null && Model.FilterBy.Contains(keyWord.Key)? "filter-by": "")">
-                            <a asp-controller="Blog"
-                               asp-action="Index"
-                               asp-route-pageNo="@Model.PageNo"
-                               asp-route-blogsPerPage="@Model.BlogsPerPage"
-                               asp-route-orderBy="@Model.OrderedBy"
-                               asp-route-filterBy="@keyWord.Key">
-                                @keyWord.Key (@keyWord.Value)
-                            </a>
-                        </li>
+                        @foreach (var keyWord in Model.KeyWords)
+                        {
+                            <li class="selectable keyword @(Model.FilterBy != null && Model.FilterBy.Contains(keyWord.Key)? "filter-by": "")" onclick="pageConfig.toggleFeature('@keyWord.Key')">
+                                @*<a asp-controller="Blog"
+                                   asp-action="Index"
+                                   asp-route-pageNo="@Model.PageNo"
+                                   asp-route-blogsPerPage="@Model.BlogsPerPage"
+                                   asp-route-orderBy="@Model.OrderedBy"
+                                   asp-route-filterBy="@keyWord.Key">*@
+                                    @keyWord.Key (@keyWord.Value)
+                                @*</a>*@
+                            </li>
+                        }
                     }
                 </ul>
             </div>
@@ -73,7 +76,7 @@
                             <ul>
                                 @foreach (var keyWord in blog.KeyWords)
                                 {
-                                    <li class="skill-label">@keyWord</li>
+                                    <li class="keyword">@keyWord</li>
                                 }
                             </ul>
                         </div>
@@ -86,4 +89,47 @@
 
 @{
     await Html.RenderPartialAsync("_Pager", Model);
+}
+
+@section Scripts
+{
+
+    <script type="text/javascript">
+        var listConfig = function() {
+            this.pageNo = @Model.PageNo;
+            this.blogsPerPage = @Model.BlogsPerPage;
+            this.filterBy = [
+                @if (Model.FilterBy != null && Model.FilterBy.Split(',').Count() > 0)
+                {
+                    @foreach (var item in Model.FilterBy.Split(','))
+                    {
+                        @:'@item',
+                    }
+                }
+            ];
+            this.orderBy = '@Model.OrderedBy';
+
+            this.submit = function(destination) {
+                var newUrl = destination +
+                            '?pageNo=' + this.pageNo +
+                            '&blogsPerPage=' + this.blogsPerPage +
+                            '&filterBy=' + this.filterBy.join() +
+                            '&orderBy=' + this.orderBy;
+                document.location.href = newUrl;
+            };
+
+            this.toggleFeature = function(feature) {
+                var index = this.filterBy.indexOf(feature);
+                if (index < 0) {
+                    this.filterBy.push(feature);
+                } else {
+                    this.filterBy.splice(index, 1);
+                }
+                this.submit('/blog');
+            };
+        };
+
+        var pageConfig = new listConfig();
+ 
+    </script>
 }

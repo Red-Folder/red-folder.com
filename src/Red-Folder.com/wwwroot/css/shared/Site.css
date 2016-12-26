@@ -251,6 +251,18 @@ Blog
 .blog-tiles .blog-tile {
   padding: 5px;
 }
+.blog-tiles .blog-tile a,
+.blog-tiles .blog-tile a:visited,
+.blog-tiles .blog-tile a:active {
+  color: #4C4C4C;
+  -webkit-transition: color 1.5s;
+  transition: color 1.5s;
+}
+.blog-tiles .blog-tile a:hover,
+.blog-tiles .blog-tile a:focus {
+  text-decoration: none;
+  color: #e74c3c;
+}
 .blog-tiles .blog-tile .blog-tile-inner {
   border: 2px solid #e74c3c;
   background-color: white;
@@ -371,6 +383,9 @@ Work In Progress
 }
 .new-css {
   background-color: antiquewhite;
+}
+.new-css .selectable {
+  cursor: pointer;
 }
 .old-css .rfc-header {
   margin-bottom: 10px;

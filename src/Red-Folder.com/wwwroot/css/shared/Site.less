@@ -54,6 +54,20 @@ Mixin functions
     transition: e(@elementString) @animation-speed;
 }
 
+.anchor-setup() {
+    a {
+        &, &:visited, &:active {
+            color: @color-accent;
+            .transition-builder('color');
+        }
+
+        &:hover, &:focus {
+            text-decoration: none;
+            color: @color-main;
+        }
+    }
+}
+
 /*
 =================================================================================================================
 Defaults
@@ -350,6 +364,7 @@ Blog
     .blog-tile {
         padding: 5px;
 
+        .anchor-setup();
 
         .blog-tile-inner
         {
@@ -516,6 +531,9 @@ Work In Progress
 .new-css {
     background-color: antiquewhite;
 
+    .selectable {
+        cursor: pointer;
+    }
 }
 
 .old-css {
