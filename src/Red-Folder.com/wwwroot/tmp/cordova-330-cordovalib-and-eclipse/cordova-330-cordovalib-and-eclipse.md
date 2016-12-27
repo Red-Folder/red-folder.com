@@ -20,13 +20,11 @@ After creating a new project:
 * cordova build
 
 I open Eclipse, and select File -> New -> Other -> Android Project from Existing Code.
-
-[<img border="0" src="http://4.bp.blogspot.com/-o1dtTGTfKuM/Usg5WDKJU-I/AAAAAAAAATg/Go1ufPVs0qI/s320/ImportProject.png" />](http://4.bp.blogspot.com/-o1dtTGTfKuM/Usg5WDKJU-I/AAAAAAAAATg/Go1ufPVs0qI/s1600/ImportProject.png)
+![ImportProject](/media/blog/cordova-330-cordovalib-and-eclipse/ImportProject.png)
 
 Within the dialog, select the platforms\android folder of the HelloWorld project.  I select ONLY the HelloWorld project and tick the Copy projects into workspace and click on the Finish.
 
 I then right click the project and select Properties -> Java Build Path -> Source and Add Folder to include the CordovaLib\src folder
-
-[<img border="0" src="http://2.bp.blogspot.com/-UCi5V1JlKnc/Usg6TN7BFzI/AAAAAAAAATo/NJrw_DQKnpw/s320/SourceFolder.png" />](http://2.bp.blogspot.com/-UCi5V1JlKnc/Usg6TN7BFzI/AAAAAAAAATo/NJrw_DQKnpw/s1600/SourceFolder.png)
+![ImportProject](/media/blog/cordova-330-cordovalib-and-eclipse/SourceFolder.png)
 
 I can then build the project.
