@@ -38,7 +38,8 @@ namespace RedFolder
             services.AddSingleton(_config);
             services.AddDbContext<RepoContext>();
 
-            services.AddMvc();
+            services.AddMvc()
+                    .AddXmlSerializerFormatters();
 
             services.AddLogging();
 
@@ -48,6 +49,10 @@ namespace RedFolder
             var blogRepo = new BlogRepository(_env);
             services.AddSingleton<IBlogRepository>(blogRepo);
             services.AddSingleton<IRedirectRepository>(new RedirectRepository(new System.Collections.Generic.List<IRedirectRepository> { blogRepo }));
+
+            var siteMapRepo = new SiteMapRepository(_env);
+            siteMapRepo.AddRepository(blogRepo);
+            services.AddSingleton<ISiteMapRepository>(siteMapRepo);
 
             services.AddTransient<RepoContextSeedData>();
         }

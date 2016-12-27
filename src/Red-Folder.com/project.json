@@ -45,8 +45,9 @@
     "Red-Folder.Website.Data": {
       "target": "project",
       "version": "1.0.0-*"
-    }
-
+    },
+    "System.Xml.XmlSerializer": "4.3.0",
+    "Microsoft.AspNetCore.Mvc.Formatters.Xml": "1.0.1"
   },
 
   "frameworks": {

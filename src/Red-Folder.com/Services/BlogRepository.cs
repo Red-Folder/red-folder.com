@@ -6,10 +6,11 @@ using Newtonsoft.Json.Linq;
 using System.Collections.Generic;
 using RedFolder.Blog.Markdown;
 using System.Linq;
+using RedFolder.ViewModels;
 
 namespace RedFolder.Services
 {
-    public class BlogRepository : IBlogRepository, IRedirectRepository
+    public class BlogRepository : IBlogRepository, IRedirectRepository, ISiteMapUrlRepository
     {
         //private IHostingEnvironment _hostingEnvironment;
         private string _folder;
@@ -79,6 +80,11 @@ namespace RedFolder.Services
             }
 
             return redirects;
+        }
+
+        public List<string> GetUrls()
+        {
+            return Blogs.Where(b => b.Enabled).OrderByDescending(b => b.Published).Select(b => "/blog/" + b.Url).ToList();
         }
     }
 
