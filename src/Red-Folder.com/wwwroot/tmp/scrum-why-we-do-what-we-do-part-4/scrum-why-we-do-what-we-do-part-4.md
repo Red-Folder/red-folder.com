@@ -3,7 +3,7 @@ In this series of articles I am looking to outline why Scrum works for us.  Duri
 I was motivated to produce these articles to educate our wider business.  While we have been operating in a Scrum manner for over two years, acquisition has brought many new faces to the table – many of whom are confused by the way we are working.  It’s also a great opportunity to refresh those that have been working with it for a while.
 
 ## Introduction
-This final article demonstrates how Scrum works for us to resolve the challenges raised in the first three articles.  The previous three articles looked at [development in general](http://red-folder.blogspot.co.uk/2014/08/scrum-why-we-do-what-we-do-part-1.html) and two traditional development methodologies – [waterfall](http://red-folder.blogspot.co.uk/2014/08/scrum-why-we-do-what-we-do-part-2.html) and [solo](http://red-folder.blogspot.co.uk/2014/08/scrum-why-we-do-what-we-do-part-3-solo.html).
+This final article demonstrates how Scrum works for us to resolve the challenges raised in the first three articles.  The previous three articles looked at [development in general](/blog/scrum-why-we-do-what-we-do-part-1) and two traditional development methodologies – [waterfall](/blog/scrum-why-we-do-what-we-do-part-2) and [solo](/blog/scrum-why-we-do-what-we-do-part-3-solo).
 
 I’ll first summarise our Scrum process, then how we handle the challenges raised through this series of articles.
 
@@ -39,7 +39,7 @@ Trello provides us with transparency so that anyone within the organisation is a
 
 Trello provides us with “cards” to describe what is to be developed and columns to tell us where the cards is within the process.
 
-Trello cards provide a brief description of the development task being requested.  The card should only document enough to remind the team what the development is – the primary purpose is to prompts further conversation (generally during the development).   It is important not to fall into the trap of producing a requirements document by another name (see the [second article](http://red-folder.blogspot.co.uk/2014/08/scrum-why-we-do-what-we-do-part-2.html)).
+Trello cards provide a brief description of the development task being requested.  The card should only document enough to remind the team what the development is – the primary purpose is to prompts further conversation (generally during the development).   It is important not to fall into the trap of producing a requirements document by another name (see the [second article](/blog/scrum-why-we-do-what-we-do-part-2)).
 
 As the card is moved through the process, we move them through the following columns in Trello:
 

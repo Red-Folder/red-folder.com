@@ -3,7 +3,7 @@ This is part of my automated build series.  The aim is to automate a lot of the 
 In this blog I'll use the tools I created in the previous part to build a Jenkins job that tests the plugin.
 
 ## Summary
-In much the same way as I have a parameterized build job (see [Part 2](http://red-folder.blogspot.co.uk/2013/08/automated-build-part-2-build-job_11.htmlPart%202)), I also want a parameterized test job.  The test job will, for each version of the Background Service plugin, run through some tests (using Jasmine and the tools I build in the [last post](http://red-folder.blogspot.co.uk/2013/08/automated-build-part-3-testing-basics.html)) and output files ready to be pushed up to Github.
+In much the same way as I have a parameterized build job (see [Part 2](/blog/automated-build-part-2-build-job)), I also want a parameterized test job.  The test job will, for each version of the Background Service plugin, run through some tests (using Jasmine and the tools I build in the [last post](/blog/automated-build-part-3-testing-basics)) and output files ready to be pushed up to Github.
 
 ## Source files
 I have a test project setup in my SVN.  The test project is an Android/ Cordova project which is set up with the MyService I provide as a sample in Github.
@@ -35,8 +35,8 @@ For this part, I'll be using the following tools:
 * Android SDK
 * Java JDK 1.6.0
 * Jasmine BDD (https://github.com/pivotal/jasmine)
-* Jasmine REST Reporter (See [last post](http://red-folder.blogspot.co.uk/2013/08/automated-build-part-3-testing-basics.html))
-* Windows Application Console receiver (See [last post](http://red-folder.blogspot.co.uk/2013/08/automated-build-part-3-testing-basics.html))
+* Jasmine REST Reporter (See [last post](/blog/automated-build-part-3-testing-basics))
+* Windows Application Console receiver (See [last post](/blog/automated-build-part-3-testing-basics))
 
 ## The testing bit
 I wanted to separate the testing logic out into this separate section.  As mentioned I'm using the Jasmine BDD framework to test my JavaScript interface.  Jasmine uses a "spec" definition.  At a high level the test will:
@@ -93,7 +93,7 @@ To create the job;
 11. Add a Windows Powershell script to check that the app is running
 %[https://gist.github.com/Red-Folder/6252594.js] 
 
-12. Run the JasmineReceiver.exe created in the [last post](http://red-folder.blogspot.co.uk/2013/08/automated-build-part-3-testing-basics.html).  Note that the Jenkins job will wait for the console application to complete before proceeding to the next step.  The console application will close either when the timeout has exceeded or all of the test results have been received from the app running on the Android emulator.
+12. Run the JasmineReceiver.exe created in the [last post](/blog/automated-build-part-3-testing-basics).  Note that the Jenkins job will wait for the console application to complete before proceeding to the next step.  The console application will close either when the timeout has exceeded or all of the test results have been received from the app running on the Android emulator.
 %[https://gist.github.com/Red-Folder/6252599.js] 
 
 13. Add a Windows batch command to close the app on the Android emulator

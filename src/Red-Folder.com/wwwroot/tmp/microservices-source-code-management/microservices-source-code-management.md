@@ -1,4 +1,4 @@
-In my [last post](http://red-folder.blogspot.co.uk/2015/06/microservices-practical-use.html) I started to set the scene for my Microservice work.  In this post I shall be concentrating on how I shall be managing the source code.
+In my [last post](/blog/microservices-practical-use) I started to set the scene for my Microservice work.  In this post I shall be concentrating on how I shall be managing the source code.
 
 For any development project, it is important to setup your source control.  This should be the first step in any development project.
 

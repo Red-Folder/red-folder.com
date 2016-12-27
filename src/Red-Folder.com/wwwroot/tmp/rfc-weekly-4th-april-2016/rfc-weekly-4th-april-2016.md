@@ -19,6 +19,6 @@ Fun little site which creates a Bootstrap colour theme from any photo you provid
 ## Shameless self-promotion
 Two articles again this week;
 
-Third in the series of converting my www.red-folder.com website over to ASP.Net Core &amp; MVC 6.  Spoiler alert -> I spend a lot of it fixing a mistake I made in the second article.  All ends well with getting the site into Azure.  You can read it [here](http://red-folder.blogspot.co.uk/2016/04/converting-to-aspnet-core-part-3.html)
+Third in the series of converting my www.red-folder.com website over to ASP.Net Core &amp; MVC 6.  Spoiler alert -> I spend a lot of it fixing a mistake I made in the second article.  All ends well with getting the site into Azure.  You can read it [here](/blog/converting-to-aspnet-core-part-3)
 
 Within my ROI series on LinkedIn, I've taken a look at Flow &amp; Productivity.  This article can be found [here](https://www.linkedin.com/pulse/focus-productivity-mark-taylor).

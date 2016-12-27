@@ -192,7 +192,7 @@ namespace RedFolder.Services
                 {
                     new BlogArticle(
                             "My first Asp.Net Core app",
-                            new Uri("http://blog.red-folder.com/2016/03/converting-to-aspnet-core-part-1.html"),
+                            new Uri("/blog/converting-to-aspnet-core-part-1"),
                             new Paragraphs
                             {
                                 "In the first of my articles, I build by first website using the RC1 version of Asp.Net Core."
@@ -200,7 +200,7 @@ namespace RedFolder.Services
                         ),
                     new BlogArticle(
                             "Converting my exisiting MVC 5 website",
-                            new Uri("http://blog.red-folder.com/2016/03/converting-to-aspnet-core-part-2.html"),
+                            new Uri("/blog/converting-to-aspnet-core-part-2"),
                             new Paragraphs
                             {
                                 "In this article, I convert my existing MVC 5 website to run under Asp.Net Core RC1."
@@ -208,7 +208,7 @@ namespace RedFolder.Services
                         ),
                     new BlogArticle(
                             "Publishing to Azure",
-                            new Uri("http://blog.red-folder.com/2016/04/converting-to-aspnet-core-part-3.html"),
+                            new Uri("/blog/converting-to-aspnet-core-part-3"),
                             new Paragraphs
                             {
                                 "In this article, I publish the website to Azure - completely replacing my previous MVC 5 version."
@@ -216,7 +216,7 @@ namespace RedFolder.Services
                         ),
                     new BlogArticle(
                             "A deeper dive into the Gulp Pipeline",
-                            new Uri("http://blog.red-folder.com/2016/04/converting-to-aspnet-core-part-4.html"),
+                            new Uri("/blog/converting-to-aspnet-core-part-4"),
                             new Paragraphs
                             {
                                 "In this article, I take a deeper dive into the Gulp pipeline and how I can use it within my development process."
@@ -224,7 +224,7 @@ namespace RedFolder.Services
                         ),
                     new BlogArticle(
                             "Adding WebApi",
-                            new Uri("http://blog.red-folder.com/2016/07/converting-to-aspnet-core-part-5.html"),
+                            new Uri("/blog/converting-to-aspnet-core-part-5"),
                             new Paragraphs
                             {
                                 "In this article, I add a simple WebApi (and a small amount of Angular)."
@@ -232,7 +232,7 @@ namespace RedFolder.Services
                         ),
                     new BlogArticle(
                             "Adding Entity Framework Core",
-                            new Uri("http://blog.red-folder.com/2016/07/converting-to-aspnet-core-part-6.html"),
+                            new Uri("/blog/converting-to-aspnet-core-part-6"),
                             new Paragraphs
                             {
                                 "In this article, I add a simple database behind the WebApi using Entity Framework Core."
@@ -240,7 +240,7 @@ namespace RedFolder.Services
                         ),
                     new BlogArticle(
                             "RC1 -> RTM",
-                            new Uri("http://blog.red-folder.com/2016/08/converting-to-aspnet-core-part-7.html"),
+                            new Uri("/blog/converting-to-aspnet-core-part-7"),
                             new Paragraphs
                             {
                                 "In the seventh, and last, of my articles of converting to Asp.Net Core, I’ll look at upgrading from RC1 to RTM."

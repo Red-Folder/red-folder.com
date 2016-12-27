@@ -1,10 +1,10 @@
 This is the fourth in my series of converting my red-folder.com site over to ASP.Net Core &amp; MVC 6.
 
-The [first article](http://red-folder.blogspot.co.uk/2016/03/converting-to-aspnet-core-part-1.html) looked at creating an empty project.
+The [first article](/blog/converting-to-aspnet-core-part-1) looked at creating an empty project.
 
-The [second article](http://red-folder.blogspot.co.uk/2016/03/converting-to-aspnet-core-part-2.html) looked at copying my existing content into place and getting it to run.
+The [second article](/blog/converting-to-aspnet-core-part-2) looked at copying my existing content into place and getting it to run.
 
-The [third article](http://red-folder.blogspot.co.uk/2016/04/converting-to-aspnet-core-part-3.html) look at getting it up into Azure.
+The [third article](/blog/converting-to-aspnet-core-part-3) look at getting it up into Azure.
 
 In this article, I wanted to take a deeper dive into the Gulp pipeline.
 

@@ -31,8 +31,8 @@ I’ve been away for a few weeks enjoying some holiday with family – thus the 
 
 I’ve finally managed to get back to my Asp.Net Core series.  After around a three month delay, I’ve got two articles out:
 
-* Converting to ASP.Net Core - Part 5 (http://red-folder.blogspot.co.uk/2016/07/converting-to-aspnet-core-part-5.html) – looking at WebApi
-* Converting to ASP.Net Core - Part 6 (http://red-folder.blogspot.co.uk/2016/07/converting-to-aspnet-core-part-6.html) – looking at Entity Framework 7 (I think now renamed Entity Framework Core)
+* Converting to ASP.Net Core - Part 5 (/blog/converting-to-aspnet-core-part-5) – looking at WebApi
+* Converting to ASP.Net Core - Part 6 (/blog/converting-to-aspnet-core-part-6) – looking at Entity Framework 7 (I think now renamed Entity Framework Core)
 
 Up to now I’ve been working with RC1 – I’ll now spend some time moving onto the RTM version.
 

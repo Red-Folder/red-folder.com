@@ -8,7 +8,7 @@ I would stress that these articles are not intended as an academic study of the 
 For the same reason, I don’t explore other alternatives for solving any deficiencies within those approaches.
 
 ### Introduction
-This article addresses development in general and raises a number of challenges to be overcome.  The subsequent two articles will add to that list of challenges by looking at two “traditional” development methodologies – [waterfall](http://red-folder.blogspot.co.uk/2014/08/scrum-why-we-do-what-we-do-part-2.html) and [solo working](http://red-folder.blogspot.co.uk/2014/08/scrum-why-we-do-what-we-do-part-3-solo.html).  In the [final part](http://red-folder.blogspot.co.uk/2014/08/scrum-why-we-do-what-we-do-part-4.html) of the series I demonstrate how Scrum works for us to resolve those challenges.### 
+This article addresses development in general and raises a number of challenges to be overcome.  The subsequent two articles will add to that list of challenges by looking at two “traditional” development methodologies – [waterfall](/blog/scrum-why-we-do-what-we-do-part-2) and [solo working](/blog/scrum-why-we-do-what-we-do-part-3-solo).  In the [final part](/blog/scrum-why-we-do-what-we-do-part-4) of the series I demonstrate how Scrum works for us to resolve those challenges.### 
 
 ## What is development
 Development is, at its heart, problem solving.  It’s the taking of problem and using technology to resolve that problem.
@@ -106,4 +106,4 @@ So far we have found the following challenges:
 4) How do we ensure that we are developing it at the right time?
 5) How do we ensure that we are developing only what’s needed?
 
-In the [next article](http://red-folder.blogspot.co.uk/2014/08/scrum-why-we-do-what-we-do-part-2.html) we will look at waterfall development methodology.
+In the [next article](/blog/scrum-why-we-do-what-we-do-part-2) we will look at waterfall development methodology.

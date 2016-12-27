@@ -36,7 +36,7 @@ Thus seems a good candidate for the Azure functions.
 I’ll likely create an article or two once it’s done.
 
 ## Asp.Net Core
-Finally finished the last article in my Asp.Net Core series.  The seventh article can be found [here](http://blog.red-folder.com/2016/08/converting-to-aspnet-core-part-7.html)
+Finally finished the last article in my Asp.Net Core series.  The seventh article can be found [here](/blog/converting-to-aspnet-core-part-7)
 
 This moved it onto RTM, so it seemed an appropriate place to finish.
 

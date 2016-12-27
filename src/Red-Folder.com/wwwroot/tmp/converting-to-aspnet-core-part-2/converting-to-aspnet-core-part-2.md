@@ -1,4 +1,4 @@
-In the [first article](http://red-folder.blogspot.co.uk/2016/03/converting-to-aspnet-core-part-1.html) in this series, I've made a empty ASP.Net Core project with MVC 6 set up and ready to go.
+In the [first article](/blog/converting-to-aspnet-core-part-1) in this series, I've made a empty ASP.Net Core project with MVC 6 set up and ready to go.
 
 In this article, I'll be looking to copy content from my existing ASP.Net MVC 5 project.
 

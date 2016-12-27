@@ -74,14 +74,14 @@ namespace RedFolder.Services
                             {
                                 new BlogArticle(
                                     "Android Background Service for Phonegap/ Cordova",
-                                    new Uri("http://red-folder.blogspot.co.uk/2012/09/android-background-service-for-phonegap.html"),
+                                    new Uri("/blog/android-background-service-for-phonegap"),
                                     new Paragraphs()
                                     {
                                         "Summary of the history behind the plugin"
                                     }),
                                 new BlogArticle(
                                     "Getting Started",
-                                    new Uri("http://red-folder.blogspot.co.uk/2012/09/phonegap-android-background-service.html"),
+                                    new Uri("/blog/phonegap-android-background-service"),
                                     new Paragraphs()
                                     {
                                         "An article describing how to integrate the plugin into an existing Phonegap project.",
@@ -89,14 +89,14 @@ namespace RedFolder.Services
                                     }),
                                 new BlogArticle(
                                     "Plugin explained",
-                                    new Uri("http://red-folder.blogspot.co.uk/2012/09/phonegap-android-background-service_11.html"),
+                                    new Uri("/blog/phonegap-android-background-service_11"),
                                     new Paragraphs()
                                     {
                                         "An article going into depth on how the plugin works"
                                     }),
                                 new BlogArticle(
                                     "Tutorial - Part 1",
-                                    new Uri("http://red-folder.blogspot.co.uk/2012/09/phonegap-service-tutorial-part-1.html"),
+                                    new Uri("/blog/phonegap-service-tutorial-part-1"),
                                     new Paragraphs()
                                     {
                                         "Part 1 of a series of 3 which takes you through the steps to create a Phonegap application which will monitor Tiwtter for phonegap mentions, fire a notification and allow the user to select the notification to see the tweets.",
@@ -104,7 +104,7 @@ namespace RedFolder.Services
                                     }),
                                 new BlogArticle(
                                     "Tutorial - Part 2",
-                                    new Uri("http://red-folder.blogspot.co.uk/2012/09/phonegap-service-tutorial-part-2.html"),
+                                    new Uri("/blog/phonegap-service-tutorial-part-2"),
                                     new Paragraphs()
                                     {
                                         "Part 2 of a series of 3 which takes you through the steps to create a Phonegap application which will monitor Tiwtter for phonegap mentions, fire a notification and allow the user to select the notification to see the tweets.",
@@ -112,7 +112,7 @@ namespace RedFolder.Services
                                     }),
                                 new BlogArticle(
                                     "Tutorial - Part 3",
-                                    new Uri("http://red-folder.blogspot.co.uk/2012/09/phonegap-service-tutorial-part-3.html"),
+                                    new Uri("/blog/phonegap-service-tutorial-part-3"),
                                     new Paragraphs()
                                     {
                                         "Part 3 of a series of 3 which takes you through the steps to create a Phonegap application which will monitor Tiwtter for phonegap mentions, fire a notification and allow the user to select the notification to see the tweets.",
@@ -120,42 +120,42 @@ namespace RedFolder.Services
                                     }),
                                 new BlogArticle(
                                     "Automated Build - Part 1",
-                                    new Uri("http://red-folder.blogspot.co.uk/2013/08/automated-build-part-1.html"),
+                                    new Uri("/blog/automated-build-part-1"),
                                     new Paragraphs()
                                     {
                                         "Part 1 of 6 - How I've automated a lot of the Cordova Background Service plugin process"
                                     }),
                                 new BlogArticle(
                                     "Automated Build - Part 2 - The build job",
-                                    new Uri("http://red-folder.blogspot.co.uk/2013/08/automated-build-part-2-build-job_11.html"),
+                                    new Uri("/blog/automated-build-part-2-build-job_11"),
                                     new Paragraphs()
                                     {
                                         "Part 2 of 6 - How I've automated a lot of the Cordova Background Service plugin process"
                                     }),
                                 new BlogArticle(
                                     "Automated Build - Part 3 - The testing basics",
-                                    new Uri("http://red-folder.blogspot.co.uk/2013/08/automated-build-part-3-testing-basics.html"),
+                                    new Uri("/blog/automated-build-part-3-testing-basics"),
                                     new Paragraphs()
                                     {
                                         "Part 3 of 6 - How I've automated a lot of the Cordova Background Service plugin process"
                                     }),
                                 new BlogArticle(
                                     "Automated Build - Part 4 - The testing job",
-                                    new Uri("http://red-folder.blogspot.co.uk/2013/08/automated-build-part-4-testing-job.html"),
+                                    new Uri("/blog/automated-build-part-4-testing-job"),
                                     new Paragraphs()
                                     {
                                         "Part 4 of 6 - How I've automated a lot of the Cordova Background Service plugin process"
                                     }),
                                 new BlogArticle(
                                     "Automated Build - Part 5 - The master job",
-                                    new Uri("http://red-folder.blogspot.co.uk/2013/09/automated-build-part-5-master-job.html"),
+                                    new Uri("/blog/automated-build-part-5-master-job"),
                                     new Paragraphs()
                                     {
                                         "Part 5 of 6 - How I've automated a lot of the Cordova Background Service plugin process"
                                     }),
                                 new BlogArticle(
                                     "Automated Build - Part 6 - The output job",
-                                    new Uri("http://red-folder.blogspot.co.uk/2013/09/automated-build-part-6-output-job.html"),
+                                    new Uri("/blog/automated-build-part-6-output-job"),
                                     new Paragraphs()
                                     {
                                         "Part 6 of 6 - How I've automated a lot of the Cordova Background Service plugin process"

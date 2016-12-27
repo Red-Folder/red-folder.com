@@ -59,7 +59,7 @@ I've released released the next article in my ROI series - [What is Security?](h
 ### Converting to ASP.Net Code
 I've started a small series of articles about converting a simple ASP.Net MVC 5 website over to ASP.Net Core &amp; MVC 6.
 
-The first article can be found [here](http://red-folder.blogspot.co.uk/2016/03/converting-to-aspnet-core-part-1.html)
+The first article can be found [here](/blog/converting-to-aspnet-core-part-1)
 
 ## And finally
 

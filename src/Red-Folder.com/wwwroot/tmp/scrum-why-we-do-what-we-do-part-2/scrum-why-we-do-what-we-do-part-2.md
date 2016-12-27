@@ -3,7 +3,7 @@ In this series of articles I am looking to outline why Scrum works for us.  Duri
 I was motivated to produce these articles to educate our wider business.  While we have been operating in a Scrum manner for over two years, acquisition has brought many new faces to the table – many of whom are confused by the way we are working.  It’s also a great opportunity to refresh those that have been working with it for a while.
 
 ## Introduction
-This article addresses waterfall development and the challenges to be overcome.  The [previous article](http://red-folder.blogspot.co.uk/2014/08/scrum-why-we-do-what-we-do-part-1.html) looked at development in general.  In the [next article](http://red-folder.blogspot.co.uk/2014/08/scrum-why-we-do-what-we-do-part-3-solo.html) we'll be looking at solo working.  In the [final part](http://red-folder.blogspot.co.uk/2014/08/scrum-why-we-do-what-we-do-part-4.html) of the series I demonstrate how Scrum works for us to resolve those challenges.
+This article addresses waterfall development and the challenges to be overcome.  The [previous article](/blog/scrum-why-we-do-what-we-do-part-1) looked at development in general.  In the [next article](/blog/scrum-why-we-do-what-we-do-part-3-solo) we'll be looking at solo working.  In the [final part](/blog/scrum-why-we-do-what-we-do-part-4) of the series I demonstrate how Scrum works for us to resolve those challenges.
 
 ## What is waterfall?
 Many development teams are either still familiar with or working within the waterfall methodology.  The waterfall methodology is fairly synonymous with the production line metaphor.  Each part of the process comes one after the other, with teams further down the production line waiting on the proceeding teams to complete their work,
@@ -83,7 +83,7 @@ This prompts us to ask **How do we expose something is wrong quickly?**
 ### Summary
 So far we have found the following challenges:
 
-[First article](http://red-folder.blogspot.co.uk/2014/08/scrum-why-we-do-what-we-do-part-1.html):
+[First article](/blog/scrum-why-we-do-what-we-do-part-1):
 
 1) How do we engage the intrinsic motivators?
 2) How do we ensure that we are developing the right thing?
@@ -103,4 +103,4 @@ This article:
 13) How do we highlight and avoid technical debt?
 14) How do we expose something is wrong quickly?
 
-In the [next article](http://red-folder.blogspot.co.uk/2014/08/scrum-why-we-do-what-we-do-part-3-solo.html) we will look at solo development.
+In the [next article](/blog/scrum-why-we-do-what-we-do-part-3-solo) we will look at solo development.

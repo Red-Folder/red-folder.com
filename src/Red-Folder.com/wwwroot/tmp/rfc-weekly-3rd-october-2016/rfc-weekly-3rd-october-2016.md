@@ -37,5 +37,5 @@ Following on from the last few weeks, I've still got some work to do on my Azure
 
 In the meanwhile, I've released two short articles (more tips) on working with Azure Functions.  I've found the documentation for Azure Functions fairly sparse, so wanted to get my thoughts out earlier than the main article.  The articles are:
 
-* [Working with GitHub](http://blog.red-folder.com/2016/10/azure-functions-working-with-github.html)
-* [Personal Nuget sources](http://blog.red-folder.com/2016/10/azure-functions-personal-nuget-sources.html)
+* [Working with GitHub](/blog/azure-functions-working-with-github)
+* [Personal Nuget sources](/blog/azure-functions-personal-nuget-sources)

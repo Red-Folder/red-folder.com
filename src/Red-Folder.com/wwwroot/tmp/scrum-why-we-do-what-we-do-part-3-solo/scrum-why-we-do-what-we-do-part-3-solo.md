@@ -3,7 +3,7 @@ In this series of articles I am looking to outline why Scrum works for us.  Duri
 I was motivated to produce these articles to educate our wider business.  While we have been operating in a Scrum manner for over two years, acquisition has brought many new faces to the table – many of whom are confused by the way we are working.  It’s also a great opportunity to refresh those that have been working with it for a while.
 
 ## Introduction
-This article addresses solo development and the challenges to be overcome.  The previous two articles looked at [development in general](http://red-folder.blogspot.co.uk/2014/08/scrum-why-we-do-what-we-do-part-1.html) and the [waterfall development](http://red-folder.blogspot.co.uk/2014/08/scrum-why-we-do-what-we-do-part-2.html) methodology.  In the [final part](http://red-folder.blogspot.co.uk/2014/08/scrum-why-we-do-what-we-do-part-4.html) of the series I demonstrate how Scrum works for us to resolve those challenges.
+This article addresses solo development and the challenges to be overcome.  The previous two articles looked at [development in general](/blog/scrum-why-we-do-what-we-do-part-1) and the [waterfall development](/blog/scrum-why-we-do-what-we-do-part-2) methodology.  In the [final part](/blog/scrum-why-we-do-what-we-do-part-4) of the series I demonstrate how Scrum works for us to resolve those challenges.
 
 ## What is solo?
 Solo is where you are working in isolation.  Also sometimes affectionately referred to as cowboy development.
@@ -41,7 +41,7 @@ So this gives us our final challenge, **How do we ensure a developer doesn’t b
 ## Summary
 So far we have found the following challenges:
 
-[First article](http://red-folder.blogspot.co.uk/2014/08/scrum-why-we-do-what-we-do-part-1.html):
+[First article](/blog/scrum-why-we-do-what-we-do-part-1):
 
 1) How do we engage the intrinsic motivators?
 2) How do we ensure that we are developing the right thing?
@@ -49,7 +49,7 @@ So far we have found the following challenges:
 4) How do we ensure that we are developing it at the right time?
 5) How do we ensure that we are developing only what’s needed?
 
-[Second article](http://red-folder.blogspot.co.uk/2014/08/scrum-why-we-do-what-we-do-part-2.html):
+[Second article](/blog/scrum-why-we-do-what-we-do-part-2):
 
 6) How do we allow development to start without documentation?
 7) How do we maintain momentum?
@@ -66,4 +66,4 @@ This article:
 15) How can we ensure that our systems interact properly?
 16) How do we ensure a developer doesn’t become a single point of failure?
 
-In the [next and final article](http://red-folder.blogspot.co.uk/2014/08/scrum-why-we-do-what-we-do-part-4.html) we’ll look at how we use Scrum to address those challenges.
+In the [next and final article](/blog/scrum-why-we-do-what-we-do-part-4) we’ll look at how we use Scrum to address those challenges.
