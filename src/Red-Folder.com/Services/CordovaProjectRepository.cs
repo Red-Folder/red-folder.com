@@ -127,7 +127,7 @@ namespace RedFolder.Services
                                     }),
                                 new BlogArticle(
                                     "Automated Build - Part 2 - The build job",
-                                    new Uri("/blog/automated-build-part-2-build-job_11", UriKind.Relative),
+                                    new Uri("/blog/automated-build-part-2-build-job", UriKind.Relative),
                                     new Paragraphs()
                                     {
                                         "Part 2 of 6 - How I've automated a lot of the Cordova Background Service plugin process"
