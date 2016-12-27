@@ -43,15 +43,15 @@ The Core Plugin are files and configuration that will be needed for any implemen
     or
     Cordova 2.x.x > Add the following line to res/xml/config.xml
 
-%[https://gist.github.com/3778380.js]
+%[https://gist.github.com/Red-Folder/3778380.js]
 
 7) Ensure that following are in the AndroidManifest.xml.  This line sets permission so that the Background Service can be restarted on device boot.
 
-%[https://gist.github.com/3778392.js]8) 
+%[https://gist.github.com/Red-Folder/3778392.js]8) 
 
 Add the BootReceiver detail to the AndroidManifest.xml.  This should be added within the Application node.
 
-%[https://gist.github.com/3778398.js]9) 
+%[https://gist.github.com/Red-Folder/3778398.js]9) 
 
 Your manifest file should look similar to the below:
 
@@ -75,7 +75,7 @@ The files and setup for a Background Service will be unique to the service.  In 
 
 
 4) Add the following lines to the AndroidManifest.xml.  This should be added within the Application node:
-%[https://gist.github.com/3778404.js] 
+%[https://gist.github.com/Red-Folder/3778404.js] 
 
 5) Your manifest file should look similar to the below: 
 ![Image](/media/blog/phonegap-android-background-service/image-7.png)

@@ -9,20 +9,20 @@ As per Part 1 &amp; 2 of this tutorial, it is written using Cordova 1.8.1.  Wher
 ## Checking Twitter 
 Most of the work in this Tutorial is fleshing out the TwitterService.java.  To begin with, lets add some imports to the file so that it includes there (which will all be required later in the class):
 
-%[https://gist.github.com/3777973.js] 
+%[https://gist.github.com/Red-Folder/3777973.js] 
 
 Now we need somewhere to store the Max ID.  For this add the following get/ set:
-%[https://gist.github.com/3778149.js]
+%[https://gist.github.com/Red-Folder/3778149.js]
 
 I'm using Android Shared Preferences to store the Max ID.  Using the Shared Preferences allows use to store the Max ID between device reboot or service restart.  The getMaxID() uses the Preference Manager to get the value of the "MaxID" key (defaulting to an empty string if it doesn't have one).  The setMaxID() again uses the Preference Manager, puts it into edit mode and saves the passed value against the "MaxID" key. 
 
 Now for the heavy lifting of the class, the newTweet() method.  Simply enough this will return true if a new Tweet has been found:
-%[https://gist.github.com/3778161.js] 
+%[https://gist.github.com/Red-Folder/3778161.js] 
 
 Ok, so the method starts by call Twitter to get the latest "Phonegap" Tweet as a JSON string.  The string is then converted to a JSONObject.  We then grab the Max ID from the JSON Object and compare to the last one received.  If it's different then we store the Max ID (using setMaxID) and return true.  Else we are returning false.
 
 Now we just wire the newTweet into the doWork().  Simply replace the existing doWork method with the following:
-%[https://gist.github.com/3778167.js] 
+%[https://gist.github.com/Red-Folder/3778167.js] 
 
 Ok, we've reached a point that we can run it.  There are two messages you should see, first a logcat if there is  a new tweet:
 ![Image](/media/blog/phonegap-service-tutorial-part-3/image2.png)
@@ -75,14 +75,14 @@ For more information on Status Bar Icons, see the [Android developer guidelines.
 
 ## Create a status notification 
 Now lets add the notification code:
-%[https://gist.github.com/3778177.js] 
+%[https://gist.github.com/Red-Folder/3778177.js] 
 
 The showNotification() method accepts a title and some text to put into the notification.  The key to this method is the creation of the new Intent object passing across the TwitterExampleActivity.class.  This tells Android that when the user clicks on the notification, that it should open up our Twitter application.
 
 It is possible to pass extra information as part of the notification - so for example you could pass the specific Tweet ID, which our application would receive and display a specific page.  This is however outside of the scope of this tutorial.
 
 Now we simply write it into the doWork() (yet again we replace the existing method):
-%[https://gist.github.com/3778184.js] 
+%[https://gist.github.com/Red-Folder/3778184.js] 
 
 Simple enough, it just runs the showNotification if a new Tweet is found.
 

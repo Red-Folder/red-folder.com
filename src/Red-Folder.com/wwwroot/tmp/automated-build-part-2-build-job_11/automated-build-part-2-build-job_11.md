@@ -54,7 +54,9 @@ The powershell script runs through the .classpath file of the Android project an
 %[https://gist.github.com/Red-Folder/6205789.js]
 
 9. Finally, add an Execute Windows batch command to copy the resulting library to the BUILDOUTPUTPATH for later use
-%[https://gist.github.com/Red-Folder/6205790.js]## Wrap up
+%[https://gist.github.com/Red-Folder/6205790.js]
+
+## Wrap up
 
 This Job now allows me to automate the build of an individual version of the Background Service Plugin library.
 

@@ -32,7 +32,7 @@ This should give an Application that displays a simple HTML "Hello World" page.
 We will now change our index.html to read and display the last 3 tweets for Phonegap.
 
 Lets start with a fairly empty HTML:
-%[https://gist.github.com/3778296.js]  
+%[https://gist.github.com/Red-Folder/3778296.js]  
 
 This just gives us some titles and pulls in the cordova-1.8.1.js file.  For Cordova 2.x.x, replace with cordova-2.0.0.js)
 
@@ -40,13 +40,14 @@ Run this just to make sure you get what you'd expect:
 ![Image](/media/blog/phonegap-service-tutorial-part-1/image1.png)
 
 Now lets put some contents into it.  For this I'm going to use jQuery and Handlebars, so first add the following below the cordova-x.x.x.js import:
-%[https://gist.github.com/3778311.js] 
+%[https://gist.github.com/Red-Folder/3778311.js] 
 
 You will need to download the latest version of the js files - these can be found with a quick google search.
 
 Below these imports, add the following script block:
+%[https://gist.github.com/Red-Folder/3778323.js]
 
-%[https://gist.github.com/3778323.js] A quick summary of the above;
+A quick summary of the above;
 
 * The $(document).ready sets a handler to run getTweets once the page has loaded. 
 * The getTweets function first specifies the twitter URL - passing in the search term of "phonegap" and limits it to the latest 3 tweets. 
@@ -56,7 +57,7 @@ Below these imports, add the following script block:
 * The html is then appended to an unordered list on the page (again, see below).
 
 Now add the following to just below the &lt;h1> header, this is our template for the tweet results:
-%[https://gist.github.com/3778328.js] 
+%[https://gist.github.com/Red-Folder/3778328.js] 
 
 We want the tweets to represented as a Unordered List which we will style.
 
@@ -67,7 +68,7 @@ The contents of the &lt;script> block define the template.  I wont go into the d
 Once this done, save the html file.
 
 We then need to make one change to the res\xml\cordova.xml file (for Cordova 2.x.x, this will need to be res\xml\config.xml).  Add the following within the &lt;cordova> block:
-%[https://gist.github.com/3778332.js] 
+%[https://gist.github.com/Red-Folder/3778332.js] 
 
 This is needed to instruct Cordova that the application is allowed to access search.twitter.com.  Without this the getJSON query will just fail with no explanation.  
 
@@ -75,7 +76,7 @@ Ok, time to run the Application again.  This time you should get something simil
 ![Image](/media/blog/phonegap-service-tutorial-part-1/image2.png)
 
 Lets put a little styling into the app.  Add the following within the &lt;head> block:
-%[https://gist.github.com/3778344.js]
+%[https://gist.github.com/Red-Folder/3778344.js]
 
 This should give us a slightly better looking list:  
 ![Image](/media/blog/phonegap-service-tutorial-part-1/image3.png)
