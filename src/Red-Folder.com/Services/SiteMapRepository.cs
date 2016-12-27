@@ -23,7 +23,7 @@ namespace RedFolder.Services
 
             if (_env.IsStaging())
             {
-                _baseUrl = "http://http://rfc-website-staging.azurewebsites.net";
+                _baseUrl = "http://rfc-website-staging.azurewebsites.net";
             }
         }
 
