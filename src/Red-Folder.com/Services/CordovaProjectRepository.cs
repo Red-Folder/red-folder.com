@@ -74,14 +74,14 @@ namespace RedFolder.Services
                             {
                                 new BlogArticle(
                                     "Android Background Service for Phonegap/ Cordova",
-                                    new Uri("/blog/android-background-service-for-phonegap"),
+                                    new Uri("/blog/android-background-service-for-phonegap", UriKind.Relative),
                                     new Paragraphs()
                                     {
                                         "Summary of the history behind the plugin"
                                     }),
                                 new BlogArticle(
                                     "Getting Started",
-                                    new Uri("/blog/phonegap-android-background-service"),
+                                    new Uri("/blog/phonegap-android-background-service", UriKind.Relative),
                                     new Paragraphs()
                                     {
                                         "An article describing how to integrate the plugin into an existing Phonegap project.",
@@ -89,14 +89,14 @@ namespace RedFolder.Services
                                     }),
                                 new BlogArticle(
                                     "Plugin explained",
-                                    new Uri("/blog/phonegap-android-background-service_11"),
+                                    new Uri("/blog/phonegap-android-background-service_11", UriKind.Relative),
                                     new Paragraphs()
                                     {
                                         "An article going into depth on how the plugin works"
                                     }),
                                 new BlogArticle(
                                     "Tutorial - Part 1",
-                                    new Uri("/blog/phonegap-service-tutorial-part-1"),
+                                    new Uri("/blog/phonegap-service-tutorial-part-1", UriKind.Relative),
                                     new Paragraphs()
                                     {
                                         "Part 1 of a series of 3 which takes you through the steps to create a Phonegap application which will monitor Tiwtter for phonegap mentions, fire a notification and allow the user to select the notification to see the tweets.",
@@ -104,7 +104,7 @@ namespace RedFolder.Services
                                     }),
                                 new BlogArticle(
                                     "Tutorial - Part 2",
-                                    new Uri("/blog/phonegap-service-tutorial-part-2"),
+                                    new Uri("/blog/phonegap-service-tutorial-part-2", UriKind.Relative),
                                     new Paragraphs()
                                     {
                                         "Part 2 of a series of 3 which takes you through the steps to create a Phonegap application which will monitor Tiwtter for phonegap mentions, fire a notification and allow the user to select the notification to see the tweets.",
@@ -112,7 +112,7 @@ namespace RedFolder.Services
                                     }),
                                 new BlogArticle(
                                     "Tutorial - Part 3",
-                                    new Uri("/blog/phonegap-service-tutorial-part-3"),
+                                    new Uri("/blog/phonegap-service-tutorial-part-3", UriKind.Relative),
                                     new Paragraphs()
                                     {
                                         "Part 3 of a series of 3 which takes you through the steps to create a Phonegap application which will monitor Tiwtter for phonegap mentions, fire a notification and allow the user to select the notification to see the tweets.",
@@ -120,42 +120,42 @@ namespace RedFolder.Services
                                     }),
                                 new BlogArticle(
                                     "Automated Build - Part 1",
-                                    new Uri("/blog/automated-build-part-1"),
+                                    new Uri("/blog/automated-build-part-1", UriKind.Relative),
                                     new Paragraphs()
                                     {
                                         "Part 1 of 6 - How I've automated a lot of the Cordova Background Service plugin process"
                                     }),
                                 new BlogArticle(
                                     "Automated Build - Part 2 - The build job",
-                                    new Uri("/blog/automated-build-part-2-build-job_11"),
+                                    new Uri("/blog/automated-build-part-2-build-job_11", UriKind.Relative),
                                     new Paragraphs()
                                     {
                                         "Part 2 of 6 - How I've automated a lot of the Cordova Background Service plugin process"
                                     }),
                                 new BlogArticle(
                                     "Automated Build - Part 3 - The testing basics",
-                                    new Uri("/blog/automated-build-part-3-testing-basics"),
+                                    new Uri("/blog/automated-build-part-3-testing-basics", UriKind.Relative),
                                     new Paragraphs()
                                     {
                                         "Part 3 of 6 - How I've automated a lot of the Cordova Background Service plugin process"
                                     }),
                                 new BlogArticle(
                                     "Automated Build - Part 4 - The testing job",
-                                    new Uri("/blog/automated-build-part-4-testing-job"),
+                                    new Uri("/blog/automated-build-part-4-testing-job", UriKind.Relative),
                                     new Paragraphs()
                                     {
                                         "Part 4 of 6 - How I've automated a lot of the Cordova Background Service plugin process"
                                     }),
                                 new BlogArticle(
                                     "Automated Build - Part 5 - The master job",
-                                    new Uri("/blog/automated-build-part-5-master-job"),
+                                    new Uri("/blog/automated-build-part-5-master-job", UriKind.Relative),
                                     new Paragraphs()
                                     {
                                         "Part 5 of 6 - How I've automated a lot of the Cordova Background Service plugin process"
                                     }),
                                 new BlogArticle(
                                     "Automated Build - Part 6 - The output job",
-                                    new Uri("/blog/automated-build-part-6-output-job"),
+                                    new Uri("/blog/automated-build-part-6-output-job", UriKind.Relative),
                                     new Paragraphs()
                                     {
                                         "Part 6 of 6 - How I've automated a lot of the Cordova Background Service plugin process"

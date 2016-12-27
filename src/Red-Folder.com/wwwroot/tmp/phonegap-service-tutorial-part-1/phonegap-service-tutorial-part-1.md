@@ -12,8 +12,8 @@ The blogs shall cover the following:
 ## Before we start
 It is likely to be worth reading my earlier blogs:
 
-* [Phonegap Android Background Service Plugin - Getting started](http://red-folder.blogspot.com/2012/09/phonegap-android-background-service.html)
-* [Phonegap Android Background Service Plugin - Explained](http://red-folder.blogspot.com/2012/09/phonegap-android-background-service_11.html)
+* [Phonegap Android Background Service Plugin - Getting started](/blog/phonegap-android-background-service)
+* [Phonegap Android Background Service Plugin - Explained](/blog/phonegap-android-background-service_11)
 
 It should also be noted that the blog is using Cordova 1.8.1.  Where differences exist for 2.x.x, I have annotated notes as appropriate.
 

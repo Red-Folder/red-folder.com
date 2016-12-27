@@ -1,7 +1,7 @@
 ## Summary
 This blog is a continuation of the Service Tutorial.
 
-In [Part 1](http://red-folder.blogspot.com/2012/09/phonegap-service-tutorial-part-1.html) we created a simple application using Phonegap.  In this part we will add the code for our skeleton service.
+In [Part 1](/blog/phonegap-service-tutorial-part-1) we created a simple application using Phonegap.  In this part we will add the code for our skeleton service.
 
 ## Versioning
 As per Part 1 of this tutorial, I am using Cordova 1.8.1.  Any changes for Cordova 2.x.x have been annotated.
@@ -12,7 +12,7 @@ Download the Plugin files and add the following to the project:
 * backgroundserviceplugin.jar (Cordova 2.x.x > backgroundserviceplugin-2.0.0.jar)
 * backgroundService.js (Cordova 2.x.x > backgroundService-2.0.0.js)
 
-Instructions on downloading these file (and where to put them in you project) can be found in this [blog.](http://red-folder.blogspot.com/2012/09/phonegap-android-background-service.html)
+Instructions on downloading these file (and where to put them in you project) can be found in this [blog.](/blog/phonegap-android-background-service)
 
 ## Create the Service Class
 Add a new class within the src\com.red_folder.sample folder.  Set the Name of the class to "TwitterService" and the superclass to "com.red_folder.phonegap.plugin.backgroundservice.BackgroundService":
