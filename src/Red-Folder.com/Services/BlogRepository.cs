@@ -47,7 +47,7 @@ namespace RedFolder.Services
         public RedFolder.Website.Data.Blog Get(string url)
         {
             var blogs = Blogs;
-            var matchingBlogs = blogs.Where(b => b.Url == url);
+            var matchingBlogs = blogs.Where(b => b.Url.ToLower() == url.ToLower());
 
             if (matchingBlogs == null || matchingBlogs.Count() != 1)
             {
