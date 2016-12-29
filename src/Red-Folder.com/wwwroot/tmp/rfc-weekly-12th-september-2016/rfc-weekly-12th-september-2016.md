@@ -45,9 +45,9 @@ I’ll be making various changes over the coming months as it makes sense to use
 ## Project pages
 Again part of the Content/ SEO activities, I’ve created 2 project pages to collect various articles.
 
-[Return On Investment](http://www.red-folder.com/Projects/ROI) collects my ROI articles on LinkedIn.
+[Return On Investment](/Projects/ROI) collects my ROI articles on LinkedIn.
 
-[Asp.Net Core](http://www.red-folder.com/Projects/AspNetCore) collects my Asp.Net Core articles on Blogspot.
+[Asp.Net Core](/Projects/AspNetCore) collects my Asp.Net Core articles on Blogspot.
 
 ## And talking about Return On Investment …
 My last article, back at the end of June, left us on a bit of cliff hanger – introducing more concrete work on Agile.

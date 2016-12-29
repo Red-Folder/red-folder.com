@@ -38,7 +38,7 @@ Useful [article](https://azure.microsoft.com/en-us/campaigns/azure-vs-aws/mappin
 ## Self Promotion
 In the latest article of my LinkedIn series on better ROI from software development, I have released part 2 on Agile Software Development.
 
-You can read there article [here](https://www.linkedin.com/pulse/what-agile-software-development-part-2-mark-taylor).
+You can read there article [here](/blog/what-is-agile-software-development-part-2).
 
 ## And finally ...
 This [website](http://whichcatisyourjavascriptframework.com/) shows you what type of cat your JavaScript framework is.

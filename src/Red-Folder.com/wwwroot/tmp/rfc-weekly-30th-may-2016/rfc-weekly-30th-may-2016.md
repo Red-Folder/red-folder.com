@@ -36,7 +36,7 @@ This should (in theory) make transition for me fairly easy.  I've played around 
 Plus it looks like the Microsoft virtual devices work really really well (they boot on my aging laptop – which is a significant improvement on the Android SDK).
 
 ## Shameless self-promotion
-First up, within my ROI series on LinkedIn, I've taken a look at the[ ROI of well written code ](https://www.linkedin.com/pulse/roi-well-written-code-mark-taylor)
+First up, within my ROI series on LinkedIn, I've taken a look at the[ ROI of well written code ](/blog/roi-of-well-written-code)
 
 I have also created a new repo - [Penetration Dns Server](https://github.com/Red-Folder/PenetrationDnsServer/tree/master)
 

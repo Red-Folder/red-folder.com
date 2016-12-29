@@ -54,7 +54,7 @@ I'm probably the only person on the planet that didn't know that, but it has mad
 
 ## Self Promotion
 ### ROI Series
-I've released released the next article in my ROI series - [What is Security?](https://www.linkedin.com/pulse/what-security-mark-taylor)
+I've released released the next article in my ROI series - [What is Security?](/blog/what-is-security)
 
 ### Converting to ASP.Net Code
 I've started a small series of articles about converting a simple ASP.Net MVC 5 website over to ASP.Net Core &amp; MVC 6.

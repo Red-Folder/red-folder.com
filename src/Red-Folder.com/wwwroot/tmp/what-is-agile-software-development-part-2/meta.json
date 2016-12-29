@@ -1,0 +1,19 @@
+{
+  "id":"60bbb47a-b021-4f34-85e9-c8425a89f9d6",
+  "url":"what-is-agile-software-development-part-2",
+  "author":"Mark Taylor",
+  "published":"2016-03-10",
+  "modified":"2016-03-10",
+  "title":"What is Agile Software Development - Part 2",
+  "image":"/media/blog/what-is-agile-software-development-part-2/HeaderImage.png",
+  "description":"In this article, part of my series explaining better ROI from software development, I continue to look at Agile Software development.",
+  "enabled":true,
+  "keyWords":["ROI","ITManagement","Agile"],
+  "redirects":[],
+  "previouslyPublished": [
+	{
+		"published":"2016-03-10",
+		"url":"https://www.linkedin.com/pulse/what-agile-software-development-part-2-mark-taylor"
+	}
+  ]
+}

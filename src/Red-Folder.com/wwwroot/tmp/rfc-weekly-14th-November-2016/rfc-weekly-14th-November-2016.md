@@ -35,4 +35,4 @@ The new badges look like this:
 
 Shameless self-promotion
 ------------------------
-Last week I published [ROI of Mental Health](https://www.linkedin.com/pulse/roi-mental-health-mark-taylor).  The article takes a look at mental health within software development - along with why this is important (not just from the ROI perspective).
+Last week I published [ROI of Mental Health](/blog/roi-of-mental-health).  The article takes a look at mental health within software development - along with why this is important (not just from the ROI perspective).

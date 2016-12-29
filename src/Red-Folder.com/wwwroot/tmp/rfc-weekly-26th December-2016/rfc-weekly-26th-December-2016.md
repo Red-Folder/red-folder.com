@@ -34,6 +34,6 @@ I've completed the [Enumeration](https://app.pluralsight.com/library/courses/eth
 ![Enumeration Learning Check](/media/blog/rfc-weekly-26th-December-2016/enumeration-LearningCheck.PNG)
 
 ##Shameless self-promotion
-Final ROI post for the year.  [ROI of Spotify](https://www.linkedin.com/pulse/roi-spotify-mark-taylor) is a festive treat highlighting 2 videos from Spotify talking about thier engineering processes ... a real treat.
+Final ROI post for the year.  [ROI of Spotify](blog/roi-of-spotify) is a festive treat highlighting 2 videos from Spotify talking about thier engineering processes ... a real treat.
 
 This is the last RFC Weekly for the year.  I'm likely to have a couple of weeks off and should be back mid January.

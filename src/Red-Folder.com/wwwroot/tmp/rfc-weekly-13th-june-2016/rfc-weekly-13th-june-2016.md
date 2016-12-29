@@ -46,4 +46,4 @@ Also a great opportunity to learn machine learning and compare yourself with oth
 Podcast on the subject [here](http://dotnetrocks.com/?show=1307)
 
 ## Shameless self-promotion
-Two articles in my ROI series on Linked in, [ROI of testing](https://www.linkedin.com/pulse/roi-testing-mark-taylor) and looking at the [Economic Shock of the IT Market](https://www.linkedin.com/pulse/market-economic-shock-mark-taylor)
+Two articles in my ROI series on Linked in, [ROI of testing](/blog/roi-of-testing) and looking at the [Economic Shock of the IT Market](/blog/it-market-economic-shock)

@@ -1,0 +1,19 @@
+{
+  "id":"bc6997d8-203e-4c84-8c96-b1df15333983",
+  "url":"roi-of-mental-health",
+  "author":"Mark Taylor",
+  "published":"2016-11-10",
+  "modified":"2016-11-10",
+  "title":"ROI of Mental Health",
+  "image":"/media/blog/roi-of-mental-health/HeaderImage.png",
+  "description":"In this article, part of my series explaining better ROI from software development, I’d like to look at the impacts of mental health.",
+  "enabled":true,
+  "keyWords":["ROI","ITManagement",],
+  "redirects":[],
+  "previouslyPublished": [
+	{
+		"published":"2016-11-10",
+		"url":"https://www.linkedin.com/pulse/roi-mental-health-mark-taylor"
+	}
+  ]
+}

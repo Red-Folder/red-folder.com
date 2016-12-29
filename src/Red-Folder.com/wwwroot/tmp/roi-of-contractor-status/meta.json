@@ -1,0 +1,19 @@
+{
+  "id":"c86ae0da-97a2-48c0-91e2-1511828e9e8b",
+  "url":"roi-of-contractor-status",
+  "author":"Mark Taylor",
+  "published":"2016-12-01",
+  "modified":"2016-12-01",
+  "title":"ROI of Contractor Status",
+  "image":"/media/blog/roi-of-contractor-status/HeaderImage.png",
+  "description":"In this article, part of my series explaining better ROI from software development, I’d like to look at Contractor employment status.",
+  "enabled":true,
+  "keyWords":["ROI","ITManagement"],
+  "redirects":[],
+  "previouslyPublished": [
+	{
+		"published":"2016-12-01",
+		"url":"https://www.linkedin.com/pulse/roi-contractor-status-mark-taylor"
+	}
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "id":"a5152503-4415-4930-8b06-2e48f0645c45",
+  "url":"roi-of-legacy-software",
+  "author":"Mark Taylor",
+  "published":"2016-11-03",
+  "modified":"2016-11-03",
+  "title":"ROI of legacy software",
+  "image":"/media/blog/roi-of-legacy-software/HeaderImage.png",
+  "description":"In this article, part of my series explaining better ROI from software development, I’d like to look at legacy software.",
+  "enabled":true,
+  "keyWords":["ROI","ITManagement",],
+  "redirects":[],
+  "previouslyPublished": [
+	{
+		"published":"2016-11-03",
+		"url":"https://www.linkedin.com/pulse/roi-legacy-software-mark-taylor"
+	}
+  ]
+}

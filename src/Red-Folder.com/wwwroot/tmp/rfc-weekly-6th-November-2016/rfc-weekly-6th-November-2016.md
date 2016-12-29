@@ -1,6 +1,6 @@
 Agile in the Enterprise
 -----------------------
-A few weeks back I talked about some of the pitfalls to watch for in Scrum adoption - you can see the article [here](https://www.linkedin.com/pulse/roi-scrum-part-4-pitfalls-mark-taylor)
+A few weeks back I talked about some of the pitfalls to watch for in Scrum adoption - you can see the article [here](/blog/roi-of-scrum-part-4-pitfalls)
 
 This [article](https://www.infoq.com/articles/agile-enterprise-misconceptions) covers similar territory in regards to going into agile with your eyes open.  The article reads a little like a justification for a requirements gathering tool (which isn't surprising given that the author works for a supplier of such a tool).  I do think however it does raise some questions to think about during agile adoption.  I personally wouldn't run off and get a system to manage requirements, but it is probably something to be asking at periodic phases - would it benefit you?
 
@@ -24,7 +24,7 @@ I'd certainly advocate any organisation looking at 10% - even if only to allow t
 
 Shameless self-promotion
 ------------------------
-I publish ROI of legacy software [here](https://www.linkedin.com/pulse/roi-legacy-software-mark-taylor).  In the continuation of my Return On Investment from Software Development I look at legacy software and challenge the prevailing re-write philosophy.  As a default, I will always favour evolution over revolution - and this this article I provide some of the ROI behind that thinking.
+I publish ROI of legacy software [here](/blog/roi-of-legacy-software).  In the continuation of my Return On Investment from Software Development I look at legacy software and challenge the prevailing re-write philosophy.  As a default, I will always favour evolution over revolution - and this this article I provide some of the ROI behind that thinking.
 
 I've continued to work on getting my www.red-folder.com into a Continuous Deployment pipeline.  Assuming all goes well, then this article should have gone through that pipeline (longer term, the blogs need to be separated from the codebase ... but that's for another month).
 

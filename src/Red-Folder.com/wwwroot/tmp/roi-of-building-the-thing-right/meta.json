@@ -1,0 +1,19 @@
+{
+  "id":"3edd96c0-fa2d-4f03-8eff-5c85881ed031",
+  "url":"roi-of-building-the-thing-right",
+  "author":"Mark Taylor",
+  "published":"2016-04-27",
+  "modified":"2016-04-27",
+  "title":"ROI of building the thing right",
+  "image":"/media/blog/roi-of-building-the-thing-right/HeaderImage.png",
+  "description":"In this article, part of my series explaining better ROI from software development, I’d like to look at the why building it right is important. Possibly more important than building the right thing.",
+  "enabled":true,
+  "keyWords":["ROI","ITManagement"],
+  "redirects":[],
+  "previouslyPublished": [
+	{
+		"published":"2016-04-27",
+		"url":"https://www.linkedin.com/pulse/roi-building-thing-right-mark-taylor"
+	}
+  ]
+}

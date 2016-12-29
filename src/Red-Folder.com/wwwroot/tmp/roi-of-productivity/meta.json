@@ -1,0 +1,19 @@
+{
+  "id":"1f72acd0-809e-4780-adc9-5eef01d09751",
+  "url":"roi-of-productivity",
+  "author":"Mark Taylor",
+  "published":"2016-11-24",
+  "modified":"2016-11-24",
+  "title":"ROI of Productivity",
+  "image":"/media/blog/roi-of-productivity/HeaderImage.png",
+  "description":"In this article, part of my series explaining better ROI from software development, I’d like to look at what productivity looks like in software development.",
+  "enabled":true,
+  "keyWords":["ROI","ITManagement",],
+  "redirects":[],
+  "previouslyPublished": [
+	{
+		"published":"2016-11-24",
+		"url":"https://www.linkedin.com/pulse/roi-productivity-mark-taylor"
+	}
+  ]
+}

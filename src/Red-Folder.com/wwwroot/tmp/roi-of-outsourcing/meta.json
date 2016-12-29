@@ -1,0 +1,19 @@
+{
+  "id":"ac0e2062-454b-4f54-8d91-c47baab4016a",
+  "url":"roi-of-outsourcing",
+  "author":"Mark Taylor",
+  "published":"2016-12-09",
+  "modified":"2016-12-09",
+  "title":"ROI of Outsourcing",
+  "image":"/media/blog/roi-of-outsourcing/HeaderImage.png",
+  "description":"In this article, part of my series explaining better ROI from software development, I’d like to share my thoughts on Outsourcing.",
+  "enabled":true,
+  "keyWords":["ROI","ITManagement"],
+  "redirects":[],
+  "previouslyPublished": [
+	{
+		"published":"2016-12-09",
+		"url":"https://www.linkedin.com/pulse/roi-outsourcing-mark-taylor"
+	}
+  ]
+}

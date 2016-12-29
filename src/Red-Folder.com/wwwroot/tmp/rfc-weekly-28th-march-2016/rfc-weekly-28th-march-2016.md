@@ -48,4 +48,4 @@ Two articles this week;
 
 [Converting to ASP.Net Core - Part 2](/blog/converting-to-aspnet-core-part-2) - this builds on the basic template I created in part 1 and copies in all of the red-folder.com content (controllers, views, images, scripts, css).  By the end of the article I have the website up and running - minus minification and bundling (which I'll look at more in part 3).  I also start to introduce Gulp in the project.  I had planned to save this for part 3, but I need to compile my less to css.
 
-[The Zeigarnik Effect](https://www.linkedin.com/pulse/zeigarnik-effect-mark-taylor).  In the latest of my ROI series, I look at the Zeigarnik Effect, a psychological effect which promotes limiting the tasks we attempt and focusing on completing them.  This helps towards the internal motivators for team individuals and improves productivity.
+[The Zeigarnik Effect](/blog/the-zeigarnik-effect).  In the latest of my ROI series, I look at the Zeigarnik Effect, a psychological effect which promotes limiting the tasks we attempt and focusing on completing them.  This helps towards the internal motivators for team individuals and improves productivity.

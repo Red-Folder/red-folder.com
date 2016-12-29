@@ -47,6 +47,6 @@ PostCSS can be grabbed by NPM.  The project webpage is [here](http://postcss.org
 ## Shameless self-promotion
 Only one article this week;
 
-Within my ROI series on LinkedIn, I’ve taken a look at Developer Anarchy.  This article can be found [here](https://www.linkedin.com/pulse/developer-anarchy-mark-taylor).
+Within my ROI series on LinkedIn, I’ve taken a look at Developer Anarchy.  This article can be found [here](/blog/developer-anarchy).
 
 The fourth article looking into Asp.Net Core has been taking a bit more time than normal.  Taking a good look at Gulp and how to use to improve the build pipeline.  Trust me – good things come to those that wait.

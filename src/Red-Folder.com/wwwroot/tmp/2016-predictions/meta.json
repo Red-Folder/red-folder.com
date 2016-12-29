@@ -1,0 +1,19 @@
+{
+  "id":"f50d9da8-6bd5-4281-b644-efaadbda60a0",
+  "url":"2016-predictions",
+  "author":"Mark Taylor",
+  "published":"2015-12-29",
+  "modified":"2015-12-29",
+  "title":"2016 Predictions",
+  "image":"/media/blog/2016-predictions/HeaderImage.png",
+  "description":"In this article I make some predictions for the coming year.",
+  "enabled":true,
+  "keyWords":["JavaScript", "MicroServices", "Polyglot", "Contracting"],
+  "redirects":[],
+  "previouslyPublished": [
+	{
+		"published":"2015-12-29",
+		"url":"https://www.linkedin.com/pulse/2016-predictions-mark-taylor"
+	}
+  ]
+}

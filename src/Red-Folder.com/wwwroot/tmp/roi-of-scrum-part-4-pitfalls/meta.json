@@ -1,0 +1,19 @@
+{
+  "id":"b4a13829-ebad-4f19-827e-9223e2c123e4",
+  "url":"roi-of-scrum-part-4-pitfalls",
+  "author":"Mark Taylor",
+  "published":"2016-10-27",
+  "modified":"2016-10-27",
+  "title":"ROI of Scrum - Part 4 - Pitfalls",
+  "image":"/media/blog/roi-of-scrum-part-4-pitfalls/HeaderImage.png",
+  "description":"In this article, part of my series explaining better ROI from software development, I’ll be looking at some of the pitfalls of Scrum.",
+  "enabled":true,
+  "keyWords":["ROI","ITManagement","Scrum"],
+  "redirects":[],
+  "previouslyPublished": [
+	{
+		"published":"2016-10-27",
+		"url":"https://www.linkedin.com/pulse/roi-scrum-part-4-pitfalls-mark-taylor"
+	}
+  ]
+}

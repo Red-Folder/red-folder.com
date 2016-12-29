@@ -18,6 +18,6 @@ It can be found [here](http://www.lafable.com/)
 ## Shameless self-promotion
 Hooray … two articles this week.  Oh the joy (even if this one is a little light);
 
-Within my ROI series on LinkedIn, I've taken a look at the ROI of Hero Developers.  I take a look at what a Hero Developer is, why they can seem a great idea – and why it isn't always the success it can seem.  This article can be found [here](https://www.linkedin.com/pulse/roi-hero-developer-mark-taylor).
+Within my ROI series on LinkedIn, I've taken a look at the ROI of Hero Developers.  I take a look at what a Hero Developer is, why they can seem a great idea – and why it isn't always the success it can seem.  This article can be found [here](/blog/roi-of-the-superhero-developer).
 
 Finally completed the fourth article looking into Asp.Net Core.  I've had a lot of fun getting to know Gulp – it might have taken a while, but a really useful tool to have in the toolkit.  The article can be found [here](/blog/converting-to-aspnet-core-part-4)

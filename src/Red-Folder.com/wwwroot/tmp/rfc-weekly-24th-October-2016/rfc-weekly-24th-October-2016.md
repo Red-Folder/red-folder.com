@@ -52,4 +52,4 @@ Seem to have been finally resolved with install of update KB3165756 (or the subs
 
 Shameless self promotion
 ------------------------
-Release the 3rd part of my ROI of Scrum articles.  It can be found [here](https://www.linkedin.com/pulse/roi-scrum-part-3-benefits-mark-taylor).  In this part I look at parts of the Scrum framework and how they can lead to better ROI.
+Release the 3rd part of my ROI of Scrum articles.  It can be found [here](/blog/roi-of-scrum-part-3-benefits).  In this part I look at parts of the Scrum framework and how they can lead to better ROI.

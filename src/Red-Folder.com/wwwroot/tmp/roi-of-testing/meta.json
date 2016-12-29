@@ -1,0 +1,19 @@
+{
+  "id":"f8d466a3-cba7-4a0d-8711-d8bd18c49b7a",
+  "url":"roi-of-testing",
+  "author":"Mark Taylor",
+  "published":"2016-06-01",
+  "modified":"2016-06-01",
+  "title":"ROI of Testing",
+  "image":"/media/blog/roi-of-testing/HeaderImage.png",
+  "description":"In this article, part of my series explaining better ROI from software development, I’d like to look at testing.",
+  "enabled":true,
+  "keyWords":["ROI","ITManagement"],
+  "redirects":[],
+  "previouslyPublished": [
+	{
+		"published":"2016-06-01",
+		"url":"https://www.linkedin.com/pulse/roi-testing-mark-taylor"
+	}
+  ]
+}

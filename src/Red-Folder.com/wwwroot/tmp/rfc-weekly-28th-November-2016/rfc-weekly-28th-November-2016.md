@@ -38,4 +38,4 @@ So far, I'm 4% through the path.
 
 Shameless self-promotion
 ------------------------
-Last week I published [ROI of Productivity](https://www.linkedin.com/pulse/roi-productivity-mark-taylor).  The article takes a look at what productivity is (and more importantly isn't) in software development.
+Last week I published [ROI of Productivity](/blog/roi-of-productivity).  The article takes a look at what productivity is (and more importantly isn't) in software development.

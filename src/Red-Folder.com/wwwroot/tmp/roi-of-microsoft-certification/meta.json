@@ -1,0 +1,19 @@
+{
+  "id":"fa164a79-4cac-4091-b87b-f631a16942a0",
+  "url":"roi-of-microsoft-certification",
+  "author":"Mark Taylor",
+  "published":"2016-06-15",
+  "modified":"2016-06-15",
+  "title":"ROI of Microsoft Certifications",
+  "image":"/media/blog/roi-of-microsoft-certification/HeaderImage.png",
+  "description":"In this article, part of my series explaining better ROI from software development, I’d like to look at a report on Microsoft Certifications.",
+  "enabled":true,
+  "keyWords":["ROI","ITManagement","Certification"],
+  "redirects":[],
+  "previouslyPublished": [
+	{
+		"published":"2016-06-15",
+		"url":"https://www.linkedin.com/pulse/roi-microsoft-certifications-mark-taylor"
+	}
+  ]
+}

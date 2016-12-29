@@ -1,0 +1,19 @@
+{
+  "id":"e649b124-2bbc-4afa-8eb4-a98dcf82399f",
+  "url":"roi-of-agile-implementation",
+  "author":"Mark Taylor",
+  "published":"2016-06-29",
+  "modified":"2016-06-29",
+  "title":"ROI of Agile implementation",
+  "image":"/media/blog/roi-of-agile-implementation/HeaderImage.png",
+  "description":"In this article, part of my series explaining better ROI from software development, I’d like to look at the implementation of Agile.",
+  "enabled":true,
+  "keyWords":["ROI","ITManagement","Agile"],
+  "redirects":[],
+  "previouslyPublished": [
+	{
+		"published":"2016-06-29",
+		"url":"https://www.linkedin.com/pulse/roi-agile-implementation-mark-taylor"
+	}
+  ]
+}

@@ -30,6 +30,6 @@ Great [talk](https://www.youtube.com/watch?v=C_yj4k4QZVI) on how, as developers,
 ## Shameless self-promotion
 Again only one article this week;
 
-Within my ROI series on LinkedIn, I've taken a look at the ROI of Failure.  This article can be found [here](https://www.linkedin.com/pulse/roi-failure-mark-taylor)
+Within my ROI series on LinkedIn, I've taken a look at the ROI of Failure.  This article can be found [here](/blog/roi-of-failure)
 
 The fourth article looking into Asp.Net Core is still in production.  I've got Gulp working great for my CSS – just need to do the same for my JavaScript and write it all up.

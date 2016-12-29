@@ -45,4 +45,4 @@ Looks to be an interesting model which I would expect to grow in usage.
 A SaaS service for detecting text in images.  Can be found [here](https://scanr.xyz/)
 
 ## Shameless self-promotion
-Within my ROI series on LinkedIn, I've taken a look at the ROI of Learning.  Anyone that knows me knows that I really value Learning.  The article can be found [here](https://www.linkedin.com/pulse/roi-learning-mark-taylor)
+Within my ROI series on LinkedIn, I've taken a look at the ROI of Learning.  Anyone that knows me knows that I really value Learning.  The article can be found [here](/blog/roi-of-learning)

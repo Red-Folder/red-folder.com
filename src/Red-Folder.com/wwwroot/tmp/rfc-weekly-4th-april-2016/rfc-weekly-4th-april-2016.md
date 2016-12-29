@@ -21,4 +21,4 @@ Two articles again this week;
 
 Third in the series of converting my www.red-folder.com website over to ASP.Net Core &amp; MVC 6.  Spoiler alert -> I spend a lot of it fixing a mistake I made in the second article.  All ends well with getting the site into Azure.  You can read it [here](/blog/converting-to-aspnet-core-part-3)
 
-Within my ROI series on LinkedIn, I've taken a look at Flow &amp; Productivity.  This article can be found [here](https://www.linkedin.com/pulse/focus-productivity-mark-taylor).
+Within my ROI series on LinkedIn, I've taken a look at Flow &amp; Productivity.  This article can be found [here](/blog/focus-and-productivity).

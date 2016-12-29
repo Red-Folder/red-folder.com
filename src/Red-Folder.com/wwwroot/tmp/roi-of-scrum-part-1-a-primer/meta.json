@@ -1,0 +1,19 @@
+{
+  "id":"09737ab2-6f52-4fab-97b8-73ab59ee5288",
+  "url":"roi-of-scrum-part-1-a-primer",
+  "author":"Mark Taylor",
+  "published":"2016-10-06",
+  "modified":"2016-10-06",
+  "title":"ROI of Scrum - Part 1 - A Primer",
+  "image":"/media/blog/roi-of-scrum-part-1-a-primer/HeaderImage.png",
+  "description":"In this article, part of my series explaining better ROI from software development, I’d like to start looking at Scrum. Given the size of this subject I am spreading across multiple parts. This is the first part.",
+  "enabled":true,
+  "keyWords":["ROI","ITManagement","Scrum"],
+  "redirects":[],
+  "previouslyPublished": [
+	{
+		"published":"2016-10-06",
+		"url":"https://www.linkedin.com/pulse/roi-scrum-part-1-primer-mark-taylor"
+	}
+  ]
+}

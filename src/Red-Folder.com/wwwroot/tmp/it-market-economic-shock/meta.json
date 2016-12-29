@@ -1,0 +1,19 @@
+{
+  "id":"d4bd341c-f1d4-4b3a-8dbe-292662f4e898",
+  "url":"it-market-economic-shock",
+  "author":"Mark Taylor",
+  "published":"2016-06-08",
+  "modified":"2016-06-08",
+  "title":"ROI of Testing",
+  "image":"/media/blog/it-market-economic-shock/HeaderImage.png",
+  "description":"In this article, part of my series explaining better ROI from software development, I’d like to look at Economic Shock.",
+  "enabled":true,
+  "keyWords":["ROI","ITManagement"],
+  "redirects":[],
+  "previouslyPublished": [
+	{
+		"published":"2016-06-08",
+		"url":"https://www.linkedin.com/pulse/market-economic-shock-mark-taylor"
+	}
+  ]
+}

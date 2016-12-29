@@ -1,0 +1,19 @@
+{
+  "id":"44e6ef4e-f946-4b81-99fc-cbe18c46db24",
+  "url":"have-an-opinion",
+  "author":"Mark Taylor",
+  "published":"2016-01-07",
+  "modified":"2016-01-07",
+  "title":"Have an opinion",
+  "image":"/media/blog/have-an-opinion/HeaderImage.png",
+  "description":"In my previous article All I want for Christmas is feedback, I wrote about actively seeking out feedback to improve yourself professionally.  I follow that theme by encouraging you to put yourself into a position where you voice an opinion to solicit feedback and thus evolve you opinion.",
+  "enabled":true,
+  "keyWords":["ITManagement"],
+  "redirects":[],
+  "previouslyPublished": [
+	{
+		"published":"2016-01-07",
+		"url":"https://www.linkedin.com/pulse/have-opinion-mark-taylor"
+	}
+  ]
+}

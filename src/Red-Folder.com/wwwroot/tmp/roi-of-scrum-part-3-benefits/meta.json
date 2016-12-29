@@ -1,0 +1,19 @@
+{
+  "id":"a6f9fdaf-0c7f-4f15-83a1-cdada52f3e96",
+  "url":"roi-of-scrum-part-3-benefits",
+  "author":"Mark Taylor",
+  "published":"2016-10-20",
+  "modified":"2016-10-20",
+  "title":"ROI of Scrum - Part 3 - Benefits",
+  "image":"/media/blog/roi-of-scrum-part-3-benefits/HeaderImage.png",
+  "description":"In this article, part of my series explaining better ROI from software development, I’ll be looking at the individual ROI benefits of component parts of Scrum.",
+  "enabled":true,
+  "keyWords":["ROI","ITManagement","Scrum"],
+  "redirects":[],
+  "previouslyPublished": [
+	{
+		"published":"2016-10-20",
+		"url":"https://www.linkedin.com/pulse/roi-scrum-part-3-benefits-mark-taylor"
+	}
+  ]
+}

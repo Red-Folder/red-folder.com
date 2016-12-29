@@ -45,4 +45,4 @@ Another [tool](https://www.sitespeed.io/) for identifying problems with you webs
 Great fun little [tool](http://mikbe.com/awesome/projects/2016/02/14/generate-awesome-codenames-with-codenamer.html) for helping you create names for projects or releases .  Often the most difficult part of development.
 
 ## Shameless self-promotion
-Within my ROI series on LinkedIn, I've asked the question of [“When will you admit you are technology company?”](https://www.linkedin.com/pulse/when-you-going-admit-technology-company-mark-taylor).  With the disruption caused through technology, organisations need to assess if they are thinking about it in the correct way.  Is IT seen as a cost or an enabler?
+Within my ROI series on LinkedIn, I've asked the question of [“When will you admit you are technology company?”](/blog/when-are-you-going-to-admit-you-are-a-technology-company).  With the disruption caused through technology, organisations need to assess if they are thinking about it in the correct way.  Is IT seen as a cost or an enabler?

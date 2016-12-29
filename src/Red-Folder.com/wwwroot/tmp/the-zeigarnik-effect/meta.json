@@ -1,0 +1,19 @@
+{
+  "id":"4027478b-efb7-4992-bb49-c617edf16379",
+  "url":"the-zeigarnik-effect",
+  "author":"Mark Taylor",
+  "published":"2016-03-24",
+  "modified":"2016-03-24",
+  "title":"The Zeigarnik Effect",
+  "image":"/media/blog/the-zeigarnik-effect/HeaderImage.png",
+  "description":"In this article, part of my series explaining better ROI from software development, I’d like to look at the Zeigarnik effect.",
+  "enabled":true,
+  "keyWords":["ROI","ITManagement","Zeigarnik Effect"],
+  "redirects":[],
+  "previouslyPublished": [
+	{
+		"published":"2016-03-24",
+		"url":"https://www.linkedin.com/pulse/zeigarnik-effect-mark-taylor"
+	}
+  ]
+}

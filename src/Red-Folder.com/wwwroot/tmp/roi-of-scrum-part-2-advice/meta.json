@@ -1,0 +1,19 @@
+{
+  "id":"131bff8a-cd02-4a0a-9555-b9a591e12fa5",
+  "url":"roi-of-scrum-part-2-advice",
+  "author":"Mark Taylor",
+  "published":"2016-10-13",
+  "modified":"2016-10-13",
+  "title":"ROI of Scrum - Part 2 - Advice",
+  "image":"/media/blog/roi-of-scrum-part-2-advice/HeaderImage.png",
+  "description":"In this article, part of my series explaining better ROI from software development, I’ll be giving some advice when considering Scrum.",
+  "enabled":true,
+  "keyWords":["ROI","ITManagement","Scrum"],
+  "redirects":[],
+  "previouslyPublished": [
+	{
+		"published":"2016-10-13",
+		"url":"https://www.linkedin.com/pulse/roi-scrum-part-2-advice-mark-taylor"
+	}
+  ]
+}

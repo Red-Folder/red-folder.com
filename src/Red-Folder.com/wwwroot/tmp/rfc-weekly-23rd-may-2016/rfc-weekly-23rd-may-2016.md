@@ -28,7 +28,7 @@ But they have severe limitations because they do not have the wide foundation th
 Really quite thought provoking in terms of where our industry is going and how it will need to adapt into the future.
 
 ## Shameless self-promotion
-Within my ROI series on LinkedIn, I've taken a look at the [Software Development maturity model](https://www.linkedin.com/pulse/software-development-maturity-model-mark-taylor).  It’s a method of building towards a well-oiled IT.
+Within my ROI series on LinkedIn, I've taken a look at the [Software Development maturity model](/blog/software-development-maturity-model).  It’s a method of building towards a well-oiled IT.
 
 My mini-series on upgrading my website to .Net Core has taken a bit of a back seat at the moment.  It was easy enough to implement an Angular Application over a MVC Core WebApi.  I just need the time to put some Karma testing in place (even if only a place holder for further testing) and then write it up a little.
 

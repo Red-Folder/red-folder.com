@@ -1,0 +1,19 @@
+{
+  "id":"56e0012d-79d2-415f-9556-a9fd07dcec1a",
+  "url":"roi-of-spotify",
+  "author":"Mark Taylor",
+  "published":"2016-12-22",
+  "modified":"2016-12-22",
+  "title":"ROI of Spotify",
+  "image":"/media/blog/roi-of-spotify/HeaderImage.png",
+  "description":"In this article, part of my series explaining better ROI from software development, I’d like to share some Spotify videos.",
+  "enabled":true,
+  "keyWords":["ROI","ITManagement"],
+  "redirects":[],
+  "previouslyPublished": [
+	{
+		"published":"2016-12-22",
+		"url":"https://www.linkedin.com/pulse/roi-spotify-mark-taylor"
+	}
+  ]
+}

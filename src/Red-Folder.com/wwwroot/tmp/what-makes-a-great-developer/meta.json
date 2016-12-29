@@ -1,0 +1,19 @@
+{
+  "id":"97e97a9d-dfda-4eb2-adfb-768eb9ed4cb8",
+  "url":"what-makes-a-great-developer",
+  "author":"Mark Taylor",
+  "published":"2016-02-24",
+  "modified":"2016-02-24",
+  "title":"What makes a great developer",
+  "image":"/media/blog/what-makes-a-great-developer/HeaderImage.png",
+  "description":"In this article, part of my series explaining better ROI from software development, I expand what makes a great developer.",
+  "enabled":true,
+  "keyWords":["ROI","ITManagement"],
+  "redirects":[],
+  "previouslyPublished": [
+	{
+		"published":"2016-02-24",
+		"url":"https://www.linkedin.com/pulse/what-makes-great-developer-mark-taylor"
+	}
+  ]
+}

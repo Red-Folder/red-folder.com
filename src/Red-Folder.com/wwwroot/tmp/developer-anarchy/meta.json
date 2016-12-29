@@ -1,0 +1,19 @@
+{
+  "id":"ce07bfe1-5cbc-44f6-8923-03e50e94892e",
+  "url":"developer-anarchy",
+  "author":"Mark Taylor",
+  "published":"2016-04-06",
+  "modified":"2016-04-06",
+  "title":"Developer Anarchy",
+  "image":"/media/blog/developer-anarchy/HeaderImage.png",
+  "description":"In this article, part of my series explaining better ROI from software development, I’d like to look at the Developer Anarchy.",
+  "enabled":true,
+  "keyWords":["ROI","ITManagement"],
+  "redirects":[],
+  "previouslyPublished": [
+	{
+		"published":"2016-04-06",
+		"url":"https://www.linkedin.com/pulse/developer-anarchy-mark-taylor"
+	}
+  ]
+}

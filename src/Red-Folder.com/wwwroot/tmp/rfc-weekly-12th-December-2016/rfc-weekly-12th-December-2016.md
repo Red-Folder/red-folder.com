@@ -66,7 +66,7 @@ Rather disappointingly, it appears I've only got to 11% through (sure I've spent
 I'm still on the [Reconnaissance/ Footprinting](https://app.pluralsight.com/library/courses/ethical-hacking-reconnaissance-footprinting) course.  So far a lot of the "Reconnaissance" is similar to basic activities I might carry out when looking at a company ahead of an interview (history, direction, technologies, etc).  I'd personally not see a lot of this information as a security problem - I've never believed in security by obscurity.  I do however understand the principal of the harder you make the task, the more work you make for the hacker and increase that investment they have to put in (may deter eventually).
 
 ##Shameless self-promotion
-Last week I published [ROI of Outsourcing](https://www.linkedin.com/pulse/roi-outsourcing-mark-taylor).  Off the back of a great article by Troy Hunt, I wanted to take a look at Outsourcing from an ROI perspective.
+Last week I published [ROI of Outsourcing](/blog/roi-of-outsourcing).  Off the back of a great article by Troy Hunt, I wanted to take a look at Outsourcing from an ROI perspective.
 
 I very much agree Troy when he says:
 

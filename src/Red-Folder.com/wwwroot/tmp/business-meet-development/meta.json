@@ -1,0 +1,19 @@
+{
+  "id":"c02fc3d2-978c-45be-b61b-a869ab8681a7",
+  "url":"business-meet-development",
+  "author":"Mark Taylor",
+  "published":"2016-02-11",
+  "modified":"2016-02-11",
+  "title":"Business meet Software Development, Software Development meet Business",
+  "image":"/media/blog/business-meet-development/HeaderImage.png",
+  "description":"This is the first in a series of articles looking into better Return On Investment from software development.  In this article I start to introduce Business Managers to Software Development.",
+  "enabled":true,
+  "keyWords":["ROI","ITManagement"],
+  "redirects":[],
+  "previouslyPublished": [
+	{
+		"published":"2016-02-11",
+		"url":"https://www.linkedin.com/pulse/business-meet-software-development-mark-taylor"
+	}
+  ]
+}

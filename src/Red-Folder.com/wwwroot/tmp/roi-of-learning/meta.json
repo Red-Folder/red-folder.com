@@ -1,0 +1,19 @@
+{
+  "id":"26ee71ce-7489-4fda-82d9-11e9f0217f33",
+  "url":"roi-of-learning",
+  "author":"Mark Taylor",
+  "published":"2016-05-05",
+  "modified":"2016-05-05",
+  "title":"ROI of Learning",
+  "image":"/media/blog/roi-of-learning/HeaderImage.png",
+  "description":"In this article, part of my series explaining better ROI from software development, I’d like to look at encouraging learning.",
+  "enabled":true,
+  "keyWords":["ROI","ITManagement", "Learning"],
+  "redirects":[],
+  "previouslyPublished": [
+	{
+		"published":"2016-05-05",
+		"url":"https://www.linkedin.com/pulse/roi-learning-mark-taylor"
+	}
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "id":"25049d66-34dc-4509-a389-e021eae3e21b",
+  "url":"why-is-software-development-so-complex",
+  "author":"Mark Taylor",
+  "published":"2016-02-18",
+  "modified":"2016-02-18",
+  "title":"Why is software development so complex?",
+  "image":"/media/blog/why-is-software-development-so-complex/HeaderImage.png",
+  "description":"In this article, the second in my series explaining better ROI from software development, I expand on why it is so complex.",
+  "enabled":true,
+  "keyWords":["ROI","ITManagement"],
+  "redirects":[],
+  "previouslyPublished": [
+	{
+		"published":"2016-02-18",
+		"url":"https://www.linkedin.com/pulse/why-software-development-so-complex-mark-taylor"
+	}
+  ]
+}

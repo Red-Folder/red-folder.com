@@ -17,7 +17,7 @@ Other links:
 ## Comments on the exam
 I can't comment greatly on the exam due to the NDA; however, when using the above guides keep the exam objectives to hand.  You will find that some of the links are not quite in keeping with the exam (either the subject or version).  You will certainly need to think about some of the older links and if they would still be applicable in the "current" versions.
 
-One item on the exam objectives that concerned me (prior to the test) was the mention of ViewState.  As ViewState does not exist in MVC it seemed an odd item to have.  I raised this in the Microsoft Learning LinkedIn group [(http://lnkd.in/Zfr4D9](http://www.blogger.com/(http://lnkd.in/Zfr4D9)) - which caused an interesting (if not particularly enlightening) conversation.
+One item on the exam objectives that concerned me (prior to the test) was the mention of ViewState.  As ViewState does not exist in MVC it seemed an odd item to have.  I raised this in the Microsoft Learning LinkedIn group [http://lnkd.in/Zfr4D9](http://lnkd.in/Zfr4D9) - which caused an interesting (if not particularly enlightening) conversation.
 
 I can't comment on if ViewState appeared in the exam, but as a rounded developer it makes sense to review it you have the time (regardless of the exam).  If you are working in MVC - at some point in your career you will likely have to maintain legacy ASP.Net web forms site.  Also is helpful if you are trying to explain why MVC is better architecture than ASP.Net web forms.
 

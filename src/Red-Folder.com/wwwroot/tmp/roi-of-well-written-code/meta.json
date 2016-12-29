@@ -1,0 +1,19 @@
+{
+  "id":"9cabb8a0-4c78-48e8-be13-f4fd7b60b1a2",
+  "url":"roi-of-well-written-code",
+  "author":"Mark Taylor",
+  "published":"2016-05-25",
+  "modified":"2016-05-25",
+  "title":"ROI of well written code",
+  "image":"/media/blog/roi-of-well-written-code/HeaderImage.png",
+  "description":"In this article, part of my series explaining better ROI from software development, I’d like to look at well written code.",
+  "enabled":true,
+  "keyWords":["ROI","ITManagement"],
+  "redirects":[],
+  "previouslyPublished": [
+	{
+		"published":"2016-05-25",
+		"url":"https://www.linkedin.com/pulse/roi-well-written-code-mark-taylor"
+	}
+  ]
+}

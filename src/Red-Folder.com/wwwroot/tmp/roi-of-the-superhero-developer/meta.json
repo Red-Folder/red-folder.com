@@ -1,0 +1,19 @@
+{
+  "id":"0d17946b-5054-49ce-bee6-594294d56904",
+  "url":"roi-of-the-superhero-developer",
+  "author":"Mark Taylor",
+  "published":"2016-04-20",
+  "modified":"2016-04-20",
+  "title":"ROI of the Hero Developer",
+  "image":"/media/blog/roi-of-the-superhero-developer/HeaderImage.png",
+  "description":"In this article, part of my series explaining better ROI from software development, I’d like to look at the Hero Developer.",
+  "enabled":true,
+  "keyWords":["ROI","ITManagement"],
+  "redirects":[],
+  "previouslyPublished": [
+	{
+		"published":"2016-04-20",
+		"url":"https://www.linkedin.com/pulse/roi-hero-developer-mark-taylor"
+	}
+  ]
+}

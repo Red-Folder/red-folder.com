@@ -1,0 +1,19 @@
+{
+  "id":"fed91e2b-4ef7-417d-989a-c5d143afd4c7",
+  "url":"focus-and-productivity",
+  "author":"Mark Taylor",
+  "published":"2016-03-30",
+  "modified":"2016-03-30",
+  "title":"Focus and Productivity",
+  "image":"/media/blog/focus-and-productivity/HeaderImage.png",
+  "description":"In this article, part of my series explaining better ROI from software development, I’d like to look at the productivity and flow.",
+  "enabled":true,
+  "keyWords":["ROI","ITManagement"],
+  "redirects":[],
+  "previouslyPublished": [
+	{
+		"published":"2016-03-30",
+		"url":"https://www.linkedin.com/pulse/focus-productivity-mark-taylor"
+	}
+  ]
+}

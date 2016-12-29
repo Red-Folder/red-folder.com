@@ -1,0 +1,19 @@
+{
+  "id":"c684c864-ff7d-41c4-99df-6ed62d6f0415",
+  "url":"software-development-maturity-model",
+  "author":"Mark Taylor",
+  "published":"2016-05-18",
+  "modified":"2016-05-18",
+  "title":"Software development maturity model",
+  "image":"/media/blog/software-development-maturity-model/HeaderImage.png",
+  "description":"In this article, part of my series explaining better ROI from software development, I’d like to look at maturity models.",
+  "enabled":true,
+  "keyWords":["ROI","ITManagement"],
+  "redirects":[],
+  "previouslyPublished": [
+	{
+		"published":"2016-05-18",
+		"url":"https://www.linkedin.com/pulse/software-development-maturity-model-mark-taylor"
+	}
+  ]
+}

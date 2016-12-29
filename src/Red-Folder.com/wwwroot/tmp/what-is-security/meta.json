@@ -1,0 +1,19 @@
+{
+  "id":"76baa4eb-c36a-4ad3-b8b9-fd5f4785f999",
+  "url":"what-is-security",
+  "author":"Mark Taylor",
+  "published":"2016-03-17",
+  "modified":"2016-03-17",
+  "title":"What is Security?",
+  "image":"/media/blog/what-is-security/HeaderImage.png",
+  "description":"In this article, part of my series explaining better ROI from software development, I look at Security.",
+  "enabled":true,
+  "keyWords":["ROI","ITManagement","Security"],
+  "redirects":[],
+  "previouslyPublished": [
+	{
+		"published":"2016-03-17",
+		"url":"https://www.linkedin.com/pulse/what-security-mark-taylor"
+	}
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "id":"a3cc17ae-1579-44ee-9d98-6ce17fa1ef0d",
+  "url":"roi-of-failure",
+  "author":"Mark Taylor",
+  "published":"2016-04-13",
+  "modified":"2016-04-13",
+  "title":"ROI of Failure",
+  "image":"/media/blog/roi-of-failure/HeaderImage.png",
+  "description":"In this article, part of my series explaining better ROI from software development, I’d like to look at the Failure.",
+  "enabled":true,
+  "keyWords":["ROI","ITManagement"],
+  "redirects":[],
+  "previouslyPublished": [
+	{
+		"published":"2016-04-13",
+		"url":"https://www.linkedin.com/pulse/roi-failure-mark-taylor"
+	}
+  ]
+}

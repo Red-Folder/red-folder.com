@@ -26,6 +26,6 @@ The following has been taken from the April 11th [Angular weekly meeting](https:
 > ngLint: Minko Gechev is  building a linter tool to give real time feedback to developers to help them follow the style guide.  Integrating with Language Services so developers can get this help on command line and in IDEs.”
 
 ## Shameless self-promotion
-Within my ROI series on LinkedIn, I’ve taken a look at the ROI of Building the thing right.  This [article](https://www.linkedin.com/pulse/roi-building-thing-right-mark-taylor) looks at why it can be a better ROI to focus on the IT excellence than aligning IT the business.
+Within my ROI series on LinkedIn, I’ve taken a look at the ROI of Building the thing right.  This [article](/blog/roi-of-building-the-thing-right) looks at why it can be a better ROI to focus on the IT excellence than aligning IT the business.
 
 The fifth article of my Asp.Net Core series is currently mid progress.  I’m adding a very basic WebAPI plumbed into a simple Angular app.  I should have this released within the week.

@@ -52,6 +52,6 @@ None of this is helped by the lack of understanding within the recruitment space
 
 Shameless self promotion
 ------------------------
-Release the 4th and final part of my ROI of Scrum articles.  It can be found [here](https://www.linkedin.com/pulse/roi-scrum-part-4-pitfalls-mark-taylor).  In this part I look at some of pitfalls of Scrum and how to address them.
+Release the 4th and final part of my ROI of Scrum articles.  It can be found [here](/blog/roi-of-scrum-part-4-pitfalls).  In this part I look at some of pitfalls of Scrum and how to address them.
 
 I'm slowly making www.red-folder.com ready to migrate the Blogger content.  As you can see I've started to add new RFC Weeklies to www.red-folder.com directly rather than going through Blogger.  There are a few changes I'd like to make to basic display, then I'll look at migrating the old content.  Hopefully once I've got the Continuous Deployment into place, I should be able to kick through those changes fairly quickly.  I'd like to have retired Blogger by the end of the year (fingers crossed - I know I've other commitments that will leave little time).

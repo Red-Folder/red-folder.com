@@ -49,7 +49,7 @@ Unfortunately, it is unlikely to be a technology that I look at anytime soon due
 
 Shameless self promotion
 ------------------------
-Within my ROI series, I've added the second part looking at Scrum. It can be found [here](https://www.linkedin.com/pulse/roi-scrum-part-2-advice-mark-taylor)
+Within my ROI series, I've added the second part looking at Scrum. It can be found [here](/blog/roi-of-scrum-part-2-advice)
 
 In other news, I've started to move my blog within the website. I'm slowly working through it. This should make the second posting. I've mainly been concentrating on providing the appropriate markup for Twitter & LinkedIn.
 
