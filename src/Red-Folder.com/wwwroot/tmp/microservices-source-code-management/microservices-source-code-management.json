@@ -8,6 +8,6 @@
   "image":null,
   "description":"In this post I shall be concentrating on how I shall be managing the source code.  For any development project, it is important to setup your source control.  This should be the first step in any development project.  I plan to discuss how I want the source management to work and how I'm going to achieve it.",
   "enabled":true,
-  "keyWords":["C#","GitHub","Microservices","WebAPI"],
+  "keyWords":["C#","GitHub","MicroServices","WebAPI"],
   "redirects":[{"redirectType":301,"url":"http://blog.red-folder.com/2015/06/microservices-source-code-management.html","redirectByRoute":false,"redirectByParameter":true}]
 }

@@ -8,6 +8,6 @@
   "image":"/media/blog/rfc-weekly/RFCWeeklyTwitterCard.png",
   "description":"This week I look at tool for assisting in the port from .Net to .Net Core and Azure Security Center.",
   "enabled":true,
-  "keyWords":["RFCWeekly", "ASP.Net Code", "Azure"],
+  "keyWords":["RFC Weekly", "ASP.Net Core", "Azure"],
   "redirects":[{"redirectType":301,"url":"http://blog.red-folder.com/2016/08/rfc-weekly-15th-august-2016.html","redirectByRoute":false,"redirectByParameter":true}]
 }

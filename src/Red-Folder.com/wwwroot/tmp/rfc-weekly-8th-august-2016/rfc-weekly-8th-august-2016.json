@@ -8,6 +8,6 @@
   "image":"/media/blog/rfc-weekly/RFCWeeklyTwitterCard.png",
   "description":"This week I look at Katacode - a training/ learning facility, the humanitarian toolbox, Bootstrap 4, Angular 2 tools and Progressive Web Apps.",
   "enabled":true,
-  "keyWords":["RFCWeekly", "Bootstrap", "Angular"],
+  "keyWords":["RFC Weekly", "Bootstrap", "Angular"],
   "redirects":[{"redirectType":301,"url":"http://blog.red-folder.com/2016/08/rfc-weekly-8th-august-2016.html","redirectByRoute":false,"redirectByParameter":true}]
 }

@@ -8,6 +8,6 @@
   "image":"/media/blog/rfc-weekly/RFCWeeklyTwitterCard.png",
   "description":"This week I take a look at Agile, Cyber Dojo (a training tool), JavaScript Service Workders (they are the future), an interesting testing tool and Datadog.",
   "enabled":true,
-  "keyWords":["RFCWeekly", "Agile", "JavaScript" ],
+  "keyWords":["RFC Weekly", "Agile", "JavaScript" ],
   "redirects":[{"redirectType":301,"url":"http://blog.red-folder.com/2016/06/rfc-weekly-27th-june-2016.html","redirectByRoute":false,"redirectByParameter":true}]
 }

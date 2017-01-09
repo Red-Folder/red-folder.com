@@ -8,6 +8,6 @@
   "image":"/media/blog/rfc-weekly/RFCWeeklyTwitterCard.png",
   "description":"This week I take a look at TypeScript, NativeScript, the reinvention of the internet security model, zero bugs policy, performance tools and OCR as a Service.",
   "enabled":true,
-  "keyWords":["RFCWeekly", "TypeScript", "JavaScript", "Agile"],
+  "keyWords":["RFC Weekly", "TypeScript", "JavaScript", "Agile"],
   "redirects":[{"redirectType":301,"url":"http://blog.red-folder.com/2016/05/rfc-weekly-9th-may-2016.html","redirectByRoute":false,"redirectByParameter":true}]
 }

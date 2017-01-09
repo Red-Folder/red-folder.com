@@ -8,6 +8,6 @@
   "image":"/media/blog/rfc-weekly/RFCWeeklyTwitterCard.png",
   "description":"This week I take a look at Angular testing, Koa (a contender for the Express crown), why writing tests can make you happier, WbePack, Sitespeed.io and how to make new names for your projects.",
   "enabled":true,
-  "keyWords":["RFCWeekly"],
+  "keyWords":["RFC Weekly"],
   "redirects":[{"redirectType":301,"url":"http://blog.red-folder.com/2016/05/rfc-weekly-15th-may-2016.html","redirectByRoute":false,"redirectByParameter":true}]
 }

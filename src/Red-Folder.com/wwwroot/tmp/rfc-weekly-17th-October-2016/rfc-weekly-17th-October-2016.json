@@ -7,6 +7,6 @@
   "modified": "2016-10-17",
   "title": "RFC Weekly - 17th October 2016",
   "enabled": "true",
-     "keyWords": ["RFCWeekly", "DotNetNorth", "Windows Containers", "Docker", "Azure", "HTML", "HTTP2"],
+     "keyWords": ["RFC Weekly", "DotNetNorth", "Windows Containers", "Docker", "Azure", "HTML", "HTTP2"],
   "author" : "Mark Taylor"
 }

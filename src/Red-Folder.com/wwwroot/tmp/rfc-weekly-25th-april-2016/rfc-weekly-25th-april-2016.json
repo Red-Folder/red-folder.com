@@ -8,6 +8,6 @@
   "image":"/media/blog/rfc-weekly/RFCWeeklyTwitterCard.png",
   "description":"This week I look at Angular Style Guides, JavaScript Protypes, and an amusing look at enterprise scale agile frameworks.",
   "enabled":true,
-  "keyWords":["RFCWeekly", "Agile", "JavaScript", "Angular" ],
+  "keyWords":["RFC Weekly", "Agile", "JavaScript", "Angular" ],
   "redirects":[{"redirectType":301,"url":"http://blog.red-folder.com/2016/04/rfc-weekly-25th-april-2016.html","redirectByRoute":false,"redirectByParameter":true}]
 }

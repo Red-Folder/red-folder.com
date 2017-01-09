@@ -5,7 +5,7 @@
   "modified": "2016-12-26",
   "title": "RFC Weekly - 26th December 2016",
   "enabled": "true",
-  "keyWords": [ "RFCWeekly", "Ethical Hacking", "Security", "DevOps", "Continuous Integration", "React", "WebPack", "Babel", "Jest", "TypeScript" ],
+  "keyWords": [ "RFC Weekly", "Ethical Hacking", "Security", "DevOps", "Continuous Integration", "React", "WebPack", "Babel", "Jest", "TypeScript" ],
   "description": "This week I update on moving my blog, Ethical Hacking training and CI with Jest and TypeScript",
   "image": "/media/blog/rfc-weekly/RFCWeeklyTwitterCard.png",
   "author": "Mark Taylor"

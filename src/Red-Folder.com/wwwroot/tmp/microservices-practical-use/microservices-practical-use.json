@@ -8,6 +8,6 @@
   "image":null,
   "description":"I've been getting very excited recently about Microservices.  It seems a natural progression, and culmination, of multiple architectural ideals.  For me, Microservices are more a state of mind at the moment rather than a practical implementation.  This will be the first of a series of posts as I start to explore the the architecture.",
   "enabled":true,
-  "keyWords":["C#","RESTful","Microservices","WebAPI"],
+  "keyWords":["C#","RESTful","MicroServices","WebAPI"],
   "redirects":[{"redirectType":301,"url":"http://blog.red-folder.com/2015/06/microservices-practical-use.html","redirectByRoute":false,"redirectByParameter":true}]
 }

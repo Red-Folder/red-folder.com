@@ -7,7 +7,7 @@
   "modified": "2016-11-14",
   "title": "RFC Weekly - 14th November 2016",
   "enabled": "true",
-    "keyWords": ["RFCWeekly", "Bot Framework", "DotNetNorth", "Certification"],
+    "keyWords": ["RFC Weekly", "Bot Framework", "DotNetNorth", "Certification"],
   "author" : "Mark Taylor"
 
 }

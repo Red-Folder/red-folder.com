@@ -8,7 +8,7 @@
   "image":"/media/blog/rfc-weekly/RFCWeeklyTwitterCard.png",
   "description":"This week I talk about DotNetNorth (meet up group in Manchester) and a bit of DDD and muscle memory when it comes to working with *nux",
   "enabled":true,
-  "keyWords":["RFCWeekly", "DDD", "DotNetNorth"],
+  "keyWords":["RFC Weekly", "DDD", "DotNetNorth"],
   "redirects":[
     {
       "redirectType":301,

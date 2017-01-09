@@ -8,6 +8,6 @@
   "image":"/media/blog/rfc-weekly/RFCWeeklyTwitterCard.png",
   "description":"This week I take a look at Rollup.js, PluralSight Learning Paths, Azure SQL, Medaitr (for simplified MVC controllers), Cake (C# Make) and a collection of developer docs.",
   "enabled":true,
-  "keyWords":["RFCWeekly", "PluralSight", "Azure", "JavaScript", "C#"],
+  "keyWords":["RFC Weekly", "PluralSight", "Azure", "JavaScript", "C#"],
   "redirects":[{"redirectType":301,"url":"http://blog.red-folder.com/2016/08/rfc-weekly-1st-august-2016.html","redirectByRoute":false,"redirectByParameter":true}]
 }

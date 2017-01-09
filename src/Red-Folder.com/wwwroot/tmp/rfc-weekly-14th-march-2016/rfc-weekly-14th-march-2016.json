@@ -8,6 +8,6 @@
   "image":"/media/blog/rfc-weekly/RFCWeeklyTwitterCard.png",
   "description":"This week I take a look at Microservices, Event Sourcing, CQRS, Agile, Scrum and Azure/ AWS mapping.",
   "enabled":true,
-  "keyWords":["RFCWeekly", "Microservices", "Event Sourcing", "CQRS", "Agile", "Scrum", "Azure", "AWS"],
+  "keyWords":["RFC Weekly", "MicroServices", "Event Sourcing", "CQRS", "Agile", "Scrum", "Azure", "AWS"],
   "redirects":[{"redirectType":301,"url":"http://blog.red-folder.com/2016/03/rfc-weekly-14th-march-2016.html","redirectByRoute":false,"redirectByParameter":true}]
 }

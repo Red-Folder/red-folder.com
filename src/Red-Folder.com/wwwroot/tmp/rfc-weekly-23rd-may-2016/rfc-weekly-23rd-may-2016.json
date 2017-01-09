@@ -8,6 +8,6 @@
   "image":"/media/blog/rfc-weekly/RFCWeeklyTwitterCard.png",
   "description":"This week I take a look at Azure DNS, useful JavaScript hacks, .Net Core RC2, a debugging thought process and the rise of the bootcamp developer.",
   "enabled":true,
-  "keyWords":["RFCWeekly", "Azure", "JavaScript", "ASP.Net Core" ],
+  "keyWords":["RFC Weekly", "Azure", "JavaScript", "ASP.Net Core" ],
   "redirects":[{"redirectType":301,"url":"http://blog.red-folder.com/2016/05/rfc-weekly-23rd-may-2016.html","redirectByRoute":false,"redirectByParameter":true}]
 }

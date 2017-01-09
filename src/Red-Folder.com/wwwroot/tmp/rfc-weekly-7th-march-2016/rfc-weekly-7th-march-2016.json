@@ -8,6 +8,6 @@
   "image":"/media/blog/rfc-weekly/RFCWeeklyTwitterCard.png",
   "description":"This is the first of my RFC Weeklies - a summary of things that I find interesting. It is an indulgence; its the weekly update that I would like to receive. Unfortunately no-one else is producing it so I figured I best get on with it. Hopefully someone else also find useful.  This week I look at ASP.Net Core, Xamarin, Microsoft Certification retirement and Pension changes.",
   "enabled":true,
-  "keyWords":["RFCWeekly", "ASP.Net Core", "Xamarin"],
+  "keyWords":["RFC Weekly", "ASP.Net Core", "Xamarin"],
   "redirects":[{"redirectType":301,"url":"http://blog.red-folder.com/2016/03/rfc-weekly-7th-march-2016.html","redirectByRoute":false,"redirectByParameter":true}]
 }

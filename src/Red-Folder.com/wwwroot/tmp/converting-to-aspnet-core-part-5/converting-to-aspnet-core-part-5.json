@@ -5,7 +5,7 @@
   "published":"2016-07-17T16:00:00+01:00",
   "modified":"2016-07-21T17:22:05.754+01:00",
   "title":"Converting to ASP.Net Core - Part 5",
-  "image":"/images/blog/AspNetCoreSeries.png",  "description":"In this, the fifth article in my series coverting my website over over to ASP.Net Code & MVC 6, I add a simple WebApi.",
+  "image":"/images/blog/AspNetCoreSeries.png",  "description":"In this, the fifth article in my series coverting my website over over to ASP.Net Core & MVC 6, I add a simple WebApi.",
   "enabled":true,
   "keyWords":["ASP.Net Core","MVC 6","Angular","WebAPI"],
   "redirects":[{"redirectType":301,"url":"http://blog.red-folder.com/2016/07/converting-to-aspnet-core-part-5.html","redirectByRoute":false,"redirectByParameter":true}]

@@ -8,6 +8,6 @@
   "image":"/media/blog/rfc-weekly/RFCWeeklyTwitterCard.png",
   "description":"This week I take a look at jQuery 3 RC, HyperDev (online dev tool from the same guys that brough us Trello), a business information tool, explanation of Opensource licensing, Windows Containers and Data Science through competitions.",
   "enabled":true,
-  "keyWords":["RFCWeekly", "Windows Containers" ],
+  "keyWords":["RFC Weekly", "Windows Containers" ],
   "redirects":[{"redirectType":301,"url":"http://blog.red-folder.com/2016/06/rfc-weekly-13th-june-2016.html","redirectByRoute":false,"redirectByParameter":true}]
 }

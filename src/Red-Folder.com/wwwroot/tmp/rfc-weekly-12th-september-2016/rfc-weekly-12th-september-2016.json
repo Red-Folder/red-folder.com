@@ -8,6 +8,6 @@
   "image":"/media/blog/rfc-weekly/RFCWeeklyTwitterCard.png",
   "description":"After a few weeks away, I take a momenet to think about what I want to look at for the remainer of the year.  Some of this is website changes ... some of it is learning ... some of it is more of the same.",
   "enabled":true,
-  "keyWords":["RFCWeekly"],
+  "keyWords":["RFC Weekly"],
   "redirects":[{"redirectType":301,"url":"http://blog.red-folder.com/2016/09/rfc-weekly-12th-september-2016.html","redirectByRoute":false,"redirectByParameter":true}]
 }

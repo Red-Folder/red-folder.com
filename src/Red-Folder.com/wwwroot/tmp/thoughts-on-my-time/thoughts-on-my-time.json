@@ -8,6 +8,6 @@
   "image":null,
   "description":"After quite a blogging gap, a catch up on what it happening in my world.",
   "enabled":true,
-  "keyWords":["Visual Studio", "Extensions", "Cordova", "ITManagement", "Bootstrap"],
+  "keyWords":["Visual Studio", "Extensions", "Cordova", "IT Management", "Bootstrap"],
   "redirects":[{"redirectType":301,"url":"http://blog.red-folder.com/2014/04/thoughts-on-my-time.html","redirectByRoute":false,"redirectByParameter":true}]
 }

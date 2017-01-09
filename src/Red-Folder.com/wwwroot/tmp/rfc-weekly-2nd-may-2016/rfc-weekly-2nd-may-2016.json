@@ -8,6 +8,6 @@
   "image":"/media/blog/rfc-weekly/RFCWeeklyTwitterCard.png",
   "description":"This week I take a look at being a good Opensource citizen, how bugs are normal and Angular 2.",
   "enabled":true,
-  "keyWords":["RFCWeekly", "Agile", "Angular"],
+  "keyWords":["RFC Weekly", "Agile", "Angular"],
   "redirects":[{"redirectType":301,"url":"http://blog.red-folder.com/2016/05/rfc-weekly-2nd-may-2016.html","redirectByRoute":false,"redirectByParameter":true}]
 }

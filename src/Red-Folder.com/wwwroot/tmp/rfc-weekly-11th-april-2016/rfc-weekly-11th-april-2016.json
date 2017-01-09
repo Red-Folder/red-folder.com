@@ -8,6 +8,6 @@
   "image":"/media/blog/rfc-weekly/RFCWeeklyTwitterCard.png",
   "description":"This week I look at using Gulp to build and deploy .Net apps, Microsoft Graph, MS Deploy, Azure Functions, PostCSS and Azure Service Fabric.",
   "enabled":true,
-  "keyWords":["RFCWeekly", "Gulp", "C#", "Azure Functions", "CSS", "Azure"],
+  "keyWords":["RFC Weekly", "Gulp", "C#", "Azure Functions", "CSS", "Azure"],
   "redirects":[{"redirectType":301,"url":"http://blog.red-folder.com/2016/04/rfc-weekly-11th-april-2016.html","redirectByRoute":false,"redirectByParameter":true}]
 }

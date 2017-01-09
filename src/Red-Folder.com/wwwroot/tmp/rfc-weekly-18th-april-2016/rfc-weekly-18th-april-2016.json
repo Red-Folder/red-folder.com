@@ -8,6 +8,6 @@
   "image":"/media/blog/rfc-weekly/RFCWeeklyTwitterCard.png",
   "description":"This week I take a look as CSS modules, Angular learning, imposter syndrome and the economy of keystrokes.",
   "enabled":true,
-  "keyWords":["RFCWeekly", "CSS", "Angular"],
+  "keyWords":["RFC Weekly", "CSS", "Angular"],
   "redirects":[{"redirectType":301,"url":"http://blog.red-folder.com/2016/04/rfc-weekly-18th-april-2016.html","redirectByRoute":false,"redirectByParameter":true}]
 }

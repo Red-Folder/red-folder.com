@@ -8,6 +8,6 @@
   "image":"/images/blog/AspNetCoreSeries.png",
   "description":"In this, the fourth in my series of converting my website to ASP.Net Core & MVC 6, I take a deeper dive into the Gulp pipeline.",
   "enabled":true,
-  "keyWords":["ASP.Net Core","MVC 6","Gulp","Javascript"],
+  "keyWords":["ASP.Net Core","MVC 6","Gulp","JavaScript"],
   "redirects":[{"redirectType":301,"url":"http://blog.red-folder.com/2016/04/converting-to-aspnet-core-part-4.html","redirectByRoute":false,"redirectByParameter":true}]
 }

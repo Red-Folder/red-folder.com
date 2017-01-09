@@ -8,6 +8,6 @@
   "image":"/media/blog/rfc-weekly/RFCWeeklyTwitterCard.png",
   "description":"This week I take a quick look at the TypeScript 2.0 RC, the major misunderstanding with HttpClient and .netstandard libraries.",
   "enabled":true,
-  "keyWords":["RFCWeekly", "TypeScript", ".netstandard" ],
+  "keyWords":["RFC Weekly", "TypeScript", ".netstandard" ],
   "redirects":[{"redirectType":301,"url":"http://blog.red-folder.com/2016/09/rfc-weekly-19th-september-2016.html","redirectByRoute":false,"redirectByParameter":true}]
 }

@@ -8,6 +8,6 @@
   "image":"/media/blog/rfc-weekly/RFCWeeklyTwitterCard.png",
   "description":"This week I take a look at API design, an online monitoring tool, Cloudflare, Staff satifaction monitoring, Feature Toggles, Octokit.Net and how to understand the MVC pattern through drink.",
   "enabled":true,
-  "keyWords":["RFCWeekly"],
+  "keyWords":["RFC Weekly"],
   "redirects":[{"redirectType":301,"url":"http://blog.red-folder.com/2016/06/rfc-weekly-20th-june-2016.html","redirectByRoute":false,"redirectByParameter":true}]
 }

@@ -7,6 +7,6 @@
   "modified": "2016-10-24",
   "title": "RFC Weekly - 24th October 2016",
   "enabled": "true",
-     "keyWords": ["RFCWeekly", "Security", "Azure Functions", "ASP.Net Core", "C#"],
+     "keyWords": ["RFC Weekly", "Security", "Azure Functions", "ASP.Net Core", "C#"],
   "author" : "Mark Taylor"
 }

@@ -7,7 +7,7 @@
   "modified": "2016-11-28",
   "title": "RFC Weekly - 28th November 2016",
   "enabled": "true",
-    "keyWords": ["RFCWeekly", "Ethical Hacking", "Security", "Azure Functions", "DocumentDB"],
+    "keyWords": ["RFC Weekly", "Ethical Hacking", "Security", "Azure Functions", "DocumentDB"],
   "author" : "Mark Taylor"
 
 }

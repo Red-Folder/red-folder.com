@@ -8,6 +8,6 @@
   "image":"/media/blog/rfc-weekly/RFCWeeklyTwitterCard.png",
   "description":"This week I look at Entity Framework 7, JavaScript frameworks, Octopus Deploy, Azure Continuous Delivery and security.",
   "enabled":true,
-  "keyWords":["RFCWeekly", "Entity Framework", "JavaScript", "Octopus Deploy", "Azure", "Continuous Delivery", "Security"],
+  "keyWords":["RFC Weekly", "Entity Framework", "JavaScript", "Octopus Deploy", "Azure", "Continuous Delivery", "Security"],
   "redirects":[{"redirectType":301,"url":"http://blog.red-folder.com/2016/03/rfc-weekly-21st-march-2016.html","redirectByRoute":false,"redirectByParameter":true}]
 }
