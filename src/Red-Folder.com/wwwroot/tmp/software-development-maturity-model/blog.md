@@ -61,7 +61,9 @@ I would however ask you to look again.
 Within martial arts, there is the concept of Shu-Ha-Ri (I believe I've talked about this before, but can’t for the life of me remember which article)
 
 > “**Shu**: In this beginning stage the student follows the teachings of one master precisely. He concentrates on how to do the task, without worrying too much about the underlying theory. If there are multiple variations on how to do the task, he concentrates on just the one way his master teaches him.
+
 > **Ha**: At this point the student begins to branch out. With the basic practices working he now starts to learn the underlying principles and theory behind the technique. He also starts learning from other masters and integrates that learning into his practice.
+
 > **Ri**: Now the student isn't learning from other people, but from his own practice. He creates his own approaches and adapts what he's learned to his own particular circumstances.” [Martin Fowler](http://martinfowler.com/bliki/ShuHaRi.html)
 
 Be very careful of not falling into the trap of believing you have achieved mastery early and dismiss a powerful tool purely because you don’t understand it.

@@ -27,7 +27,7 @@ As I hope to illustrate through this article, not doing so can put you at real r
 ## An example
 
 The following it taken from [IT Jobs Watch for Developers](http://www.itjobswatch.co.uk/jobs/uk/developer.do#salary_trend):
-![Saraly Trends](/media/blog/it-market=-economic-shock/salary-trend.png)
+![Saraly Trends](/media/blog/it-market-economic-shock/salary-trend.png)
 
 You can see that the Average has gone from around £35k in January 2009 to around £45k in 2016. That is a 28% uplift.
 

@@ -8,7 +8,7 @@ Generally this expected saving is misplaced.
 
 ## Homework before we start
 
-This article was inspired by an article by Troy Hunt which can be found here. I’d definitely recommend a read of that first as this article builds on it.
+This article was inspired by an article by Troy Hunt which can be found [here](http://www.troyhunt.com/offshoring-roulette-lessons-from-outsourcing-to-india-china-and-the-philippines/). I’d definitely recommend a read of that first as this article builds on it.
 
 Troy is a greatly respected IT security expert. He is regularly used as an authority voice by the media – having made appearances for BBC, CNN, The New York Timers & the Wall Street Journal.
 

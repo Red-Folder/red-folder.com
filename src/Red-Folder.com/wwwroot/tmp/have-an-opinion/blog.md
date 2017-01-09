@@ -1,4 +1,4 @@
-In my previous article [All I want for Christmas is feedback]("/blog/all-i-want-for-christmas-is-feedback"), I wrote about actively seeking out feedback to improve yourself professionally. I follow that theme by encouraging you to put yourself into a position where you voice an opinion to solicit feedback and thus evolve you opinion.
+In my previous article [All I want for Christmas is feedback](/blog/all-i-want-for-christmas-is-feedback), I wrote about actively seeking out feedback to improve yourself professionally. I follow that theme by encouraging you to put yourself into a position where you voice an opinion to solicit feedback and thus evolve you opinion.
 
 Part of this post if born of frustration. Over the years I've facilitated a lot of meetings and had a fair few when a room of incredibly intelligent individuals simply aren't putting forward their thoughts – largely resulting in everyone looking at each other blanking waiting for someone to provide the starting point.
 

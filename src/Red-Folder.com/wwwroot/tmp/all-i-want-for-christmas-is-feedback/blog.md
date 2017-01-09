@@ -2,7 +2,7 @@ Originally I toyed with a number of titles for this article; “Feedback junkie�
 
 Over my career I have become more and more comfortable with accepting (and giving) feedback. So much so, that now I actively seek it out.
 
-![NegativeFeedback](/media/blog/NegativeScales.png)
+![NegativeFeedback](/media/blog/all-i-want-for-christmas-is-feedback/NegativeScales.png)
 
 Now, have I always been receptive to feedback? No. You’d only need to talk to some of my previous managers to dispel that myth.
 
@@ -40,7 +40,7 @@ The same is true of the agile movement. The agile movement has grown in populari
 
 This is all backed by well established scientific process – have a theory, build a test, run the test, measure the results and evolve your theory.
 
-![PositiveFeedback](/media/blog/PositiveScales.png)
+![PositiveFeedback](/media/blog/all-i-want-for-christmas-is-feedback/PositiveScales.png)
 
 So, why wouldn't you want the same for your professional career?
 

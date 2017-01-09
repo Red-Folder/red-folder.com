@@ -131,8 +131,8 @@ Open Source Projects are generally software libraries that are available to anyo
 For example, I've previously contributed to a project called [Octokit.net](https://github.com/octokit/octokit.net). The details of the project aren't important. But it has given me the opportunity to rub shoulders with some of the celebrities in software development.
 
 For the improvements I made, I received these thumbs up from Phil Haack (talk to your development team – they’ll explain). I was so proud.
-![PhilHack1](/media/blog/philhack1.gif)
-![PhilHack2](/media/blog/philhack2.gif)
+![PhilHack1](/media/blog/roi-of-learning/philhack1.gif)
+![PhilHack2](/media/blog/roi-of-learning/philhack2.gif)
 
 Aside from the kudos of such feedback, by studying how they projects have been built I've learnt a considerable amount on best practice.
 

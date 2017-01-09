@@ -134,13 +134,18 @@ In my last article, I talked a bit about how software developers are knowledge w
 In the book Drive by Daniel H. Pink, Daniel describes three drives:
 
 * Drive 1 – Biological motivators
+
 ** Hunger
 ** Thirst
 ** Carnal Urges
+
 * Drive 2 – External motivators
+
 ** Reward
 ** Punishment
+
 * Drive 3 – Intrinsic motivators
+
 ** Own enjoyment
 ** Own sense of purpose
 

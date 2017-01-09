@@ -14,22 +14,30 @@ If you studied Lean or Radical Management techniques, then you’ll see a lot of
 
 ## What is Agile Software Development?
 
-> “Agile software development is a set of principles for software development in which requirements and solutions evolve through collaboration between self-organizing, cross-functional teams.” Wikipedia
+> “Agile software development is a set of principles for software development in which requirements and solutions evolve through collaboration between self-organizing, cross-functional teams.” [Wikipedia](https://en.wikipedia.org/wiki/Agile_software_development)
 
 For me, the best way to understand Agile is to review the Agile Manifest created in 2001 by some of software developments leading figures. A group that wanted to document underlying values they believed should be used in software development.
 
-> “At the core, I believe Agile Methodologists are really about "mushy" stuff - about delivering good products to customers by operating in an environment that does more than talk about "people as our most important asset" but actually "acts" as if people were the most important, and lose the word "asset".” Agile Manifesto 
+> “At the core, I believe Agile Methodologists are really about "mushy" stuff - about delivering good products to customers by operating in an environment that does more than talk about "people as our most important asset" but actually "acts" as if people were the most important, and lose the word "asset".” [Agile Manifesto](http://www.agilemanifesto.org/history.html) 
 
 ## The Agile Manifesto
 
 > “We are uncovering better ways of developing 
+
 > software by doing it and helping others do it. 
+
 > Through this work we have come to value:
+
 > **Individuals and interactions** over processes and tools 
+
 > **Working software** over comprehensive documentation 
+
 > **Customer collaboration** over contract negotiation 
+
 > **Responding to change** over following a plan
+
 > That is, while there is value in the items on 
+
 > the right, we value the items on the left more.” [Agile Manifesto](http://www.agilemanifesto.org/)
 
 It is probably worth taking a few minutes to re-read the above. It’s important and shouldn't be skimmed.
@@ -185,6 +193,7 @@ If you wanted to read ahead, you can see that [here](http://agilemanifesto.org/p
 ## Further reading
 
 Agile Manifesto
+
 • [Statement](http://agilemanifesto.org/)
 • [Principles](http://agilemanifesto.org/principles.html)
 • [History](http://agilemanifesto.org/history.html)
