@@ -76,7 +76,7 @@ Not had a chance to watch this yet – but keen to promote given that I’ve a c
 Really great project to play with – good structure and good testing.  I learn a few xUnit things from the project.  Definitely one of those examples that are good to help build your personal capabilities by learning from some really good developers.
 
 ## Shameless self-promotion
-Only one article this week – in my ROI series I’ve looked at a report extolling the virtues of [Microsoft Certifications](/blog/roi-of-microsoft-certifications).  I declare a bias as I have one – but I did find the underlying report interesting.
+Only one article this week – in my ROI series I’ve looked at a report extolling the virtues of [Microsoft Certifications](/blog/roi-of-microsoft-certification).  I declare a bias as I have one – but I did find the underlying report interesting.
 
 Very slowly, I’m still working on converting www.red-folder.com over to .Net Core/ Asp.Net Core – but I’ve somewhat distracted myself with Angular.  It is a framework that I wanted to learn this year (probably along with Angular 2) – so I keep digging further and further into the framework.  At this point I think I have some more work to update the tooling, implement standards as documented in the [Style Guide](https://github.com/johnpapa/angular-styleguide/tree/master/a1) and put proper testing in as covered in this [Pluralsight course](https://app.pluralsight.com/library/courses/play-by-play-angular-testing-papa-bell/table-of-contents).
 

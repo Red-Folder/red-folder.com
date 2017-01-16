@@ -1,4 +1,4 @@
-In this article, part of my series explaining better ROI from software development, I’ll be giving some advice when considering Scrum. If you are not familiar with Scrum, please refer to my primer [here](/blog/roi-of-scrum-part-1-primer).
+In this article, part of my series explaining better ROI from software development, I’ll be giving some advice when considering Scrum. If you are not familiar with Scrum, please refer to my primer [here](/blog/roi-of-scrum-part-1-a-primer).
 
 A brief note on intended audience; this article is not intended as a training guide for Scrum. There are a lot of resources out there. Much better than I could every produce. This is much more an introduction from a Return On Investment perspective aimed at business leaders.
 
