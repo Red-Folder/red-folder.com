@@ -1,0 +1,12 @@
+﻿{
+  "id": "4cc8040b-ca82-44fd-9397-9ca2c6f20882",
+  "url": "stateful-microservices",
+  "published": "2017-01-20",
+  "modified": "2017-01-20",
+  "title": "Stateful MicroServices",
+  "enabled": "true",
+  "keyWords": ["Azure Functions", "Azure", "MicroServices", "Service Fabric"],
+  "description": "A quick article looking at the options for simple stateful MicroService on the Azure platform.",
+ 	"image" : "",
+  "author" : "Mark Taylor"
+}

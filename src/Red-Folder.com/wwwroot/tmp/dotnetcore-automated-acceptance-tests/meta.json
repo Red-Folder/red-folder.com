@@ -1,0 +1,12 @@
+﻿{
+  "id": "4c4623ba-947c-4ef6-b7d8-c60836f5c7c1",
+  "url": "dotnetcore-automated-acceptance-tests",
+  "published": "2017-01-21",
+  "modified": "2017-01-21",
+  "title": ".Net Core Automated Acceptance Tests",
+  "enabled": "true",
+  "keyWords": ["Continuous Delivery", "ASP.Net Core", "BDD", "SpecFlow", "Selenium"],
+  "description": "In this article I take a look at the readiness of SpecFlow & Selenium for ASP.Net Core Automated Acceptance Testing",
+ 	"image" : "",
+  "author" : "Mark Taylor"
+}

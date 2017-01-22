@@ -1,0 +1,12 @@
+﻿{
+  "id": "a7793d72-c8f8-4621-afdc-aa45a4104ac2",
+  "url": "azure-functions-continuous-delivery",
+  "published": "2017-01-22",
+  "modified": "2017-01-22",
+  "title": "Azure Functions Continuous Delivery",
+  "enabled": "true",
+  "keyWords": ["Azure Functions", "Continuous Delivery", "Octopus Deploy", "VSTS", "MicroServices"],
+  "description": "With the previous release of Visual Studio tools for Azure functions, I wanted to take a look at Continuous Delivery using Visual Studio Team Services and Octopus Deploy",
+ 	"image" : "",
+  "author" : "Mark Taylor"
+}
