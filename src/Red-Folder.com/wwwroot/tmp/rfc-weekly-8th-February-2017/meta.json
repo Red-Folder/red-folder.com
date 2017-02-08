@@ -1,0 +1,12 @@
+﻿{
+  "id": "1bba315e-d5fa-4af8-827a-41c1b53c0001",
+  "url": "rfc-weekly-8th-Febraury-2017",
+  "published": "2017-02-08",
+  "modified": "2017-02-08",
+  "title": "RFC Weekly - 8th February 2017",
+  "enabled": "true",
+  "keyWords": ["RFC Weekly", "Ethical Hacking", "Security", "VSTS", "ASP.Net Core", "BDD", "SpecFlow", "EF Core", "Contracting"],
+  "description": "This week I update on my Ethical Hacking progress, Bot security, progress on my blog engine and a few links that caught my eye.",
+ 	"image" : "/media/blog/rfc-weekly/RFCWeeklyTwitterCard.png",
+  "author" : "Mark Taylor"
+}

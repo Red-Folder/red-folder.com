@@ -5,7 +5,7 @@
   "modified": "2017-01-23",
   "title": "RFC Weekly - 23rd January 2017",
   "enabled": "true",
-  "keyWords": [ "RFCWeekly", "Ethical Hacking", "Security", "Cordova", "Background Service" ],
+  "keyWords": [ "RFC Weekly", "Ethical Hacking", "Security", "Cordova", "Background Service" ],
   "description": "This week I updated on Ethical Hacking progress, plans for blog migration, end-ofcontract planning and thoughts on my Cordova plugins.  A bit of recap for the start of the year.",
  	"image" : "/media/blog/rfc-weekly/RFCWeeklyTwitterCard.png",
   "author" : "Mark Taylor"
