@@ -3,6 +3,7 @@
 @{
     ViewBag.Title = "MyBio";
     Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.BodyCssClass = "new-css";
 }
 
 <div class="row rfc-header bio-page">
@@ -15,101 +16,136 @@
 
 @Html.Partial("_SkillHighlights")
 
-<div class="center-content">
-    <h3>About me</h3>
-    <div class="row">
-        <div id="bio-photo" class="col-md-2 col-sm-3 hidden-xs">
-            <img class="img-responsive" src="~/Images/Me2.jpg" />
-        </div>
+<div class="row">
+    <div class="col-lg-offset-3">
+        <h2>About Me</h2>
+    </div>
+</div>
 
-        <div id="bio-summary" class="col-md-10 col-sm-9 col-xs-12">
-            <p>
-                I’ve had the pleasure of working within IT for over 20 years.  During that time I’ve been privileged to work with many great people, languages, technologies, systems and process.
-            </p>
-            <p>
-                After all that time and all the changes, I still love IT – especially development.  As an art form (yes, if done right it is an art form) it continues to evolve and grow.  And we must remember that it is still very young – yet to reach its hundredth birthday.  Compare it to something like architecture which has been in existence for thousands – we have such a long way to go – exciting times.
-            </p>
+<div class="row">
+    <div class="col-xs-12 col-lg-offset-3 col-lg-6 rfc-panel rfc-block-link rfc-panel-center" rfc-inner-border>
+        <div class="row">
+            <div id="bio-photo" class="col-sm-3 hidden-xs">
+                <img class="img-responsive" src="~/Images/Me2.jpg" />
+            </div>
+
+            <div id="bio-summary" class="col-sm-9 col-xs-12">
+                <div>
+                    <p>
+                        I’ve had the pleasure of working within IT for over 20 years.  During that time I’ve been privileged to work with many great people, languages, technologies, systems and process.
+                    </p>
+                    <p>
+                        After all that time and all the changes, I still love IT – especially development.  As an art form (yes, if done right it is an art form) it continues to evolve and grow.  And we must remember that it is still very young – yet to reach its hundredth birthday.  Compare it to something like architecture which has been in existence for thousands – we have such a long way to go – exciting times.
+                    </p>
+                </div>
+            </div>
         </div>
     </div>
 </div>
 
-<div class="center-content">
-    <h3>Certifications</h3>
-    <div class="certification">
+<div class="row">
+    <div class="col-lg-offset-3">
+        <h2>Certifications</h2>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-xs-12 col-lg-offset-3 col-lg-6 rfc-panel rfc-block-link rfc-panel-center" rfc-inner-border>
         <div class="row">
             <div class="hidden-xs col-sm-3">
-                <img src="~/Images/PSMI.png" />
+                <img class="img-responsive center-block" style="padding:15px;" src="~/Images/MCSD-App-Builder-logo-Blk.png" />
+            </div>
+            <div class="col-xs-12 col-sm-9">
+                <h4 class="rfc-list-title">Microsoft Certified Solutions Developer: App Builder</h4>
+                <p><small>Sep 2016</small></p>
+                <p>The Microsoft Certified Solutions Developer (MCSD): App Builder certification validates the skills needed to build modern web applications and services.</p>
+                <p><a href="https://www.microsoft.com/en-gb/learning/mcsd-app-builder-certification.aspx">Find out more >></a></p>
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-12 col-lg-offset-3 col-lg-6 rfc-panel rfc-block-link rfc-panel-center" rfc-inner-border>
+        <div class="row">
+            <div class="hidden-xs col-sm-3">
+                <img class="img-responsive center-block" src="~/Images/PSMI.png" />
             </div>
             <div class="col-xs-12 col-sm-9">
                 <h4 class="rfc-list-title">Scrum.Org: Professional Scrum Master (PSM I)</h4>
                 <p><small>Feb 2016</small></p>
+                <p>The Professional Scrum Master level I (PSM I) assessment validates the depth of knowledge of the Scrum framework and its application. </p>
+                <p><a href="https://www.scrum.org/Assessments/Professional-Scrum-Master-Assessments/PSM-I-Assessment">Find out more >></a></p>
             </div>
         </div>
+    </div>
+    <div class="col-xs-12 col-lg-offset-3 col-lg-6 rfc-panel rfc-block-link rfc-panel-center" rfc-inner-border>
         <div class="row">
             <div class="hidden-xs col-sm-3">
-                <img src="~/Images/MCSD_2013(rgb)_1477.png" />
+                <img class="img-responsive center-block" src="~/Images/MCSD_2013(rgb)_1477.png" />
             </div>
             <div class="col-xs-12 col-sm-9">
-                <h4 class="rfc-list-title">Microsoft Certified Solutions Developer: Web Developer</h4>
+                <h4 class="rfc-list-title">Microsoft Certified Solutions Developer: Web Applications</h4>
                 <p><small>Dec 2013, Re-certified December 2015</small></p>
+                <p>The Microsoft Certified Solutions Developer (MCSD): Web Applications certification validates the skills needed by a web developer or web administrator</p>
+                <p><a href="https://www.microsoft.com/en-gb/learning/mcsd-web-apps-certification.aspx">Find out more >></a></p>
             </div>
         </div>
+    </div>
+    <div class="col-xs-12 col-lg-offset-3 col-lg-6 rfc-panel rfc-block-link rfc-panel-center" rfc-inner-border>
         <div class="row">
             <div class="hidden-xs col-sm-3">
-                <img src="~/Images/MS_2013(rgb)_1485.png" />
+                <img class="img-responsive center-block" src="~/Images/MS_2013(rgb)_1485.png" />
             </div>
             <div class="col-xs-12 col-sm-9">
                 <h4 class="rfc-list-title">Microsoft Specialist: Programming in HTML5 with JavaScript and CSS3</h4>
                 <p><small>Feb 2013</small></p>
+                <p>The Microsoft Specalist: Programming in HTML5 with JavaScript and CSS3 certification validates the skills to:</p>
+                <ul>
+                    <li>Implement and manipulate document structures and objects</li>
+                    <li>Implement program flow</li>
+                    <li>Access and secure data</li>
+                    <li>Use CSS3 in applications</li>
+                </ul>
+                <p><a href="https://www.microsoft.com/en-gb/learning/exam-70-480.aspx">Find out more >></a></p>
             </div>
         </div>
     </div>
 </div>
 
+<div class="row">
+    <div class="col-lg-offset-3">
+        <h2>Work History</h2>
+    </div>
+</div>
 
-    @*<h3>Thumbs up wall</h3>
-        <div class="thumbs-up-wall">
-            <div class="col-xs-12 col-sm-3">
-                <img src="~/Images/PhilHaackThumbsUp.gif" />
-            </div>
-            <div class="col-xs-12 col-sm-9">
-                <h4 class="rfc-list-title">From Phil Haack for contribution to the Octokit.net project</h4>
-                <p><small>Jun 2015</small></p>
-                <p>
-                    Added getratelimits to miscellaneousclient to the <a href="https://github.com/octokit/octokit.net">Octokit.net</a> project under pull request <a href="https://github.com/octokit/octokit.net/pull/848#issuecomment-125341327">#848</a>
-                </p>
-            </div>
-        </div>*@
-
-<div class="center-content">
-    <h3>Work History</h3>
+<div class="row">
     @foreach (var employment in Model)
     {
-        <div class="row">
-            <div class="col-xs-12">
-                <h4 class="rfc-list-title">@employment.Title</h4>
-                <p><small>@employment.From to @employment.To</small></p>
+        <div class="col-xs-12 col-lg-offset-3 col-lg-6 rfc-panel rfc-block-link rfc-panel-center" rfc-inner-border>
+            <div class="row">
+                <div class="col-xs-12">
+                    <h3 class="rfc-list-title">@employment.Title</h3>
+                    <p><small>@employment.From to @employment.To</small></p>
 
-                @if (employment.Summary != null)
-                {
-                    <p>
-                        @employment.Summary
-                    </p>
-                }
+                    @if (employment.Summary != null)
+                    {
+                        <p>
+                            @employment.Summary
+                        </p>
+                    }
 
-                @if (employment.Technologies != null && employment.Technologies.Count > 0)
-                {
-                    <p>
-                        Key Technologies:
-                        <ul>
-                            @foreach (var technology in employment.Technologies)
-                            {
-                                <li class="skill-label">@technology</li>
-                            }
-                        </ul>
+                    @if (employment.Technologies != null && employment.Technologies.Count > 0)
+                    {
+                        <p>
+                            Key Technologies:
+                            <ul>
+                                @foreach (var technology in employment.Technologies)
+                                {
+                                    <li class="skill-label">@technology</li>
+                                }
+                            </ul>
 
-                    </p>
-                }
+                        </p>
+                    }
+                </div>
             </div>
         </div>
     }

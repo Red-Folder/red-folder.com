@@ -14,8 +14,26 @@ namespace RedFolder.Controllers.Web
             var employment = new List<Employment>()
             {
                 new Employment(
-                        "Oct 2015",
+                        "Sep 2016",
                         "Present",
+                        "Technical Consultant (Contract), Betfred",
+                        "Providing technical implementation and troubleshooting services across all IT disciplines – architecture, software development, infrastructure, networking and third party engagement.",
+                        new List<string>()
+                        {
+                            "C#",
+                            "ASP.Net Core",
+                            "React",
+                            "Team City",
+                            "Octopus",
+                            "AWS",
+                            "Jest",
+                            "xUnit",
+                            "SpecFlow"
+                        }
+                    ),
+                new Employment(
+                        "Oct 2015",
+                        "Aug 2016",
                         "Lead Developer (Contract), Travelbag/ dnata Travel",
                         "Providing interim leadership to a cross-functional development team responsible for the Travelbag eCommerce websites.",
                         new List<string>()
