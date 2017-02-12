@@ -1,0 +1,36 @@
+﻿@model RedFolder.Website.Data.Blog
+
+<div class="blog-tile col-xs-12 col-sm-6 col-md-4 col-lg-3">
+    <a href="/blog/@Model.Url">
+        <div class="blog-tile-inner">
+            @if (Model.Image != null && Model.Image.Length > 0)
+            {
+                <div class="blog-tile-image">
+                    <img class="image-responsive" src="@Model.Image" />
+                </div>
+            }
+            <h2>@Model.Title</h2>
+            <p class="blog-tile-date">
+                Published: @Model.Published.ToString("dd-MMM-yyyy")
+                @if (Model.Modified != null && Model.Modified.ToString("dd-MMM-yyyy") != Model.Published.ToString("dd-MMM-yyyy"))
+                {
+                    <small>(Modified: @Model.Modified.ToString("dd-MMM-yyyy"))</small>
+                }
+            </p>
+            <p>
+                @Model.Description
+            </p>
+            @if (Model.KeyWords != null && Model.KeyWords.Count() > 0)
+            {
+                <div class="blog-tile-keywords">
+                    <ul>
+                        @foreach (var keyWord in Model.KeyWords)
+                        {
+                            <li class="keyword">@keyWord</li>
+                        }
+                    </ul>
+                </div>
+            }
+        </div>
+    </a>
+</div>

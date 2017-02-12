@@ -46,40 +46,7 @@
 <div class="blog-tiles row">
     @foreach (var blog in Model.BlogsForCurrentPage)
     {
-        <div class="blog-tile col-xs-12 col-sm-6 col-md-4 col-lg-3">
-            <a href="/blog/@blog.Url">
-                <div class="blog-tile-inner">
-                    @if (blog.Image != null && blog.Image.Length > 0)
-                    {
-                        <div class="blog-tile-image">
-                            <img class="image-responsive" src="@blog.Image" />
-                        </div>
-                    }
-                    <h2>@blog.Title</h2>
-                    <p class="blog-tile-date">
-                        Published: @blog.Published.ToString("dd-MMM-yyyy")
-                        @if (blog.Modified != null && blog.Modified.ToString("dd-MMM-yyyy") != blog.Published.ToString("dd-MMM-yyyy"))
-                        {
-                            <small>(Modified: @blog.Modified.ToString("dd-MMM-yyyy"))</small>
-                        }
-                    </p>
-                    <p>
-                        @blog.Description
-                    </p>
-                    @if (blog.KeyWords != null && blog.KeyWords.Count() > 0)
-                    {
-                        <div class="blog-tile-keywords">
-                            <ul>
-                                @foreach (var keyWord in blog.KeyWords)
-                                {
-                                    <li class="keyword">@keyWord</li>
-                                }
-                            </ul>
-                        </div>
-                    }
-                </div>
-            </a>
-        </div>
+        @(await Html.PartialAsync("_BlogTile", blog))
     }
 </div>
 

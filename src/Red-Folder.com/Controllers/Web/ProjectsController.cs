@@ -67,9 +67,11 @@ namespace RedFolder.Controllers.Web
             return View(tiles);
         }
 
-        public ActionResult ROI([FromServices]IArticleRepository repository)
+        public ActionResult ROI([FromServices] IBlogRepository repository)
         {
-            return View(repository.GetROIArticles());
+            var blogs = repository.GetAll();
+            var collection = new BlogCollection(blogs, 1, 0, "ROI", BlogCollection.OrderBy.PublishedAscending);
+            return View(collection);
         }
         public ActionResult AspNetCore([FromServices]IArticleRepository repository)
         {
