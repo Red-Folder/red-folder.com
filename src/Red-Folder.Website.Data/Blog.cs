@@ -17,5 +17,7 @@ namespace RedFolder.Website.Data
         public string Text { get; set; }
         public List<string> KeyWords { get; set; }
         public List<Redirect> Redirects { get; set; }
+
+        public string Series { get; set; }
     }
 }

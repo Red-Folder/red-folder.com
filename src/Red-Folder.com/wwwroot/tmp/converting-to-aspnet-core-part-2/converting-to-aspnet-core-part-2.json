@@ -1,13 +1,21 @@
 {
-  "id":"c8ff273b-9b14-4259-8e21-e2c8951f16fc",
-  "url":"converting-to-aspnet-core-part-2",
-  "author":"Mark Taylor",
-  "published":"2016-03-26T22:34:00Z",
-  "modified":"2016-03-26T22:34:00.007Z",
-  "title":"Converting to ASP.Net Core - Part 2",
-  "image":"/images/blog/AspNetCoreSeries.png",
-  "description":"In this, the second of my articles covnerting my website to ASP.Net Core & MVC 6, I copy in my existing MVC 5 contents",
-  "enabled":true,
-  "keyWords":["ASP.Net Core","MVC 6"],
-  "redirects":[{"redirectType":301,"url":"http://blog.red-folder.com/2016/03/converting-to-aspnet-core-part-2.html","redirectByRoute":false,"redirectByParameter":true}]
+  "id": "c8ff273b-9b14-4259-8e21-e2c8951f16fc",
+  "url": "converting-to-aspnet-core-part-2",
+  "author": "Mark Taylor",
+  "published": "2016-03-26T22:34:00Z",
+  "modified": "2016-03-26T22:34:00.007Z",
+  "title": "Converting to ASP.Net Core - Part 2",
+  "image": "/images/blog/AspNetCoreSeries.png",
+  "description": "In this, the second of my articles covnerting my website to ASP.Net Core & MVC 6, I copy in my existing MVC 5 contents",
+  "enabled": true,
+  "keyWords": [ "ASP.Net Core", "MVC 6" ],
+  "series": "ConvertingToAsp.NetCore",
+  "redirects": [
+    {
+      "redirectType": 301,
+      "url": "http://blog.red-folder.com/2016/03/converting-to-aspnet-core-part-2.html",
+      "redirectByRoute": false,
+      "redirectByParameter": true
+    }
+  ]
 }

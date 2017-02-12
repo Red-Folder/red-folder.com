@@ -71,7 +71,9 @@ namespace RedFolder.Blog.Markdown
                     Image = (string)meta["image"],
 
                     Redirects = redirects,
-                    KeyWords = keyWords
+                    KeyWords = keyWords,
+
+                    Series = (string)meta["series"]
                 };
             }
             catch (Exception ex)

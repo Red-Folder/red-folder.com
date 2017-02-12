@@ -73,9 +73,11 @@ namespace RedFolder.Controllers.Web
             var collection = new BlogCollection(blogs, 1, 0, "ROI", BlogCollection.OrderBy.PublishedAscending);
             return View(collection);
         }
-        public ActionResult AspNetCore([FromServices]IArticleRepository repository)
+        public ActionResult AspNetCore([FromServices] IBlogRepository repository)
         {
-            return View(repository.GetAspNetCoreArticles());
+            var blogs = repository.GetAll();
+            var collection = new BlogCollection(blogs, "ConvertingToAsp.NetCore");
+            return View(collection);
         }
 
     }

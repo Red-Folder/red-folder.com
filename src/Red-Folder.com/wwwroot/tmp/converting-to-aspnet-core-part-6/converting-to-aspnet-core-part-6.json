@@ -1,13 +1,21 @@
 {
-  "id":"b92bd32d-2693-477e-81d5-89643a87fbe1",
-  "url":"converting-to-aspnet-core-part-6",
-  "author":"Mark Taylor",
-  "published":"2016-07-21T20:43:00+01:00",
-  "modified":"2016-07-21T20:43:41.988+01:00",
-  "title":"Converting to ASP.Net Core - Part 6",
-  "image":"/images/blog/AspNetCoreSeries.png",
-  "description":"In this, the sixth of my articles on converting my website over to ASP.Net Core & MVC6, I add a simple database using Entity Framework 7",
-  "enabled":true,
-  "keyWords":["EF Core","ASP.Net Core","MVC 6","WebAPI"],
-  "redirects":[{"redirectType":301,"url":"http://blog.red-folder.com/2016/07/converting-to-aspnet-core-part-6.html","redirectByRoute":false,"redirectByParameter":true}]
+  "id": "b92bd32d-2693-477e-81d5-89643a87fbe1",
+  "url": "converting-to-aspnet-core-part-6",
+  "author": "Mark Taylor",
+  "published": "2016-07-21T20:43:00+01:00",
+  "modified": "2016-07-21T20:43:41.988+01:00",
+  "title": "Converting to ASP.Net Core - Part 6",
+  "image": "/images/blog/AspNetCoreSeries.png",
+  "description": "In this, the sixth of my articles on converting my website over to ASP.Net Core & MVC6, I add a simple database using Entity Framework 7",
+  "enabled": true,
+  "keyWords": [ "EF Core", "ASP.Net Core", "MVC 6", "WebAPI" ],
+  "series": "ConvertingToAsp.NetCore",
+  "redirects": [
+    {
+      "redirectType": 301,
+      "url": "http://blog.red-folder.com/2016/07/converting-to-aspnet-core-part-6.html",
+      "redirectByRoute": false,
+      "redirectByParameter": true
+    }
+  ]
 }

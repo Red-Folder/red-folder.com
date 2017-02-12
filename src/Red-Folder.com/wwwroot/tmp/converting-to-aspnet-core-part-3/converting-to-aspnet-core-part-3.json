@@ -1,13 +1,21 @@
 {
-  "id":"7ba2598b-d966-4347-b636-20e835717489",
-  "url":"converting-to-aspnet-core-part-3",
-  "author":"Mark Taylor",
-  "published":"2016-04-02T19:46:00.001+01:00",
-  "modified":"2016-04-02T19:46:15.628+01:00",
-  "title":"Converting to ASP.Net Core - Part 3",
-  "image":"/images/blog/AspNetCoreSeries.png",
-  "description":"In this, the third in the series of looking at converting my website over to ASP.Net & MVC 6, I make it ready for release to Azure",
-  "enabled":true,
-  "keyWords":["ASP.Net Core","MVC 6", "Azure"],
-  "redirects":[{"redirectType":301,"url":"http://blog.red-folder.com/2016/04/converting-to-aspnet-core-part-3.html","redirectByRoute":false,"redirectByParameter":true}]
+  "id": "7ba2598b-d966-4347-b636-20e835717489",
+  "url": "converting-to-aspnet-core-part-3",
+  "author": "Mark Taylor",
+  "published": "2016-04-02T19:46:00.001+01:00",
+  "modified": "2016-04-02T19:46:15.628+01:00",
+  "title": "Converting to ASP.Net Core - Part 3",
+  "image": "/images/blog/AspNetCoreSeries.png",
+  "description": "In this, the third in the series of looking at converting my website over to ASP.Net & MVC 6, I make it ready for release to Azure",
+  "enabled": true,
+  "keyWords": [ "ASP.Net Core", "MVC 6", "Azure" ],
+  "series": "ConvertingToAsp.NetCore",
+  "redirects": [
+    {
+      "redirectType": 301,
+      "url": "http://blog.red-folder.com/2016/04/converting-to-aspnet-core-part-3.html",
+      "redirectByRoute": false,
+      "redirectByParameter": true
+    }
+  ]
 }

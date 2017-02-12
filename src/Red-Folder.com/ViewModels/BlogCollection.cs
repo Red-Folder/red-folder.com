@@ -11,9 +11,11 @@ namespace RedFolder.ViewModels
         private int _blogsPerPage;
         private string _filterBy;
         private OrderBy _orderedBy;
+        private string _series;
         private IList<RedFolder.Website.Data.Blog> _blogs;
 
-        public int PageNo       {
+        public int PageNo
+        {
             get
             {
                 return _pageNo;
@@ -44,6 +46,14 @@ namespace RedFolder.ViewModels
             }
         }
 
+        public string Series
+        {
+            get
+            {
+                return _series;
+            }
+        }
+
         public int Pages
         {
             get
@@ -70,7 +80,7 @@ namespace RedFolder.ViewModels
         {
             get
             {
-                return _blogs.Where(_filterBy).OrderBy(_orderedBy).ToList();
+                return _blogs.Where(_filterBy, _series).OrderBy(_orderedBy).ToList();
             }
         }
 
@@ -103,6 +113,17 @@ namespace RedFolder.ViewModels
                     .ToList();
             }
         }
+
+        public BlogCollection(IList<RedFolder.Website.Data.Blog> blogs, string series)
+        {
+            _blogs = blogs;
+            _pageNo = 1;
+            _blogsPerPage = 0;
+            _filterBy = null;
+            _orderedBy = OrderBy.PublishedAscending;
+            _series = series;
+        }
+
 
         public BlogCollection(IList<RedFolder.Website.Data.Blog> blogs, int pageNo = 1, int blogsPerPage = 0, string filterBy = null, OrderBy orderedBy = OrderBy.PublishedDescending)
         {
@@ -139,16 +160,22 @@ namespace RedFolder.ViewModels
             return list;
         }
 
-        public static IList<Website.Data.Blog> Where(this IList<Website.Data.Blog> list, string filter)
+        public static IList<Website.Data.Blog> Where(this IList<Website.Data.Blog> list, string filter, string series)
         {
+            var tmpList = list;
+            if (series != null)
+            {
+                tmpList = list.Where(x => x.Series == series).ToList();
+            }
+
             if (filter == null)
             {
-                return list;
+                return tmpList;
             }
             else
             {
                 var filterList = filter.Split(',').ToList();
-                return list.Where(x => filterList.All(f => x.KeyWords.Contains(f))).ToList();
+                return tmpList.Where(x => filterList.All(f => x.KeyWords.Contains(f))).ToList();
             }
         }
     }
