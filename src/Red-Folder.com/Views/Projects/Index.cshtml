@@ -1,29 +1,33 @@
 ﻿@model List<RedFolder.ViewModels.SummaryTile>
 
 @{
-    ViewBag.Title = "Recent Projects";
+    ViewBag.Title = "Projects";
+    ViewBag.BodyCssClass = "new-css";
 }
 <div class="row rfc-header recent-projects-page">
     <h1>Recent Projects</h1>
 </div>
 
-<div class="center-content">
-    <div class="row">
-        <div class="col-xs-12">
+<div class="row">
+    <div class="col-xs-12 col-lg-offset-3 col-lg-6 rfc-panel rfc-block-link rfc-panel-center" rfc-inner-border>
+        <div class="row">
+            <div class="col-xs-12">
 
-            <p>
-                This page is a collection of recent projects I've been working on.  If nothing else they provide a place for me to put all my random experiments.
-            </p>
+                <p>
+                    This page is a collection of projects I've been working on.  If nothing else they provide a place for me to put all my random experiments.
+                </p>
+            </div>
         </div>
     </div>
 </div>
 
-<div class="center-content">
+<div class="blog-tiles row">
+
     @if (Model != null && Model.Count > 0)
     {
         foreach (var tile in Model)
         {
-            await Html.RenderPartialAsync("_SummaryRow", tile);
+            await Html.RenderPartialAsync("_SummaryRow2", tile);
         }
     }
 </div>
