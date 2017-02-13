@@ -1,0 +1,12 @@
+﻿{
+  "id": "e7b2ad62-2c98-4895-b6e1-37967d37298f",
+  "url": "rfc-weekly-13th-Febraury-2016",
+  "published": "2017-02-13",
+  "modified": "2017-02-13",
+  "title": "RFC Weekly - 13th February 2017",
+  "enabled": "true",
+  "keyWords": ["RFCWeekly", "Ethical Hacking", "Contracting"],
+  "description": "This week I update on my Ethical Hacking progress, and Contract process.",
+ 	"image" : "/media/blog/rfc-weekly/RFCWeeklyTwitterCard.png",
+  "author" : "Mark Taylor"
+}
