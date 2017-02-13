@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using RedFolder.Services;
 using RedFolder.ViewModels;
 using static RedFolder.ViewModels.BlogCollection;
+using Microsoft.ApplicationInsights;
 
 // For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -13,6 +14,8 @@ namespace RedFolder.Controllers.Web
 {
     public class BlogController : Controller
     {
+        private TelemetryClient telemetry = new TelemetryClient();
+
         // GET: /<controller>/
         public IActionResult Index([FromServices] IBlogRepository repository, 
                                     string url, 
@@ -37,14 +40,17 @@ namespace RedFolder.Controllers.Web
             }
             catch (BlogNotFoundException ex)
             {
+                telemetry.TrackException(ex);
                 return new RedirectResult("/errors/status/404");
             }
             catch (BlogNotEnabledException ex)
             {
+                telemetry.TrackException(ex);
                 return new RedirectResult("/errors/status/404");
             }
             catch (Exception ex)
             {
+                telemetry.TrackException(ex);
                 return new RedirectResult("/errors/status/500");
             }
         }
