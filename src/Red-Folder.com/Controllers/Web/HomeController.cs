@@ -68,11 +68,11 @@ namespace RedFolder.Controllers.Web
                         "My Bio",
                         new Paragraphs()
                         {
-                            "15+ years of senior IT management experience",
-                            "20+ years of full software development life cycle experience",
-                            "Microsoft Certified Professional: MCSD - Web Applications",
-                            "Scrum Master Certified -Scrum.org PSM I",
-                            "Specialist in improving legacy systems & teams"
+                            "15+ years senior IT management",
+                            "20+ years software development life cycle",
+                            "Microsoft Certified Professional",
+                            "Scrum Master Certified",
+                            "Specialist in legacy systems & teams"
                         },
                         "Index",
                         "MyBio",
@@ -84,6 +84,8 @@ namespace RedFolder.Controllers.Web
                         "Recent Projects",
                         new Paragraphs()
                         {
+                            "Return On Investment",
+                            "Asp.Net Core Migration",
                             "Microservices",
                             "Cordova/ Phonegap"
                         },

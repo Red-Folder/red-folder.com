@@ -3,71 +3,62 @@
 @{
     ViewBag.Title = "Red Folder Consultancy Ltd";
     Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.BodyCssClass = "new-css";
 }
 
 <div class="row rfc-header home-page">
     <h1>Better ROI from Software Development</h1>
 </div>
 
-@Html.Partial("_SummaryTiles", Model.Content)
-
-<div class="contact-form">
-    <h3>Got a question?</h3>
-    <div class="row">
-
-        <!--
-        <div class="col-md-6 col-xs-12">
-            @using (Html.BeginForm(FormMethod.Post))
-            {
-                <div>
-                    <strong>Your email address:</strong>@Html.TextBoxFor(x => x.Contact.Email)
-                </div>
-
-                <div>
-                    <strong>Your message:</strong>
-                </div>
-
-                <div>
-                    @Html.TextAreaFor(x => x.Contact.Message)
-                </div>
-
-                <div>
-                    <input type="submit" class="btn btn-info" value="Submit Button">
-                </div>
-            }
-        </div>
-            -->
-        <div class="col-md-offset-3 col-md-6 col-xs-12">
-            <div class="row">
-                <a href="mailto:mark@red-folder.com" class="social-icon">
-                    <div class="col-xs-6 icon">
-                        <img src="/images/icons/social/mail-dreamstale47.png" class="img-responsive" />
-                    </div>
-                    <div class="col-xs-6 text">
-                        <strong>Email:</strong>mark@red-folder.com
-                    </div>
-                </a>
-            </div>
-            <div class="row">
-                <a href="https://twitter.com/folderred" class="social-icon">
-                    <div class="col-xs-6 icon">
-                        <img src="/images/icons/social/twitter-dreamstale71.png" class="img-responsive" />
-                    </div>
-                    <div class="col-xs-6 text">
-                        <strong>Twitter:</strong>FolderRed
-                    </div>
-                </a>
-            </div>
-            <div class="row">
-                <a href="skype:red-folder?chat" class="social-icon">
-                    <div class="col-xs-6 icon">
-                        <img src="/images/icons/social/skype-dreamstale61.png" class="img-responsive" />
-                    </div>
-                    <div class="col-xs-6 text">
-                        <strong>Skype:</strong>red-folder
-                    </div>
-                </a>
+<div class="row">
+    <div class="col-xs-12 col-sm-offset-2 col-sm-8 col-lg-offset-3 col-lg-6 rfc-panel rfc-block-link rfc-panel-center" rfc-inner-border>
+        <div class="row">
+            <div class="col-xs-12">
+                <p>
+                    <strong>Red Folder Consultancy</strong> provides advice and services to help you get <strong>better Return On Investment from your Software Development investment</strong>.
+                </p>
+                <p>
+                    Software Development is <strong>complex</strong>.  And traditional management techniques are <strong>counter-productive</strong>.
+                </p>
+                <p>
+                    <strong>Red Folder Consultancy</strong> can help.
+                </p>
             </div>
         </div>
     </div>
 </div>
+
+<div class="blog-tiles row">
+
+    @if (Model != null && Model.Content != null && Model.Content.Count > 0)
+    {
+        foreach (var tile in Model.Content)
+        {
+            <div class="blog-tile col-xs-12 col-sm-8 col-sm-offset-2 col-md-4 col-md-offset-0">
+                <a asp-controller="@tile.Controller" asp-action="@tile.Action">
+                    <div class="blog-tile-inner">
+                        <div class="@tile.IconClass"></div>
+
+                        <h2>@tile.Title</h2>
+
+                        @if (tile.Description != null && tile.Description.Count > 0)
+                        {
+                            foreach (var paragraph in tile.Description)
+                            {
+                                <p>
+                                    @paragraph
+                                </p>
+                            }
+                        }
+                        <div class="show-more-icon">
+                            <i class="fa fa-chevron-circle-right"></i>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+        }
+    }
+</div>
+
+
