@@ -11,7 +11,7 @@
 </div>
 
 <div class="row">
-    <div class="col-xs-12 rfc-panel rfc-block-link rfc-panel-center" rfc-inner-border>
+    <div class="col-xs-12 col-lg-offset-2 col-lg-8 rfc-panel rfc-block-link rfc-panel-center" rfc-inner-border>
         <div class="row">
             <div class="col-xs-12" style="font-size: 20px; text-align: center;">
                 <p>
@@ -28,37 +28,83 @@
     </div>
 </div>
 
-<div class="blog-tiles row">
+@*
+    <div class="blog-tiles row">
 
-    @if (Model != null && Model.Content != null && Model.Content.Count > 0)
-    {
-        foreach (var tile in Model.Content)
+        @if (Model != null && Model.Content != null && Model.Content.Count > 0)
         {
-            <div class="blog-tile col-xs-12 col-sm-12 col-md-4">
-                <a asp-controller="@tile.Controller" asp-action="@tile.Action">
-                    <div class="blog-tile-inner">
-                        <div class="@tile.IconClass"></div>
+            foreach (var tile in Model.Content)
+            {
+                <div class="blog-tile col-xs-12 col-sm-12 col-md-4">
+                    <a asp-controller="@tile.Controller" asp-action="@tile.Action">
+                        <div class="blog-tile-inner">
+                            <div class="@tile.IconClass"></div>
 
-                        <h2>@tile.Title</h2>
+                            <h2>@tile.Title</h2>
 
-                        @if (tile.Description != null && tile.Description.Count > 0)
-                        {
-                            foreach (var paragraph in tile.Description)
+                            @if (tile.Description != null && tile.Description.Count > 0)
                             {
-                                <p>
-                                    @paragraph
-                                </p>
+                                foreach (var paragraph in tile.Description)
+                                {
+                                    <p>
+                                        @paragraph
+                                    </p>
+                                }
                             }
-                        }
-                        <div class="show-more-icon">
-                            <i class="fa fa-chevron-circle-right"></i>
                         </div>
-                    </div>
-                </a>
-            </div>
+                    </a>
+                </div>
 
+            }
         }
-    }
+    </div>
+*@
+
+@if (Model != null && Model.Content != null && Model.Content.Count > 0)
+{
+    foreach (var tile in Model.Content)
+    {
+
+<div class="row">
+    <div class="col-xs-12 col-lg-offset-2 col-lg-8  rfc-panel rfc-block-link rfc-panel-center" rfc-inner-border>
+        <div class="row">
+            <div class="hidden-xs col-sm-3 col-md-2 col-lg-2">
+                <img src="~/images/icons/@(tile.IconClass.Replace("-", ""))Red.png" class="img-rounded" />
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-8 col-lg-8" style="text-align:center;">
+                <h2>@tile.Title</h2>
+            </div>
+            <div class="hidden-xs col-sm-3 col-md-2 col-lg-2" style="text-align:right;">
+                <img src="~/images/icons/@(tile.IconClass.Replace("-", ""))Red.png" class="img-rounded" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12" style="text-align:center; padding-top:15px; font-size: 20px;">
+                @if (tile.Description != null && tile.Description.Count > 0)
+                {
+                    foreach (var paragraph in tile.Description)
+                    {
+                        <p>
+                            @paragraph
+                        </p>
+                    }
+                }
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12" style="text-align:center; padding-bottom: 10px; padding-top:15px; font-size: 30px;">
+                <div>
+                    <a asp-controller="@tile.Controller" asp-action="@tile.Action" style="color: #e74c3c;">
+                        <i class="fa fa-chevron-circle-right"></i>
+                        &nbsp;
+                        More info
+                        &nbsp;                        
+                        <i class="fa fa-chevron-circle-right"></i>
+                    </a>
 </div>
-
-
+            </div>
+        </div>
+    </div>
+</div>
+    }
+}
