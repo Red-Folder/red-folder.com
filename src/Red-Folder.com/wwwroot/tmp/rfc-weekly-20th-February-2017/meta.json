@@ -1,0 +1,12 @@
+﻿{
+  "id": "44799f5e-a448-417f-92c5-91a56cbe5445",
+  "url": "rfc-weekly-20th-Febraury-2017",
+  "published": "2017-02-20",
+  "modified": "2017-02-20",
+  "title": "RFC Weekly - 20th February 2017",
+  "enabled": "true",
+  "keyWords": ["RFCWeekly", "Ethical Hacking", "Contracting"],
+  "description": "This week I update on my Ethical Hacking progress, a bunch of web performance stuff, free eBooks and Contract process.",
+ 	"image" : "/media/blog/rfc-weekly/RFCWeeklyTwitterCard.png",
+  "author" : "Mark Taylor"
+}
