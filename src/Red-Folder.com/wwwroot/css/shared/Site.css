@@ -89,7 +89,7 @@ footer .copyright {
 footer #footer-image {
   height: 50px;
   background-color: white;
-  background-image: url(~/images/WebsiteFooter.png);
+  background-image: url(/images/WebsiteFooter.png);
   background-repeat: repeat-x;
 }
 /*
