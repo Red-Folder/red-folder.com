@@ -18,60 +18,229 @@ Mixin functions
 */
 /*
 =================================================================================================================
-Defaults
+Page Wide
 =================================================================================================================
 */
 body {
   padding-top: 70px;
   /* To give room for the fixed nabar */
 }
-footer .footer-image {
-  height: 50px;
-  background: url(/images/WebsiteFooter.png) repeat-x;
-}
-footer .footer-content {
+/*
+=================================================================================================================
+Footer
+=================================================================================================================
+*/
+footer {
+  padding: 0px 0 20px 0;
   background-color: #e74c3c;
   color: white;
-  padding: 5px;
-  /* Float to bottom using http://jsfiddle.net/silb3r/0srp42pb/11/ */
-  font-size: 0;
 }
-footer .footer-content > * {
-  float: none;
+footer ul {
+  padding: 0;
+  list-style: none;
+  text-align: center;
+  font-size: 18px;
+  line-height: 1.6;
+  margin-bottom: 0;
+}
+footer ul li {
+  padding: 0 10px;
+}
+footer ul li a {
+  color: inherit;
+  text-decoration: none !important;
+}
+footer ul li a:visited {
+  color: white;
+}
+footer ul li a:hover {
+  color: #4C4C4C;
+}
+footer .social {
+  padding-top: 25px;
+  text-align: center;
+  padding-bottom: 25px;
+}
+footer .social > a {
+  border: 1px solid white;
+  opacity: 1;
+  font-size: 24px;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
   display: inline-block;
-  font-size: 14px;
+  text-align: center;
+  border-radius: 50%;
+  margin: 0 8px;
+  color: inherit;
 }
-footer .footer-content > *:last-child {
-  vertical-align: bottom;
+footer .social > a:hover {
+  opacity: 1;
+  color: #4C4C4C;
+  border: 1px solid #4C4C4C;
 }
-footer .footer-content .social-icon {
-  position: relative;
-  float: left;
+footer .copyright {
+  color: white;
+  margin-top: 15px;
+  text-align: center;
+  font-size: 13px;
+  margin-bottom: 0;
+}
+footer #footer-image {
+  height: 50px;
+  background-color: white;
+  background-image: url(~/images/WebsiteFooter.png);
+  background-repeat: repeat-x;
 }
 /*
 =================================================================================================================
 Navigation
 =================================================================================================================
 */
-#rfc-logo {
-  display: block;
-  height: 60px;
-  padding-top: 6px;
-  padding-bottom: 6px;
+@media (max-width: 767px) {
+  .navigation-clean {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+  .navigation-clean .navbar-header {
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+  .navigation-clean .navbar-nav .open .dropdown-menu {
+    box-shadow: none;
+  }
+  .navigation-clean .navbar-nav .open .dropdown-menu > li > a {
+    color: #37434d;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    line-height: 1;
+  }
+  .navigation-clean.navbar-inverse .navbar-nav .open .dropdown-menu > li > a {
+    color: #fff;
+  }
 }
-.navbar-inverse {
-  background-color: #e74c3c;
-}
-.navbar {
+.navigation-clean {
+  background: #fff;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  color: #333;
+  border-radius: 0;
+  box-shadow: none;
+  border: none;
   margin-bottom: 0;
-  padding: 5px 15px;
-  -webkit-transition: all 0.5s;
-  transition: all 0.5s;
 }
-.cbp-af-header-shrink {
-  padding-top: 1px;
-  padding-bottom: 1px;
-  opacity: 0.7;
+.navigation-clean #rfc-logo {
+  height: 58px;
+  margin-top: -20px;
+}
+.navigation-clean .navbar-brand {
+  font-weight: bold;
+  color: inherit;
+}
+.navigation-clean .navbar-brand:hover {
+  color: #222;
+}
+.navigation-clean .navbar-brand img {
+  height: 100%;
+  display: inline-block;
+  margin-right: 10px;
+  width: auto;
+}
+.navigation-clean .navbar-toggle {
+  border-color: #ddd;
+}
+.navigation-clean .navbar-toggle:hover,
+.navigation-clean .navbar-toggle:focus {
+  background: none;
+}
+.navigation-clean .navbar-toggle .icon-bar {
+  background-color: #888;
+}
+.navigation-clean .navbar-collapse,
+.navigation-clean .navbar-form {
+  border-top-color: #ddd;
+}
+.navigation-clean .navbar-nav > li > .dropdown-menu {
+  margin-top: -5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  border-radius: 2px;
+}
+.navigation-clean .navbar-nav > li > a {
+  padding-left: 18px;
+  padding-right: 18px;
+}
+.navigation-clean .navbar-nav > .active > a,
+.navigation-clean .navbar-nav > .open > a {
+  background: none;
+  box-shadow: none;
+}
+.navigation-clean .navbar-default .navbar-nav > li > a {
+  color: #465765;
+}
+.navigation-clean .navbar-default .navbar-nav > .active > a,
+.navigation-clean .navbar-default .navbar-nav .navbar-default .navbar-nav > .active > a:focus,
+.navigation-clean .navbar-default .navbar-nav .navbar-default .navbar-nav > .active > a:hover {
+  color: #363739;
+  box-shadow: none;
+  background: none;
+  pointer-events: none;
+}
+.navigation-clean .dropdown-menu > li > a {
+  line-height: 2;
+  font-size: 14px;
+  color: #37434d;
+}
+.navigation-clean .dropdown-menu > li > a:focus,
+.navigation-clean .dropdown-menu > li > a:hover {
+  background: #eee;
+  color: inherit;
+}
+.navigation-clean.navbar-inverse {
+  background-color: #e74c3c;
+  color: #fff;
+}
+.navigation-clean.navbar-inverse .navbar-brand:hover {
+  color: #f0f0f0;
+}
+.navigation-clean.navbar-inverse .navbar-toggle {
+  border-color: white;
+}
+.navigation-clean.navbar-inverse .navbar-toggle .icon-bar {
+  background-color: white;
+}
+.navigation-clean.navbar-inverse .navbar-collapse,
+.navigation-clean.navbar-inverse .navbar-form {
+  border-top-color: #333;
+}
+.navigation-clean.navbar-inverse .navbar-nav > li > a {
+  color: #ffffff;
+}
+.navigation-clean.navbar-inverse .navbar-nav > li > a:focus,
+.navigation-clean.navbar-inverse .navbar-nav > li > a:hover {
+  color: #1f2021 !important;
+  background-color: transparent;
+}
+.navigation-clean.navbar-inverse .navbar-nav > li .dropdown-menu {
+  background-color: #1f2021;
+}
+.navigation-clean.navbar-inverse .navbar-nav > .active > a,
+.navigation-clean.navbar-inverse .navbar-nav > .active > a:focus,
+.navigation-clean.navbar-inverse .navbar-nav > .active > a:hover {
+  color: #1f2021;
+  box-shadow: none;
+  background: none;
+  pointer-events: none;
+}
+.navigation-clean.navbar-inverse .navbar-nav .dropdown-menu > li > a:focus,
+.navigation-clean.navbar-inverse .navbar-nav .dropdown-menu > li > a {
+  color: #f2f5f8;
+}
+.navigation-clean.navbar-inverse .navbar-nav .dropdown-menu > li > a:focus:focus,
+.navigation-clean.navbar-inverse .navbar-nav .dropdown-menu > li > a:focus,
+.navigation-clean.navbar-inverse .navbar-nav .dropdown-menu > li > a:focus:hover,
+.navigation-clean.navbar-inverse .navbar-nav .dropdown-menu > li > a:hover {
+  background: #363739;
 }
 /*
 =================================================================================================================
@@ -81,6 +250,8 @@ Summary Tiles
 .icon-services {
   height: 128px;
   background: url('/images/icons/IconServicesGrey.png') no-repeat center;
+  -moz-transition: background-image 1.5s;
+  -o-transition: background-image 1.5s;
   -webkit-transition: background-image 1.5s;
   transition: background-image 1.5s;
 }
@@ -90,6 +261,8 @@ Summary Tiles
 .icon-bio {
   height: 128px;
   background: url('/images/icons/IconBioGrey.png') no-repeat center;
+  -moz-transition: background-image 1.5s;
+  -o-transition: background-image 1.5s;
   -webkit-transition: background-image 1.5s;
   transition: background-image 1.5s;
 }
@@ -99,6 +272,8 @@ Summary Tiles
 .icon-projects {
   height: 128px;
   background: url('/images/icons/IconProjectsGrey.png') no-repeat center;
+  -moz-transition: background-image 1.5s;
+  -o-transition: background-image 1.5s;
   -webkit-transition: background-image 1.5s;
   transition: background-image 1.5s;
 }
@@ -110,6 +285,8 @@ Summary Tiles
   margin-bottom: 15px;
   text-align: center;
   color: #4C4C4C;
+  -moz-transition: color 1.5s;
+  -o-transition: color 1.5s;
   -webkit-transition: color 1.5s;
   transition: color 1.5s;
 }
@@ -190,19 +367,12 @@ Contact Form
   color: white;
   background: #e74c3c;
   padding: 5px 10px;
+  -moz-background-clip: content-box;
+  -webkit-background-clip: content-box;
   background-clip: content-box;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  align-items: center;
+  justify-content: center;
 }
 .skills .highlight div {
   padding-top: 15px;
@@ -225,7 +395,6 @@ Helpers
 .row-eq-height {
   display: -webkit-box;
   display: -ms-flexbox;
-  display: -webkit-flex;
   display: flex;
 }
 .services .row:not(:last-child) {
@@ -255,6 +424,8 @@ Blog
 .blog-tiles .blog-tile a:visited,
 .blog-tiles .blog-tile a:active {
   color: #4C4C4C;
+  -moz-transition: color 1.5s;
+  -o-transition: color 1.5s;
   -webkit-transition: color 1.5s;
   transition: color 1.5s;
 }
@@ -332,6 +503,8 @@ KeyWords
 .keyword a:visited,
 .keyword a:active {
   color: white;
+  -moz-transition: color 1.5s;
+  -o-transition: color 1.5s;
   -webkit-transition: color 1.5s;
   transition: color 1.5s;
 }
@@ -373,6 +546,8 @@ Work In Progress
 .filter-switch a:visited,
 .filter-switch a:active {
   color: #4C4C4C;
+  -moz-transition: color 1.5s;
+  -o-transition: color 1.5s;
   -webkit-transition: color 1.5s;
   transition: color 1.5s;
 }
@@ -394,6 +569,8 @@ Work In Progress
 .old-css a:visited,
 .old-css a:active {
   color: #4C4C4C;
+  -moz-transition: color 1.5s;
+  -o-transition: color 1.5s;
   -webkit-transition: color 1.5s;
   transition: color 1.5s;
 }
@@ -406,6 +583,8 @@ Work In Progress
   padding: 5px;
   border-top: 3px solid #4C4C4C;
   border-bottom: 3px solid #4C4C4C;
+  -moz-transition: border-top 1.5s,  border-bottom 1.5s;
+  -o-transition: border-top 1.5s,  border-bottom 1.5s;
   -webkit-transition: border-top 1.5s,  border-bottom 1.5s;
   transition: border-top 1.5s,  border-bottom 1.5s;
 }
