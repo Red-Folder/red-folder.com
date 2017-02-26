@@ -81,6 +81,21 @@ body {
     padding-top: 70px; /* To give room for the fixed nabar */
 }
 
+.icon-separator {
+    height: 50px;
+    background-color: @color-white;
+    background-image: url(/images/WebsiteFooter.png);
+    background-repeat: repeat-x;
+
+    &.rotate180 {
+        transform: rotate(180deg);
+    }
+}
+
+.site-intro {
+    text-align: center;
+}
+
 /*
 =================================================================================================================
 Footer
@@ -150,14 +165,8 @@ footer {
         font-size: 13px;
         margin-bottom: 0;
     }
-
-    #footer-image {
-        height: 50px;
-        background-color: @color-white;
-        background-image: url(/images/WebsiteFooter.png);
-        background-repeat: repeat-x;
-    }
 }
+
 /*
 =================================================================================================================
 Navigation
@@ -344,6 +353,187 @@ Navigation
         }
     }
 }
+
+/*
+=================================================================================================================
+Features
+=================================================================================================================
+*/
+@media (max-width:767px) {
+    .features-clean {
+        padding-bottom: 10px;
+
+        h2 {
+            margin-bottom: 25px;
+            padding-top: 25px;
+            font-size: 24px;
+        }
+
+        .intro {
+            margin-bottom: 40px;
+        }
+
+        .item {
+            min-height: 0;
+        }
+    }
+}
+
+.features-clean {
+    color: @color-white;
+    background-color: @color-main;
+
+    h2 {
+        font-weight: bold;
+    }
+
+    .intro {
+        font-size: 16px;
+        max-width: 600px;
+        margin: 0 auto 15px;
+    }
+
+    .item {
+        min-height: 100px;
+        padding-left: 80px;
+        margin-bottom: 40px;
+
+        .name {
+            font-size: 20px;
+            font-weight: bold;
+            margin-top: 0;
+            margin-bottom: 20px;
+            color: inherit;
+        }
+
+        .description {
+            font-size: 15px;
+            margin-bottom: 0;
+        }
+
+        .icon {
+            font-size: 40px;
+            float: left;
+            margin-left: -65px;
+        }
+    }
+
+    a {
+        text-decoration-line: none;
+        color: white;
+
+        &:hover {
+            color: @color-accent !important;
+        }
+
+        &:visited {
+            color: @color-white;
+        }
+    }
+}
+
+/*
+=================================================================================================================
+Testimonials
+=================================================================================================================
+*/
+@media (max-width:767px) {
+    .testimonials-clean {
+
+        h2 {
+            margin-bottom: 25px;
+            padding-top: 25px;
+            font-size: 24px;
+        }
+
+        .item {
+            height: 220px;
+        }
+    }
+}
+
+.testimonials-clean {
+    color: #4C4C4C;
+    background-color: white;
+
+    h2 {
+        font-weight: bold;
+        margin-bottom: 40px;
+        padding-top: 40px;
+        color: inherit;
+    }
+
+    .intro {
+        font-size: 16px;
+        max-width: 500px;
+        margin: 0 auto;
+
+        p {
+            margin-bottom: 0;
+        }
+    }
+
+    .people {
+        padding: 50px 0 20px;
+    }
+
+    .item {
+        margin-bottom: 32px;
+
+        i.fa.fa-linkedin-square {
+            font-size: x-large;
+        }
+
+        .author {
+            margin-top: 28px;
+            padding-left: 25px;
+        }
+
+        .description {
+            font-size: 15px;
+            margin-bottom: 0;
+        }
+
+        .box {
+            padding: 30px;
+            background-color: #fff;
+            position: relative;
+
+            &:after {
+                content: '';
+                position: absolute;
+                left: 30px;
+                bottom: -24px;
+                width: 0;
+                height: 0;
+                border: 15px solid transparent;
+                border-width: 12px 15px;
+                border-top-color: @color-white;
+            }
+        }
+
+        a {
+            color: @color-accent;
+            text-decoration-line: none;
+
+            &:visited {
+                color: @color-accent;
+            }
+
+            &:hover {
+                color: @color-main !important;
+            }
+        }
+    }
+}
+
+
+
+
+
+
+
+
 
 
 /*

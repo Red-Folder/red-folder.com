@@ -61,7 +61,7 @@ namespace RedFolder.Controllers.Web
                         "Index",
                         "Services",
                         "Find out more >>>",
-                        "icon-services"
+                        "shopping-cart"
                     ),
 
                 new SummaryTile(
@@ -77,7 +77,7 @@ namespace RedFolder.Controllers.Web
                         "Index",
                         "MyBio",
                         "Find out more >>>",
-                        "icon-bio"
+                        "user"
                     ),
 
                 new SummaryTile(
@@ -92,7 +92,7 @@ namespace RedFolder.Controllers.Web
                         "Index",
                         "Projects",
                         "Find out more >>>",
-                        "icon-projects"
+                        "gears"
                     )
             };
 

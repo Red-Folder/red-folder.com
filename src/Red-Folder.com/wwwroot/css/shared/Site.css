@@ -25,6 +25,18 @@ body {
   padding-top: 70px;
   /* To give room for the fixed nabar */
 }
+.icon-separator {
+  height: 50px;
+  background-color: white;
+  background-image: url(/images/WebsiteFooter.png);
+  background-repeat: repeat-x;
+}
+.icon-separator.rotate180 {
+  transform: rotate(180deg);
+}
+.site-intro {
+  text-align: center;
+}
 /*
 =================================================================================================================
 Footer
@@ -85,12 +97,6 @@ footer .copyright {
   text-align: center;
   font-size: 13px;
   margin-bottom: 0;
-}
-footer #footer-image {
-  height: 50px;
-  background-color: white;
-  background-image: url(/images/WebsiteFooter.png);
-  background-repeat: repeat-x;
 }
 /*
 =================================================================================================================
@@ -241,6 +247,146 @@ Navigation
 .navigation-clean.navbar-inverse .navbar-nav .dropdown-menu > li > a:focus:hover,
 .navigation-clean.navbar-inverse .navbar-nav .dropdown-menu > li > a:hover {
   background: #363739;
+}
+/*
+=================================================================================================================
+Features
+=================================================================================================================
+*/
+@media (max-width: 767px) {
+  .features-clean {
+    padding-bottom: 10px;
+  }
+  .features-clean h2 {
+    margin-bottom: 25px;
+    padding-top: 25px;
+    font-size: 24px;
+  }
+  .features-clean .intro {
+    margin-bottom: 40px;
+  }
+  .features-clean .item {
+    min-height: 0;
+  }
+}
+.features-clean {
+  color: white;
+  background-color: #e74c3c;
+}
+.features-clean h2 {
+  font-weight: bold;
+}
+.features-clean .intro {
+  font-size: 16px;
+  max-width: 600px;
+  margin: 0 auto 15px;
+}
+.features-clean .item {
+  min-height: 100px;
+  padding-left: 80px;
+  margin-bottom: 40px;
+}
+.features-clean .item .name {
+  font-size: 20px;
+  font-weight: bold;
+  margin-top: 0;
+  margin-bottom: 20px;
+  color: inherit;
+}
+.features-clean .item .description {
+  font-size: 15px;
+  margin-bottom: 0;
+}
+.features-clean .item .icon {
+  font-size: 40px;
+  float: left;
+  margin-left: -65px;
+}
+.features-clean a {
+  text-decoration-line: none;
+  color: white;
+}
+.features-clean a:hover {
+  color: #4C4C4C !important;
+}
+.features-clean a:visited {
+  color: white;
+}
+/*
+=================================================================================================================
+Testimonials
+=================================================================================================================
+*/
+@media (max-width: 767px) {
+  .testimonials-clean h2 {
+    margin-bottom: 25px;
+    padding-top: 25px;
+    font-size: 24px;
+  }
+  .testimonials-clean .item {
+    height: 220px;
+  }
+}
+.testimonials-clean {
+  color: #4C4C4C;
+  background-color: white;
+}
+.testimonials-clean h2 {
+  font-weight: bold;
+  margin-bottom: 40px;
+  padding-top: 40px;
+  color: inherit;
+}
+.testimonials-clean .intro {
+  font-size: 16px;
+  max-width: 500px;
+  margin: 0 auto;
+}
+.testimonials-clean .intro p {
+  margin-bottom: 0;
+}
+.testimonials-clean .people {
+  padding: 50px 0 20px;
+}
+.testimonials-clean .item {
+  margin-bottom: 32px;
+}
+.testimonials-clean .item i.fa.fa-linkedin-square {
+  font-size: x-large;
+}
+.testimonials-clean .item .author {
+  margin-top: 28px;
+  padding-left: 25px;
+}
+.testimonials-clean .item .description {
+  font-size: 15px;
+  margin-bottom: 0;
+}
+.testimonials-clean .item .box {
+  padding: 30px;
+  background-color: #fff;
+  position: relative;
+}
+.testimonials-clean .item .box:after {
+  content: '';
+  position: absolute;
+  left: 30px;
+  bottom: -24px;
+  width: 0;
+  height: 0;
+  border: 15px solid transparent;
+  border-width: 12px 15px;
+  border-top-color: white;
+}
+.testimonials-clean .item a {
+  color: #4C4C4C;
+  text-decoration-line: none;
+}
+.testimonials-clean .item a:visited {
+  color: #4C4C4C;
+}
+.testimonials-clean .item a:hover {
+  color: #e74c3c !important;
 }
 /*
 =================================================================================================================
