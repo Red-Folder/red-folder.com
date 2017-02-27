@@ -36,6 +36,11 @@ body {
 }
 .site-intro {
   text-align: center;
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+.site-intro h2 {
+  padding-bottom: 30px;
 }
 /*
 =================================================================================================================
@@ -275,11 +280,16 @@ Features
 }
 .features-clean h2 {
   font-weight: bold;
+  padding-bottom: 30px;
 }
 .features-clean .intro {
   font-size: 16px;
   max-width: 600px;
   margin: 0 auto 15px;
+}
+.features-clean .container {
+  padding-top: 30px;
+  padding-bottom: 30px;
 }
 .features-clean .item {
   min-height: 100px;
