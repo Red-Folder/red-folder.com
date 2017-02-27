@@ -43,7 +43,7 @@ In theory, Layout will be the most traumatic.  Composite the least.
 
 ## Ethical Hacking progress
 I’m now 93% of the [Pluralsight Ethical Hacking](https://app.pluralsight.com/paths/certificate/ethical-hacking) Path.
-![Ethical Hacking Progress](/media/blog/rfc-weekly-13th-february-2017/PluralsightEHPath.PNG)
+![Ethical Hacking Progress](/media/blog/rfc-weekly-20th-february-2017/PluralsightEHPath.PNG)
 
 I’ve completed the following since last week:
 

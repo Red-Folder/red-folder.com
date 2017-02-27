@@ -1,0 +1,12 @@
+﻿{
+  "id": "71793627-43ec-46a9-b19d-2ab316ab7a5e",
+  "url": "rfc-weekly-27th-Febraury-2017",
+  "published": "2017-02-27",
+  "modified": "2017-02-27",
+  "title": "RFC Weekly - 27th February 2017",
+  "enabled": "true",
+  "keyWords": ["RFC Weekly", "Ethical Hacking", "Design", "CSS", "Bootstrap", "Contracting"],
+  "description": "This week I update on my Ethical Hacking progress, my intention to focus improving my (lacking) design skills and Contract process.",
+ 	"image" : "/media/blog/rfc-weekly/RFCWeeklyTwitterCard.png",
+  "author" : "Mark Taylor"
+}
