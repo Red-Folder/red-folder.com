@@ -1,0 +1,12 @@
+﻿{
+  "id": "6334fdcb-5d30-4cd2-9f0d-c99444cffc03",
+  "url": "roi-of-complexity",
+  "published": "2017-03-01",
+  "modified": "2017-03-01",
+  "title": "ROI OF Complexity",
+  "enabled": "true",
+  "keyWords": ["ROI", "IT Management"],
+  "description": "In this article, part of my series explaining ROI from software development, I take a look at complexity.",
+ 	"image" : "/media/blog/roi-of-complexity/header.png",
+  "author" : "Mark Taylor"
+}
