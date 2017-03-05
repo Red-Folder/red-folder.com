@@ -1,6 +1,6 @@
 {
-	"name": "asp.net",
-	"private": true,
+  "name": "asp.net",
+  "private": true,
   "dependencies": {
     "jquery": "~2.2.2",
     "bootstrap": "~3.3.6",
@@ -14,5 +14,8 @@
   "devDependencies": {
     "angular-mocks": "~1.5.5",
     "bardjs": "~0.1.8"
+  },
+  "resolutions": {
+    "angular": "1.6.2"
   }
 }
