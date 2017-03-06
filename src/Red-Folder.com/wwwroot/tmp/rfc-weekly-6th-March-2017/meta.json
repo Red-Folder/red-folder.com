@@ -1,0 +1,12 @@
+﻿{
+  "id": "02d6b4f0-73c3-467d-9906-2f0d3408e04d",
+  "url": "rfc-weekly-6th-march-2017",
+  "published": "2017-03-06",
+  "modified": "2017-03-06",
+  "title": "RFC Weekly - 6th March 2017",
+  "enabled": "true",
+  "keyWords": ["RFCWeekly", "Design", "CSS"],
+  "description": "This week I update on the re-design of my website.",
+ 	"image" : "/media/blog/rfc-weekly/RFCWeeklyTwitterCard.png",
+  "author" : "Mark Taylor"
+}
