@@ -58,7 +58,7 @@ gulp.task('autoprefix-css', ['compile-less'], function() {
     var tasks = config.cssToAutoPrefix.map(function(element) {
         return gulp.src(element.src)
             .pipe($.print())
-            .pipe($.autoprefixer({browser: ['last 2 versions', '> 5%']}))
+            .pipe($.autoprefixer({browsers: ['last 2 versions', '> 5%']}))
             .pipe(gulp.dest(element.dest));
     });
 
