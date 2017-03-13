@@ -5,7 +5,7 @@
   "modified": "2017-03-06",
   "title": "RFC Weekly - 6th March 2017",
   "enabled": "true",
-  "keyWords": ["RFCWeekly", "Design", "CSS"],
+  "keyWords": ["RFC Weekly", "Design", "CSS"],
   "description": "This week I update on the re-design of my website.",
  	"image" : "/media/blog/rfc-weekly/RFCWeeklyTwitterCard.png",
   "author" : "Mark Taylor"

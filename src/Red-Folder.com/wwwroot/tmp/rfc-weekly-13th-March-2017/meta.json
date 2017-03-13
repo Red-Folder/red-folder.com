@@ -1,0 +1,12 @@
+﻿{
+  "id": "aa353edf-063f-4ca8-8191-a2ea422a96e3",
+  "url": "rfc-weekly-13th-march-2017",
+  "published": "2017-03-13",
+  "modified": "2017-03-13",
+  "title": "RFC Weekly - 13th March 2017",
+  "enabled": "true",
+  "keyWords": ["RFC Weekly"],
+  "description": "This week I give a quick state of the nation update.",
+ 	"image" : "/media/blog/rfc-weekly/RFCWeeklyTwitterCard.png",
+  "author" : "Mark Taylor"
+}
