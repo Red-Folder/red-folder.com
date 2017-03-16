@@ -8,7 +8,7 @@ As humans, we love stories – so it’s common for us to use analogies when dis
 Analogies can be a wonderful tool in bridging the technical divide – but can also lead to loss of meaning if over relied on.
 
 ## Why use an analogy?
-As I’ve said before, Software Development is a complex business.  It’s still fairly young in its practices and applications – and it is constantly changing (see [ROI of Complexity](roi-of-complexity)).
+As I’ve said before, Software Development is a complex business.  It’s still fairly young in its practices and applications – and it is constantly changing (see [ROI of Complexity](/blog/roi-of-complexity)).
 
 It is a deeply technical subject, which uses its own (growing) lexicon of terms and meaning.  I’ve been at this for over 20 years and still learning.
 
