@@ -25,6 +25,33 @@ body {
   padding-top: 70px;
   /* To give room for the fixed nabar */
 }
+.reverse {
+  color: white;
+  background-color: #e74c3c;
+}
+.social {
+  padding-top: 25px;
+  text-align: center;
+  padding-bottom: 25px;
+}
+.social > a {
+  border: 1px solid white;
+  opacity: 1;
+  font-size: 24px;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  display: inline-block;
+  text-align: center;
+  border-radius: 50%;
+  margin: 0 8px;
+  color: inherit;
+}
+.social > a:hover {
+  opacity: 1;
+  color: #4C4C4C;
+  border: 1px solid #4C4C4C;
+}
 .icon-separator {
   height: 50px;
   background-color: white;
@@ -72,29 +99,6 @@ footer ul li a:visited {
 }
 footer ul li a:hover {
   color: #4C4C4C;
-}
-footer .social {
-  padding-top: 25px;
-  text-align: center;
-  padding-bottom: 25px;
-}
-footer .social > a {
-  border: 1px solid white;
-  opacity: 1;
-  font-size: 24px;
-  width: 40px;
-  height: 40px;
-  line-height: 40px;
-  display: inline-block;
-  text-align: center;
-  border-radius: 50%;
-  margin: 0 8px;
-  color: inherit;
-}
-footer .social > a:hover {
-  opacity: 1;
-  color: #4C4C4C;
-  border: 1px solid #4C4C4C;
 }
 footer .copyright {
   color: white;
@@ -333,9 +337,6 @@ Testimonials
     padding-top: 25px;
     font-size: 24px;
   }
-  .testimonials-clean .item {
-    height: 220px;
-  }
 }
 .testimonials-clean {
   color: #4C4C4C;
@@ -349,7 +350,7 @@ Testimonials
 }
 .testimonials-clean .intro {
   font-size: 16px;
-  max-width: 500px;
+  max-width: 600px;
   margin: 0 auto;
 }
 .testimonials-clean .intro p {

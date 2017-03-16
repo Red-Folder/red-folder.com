@@ -56,6 +56,7 @@ namespace RedFolder.Controllers.Web
                         {
                             "Consultancy & Coaching on getting better ROI",
                             "Interim team leadership",
+                            "Cyber Security",
                             "Software Development"
                         },
                         "Index",
