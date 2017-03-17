@@ -3,18 +3,46 @@
 @{
     ViewBag.Title = Model.Title;
     Layout = "~/Views/Shared/_Layout.cshtml";
-    ViewBag.BodyCssClass = "new-css";
+    ViewBag.BodyCssClass = "new2-css";
+    ViewBag.DropContainerFluid = true;
 }
 
-<div class="row rfc-header home-page">
+<div class="rfc-header home-page">
     <h1>@Model.Title</h1>
 </div>
 
-<div class="col-xs-12 col-lg-8 col-lg-offset-2 rfc-panel" rfc-inner-border>
+
+<div class="blog-text container">
     @Html.Raw(Model.Text)
 </div>
 
-<div class="col-xs-12 col-lg-8 col-lg-offset-2 rfc-panel" rfc-inner-border>
+<div class="author reverse">
+    <div class="container">
+        <div>
+            <p>
+                <strong>About the author:</strong>
+            </p>
+            <p>
+                Mark Taylor is an experience IT Consultant passionate about helping is clients get better ROI from their Software Development.
+            </p>
+            <p>
+                He has over 20 years Software Development experience - over 15 of those leading teams.  He has experience in a wide variety of technologies and holds certification in Microsoft Development and Scrum.
+            </p>
+            <p>
+                He operates through <strong>Red Folder Consultancy Ltd</strong>.
+            </p>
+        </div>
+        <div class="social">
+            <p>He can be contacted on:</p>
+            <a href="skype:red-folder?chat"><i class="fa fa-skype"></i></a>
+            <a href="https://twitter.com/folderred"><i class="fa fa-twitter"></i></a>
+            <a href="mailto:mark@red-folder.com"><i class="fa fa-envelope"></i></a>
+        </div>
+    </div>
+</div>
+
+
+<div class="container">
     <div id="disqus_thread"></div>
 
     <script type="text/javascript">
