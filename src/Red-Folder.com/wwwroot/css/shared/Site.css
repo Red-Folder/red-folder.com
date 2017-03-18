@@ -577,10 +577,11 @@ Blog
 =================================================================================================================
 */
 .blog-tiles {
-  background-color: antiquewhite;
+  /*background-color: antiquewhite;*/
 }
 .blog-tiles .blog-tile {
   padding: 5px;
+  text-align: center;
 }
 .blog-tiles .blog-tile a,
 .blog-tiles .blog-tile a:visited,
@@ -596,22 +597,16 @@ Blog
   text-decoration: none;
   color: #e74c3c;
 }
-.blog-tiles .blog-tile .blog-tile-inner {
-  border: 2px solid #e74c3c;
-  background-color: white;
-  padding: 5px;
-  text-align: center;
-}
-.blog-tiles .blog-tile .blog-tile-inner h2 {
+.blog-tiles .blog-tile h2 {
   font-size: 20px;
 }
-.blog-tiles .blog-tile .blog-tile-inner .blog-tile-date {
+.blog-tiles .blog-tile .blog-tile-date {
   font-size: 12px;
 }
-.blog-tiles .blog-tile .blog-tile-inner .blog-tile-image img {
+.blog-tiles .blog-tile .blog-tile-image img {
   max-height: 150px;
 }
-.blog-tiles .blog-tile .blog-tile-inner .blog-tile-keywords ul {
+.blog-tiles .blog-tile .blog-tile-keywords ul {
   padding: 0px;
 }
 @media (min-width: 0px) and (max-width: 767px) {
@@ -660,6 +655,18 @@ KeyWords
   display: inline-block;
   background: #4C4C4C;
   padding: 5px 10px 5px 10px;
+  /*
+    &.filter-by {
+        background-color: @color-main;
+
+        a {
+            &:hover, &:focus {
+                text-decoration: none;
+                color: @color-accent;
+            }
+        }
+    }
+    */
 }
 .keyword a,
 .keyword a:visited,
@@ -674,14 +681,6 @@ KeyWords
 .keyword a:focus {
   text-decoration: none;
   color: #e74c3c;
-}
-.keyword.filter-by {
-  background-color: #e74c3c;
-}
-.keyword.filter-by a:hover,
-.keyword.filter-by a:focus {
-  text-decoration: none;
-  color: #4C4C4C;
 }
 /*
 =================================================================================================================
@@ -704,10 +703,13 @@ RFC-Panel
 Work In Progress
 =================================================================================================================
 */
+.filter-switch {
+  padding: 15px;
+}
 .filter-switch a,
 .filter-switch a:visited,
 .filter-switch a:active {
-  color: #4C4C4C;
+  color: white;
   -moz-transition: color 1.5s;
   -o-transition: color 1.5s;
   -webkit-transition: color 1.5s;
@@ -716,7 +718,31 @@ Work In Progress
 .filter-switch a:hover,
 .filter-switch a:focus {
   text-decoration: none;
-  color: #e74c3c;
+  color: white;
+}
+.filter-chooser {
+  padding-bottom: 15px;
+}
+.filter-chooser li .hide-on-hover {
+  display: inline;
+}
+.filter-chooser li .show-on-hover {
+  display: none;
+}
+.filter-chooser li:hover .hide-on-hover {
+  display: none;
+}
+.filter-chooser li:hover .show-on-hover {
+  display: inline;
+}
+.filter-chooser li .fa-times {
+  color: red;
+}
+.filter-chooser li .fa-check {
+  color: lawngreen;
+}
+.selectable {
+  cursor: pointer;
 }
 .new-css {
   background-color: antiquewhite;

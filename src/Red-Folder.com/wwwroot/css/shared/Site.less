@@ -778,16 +778,12 @@ Blog
 =================================================================================================================
 */
 .blog-tiles {
-    background-color: antiquewhite;
+    /*background-color: antiquewhite;*/
 
     .blog-tile {
         padding: 5px;
         .anchor-setup();
 
-        .blog-tile-inner {
-            border: 2px solid @color-main;
-            background-color: white;
-            padding: 5px;
             text-align: center;
 
             h2 {
@@ -808,7 +804,6 @@ Blog
             .blog-tile-keywords ul {
                 padding: 0px;
             }
-        }
     }
 
     @media (min-width: @screen-xs-min) and (max-width: @screen-xs-max) {
@@ -881,6 +876,7 @@ KeyWords
         }
     }
 
+    /*
     &.filter-by {
         background-color: @color-main;
 
@@ -891,6 +887,7 @@ KeyWords
             }
         }
     }
+    */
 }
 
 
@@ -925,21 +922,55 @@ Work In Progress
 */
 
 .filter-switch {
+    padding: 15px;
     a {
         &, &:visited, &:active {
-            color: @color-accent;
+            color: @color-white;
             .transition-builder('color');
         }
 
         &:hover, &:focus {
             text-decoration: none;
-            color: @color-main;
+            color: @color-white;
         }
     }
 }
 
 .filter-chooser {
     //display: none;
+    padding-bottom: 15px;
+
+    li {
+        .hide-on-hover {
+            display: inline;
+        }
+
+        .show-on-hover {
+            display: none;
+        }
+
+        &:hover {
+            .hide-on-hover {
+                display: none;
+            }
+
+            .show-on-hover {
+                display: inline;
+            }
+        }
+
+        .fa-times {
+            color: red;
+        }
+
+        .fa-check {
+            color: lawngreen;
+        }
+    }
+}
+
+.selectable {
+    cursor: pointer;
 }
 
 .new-css {

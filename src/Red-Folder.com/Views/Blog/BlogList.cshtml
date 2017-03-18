@@ -3,51 +3,61 @@
 @{
     ViewBag.Title = "Blog";
     Layout = "~/Views/Shared/_Layout.cshtml";
-    ViewBag.BodyCssClass = "new-css";
+    ViewBag.BodyCssClass = "new2-css";
+    ViewBag.DropContainerFluid = true;
 }
 
-<div class="row rfc-header home-page">
+<div class="rfc-header home-page">
     <h1>Blog</h1>
 </div>
 
-<div class="row">
-    <div class="col-xs-12 rfc-panel rfc-block-link rfc-panel-center" rfc-inner-border>
-        <div class="row blog-header">
-            <div class="col-xs-12 col-md-3 filter-switch selectable">
-                <a onclick="toggle(null, '.filter-chooser')">
-                    <strong>Filter: </strong>@(Model.FilterBy == null || Model.FilterBy.Length == 0 ? "None" : Model.FilterBy)
-                </a>
-            </div>
-        </div>
-        <div class="filter-chooser hidden">
-            <ul>
-                @if(Model.KeyWords != null && Model.KeyWords.Count() > 0)
+
+<div class="reverse">
+    <div class="filter-switch selectable">
+        <a onclick="toggle(null, '.filter-chooser, .filter-chevron');">
+            <strong>Filter: </strong>@(Model.FilterBy == null || Model.FilterBy.Length == 0 ? "None" : Model.FilterBy) &nbsp; <i class="filter-chevron fa fa-chevron-down"></i><i class="filter-chevron fa fa-chevron-up hidden"></i>
+        </a>
+    </div>
+    <div class="filter-chooser hidden">
+        <ul>
+            @if (Model.KeyWords != null && Model.KeyWords.Count() > 0)
+            {
+                @foreach (var keyWord in Model.KeyWords)
                 {
-                    @foreach (var keyWord in Model.KeyWords)
-                    {
-                        <li class="selectable keyword @(Model.FilterBy != null && Model.FilterBy.Contains(keyWord.Key)? "filter-by": "")" onclick="pageConfig.toggleFeature('@keyWord.Key')">
-                            @keyWord.Key (@keyWord.Value)
-                        </li>
-                    }
+                    var filteringBy = (Model.FilterBy != null && Model.FilterBy.Split(',').Any(x => x.Trim() == keyWord.Key));
+                    <li class="selectable keyword @(filteringBy ? "filter-by": "")" onclick="pageConfig.toggleFeature('@keyWord.Key')">
+                        @keyWord.Key (@keyWord.Value)&nbsp;
+                        @if (filteringBy)
+                        {
+                            <i class="fa fa-check hide-on-hover"></i>
+                            <i class="fa fa-times show-on-hover"></i>
+                        }
+                        else
+                        {
+                            <i class="fa fa-check show-on-hover"></i>
+                        }
+                    </li>
                 }
-            </ul>
-        </div>
+            }
+        </ul>
     </div>
 </div>
 
-<rfc-pager  page-no="@Model.PageNo" 
-            pages="@Model.Pages"
-            on-first-page="pageConfig.firstPage()"
-            on-previous-page="pageConfig.previousPage()"
-            on-next-page="pageConfig.nextPage()"
-            on-last-page="pageConfig.lastPage()">
+<rfc-pager page-no="@Model.PageNo"
+           pages="@Model.Pages"
+           on-first-page="pageConfig.firstPage()"
+           on-previous-page="pageConfig.previousPage()"
+           on-next-page="pageConfig.nextPage()"
+           on-last-page="pageConfig.lastPage()">
 </rfc-pager>
 
-<div class="blog-tiles row">
-    @foreach (var blog in Model.BlogsForCurrentPage)
-    {
-        @(await Html.PartialAsync("_BlogTile", blog))
-    }
+<div class="container-fluid">
+    <div class="blog-tiles row">
+        @foreach (var blog in Model.BlogsForCurrentPage)
+                        {
+            @(await Html.PartialAsync("_BlogTile", blog))
+        }
+    </div>
 </div>
 
 <rfc-pager page-no="@Model.PageNo"
@@ -59,16 +69,16 @@
 </rfc-pager>
 
 @section Scripts
-{
+                        {
 
     <script type="text/javascript">
         var listConfig = function() {
-            this.pageNo = @Model.PageNo;
-            this.blogsPerPage = @Model.BlogsPerPage;
-            this.filterBy = [
-                @if (Model.FilterBy != null && Model.FilterBy.Split(',').Count() > 0)
+                                this.pageNo = @Model.PageNo;
+                                this.blogsPerPage = @Model.BlogsPerPage;
+                                this.filterBy = [
+                                    @if (Model.FilterBy != null && Model.FilterBy.Split(',').Count() > 0)
                 {
-                    @foreach (var item in Model.FilterBy.Split(','))
+                                    @foreach (var item in Model.FilterBy.Split(','))
                     {
                         @:'@item',
                     }

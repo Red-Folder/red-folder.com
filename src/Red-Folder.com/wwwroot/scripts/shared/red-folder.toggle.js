@@ -1,24 +1,28 @@
 ﻿function toggle(group, item) {
     'use strict';
-    var $group = $(group);
+    if (group != null) {
+        var $group = $(group);
 
-    var $item = $(item);
-
-    if ($group !== null && $item !== null) {
-        if (!$item.hasClass('hidden')) {
-            $item.addClass('hidden');
-        } else {
-            $group.addClass('hidden');
-            $item.removeClass('hidden');
+        if ($group != null) {
+            $item.each(function (index) {
+                if (!$(this).hasClass('hidden')) {
+                    $(this).addClass('hidden');
+                }
+            });
         }
-    } else {
-        if ($item !== null)
-        {
-            if (!$item.hasClass('hidden')) {
-                $item.addClass('hidden');
-            } else {
-                $item.removeClass('hidden');
-            }
+    }
+
+    if (item != null) {
+        var $item = $(item);
+
+        if ($item != null) {
+            $item.each(function (index) {
+                if ($(this).hasClass('hidden')) {
+                    $(this).removeClass('hidden');
+                } else {
+                    $(this).addClass('hidden');
+                }
+            });
         }
     }
 }
