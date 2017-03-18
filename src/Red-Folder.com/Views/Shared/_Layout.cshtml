@@ -68,7 +68,7 @@
             <nav class="navbar navbar-inverse navbar-fixed-top navigation-clean">
                 <div class="container">
                     <div class="navbar-header">
-                        <a class="navbar-brand navbar-link" rel="home" asp-controller="Home" asp-action="Index">
+                        <a class="navbar-brand navbar-link" rel="home" href="/">
                             <img src="~/Images/RFCLogo48.png" id="rfc-logo">
                         </a>
                         <button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navcol-1">
@@ -80,10 +80,10 @@
                     </div>
                     <div class="collapse navbar-collapse" id="navcol-1">
                         <ul class="nav navbar-nav navbar-right">
-                            <li><a asp-controller="Services" asp-action="Index">Services</a></li>
-                            <li><a asp-controller="Blog" asp-action="Index">Blog</a></li>
-                            <li><a asp-controller="Projects" asp-action="Index">Projects</a></li>
-                            <li><a asp-controller="MyBio" asp-action="Index">My Bio</a></li>
+                            <li><a href="/Services">Services</a></li>
+                            <li><a href="/Blog">Blog</a></li>
+                            <li><a href="/Projects">Projects</a></li>
+                            <li><a href="/MyBio">My Bio</a></li>
                         </ul>
                     </div>
                 </div>
@@ -108,8 +108,8 @@
             <li><a href="/">Home</a></li>
             <li><a href="/Services">Services</a></li>
             <li><a href="/Blog">Blog </a></li>
-            <li><a href="#">Projects </a></li>
-            <li><a href="#">My Bio</a></li>
+            <li><a href="/Projects">Projects </a></li>
+            <li><a href="/MyBio">My Bio</a></li>
         </ul>
         <p class="copyright">Red Folder Consultancy Limited &copy; @DateTime.Now.Year</p>
     </footer>
