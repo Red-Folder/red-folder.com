@@ -1,0 +1,12 @@
+﻿{
+  "id": "e59040dd-277b-4968-a772-b9350d73c62b",
+  "url": "rfc-weekly-20th-march-2017",
+  "published": "2017-03-20",
+  "modified": "2017-03-20",
+  "title": "RFC Weekly - 20th March 2017",
+  "enabled": "true",
+  "keyWords": ["RFC Weekly"],
+  "description": "This week I give an update on CSS/ web design progress.",
+ 	"image" : "/media/blog/rfc-weekly/RFCWeeklyTwitterCard.png",
+  "author" : "Mark Taylor"
+}
