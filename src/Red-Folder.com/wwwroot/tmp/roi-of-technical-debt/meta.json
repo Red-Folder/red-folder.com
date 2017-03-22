@@ -1,0 +1,13 @@
+{
+  "id":"ded90b25-db90-492a-a81d-4bde262ce095",
+  "url":"roi-of-technical-debt",
+  "author":"Mark Taylor",
+  "published":"2017-03-23",
+  "modified":"2017-03-23",
+  "title":"ROI of Technical Debt",
+  "image":"/media/blog/roi-of-technical-debt/Header.png",
+  "description":"In this article, part of my series explaining better ROI from software development, I’d like to look at the using Technical Debt as means of explaining poor ROI.",
+  "enabled":true,
+  "keyWords":["ROI","IT Management"],
+  "redirects":[]
+}
