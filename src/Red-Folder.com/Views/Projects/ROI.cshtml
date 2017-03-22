@@ -2,42 +2,39 @@
 
 @{
     ViewBag.Title = "Return On Investment";
-    ViewBag.BodyCssClass = "new-css";
+    ViewBag.BodyCssClass = "new2-css";
+    ViewBag.DropContainerFluid = true;
 }
-<div class="row rfc-header recent-projects-page">
+<div class="rfc-header recent-projects-page">
     <h1>Getting better Return On Investment from Software Development</h1>
 </div>
 
-<div class="row">
-    <div class="col-xs-12 col-lg-offset-3 col-lg-6 rfc-panel rfc-block-link rfc-panel-center" rfc-inner-border>
-        <div class="row">
-            <div class="col-xs-12">
-                <p>
-                    As a 20+ year veteran of software development I know the difference to the bottom line it can make.  I also know what a difference the right investment approach to Software Development can make.
-                </p>
-                <p>
-                    Software Development is a complex and challenging process.  And it can seem like a frustrating activity when you are funding it – often seeming like a bottomless pit.
-                </p>
-                <p>
-                    Traditional management approaches struggle with getting the best Return On Investment – if anything they are counterproductive.
-                </p>
-                <p>
-                    In this series of articles I explain why and how to improve it.
-                </p>
-            </div>
-        </div>
+<div class="site-intro">
+    <div class="container">
+        <p>
+            As a 20+ year veteran of software development I know the difference to the bottom line it can make.  I also know what a difference the right investment approach to Software Development can make.
+        </p>
+        <p>
+            Software Development is a complex and challenging process.  And it can seem like a frustrating activity when you are funding it – often seeming like a bottomless pit.
+        </p>
+        <p>
+            Traditional management approaches struggle with getting the best Return On Investment – if anything they are counterproductive.
+        </p>
+        <p>
+            In this series of articles I explain why and how to improve it.
+        </p>
     </div>
 </div>
 
-<div class="row">
-    <div class="col-lg-offset-3">
-        <h2>ROI Articles</h2>
-    </div>
+<div class="page-separator reverse">
+    <h2>ROI Articles</h2>
 </div>
 
-<div class="blog-tiles row">
-    @foreach (var blog in Model.BlogsForCurrentPage)
-    {
-        @(await Html.PartialAsync("_BlogTile", blog))
-    }
+<div class="container-fluid">
+    <div class="blog-tiles row">
+        @foreach (var blog in Model.BlogsForCurrentPage)
+        {
+            @(await Html.PartialAsync("_BlogTile", blog))
+        }
+    </div>
 </div>
