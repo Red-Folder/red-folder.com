@@ -3,17 +3,21 @@
 @{
     ViewBag.Title = Model.Title;
     Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.BodyCssClass = "new2-css";
+    ViewBag.DropContainerFluid = true;
 }
-<div class="row rfc-header recent-projects-page">
+
+<div class="rfc-header recent-projects-page">
     <h1>@Model.Title</h1>
 </div>
 
-<div class="center-content">
-    @if (Model != null)
+@if (Model != null)
+{
+    if (Model.Description != null && Model.Description.Count > 0)
     {
-        if (Model.Description != null && Model.Description.Count > 0)
-        {
-            <div class="row">
+
+        <div class="site-intro">
+            <div class="container">
                 @foreach (var paragraph in Model.Description)
                 {
                     <p>
@@ -21,58 +25,68 @@
                     </p>
                 }
             </div>
-        }
-
-        if (Model.Articles != null && Model.Articles.Count > 0)
-        {
-            <div class="row">
-                <h3>Blog articles</h3>
-                <ul>
-                    @foreach (var article in Model.Articles)
-                    {
-                        <li>
-                            <a href="@article.Link.ToString()"><h4>@article.Title</h4></a>
-
-                            @if (article.Description != null && article.Description.Count > 0)
-                        {
-                            foreach (var paragraph in article.Description)
-                            {
-                                    <p>
-                                        @paragraph
-                                    </p>
-                                }
-                            }
-                        </li>
-                    }
-                </ul>
-
-            </div>
-        }
-
-        if (Model.SourceCode != null && Model.SourceCode.Count > 0)
-        {
-
-            <div class="row">
-                <h3>Source code</h3>
-                <ul>
-                    @foreach (var source in Model.SourceCode)
-                    {
-                        <li>
-                            <a href="@source.Link"><h4>@source.Title</h4></a>
-
-                            @if (source.Description != null && source.Description.Count > 0)
-                            {
-                                foreach (var paragraph in source.Description)
-                                {
-                                    <p>
-                                        @paragraph
-                                    </p>
-                                }
-                            }
-                        </li>
-                    }
-                </ul>
-            </div>
-        }
+        </div>
     }
-</div>
+
+    if (Model.Articles != null && Model.Articles.Count > 0)
+    {
+        <div class="page-separator reverse">
+            <h2>Blog Articles</h2>
+        </div>
+
+        <div class="container-fluid">
+            <div class="blog-tiles row">
+                @foreach (var article in Model.Articles)
+                {
+
+                    <div class="blog-tile col-xs-12 col-sm-6 col-md-4 col-lg-3">
+                        <a href="@article.Link.ToString()">
+                            <h3>@article.Title</h3>
+                            @if (article.Description != null)
+                            {
+                                @foreach (var paragraph in article.Description)
+                                {
+                                    <p>@paragraph</p>
+                                }
+                            }
+                            <div class="show-more-icon">
+                                <i class="fa fa-chevron-circle-right"></i>
+                            </div>
+                        </a>
+                    </div>
+                }
+            </div>
+        </div>
+    }
+
+    if (Model.SourceCode != null && Model.SourceCode.Count > 0)
+    {
+        <div class="page-separator reverse">
+            <h2>Source Code</h2>
+        </div>
+
+        <div class="container-fluid">
+            <div class="blog-tiles row">
+                @foreach (var source in Model.SourceCode)
+                {
+
+                    <div class="blog-tile col-xs-12 col-sm-6 col-md-4 col-lg-3">
+                        <a href="@source.Link.ToString()">
+                            <h3>@source.Title</h3>
+                            @if (source.Description != null)
+                            {
+                                @foreach (var paragraph in source.Description)
+                                {
+                                    <p>@paragraph</p>
+                                }
+                            }
+                            <div class="show-more-icon">
+                                <i class="fa fa-chevron-circle-right"></i>
+                            </div>
+                        </a>
+                    </div>
+                }
+            </div>
+        </div>
+    }
+}
