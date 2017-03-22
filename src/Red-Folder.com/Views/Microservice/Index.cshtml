@@ -27,50 +27,52 @@
 </div>
 
 <!-- Hide the Dependancy Graph until I get a chance to fix it -->
-<div class="container-fluid">
-    <div class="row hidden-xs hidden">
-        <div class="col-lg-offset-3">
-            <h2>Dependancy Graph</h2>
+@*
+    <div class="container-fluid">
+        <div class="row hidden-xs">
+            <div class="col-lg-offset-3">
+                <h2>Dependancy Graph</h2>
+            </div>
         </div>
-    </div>
 
-    <div class="row hidden-xs hidden">
-        <div class="col-xs-12 rfc-panel rfc-block-link rfc-panel-center" rfc-inner-border>
-            <div class="row">
-                @{ await Html.RenderPartialAsync("_MicroServiceDependanyGraph"); }
+        <div class="row hidden-xs">
+            <div class="col-xs-12 rfc-panel rfc-block-link rfc-panel-center" rfc-inner-border>
+                <div class="row">
+                    @{ await Html.RenderPartialAsync("_MicroServiceDependanyGraph"); }
 
-                @section Scripts
-            {
-                    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.js"></script>
+                    @section Scripts
+                {
+                        <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.js"></script>
 
-                    <environment names="Development">
-                        <!-- dependancyGraphDevelopment:js -->
-                        <script src="/scripts/dependancyGraph/dependancy.graph.js"></script>
-                        <!-- endinject -->
-                    </environment>
-                    <environment names="Production,Staging">
-                        <!-- dependancyGraphProduction:js -->
-                        <!-- endinject -->
-                    </environment>
-                }
+                        <environment names="Development">
+                            <!-- dependancyGraphDevelopment:js -->
+                            <script src="/scripts/dependancyGraph/dependancy.graph.js"></script>
+                            <!-- endinject -->
+                        </environment>
+                        <environment names="Production,Staging">
+                            <!-- dependancyGraphProduction:js -->
+                            <!-- endinject -->
+                        </environment>
+                    }
 
-                @section Styles
-            {
-                    <environment names="Development">
-                        <!-- dependancyGraphDevelopment:css -->
-                        <link rel="stylesheet" href="/css/dependancyGraph/dependancy.graph.css">
-                        <!-- endinject -->
-                    </environment>
-                    <environment names="Production,Staging">
-                        <!-- dependancyGraphProduction:css -->
-                        <link rel="stylesheet" href="/css/dependancyGraph/production/DependancyGraph-44f0c67616.css">
-                        <!-- endinject -->
-                    </environment>
-                }
+                    @section Styles
+                {
+                        <environment names="Development">
+                            <!-- dependancyGraphDevelopment:css -->
+                            <link rel="stylesheet" href="/css/dependancyGraph/dependancy.graph.css">
+                            <!-- endinject -->
+                        </environment>
+                        <environment names="Production,Staging">
+                            <!-- dependancyGraphProduction:css -->
+                            <link rel="stylesheet" href="/css/dependancyGraph/production/DependancyGraph-44f0c67616.css">
+                            <!-- endinject -->
+                        </environment>
+                    }
+                </div>
             </div>
         </div>
     </div>
-</div>
+*@
 
 <div class="page-separator reverse">
     <h2>Microservice Articles</h2>
