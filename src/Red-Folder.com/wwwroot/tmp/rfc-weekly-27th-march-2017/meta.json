@@ -1,0 +1,12 @@
+﻿{
+  "id": "6e359d5a-73c5-48a6-b4a9-c3f7547d7910",
+  "url": "rfc-weekly-27th-march-2017",
+  "published": "2017-03-27",
+  "modified": "2017-03-27",
+  "title": "RFC Weekly - 27th March 2017",
+  "enabled": "true",
+  "keyWords": ["RFC Weekly", "CSS", "Akka.Net", "Proto.Actor", "Orleans"],
+  "description": "This week I give up an update on CSS/ web design progress.",
+ 	"image" : "/media/blog/rfc-weekly/RFCWeeklyTwitterCard.png",
+  "author" : "Mark Taylor"
+}
