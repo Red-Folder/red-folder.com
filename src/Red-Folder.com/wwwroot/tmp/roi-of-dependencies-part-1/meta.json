@@ -1,0 +1,13 @@
+{
+  "id":"5d2e9642-d000-4287-ae0e-38b2a82eb13b",
+  "url":"roi-of-dependencies-part-1",
+  "author":"Mark Taylor",
+  "published":"2017-04-06",
+  "modified":"2017-04-06",
+  "title":"ROI of Dependencies - Part 1",
+  "image":"/media/blog/roi-of-dependencies/Header.png",
+  "description":"In this article, part of my series explaining better ROI from software development, I’d like to look at sharing my thoughts on dependencies over 3 parts.  This 1st part introduces Acme Corporation and their CTO Fiona as she looks to take advantage of a real oppertunity to improve.",
+  "enabled":false,
+  "keyWords":["ROI","IT Management"],
+  "redirects":[]
+}
