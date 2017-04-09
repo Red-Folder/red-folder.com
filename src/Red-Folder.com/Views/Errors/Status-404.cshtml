@@ -1,28 +1,29 @@
 @{
     ViewBag.Title = "404 - Not found";
     Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.BodyCssClass = "new2-css";
+    ViewBag.DropContainerFluid = true;
 }
-<div class="row rfc-header recent-projects-page">
+<div class="rfc-header recent-projects-page">
     <span>Ohhh ... so close, but not quite</span><br />
 </div>
 
-<div class="center-content">
-    <div class="row">
-        <div class="col-xs-12">
-            <img src="~/images/NotFound.png" class="img-responsive" />
-            <p>
-                I cannot find the page you are looking for.  Try one of the below, they are fairly great.
-            </p>
-            <p>
-                <a asp-controller="Services" asp-action="Index"><strong>Services:</strong> The services I provide.</a>
-            </p>
-            <p>
-                <a asp-controller="Projects" asp-action="Index"><strong>Projects:</strong> The projects i host here.</a>
-            </p>
-            <p>
-                <a asp-controller="MyBio" asp-action="Index"><strong>My Bio:</strong> All about me.</a>
-            </p>
-        </div>
+<div class="site-intro">
+    <div class="container">
+        <img src="~/images/NotFound.png" class="img-responsive center-block" />
+        <h2>I'm sorry ... </h2>
+        <p>
+            I cannot find the page you are looking for.  Try one of the below, they are fairly great.
+        </p>
+        <p>
+            <a asp-controller="Services" asp-action="Index"><strong>Services:</strong> The services I provide.</a>
+        </p>
+        <p>
+            <a asp-controller="Projects" asp-action="Index"><strong>Projects:</strong> The projects I host here.</a>
+        </p>
+        <p>
+            <a asp-controller="MyBio" asp-action="Index"><strong>My Bio:</strong> All about me.</a>
+        </p>
     </div>
-
 </div>
+
