@@ -34,7 +34,7 @@ namespace RedFolder.Controllers.Web
             } 
             else
             {
-                return View(id);
+                return View();
             }
         }
     }
