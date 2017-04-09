@@ -4,6 +4,7 @@
     display: inline-block;
     background: #4C4C4C;
     padding: 5px 10px 5px 10px;
+    margin: 3px;
   }
   .center-content {
     width: 753px;
@@ -24,6 +25,8 @@ Page Wide
 body {
   padding-top: 70px;
   /* To give room for the fixed nabar */
+  color: #4C4C4C;
+  background-color: white;
 }
 .reverse {
   color: white;
@@ -348,10 +351,6 @@ Testimonials
     font-size: 24px;
   }
 }
-.testimonials-clean {
-  color: #4C4C4C;
-  background-color: white;
-}
 .testimonials-clean h2 {
   font-weight: bold;
   margin-bottom: 40px;
@@ -385,19 +384,7 @@ Testimonials
 }
 .testimonials-clean .item .box {
   padding: 30px;
-  background-color: #fff;
   position: relative;
-}
-.testimonials-clean .item .box:after {
-  content: '';
-  position: absolute;
-  left: 30px;
-  bottom: -24px;
-  width: 0;
-  height: 0;
-  border: 15px solid transparent;
-  border-width: 12px 15px;
-  border-top-color: white;
 }
 .testimonials-clean .item a {
   color: #4C4C4C;
