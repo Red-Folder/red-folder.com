@@ -2,32 +2,48 @@
 
 @{
     ViewBag.Title = "Projects";
-    ViewBag.BodyCssClass = "new-css";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.BodyCssClass = "new2-css";
+    ViewBag.DropContainerFluid = true;
 }
-<div class="row rfc-header recent-projects-page">
+<div class="rfc-header recent-projects-page">
     <h1>Recent Projects</h1>
 </div>
 
-<div class="row">
-    <div class="col-xs-12 col-lg-offset-3 col-lg-6 rfc-panel rfc-block-link rfc-panel-center" rfc-inner-border>
-        <div class="row">
-            <div class="col-xs-12">
-
-                <p>
-                    This page is a collection of projects I've been working on.  If nothing else they provide a place for me to put all my random experiments.
-                </p>
-            </div>
-        </div>
+<div class="site-intro">
+    <div class="container">
+        <p>
+            This page is a collection of projects I've been working on.  If nothing else they provide a place for me to put all my random experiments.
+        </p>
     </div>
 </div>
 
-<div class="blog-tiles row">
+<div class="testimonials-clean">
+    <div class="container">
+        <div class="row people">
 
-    @if (Model != null && Model.Count > 0)
-    {
-        foreach (var tile in Model)
-        {
-            await Html.RenderPartialAsync("_SummaryRow2", tile);
-        }
-    }
+            @if (Model != null && Model.Count > 0)
+            {
+                foreach (var tile in Model)
+                {
+
+                    <div class="col-md-6 col-xs-12 item">
+                        <a asp-controller="@tile.Controller" asp-action="@tile.Action">
+                            <div class="box">
+                                <h3>@tile.Title</h3>
+                                @foreach (var paragraph in tile.Description)
+                                {
+                                    <p class="description">@paragraph</p>
+
+                                }
+                                <p></p>
+                                <p></p>
+                                <p class="read-more">Read more <i class="fa fa-chevron-circle-right"></i> </p>
+                            </div>
+                        </a>
+                    </div>
+                }
+            }
+        </div>
+    </div>
 </div>
