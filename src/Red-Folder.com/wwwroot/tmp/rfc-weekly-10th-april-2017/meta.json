@@ -1,0 +1,12 @@
+﻿{
+  "id": "509b9c8a-cba5-4b38-bd1a-f548726a6ac1",
+  "url": "rfc-weekly-10th-april-2017",
+  "published": "2017-04-10",
+  "modified": "2017-04-10",
+  "title": "RFC Weekly - 10th April 2017",
+  "enabled": "true",
+  "keyWords": ["RFC Weekly", "CSS", "TypeScript"],
+  "description": "This week I give up an update on the Pluralsight CSS learning path, website redesign, TypeScript, reading and my blog re-development.",
+ 	"image" : "/media/blog/rfc-weekly/RFCWeeklyTwitterCard.png",
+  "author" : "Mark Taylor"
+}
