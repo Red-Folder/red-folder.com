@@ -6,6 +6,8 @@
 
 <div class="rfc-header services-page">
     <h1>Software Development Health Check</h1>
+    <br/>
+    <span>Get better ROI from Software Development</span>
 </div>
 
 <div class="site-intro">
@@ -18,7 +20,7 @@
     </div>
 </div>
 
-<div class="site-intro">
+<div class="site-intro reverse">
     <div class="container">
         <h2>Imagine your Software Development being a catalyst</h2>
         <p>Imagine Software Development as a <strong>major enabler to your business</strong>.  Imagine it giving you a <strong>competitive advantage</strong>.</p>
@@ -39,35 +41,20 @@
     </div>
 </div>
 
-<div class="site-intro">
+<div class="site-intro reverse">
     <div class="container">
         <h2>Here’s what it typically looks like:</h2>
-        <ul>
-            <li>Skype/ phone call to ensure that the service is right for you</li>
-            <li>
-                2 days of onsite interviews; to include:
-                <ul>
-                    <li>A kick off meeting with major stakeholders</li>
-                    <li>1-2-1 interviews with key stakeholders</li>
-                    <li>Interviews with the delivery teams</li>
-                </ul>
-            </li>
-            <li>
-                A written report detailing:
-                <ul>
-                    <li>Current state</li>
-                    <li>A selection of <strong>recommendations tailored to your priorities</strong></li>
-                </ul>
-            </li>
-            <li>A follow up Skype/ phone call to address any feedback from the report</li>
-        </ul>
+        <p>A call to ensure that the service is right for you</p>
+        <p>2 days of onsite interviews with key stakeholders and your developers</p>
+        <p>A written report providing <strong>recommendations tailored to your priorities</strong></p>
+        <p>An onsite presentation of the reports findings</p>
     </div>
 </div>
 
 <div class="site-intro">
     <div class="container">
         <h2>Ready to go?</h2>
-        <p>Interested to get <strong>better Return On Investment from your Software Development?</strong></p>
+        <p>Interested in getting <strong>better Return On Investment from your Software Development?</strong></p>
         <p>The price is £5,000 (exc VAT and expenses) – easily recouped in ROI improvements.</p>
     </div>
 </div>
@@ -89,19 +76,57 @@
     </div>
 </div>
 
-<div class="site-intro">
+<div class="site-intro reverse">
     <div class="container">
         <h2>Availability is limited</h2>
         <p>Due to the manually intensive nature of the Health Check, unfortunately I’m only able to offer a limited number per month.</p>
-        <p>Again for a no-commitment chat, contact me on <a href="mailto:mark@red-folder.com">mar@red-folder.com</a>.</p>
+        <p>Again for a no-commitment chat, contact me on <a href="mailto:mark@red-folder.com">mark@red-folder.com</a>.</p>
         <p><strong>If I don’t think I can help you, I’ll say so.</strong></p>
     </div>
 </div>
 
-<div class="social reverse">
+<div class="social">
     <h2>Still have questions?</h2>
     <p>Not a problem, contact me on:</p>
     <a href="skype:red-folder?chat"><i class="fa fa-skype"></i></a>
     <a href="https://twitter.com/folderred"><i class="fa fa-twitter"></i></a>
     <a href="mailto:mark@red-folder.com"><i class="fa fa-envelope"></i></a>
 </div>
+
+
+@section metas
+{
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@@folderred" />
+    <meta property="og:title" name="twitter:title" content="Software Development Health Check" />
+    <meta property="og:description" name="twitter:description" content="Are you getting the best ROI from your Software Development investment?  Take a Health Check to find out." />
+    <meta property="og:image" name="twitter:image" content="/media/HealthCheckPromo.png" />
+}
+
+@section Scripts
+{
+    <script type="application/ld+json">
+        {
+            "@@context": "http://schema.org",
+            "@@type": "Service",
+            "serviceType": "Software Development Health Check",
+            "headline": "Software Development Health Check",
+            "image": {
+                "@@type": "ImageObject",
+                "url": "/media/HealthCheckPromo.png",
+                "height": "150",
+                "width": " 280"
+            },
+            "provider": {
+                "@@type": "Organization",
+                "name": "Red Folder Consultancy Ltd",
+                "logo": {
+                    "@@type": "ImageObject",
+                    "url": "https://www.red-folder.com/media/RFCLogo.png"
+                }
+            }
+            "url": "https://www.red-folder.com/services/healthcheck",
+            "description": "Are you getting the best ROI from your Software Development investment?  Take a Health Check to find out.",
+        }
+    </script>
+}
