@@ -12,5 +12,11 @@ namespace RedFolder.Controllers.Web
         {
             return View();
         }
+
+        public IActionResult HealthCheck()
+        {
+            return View();
+        }
+
     }
 }
