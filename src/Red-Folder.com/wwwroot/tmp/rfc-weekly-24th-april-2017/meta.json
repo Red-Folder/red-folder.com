@@ -1,0 +1,12 @@
+﻿{
+  "id": "12118858-fbd6-4dc4-b784-50812387769d",
+  "url": "rfc-weekly-24th-april-2017",
+  "published": "2017-04-24",
+  "modified": "2017-04-24",
+  "title": "RFC Weekly - 24th April 2017",
+  "enabled": "true",
+  "keyWords": ["RFC Weekly", "TypeScript", "MicroServices"],
+  "description": "This week I give up an update on my blog re-development, Health Check Product, TypeScript and current learning.",
+ 	"image" : "/media/blog/rfc-weekly/RFCWeeklyTwitterCard.png",
+  "author" : "Mark Taylor"
+}
