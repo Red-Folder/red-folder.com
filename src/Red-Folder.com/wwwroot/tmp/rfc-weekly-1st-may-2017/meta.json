@@ -1,0 +1,12 @@
+﻿{
+  "id": "91f8f206-8f88-4b09-abb4-2e7d142dcd10",
+  "url": "rfc-weekly-1st-may-2017",
+  "published": "2017-05-01",
+  "modified": "2017-05-01",
+  "title": "RFC Weekly - 1st May 2017",
+  "enabled": "true",
+  "keyWords": ["RFC Weekly", "VSTS", "OpenCover", "Azure Functions", "Continuous Delivery"],
+  "description": "This week I give up an update on my blog re-development and replacement laptop.",
+ 	"image" : "/media/blog/rfc-weekly/RFCWeeklyTwitterCard.png",
+  "author" : "Mark Taylor"
+}
