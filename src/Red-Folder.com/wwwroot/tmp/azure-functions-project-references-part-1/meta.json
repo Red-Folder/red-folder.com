@@ -1,0 +1,12 @@
+{
+  "id":"a9ea7fc7-c62e-495b-b0dc-dd663acab1fc",
+  "url":"azure-functions-project-references-part-1",
+  "author":"Mark Taylor",
+  "published":"2017-05-08",
+  "modified":"2017-05-08",
+  "title":"Azure Functions - Project References - Part 1",
+  "description":"In this article, I provide a method to include additional projects in Azure Functions.  This is part 1 - the depreciated version.",
+  "enabled":true,
+  "keyWords":["ROI","Azure Functions", "Continuous Delivery", "MicroServices", "VSTS"],
+  "redirects":[]
+}

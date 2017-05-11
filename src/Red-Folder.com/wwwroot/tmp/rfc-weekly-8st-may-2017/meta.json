@@ -1,0 +1,12 @@
+﻿{
+  "id": "a7f4a10e-6a40-4795-a3af-c76c4f96e6f1",
+  "url": "rfc-weekly-8th-may-2017",
+  "published": "2017-05-08",
+  "modified": "2017-05-08",
+  "title": "RFC Weekly - 8th May 2017",
+  "enabled": "true",
+  "keyWords": ["RFC Weekly", "Azure Functions", "Continuous Delivery", "Stoke-On-Tech"],
+  "description": "This week I give up an update on my blog re-development and replacement laptop.",
+ 	"image" : "/media/blog/rfc-weekly/RFCWeeklyTwitterCard.png",
+  "author" : "Mark Taylor"
+}
