@@ -1,0 +1,12 @@
+﻿{
+  "id": "242fe1eb-7425-4fcf-9074-8277dfd83215",
+  "url": "rfc-weekly-15th-may-2017",
+  "published": "2017-05-15",
+  "modified": "2017-05-15",
+  "title": "RFC Weekly - 15th May 2017",
+  "enabled": "true",
+  "keyWords": ["RFC Weekly", "Azure Functions", "Continuous Integration", "Agile", "TDD", "BDD", "MVP", "Feature Slice", "Scrum"],
+  "description": "This week I give up an update on Agile Adoption, Azure Functions and ROI articles.",
+ 	"image" : "/media/blog/rfc-weekly/RFCWeeklyTwitterCard.png",
+  "author" : "Mark Taylor"
+}
