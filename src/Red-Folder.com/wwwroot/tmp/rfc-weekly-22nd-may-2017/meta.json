@@ -1,0 +1,12 @@
+﻿{
+  "id": "ab3afc6b-b3aa-4549-85b8-e1c49bb23a7e",
+  "url": "rfc-weekly-22nd-may-2017",
+  "published": "2017-05-22",
+  "modified": "2017-05-22",
+  "title": "RFC Weekly - 22nd May 2017",
+  "enabled": "true",
+  "keyWords": ["RFC Weekly", "Continuous Integration", "TDD", "BDD", "Feature Slice", "SpecFlow", "NuGet"],
+  "description": "This week I give up an update on my NuGet IntegrationFact package, the benefits of combining BDD & TDD testing and ROI articles.",
+ 	"image" : "/media/blog/rfc-weekly/RFCWeeklyTwitterCard.png",
+  "author" : "Mark Taylor"
+}
