@@ -1,0 +1,12 @@
+﻿{
+  "id": "9d562c88-e4df-4a78-93f5-e55578c230aa",
+  "url": "rfc-weekly-5th-june-2017",
+  "published": "2017-06-05",
+  "modified": "2017-06-05",
+  "title": "RFC Weekly - 5th June 2017",
+  "enabled": "true",
+  "keyWords": ["RFC Weekly", "Octokit.net", "Azure", "GitHub", "Contracting"],
+  "description": "This week I give up an update on deleting multiple files in a single commit via Octokit.net, Azure SaaS patterns and some notes on my end-of-contract planning.",
+ 	"image" : "/media/blog/rfc-weekly/RFCWeeklyTwitterCard.png",
+  "author" : "Mark Taylor"
+}
