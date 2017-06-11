@@ -20,7 +20,8 @@ namespace RedFolder.Blog.Markdown
             var acclaim = new AcclaimTransformer(code);
             var image = new ImageTransformer(acclaim);
             var gist = new GistTransformer(image);
-            _innerTransformer = gist;
+            var roiArticle = new ROIArticleTransformer(gist);
+            _innerTransformer = roiArticle;
         }
 
         public MarkdownTransformer(ITransformer innerTransformer)
