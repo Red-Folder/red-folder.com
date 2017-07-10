@@ -1,0 +1,12 @@
+﻿{
+  "id": "65e30432-6174-4ccd-be28-5bf8d63ca3a9",
+  "url": "rfc-weekly-10th-july-2017",
+  "published": "2017-07-10",
+  "modified": "2017-07-10",
+  "title": "RFC Weekly - 10th July 2017",
+  "enabled": "true",
+  "keyWords": [ "RFC Weekly", "Azure", "70-534", "PWA", "Web Assembly", ".Net Standard" ],
+  "description": "This week I give an update on my preparations for the Azure 70-534 exam, Progressive Web Apps, Web Assembly and .Net Standard.",
+  "image": "/media/blog/rfc-weekly/RFCWeeklyTwitterCard.png",
+  "author": "Mark Taylor"
+}
