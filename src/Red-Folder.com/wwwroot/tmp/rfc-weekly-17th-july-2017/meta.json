@@ -1,0 +1,12 @@
+﻿{
+  "id": "3c476c49-eb79-4616-91da-224d4eecf8f8",
+  "url": "rfc-weekly-17th-july-2017",
+  "published": "2017-07-17",
+  "modified": "2017-07-17",
+  "title": "RFC Weekly - 17th July 2017",
+  "enabled": "true",
+  "keyWords": [ "RFC Weekly", "Azure", "70-534" ],
+  "description": "This week I give an update on my preparations for the Azure 70-534 exam, Cloud Patterns, 3d Blueprint Visio templates, and Microsoft Fluent Design.",
+  "image": "/media/blog/rfc-weekly/RFCWeeklyTwitterCard.png",
+  "author": "Mark Taylor"
+}
