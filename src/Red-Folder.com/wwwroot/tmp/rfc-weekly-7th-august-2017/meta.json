@@ -1,0 +1,12 @@
+﻿{
+  "id": "d344048f-e962-4c56-a158-4831dc6fafe3",
+  "url": "rfc-weekly-7th-august-2017",
+  "published": "2017-08-07",
+  "modified": "2017-08-07",
+  "title": "RFC Weekly - 7th August 2017",
+  "enabled": "true",
+  "keyWords": [ "RFC Weekly", "Azure", "70-534" ],
+  "description": "This week I give feedback on passing the Microsoft 70-534: Architecting Microsoft Azure Solutions exam.",
+  "image": "/media/blog/rfc-weekly/RFCWeeklyTwitterCard.png",
+  "author": "Mark Taylor"
+}
