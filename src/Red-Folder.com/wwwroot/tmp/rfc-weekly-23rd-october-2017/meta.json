@@ -1,0 +1,12 @@
+﻿{
+  "id": "2f6e02e8-1db3-48c4-a637-9df2e1c9ed71",
+  "url": "rfc-weekly-23rd-october-2017",
+  "published": "2017-10-23",
+  "modified": "2017-10-23",
+  "title": "RFC Weekly - 23rd October 2017",
+  "enabled": "true",
+  "keyWords": [ "RFC Weekly", "TeamCity", "Docker"],
+  "description": "Again, a longer delay that I should have - but an update on where I am with TeamCity and Docker.",
+  "image": "/media/blog/rfc-weekly/RFCWeeklyTwitterCard.png",
+  "author": "Mark Taylor"
+}
