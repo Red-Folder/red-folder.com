@@ -1,0 +1,12 @@
+﻿{
+  "id": "e7362f32-d824-4449-bb84-794d970c557d",
+  "url": "rfc-weekly-6th-november-2017",
+  "published": "2017-11-06",
+  "modified": "2017-11-06",
+  "title": "RFC Weekly - 6th November 2017",
+  "enabled": "true",
+  "keyWords": [ "RFC Weekly", "Security", "Contracting"],
+  "description": "An update on my work-in-progress web security workshop and some thoughts on the contracting position.",
+  "image": "/media/blog/rfc-weekly/RFCWeeklyTwitterCard.png",
+  "author": "Mark Taylor"
+}
