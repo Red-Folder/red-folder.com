@@ -1,0 +1,12 @@
+﻿{
+  "id": "564afa16-e3cb-434d-b8fe-c3519f6b1ba8",
+  "url": "kubernetes-lab-part-1-virtual-network",
+  "published": "2018-04-07",
+  "modified": "2018-04-07",
+  "title": "Kubernetes lab - Part 1 - Virtual Network",
+  "enabled": "true",
+  "keyWords": [ "Kubernetes", "Docker", "Containers" ],
+  "description": "A series of posts on preparing a Kubernetes talk.  In this article, I start with the virtual network setup of my laptop (not as easy as it first seems).",
+  "image": "/media/blog/kubernetes-lab-part-1-virtual-network/kubernetes-header.png",
+  "author": "Mark Taylor"
+}
