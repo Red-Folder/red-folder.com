@@ -1,0 +1,12 @@
+﻿{
+  "id": "3db48d54-485c-47b0-b452-e315eb0b1505",
+  "url": "rfc-weekly-30th-october-2017",
+  "published": "2017-10-30",
+  "modified": "2017-10-30",
+  "title": "RFC Weekly - 30th October 2017",
+  "enabled": "true",
+  "keyWords": [ "RFC Weekly", "TeamCity", "Powershell"],
+  "description": "An update on focus of the past week and some interesting things in my life (well, I find them interesting)",
+  "image": "/media/blog/rfc-weekly/RFCWeeklyTwitterCard.png",
+  "author": "Mark Taylor"
+}

@@ -1,0 +1,12 @@
+﻿{
+  "id": "3e111705-6e93-4344-bd4e-f89e237f469e",
+  "url": "rfc-weekly-2nd-october-2017",
+  "published": "2017-10-02",
+  "modified": "2017-10-02",
+  "title": "RFC Weekly - 2nd October 2017",
+  "enabled": "true",
+  "keyWords": [ "RFC Weekly", "DevOps", "TeamCity", "VSTS", "Legacy", "Graylog", "Docker", "SRE" ],
+  "description": "Back into it after a month and half.  An update on what I'm thinking about right now.",
+  "image": "/media/blog/rfc-weekly/RFCWeeklyTwitterCard.png",
+  "author": "Mark Taylor"
+}
