@@ -70,5 +70,27 @@ namespace Red_Folder.Blog.Markdown.Tests.Unit.Transformers
             Assert.Equal(expected, result);
         }
 
+
+        [Fact]
+        public void Encode_Html_Elements_Within_Code_Blocks()
+        {
+            var meta = JObject.Parse(
+            @"{
+                            ""url"": ""/rfc-weekly-17th-October-2016"",
+                            ""published"": ""2016-10-17"",
+                            ""modified"": ""2016-10-17"",
+                            ""title"": ""RFC Weekly - 17th October 2016"",
+                            ""enabled"":  ""true""
+                        }");
+            var markdown = "<div></div>\n```\n<div></div>\n```\n<div></div>\n";
+            var expected = "<div></div>\n<pre><code>&lt;div&gt;&lt;/div&gt;\n</code></pre>\n<div></div>\n";
+
+            var uat = new CodeTransformer();
+
+            var result = uat.TransformMarkdown(meta, markdown);
+
+            Assert.Equal(expected, result);
+        }
+
     }
 }

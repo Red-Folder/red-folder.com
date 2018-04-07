@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json.Linq;
+using System.Net;
 using System.Text.RegularExpressions;
 
 namespace RedFolder.Blog.Markdown.Transformers
@@ -18,7 +19,15 @@ namespace RedFolder.Blog.Markdown.Transformers
         protected override string PreTransform(JObject meta, string markdown)
         {
             // Relacing Back Ticks (```) with <code> before it goes into Markdown avoids it seeing code as markdown
-            return ReplaceCodeElement(ReplaceBackTicks(markdown));
+            return ReplaceCodeElement(ReplaceBackTicks(EncodeHtmlInCodeBlock(markdown)));
+        }
+
+        private string EncodeHtmlInCodeBlock(string markdown)
+        {
+            var htmlEncoder = new HtmlEncoder();
+            var codeBlock = new Regex("```(.*)```", RegexOptions.Singleline);
+
+            return codeBlock.Replace(markdown, new MatchEvaluator(htmlEncoder.Replace));
         }
 
         private string ReplaceBackTicks(string markdown)
@@ -49,6 +58,14 @@ namespace RedFolder.Blog.Markdown.Transformers
                     _isOpen = true;
                     return "<code>";
                 }
+            }
+        }
+
+        private class HtmlEncoder
+        {
+            public string Replace(Match m)
+            {
+                return WebUtility.HtmlEncode(m.Value);
             }
         }
     }
