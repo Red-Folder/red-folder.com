@@ -1,0 +1,12 @@
+﻿{
+  "id": "9d96ef3e-cff8-40e6-b78f-0d4f7184882b",
+  "url": "updating-aspnet-core-1-to-2",
+  "published": "2018-04-07",
+  "modified": "2018-04-07",
+  "title": "Updating Asp.Net Core 1 to 2",
+  "enabled": "true",
+  "keyWords": [ "ASP.Net Core", "VSTS" ],
+  "description": "A quick summary of the changes need to update my red-folder.com website from .Net Core 1 to 2",
+  "image": "/media/blog/updating-aspnet-core-1-to-2/header.png",
+  "author": "Mark Taylor"
+}
