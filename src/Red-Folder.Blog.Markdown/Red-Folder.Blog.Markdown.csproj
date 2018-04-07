@@ -5,7 +5,7 @@
     <AssemblyName>Red-Folder.Blog.Markdown</AssemblyName>
     <PackageId>Red-Folder.Blog.Markdown</PackageId>
     <NetStandardImplicitPackageVersion>2.0.0</NetStandardImplicitPackageVersion>
-    <PackageTargetFallback>$(PackageTargetFallback);dnxcore50</PackageTargetFallback>
+    <AssertTargetFallback>$(AssertTargetFallback);dnxcore50</AssertTargetFallback>
     <GenerateAssemblyConfigurationAttribute>false</GenerateAssemblyConfigurationAttribute>
     <GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
     <GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
