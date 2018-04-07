@@ -1,26 +1,23 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2010
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{8053AD3E-4A33-4F5D-BB27-0218C2DAAF28}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{4E2EBF38-94EB-4702-AAB2-108E4EC03110}"
-	ProjectSection(SolutionItems) = preProject
-		global.json = global.json
-	EndProjectSection
-EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Red-Folder.com", "src\Red-Folder.com\Red-Folder.com.xproj", "{7D912A30-F359-4EC0-8E0A-6B38993D4BC8}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{6F66B00A-27DE-4700-8DA8-AEFFA7AE0BDC}"
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Red-Folder.Blog.Markdown.Tests.Unit", "tests\Red-Folder.Blog.Markdown.Tests.Unit\Red-Folder.Blog.Markdown.Tests.Unit.xproj", "{0A33E74C-8D79-4C5C-B001-C4AB094B3EA6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Red-Folder.com", "src\Red-Folder.com\Red-Folder.com.csproj", "{7D912A30-F359-4EC0-8E0A-6B38993D4BC8}"
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Red-Folder.Tests.Acceptance", "tests\Red-Folder.Tests.Acceptance\Red-Folder.Tests.Acceptance.xproj", "{FC65A1E3-80B0-4123-8F66-F0E0543162EB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Red-Folder.Blog.Markdown.Tests.Unit", "tests\Red-Folder.Blog.Markdown.Tests.Unit\Red-Folder.Blog.Markdown.Tests.Unit.csproj", "{0A33E74C-8D79-4C5C-B001-C4AB094B3EA6}"
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Red-Folder.Website.Data", "src\Red-Folder.Website.Data\Red-Folder.Website.Data.xproj", "{0E7D59A1-E902-4AF8-A832-EE99EF504F74}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Red-Folder.Tests.Acceptance", "tests\Red-Folder.Tests.Acceptance\Red-Folder.Tests.Acceptance.csproj", "{FC65A1E3-80B0-4123-8F66-F0E0543162EB}"
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Red-Folder.Blog.Markdown", "src\Red-Folder.Blog.Markdown\Red-Folder.Blog.Markdown.xproj", "{5E6BC0AF-A22A-4CDF-9173-5C9E87F9A263}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Red-Folder.Website.Data", "src\Red-Folder.Website.Data\Red-Folder.Website.Data.csproj", "{0E7D59A1-E902-4AF8-A832-EE99EF504F74}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Red-Folder.Blog.Markdown", "src\Red-Folder.Blog.Markdown\Red-Folder.Blog.Markdown.csproj", "{5E6BC0AF-A22A-4CDF-9173-5C9E87F9A263}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -58,5 +55,8 @@ Global
 		{FC65A1E3-80B0-4123-8F66-F0E0543162EB} = {6F66B00A-27DE-4700-8DA8-AEFFA7AE0BDC}
 		{0E7D59A1-E902-4AF8-A832-EE99EF504F74} = {8053AD3E-4A33-4F5D-BB27-0218C2DAAF28}
 		{5E6BC0AF-A22A-4CDF-9173-5C9E87F9A263} = {8053AD3E-4A33-4F5D-BB27-0218C2DAAF28}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {40220A60-6BD1-45A2-8EA2-C6A99051542F}
 	EndGlobalSection
 EndGlobal
