@@ -1,0 +1,12 @@
+﻿{
+  "id": "17343fb1-abc1-4bf1-8f38-3247ec62f8b5",
+  "url": "content-security-policy-part-1",
+  "published": "2018-04-17",
+  "modified": "2018-04-17",
+  "title": "Content Security Policy - Part 1",
+  "enabled": "true",
+  "keyWords": [ "CSP" ],
+  "description": "Content Security Policy (CSP) provides an additional layer of security for websites.  This is the first part of adding to red-folder.com.",
+  "image": "/media/blog/content-security-policy-part-1/header.png",
+  "author": "Mark Taylor"
+}

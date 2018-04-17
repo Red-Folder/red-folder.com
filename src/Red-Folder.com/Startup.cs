@@ -87,6 +87,18 @@ namespace RedFolder
                 app.UseStatusCodePagesWithReExecute("/Errors/Status/{0}");
             }
 
+            // Add CSP
+            app.Use(async (context, next) =>
+            {
+                context.Response.Headers.Add(
+                    "Content-Security-Policy-Report-Only",
+                    "default-src 'none'; " +
+                    "form-action 'none'; " +
+                    "frame-ancestors 'none'; " +
+                    "report-uri https://redfolder.report-uri.com/r/d/csp/wizard");
+
+                await next();
+            });
 
             app.UseMvc(config =>
             {
@@ -133,6 +145,7 @@ namespace RedFolder
             //    context.Response.StatusCode = 404;
             //    return Task.FromResult(0);
             //});
+
         }
     }
 }
