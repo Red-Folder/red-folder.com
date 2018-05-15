@@ -90,12 +90,18 @@ namespace RedFolder
             // Add CSP
             app.Use(async (context, next) =>
             {
-                context.Response.Headers.Add(
-                    "Content-Security-Policy-Report-Only",
-                    "default-src 'none'; " +
-                    "form-action 'none'; " +
-                    "frame-ancestors 'none'; " +
-                    "report-uri https://redfolder.report-uri.com/r/d/csp/wizard");
+                var key = "Content-Security-Policy-Report-Only";
+
+                // Don't add if already exists - otherwise you'll get 500's
+                if (!context.Response.Headers.ContainsKey(key))
+                {
+                    context.Response.Headers.Add(
+                        key,
+                        "default-src 'none'; " +
+                        "form-action 'none'; " +
+                        "frame-ancestors 'none'; " +
+                        "report-uri https://redfolder.report-uri.com/r/d/csp/wizard");
+                }
 
                 await next();
             });
