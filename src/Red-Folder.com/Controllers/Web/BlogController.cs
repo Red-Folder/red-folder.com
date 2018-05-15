@@ -7,6 +7,7 @@ using RedFolder.Services;
 using RedFolder.ViewModels;
 using static RedFolder.ViewModels.BlogCollection;
 using Microsoft.ApplicationInsights;
+using RedFolder.com.ViewModels;
 
 // For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -34,7 +35,13 @@ namespace RedFolder.Controllers.Web
                 }
                 else
                 {
-                    var blog = repository.Get(url);
+                    var meta = repository.Get(url);
+                    var content = repository.LoadContent(meta);
+                    var blog = new BlogWithContent
+                    {
+                        Meta = meta,
+                        Content = content
+                    };
                     return View("Blog", blog);
                 }
             }

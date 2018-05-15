@@ -224,3 +224,4 @@ src/Red-Folder.com/wwwroot/lib/*
 rev-manifest.json
 
 appsettings.json
+appsettings.development.json

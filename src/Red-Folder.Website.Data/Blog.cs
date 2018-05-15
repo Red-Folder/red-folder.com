@@ -14,10 +14,11 @@ namespace RedFolder.Website.Data
         public string Image { get; set; }
         public string Description { get; set; }
         public bool Enabled { get; set; }
-        public string Text { get; set; }
         public List<string> KeyWords { get; set; }
         public List<Redirect> Redirects { get; set; }
 
         public string Series { get; set; }
+
+        public string ContentUrl { get; set; }
     }
 }

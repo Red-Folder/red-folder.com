@@ -12,18 +12,13 @@ namespace RedFolder.Services
 {
     public class BlogRepository : IBlogRepository, IRedirectRepository, ISiteMapUrlRepository
     {
-        //private IHostingEnvironment _hostingEnvironment;
-        private string _folder;
-        private MarkdownRepository _markdownRepository;
+        private BlogClient _client;
 
         private IList<RedFolder.Website.Data.Blog> _blogs;
 
-        public BlogRepository(IHostingEnvironment hostingEnvironment)
+        public BlogRepository(string blogUrl)
         {
-            _folder = hostingEnvironment.WebRootPath + @"\tmp\";
-            //_hostingEnvironment = hostingEnvironment;
-
-            _markdownRepository = new MarkdownRepository();
+            _client = new BlogClient(blogUrl);
         }
 
         private IList<RedFolder.Website.Data.Blog> Blogs
@@ -32,7 +27,7 @@ namespace RedFolder.Services
             {
                 if (_blogs == null)
                 {
-                    _blogs = _markdownRepository.Import(_folder);
+                    _blogs = _client.GetAll();
                 }
 
                 return _blogs;
@@ -64,6 +59,11 @@ namespace RedFolder.Services
             {
                 throw new BlogNotEnabledException();
             }
+        }
+
+        public string LoadContent(Website.Data.Blog blog)
+        {
+            return _client.LoadContent(blog);
         }
 
         public Dictionary<string, List<Redirect>> GetRedirects()

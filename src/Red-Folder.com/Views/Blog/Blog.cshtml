@@ -1,19 +1,19 @@
-﻿@model RedFolder.Website.Data.Blog
+﻿@model RedFolder.com.ViewModels.BlogWithContent
 
 @{
-    ViewBag.Title = Model.Title;
+    ViewBag.Title = Model.Meta.Title;
     Layout = "~/Views/Shared/_Layout.cshtml";
     ViewBag.BodyCssClass = "new2-css";
     ViewBag.DropContainerFluid = true;
 }
 
 <div class="rfc-header home-page">
-    <h1>@Model.Title</h1>
+    <h1>@Model.Meta.Title</h1>
 </div>
 
 
 <div class="blog-text container">
-    @Html.Raw(Model.Text)
+    @Html.Raw(Model.Content)
 </div>
 
 <div class="author reverse">
@@ -50,8 +50,8 @@
         *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
         *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
         var disqus_config = function () {
-            this.page.url = "https://www.red-folder.com/blog/@Model.Url";
-            //this.page.identifier = "@Model.Id";
+            this.page.url = "https://www.red-folder.com/blog/@Model.Meta.Url";
+            //this.page.identifier = "@Model.Meta.Id";
         };
 
         (function () { // DON'T EDIT BELOW THIS LINE
@@ -67,9 +67,9 @@
 {
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="@@folderred" />
-    <meta property="og:title" name="twitter:title" content="@Model.Title" />
-    <meta property="og:description" name="twitter:description" content="@Model.Description" />
-    <meta property="og:image" name="twitter:image" content="@Model.Image" />
+    <meta property="og:title" name="twitter:title" content="@Model.Meta.Title" />
+    <meta property="og:description" name="twitter:description" content="@Model.Meta.Description" />
+    <meta property="og:image" name="twitter:image" content="@Model.Meta.Image" />
 }
 
 @section Scripts
@@ -78,10 +78,10 @@
         { 
             "@@context": "http://schema.org",
             "@@type": "BlogPosting",
-            "headline": "@Model.Title",
+            "headline": "@Model.Meta.Title",
             "image": {
                 "@@type": "ImageObject",
-                "url": "@Model.Image",
+                "url": "@Model.Meta.Image",
                 "height": "150", 
                 "width": " 280"
             },
@@ -93,11 +93,11 @@
                     "url": "https://www.red-folder.com/media/RFCLogo.png"
                 }
             },
-            "url": "https://www.red-folder.com/blog/@Model.Url",
-            "datePublished": "@Model.Published.ToString("yyyy-MM-dd")",
-            "dateCreated": "@Model.Published.ToString("yyyy-MM-dd")",
-            "dateModified": "@Model.Modified.ToString("yyyy-MM-dd")",
-            "description": "@Model.Description",
+            "url": "https://www.red-folder.com/blog/@Model.Meta.Url",
+            "datePublished": "@Model.Meta.Published.ToString("yyyy-MM-dd")",
+            "dateCreated": "@Model.Meta.Published.ToString("yyyy-MM-dd")",
+            "dateModified": "@Model.Meta.Modified.ToString("yyyy-MM-dd")",
+            "description": "@Model.Meta.Description",
             "author": {
                 "@@type": "Person",
                 "name": "Mark Taylor"

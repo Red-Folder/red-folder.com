@@ -10,5 +10,6 @@ namespace RedFolder.Services
     {
         IList<RedFolder.Website.Data.Blog> GetAll();
         RedFolder.Website.Data.Blog Get(string url);
+        string LoadContent(Website.Data.Blog blog);
     }
 }

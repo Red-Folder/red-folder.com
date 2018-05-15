@@ -65,7 +65,7 @@ namespace RedFolder.Blog.Markdown
                     Published = meta["published"].Value<DateTime>(),
                     Modified = meta["modified"].Value<DateTime>(),
                     Title = (string)meta["title"],
-                    Text = MarkdownToHtml(meta, markdown),
+                    //Text = MarkdownToHtml(meta, markdown),
                     Enabled = Boolean.Parse((string)meta["enabled"]),
 
                     Description = (string)meta["description"],

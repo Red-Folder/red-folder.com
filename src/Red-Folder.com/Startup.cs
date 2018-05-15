@@ -45,7 +45,7 @@ namespace RedFolder
             services.AddScoped<IRepoRepository, RepoRepository>();
             services.AddScoped<IArticleRepository, ArticleRepository>();
 
-            var blogRepo = new BlogRepository(_env);
+            var blogRepo = new BlogRepository(_config["BlogUrl"]);
             services.AddSingleton<IBlogRepository>(blogRepo);
             services.AddSingleton<IRedirectRepository>(new RedirectRepository(new System.Collections.Generic.List<IRedirectRepository> { blogRepo }));
 
