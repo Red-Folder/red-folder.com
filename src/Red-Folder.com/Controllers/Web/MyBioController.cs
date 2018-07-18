@@ -23,6 +23,7 @@ namespace RedFolder.Controllers.Web
                             "C#",
                             "ASP.Net Core",
                             "React",
+                            "Redux",
                             "Team City",
                             "Octopus",
                             "AWS",
