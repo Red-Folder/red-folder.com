@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 using Microsoft.Extensions.FileProviders;
 using System.IO;
 using Microsoft.AspNetCore.Http;
+using Red_Folder.com.Services;
 
 namespace RedFolder
 {
@@ -48,6 +49,9 @@ namespace RedFolder
             var blogRepo = new BlogRepository(_config["BlogUrl"]);
             services.AddSingleton<IBlogRepository>(blogRepo);
             services.AddSingleton<IRedirectRepository>(new RedirectRepository(new System.Collections.Generic.List<IRedirectRepository> { blogRepo }));
+
+            var activityRepo = new ActivityRepository(_config["ActivityUrl"], _config["ActivityCode"]);
+            services.AddSingleton<IActivityRepository>(activityRepo);
 
             var siteMapRepo = new SiteMapRepository(_env);
             siteMapRepo.AddRepository(blogRepo);
