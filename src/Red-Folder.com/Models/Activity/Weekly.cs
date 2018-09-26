@@ -19,5 +19,11 @@ namespace Red_Folder.com.Models.Activity
 
         [JsonProperty("podCasts")]
         public PodCastActivity PodCasts { get; set; }
+
+        [JsonProperty("skills")]
+        public SkillsActivity Skills { get; set; }
+
+        [JsonProperty("pluralsight")]
+        public PluralsightActivity Pluralsight { get; set; }
     }
 }

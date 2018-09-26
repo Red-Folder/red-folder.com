@@ -17,8 +17,8 @@
         body {
             display: grid;
             /*grid-template-rows: 100px auto auto;*/
-            grid-template-columns: 15% auto;
-            grid-template-areas: "header-logo header-section" "podcasts-summary-logo podcasts-summary-section" "what-is-this-logo what-is-this-section" "podcasts-detail-logo podcasts-detail-section";
+            grid-template-columns: 10% 40% 10% 40%;
+            grid-template-areas: "header-logo header-section header-section header-section" "podcasts-summary-logo podcasts-summary-section skills-summary-logo skills-summary-section" "pluralsight-logo pluralsight-section pluralsight-section pluralsight-section " "what-is-this-logo what-is-this-section what-is-this-section what-is-this-section";
         }
 
         #header-logo {
@@ -52,7 +52,23 @@
 
         #podcasts-summary-section {
             grid-area: podcasts-summary-section;
-            text-align: center;
+            margin-right: 15px;
+        }
+
+        #skills-summary-logo {
+            grid-area: skills-summary-logo;
+        }
+
+        #skills-summary-section {
+            grid-area: skills-summary-section;
+        }
+
+        #pluralsight-logo {
+            grid-area: pluralsight-logo;
+        }
+
+        #pluralsight-section {
+            grid-area: pluralsight-section;
         }
 
         #podcasts-detail-logo {
@@ -108,6 +124,8 @@
         }
     </style>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"></script>
+    <script type="text/javascript" src="https://d3js.org/d3.v3.min.js" /></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-cloud/1.2.5/d3.layout.cloud.min.js"></script>
 </head>
 
 <body>
@@ -131,6 +149,7 @@
             The weekly retro is my attempt to show what I've been doing in the past week.  Bascially think shameless self-promotion.  Over the coming weeks (maybe months) I'm going to add more to this overview.
         </p>
     </div>
+
     <div id="podcasts-summary-logo">
         <div class="header-icon">
             <i class="fas fa-podcast"></i>
@@ -141,7 +160,7 @@
             Listened to <time-period seconds="@Model.PodCasts.TotalDuration"></time-period> of Podcasts
         </h2>
 
-        <canvas id="podcastChart" width="600px" height="400px"></canvas>
+        <canvas id="podcastChart" width="500px" height="400px"></canvas>
     </div>
     <div id="podcasts-detail-logo">Podcast Logo</div>
     <div id="podcasts-detail-section">
@@ -168,6 +187,51 @@
         </ul>
     </div>
 
+    <div id="skills-summary-logo">
+        <div class="header-icon">
+            <i class="fas fa-drafting-compass"></i>
+        </div>
+    </div>
+    <div id="skills-summary-section">
+        <h2>
+            Skills used
+        </h2>
+        <div id="skills-cloud">
+        </div>
+    </div>
+
+    <div id="pluralsight-logo">
+        <div class="header-icon">
+            <i class="far fa-question-circle"></i>
+        </div>
+    </div>
+    <div id="pluralsight-section">
+        <h2>Puralsight</h2>
+        @foreach (var course in Model.Pluralsight.Courses)
+        {
+        <div>
+            <img src="pluralsight-chart" alt="Alternate Text" width="100px" height="100px" />
+            <p>@course.Name</p>
+            <canvas id="@course.Name-chart" width="100px" height="100px"></canvas>
+
+            <script>
+                window.onload = function () {
+                    new Chart(document.getElementById('pluralsight-chart'), {
+                        type: 'donut',
+                        data: {
+                            datasets: [{
+                                data: [
+                                    @course.PercentageComplete,
+                                    100 - @course.PercentageComplete
+                                ]
+                            }]
+                        }
+                    });
+                };
+            </script>
+        </div>
+        }
+    </div>
 
     <script>
         var config = {
@@ -187,7 +251,7 @@
                     data: [
                         @foreach (var category in Model.PodCasts.Categories.OrderBy(category => category.Name))
                         {
-                            @:'@((double)category.TotalDuration /60 /60)',
+                            @:'@((double)category.TotalDuration / 60 / 60)',
                         }
                     ]
                 }]
@@ -214,6 +278,49 @@
         window.onload = function () {
             window.myRadar = new Chart(document.getElementById('podcastChart'), config);
         };
+    </script>
+
+    <script>
+        var fill = d3.scale.category20();
+
+        var layout = d3.layout.cloud()
+            .size([500, 400])
+            .words([
+                @{
+                    var maxDuration = Model.Skills.Skills.Max(x => x.TotalDuration);
+                    var sizeIncrement = ((float)90) / maxDuration;
+                    foreach(var skill in Model.Skills.Skills)
+                    {
+                    @:{ text: '@skill.Name', size: @(10 + (sizeIncrement * skill.TotalDuration)) },
+                    }
+                }
+            ])
+            .padding(5)
+            .rotate(function () { return 0; })
+            .font("Impact")
+            .fontSize(function (d) { return d.size; })
+            .on("end", draw);
+
+                    layout.start();
+
+        function draw(words) {
+                        d3.select("#skills-cloud").append("svg")
+                            .attr("width", layout.size()[0])
+                            .attr("height", layout.size()[1])
+                            .append("g")
+                            .attr("transform", "translate(" + layout.size()[0] / 2 + "," + layout.size()[1] / 2 + ")")
+                            .selectAll("text")
+                            .data(words)
+                            .enter().append("text")
+                            .style("font-size", function (d) { return d.size + "px"; })
+                .style("font-family", "Impact")
+                .style("fill", function (d, i) { return fill(i); })
+                .attr("text-anchor", "middle")
+                .attr("transform", function (d) {
+                            return "translate(" + [d.x, d.y] + ")rotate(" + d.rotate + ")";
+                        })
+                .text(function (d) { return d.text; });
+                    }
     </script>
 </body>
 
