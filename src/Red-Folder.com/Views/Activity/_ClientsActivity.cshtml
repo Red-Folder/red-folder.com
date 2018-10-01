@@ -1,0 +1,48 @@
+﻿@model Red_Folder.com.Models.Activity.ClientActivity
+
+<div id="client-logo">
+    <div class="header-icon">
+        <i class="fas fa-users"></i>
+    </div>
+</div>
+<div id="client-section">
+    <h2>Split between clients</h2>
+    <canvas id="clientChart" width="500px" height="400px"></canvas>
+    <script>
+            window.graphs = window.graphs || {};
+
+            window.graphs.clientChart = {
+                elementId: 'clientChart',
+                config: {
+                    type: 'pie',
+                    data: {
+                        labels: [
+
+                            @foreach(var client in Model.Clients)
+                            {
+                                @:'@client.Name',
+                            }
+                        ],
+                        datasets: [{
+                            backgroundColor: [
+                                'rgba(44, 160, 44, 1)',
+                                'rgba(255, 127, 14, 1)'
+                            ],
+                            data: [
+                                @foreach(var client in Model.Clients)
+                                {
+                                    @:@client.TotalDuration,
+                                }
+                            ]
+                        }]
+                    },
+                    options: {
+                        title: {
+                            display: false
+                        },
+                        responsive: false
+                    }
+                }
+            };
+    </script>
+</div>

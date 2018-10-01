@@ -16,9 +16,8 @@
     <style>
         body {
             display: grid;
-            /*grid-template-rows: 100px auto auto;*/
             grid-template-columns: 10% 40% 10% 40%;
-            grid-template-areas: "header-logo header-section header-section header-section" "podcasts-summary-logo podcasts-summary-section skills-summary-logo skills-summary-section" "pluralsight-logo pluralsight-section pluralsight-section pluralsight-section " "what-is-this-logo what-is-this-section what-is-this-section what-is-this-section";
+            grid-template-areas: "header-logo header-section header-section header-section" "focus-logo focus-section clients-logo clients-section" "podcasts-summary-logo podcasts-summary-section skills-summary-logo skills-summary-section" "pluralsight-logo pluralsight-section pluralsight-section pluralsight-section " "what-is-this-logo what-is-this-section what-is-this-section what-is-this-section";
         }
 
         #header-logo {
@@ -46,6 +45,23 @@
             grid-area: what-is-this-section;
         }
 
+        #focus-logo {
+            grid-area: focus-logo;
+        }
+
+        #focus-section {
+            grid-area: focus-section;
+        }
+
+        #clients-logo {
+            grid-area: clients-logo;
+        }
+
+        #clients-section {
+            grid-area: clients-section;
+        }
+
+
         #podcasts-summary-logo {
             grid-area: podcasts-summary-logo;
         }
@@ -70,6 +86,43 @@
         #pluralsight-section {
             grid-area: pluralsight-section;
         }
+
+            #pluralsight-section > div {
+                margin: 15px;
+                display: grid;
+                grid-template-columns: 20% 60% 20%;
+                grid-template-areas: "course-logo course-description course-completion";
+            }
+
+            #pluralsight-section div .course-logo {
+                grid-area: course-logo;
+            }
+
+            #pluralsight-section div .course-description {
+                grid-area: course-description;
+            }
+
+                #pluralsight-section div .course-description h3 {
+                    margin-top: 0px;
+                }
+
+                #pluralsight-section div .course-description p {
+                    padding-left: 0px;
+                }
+
+            #pluralsight-section div .course-completion {
+                grid-area: course-completion;
+                text-align: right;
+            }
+
+                #pluralsight-section div .course-completion span {
+                    font-size: 50px;
+                    color: rgba(44, 160, 44, 1);
+                }
+
+                #pluralsight-section div .course-completion canvas {
+                    display: inline;
+                }
 
         #podcasts-detail-logo {
             grid-area: podcasts-detail-logo;
@@ -150,178 +203,48 @@
         </p>
     </div>
 
-    <div id="podcasts-summary-logo">
-        <div class="header-icon">
-            <i class="fas fa-podcast"></i>
-        </div>
-    </div>
-    <div id="podcasts-summary-section">
-        <h2>
-            Listened to <time-period seconds="@Model.PodCasts.TotalDuration"></time-period> of Podcasts
-        </h2>
+    @if (Model.PodCasts != null && Model.PodCasts.Categories != null & Model.PodCasts.Categories.Count() > 0)
+    {
+        Html.RenderPartial("_PodcastSummaryActivity", Model.PodCasts);
+    }
 
-        <canvas id="podcastChart" width="500px" height="400px"></canvas>
-    </div>
-    <div id="podcasts-detail-logo">Podcast Logo</div>
-    <div id="podcasts-detail-section">
-        <h2>
-            Podcast Details
-        </h2>
+    @if (Model.Skills != null && Model.Skills.Skills != null & Model.Skills.Skills.Count() > 0)
+    {
+        Html.RenderPartial("_SkillsActivity", Model.Skills);
+    }
 
+    @if (Model.Pluralsight != null && Model.Pluralsight.Courses != null & Model.Pluralsight.Courses.Count() > 0)
+    {
+        Html.RenderPartial("_PluralsightActivity", Model.Pluralsight);
+    }
 
-        <ul>
-            @foreach (var category in Model.PodCasts.Categories)
-            {
-                <li>
-                    @category.Name (<time-period seconds="@category.TotalDuration"></time-period>)
-                    <ul>
-                        @foreach (var podcast in category.PodCasts)
-                        {
-                            <li>
-                                @podcast.FeedName - @podcast.EpisodeName (<time-period seconds="podcast.EpisodeDuration"></time-period>)
-                            </li>
-                        }
-                    </ul>
-                </li>
-            }
-        </ul>
-    </div>
+    @if (Model.Focus != null && Model.Focus.Focus != null & Model.Focus.Focus.Count() > 0)
+    {
+        Html.RenderPartial("_FocusActivity", Model.Focus);
+    }
 
-    <div id="skills-summary-logo">
-        <div class="header-icon">
-            <i class="fas fa-drafting-compass"></i>
-        </div>
-    </div>
-    <div id="skills-summary-section">
-        <h2>
-            Skills used
-        </h2>
-        <div id="skills-cloud">
-        </div>
-    </div>
-
-    <div id="pluralsight-logo">
-        <div class="header-icon">
-            <i class="far fa-question-circle"></i>
-        </div>
-    </div>
-    <div id="pluralsight-section">
-        <h2>Puralsight</h2>
-        @foreach (var course in Model.Pluralsight.Courses)
-        {
-        <div>
-            <img src="pluralsight-chart" alt="Alternate Text" width="100px" height="100px" />
-            <p>@course.Name</p>
-            <canvas id="@course.Name-chart" width="100px" height="100px"></canvas>
-
-            <script>
-                window.onload = function () {
-                    new Chart(document.getElementById('pluralsight-chart'), {
-                        type: 'donut',
-                        data: {
-                            datasets: [{
-                                data: [
-                                    @course.PercentageComplete,
-                                    100 - @course.PercentageComplete
-                                ]
-                            }]
-                        }
-                    });
-                };
-            </script>
-        </div>
-        }
-    </div>
+    @if (Model.Clients != null && Model.Clients.Clients != null & Model.Clients.Clients.Count() > 0)
+    {
+        Html.RenderPartial("_ClientsActivity", Model.Clients);
+    }
 
     <script>
-        var config = {
-            type: 'radar',
-            data: {
-                labels: [
-                    @foreach (var category in Model.PodCasts.Categories.OrderBy(category => category.Name))
-                    {
-                        @:'@Html.Raw(category.Name)',
-                    }
-                ],
-                datasets: [{
-                    label: 'Podcast breakdown',
-                    backgroundColor: 'rgba(231, 76, 60, 0.3)',
-                    borderColor: 'rgba(231, 76, 60, 1)',
-                    pointBackgroundColor: 'rgba(231, 76, 60, 1)',
-                    data: [
-                        @foreach (var category in Model.PodCasts.Categories.OrderBy(category => category.Name))
-                        {
-                            @:'@((double)category.TotalDuration / 60 / 60)',
-                        }
-                    ]
-                }]
-            },
-            options: {
-                legend: {
-                    display: false
-                },
-                title: {
-                    display: false
-                },
-                scale: {
-                    ticks: {
-                        beginAtZero: true
-                    },
-                    pointLabels: {
-                        fontSize: 20
-                    }
-                },
-                responsive: false
-            }
-        };
-
         window.onload = function () {
-            window.myRadar = new Chart(document.getElementById('podcastChart'), config);
-        };
+            if (window.graphs) {
+                Object.keys(window.graphs).forEach(key => {
+                    var graph = window.graphs[key];
+                    graph.chart = new Chart(document.getElementById(graph.elementId), graph.config);
+                });
+            }
+            if (window.clouds) {
+                Object.keys(window.clouds).forEach(key => {
+                    var cloud = window.clouds[key];
+                    cloud.start();
+                })
+            }
+        }
     </script>
 
-    <script>
-        var fill = d3.scale.category20();
-
-        var layout = d3.layout.cloud()
-            .size([500, 400])
-            .words([
-                @{
-                    var maxDuration = Model.Skills.Skills.Max(x => x.TotalDuration);
-                    var sizeIncrement = ((float)90) / maxDuration;
-                    foreach(var skill in Model.Skills.Skills)
-                    {
-                    @:{ text: '@skill.Name', size: @(10 + (sizeIncrement * skill.TotalDuration)) },
-                    }
-                }
-            ])
-            .padding(5)
-            .rotate(function () { return 0; })
-            .font("Impact")
-            .fontSize(function (d) { return d.size; })
-            .on("end", draw);
-
-                    layout.start();
-
-        function draw(words) {
-                        d3.select("#skills-cloud").append("svg")
-                            .attr("width", layout.size()[0])
-                            .attr("height", layout.size()[1])
-                            .append("g")
-                            .attr("transform", "translate(" + layout.size()[0] / 2 + "," + layout.size()[1] / 2 + ")")
-                            .selectAll("text")
-                            .data(words)
-                            .enter().append("text")
-                            .style("font-size", function (d) { return d.size + "px"; })
-                .style("font-family", "Impact")
-                .style("fill", function (d, i) { return fill(i); })
-                .attr("text-anchor", "middle")
-                .attr("transform", function (d) {
-                            return "translate(" + [d.x, d.y] + ")rotate(" + d.rotate + ")";
-                        })
-                .text(function (d) { return d.text; });
-                    }
-    </script>
 </body>
 
 </html>

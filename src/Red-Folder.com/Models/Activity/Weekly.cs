@@ -25,5 +25,11 @@ namespace Red_Folder.com.Models.Activity
 
         [JsonProperty("pluralsight")]
         public PluralsightActivity Pluralsight { get; set; }
+
+        [JsonProperty("focus")]
+        public FocusActivity Focus { get; set; }
+
+        [JsonProperty("clients")]
+        public ClientActivity Clients { get; set; }
     }
 }

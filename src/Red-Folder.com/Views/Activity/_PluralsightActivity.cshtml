@@ -1,0 +1,61 @@
+﻿@model Red_Folder.com.Models.Activity.PluralsightActivity
+
+<div id="pluralsight-logo">
+    <div class="header-icon">
+        <i class="fas fa-video"></i>
+    </div>
+</div>
+<div id="pluralsight-section">
+    <h2>Pluralsight courses watched</h2>
+    @foreach (var course in Model.Courses)
+    {
+        <div>
+            <img class="course-logo" src="@course.CourseImageUrl" alt="Alternate Text" height="100px" />
+            <div class="course-description">
+                <h3>@course.Title</h3>
+                <p>@course.ShortDescription</p>
+            </div>
+            <div class="course-completion">
+                <span>@(course.PercentageComplete + HtmlEncoder.Encode("%"))</span>
+                <canvas id="@course.CourseId" width="50px" height="50px" style="display:inline;"></canvas>
+            </div>
+
+            <script>
+                    window.graphs = window.graphs || {};
+
+                    window.graphs.@course.CourseId.Replace("-", "") = {
+                        elementId: '@course.CourseId',
+                        config: {
+                            type: 'doughnut',
+                            data: {
+                                labels: [
+                                    '',
+                                    ''
+                                ],
+                                datasets: [{
+                                    backgroundColor: [
+                                        'rgba(44, 160, 44, 1)',
+                                        'rgba(255, 255, 255, 1)'
+                                    ],
+                                    data: [
+                                        @course.PercentageComplete,
+                                        100 - @course.PercentageComplete
+                                    ]
+                                }]
+                            },
+                            options: {
+                                legend: {
+                                    display: false
+                                },
+                                title: {
+                                    display: false
+                                },
+                                responsive: false
+                            }
+                        }
+                    };
+            </script>
+        </div>
+    }
+</div>
+

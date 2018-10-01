@@ -1,0 +1,50 @@
+﻿@model Red_Folder.com.Models.Activity.FocusActivity
+
+<div id="focus-logo">
+    <div class="header-icon">
+        <i class="fas fa-search"></i>
+    </div>
+</div>
+<div id="focus-section">
+    <h2>Focus</h2>
+    <canvas id="focusChart" width="500px" height="400px"></canvas>
+    <script>
+            window.graphs = window.graphs || {};
+
+            window.graphs.focusChart = {
+                elementId: 'focusChart',
+                config: {
+                    type: 'pie',
+                    data: {
+                        labels: [
+
+                            @foreach(var focus in Model.Focus)
+                            {
+                                @:'@focus.Name',
+                            }
+                        ],
+                        datasets: [{
+                            backgroundColor: [
+                                'rgba(44, 160, 44, 1)',
+                                'rgba(255, 127, 14, 1)',
+                                'rgba(31, 119, 180, 1)',
+                                'rgba(255, 51, 204, 1)',
+                            ],
+                            data: [
+                                @foreach(var focus in Model.Focus)
+                                {
+                                    @:@focus.TotalDuration,
+                                }
+                            ]
+                        }]
+                    },
+                    options: {
+                        title: {
+                            display: false
+                        },
+                        responsive: false
+                    }
+                }
+            };
+    </script>
+</div>

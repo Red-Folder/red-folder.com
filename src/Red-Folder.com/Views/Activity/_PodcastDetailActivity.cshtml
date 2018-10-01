@@ -1,0 +1,27 @@
+﻿@model Red_Folder.com.Models.Activity.PodCastActivity
+
+<div id="podcasts-detail-logo">Podcast Logo</div>
+<div id="podcasts-detail-section">
+    <h2>
+        Podcast Details
+    </h2>
+
+
+    <ul>
+        @foreach (var category in Model.Categories)
+        {
+            <li>
+                @category.Name (<time-period seconds="@category.TotalDuration"></time-period>)
+                <ul>
+                    @foreach (var podcast in category.PodCasts)
+                    {
+                        <li>
+                            @podcast.FeedName - @podcast.EpisodeName (<time-period seconds="podcast.EpisodeDuration"></time-period>)
+                        </li>
+                    }
+                </ul>
+            </li>
+        }
+    </ul>
+</div>
+
