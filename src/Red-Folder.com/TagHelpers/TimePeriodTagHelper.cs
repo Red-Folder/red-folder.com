@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Razor.Runtime.TagHelpers;
 using Microsoft.AspNetCore.Razor.TagHelpers;
+using Red_Folder.com.Utils;
 
 namespace Red_Folder.com.TagHelpers
 {
@@ -15,32 +16,8 @@ namespace Red_Folder.com.TagHelpers
 
         public override void Process(TagHelperContext context, TagHelperOutput output)
         {
-            var timespan = TimeSpan.FromSeconds(Seconds);
-
-            var description = new StringBuilder();
-            if (timespan.Hours > 0)
-            {
-                description.Append(timespan.Hours);
-                if (timespan.Hours > 1)
-                {
-                    description.Append(" hours and ");
-                }
-                else
-                {
-                    description.Append(" hours and ");
-                }
-            }
-            description.Append(timespan.Minutes);
-            if (timespan.Minutes == 1)
-            {
-                description.Append(" minute");
-            }
-            else
-            {
-                description.Append(" minutes");
-            }
-
-            output.Content.SetContent(description.ToString());
+            var description = TimePeriod.FromSeconds(Seconds);
+            output.Content.SetContent(description);
         }
     }
 }
