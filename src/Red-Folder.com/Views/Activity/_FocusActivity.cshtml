@@ -42,7 +42,21 @@
                         title: {
                             display: false
                         },
-                        responsive: false
+                        responsive: false,
+                        plugins: {
+                            labels: {
+                                // render 'label', 'value', 'percentage', 'image' or custom function, default is 'percentage'
+                                render: () => {
+                                    return '';
+                                }
+                            }
+                        },
+                        legend: {
+                            labels: {
+                                fontSize: 25
+                            },
+                            position: 'bottom'
+                        }
                     }
                 }
             };
