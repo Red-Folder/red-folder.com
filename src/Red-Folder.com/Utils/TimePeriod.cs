@@ -13,10 +13,11 @@ namespace Red_Folder.com.Utils
             var timespan = TimeSpan.FromSeconds(seconds);
 
             var description = new StringBuilder();
-            if (timespan.Hours > 0)
+            var hours = (timespan.Days * 24) + timespan.Hours;
+            if (hours > 0)
             {
-                description.Append(timespan.Hours);
-                if (timespan.Hours > 1)
+                description.Append(hours);
+                if (hours > 1)
                 {
                     description.Append(" hours and ");
                 }
