@@ -1,12 +1,6 @@
 ﻿@model Red_Folder.com.ViewModels.Activity.ActivityLayout<Red_Folder.com.Models.Activity.PluralsightActivity>
 
-            <div id="pluralsight-logo">
-            
-                <div class="header-icon">
-        <i class="fas fa-video"></i>
-    </div>
-</div>
-<div id="pluralsight-section">
+<div id="@Model.LayoutId">
     <h2>Pluralsight courses watched</h2>
     @foreach (var course in Model.Activity.Courses)
         {

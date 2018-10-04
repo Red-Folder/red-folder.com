@@ -1,11 +1,6 @@
 ﻿@model Red_Folder.com.ViewModels.Activity.ActivityLayout<Red_Folder.com.Models.Activity.ClientActivity>
 
-<div id="client-logo">
-    <div class="header-icon">
-        <i class="fas fa-users"></i>
-    </div>
-</div>
-<div id="client-section">
+<div id="@Model.LayoutId">
     <h2>Who the works been for</h2>
     <canvas id="clientChart" width="500px" height="400px"></canvas>
     <script>

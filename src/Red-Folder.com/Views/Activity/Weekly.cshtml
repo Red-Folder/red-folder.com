@@ -15,10 +15,15 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
     <style>
         body {
-            display: grid;
-            grid-template-columns: 10% 40% 10% 40%;
-            grid-template-areas: "header-logo header-section header-section header-section" "focus-logo focus-section clients-logo clients-section" "podcasts-summary-logo podcasts-summary-section skills-summary-logo skills-summary-section" "pluralsight-logo pluralsight-section pluralsight-section pluralsight-section " "what-is-this-logo what-is-this-section what-is-this-section what-is-this-section";
         }
+
+        #content {
+            display: grid;
+            grid-template-columns: 33% 33% 33%;
+            grid-template-areas: @Html.Raw(Model.GridTemplateAreas);
+        }
+
+        @Html.Raw(Model.GridAreas)
 
         #header-logo {
             grid-area: header-logo;
@@ -192,6 +197,34 @@
         <h1>The weekly retro</h1>
         <p>Week @Model.WeekNumber - from @Model.Start.ToShortDateString() to @Model.End.ToShortDateString()</p>
     </div>
+
+    <div id="content">
+        @if (Model.PodCasts != null && Model.PodCasts.Display)
+        {
+            Html.RenderPartial("_PodcastSummaryActivity", Model.PodCasts);
+        }
+
+        @if (Model.Skills != null && Model.Skills.Display)
+        {
+            Html.RenderPartial("_SkillsActivity", Model.Skills);
+        }
+
+        @if (Model.Pluralsight != null && Model.Pluralsight.Display)
+        {
+            Html.RenderPartial("_PluralsightActivity", Model.Pluralsight);
+        }
+
+        @if (Model.Focus != null && Model.Focus.Display)
+        {
+            Html.RenderPartial("_FocusActivity", Model.Focus);
+        }
+
+        @if (Model.Clients != null && Model.Clients.Display)
+        {
+            Html.RenderPartial("_ClientsActivity", Model.Clients);
+        }
+    </div>
+
     <div id="what-is-this-logo">
         <div class="header-icon">
             <i class="far fa-question-circle"></i>
@@ -204,30 +237,6 @@
         </p>
     </div>
 
-    @if (Model.PodCasts != null && Model.PodCasts.Display)
-    {
-        Html.RenderPartial("_PodcastSummaryActivity", Model.PodCasts);
-    }
-
-    @if (Model.Skills != null && Model.Skills.Display)
-    {
-        Html.RenderPartial("_SkillsActivity", Model.Skills);
-    }
-
-    @if (Model.Pluralsight != null && Model.Pluralsight.Display)
-    {
-        Html.RenderPartial("_PluralsightActivity", Model.Pluralsight);
-    }
-
-    @if (Model.Focus != null && Model.Focus.Display)
-    {
-        Html.RenderPartial("_FocusActivity", Model.Focus);
-    }
-
-    @if (Model.Clients != null && Model.Clients.Display)
-    {
-        Html.RenderPartial("_ClientsActivity", Model.Clients);
-    }
 
     <script>
         window.onload = function () {

@@ -1,12 +1,6 @@
 ﻿@model Red_Folder.com.ViewModels.Activity.ActivityLayout<Red_Folder.com.Models.Activity.PodCastActivity>
 
-            <div id="podcasts-summary-logo">
-            
-                <div class="header-icon">
-        <i class="fas fa-podcast"></i>
-    </div>
-</div>
-<div id="podcasts-summary-section">
+<div id="@Model.LayoutId">
     <h2>
         Listened to <time-period seconds="@Model.Activity.TotalDuration"></time-period> of Podcasts
     </h2>

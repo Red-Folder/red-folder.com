@@ -9,10 +9,12 @@ namespace Red_Folder.com.ViewModels.Activity
     public class ActivityLayout<T> where T: IActivity
     {
         private T _activity;
+        private string _layoutId;
 
-        public ActivityLayout(T activity)
+        public ActivityLayout(T activity, string layoutId)
         {
             _activity = activity;
+            _layoutId = layoutId;
         }
 
         public T Activity
@@ -22,7 +24,16 @@ namespace Red_Folder.com.ViewModels.Activity
 
         public bool Display
         {
+            // TODO ... need to defer to the activity
             get => true;
+        }
+
+        public string LayoutId
+        {
+            get
+            {
+                return _layoutId;
+            }
         }
     }
 }

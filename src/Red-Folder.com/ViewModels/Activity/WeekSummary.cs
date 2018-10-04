@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 
 namespace Red_Folder.com.ViewModels.Activity
@@ -25,5 +26,48 @@ namespace Red_Folder.com.ViewModels.Activity
         public ActivityLayout<FocusActivity> Focus { get; set; }
 
         public ActivityLayout<ClientActivity> Clients { get; set; }
+
+        public string[][] Layout { get; set; }
+
+        public string GridTemplateAreas
+        {
+            get
+            {
+                var css = new StringBuilder();
+
+                foreach (var row in Layout)
+                {
+                    css.Append('"');
+                    foreach (var column in row)
+                    {
+                        css.Append(column);
+                        css.Append(' ');
+                    }
+                    css.Append('"');
+                }
+
+                return css.ToString();
+            }
+        }
+
+        public string GridAreas
+        {
+            get
+            {
+                var css = new StringBuilder();
+
+                foreach (var row in Layout)
+                {
+                    foreach (var column in row)
+                    {
+                        css.AppendLine($"#{column} {{");
+                        css.AppendLine($"grid-area: {column};");
+                        css.AppendLine($"}}");
+                    }
+                }
+
+                return css.ToString();
+            }
+        }
     }
 }

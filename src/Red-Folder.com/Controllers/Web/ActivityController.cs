@@ -16,17 +16,24 @@ namespace Red_Folder.com.Controllers.Web
         {
             var raw = repository.Weekly(year, weekNumber);
 
+            var grid = new string[][]
+            {
+                new string[] {"A1", "B1", "C1" },
+                new string[] {"A2", "B2", "B2" }
+            };
+
             var viewModel = new WeekSummary
             {
                 Year = raw.Year,
                 WeekNumber = raw.WeekNumber,
                 Start = raw.Start,
                 End = raw.End,
-                PodCasts = new ActivityLayout<Models.Activity.PodCastActivity>(raw.PodCasts),
-                Skills = new ActivityLayout<Models.Activity.SkillsActivity>(raw.Skills),
-                Pluralsight = new ActivityLayout<Models.Activity.PluralsightActivity>(raw.Pluralsight),
-                Focus = new ActivityLayout<Models.Activity.FocusActivity>(raw.Focus),
-                Clients = new ActivityLayout<Models.Activity.ClientActivity>(raw.Clients)
+                PodCasts = new ActivityLayout<Models.Activity.PodCastActivity>(raw.PodCasts, "A2"),
+                Skills = new ActivityLayout<Models.Activity.SkillsActivity>(raw.Skills, "B1"),
+                Pluralsight = new ActivityLayout<Models.Activity.PluralsightActivity>(raw.Pluralsight, "B2"),
+                Focus = new ActivityLayout<Models.Activity.FocusActivity>(raw.Focus, "A1"),
+                Clients = new ActivityLayout<Models.Activity.ClientActivity>(raw.Clients, "C1"),
+                Layout = grid
             };
 
             return View("Weekly", viewModel);
