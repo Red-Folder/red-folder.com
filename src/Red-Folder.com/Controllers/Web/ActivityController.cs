@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Red_Folder.com.Services;
+using Red_Folder.com.ViewModels.Activity;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -13,9 +14,22 @@ namespace Red_Folder.com.Controllers.Web
         [HttpGet("Activity/Weekly/{year}/{weekNumber}")]
         public IActionResult Weekly([FromServices] IActivityRepository repository, int year, int weekNumber)
         {
-           var weeklyActivity = repository.Weekly(year, weekNumber);
+            var raw = repository.Weekly(year, weekNumber);
 
-            return View("Weekly", weeklyActivity);
+            var viewModel = new WeekSummary
+            {
+                Year = raw.Year,
+                WeekNumber = raw.WeekNumber,
+                Start = raw.Start,
+                End = raw.End,
+                PodCasts = new ActivityLayout<Models.Activity.PodCastActivity>(raw.PodCasts),
+                Skills = new ActivityLayout<Models.Activity.SkillsActivity>(raw.Skills),
+                Pluralsight = new ActivityLayout<Models.Activity.PluralsightActivity>(raw.Pluralsight),
+                Focus = new ActivityLayout<Models.Activity.FocusActivity>(raw.Focus),
+                Clients = new ActivityLayout<Models.Activity.ClientActivity>(raw.Clients)
+            };
+
+            return View("Weekly", viewModel);
         }
 
         private static DateTime FirstDateOfWeekISO8601(int year, int weekOfYear)

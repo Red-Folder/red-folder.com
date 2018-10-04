@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Red_Folder.com.Models.Activity
 {
-    public class PluralsightActivity
+    public class PluralsightActivity: IActivity
     {
         [JsonProperty("courses")]
         public List<Course> Courses;

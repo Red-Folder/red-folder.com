@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace Red_Folder.com.Models.Activity
 {
-    public class PodCastActivity
+    public class PodCastActivity: IActivity
     {
         [JsonProperty("categories")]
         public List<PodCastCategory> Categories;

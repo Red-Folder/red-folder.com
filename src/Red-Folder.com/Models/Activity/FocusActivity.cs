@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Red_Folder.com.Models.Activity
 {
-    public class FocusActivity
+    public class FocusActivity: IActivity
     {
         [JsonProperty("focus")]
         public List<Skill> Focus;

@@ -1,13 +1,14 @@
-﻿@model Red_Folder.com.Models.Activity.PodCastActivity
+﻿@model Red_Folder.com.ViewModels.Activity.ActivityLayout<Red_Folder.com.Models.Activity.PodCastActivity>
 
-<div id="podcasts-summary-logo">
-    <div class="header-icon">
+            <div id="podcasts-summary-logo">
+            
+                <div class="header-icon">
         <i class="fas fa-podcast"></i>
     </div>
 </div>
 <div id="podcasts-summary-section">
     <h2>
-        Listened to <time-period seconds="@Model.TotalDuration"></time-period> of Podcasts
+        Listened to <time-period seconds="@Model.Activity.TotalDuration"></time-period> of Podcasts
     </h2>
 
     <canvas id="podcastChart" width="500px" height="400px"></canvas>
@@ -22,7 +23,7 @@
                 type: 'radar',
                 data: {
                     labels: [
-                        @foreach (var category in Model.Categories.OrderBy(category => category.Name))
+                        @foreach (var category in Model.Activity.Categories.OrderBy(category => category.Name))
                         {
                             @:'@Html.Raw(category.Name)',
                         }
@@ -33,7 +34,7 @@
                         borderColor: 'rgba(44, 160, 44, 1)',
                         pointBackgroundColor: 'rgba(44, 160, 44, 1)',
                         data: [
-                            @foreach (var category in Model.Categories.OrderBy(category => category.Name))
+                            @foreach (var category in Model.Activity.Categories.OrderBy(category => category.Name))
                             {
                                 @:'@((double)category.TotalDuration / 60 / 60)',
                             }

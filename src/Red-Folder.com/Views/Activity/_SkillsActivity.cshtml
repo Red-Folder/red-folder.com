@@ -1,7 +1,8 @@
-﻿@model Red_Folder.com.Models.Activity.SkillsActivity
+﻿@model Red_Folder.com.ViewModels.Activity.ActivityLayout<Red_Folder.com.Models.Activity.SkillsActivity>
 
-<div id="skills-summary-logo">
-    <div class="header-icon">
+        <div id="skills-summary-logo">
+        
+            <div class="header-icon">
         <i class="fas fa-drafting-compass"></i>
     </div>
 </div>
@@ -14,37 +15,37 @@
 <script>
     window.clouds = window.clouds || {};
 
-    var fill = d3.scale.category20();
-    function draw(words) {
-            d3.select("#skills-cloud").append("svg")
-                .attr("width", layout.size()[0])
-                .attr("height", layout.size()[1])
-                .append("g")
-                .attr("transform", "translate(" + layout.size()[0] / 2 + "," + layout.size()[1] / 2 + ")")
-                .selectAll("text")
-                .data(words)
-                .enter().append("text")
-                .style("font-size", function (d) { return d.size + "px"; })
+var fill = d3.scale.category20();
+function draw(words) {
+    d3.select("#skills-cloud").append("svg")
+        .attr("width", layout.size()[0])
+        .attr("height", layout.size()[1])
+        .append("g")
+        .attr("transform", "translate(" + layout.size()[0] / 2 + "," + layout.size()[1] / 2 + ")")
+        .selectAll("text")
+        .data(words)
+        .enter().append("text")
+        .style("font-size", function (d) { return d.size + "px"; })
                 .style("font-family", "Impact")
                 .style("fill", function (d, i) { return fill(i); })
                 .attr("text-anchor", "middle")
                 .attr("transform", function (d) {
-                    return "translate(" + [d.x, d.y] + ")rotate(" + d.rotate + ")";
-                })
+        return "translate(" + [d.x, d.y] + ")rotate(" + d.rotate + ")";
+    })
                 .text(function (d) { return d.text; });
-    };
+};
 
-    var layout = d3.layout.cloud()
-        .size([500, 400])
+var layout = d3.layout.cloud()
+    .size([500, 400])
         .words([
                 @{
-                    var maxDuration = Model.Skills.Max(x => x.TotalDuration);
-                    var sizeIncrement = ((float)90) / maxDuration;
-                    foreach (var skill in Model.Skills)
-                    {
+    var maxDuration = Model.Activity.Skills.Max(x => x.TotalDuration);
+    var sizeIncrement = ((float)90) / maxDuration;
+    foreach (var skill in Model.Activity.Skills)
+    {
                         @:{ text: '@skill.Name', size: @(10 + (sizeIncrement * skill.TotalDuration)) },
                     }
-                }
+}
         ])
         .padding(5)
         .rotate(function () { return 0; })
@@ -52,5 +53,5 @@
         .fontSize(function (d) { return d.size; })
         .on("end", draw);
 
-    layout.start();
+layout.start();
 </script>

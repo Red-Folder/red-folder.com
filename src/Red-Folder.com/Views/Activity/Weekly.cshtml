@@ -1,4 +1,4 @@
-﻿@model Red_Folder.com.Models.Activity.Weekly
+﻿@model Red_Folder.com.ViewModels.Activity.WeekSummary
 
 @{
     Layout = null;
@@ -204,27 +204,27 @@
         </p>
     </div>
 
-    @if (Model.PodCasts != null && Model.PodCasts.Categories != null & Model.PodCasts.Categories.Count() > 0)
+    @if (Model.PodCasts != null && Model.PodCasts.Display)
     {
         Html.RenderPartial("_PodcastSummaryActivity", Model.PodCasts);
     }
 
-    @if (Model.Skills != null && Model.Skills.Skills != null & Model.Skills.Skills.Count() > 0)
+    @if (Model.Skills != null && Model.Skills.Display)
     {
         Html.RenderPartial("_SkillsActivity", Model.Skills);
     }
 
-    @if (Model.Pluralsight != null && Model.Pluralsight.Courses != null & Model.Pluralsight.Courses.Count() > 0)
+    @if (Model.Pluralsight != null && Model.Pluralsight.Display)
     {
         Html.RenderPartial("_PluralsightActivity", Model.Pluralsight);
     }
 
-    @if (Model.Focus != null && Model.Focus.Focus != null & Model.Focus.Focus.Count() > 0)
+    @if (Model.Focus != null && Model.Focus.Display)
     {
         Html.RenderPartial("_FocusActivity", Model.Focus);
     }
 
-    @if (Model.Clients != null && Model.Clients.Clients != null & Model.Clients.Clients.Count() > 0)
+    @if (Model.Clients != null && Model.Clients.Display)
     {
         Html.RenderPartial("_ClientsActivity", Model.Clients);
     }

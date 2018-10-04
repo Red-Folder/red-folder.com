@@ -1,14 +1,15 @@
-﻿@model Red_Folder.com.Models.Activity.PluralsightActivity
+﻿@model Red_Folder.com.ViewModels.Activity.ActivityLayout<Red_Folder.com.Models.Activity.PluralsightActivity>
 
-<div id="pluralsight-logo">
-    <div class="header-icon">
+            <div id="pluralsight-logo">
+            
+                <div class="header-icon">
         <i class="fas fa-video"></i>
     </div>
 </div>
 <div id="pluralsight-section">
     <h2>Pluralsight courses watched</h2>
-    @foreach (var course in Model.Courses)
-    {
+    @foreach (var course in Model.Activity.Courses)
+        {
         <div>
             <img class="course-logo" src="@course.CourseImageUrl" alt="Alternate Text" height="100px" />
             <div class="course-description">
@@ -41,7 +42,7 @@
                                         @course.PercentageComplete,
                                         100 - @course.PercentageComplete
                                     ]
-                                }]
+    }]
                             },
                             options: {
                                 legend: {

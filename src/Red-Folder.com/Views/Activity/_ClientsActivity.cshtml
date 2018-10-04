@@ -1,4 +1,4 @@
-﻿@model Red_Folder.com.Models.Activity.ClientActivity
+﻿@model Red_Folder.com.ViewModels.Activity.ActivityLayout<Red_Folder.com.Models.Activity.ClientActivity>
 
 <div id="client-logo">
     <div class="header-icon">
@@ -13,7 +13,7 @@
         window.graphs = window.graphs || {};
 
         const clientChartData = [
-                            @foreach(var client in Model.Clients)
+                            @foreach(var client in Model.Activity.Clients)
                             {
                                 @:{
                                 @: client: '@client.Name',

@@ -1,4 +1,4 @@
-﻿@model Red_Folder.com.Models.Activity.PodCastActivity
+﻿@model Red_Folder.com.ViewModels.Activity.ActivityLayout<Red_Folder.com.Models.Activity.PodCastActivity>
 
 <div id="podcasts-detail-logo">Podcast Logo</div>
 <div id="podcasts-detail-section">
@@ -8,7 +8,7 @@
 
 
     <ul>
-        @foreach (var category in Model.Categories)
+        @foreach (var category in Model.Activity.Categories)
         {
             <li>
                 @category.Name (<time-period seconds="@category.TotalDuration"></time-period>)
