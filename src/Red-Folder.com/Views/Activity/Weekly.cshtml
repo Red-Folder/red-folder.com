@@ -92,40 +92,41 @@
             grid-area: pluralsight-section;
         }
 
-            #pluralsight-section > div {
+            .pluralsight-section > div {
                 margin: 15px;
                 display: grid;
-                grid-template-columns: 10% 50% 20%;
+                grid-template-columns: 180px * 20%;
                 grid-template-areas: "course-logo course-description course-completion";
             }
 
-            #pluralsight-section div .course-logo {
+            .pluralsight-section div .course-logo {
                 grid-area: course-logo;
             }
 
-            #pluralsight-section div .course-description {
+            .pluralsight-section div .course-description {
                 grid-area: course-description;
             }
 
-                #pluralsight-section div .course-description h3 {
+                .pluralsight-section div .course-description h3 {
                     margin-top: 0px;
+                    padding-left: 15px;
                 }
 
-                #pluralsight-section div .course-description p {
-                    padding-left: 0px;
+                .pluralsight-section div .course-description p {
+                    padding-left: 15px;
                 }
 
-            #pluralsight-section div .course-completion {
+            .pluralsight-section div .course-completion {
                 grid-area: course-completion;
                 text-align: right;
             }
 
-                #pluralsight-section div .course-completion span {
+                .pluralsight-section div .course-completion span {
                     font-size: 50px;
                     color: rgba(44, 160, 44, 1);
                 }
 
-                #pluralsight-section div .course-completion canvas {
+                .pluralsight-section div .course-completion canvas {
                     display: inline;
                 }
 
@@ -157,18 +158,16 @@
         }
 
         h1 {
+            color: white;
             font-size: 45px;
             padding-top: 24px;
             font-family: Tahoma, Verdana, sans-serif;
             padding-bottom: 5px;
-        }
-
-        h1, h2 {
             background-color: #e74c3c;
-            color: white;
-            margin-top: 0px;
-            margin-bottom: 0px;
-            padding-left: 15px;
+            text-align: center;
+            margin: 0px;
+            padding-top: 5px;
+            padding-bottom: 5px;
         }
 
         p {
@@ -188,14 +187,12 @@
 </head>
 
 <body>
-    <div id="header-logo">
-        <div class="header-icon">
-            <img src="~/images/RFCLogo128.png" />
-        </div>
-    </div>
+    <h1>The weekly retro ...</h1>
     <div id="header-section">
-        <h1>The weekly retro</h1>
-        <p>Week @Model.WeekNumber - from @Model.Start.ToShortDateString() to @Model.End.ToShortDateString()</p>
+        <span></span>
+        <span>
+            My shameless self-promotion of what I've been upto over for week @Model.WeekNumber (@Model.Start.ToShortDateString() - @Model.End.ToShortDateString())
+        </span>
     </div>
 
     <div id="content">
@@ -225,18 +222,11 @@
         }
     </div>
 
-    <div id="what-is-this-logo">
+    <div id="header-logo">
         <div class="header-icon">
-            <i class="far fa-question-circle"></i>
+            <img src="~/images/RFCLogo128.png" />
         </div>
     </div>
-    <div id="what-is-this-section">
-        <h2>What is this?</h2>
-        <p>
-            The weekly retro is my attempt to show what I've been doing in the past week.  Bascially think shameless self-promotion.  Over the coming weeks (maybe months) I'm going to add more to this overview.
-        </p>
-    </div>
-
 
     <script>
         window.onload = function () {

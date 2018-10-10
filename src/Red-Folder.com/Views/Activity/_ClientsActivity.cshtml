@@ -1,7 +1,7 @@
 ﻿@model Red_Folder.com.ViewModels.Activity.ActivityLayout<Red_Folder.com.Models.Activity.ClientActivity>
 
 <div id="@Model.LayoutId">
-    <h2>Who the works been for</h2>
+    <h2>Who the works been for ...</h2>
     <canvas id="clientChart" width="500px" height="400px"></canvas>
     <script>
 
@@ -38,16 +38,13 @@
                         },
                         responsive: false,
                         legend: {
-                            labels: {
-                                fontSize: 25
-                            },
-                            position: 'bottom'
+                            display: false
                         },
                         plugins: {
                             labels: {
                                 // render 'label', 'value', 'percentage', 'image' or custom function, default is 'percentage'
                                 render: (data) => {
-                                    return clientChartData.filter(x => x.client == data.label)[0].label;
+                                    return data.label + '\n' + clientChartData.filter(x => x.client == data.label)[0].label;
                                 },
 
                                 // precision for percentage, default is 0
@@ -57,7 +54,7 @@
                                 showZero: false,
 
                                 // font size, default is defaultFontSize
-                                fontSize: 20,
+                                fontSize: 25,
 
                                 // font color, can be color array for each data or function for dynamic color, default is defaultFontColor
                                 fontColor: '#000',
