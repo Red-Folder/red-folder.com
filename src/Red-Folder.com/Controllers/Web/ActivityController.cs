@@ -19,7 +19,9 @@ namespace Red_Folder.com.Controllers.Web
             var grid = new string[][]
             {
                 new string[] {"A1", "B1", "C1" },
-                new string[] {"A2", "B2", "B2" }
+                new string[] {"title", "title", "title"},
+                new string[] {"A2", "B2", "B2" },
+                new string[] {"footer", "footer", "footer"}
             };
 
             var viewModel = new WeekSummary

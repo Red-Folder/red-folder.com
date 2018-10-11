@@ -15,15 +15,20 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
     <style>
         body {
-        }
-
-        #content {
             display: grid;
             grid-template-columns: 33% 33% 33%;
             grid-template-areas: @Html.Raw(Model.GridTemplateAreas);
         }
 
         @Html.Raw(Model.GridAreas)
+
+        #title {
+            grid-area: title;
+        }
+
+        #footer {
+            grid-area: footer;
+        }
 
         #header-logo {
             grid-area: header-logo;
@@ -158,16 +163,34 @@
         }
 
         h1 {
-            color: white;
             font-size: 45px;
-            padding-top: 24px;
+            margin-top: 0px;
+            margin-bottom: 0px;
+        }
+
+        h2 {
+            background-color: #e74c3c;
+            color: white;
+            padding-left: 5px;
+            padding-right: 5px;
+            display: inline;
+        }
+
+        #title {
+            color: white;
             font-family: Tahoma, Verdana, sans-serif;
-            padding-bottom: 5px;
             background-color: #e74c3c;
             text-align: center;
             margin: 0px;
+            margin-top: 10px;
+            margin-bottom: 10px;
             padding-top: 5px;
             padding-bottom: 5px;
+        }
+
+        #title p {
+            margin-bottom: 0px;
+            margin-top: 0px;
         }
 
         p {
@@ -187,42 +210,42 @@
 </head>
 
 <body>
-    <h1>The weekly retro ...</h1>
-    <div id="header-section">
-        <span></span>
-        <span>
-            My shameless self-promotion of what I've been upto over for week @Model.WeekNumber (@Model.Start.ToShortDateString() - @Model.End.ToShortDateString())
-        </span>
+    <div id="title">
+        <h1>The weekly retro ...</h1>
+        <p>
+            My shameless self-promotion of what I've been upto over the last week
+        </p>
+        <p>
+            Week @Model.WeekNumber (@Model.Start.ToShortDateString() - @Model.End.ToShortDateString())
+        </p>
     </div>
 
-    <div id="content">
-        @if (Model.PodCasts != null && Model.PodCasts.Display)
-        {
-            Html.RenderPartial("_PodcastSummaryActivity", Model.PodCasts);
-        }
+    @if (Model.PodCasts != null && Model.PodCasts.Display)
+    {
+        Html.RenderPartial("_PodcastSummaryActivity", Model.PodCasts);
+    }
 
-        @if (Model.Skills != null && Model.Skills.Display)
-        {
-            Html.RenderPartial("_SkillsActivity", Model.Skills);
-        }
+    @if (Model.Skills != null && Model.Skills.Display)
+    {
+        Html.RenderPartial("_SkillsActivity", Model.Skills);
+    }
 
-        @if (Model.Pluralsight != null && Model.Pluralsight.Display)
-        {
-            Html.RenderPartial("_PluralsightActivity", Model.Pluralsight);
-        }
+    @if (Model.Pluralsight != null && Model.Pluralsight.Display)
+    {
+        Html.RenderPartial("_PluralsightActivity", Model.Pluralsight);
+    }
 
-        @if (Model.Focus != null && Model.Focus.Display)
-        {
-            Html.RenderPartial("_FocusActivity", Model.Focus);
-        }
+    @if (Model.Focus != null && Model.Focus.Display)
+    {
+        Html.RenderPartial("_FocusActivity", Model.Focus);
+    }
 
-        @if (Model.Clients != null && Model.Clients.Display)
-        {
-            Html.RenderPartial("_ClientsActivity", Model.Clients);
-        }
-    </div>
+    @if (Model.Clients != null && Model.Clients.Display)
+    {
+        Html.RenderPartial("_ClientsActivity", Model.Clients);
+    }
 
-    <div id="header-logo">
+    <div id="footer">
         <div class="header-icon">
             <img src="~/images/RFCLogo128.png" />
         </div>
