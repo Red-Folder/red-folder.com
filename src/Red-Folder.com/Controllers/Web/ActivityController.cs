@@ -21,7 +21,7 @@ namespace Red_Folder.com.Controllers.Web
                 new string[] {"A1", "B1", "C1" },
                 new string[] {"title", "title", "title"},
                 new string[] {"A2", "B2", "B2" },
-                new string[] {"footer", "footer", "footer"}
+                new string[] {"footer-left", "footer-middle", "footer-right"}
             };
 
             var viewModel = new WeekSummary

@@ -26,22 +26,17 @@
             grid-area: title;
         }
 
-        #footer {
-            grid-area: footer;
+        #footer-left {
+            grid-area: footer-left;
         }
 
-        #header-logo {
-            grid-area: header-logo;
+        #footer-middle {
+            grid-area: footer-middle;
         }
 
-            #header-logo img {
-                max-width: 100%;
-                max-height: 100%;
-            }
-
-            #header-logo .header-icon {
-                padding-top: 0px;
-            }
+        #footer-right {
+            grid-area: footer-right;
+        }
 
         #header-section {
             grid-area: header-section;
@@ -145,21 +140,21 @@
             display: none;
         }
 
-        i {
-            font-size: 75px;
+        .footer {
+            background-color: #e74c3c;
             color: white;
-        }
-
-        .header {
-            background-color: #e74c3c;
-        }
-
-        .header-icon {
-            background-color: #e74c3c;
-            padding-top: 15px;
-            padding-bottom: 15px;
+            font-size: 25px;
+            padding: 0px;
             text-align: center;
-            margin-bottom: 15px;
+            margin: 0px;
+        }
+
+        #footer-left, #footer-right {
+            padding: 12px;
+        }
+
+        #footer-middle > img {
+            height: 50px;
         }
 
         h1 {
@@ -245,10 +240,14 @@
         Html.RenderPartial("_ClientsActivity", Model.Clients);
     }
 
-    <div id="footer">
-        <div class="header-icon">
-            <img src="~/images/RFCLogo128.png" />
-        </div>
+    <div id="footer-left" class="footer">
+        @@redfoldermark
+    </div>
+    <div id="footer-middle" class="footer"> 
+        <img src="~/images/RFCLogo128.png" />
+    </div>
+    <div id="footer-right" class="footer">
+        https://red-folder.com
     </div>
 
     <script>
