@@ -1,8 +1,5 @@
 ﻿using Red_Folder.com.Models.Activity;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace Red_Folder.com.ViewModels.Activity
 {
@@ -10,11 +7,13 @@ namespace Red_Folder.com.ViewModels.Activity
     {
         private T _activity;
         private string _layoutId;
+        private Func<T, bool> _toDisplay;
 
-        public ActivityLayout(T activity, string layoutId)
+        public ActivityLayout(T activity, string layoutId, Func<T, bool> toDisplay)
         {
             _activity = activity;
             _layoutId = layoutId;
+            _toDisplay = toDisplay;
         }
 
         public T Activity
@@ -24,8 +23,7 @@ namespace Red_Folder.com.ViewModels.Activity
 
         public bool Display
         {
-            // TODO ... need to defer to the activity
-            get => true;
+            get => _toDisplay(_activity);
         }
 
         public string LayoutId

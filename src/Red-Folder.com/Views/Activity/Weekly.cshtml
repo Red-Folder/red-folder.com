@@ -130,6 +130,34 @@
                     display: inline;
                 }
 
+        #blog-section {
+            grid-area: blog-section;
+        }
+
+            .blog-section > div {
+                margin: 15px;
+                display: grid;
+                grid-template-columns: 180px *;
+                grid-template-areas: "blog-logo blog-description";
+            }
+
+            .blog-section div .blog-logo {
+                grid-area: blog-logo;
+            }
+
+            .blog-section div .blog-description {
+                grid-area: blog-description;
+            }
+
+                .blog-section div .blog-description h3 {
+                    margin-top: 0px;
+                    padding-left: 15px;
+                }
+
+                .blog-section div .blog-description p {
+                    padding-left: 15px;
+                }
+
         #podcasts-detail-logo {
             grid-area: podcasts-detail-logo;
             display: none;
@@ -240,10 +268,15 @@
         Html.RenderPartial("_ClientsActivity", Model.Clients);
     }
 
+    @if (Model.Blogs != null && Model.Blogs.Display)
+    {
+        Html.RenderPartial("_BlogActivity", Model.Blogs);
+    }
+
     <div id="footer-left" class="footer">
         @@redfoldermark
     </div>
-    <div id="footer-middle" class="footer"> 
+    <div id="footer-middle" class="footer">
         <img src="~/images/RFCLogo128.png" />
     </div>
     <div id="footer-right" class="footer">

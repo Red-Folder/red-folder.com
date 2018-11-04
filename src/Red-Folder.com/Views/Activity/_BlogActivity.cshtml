@@ -1,0 +1,16 @@
+﻿@model Red_Folder.com.ViewModels.Activity.ActivityLayout<Red_Folder.com.Models.Activity.BlogActivity>
+
+<div id="@Model.LayoutId" class="blog-section">
+    <h2>Blogs articles written ...</h2>
+    @foreach (var blog in Model.Activity.Blogs)
+        {
+        <div>
+            <img class="blog-logo" src="@blog.Image" alt="Alternate Text" height="100px" />
+            <div class="blog-description">
+                <h3>@blog.Title</h3>
+                <p>@blog.Description</p>
+            </div>
+       </div>
+    }
+</div>
+

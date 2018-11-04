@@ -27,6 +27,8 @@ namespace Red_Folder.com.ViewModels.Activity
 
         public ActivityLayout<ClientActivity> Clients { get; set; }
 
+        public ActivityLayout<BlogActivity> Blogs { get; set; }
+
         public string[][] Layout { get; set; }
 
         public string GridTemplateAreas

@@ -18,9 +18,10 @@ namespace Red_Folder.com.Controllers.Web
 
             var grid = new string[][]
             {
-                new string[] {"A1", "B1", "C1" },
+                new string[] {"focus", "skills", "clients" },
                 new string[] {"title", "title", "title"},
-                new string[] {"A2", "B2", "B2" },
+                new string[] {"podcasts", "pluralsight", "pluralsight" },
+                new string[] {"podcasts", "blogs", "blogs" },
                 new string[] {"footer-left", "footer-middle", "footer-right"}
             };
 
@@ -30,11 +31,12 @@ namespace Red_Folder.com.Controllers.Web
                 WeekNumber = raw.WeekNumber,
                 Start = raw.Start,
                 End = raw.End,
-                PodCasts = new ActivityLayout<Models.Activity.PodCastActivity>(raw.PodCasts, "A2"),
-                Skills = new ActivityLayout<Models.Activity.SkillsActivity>(raw.Skills, "B1"),
-                Pluralsight = new ActivityLayout<Models.Activity.PluralsightActivity>(raw.Pluralsight, "B2"),
-                Focus = new ActivityLayout<Models.Activity.FocusActivity>(raw.Focus, "A1"),
-                Clients = new ActivityLayout<Models.Activity.ClientActivity>(raw.Clients, "C1"),
+                PodCasts = new ActivityLayout<Models.Activity.PodCastActivity>(raw.PodCasts, "podcasts", x => x != null && x.Categories != null && x.Categories.Count > 0),
+                Skills = new ActivityLayout<Models.Activity.SkillsActivity>(raw.Skills, "skills", x => x != null && x.Skills != null && x.Skills.Count > 0),
+                Pluralsight = new ActivityLayout<Models.Activity.PluralsightActivity>(raw.Pluralsight, "pluralsight", x => x != null && x.Courses != null && x.Courses.Count > 0),
+                Focus = new ActivityLayout<Models.Activity.FocusActivity>(raw.Focus, "focus", x => x != null && x.Focus != null && x.Focus.Count > 0),
+                Clients = new ActivityLayout<Models.Activity.ClientActivity>(raw.Clients, "clients", x => x != null && x.Clients != null && x.Clients.Count > 0),
+                Blogs = new ActivityLayout<Models.Activity.BlogActivity>(raw.Blogs, "blogs", x => x != null && x.Blogs != null && x.Blogs.Count > 0),
                 Layout = grid
             };
 

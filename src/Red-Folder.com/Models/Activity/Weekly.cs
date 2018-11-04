@@ -31,5 +31,8 @@ namespace Red_Folder.com.Models.Activity
 
         [JsonProperty("clients")]
         public ClientActivity Clients { get; set; }
+
+        [JsonProperty("blogs")]
+        public BlogActivity Blogs { get; set; }
     }
 }
