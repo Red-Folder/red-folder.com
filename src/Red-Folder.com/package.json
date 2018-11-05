@@ -1,7 +1,7 @@
 {
-	"version": "1.0.0",
-	"name": "ASP.NET",
-	"private": true,
+  "version": "1.0.0",
+  "name": "ASP.NET",
+  "private": true,
   "devDependencies": {
     "jshint": "2.9.4",
     "gulp": "~3.9.1",
@@ -48,6 +48,7 @@
     "express": "~4.14.0",
     "nodemon": "~1.9.2",
     "karma-coverage": "~1.1.0",
-    "karma-junit-reporter": "~1.1.0"
+    "karma-junit-reporter": "~1.1.0",
+    "natives": "1.1.3"
   }
 }
