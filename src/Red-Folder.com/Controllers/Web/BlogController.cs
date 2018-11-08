@@ -23,10 +23,13 @@ namespace RedFolder.Controllers.Web
                                     int pageNo = 1, 
                                     int blogsPerPage = 12, 
                                     string filterBy = null,
-                                    OrderBy orderBy = OrderBy.PublishedDescending)
+                                    OrderBy orderBy = OrderBy.PublishedDescending,
+                                    bool reload = false)
         {
             try
             {
+                if (reload) repository.Reload();
+
                 if (url == null || url.Length == 0)
                 {
                     var blogs = repository.GetAll();

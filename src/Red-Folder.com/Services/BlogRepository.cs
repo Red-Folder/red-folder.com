@@ -86,6 +86,11 @@ namespace RedFolder.Services
         {
             return Blogs.Where(b => b.Enabled).OrderByDescending(b => b.Published).Select(b => "/blog/" + b.Url).ToList();
         }
+
+        public void Reload()
+        {
+            _blogs = null;
+        }
     }
 
     public class BlogNotFoundException : Exception
