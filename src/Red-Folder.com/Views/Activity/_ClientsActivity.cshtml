@@ -38,13 +38,17 @@
                         },
                         responsive: false,
                         legend: {
-                            display: false
+                            display: true,
+                            position: 'bottom',
+                            labels: {
+                                fontSize: 25
+                            }
                         },
                         plugins: {
                             labels: {
                                 // render 'label', 'value', 'percentage', 'image' or custom function, default is 'percentage'
                                 render: (data) => {
-                                    return data.label + '\n' + clientChartData.filter(x => x.client == data.label)[0].label;
+                                    return clientChartData.filter(x => x.client == data.label)[0].label;
                                 },
 
                                 // precision for percentage, default is 0
