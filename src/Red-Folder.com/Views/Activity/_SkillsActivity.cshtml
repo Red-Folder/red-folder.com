@@ -34,7 +34,7 @@ var layout = d3.layout.cloud()
         .words([
                 @{
     var maxDuration = Model.Activity.Skills.Max(x => x.TotalDuration);
-    var sizeIncrement = ((float)90) / maxDuration;
+    var sizeIncrement = ((float)75) / maxDuration;
     foreach (var skill in Model.Activity.Skills)
     {
                         @:{ text: '@skill.Name', size: @(10 + (sizeIncrement * skill.TotalDuration)) },
