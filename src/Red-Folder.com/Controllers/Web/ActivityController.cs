@@ -12,7 +12,7 @@ namespace Red_Folder.com.Controllers.Web
     public class ActivityController : Controller
     {
         [HttpGet("Activity/Weekly/{year}/{weekNumber}")]
-        public IActionResult Weekly([FromServices] IActivityRepository repository, int year, int weekNumber)
+        public IActionResult Weekly([FromServices] IActivityRepository repository, string year, string weekNumber)
         {
             var raw = repository.Weekly(year, weekNumber);
 

@@ -17,7 +17,7 @@ namespace Red_Folder.com.Services
             _activityCode = activityCode;
         }
 
-        public Weekly Weekly(int year, int weekNumber)
+        public Weekly Weekly(string year, string weekNumber)
         {
             var url = $"{_activityUrl}/weeklyactivity/{year}/{weekNumber}?code={_activityCode}";
             var rawResponse = _httpClient.GetStringAsync(url).Result;

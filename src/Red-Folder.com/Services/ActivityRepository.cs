@@ -15,7 +15,7 @@ namespace Red_Folder.com.Services
             _client = new ActivityClient(activityUrl, activityCode);
         }
 
-        public Weekly Weekly(int year, int weekNumber)
+        public Weekly Weekly(string year, string weekNumber)
         {
             return _client.Weekly(year, weekNumber);
         }
