@@ -16,15 +16,6 @@ namespace Red_Folder.com.Controllers.Web
         {
             var raw = repository.Weekly(year, weekNumber);
 
-            var grid = new string[][]
-            {
-                new string[] {"focus", "skills", "clients" },
-                new string[] {"title", "title", "title"},
-                new string[] {"podcasts", "pluralsight", "pluralsight" },
-                new string[] {"podcasts", "blogs", "blogs" },
-                new string[] {"footer-left", "footer-middle", "footer-right"}
-            };
-
             var viewModel = new WeekSummary
             {
                 Year = raw.Year,
@@ -36,11 +27,35 @@ namespace Red_Folder.com.Controllers.Web
                 Pluralsight = new ActivityLayout<Models.Activity.PluralsightActivity>(raw.Pluralsight, "pluralsight", x => x != null && x.Courses != null && x.Courses.Count > 0),
                 Focus = new ActivityLayout<Models.Activity.FocusActivity>(raw.Focus, "focus", x => x != null && x.Focus != null && x.Focus.Count > 0),
                 Clients = new ActivityLayout<Models.Activity.ClientActivity>(raw.Clients, "clients", x => x != null && x.Clients != null && x.Clients.Count > 0),
-                Blogs = new ActivityLayout<Models.Activity.BlogActivity>(raw.Blogs, "blogs", x => x != null && x.Blogs != null && x.Blogs.Count > 0),
-                Layout = grid
+                Blogs = new ActivityLayout<Models.Activity.BlogActivity>(raw.Blogs, "blogs", x => x != null && x.Blogs != null && x.Blogs.Count > 0)
             };
 
+            viewModel.Layout = GetGrid(viewModel);
+
             return View("Weekly", viewModel);
+        }
+
+        private string[][] GetGrid(WeekSummary model)
+        {
+            if (!model.Pluralsight.Display && !model.Blogs.Display)
+            {
+                return new string[][]
+                {
+                    new string[] { "focus", "skills" },
+                    new string[] { "title", "title" },
+                    new string[] { "podcasts", "clients" },
+                    new string[] { "footer-left", "footer-right" }
+                };
+            }
+
+            return new string[][]
+            {
+                new string[] {"focus", "skills", "clients" },
+                new string[] {"title", "title", "title"},
+                new string[] {"podcasts", "pluralsight", "pluralsight" },
+                new string[] {"podcasts", "blogs", "blogs" },
+                new string[] {"footer-left", "footer-middle", "footer-right"}
+            };
         }
 
         private static DateTime FirstDateOfWeekISO8601(int year, int weekOfYear)
