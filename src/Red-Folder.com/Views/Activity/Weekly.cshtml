@@ -16,7 +16,7 @@
     <style>
         body {
             display: grid;
-            grid-template-columns: 33% 33% 33%;
+            grid-template-columns: @Html.Raw(Model.GridTemplateColumns);
             grid-template-areas: @Html.Raw(Model.GridTemplateAreas);
         }
 
