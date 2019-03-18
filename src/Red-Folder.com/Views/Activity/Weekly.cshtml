@@ -214,7 +214,8 @@
             font-size: 25px;
             padding: 0px;
             text-align: center;
-            margin: 0px;
+            margin-top: 15px;
+            margin-bottom: 15px;
         }
 
         #footer-left, #footer-right {
@@ -235,6 +236,29 @@
 
         #footer-right {
             grid-area: footer-right;
+        }
+
+        .event-section {
+            padding-left: 150px;
+            padding-right: 150px;
+        }
+
+        .event-section .event-image {
+            grid-area "event-image";
+            padding-left: 15px;
+            padding-right: 15px;
+            padding-top: 25px;
+        }
+
+        .event-section .event-content {
+            grid-area "event-content";
+            font-size: 20px;
+        }
+
+        .event-item {
+            display: grid;
+            grid-template-columns: "155px *";
+            grid-template-areas: "event-image event-content";
         }
 
     </style>
@@ -283,6 +307,11 @@
     @if (Model.Blogs != null && Model.Blogs.Display)
     {
         Html.RenderPartial("_BlogActivity", Model.Blogs);
+    }
+
+    @if (Model.Events != null && Model.Events.Display)
+    {
+        Html.RenderPartial("_EventActivity", Model.Events);
     }
 
     <div id="footer">

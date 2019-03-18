@@ -1,0 +1,15 @@
+﻿@model Red_Folder.com.ViewModels.Activity.ActivityLayout<Red_Folder.com.Models.Activity.EventActivity>
+
+<div id="@Model.LayoutId" class="event-section">
+    <h2>Key events ...</h2>
+    @foreach (var item in Model.Activity.Events)
+    {
+        <div class="event-item">
+            <img class="event-image" src="@item.ImageUrl" />
+            <div class="event-content">
+                <h3 class="event-title">@item.Title</h3>
+                <p class="event-description">@item.Description</p>
+            </div>
+        </div>
+    }
+</div>
