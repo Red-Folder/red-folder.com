@@ -52,6 +52,23 @@ namespace Red_Folder.com.ViewModels.Activity
             }
         }
 
+        public string GridTemplateColumns
+        {
+            get
+            {
+                var css = new StringBuilder();
+
+                css.Append('"');
+                for (int i = 0; i < Layout[0].Length; i++)
+                {
+                    css.Append($"auto ");
+                }
+                css.Append('"');
+
+                return css.ToString();
+            }
+        }
+
         public string GridAreas
         {
             get
