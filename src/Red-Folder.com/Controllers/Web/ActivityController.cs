@@ -41,10 +41,10 @@ namespace Red_Folder.com.Controllers.Web
             {
                 return new string[][]
                 {
-                    new string[] { "focus", "focus", "focus", "skills", "skills", "skills" },
-                    new string[] { "title", "title", "title", "title", "title", "title" },
-                    new string[] { "podcasts", "podcasts", "podcasts", "clients", "clients", "clients" },
-                    new string[] { "footer-left", "footer-left", "footer-middle", "footer-middle", "footer-right", "footer-right" }
+                    new string[] { "focus", "skills" },
+                    new string[] { "title", "title" },
+                    new string[] { "podcasts", "clients" },
+                    new string[] { "footer", "footer" }
                 };
             }
 
@@ -54,7 +54,7 @@ namespace Red_Folder.com.Controllers.Web
                 new string[] {"title", "title", "title"},
                 new string[] {"podcasts", "pluralsight", "pluralsight" },
                 new string[] {"podcasts", "blogs", "blogs" },
-                new string[] {"footer-left", "footer-middle", "footer-right"}
+                new string[] {"footer", "footer", "footer"}
             };
         }
 

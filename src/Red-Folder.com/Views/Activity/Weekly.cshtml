@@ -26,18 +26,6 @@
             grid-area: title;
         }
 
-        #footer-left {
-            grid-area: footer-left;
-        }
-
-        #footer-middle {
-            grid-area: footer-middle;
-        }
-
-        #footer-right {
-            grid-area: footer-right;
-        }
-
         #header-section {
             grid-area: header-section;
         }
@@ -168,22 +156,7 @@
             display: none;
         }
 
-        .footer {
-            background-color: #e74c3c;
-            color: white;
-            font-size: 25px;
-            padding: 0px;
-            text-align: center;
-            margin: 0px;
-        }
 
-        #footer-left, #footer-right {
-            padding: 12px;
-        }
-
-        #footer-middle > img {
-            height: 50px;
-        }
 
         h1 {
             font-size: 45px;
@@ -225,6 +198,45 @@
             margin-top: 15px;
             margin-bottom: 15px;
         }
+
+
+
+        #footer {
+            grid-area: footer;
+            display: grid;
+            grid-template-columns: "33% 33% 33%";
+            grid-template-areas: "footer-left footer-middle footer-right";
+        }
+
+        .footer {
+            background-color: #e74c3c;
+            color: white;
+            font-size: 25px;
+            padding: 0px;
+            text-align: center;
+            margin: 0px;
+        }
+
+        #footer-left, #footer-right {
+            padding: 12px;
+        }
+
+        #footer-middle > img {
+            height: 50px;
+        }
+
+        #footer-left {
+            grid-area: footer-left;
+        }
+
+        #footer-middle {
+            grid-area: footer-middle;
+        }
+
+        #footer-right {
+            grid-area: footer-right;
+        }
+
     </style>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"></script>
     <script type="text/javascript" src="https://d3js.org/d3.v3.min.js" /></script>
@@ -273,14 +285,16 @@
         Html.RenderPartial("_BlogActivity", Model.Blogs);
     }
 
-    <div id="footer-left" class="footer">
-        @@redfoldermark
-    </div>
-    <div id="footer-middle" class="footer">
-        <img src="~/images/RFCLogo128.png" />
-    </div>
-    <div id="footer-right" class="footer">
-        https://red-folder.com
+    <div id="footer">
+        <div id="footer-left" class="footer">
+            @@redfoldermark
+        </div>
+        <div id="footer-middle" class="footer">
+            <img src="~/images/RFCLogo128.png" />
+        </div>
+        <div id="footer-right" class="footer">
+            https://red-folder.com
+        </div>
     </div>
 
     <script>
