@@ -38,15 +38,39 @@ namespace Red_Folder.com.Controllers.Web
 
         private string[][] GetGrid(WeekSummary model)
         {
+            if (model.Events.Display)
+            {
+                if (!model.Pluralsight.Display && !model.Blogs.Display)
+                {
+                    return new string[][]
+                    {
+                        new string[] { "focus", "skills" },
+                        new string[] { "title", "title" },
+                        new string[] { "events", "events" },
+                        new string[] { "footer", "footer" },
+                        new string[] { "podcasts", "clients" }
+                    };
+                }
+
+                return new string[][]
+                {
+                    new string[] {"focus", "skills", "clients" },
+                    new string[] {"title", "title", "title"},
+                    new string[] { "events", "events", "events" },
+                    new string[] { "footer", "footer", "footer" },
+                    new string[] {"podcasts", "pluralsight", "pluralsight" },
+                    new string[] {"podcasts", "blogs", "blogs" },
+                };
+            }
+
             if (!model.Pluralsight.Display && !model.Blogs.Display)
             {
                 return new string[][]
                 {
                     new string[] { "focus", "skills" },
                     new string[] { "title", "title" },
-                    new string[] { "events", "events" },
-                    new string[] { "footer", "footer" },
-                    new string[] { "podcasts", "clients" }
+                    new string[] { "podcasts", "clients" },
+                    new string[] { "footer", "footer" }
                 };
             }
 
