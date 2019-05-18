@@ -20,36 +20,27 @@
     </div>
 </div>
 
-<div class="features-clean">
+<div class="site-intro reverse">
     <div class="container">
-        <div class="intro">
-            <h2 class="text-center">More about Red Folder </h2>
-        </div>
-        <div class="row features">
-
-            @if (Model != null && Model.Content != null && Model.Content.Count > 0)
-            {
-                foreach (var tile in Model.Content)
-                {
-                    <div class="col-md-4 col-md-offset-0 col-sm-6 col-sm-offset-3 col-xs-12 item">
-                        <a asp-controller="@tile.Controller" asp-action="@tile.Action">
-                            <i class="fa fa-@tile.IconClass icon"></i>
-                            <h3 class="name">@tile.Title</h3>
-
-                            @if (tile.Description != null && tile.Description.Count > 0)
-                            {
-                                foreach (var paragraph in tile.Description)
-                                {
-                                    <p class="description">@paragraph</p>
-                                }
-                            }
-
-                            <p class="read-more">Read more <i class="fa fa-chevron-circle-right"></i> </p>
-                        </a>
-                    </div>
-                }
-            }
-        </div>
+        <h2>Do you want to get a better return on your Software Development development?</h2>
+        <p>
+            <a asp-controller="projects" asp-action="roi">
+                Click here for over 40 articles on the subject ... all for <strong>free</strong>
+            </a>
+        </p>
+        <p>
+            Or sign up for the newsletter:
+        </p>
+        <form class="newsletter-form" action="https://tinyletter.com/red-folder" method="post" target="popupwindow" onsubmit="window.open('https://tinyletter.com/red-folder', 'popupwindow', 'scrollbars=yes,width=800,height=600');return true">
+            <p>
+                <input type="text" style="width:200px" name="email" id="tlemail" placeholder="Your email address" />
+                <input type="hidden" value="1" name="embed" />
+                <input type="submit" value="Subscribe" />
+            </p>
+        </form>
+        <p>
+            And coming soon ... the <strong>Better ROI from Software Development</strong> podcast
+        </p>
     </div>
 </div>
 
@@ -60,7 +51,7 @@
             <p class="text-center">A consultant lives on his reputation. Read what people say about me.</p>
         </div>
         <div class="row people">
-            
+
             <div class="col-md-4 col-sm-6 item">
                 <div class="box">
                     <p class="description">"I enjoyed working with him, especially in complex projects where Mark could prove his talent to quickly grasp complex matters and being able to translate challenges into well structured action plans." </p>
@@ -99,7 +90,7 @@
                     </a>
                 </div>
             </div>
-            
+
         </div>
     </div>
 </div>

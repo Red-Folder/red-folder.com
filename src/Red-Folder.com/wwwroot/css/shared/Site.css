@@ -32,6 +32,12 @@ body {
   color: white;
   background-color: #e74c3c;
 }
+.reverse a {
+  color: white;
+}
+.newsletter-form input {
+  color: black;
+}
 .social {
   padding-top: 25px;
   text-align: center;
