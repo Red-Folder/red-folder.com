@@ -719,6 +719,9 @@ Podcasts
   text-decoration: none;
   color: #e74c3c;
 }
+.podcast-episodes hr {
+  border-top: 1px solid #e74c3c;
+}
 /*
 =================================================================================================================
 Work In Progress

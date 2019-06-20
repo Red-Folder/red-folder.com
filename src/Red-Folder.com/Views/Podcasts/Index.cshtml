@@ -30,7 +30,9 @@
             foreach (var item in Model.Items)
             {
                 <div class="blog-tile col-xs-12">
+                    <hr />
                     <h3>@item.Title</h3>
+                    <hr />
                     <p class="blog-tile-date">Published: @item.PublishingDateString</p>
                     <p>@Html.Raw(item.Description)</p>
 
