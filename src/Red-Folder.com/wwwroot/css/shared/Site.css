@@ -696,6 +696,25 @@ RFC-Panel
 }
 /*
 =================================================================================================================
+Podcasts
+=================================================================================================================
+*/
+.podcast-episodes a,
+.podcast-episodes a:visited,
+.podcast-episodes a:active {
+  color: #4C4C4C;
+  -moz-transition: color 1.5s;
+  -o-transition: color 1.5s;
+  -webkit-transition: color 1.5s;
+  transition: color 1.5s;
+}
+.podcast-episodes a:hover,
+.podcast-episodes a:focus {
+  text-decoration: none;
+  color: #e74c3c;
+}
+/*
+=================================================================================================================
 Work In Progress
 =================================================================================================================
 */
