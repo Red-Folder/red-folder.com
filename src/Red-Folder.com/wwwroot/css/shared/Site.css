@@ -722,6 +722,9 @@ Podcasts
 .podcast-episodes hr {
   border-top: 1px solid #e74c3c;
 }
+.podcast-player {
+  width: 100%;
+}
 /*
 =================================================================================================================
 Work In Progress
