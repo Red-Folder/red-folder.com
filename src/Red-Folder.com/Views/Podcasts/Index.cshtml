@@ -29,19 +29,38 @@
         {
             foreach (var item in Model.Items)
             {
-                <div class="blog-tile col-xs-12">
-                    <hr />
-                    <h3>@item.Title</h3>
-                    <hr />
-                    <p class="blog-tile-date">Published: @item.PublishingDateString</p>
-                    <p>@Html.Raw(item.Description)</p>
+        <div class="blog-tile col-xs-12">
+            <hr />
+            <h3>@item.Title</h3>
+            <hr />
+            <p class="blog-tile-date">Published: @item.PublishingDateString</p>
+            <p>@Html.Raw(item.Description)</p>
 
-                    <p class="read-more">
-                        <a href="@item.Link">
-                            Listen now&nbsp;&nbsp;<i class="fa fa-chevron-circle-right"></i>
-                        </a>
-                    </p>
-                </div>
+            @{
+                var rssItem = item.SpecificItem as CodeHollow.FeedReader.Feeds.Rss20FeedItem;
+                if (rssItem != null)
+                {
+                    if (!string.IsNullOrEmpty(rssItem?.Enclosure?.Url))
+                    {
+                        <p class="read-more">
+                            <audio controls="controls" src="@rssItem.Enclosure.Url">
+                                <a href="@item.Link">
+                                    Listen now&nbsp;&nbsp;<i class="fa fa-chevron-circle-right"></i>
+                                </a>
+                            </audio>
+                        </p>
+                    }
+                    else
+                    {
+                        <p class="read-more">
+                            <a href="@item.Link">
+                                Listen now&nbsp;&nbsp;<i class="fa fa-chevron-circle-right"></i>
+                            </a>
+                        </p>
+                    }
+                }
+            }
+        </div>
             }
         }
     </div>
