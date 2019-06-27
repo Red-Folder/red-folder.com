@@ -1,33 +1,33 @@
-﻿@model CodeHollow.FeedReader.FeedItem
+﻿@model RedFolder.com.ViewModels.Podcast
 
 @{
-    ViewBag.Title = Model.Title;
+    ViewBag.Title = Model.Item.Title;
     Layout = "~/Views/Shared/_Layout.cshtml";
     ViewBag.BodyCssClass = "new2-css";
     ViewBag.DropContainerFluid = true;
 }
 
 <div class="rfc-header home-page">
-    <h1>@Model.Title</h1>
+    <h1>@Model.Item.Title</h1>
 </div>
 
 <div class="podcast-episodes container">
     <div class="row">
         <div class="blog-tile col-xs-12">
-            <p class="blog-tile-date">Published: @Model.PublishingDateString</p>
-            <p>@Html.Raw(Model.Description)</p>
+            <p class="blog-tile-date">Published: @Model.Item.PublishingDateString</p>
+            <p>@Html.Raw(Model.Item.Description)</p>
 
             @{
-                var rssItem = Model.SpecificItem as CodeHollow.FeedReader.Feeds.Rss20FeedItem;
+                var rssItem = Model.Item.SpecificItem as CodeHollow.FeedReader.Feeds.Rss20FeedItem;
                 if (rssItem != null)
                 {
-                    var url = RedFolder.Utils.SafeUrl.MakeSafe(Model.Title);
+                    var url = RedFolder.Utils.SafeUrl.MakeSafe(Model.Item.Title);
 
                     if (!string.IsNullOrEmpty(rssItem?.Enclosure?.Url))
                     {
                         <p class="read-more">
                             <audio class="podcast-player" controls="controls" src="@rssItem.Enclosure.Url">
-                                <a href="@Model.Link">
+                                <a href="@Model.Item.Link">
                                     Listen now&nbsp;&nbsp;<i class="fa fa-chevron-circle-right"></i>
                                 </a>
                             </audio>
@@ -36,11 +36,17 @@
                     else
                     {
                         <p class="read-more">
-                            <a href="@Model.Link">
+                            <a href="@Model.Item.Link">
                                 Listen now&nbsp;&nbsp;<i class="fa fa-chevron-circle-right"></i>
                             </a>
                         </p>
                     }
+                }
+
+                if (!string.IsNullOrEmpty(Model.Transcript))
+                {
+                    <h3>Transcript</h3>
+                    @Html.Raw(Model.Transcript)
                 }
             }
         </div>

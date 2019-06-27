@@ -3,12 +3,16 @@ using CodeHollow.FeedReader;
 using System.Threading.Tasks;
 using System.Linq;
 using RedFolder.Utils;
+using System.Net.Http;
+using RedFolder.com.ViewModels;
 using CodeHollow.FeedReader.Feeds;
 
 namespace RedFolder.Controllers.Web
 {
     public class PodcastsController : Controller
     {
+        private static HttpClient _httpClient = new HttpClient();
+
         public async Task<ActionResult> Index()
         {
             var model = await FeedReader.ReadAsync("https://anchor.fm/s/b669760/podcast/rss");
@@ -25,7 +29,33 @@ namespace RedFolder.Controllers.Web
                 return new RedirectResult("/errors/status/404");
             }
 
-            return View(item);
+            var model = new Podcast
+            {
+                Item = item,
+                Transcript = await GetTranscript(SafeUrl.MakeSafe(item.Title))
+            };
+
+            return View(model);
+        }
+
+        private async Task<string> GetTranscript(string key)
+        {
+            try
+            {
+                var response = await _httpClient.GetAsync($"https://content.red-folder.com/podcasts/{key}.md");
+
+                if (!response.IsSuccessStatusCode) return "";
+
+                var markdown = await response.Content.ReadAsStringAsync();
+
+                HeyRed.MarkdownSharp.Markdown processor = new HeyRed.MarkdownSharp.Markdown();
+
+                return processor.Transform(markdown);
+            }
+            catch
+            {
+                return "";
+            }
         }
     }
 }
