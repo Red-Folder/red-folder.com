@@ -32,13 +32,13 @@ namespace RedFolder.Controllers.Web
             var model = new Podcast
             {
                 Item = item,
-                Transcript = await GetTranscript(SafeUrl.MakeSafe(item.Title))
+                ShowNotes = await GetShowNotes(SafeUrl.MakeSafe(item.Title))
             };
 
             return View(model);
         }
 
-        private async Task<string> GetTranscript(string key)
+        private async Task<string> GetShowNotes(string key)
         {
             try
             {

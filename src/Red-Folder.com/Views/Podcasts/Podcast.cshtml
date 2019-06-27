@@ -43,10 +43,9 @@
                     }
                 }
 
-                if (!string.IsNullOrEmpty(Model.Transcript))
+                if (!string.IsNullOrEmpty(Model.ShowNotes))
                 {
-                    <h3>Transcript</h3>
-                    @Html.Raw(Model.Transcript)
+                    @Html.Raw(Model.ShowNotes)
                 }
             }
         </div>
