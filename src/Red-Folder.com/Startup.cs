@@ -113,6 +113,12 @@ namespace RedFolder
             app.UseMvc(config =>
             {
                 config.MapRoute(
+                    name: "Podcasts",
+                    template: "Podcasts/{id}",
+                    defaults: new { controller = "Podcasts", action = "Index" }
+                );
+
+                config.MapRoute(
                     name: "Blog",
                     template: "Blog/{url}",
                     defaults: new { controller = "Blog", action = "Index" }

@@ -5,7 +5,6 @@ using System.Linq;
 using RedFolder.Utils;
 using System.Net.Http;
 using RedFolder.com.ViewModels;
-using CodeHollow.FeedReader.Feeds;
 
 namespace RedFolder.Controllers.Web
 {
@@ -13,13 +12,18 @@ namespace RedFolder.Controllers.Web
     {
         private static HttpClient _httpClient = new HttpClient();
 
-        public async Task<ActionResult> Index()
+        public async Task<ActionResult> Index(string id = null)
         {
-            var model = await FeedReader.ReadAsync("https://anchor.fm/s/b669760/podcast/rss");
-            return View(model);
+            if (string.IsNullOrEmpty(id))
+            {
+                var model = await FeedReader.ReadAsync("https://anchor.fm/s/b669760/podcast/rss");
+                return View(model);
+            }
+
+            return await Details(id);
         }
 
-        public async Task<ActionResult> Podcast(string id = "Episode-0--Why-Im-doing-this-podcast")
+        private async Task<ActionResult> Details(string id)
         {
             var feed = await FeedReader.ReadAsync("https://anchor.fm/s/b669760/podcast/rss");
 
@@ -35,7 +39,7 @@ namespace RedFolder.Controllers.Web
                 ShowNotes = await GetShowNotes(SafeUrl.MakeSafe(item.Title))
             };
 
-            return View(model);
+            return View("Details", model);
         }
 
         private async Task<string> GetShowNotes(string key)
