@@ -22,64 +22,6 @@
 
         @Html.Raw(Model.GridAreas)
 
-        #title {
-            grid-area: title;
-        }
-
-        #header-section {
-            grid-area: header-section;
-        }
-
-        #what-is-this-logo {
-            grid-area: what-is-this-logo;
-        }
-
-        #what-is-this-section {
-            grid-area: what-is-this-section;
-        }
-
-        #focus-logo {
-            grid-area: focus-logo;
-        }
-
-        #focus-section {
-            grid-area: focus-section;
-        }
-
-        #clients-logo {
-            grid-area: clients-logo;
-        }
-
-        #clients-section {
-            grid-area: clients-section;
-        }
-
-
-        #podcasts-summary-logo {
-            grid-area: podcasts-summary-logo;
-        }
-
-        #podcasts-summary-section {
-            grid-area: podcasts-summary-section;
-            margin-right: 15px;
-        }
-
-        #skills-summary-logo {
-            grid-area: skills-summary-logo;
-        }
-
-        #skills-summary-section {
-            grid-area: skills-summary-section;
-        }
-
-        #pluralsight-logo {
-            grid-area: pluralsight-logo;
-        }
-
-        #pluralsight-section {
-            grid-area: pluralsight-section;
-        }
-
             .pluralsight-section > div {
                 margin: 15px;
                 display: grid;
@@ -118,23 +60,11 @@
                     display: inline;
                 }
 
-        #blog-section {
-            grid-area: blog-section;
-        }
-
             .blog-section > div {
                 margin: 15px;
                 display: grid;
                 grid-template-columns: 180px *;
                 grid-template-areas: "blog-logo blog-description";
-            }
-
-            .blog-section div .blog-logo {
-                grid-area: blog-logo;
-            }
-
-            .blog-section div .blog-description {
-                grid-area: blog-description;
             }
 
                 .blog-section div .blog-description h3 {
@@ -146,16 +76,11 @@
                     padding-left: 15px;
                 }
 
-        #podcasts-detail-logo {
-            grid-area: podcasts-detail-logo;
-            display: none;
+        .book-section img {
+            display: block;
+            margin-top: 15px;
+            margin-left: 75px;
         }
-
-        #podcasts-detail-section {
-            grid-area: podcasts-detail-section;
-            display: none;
-        }
-
 
 
         h1 {
@@ -204,7 +129,7 @@
         #footer {
             grid-area: footer;
             display: grid;
-            grid-template-columns: "33% 33% 33%";
+            grid-template-columns: repeat(3, 1fr);
             grid-template-areas: "footer-left footer-middle footer-right";
         }
 
@@ -226,18 +151,6 @@
             height: 50px;
         }
 
-        #footer-left {
-            grid-area: footer-left;
-        }
-
-        #footer-middle {
-            grid-area: footer-middle;
-        }
-
-        #footer-right {
-            grid-area: footer-right;
-        }
-
         .event-section {
             padding-left: 150px;
             padding-right: 150px;
@@ -257,7 +170,7 @@
 
         .event-item {
             display: grid;
-            grid-template-columns: "155px *";
+            grid-template-columns: 155px auto;
             grid-template-areas: "event-image event-content";
         }
 
@@ -312,6 +225,11 @@
     @if (Model.Events != null && Model.Events.Display)
     {
         Html.RenderPartial("_EventActivity", Model.Events);
+    }
+
+    @if (Model.Books != null && Model.Books.Display)
+    {
+        Html.RenderPartial("_BookActivity", Model.Books);
     }
 
     <div id="footer">
