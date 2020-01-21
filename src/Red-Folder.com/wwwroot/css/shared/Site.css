@@ -803,3 +803,7 @@ Work In Progress
   -webkit-transition: border-top 1.5s,  border-bottom 1.5s;
   transition: border-top 1.5s,  border-bottom 1.5s;
 }
+.podcasts li {
+  list-style: none;
+  display: inline-block;
+}
