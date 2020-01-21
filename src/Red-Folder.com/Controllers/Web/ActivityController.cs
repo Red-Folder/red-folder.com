@@ -26,9 +26,10 @@ namespace Red_Folder.com.Controllers.Web
                 Skills = new ActivityLayout<Models.Activity.SkillsActivity>(raw.Skills, "skills", x => x != null && x.Skills != null && x.Skills.Count > 0),
                 Pluralsight = new ActivityLayout<Models.Activity.PluralsightActivity>(raw.Pluralsight, "pluralsight", x => x != null && x.Courses != null && x.Courses.Count > 0),
                 Focus = new ActivityLayout<Models.Activity.FocusActivity>(raw.Focus, "focus", x => x != null && x.Focus != null && x.Focus.Count > 0),
-                Clients = new ActivityLayout<Models.Activity.ClientActivity>(raw.Clients, "clients", x => x != null && x.Clients != null && x.Clients.Count > 0),
+                //Clients = new ActivityLayout<Models.Activity.ClientActivity>(raw.Clients, "clients", x => x != null && x.Clients != null && x.Clients.Count > 0),
                 Blogs = new ActivityLayout<Models.Activity.BlogActivity>(raw.Blogs, "blogs", x => x != null && x.Blogs != null && x.Blogs.Count > 0),
-                Events = new ActivityLayout<Models.Activity.EventActivity>(raw.Events, "events", x => x != null && x.Events != null && x.Events.Count > 0)
+                Events = new ActivityLayout<Models.Activity.EventActivity>(raw.Events, "events", x => x != null && x.Events != null && x.Events.Count > 0),
+                Books = new ActivityLayout<Models.Activity.BookActivity>(raw.Books, "books", x => x != null && x.Books != null && x.Books.Count > 0)
             };
 
             viewModel.Layout = GetGrid(viewModel);
@@ -48,13 +49,13 @@ namespace Red_Folder.com.Controllers.Web
                         new string[] { "title", "title" },
                         new string[] { "events", "events" },
                         new string[] { "footer", "footer" },
-                        new string[] { "podcasts", "clients" }
+                        new string[] { "podcasts", "books" }
                     };
                 }
 
                 return new string[][]
                 {
-                    new string[] {"focus", "skills", "clients" },
+                    new string[] {"focus", "skills", "books" },
                     new string[] {"title", "title", "title"},
                     new string[] { "events", "events", "events" },
                     new string[] { "footer", "footer", "footer" },
@@ -69,14 +70,14 @@ namespace Red_Folder.com.Controllers.Web
                 {
                     new string[] { "focus", "skills" },
                     new string[] { "title", "title" },
-                    new string[] { "podcasts", "clients" },
+                    new string[] { "podcasts", "books" },
                     new string[] { "footer", "footer" }
                 };
             }
 
             return new string[][]
             {
-                new string[] {"focus", "skills", "clients" },
+                new string[] {"focus", "skills", "books" },
                 new string[] {"title", "title", "title"},
                 new string[] {"podcasts", "pluralsight", "pluralsight" },
                 new string[] {"podcasts", "blogs", "blogs" },

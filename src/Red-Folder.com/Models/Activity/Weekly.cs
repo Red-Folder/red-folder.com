@@ -37,5 +37,8 @@ namespace Red_Folder.com.Models.Activity
 
         [JsonProperty("events")]
         public EventActivity Events { get; set; }
+
+        [JsonProperty("books")]
+        public BookActivity Books { get; set; }
     }
 }

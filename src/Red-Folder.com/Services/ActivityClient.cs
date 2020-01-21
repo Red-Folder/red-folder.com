@@ -1,6 +1,5 @@
 ﻿using Newtonsoft.Json;
 using Red_Folder.com.Models.Activity;
-using System.Collections.Generic;
 using System.Net.Http;
 
 namespace Red_Folder.com.Services

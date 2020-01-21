@@ -27,6 +27,8 @@ namespace RedFolder.Controllers.Web
                             "Team City",
                             "Octopus",
                             "AWS",
+                            "AWS - CloudFormation",
+                            "AWS - Lambda",
                             "Jest",
                             "xUnit",
                             "SpecFlow"

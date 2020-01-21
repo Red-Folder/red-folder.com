@@ -1,0 +1,100 @@
+﻿@model RedFolder.com.ViewModels.Podcast
+
+@{
+    ViewBag.Title = Model.Item.Title;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.BodyCssClass = "new2-css";
+    ViewBag.DropContainerFluid = true;
+}
+
+<div class="rfc-header home-page">
+    <h1>@Model.Item.Title</h1>
+</div>
+
+<div class="podcast-episodes container">
+    <div class="row">
+        <div class="col-xs-12">
+            <p><strong>@Html.Raw(Model.Item.Description)</strong></p>
+
+            @{
+                var rssItem = Model.Item.SpecificItem as CodeHollow.FeedReader.Feeds.Rss20FeedItem;
+                if (rssItem != null)
+                {
+                    var url = RedFolder.Utils.SafeUrl.MakeSafe(Model.Item.Title);
+
+                    if (!string.IsNullOrEmpty(rssItem?.Enclosure?.Url))
+                    {
+                        <p class="read-more">
+                            <audio class="podcast-player" controls="controls" src="@rssItem.Enclosure.Url">
+                                <a href="@Model.Item.Link">
+                                    Listen now&nbsp;&nbsp;<i class="fa fa-chevron-circle-right"></i>
+                                </a>
+                            </audio>
+                        </p>
+                    }
+                    else
+                    {
+                        <p class="read-more">
+                            <a href="@Model.Item.Link">
+                                Listen now&nbsp;&nbsp;<i class="fa fa-chevron-circle-right"></i>
+                            </a>
+                        </p>
+                    }
+                }
+            }
+
+            <p><i>Published: @Model.Item.PublishingDateString</i></p>
+
+            @if (!string.IsNullOrEmpty(Model.ShowNotes))
+            {
+                @Html.Raw(Model.ShowNotes)
+            }
+        </div>
+    </div>
+</div>
+
+@section metas
+    {
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@@RedFolderMark" />
+    <meta property="og:title" name="twitter:title" content="@Model.Item.Title" />
+    <meta property="og:description" name="twitter:description" content="@Model.Item.Description" />
+    <meta property="og:image" name="twitter:image" content="https://red-folder.com/images/PodcastLogo.png" />
+}
+
+@section Scripts
+    {
+    <script type="application/ld+json">
+        {
+        "@@context": "http://schema.org",
+        "@@type": "BlogPosting",
+        "headline": "@Model.Item.Title",
+        "image": {
+        "@@type": "ImageObject",
+        "url": "https://red-folder.com/images/PodcastLogo.png",
+        "height": "150",
+        "width": " 280"
+        },
+        "publisher": {
+        "@@type": "Organization",
+        "name": "Red Folder Consultancy Ltd",
+        "logo": {
+        "@@type": "ImageObject",
+        "url": "https://www.red-folder.com/media/RFCLogo.png"
+        }
+        },
+        "url": "https://www.red-folder.com/podcasts/@RedFolder.Utils.SafeUrl.MakeSafe(Model.Item.Title)",
+        "datePublished": "@Model.Item.PublishingDate?.ToString("yyyy-MM-dd")",
+        "dateCreated": "@Model.Item.PublishingDate?.ToString("yyyy-MM-dd")",
+        "dateModified": "@Model.Item.PublishingDate?.ToString("yyyy-MM-dd")",
+        "description": "@Model.Item.Description",
+        "author": {
+        "@@type": "Person",
+        "name": "Mark Taylor"
+        },
+        "mainEntityOfPage": {
+        "@@type": "WebPage"
+        }
+        }
+    </script>
+}

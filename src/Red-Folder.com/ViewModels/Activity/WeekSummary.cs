@@ -31,6 +31,8 @@ namespace Red_Folder.com.ViewModels.Activity
 
         public ActivityLayout<EventActivity> Events { get; set; }
 
+        public ActivityLayout<BookActivity> Books { get; set; }
+
         public string[][] Layout { get; set; }
 
         public string GridTemplateAreas
@@ -58,16 +60,7 @@ namespace Red_Folder.com.ViewModels.Activity
         {
             get
             {
-                var css = new StringBuilder();
-
-                css.Append('"');
-                for (int i = 0; i < Layout[0].Length; i++)
-                {
-                    css.Append($"auto ");
-                }
-                css.Append('"');
-
-                return css.ToString();
+                return $"repeat({Layout[0].Length}, 1fr)";
             }
         }
 
