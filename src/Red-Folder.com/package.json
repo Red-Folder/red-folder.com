@@ -2,6 +2,12 @@
   "version": "1.0.0",
   "name": "ASP.NET",
   "private": true,
+  "scripts": {
+    "preinstall": "npx npm-force-resolutions"
+  },
+  "resolutions": {
+    "graceful-fs": "4.2.3"
+  },
   "devDependencies": {
     "jshint": "2.9.4",
     "gulp": "~3.9.1",
