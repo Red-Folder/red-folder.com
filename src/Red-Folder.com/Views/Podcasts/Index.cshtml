@@ -41,7 +41,7 @@
                         <p>@Html.Raw(item.Description)</p>
 
                         <p>
-                           Listen now&nbsp;&nbsp;<i class="fa fa-chevron-circle-right"></i>
+                            Listen now&nbsp;&nbsp;<i class="fa fa-chevron-circle-right"></i>
                         </p>
                     </a>
                 </div>
@@ -49,3 +49,40 @@
         }
     </div>
 </div>
+
+@section Scripts
+    {
+    <script type="application/ld+json">
+        {
+            "@@context": "http://schema.org/",
+            "@@type": "PodcastSeries",
+
+            "name": "Better ROI from Software Development ",
+            "url": "https://red-folder.com/podcasts",
+            "description": "A short weekly podcast aimed at those that fund software development and those that help them.  In the podcast, I look at why traditional software development management techniques won't produce the best return on investment and, along the way, provide advice on how to improve it.",
+
+            "webFeed": "https://anchor.fm/s/b669760/podcast/rss",
+
+            "image": {
+                "@@type": "ImageObject",
+                "url": "https://red-folder.com/images/PodcastLogo.png",
+                "height": "150",
+                "width": " 280"
+            },
+
+            "publisher": {
+                "@@type": "Organization",
+                "name": "Red Folder Consultancy Ltd",
+                "logo": {
+                    "@@type": "ImageObject",
+                    "url": "https://www.red-folder.com/media/RFCLogo.png"
+                }
+            },
+
+            "author": {
+                "@@type": "Person",
+                "name": "Mark Taylor"
+            }
+        }
+    </script>
+}

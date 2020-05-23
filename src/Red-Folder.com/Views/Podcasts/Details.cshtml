@@ -70,15 +70,34 @@
     {
     <script type="application/ld+json">
         {
-        "@@context": "http://schema.org",
-        "@@type": "BlogPosting",
-        "headline": "@Model.Item.Title",
+        "@@context": "http://schema.org/",
+        "@@type": "PodcastEpisode",
+        "url": "https://www.red-folder.com/podcasts/@RedFolder.Utils.SafeUrl.MakeSafe(Model.Item.Title)",
+        "name": "@Model.Item.Title",
+
+        "datePublished": "@Model.Item.PublishingDate?.ToString("yyyy-MM-dd")",
+        "dateCreated": "@Model.Item.PublishingDate?.ToString("yyyy-MM-dd")",
+        "dateModified": "@Model.Item.PublishingDate?.ToString("yyyy-MM-dd")",
+        "description": "@Model.Item.Description",
+
+        "associatedMedia": {
+        "@@type": "MediaObject",
+        "contentUrl": "@((Model.Item.SpecificItem as CodeHollow.FeedReader.Feeds.Rss20FeedItem).Enclosure.Url)"
+        },
+
+        "partOfSeries": {
+        "@@type": "PodcastSeries",
+        "name": "Better ROI from Software Development ",
+        "url": "https://red-folder.com/podcasts"
+        },
+
         "image": {
         "@@type": "ImageObject",
         "url": "https://red-folder.com/images/PodcastLogo.png",
         "height": "150",
         "width": " 280"
         },
+
         "publisher": {
         "@@type": "Organization",
         "name": "Red Folder Consultancy Ltd",
@@ -87,17 +106,10 @@
         "url": "https://www.red-folder.com/media/RFCLogo.png"
         }
         },
-        "url": "https://www.red-folder.com/podcasts/@RedFolder.Utils.SafeUrl.MakeSafe(Model.Item.Title)",
-        "datePublished": "@Model.Item.PublishingDate?.ToString("yyyy-MM-dd")",
-        "dateCreated": "@Model.Item.PublishingDate?.ToString("yyyy-MM-dd")",
-        "dateModified": "@Model.Item.PublishingDate?.ToString("yyyy-MM-dd")",
-        "description": "@Model.Item.Description",
+
         "author": {
         "@@type": "Person",
         "name": "Mark Taylor"
-        },
-        "mainEntityOfPage": {
-        "@@type": "WebPage"
         }
         }
     </script>
