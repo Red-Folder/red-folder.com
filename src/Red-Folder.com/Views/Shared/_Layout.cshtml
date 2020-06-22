@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html prefix="og: http://ogp.me/ns#">
 <head>
     <meta charset="utf-8" />
@@ -50,7 +50,10 @@
         <!-- sharedProduction:js -->
         <!-- endinject -->
     </environment>
-
+    
+    <script>
+        dataLayer = [];
+    </script>
     @RenderSection("scripts", required: false)
 </head>
 <body class="@(ViewBag.BodyCssClass == null || ViewBag.BodyCssClass.Length == 0 ? "old-css" : ViewBag.BodyCssClass)">

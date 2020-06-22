@@ -25,7 +25,11 @@
                     if (!string.IsNullOrEmpty(rssItem?.Enclosure?.Url))
                     {
                         <p class="read-more">
-                            <audio class="podcast-player" controls="controls" src="@rssItem.Enclosure.Url">
+                            <audio id="podcast-player"
+                                   class="podcast-player" 
+                                   controls="controls" 
+                                   src="@rssItem.Enclosure.Url" 
+                                   preload="none">
                                 <a href="@Model.Item.Link">
                                     Listen now&nbsp;&nbsp;<i class="fa fa-chevron-circle-right"></i>
                                 </a>
@@ -112,5 +116,15 @@
         "name": "Mark Taylor"
         }
         }
+    </script>
+
+    <script>
+        var audio = document.getElementById("podcast-player");
+        audio.onplay = function () {
+            dataLayer.push({
+                event: "podcast.play",
+                podcastEpisode: "@Model.Item.Title"
+            });
+        };
     </script>
 }
