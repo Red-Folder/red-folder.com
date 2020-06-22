@@ -29,7 +29,7 @@
                                    class="podcast-player" 
                                    controls="controls" 
                                    src="@rssItem.Enclosure.Url" 
-                                   preload="none">
+                                   preload="metadata">
                                 <a href="@Model.Item.Link">
                                     Listen now&nbsp;&nbsp;<i class="fa fa-chevron-circle-right"></i>
                                 </a>
@@ -119,12 +119,13 @@
     </script>
 
     <script>
-        var audio = document.getElementById("podcast-player");
-        audio.onplay = function () {
-            dataLayer.push({
-                event: "podcast.play",
-                podcastEpisode: "@Model.Item.Title"
-            });
-        };
+        document.addEventListener("DOMContentLoaded", function () {
+            document.getElementById("podcast-player").onplay = function () {
+                dataLayer.push({
+                    event: "podcast.play",
+                    podcastEpisode: "@Model.Item.Title"
+                });
+            };
+        });
     </script>
 }
