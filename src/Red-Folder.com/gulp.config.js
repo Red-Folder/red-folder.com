@@ -34,13 +34,6 @@ module.exports = function (logger) {
                             .addLess('./wwwroot/css/shared/')
                             .build(),
 
-        // DependancyGraph
-        new rfcUtils.AppBuilder(logger, 'DependancyGraph')
-                            .setHtmlDestination('./views/Microservice/Index.cshtml')
-                            .addJs('./wwwroot/scripts/dependancyGraph/')
-                            .addLess('./wwwroot/css/dependancyGraph/')
-                            .build(),
-
         // WebCrawlGraph
         new rfcUtils.AppBuilder(logger, 'webCrawlGraph')
                             .setHtmlDestination('./views/Samples/WebCrawlGraph.cshtml')

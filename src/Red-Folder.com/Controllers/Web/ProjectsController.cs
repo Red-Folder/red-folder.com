@@ -41,16 +41,6 @@ namespace RedFolder.Controllers.Web
                         "Find out more >>>"
                     ),
                 new SummaryTile(
-                        "Microservice",
-                        new Paragraphs()
-                        {
-                            "I like the principals behind the MicroService architecture.  So I thought I'd experiment with it in my own code.  I've been working on a number of projects (which you can find in GitHub) which provide a series of example implementations."
-                        },
-                        "Index",
-                        "Microservice",
-                        "Find out more >>>"
-                    ),
-                new SummaryTile(
                         "Cordova/ Phonegap",
                         new Paragraphs()
                         {
