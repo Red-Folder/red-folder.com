@@ -66,17 +66,6 @@ namespace Red_Folder.Tests.Acceptance
         }
 
         [Fact]
-        public void Going_to_the_microservices_page_is_valid()
-        {
-            var client = new WebClientBuilder(Config.Host, "/projects/microservices")
-                            .Build();
-
-            client.Get();
-
-            Assert.Equal(HttpStatusCode.OK, client.LastHttpStatusCode);
-        }
-
-        [Fact]
         public void Going_to_the_cordova_page_is_valid()
         {
             var client = new WebClientBuilder(Config.Host, "/projects/cordova")
