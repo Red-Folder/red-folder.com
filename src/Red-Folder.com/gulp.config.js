@@ -19,7 +19,6 @@ module.exports = function (logger) {
                 './gulpfile.js',
                 './gulp.config.js',
                 './Utils/rfcUtils.js',
-                './Utils/SpecServer/app.js'
             ]
         },
     };
@@ -33,20 +32,6 @@ module.exports = function (logger) {
                             .hasThirdPartyJs()
                             .addLess('./wwwroot/css/shared/')
                             .build(),
-
-        // WebCrawlGraph
-        new rfcUtils.AppBuilder(logger, 'webCrawlGraph')
-                            .setHtmlDestination('./views/Samples/WebCrawlGraph.cshtml')
-                            .addAngularJs('./wwwroot/scripts/webCrawlGraph/')
-                            .addLess('./wwwroot/css/webCrawlGraph/')
-                            .build(),
-
-        // repoExplorer
-        new rfcUtils.AppBuilder(logger, 'repoExplorer')
-                            .setHtmlDestination('./views/Home/Repo.cshtml')
-                            .addAngularJs('./wwwroot/scripts/repoExplorer/')
-                            .hasAngularSpecs()
-                            .build()
     ]);
 
     config.lessToCompile = suite.BuildLessToCompile();
@@ -77,71 +62,5 @@ module.exports = function (logger) {
         },
     };
 
-    config.specRunner = {
-        server: {
-            script: './Utils/SpecServer/app.js',
-            delayTime: 1,
-            env: {
-                'PORT': 8001
-            },
-            watch: config.tools.src
-        },
-
-        browserReloadDelay: 1000,
-
-        specTemplate: './Utils/SpecServer/templates/spec.html',
-        specOutput: './Utils/SpecServer/output',
-        startPath: './Utils/SpecServer/output/repoExplorer.html',
-
-        wiredep: {
-            options: {
-                bowerJson: require('./bower.json'),
-                devDependencies: true
-            }
-        }
-    };
-
-    config.karma = getKarmaOptions();
-
     return config;
-
-    function getKarmaOptions() {
-        var options = {
-            files: [
-                './wwwroot/lib/angular/angular.js',
-                './wwwroot/lib/angular-resource/angular-resource.js',
-                './wwwroot/lib/angular-mocks/angular-mocks.js',
-                './wwwroot/lib/bardjs/dist/bard.js',
-
-                './wwwroot/lib/jquery/dist/jquery.js',
-                './wwwroot/lib/bootstrap/dist/js/bootstrap.js',
-                './wwwroot/lib/bootstrap-switch/dist/js/bootstrap-switch.js',
-                './wwwroot/lib/angular-bootstrap-switch/dist/angular-bootstrap-switch.js',
-
-                './wwwroot/scripts/*/app.js',
-                './wwwroot/scripts/*/*.controller.js',
-                './wwwroot/scripts/*/*.directive.js',
-                './wwwroot/scripts/*/*.service.js',
-                './wwwroot/scripts/*/*.filter.js',
-                './wwwroot/scripts/*/*.spec.js'
-            ],
-            exclude: [],
-            coverage: {
-                dir: report + 'coverage',
-                reporters: [
-                    // reporters not supporting the `file` property
-                    { type: 'html' },
-                    { type: 'cobertura', subdir: 'cobertura', file: 'cobertura.txt' },
-                    { type: 'lcov', subdir: 'report-lcov' },
-                    { type: 'text-summary' } //, subdir: '.', file: 'text-summary.txt'}
-                ]
-            },
-            junitReporter: {
-                outputDir: report + 'results'
-            },
-            preprocessors: {}
-        };
-        options.preprocessors['./wwwroot/scripts/**/!(*.spec)+(.js)'] = ['coverage'];
-        return options;
-    }
 };

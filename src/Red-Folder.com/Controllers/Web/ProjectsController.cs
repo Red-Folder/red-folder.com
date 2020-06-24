@@ -26,31 +26,6 @@ namespace RedFolder.Controllers.Web
                         "ROI",
                         "Projects",
                         "Find out more >>>"
-                    ),
-                new SummaryTile(
-                        "Asp.Net Core",
-                        new Paragraphs()
-                        {
-                            "The Microsoft .Net development environment has been with us for over 10 years.  During that time many innovations and changes have occurred.",
-                            "Now is the time for the next evolution of that environment - Core.",
-                            "Over the coming months and years, Microsoft will moving their focus away from the traditional .Net model to the.Net Core - which aims to be smaller, more composable and a better fit for modern software development.",
-                            "In this series I start to look as Asp.Net Core, MVC 6 and Entity Framework Core by convering this website.I start off in RC1(Release Candidate 1) and conclude the article using RTM."
-                        },
-                        "AspNetCore",
-                        "Projects",
-                        "Find out more >>>"
-                    ),
-                new SummaryTile(
-                        "Cordova/ Phonegap",
-                        new Paragraphs()
-                        {
-                            "I've written (or atleast started to write) a number Cordova plugins.",
-                            "The most notable of which is the Background Service (BGS-Core), a plugin that allow Cordova applications to interact with Background Services on the Android platform.  I've personally used with clients to provide GPS tracking services.",
-                            "While I'm not actively working on these plugins currently, there are still used by the community - and provide support when able."
-                        },
-                        "Index",
-                        "Cordova",
-                        "Find out more >>>"
                     )
             };
 
@@ -63,12 +38,5 @@ namespace RedFolder.Controllers.Web
             var collection = new BlogCollection(blogs, 1, 0, "ROI", BlogCollection.OrderBy.PublishedAscending);
             return View(collection);
         }
-        public ActionResult AspNetCore([FromServices] IBlogRepository repository)
-        {
-            var blogs = repository.GetAll();
-            var collection = new BlogCollection(blogs, "ConvertingToAsp.NetCore");
-            return View(collection);
-        }
-
     }
 }

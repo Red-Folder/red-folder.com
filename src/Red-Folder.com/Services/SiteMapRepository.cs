@@ -60,13 +60,6 @@ namespace RedFolder.Services
                 "/Services",
                 "/Projects",
                 "/Projects/ROI",
-                "/Projects/AspNetCore",
-                "/Projects/Cordova",
-                "/Projects/Cordova/BackgroundServicePlugin",
-                "/Projects/Cordova/GPSServicePlugin",
-                "/Projects/Cordova/SchedulerPlugin",
-                "/Projects/Cordova/AvailabilityMonitorPlugin",
-                "/Projects/Cordova/SMSHandlerPlugin",
                 "/MyBio"
             };
         }
