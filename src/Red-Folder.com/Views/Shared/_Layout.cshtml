@@ -94,13 +94,13 @@
             </nav>
         </div>
     </header>
-
+    
     <div class="@(ViewBag.DropContainerFluid != null && ViewBag.DropContainerFluid ? "": "container-fluid")">
         @RenderBody()
     </div>
 
     <footer>
-        <div class="icon-separator"></div>
+        @Html.Partial("_NewsletterSignup")
         <div class="social">
             <a href="https://github.com/Red-Folder"><i class="fa fa-github"></i></a>
             <a href="skype:red-folder?chat"><i class="fa fa-skype"></i></a>

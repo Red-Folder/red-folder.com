@@ -12,40 +12,42 @@
 </div>
 
 <div class="site-intro">
+</div>
+
+<div class="site-intro">
     <div class="container">
-        <h2>Welcome </h2>
-        <p><strong>Red Folder Consultancy</strong> provides advice and services to help you get&nbsp;<strong>better Return On Investment from your Software Development investment</strong>. </p>
-        <p>Software Development is&nbsp;<strong>complex</strong>. And traditional management techniques are&nbsp;<strong>counter-productive</strong>. </p>
-        <p><strong>Red Folder Consultancy</strong> can help. </p>
+        <div class="col-md-4">
+            <h2>Welcome </h2>
+            <p><strong>Red Folder Consultancy</strong> provides advice and services to help you get&nbsp;<strong>better Return On Investment from your Software Development investment</strong>. </p>
+            <p>Software Development is&nbsp;<strong>complex</strong>. And traditional management techniques are&nbsp;<strong>counter-productive</strong>. </p>
+            <p><strong>Red Folder Consultancy</strong> can help. </p>
+        </div>
+        <div class="col-md-8 hidden-xs">
+            @Html.Partial("_Advert")
+        </div>
     </div>
 </div>
 
 <div class="site-intro reverse">
     <div class="container">
-        <h2>Do you want to get a better return on your Software Development development?</h2>
-        <p>
-            <a asp-controller="projects" asp-action="roi">
-                Click here for over 40 articles on the subject ... all for <strong>free</strong>
-            </a>
-        </p>
-        <p>
-            <a asp-controller="podcasts">
-                Click here to listen to the podcasts
-            </a>
-        </p>
-        <p>
-            Or sign up for the newsletter:
-        </p>
-        <form class="newsletter-form" action="https://tinyletter.com/red-folder" method="post" target="popupwindow" onsubmit="window.open('https://tinyletter.com/red-folder', 'popupwindow', 'scrollbars=yes,width=800,height=600');return true">
+        <div class="col-md-3">
+            <img class="img-responsive" src="~/images/Me.jpg" alt="Picture of Mark Taylor" />
+        </div>
+        <div>
+            <h2>Who are Red Folder Consultancy?</h2>
             <p>
-                <input type="text" style="width:200px" name="email" id="tlemail" placeholder="Your email address" />
-                <input type="hidden" value="1" name="embed" />
-                <input type="submit" value="Subscribe" />
+                <strong>Red Folder Consultancy</strong> is an independent Software Developer Consultancy operated me, <strong>Mark Taylor</strong>.
             </p>
-        </form>
-        <p>
-            And coming soon ... the <strong>Better ROI from Software Development</strong> podcast
-        </p>
+            <p>
+                I formed <strong>Red Folder Consultancy</strong> in response to the problems I found with software development being run by traditional management techniques.
+            </p>
+            <p>
+                It was clear to me that, while the Software Development industry was learning and growing, that the businesses that relied on them struggled to keep up.
+            </p>
+            <p>
+                This created a widening gap between the better practices that the Software Development industry wanted to adopt and the understanding from the business community on how this was helpful to them and their goals.
+            </p>
+        </div>
     </div>
 </div>
 
