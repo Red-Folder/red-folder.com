@@ -1,0 +1,40 @@
+﻿footer {
+    padding: 0px 0 20px 0;
+    background-color: var(--main-colour);
+    color: var(--accent2-colour);
+}
+
+    footer ul {
+        padding: 0;
+        list-style: none;
+        text-align: center;
+        font-size: 18px;
+        line-height: 1.6;
+        margin-bottom: 0;
+    }
+
+        footer ul li {
+            padding: 0 10px;
+        }
+
+            footer ul li a {
+                color: inherit;
+                text-decoration: none !important;
+            }
+
+                footer ul li a:visited {
+                    color: var(--accent2-colour);
+                }
+
+                footer ul li a:hover {
+                    color: var(--accent1-colour);
+                }
+
+    footer .copyright {
+        color: var(--accent2-colour);
+        margin-top: 15px;
+        text-align: center;
+        font-size: 13px;
+        margin-bottom: 0;
+    }
+

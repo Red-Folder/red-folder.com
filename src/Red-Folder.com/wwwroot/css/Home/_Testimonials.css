@@ -1,0 +1,64 @@
+﻿@media (max-width:767px) {
+    .testimonials h2 {
+        margin-bottom: 25px;
+        padding-top: 25px;
+        font-size: 24px;
+    }
+}
+
+.testimonials h2 {
+    font-weight: bold;
+    margin-bottom: 40px;
+    padding-top: 40px;
+    color: inherit;
+}
+
+.testimonials .intro {
+    font-size: 16px;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.testimonials .intro p {
+    margin-bottom: 0;
+}
+
+.testimonials .people {
+    padding: 50px 0 20px;
+}
+
+.testimonials .item {
+    margin-bottom: 32px;
+}
+
+    .testimonials .item i .fa.fa-linkedin-square {
+        font-size: x-large;
+    }
+
+    .testimonials .item .author {
+        margin-top: 28px;
+        padding-left: 25px;
+    }
+
+.testimonials .box {
+    padding: 30px;
+    position: relative;
+}
+
+    .testimonials .box .description {
+        font-size: 15px;
+        margin-bottom: 0;
+    }
+
+.testimonials a {
+    color: var(--accent1-colour);
+    text-decoration-line: none;
+}
+
+    .testimonials a:visited {
+        color: var(--accent1-colour);
+    }
+
+    .testimonials a:hover {
+        color: var(--main-colour) !important;
+    }

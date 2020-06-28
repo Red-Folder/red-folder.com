@@ -2,102 +2,19 @@
 
 @{
     ViewBag.Title = "Red Folder Consultancy Ltd";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = "~/Views/Shared/_LayoutWithoutLess.cshtml";
     ViewBag.BodyCssClass = "new2-css";
     ViewBag.DropContainerFluid = true;
 }
 
-<div class="rfc-header home-page">
+<rfc-inline-style css-file="Home/Index.css"></rfc-inline-style>
+
+<div class="hero-banner">
     <h1>Better ROI from Software Development</h1>
 </div>
 
-<div class="site-intro">
-</div>
+@Html.Partial("_Welcome")
 
-<div class="site-intro">
-    <div class="container">
-        <div class="col-md-4">
-            <h2>Welcome </h2>
-            <p><strong>Red Folder Consultancy</strong> provides advice and services to help you get&nbsp;<strong>better Return On Investment from your Software Development investment</strong>. </p>
-            <p>Software Development is&nbsp;<strong>complex</strong>. And traditional management techniques are&nbsp;<strong>counter-productive</strong>. </p>
-            <p><strong>Red Folder Consultancy</strong> can help. </p>
-        </div>
-        <div class="col-md-8 hidden-xs">
-            @Html.Partial("_Advert")
-        </div>
-    </div>
-</div>
+@Html.Partial("_WhoAreRedFolderConsultancy")
 
-<div class="site-intro reverse">
-    <div class="container">
-        <div class="col-md-3">
-            <img class="img-responsive" src="~/images/Me.jpg" alt="Picture of Mark Taylor" />
-        </div>
-        <div>
-            <h2>Who are Red Folder Consultancy?</h2>
-            <p>
-                <strong>Red Folder Consultancy</strong> is an independent Software Developer Consultancy operated me, <strong>Mark Taylor</strong>.
-            </p>
-            <p>
-                I formed <strong>Red Folder Consultancy</strong> in response to the problems I found with software development being run by traditional management techniques.
-            </p>
-            <p>
-                It was clear to me that, while the Software Development industry was learning and growing, that the businesses that relied on them struggled to keep up.
-            </p>
-            <p>
-                This created a widening gap between the better practices that the Software Development industry wanted to adopt and the understanding from the business community on how this was helpful to them and their goals.
-            </p>
-        </div>
-    </div>
-</div>
-
-<div class="testimonials-clean">
-    <div class="container">
-        <div class="intro">
-            <h2 class="text-center">Testimonials </h2>
-            <p class="text-center">A consultant lives on his reputation. Read what people say about me.</p>
-        </div>
-        <div class="row people">
-
-            <div class="col-md-4 col-sm-6 item">
-                <div class="box">
-                    <p class="description">"I enjoyed working with him, especially in complex projects where Mark could prove his talent to quickly grasp complex matters and being able to translate challenges into well structured action plans." </p>
-                </div>
-                <div class="author">
-                    <a href="https://uk.linkedin.com/in/mark-taylor-1ab1385">
-                        <p><i class="fa fa-linkedin-square"></i> Read full recommendation</p>
-                    </a>
-                </div>
-            </div>
-
-            <div class="col-md-4 col-sm-6 item">
-                <div class="box">
-                    <p class="description">
-                        "I have been very impressed with how quickly Mark got to grips with what can only be described as a complex environment. Part of this is Mark has the experience, knowledge and a strong natural ability to get technology and how
-                        it works for the business. Mark is also a very easy person to work with due to his collaborative approach."
-                    </p>
-                </div>
-                <div class="author">
-                    <a href="https://uk.linkedin.com/in/mark-taylor-1ab1385">
-                        <p><i class="fa fa-linkedin-square"></i> Read full recommendation</p>
-                    </a>
-                </div>
-            </div>
-
-            <div class="col-md-4 col-sm-6 item">
-                <div class="box">
-                    <p class="description">
-                        "I have always been impressed with Mark’s desire to improve his own management techniques and adapt to change which is such vital commodity in I.T. sector. He is a great motivational person to be around and this is picked up by
-                        the team and helps us to achieve results."
-                    </p>
-                </div>
-                <div class="author">
-                    <a href="https://uk.linkedin.com/in/mark-taylor-1ab1385">
-                        <p><i class="fa fa-linkedin-square"></i> Read full recommendation</p>
-                    </a>
-                </div>
-            </div>
-
-        </div>
-    </div>
-</div>
+@Html.Partial("_Testimonials")

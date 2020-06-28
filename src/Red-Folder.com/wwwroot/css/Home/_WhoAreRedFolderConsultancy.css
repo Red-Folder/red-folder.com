@@ -1,0 +1,15 @@
+﻿.who-are-red-folder-consultancy {
+    text-align: center;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    color: var(--accent2-colour);
+    background-color: var(--main-colour);
+}
+
+    .who-are-red-folder-consultancy h2 {
+        padding-bottom: 30px;
+    }
+
+    .who-are-red-folder-consultancy a {
+        color: var(--accent2-colour);
+    }
