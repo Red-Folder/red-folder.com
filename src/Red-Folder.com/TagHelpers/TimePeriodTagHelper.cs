@@ -1,13 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Razor.Runtime.TagHelpers;
-using Microsoft.AspNetCore.Razor.TagHelpers;
+﻿using Microsoft.AspNetCore.Razor.TagHelpers;
 using Red_Folder.com.Utils;
 
-namespace Red_Folder.com.TagHelpers
+namespace RedFolder.TagHelpers
 {
     public class TimePeriodTagHelper : TagHelper
     {
