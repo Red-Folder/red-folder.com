@@ -1,0 +1,78 @@
+﻿@media (max-width:767px) {
+    .work-history h2 {
+        margin-bottom: 25px;
+        padding-top: 25px;
+        font-size: 24px;
+    }
+}
+
+.work-history h2 {
+    font-weight: bold;
+    padding-top: 40px;
+    color: inherit;
+}
+
+.work-history .intro {
+    font-size: 16px;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.work-history .intro p {
+    margin-bottom: 0;
+}
+
+.work-history .people {
+    padding: 50px 0 20px;
+}
+
+.work-history .item {
+    margin-bottom: 32px;
+}
+
+    .work-history .item i .fa.fa-linkedin-square {
+        font-size: x-large;
+    }
+
+    .work-history .item .author {
+        margin-top: 28px;
+        padding-left: 25px;
+    }
+
+.work-history .box {
+    position: relative;
+}
+
+    .work-history .box .description {
+        font-size: 15px;
+        margin-bottom: 0;
+    }
+
+.work-history a {
+    color: var(--accent1-colour);
+    text-decoration-line: none;
+}
+
+    .work-history a:visited {
+        color: var(--accent1-colour);
+    }
+
+    .work-history a:hover {
+        color: var(--main-colour) !important;
+    }
+
+
+.rfc-list-title {
+    display: inline;
+}
+
+@media (min-width: 768px) {
+    .skill-label {
+        color: white;
+        display: inline-block;
+        background: var(--accent1-colour);
+        padding: 5px 10px 5px 10px;
+        margin: 3px;
+    }
+}
+

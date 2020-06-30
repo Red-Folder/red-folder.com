@@ -1,0 +1,19 @@
+﻿@media (max-width:767px) {
+    .about-me h2 {
+        margin-bottom: 25px;
+        padding-top: 25px;
+        font-size: 24px;
+    }
+}
+
+.about-me {
+    text-align: center;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+    .about-me h2 {
+        padding-bottom: 30px;
+        font-weight: bold;
+    }
+

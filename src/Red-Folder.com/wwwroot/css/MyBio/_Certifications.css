@@ -1,0 +1,63 @@
+﻿@media (max-width:767px) {
+    .certifications h2 {
+        margin-bottom: 25px;
+        padding-top: 25px;
+        font-size: 24px;
+    }
+}
+
+.certifications h2 {
+    font-weight: bold;
+    padding-top: 40px;
+    color: inherit;
+}
+
+.certifications .intro {
+    font-size: 16px;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.certifications .intro p {
+    margin-bottom: 0;
+}
+
+.certifications .people {
+    padding: 50px 0 20px;
+}
+
+.certifications .item {
+    margin-bottom: 32px;
+}
+
+    .certifications .item i .fa.fa-linkedin-square {
+        font-size: x-large;
+    }
+
+    .certifications .item .author {
+        margin-top: 28px;
+        padding-left: 25px;
+    }
+
+.certifications .box {
+    position: relative;
+}
+
+    .certifications .box .description {
+        font-size: 15px;
+        margin-bottom: 0;
+    }
+
+.certifications a {
+    color: var(--accent1-colour);
+    text-decoration-line: none;
+}
+
+    .certifications a:visited {
+        color: var(--accent1-colour);
+    }
+
+    .certifications a:hover {
+        color: var(--main-colour) !important;
+    }
+

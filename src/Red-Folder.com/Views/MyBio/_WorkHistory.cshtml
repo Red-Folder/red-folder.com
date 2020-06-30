@@ -1,0 +1,47 @@
+﻿@model List<RedFolder.ViewModels.Employment>
+
+<rfc-inline-style css-file="MyBio/_WorkHistory.css"></rfc-inline-style>
+
+<div class="work-history">
+    <div class="container">
+        <div class="intro">
+            <h2 class="text-center">Work History</h2>
+        </div>
+
+        <div class="row people">
+
+            @foreach (var employment in Model)
+            {
+                <div class="col-xs-12 item">
+                    <div class="box">
+                        <h3 class="rfc-list-title">@employment.Title</h3>
+                        <p><small>@employment.From to @employment.To</small></p>
+
+                        @if (employment.Summary != null)
+                        {
+                            <p class="description">
+                                @employment.Summary
+                            </p>
+                        }
+
+                        @if (employment.Technologies != null && employment.Technologies.Count > 0)
+                        {
+                            <p></p>
+                            <p></p>
+                            <p class="description">Key Technologies:</p>
+                            <p></p>
+                            <ul>
+                                @foreach (var technology in employment.Technologies)
+                                {
+                                    <li class="skill-label">@technology</li>
+                                }
+                            </ul>
+
+
+                        }
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>

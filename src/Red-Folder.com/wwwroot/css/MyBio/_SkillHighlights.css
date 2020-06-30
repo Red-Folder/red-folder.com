@@ -1,0 +1,25 @@
+﻿.skills-flex-box {
+    /* Used for setting same high for columns */
+    /* Note that using it breaks the correct row wrap round */
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+}
+
+    .skills .highlight {
+        color: var(--accent2-colour);
+        background: var(--main-colour);
+        padding: 5px 10px;
+        -moz-background-clip: content-box;
+        -webkit-background-clip: content-box;
+        background-clip: content-box;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+        .skills .highlight div {
+            padding-top: 15px;
+            padding-bottom: 15px;
+            text-align: center;
+        }
