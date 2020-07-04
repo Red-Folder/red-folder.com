@@ -25,13 +25,12 @@ module.exports = function (logger) {
 
     var suite = new rfcUtils.SuiteBuilder(logger,
         [
-        // Shared
-        new rfcUtils.AppBuilder(logger, 'shared')
-                            .setHtmlDestination('./views/shared/_layout.cshtml')
-                            .addJs('./wwwroot/scripts/shared/')
-                            .hasThirdPartyJs()
-                            .addLess('./wwwroot/css/shared/')
-                            .build(),
+            // Shared
+            new rfcUtils.AppBuilder(logger, 'shared')
+                .setHtmlDestination('./views/shared/_layout.cshtml')
+                .addJs('./wwwroot/scripts/shared/')
+                .hasThirdPartyJs()
+                .build()
     ]);
 
     config.lessToCompile = suite.BuildLessToCompile();

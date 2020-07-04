@@ -58,3 +58,8 @@
             color: var(--accent1-colour);
             border: 1px solid var(--accent1-colour);
         }
+
+.blog-text, .author {
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
