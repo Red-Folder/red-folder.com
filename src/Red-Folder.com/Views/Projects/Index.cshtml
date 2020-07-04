@@ -2,15 +2,16 @@
 
 @{
     ViewBag.Title = "Projects";
-    Layout = "~/Views/Shared/_Layout.cshtml";
-    ViewBag.BodyCssClass = "new2-css";
-    ViewBag.DropContainerFluid = true;
+    Layout = "~/Views/Shared/_LayoutWithoutLess.cshtml";
 }
-<div class="rfc-header recent-projects-page">
+
+<rfc-inline-style css-file="Projects/Index.css"></rfc-inline-style>
+
+<div class="hero-banner">
     <h1>Recent Projects</h1>
 </div>
 
-<div class="site-intro">
+<div class="welcome">
     <div class="container">
         <p>
             This page is a collection of projects I've been working on.  If nothing else they provide a place for me to put all my random experiments.
@@ -18,32 +19,4 @@
     </div>
 </div>
 
-<div class="testimonials-clean">
-    <div class="container">
-        <div class="row people">
-
-            @if (Model != null && Model.Count > 0)
-            {
-                foreach (var tile in Model)
-                {
-
-                    <div class="col-md-6 col-xs-12 item">
-                        <a asp-controller="@tile.Controller" asp-action="@tile.Action">
-                            <div class="box">
-                                <h3>@tile.Title</h3>
-                                @foreach (var paragraph in tile.Description)
-                                {
-                                    <p class="description">@paragraph</p>
-
-                                }
-                                <p></p>
-                                <p></p>
-                                <p class="read-more">Read more <i class="fa fa-chevron-circle-right"></i> </p>
-                            </div>
-                        </a>
-                    </div>
-                }
-            }
-        </div>
-    </div>
-</div>
+@Html.Partial("_ProjectList", Model)

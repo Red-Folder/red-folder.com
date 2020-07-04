@@ -1,0 +1,30 @@
+﻿.project-list .project {
+    padding: 50px 0 20px;
+}
+
+.project-list .item {
+    margin-bottom: 32px;
+}
+
+.project-list .box {
+    padding: 30px;
+    position: relative;
+}
+
+    .project-list .box .description {
+        font-size: 15px;
+        margin-bottom: 0;
+    }
+
+.project-list a {
+    color: var(--accent1-colour);
+    text-decoration-line: none;
+}
+
+    .project-list a:visited {
+        color: var(--accent1-colour);
+    }
+
+    .project-list a:hover {
+        color: var(--main-colour) !important;
+    }

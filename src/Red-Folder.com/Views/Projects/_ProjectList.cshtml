@@ -1,0 +1,33 @@
+﻿@model List<RedFolder.ViewModels.SummaryTile>
+
+<rfc-inline-style css-file="Projects/_ProjectList.css"></rfc-inline-style>
+
+<div class="project-list">
+    <div class="container">
+        <div class="row project">
+
+            @if (Model != null && Model.Count > 0)
+            {
+                foreach (var tile in Model)
+                {
+
+                    <div class="col-md-6 col-xs-12 item">
+                        <a asp-controller="@tile.Controller" asp-action="@tile.Action">
+                            <div class="box">
+                                <h3>@tile.Title</h3>
+                                @foreach (var paragraph in tile.Description)
+                                {
+                                    <p class="description">@paragraph</p>
+
+                                }
+                                <p></p>
+                                <p></p>
+                                <p class="read-more">Read more <i class="fa fa-chevron-circle-right"></i> </p>
+                            </div>
+                        </a>
+                    </div>
+                }
+            }
+        </div>
+    </div>
+</div>
