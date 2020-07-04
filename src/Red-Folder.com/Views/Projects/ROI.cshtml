@@ -2,14 +2,16 @@
 
 @{
     ViewBag.Title = "Return On Investment";
-    ViewBag.BodyCssClass = "new2-css";
-    ViewBag.DropContainerFluid = true;
+    Layout = "~/Views/Shared/_LayoutWithoutLess.cshtml";
 }
-<div class="rfc-header recent-projects-page">
+
+<rfc-inline-style css-file="Projects/ROI.css"></rfc-inline-style>
+
+<div class="hero-banner">
     <h1>Getting better Return On Investment from Software Development</h1>
 </div>
 
-<div class="site-intro">
+<div class="welcome">
     <div class="container">
         <p>
             As a 20+ year veteran of software development I know the difference to the bottom line it can make.  I also know what a difference the right investment approach to Software Development can make.
@@ -30,11 +32,4 @@
     <h2>ROI Articles</h2>
 </div>
 
-<div class="container-fluid">
-    <div class="blog-tiles row">
-        @foreach (var blog in Model.BlogsForCurrentPage)
-        {
-            @(await Html.PartialAsync("_BlogTile", blog))
-        }
-    </div>
-</div>
+@Html.Partial("_BlogTiles", Model)

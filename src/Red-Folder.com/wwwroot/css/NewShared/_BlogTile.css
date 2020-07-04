@@ -38,3 +38,11 @@
     .blog-tile .show-more-icon {
         font-size: 36px;
     }
+
+.keyword {
+    margin: 2px;
+    color: var(--accent2-colour);
+    display: inline-block;
+    background: var(--accent1-colour);
+    padding: 5px 10px 5px 10px;
+}
