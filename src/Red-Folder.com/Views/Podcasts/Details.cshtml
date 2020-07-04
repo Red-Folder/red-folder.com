@@ -2,12 +2,12 @@
 
 @{
     ViewBag.Title = Model.Item.Title;
-    Layout = "~/Views/Shared/_Layout.cshtml";
-    ViewBag.BodyCssClass = "new2-css";
-    ViewBag.DropContainerFluid = true;
+    Layout = "~/Views/Shared/_LayoutWithoutLess.cshtml";
 }
 
-<div class="rfc-header home-page">
+<rfc-inline-style css-file="Podcasts/Details.css"></rfc-inline-style>
+
+<div class="hero-banner">
     <h1>@Model.Item.Title</h1>
 </div>
 
@@ -26,9 +26,9 @@
                     {
                         <p class="read-more">
                             <audio id="podcast-player"
-                                   class="podcast-player" 
-                                   controls="controls" 
-                                   src="@rssItem.Enclosure.Url" 
+                                   class="podcast-player"
+                                   controls="controls"
+                                   src="@rssItem.Enclosure.Url"
                                    preload="metadata">
                                 <a href="@Model.Item.Link">
                                     Listen now&nbsp;&nbsp;<i class="fa fa-chevron-circle-right"></i>
