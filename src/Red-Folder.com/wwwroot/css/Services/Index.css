@@ -1,0 +1,105 @@
+﻿.hero-banner {
+    background-size: cover;
+    padding: 50px 20px;
+    background-image: url(/images/moods/MoodWhiteBoard.jpg);
+}
+
+    .hero-banner span, .hero-banner h1 {
+        color: white;
+        display: inline-block;
+        background: var(--main-colour);
+        padding: 5px 10px 5px 10px;
+    }
+
+@media (max-width:767px) {
+    .services-layout h2 {
+        margin-bottom: 25px;
+        padding-top: 25px;
+        font-size: 24px;
+    }
+}
+
+.services-layout h2 {
+    font-weight: bold;
+    margin-bottom: 40px;
+    padding-top: 40px;
+    color: inherit;
+}
+
+.services-layout .intro {
+    font-size: 16px;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+    .services-layout .intro p {
+        margin-bottom: 0;
+    }
+
+.services-layout .people {
+    padding: 50px 0 20px;
+}
+
+.services-layout .item {
+    margin-bottom: 32px;
+}
+
+    .services-layout .item i .fa.fa-linkedin-square {
+        font-size: x-large;
+    }
+
+    .services-layout .item .author {
+        margin-top: 28px;
+        padding-left: 25px;
+    }
+
+.services-layout .box {
+    padding: 30px;
+    position: relative;
+}
+
+    .services-layout .box .description {
+        font-size: 15px;
+        margin-bottom: 0;
+    }
+
+.services-layout a {
+    color: var(--accent1-colour);
+    text-decoration-line: none;
+}
+
+    .services-layout a:visited {
+        color: var(--accent1-colour);
+    }
+
+    .services-layout a:hover {
+        color: var(--main-colour) !important;
+    }
+
+.social {
+    padding-top: 25px;
+    text-align: center;
+    padding-bottom: 25px;
+    color: var(--accent2-colour);
+    background-color: var(--main-colour);
+}
+
+    .social > a {
+        border: 1px solid var(--accent2-colour);
+        opacity: 1;
+        font-size: 24px;
+        width: 40px;
+        height: 40px;
+        line-height: 40px;
+        display: inline-block;
+        text-align: center;
+        border-radius: 50%;
+        margin: 0 8px;
+        color: inherit;
+    }
+
+        .social > a:hover {
+            opacity: 1;
+            color: var(--accent1-colour);
+            border: 1px solid var(--accent1-colour);
+        }

@@ -1,10 +1,11 @@
 ﻿@{
-    Layout = "~/Views/Shared/_Layout.cshtml";
-    ViewBag.BodyCssClass = "new2-css";
-    ViewBag.DropContainerFluid = true;
+    ViewBag.Title = "Services";
+    Layout = "~/Views/Shared/_LayoutWithoutLess.cshtml";
 }
 
-<div class="rfc-header services-page">
+<rfc-inline-style css-file="Services/Index.css"></rfc-inline-style>
+
+<div class="hero-banner">
     <span>"We are uncovering better ways of developing</span><br />
     <span>software by doing it and helping others do it.</span><br />
     <span>Through this work we have come to value:</span><br />
@@ -20,7 +21,7 @@
 </div>
 
 
-<div class="testimonials-clean">
+<div class="services-layout">
     <div class="container">
         <div class="intro">
             <h2 class="text-center">Software Development should deliver ROI</h2>
@@ -103,7 +104,7 @@
     <a href="mailto:mark@red-folder.com"><i class="fa fa-envelope"></i></a>
 </div>
 
-<div class="testimonials-clean">
+<div class="services-layout">
     <div class="container">
         <div class="intro">
             <h2 class="text-center">Interim Management</h2>
@@ -187,7 +188,7 @@
     <a href="mailto:mark@red-folder.com"><i class="fa fa-envelope"></i></a>
 </div>
 
-<div class="testimonials-clean">
+<div class="services-layout">
     <div class="container">
         <div class="intro">
             <h2 class="text-center">Cyber Security</h2>
@@ -258,7 +259,7 @@
     <a href="mailto:mark@red-folder.com"><i class="fa fa-envelope"></i></a>
 </div>
 
-<div class="testimonials-clean">
+<div class="services-layout">
     <div class="container">
         <div class="intro">
             <h2 class="text-center">Software Development</h2>
