@@ -1,17 +1,17 @@
 ﻿@{
     ViewBag.Title = "Software Development Health Check";
-    Layout = "~/Views/Shared/_Layout.cshtml";
-    ViewBag.BodyCssClass = "new2-css";
-    ViewBag.DropContainerFluid = true;
+    Layout = "~/Views/Shared/_LayoutWithoutLess.cshtml";
 }
 
-<div class="rfc-header services-page">
+<rfc-inline-style css-file="Services/HealthCheck.css"></rfc-inline-style>
+
+<div class="hero-banner">
     <h1>Software Development Health Check</h1>
     <br/>
     <span>Get better ROI from Software Development</span>
 </div>
 
-<div class="site-intro">
+<div class="page-content">
     <div class="container">
         <h2>Software Development causing you a headache?</h2>
         <p>Your business is being <strong>held back by Software Development.</strong></p>
@@ -21,7 +21,7 @@
     </div>
 </div>
 
-<div class="site-intro reverse">
+<div class="page-content reverse">
     <div class="container">
         <h2>Imagine your Software Development being a catalyst</h2>
         <p>Imagine Software Development as a <strong>major enabler to your business</strong>.  Imagine it giving you a <strong>competitive advantage</strong>.</p>
@@ -29,7 +29,7 @@
     </div>
 </div>
 
-<div class="site-intro">
+<div class="page-content">
     <div class="container">
         <h2>Get help from a Software Development expert</h2>
         <p>Why?</p>
@@ -42,7 +42,7 @@
     </div>
 </div>
 
-<div class="site-intro reverse">
+<div class="page-content reverse">
     <div class="container">
         <h2>Here’s what it typically looks like:</h2>
         <p>A call to ensure that the service is right for you.</p>
@@ -52,7 +52,7 @@
     </div>
 </div>
 
-<div class="site-intro">
+<div class="page-content">
     <div class="container">
         <h2>Ready to go?</h2>
         <p>Interested in getting <strong>better Return On Investment from your Software Development?</strong></p>
@@ -67,7 +67,7 @@
     <a href="mailto:mark@red-folder.com"><i class="fa fa-envelope"></i></a>
 </div>
 
-<div class="site-intro">
+<div class="page-content">
     <div class="container">
         <h2>Not sure if this service is right for you?</h2>
         <p>If you’ve read this far, then I’d say yes.</p>
@@ -77,7 +77,7 @@
     </div>
 </div>
 
-<div class="site-intro reverse">
+<div class="page-content reverse">
     <div class="container">
         <h2>Availability is limited</h2>
         <p>Due to the manually intensive nature of the Health Check; unfortunately I’m only able to offer a limited number per month.</p>
