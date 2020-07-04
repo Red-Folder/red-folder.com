@@ -1,0 +1,34 @@
+﻿@model RedFolder.ViewModels.BlogCollection
+
+<rfc-inline-style css-file="Blog/_BlogFilter.css"></rfc-inline-style>
+
+<div class="blog-filter">
+    <div class="filter-switch selectable">
+        <a onclick="toggle(null, '.filter-chooser, .filter-chevron');">
+            <strong>Filter: </strong>@(Model.FilterBy == null || Model.FilterBy.Length == 0 ? "None" : Model.FilterBy) &nbsp; <i class="filter-chevron fa fa-chevron-down"></i><i class="filter-chevron fa fa-chevron-up hidden"></i>
+        </a>
+    </div>
+    <div class="filter-chooser hidden">
+        <ul>
+            @if (Model.KeyWords != null && Model.KeyWords.Count() > 0)
+            {
+                @foreach (var keyWord in Model.KeyWords)
+                {
+                    var filteringBy = (Model.FilterBy != null && Model.FilterBy.Split(',').Any(x => x.Trim() == keyWord.Key));
+                    <li class="selectable keyword @(filteringBy ? "filter-by": "")" onclick="pageConfig.toggleFeature('@keyWord.Key')">
+                        @keyWord.Key (@keyWord.Value)&nbsp;
+                        @if (filteringBy)
+                        {
+                            <i class="fa fa-check hide-on-hover"></i>
+                            <i class="fa fa-times show-on-hover"></i>
+                        }
+                        else
+                        {
+                            <i class="fa fa-check show-on-hover"></i>
+                        }
+                    </li>
+                }
+            }
+        </ul>
+    </div>
+</div>

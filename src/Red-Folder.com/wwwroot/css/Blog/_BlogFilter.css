@@ -1,0 +1,71 @@
+﻿.blog-filter {
+    background-color: var(--main-colour);
+}
+
+.filter-switch {
+    padding: 15px;
+}
+    .filter-switch a, .filter-switch a:visited, .filter-switch a:active {
+        color: var(--accent2-colour);
+        -moz-transition: color 1.5s;
+        -o-transition: color 1.5s;
+        -webkit-transition: color 1.5s;
+        transition: color 1.5s;
+    }
+
+        .filter-switch a:hover, .filter-switch a:focus {
+            text-decoration: none;
+            color: var(--accent2-colour);
+        }
+
+.filter-chooser {
+    padding-bottom: 15px;
+}
+
+.filter-chooser li .hide-on-hover {
+    display: inline;
+}
+
+    .filter-chooser li .show-on-hover {
+        display: none;
+    }
+
+    .filter-chooser li:hover .hide-on-hover {
+        display: none;
+    }
+
+    .filter-chooser li:hover .show-on-hover {
+        display: inline;
+    }
+
+    .filter-chooser li .fa-times {
+        color: red;
+    }
+
+    .filter-chooser li .fa-check {
+        color: lawngreen;
+    }
+
+.selectable {
+    cursor: pointer;
+}
+
+.keyword {
+    margin: 2px;
+    color: var(--accent2-colour);
+    display: inline-block;
+    background: var(--accent1-colour);
+    padding: 5px 10px 5px 10px;
+}
+    .keyword a, .keyword a:visited, .keyword a:active {
+        color: var(--accent2-colour);
+        -moz-transition: color 1.5s;
+        -o-transition: color 1.5s;
+        -webkit-transition: color 1.5s;
+        transition: color 1.5s;
+    }
+
+        .keyword a:hover, .keyword a:focus {
+            text-decoration: none;
+            color: var(--main-colour);
+        }

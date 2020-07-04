@@ -360,64 +360,6 @@ Helpers
     }
 }
 
-/*
-=================================================================================================================
-Blog
-=================================================================================================================
-*/
-.blog-tiles {
-    /*background-color: antiquewhite;*/
-
-    .blog-tile {
-        padding: 5px;
-        .anchor-setup();
-
-            text-align: center;
-
-            h2 {
-                font-size: 20px;
-            }
-
-            .blog-tile-date {
-                font-size: 12px;
-            }
-
-            .blog-tile-image, .blog-tile-keywords {
-            }
-
-            .blog-tile-image img {
-                max-height: 150px;
-            }
-
-            .blog-tile-keywords ul {
-                padding: 0px;
-            }
-    }
-
-    @media (min-width: @screen-xs-min) and (max-width: @screen-xs-max) {
-        .col-xs-12:nth-child(1n+1) {
-            clear: both;
-        }
-    }
-
-    @media (min-width: @screen-sm-min) and (max-width: @screen-sm-max) {
-        .col-sm-6:nth-child(2n+1) {
-            clear: both;
-        }
-    }
-
-    @media (min-width: @screen-md-min) and (max-width: @screen-md-max) {
-        .col-md-4:nth-child(3n+1) {
-            clear: both;
-        }
-    }
-
-    @media (min-width: @screen-lg-min) {
-        .col-lg-3:nth-child(4n+1) {
-            clear: both;
-        }
-    }
-}
 
 .roi-block {
     padding: 10px;
@@ -426,64 +368,9 @@ Blog
 
 
 
-/*
-=================================================================================================================
-Pager
-=================================================================================================================
-*/
-.pager {
-    text-align: center;
-
-    a {
-        &:link, &:visited {
-            color: white;
-        }
-    }
-
-    .page-no {
-        display: inline;
-    }
-}
-
-/*
-=================================================================================================================
-KeyWords
-=================================================================================================================
-*/
 
 
-.keyword {
-    margin: 2px;
-    color: white;
-    display: inline-block;
-    background: @color-accent;
-    padding: 5px 10px 5px 10px;
 
-    a {
-        &, &:visited, &:active {
-            color: white;
-            .transition-builder('color');
-        }
-
-        &:hover, &:focus {
-            text-decoration: none;
-            color: @color-main;
-        }
-    }
-
-    /*
-    &.filter-by {
-        background-color: @color-main;
-
-        a {
-            &:hover, &:focus {
-                text-decoration: none;
-                color: @color-accent;
-            }
-        }
-    }
-    */
-}
 
 
 
@@ -532,54 +419,6 @@ Podcasts
 Work In Progress
 =================================================================================================================
 */
-
-.filter-switch {
-    padding: 15px;
-    a {
-        &, &:visited, &:active {
-            color: @color-white;
-            .transition-builder('color');
-        }
-
-        &:hover, &:focus {
-            text-decoration: none;
-            color: @color-white;
-        }
-    }
-}
-
-.filter-chooser {
-    //display: none;
-    padding-bottom: 15px;
-
-    li {
-        .hide-on-hover {
-            display: inline;
-        }
-
-        .show-on-hover {
-            display: none;
-        }
-
-        &:hover {
-            .hide-on-hover {
-                display: none;
-            }
-
-            .show-on-hover {
-                display: inline;
-            }
-        }
-
-        .fa-times {
-            color: red;
-        }
-
-        .fa-check {
-            color: lawngreen;
-        }
-    }
-}
 
 .selectable {
     cursor: pointer;

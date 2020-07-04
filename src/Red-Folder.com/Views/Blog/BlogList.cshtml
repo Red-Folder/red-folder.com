@@ -2,71 +2,18 @@
 
 @{
     ViewBag.Title = "Blog";
-    Layout = "~/Views/Shared/_Layout.cshtml";
-    ViewBag.BodyCssClass = "new2-css";
-    ViewBag.DropContainerFluid = true;
+    Layout = "~/Views/Shared/_LayoutWithoutLess.cshtml";
 }
 
-<div class="rfc-header home-page">
+<rfc-inline-style css-file="Blog/BlogList.css"></rfc-inline-style>
+
+<div class="hero-banner">
     <h1>Blog</h1>
 </div>
 
+@Html.Partial("_BlogFilter", Model)
 
-<div class="reverse">
-    <div class="filter-switch selectable">
-        <a onclick="toggle(null, '.filter-chooser, .filter-chevron');">
-            <strong>Filter: </strong>@(Model.FilterBy == null || Model.FilterBy.Length == 0 ? "None" : Model.FilterBy) &nbsp; <i class="filter-chevron fa fa-chevron-down"></i><i class="filter-chevron fa fa-chevron-up hidden"></i>
-        </a>
-    </div>
-    <div class="filter-chooser hidden">
-        <ul>
-            @if (Model.KeyWords != null && Model.KeyWords.Count() > 0)
-            {
-                @foreach (var keyWord in Model.KeyWords)
-                {
-                    var filteringBy = (Model.FilterBy != null && Model.FilterBy.Split(',').Any(x => x.Trim() == keyWord.Key));
-                    <li class="selectable keyword @(filteringBy ? "filter-by": "")" onclick="pageConfig.toggleFeature('@keyWord.Key')">
-                        @keyWord.Key (@keyWord.Value)&nbsp;
-                        @if (filteringBy)
-                        {
-                            <i class="fa fa-check hide-on-hover"></i>
-                            <i class="fa fa-times show-on-hover"></i>
-                        }
-                        else
-                        {
-                            <i class="fa fa-check show-on-hover"></i>
-                        }
-                    </li>
-                }
-            }
-        </ul>
-    </div>
-</div>
-
-<rfc-pager page-no="@Model.PageNo"
-           pages="@Model.Pages"
-           on-first-page="pageConfig.firstPage()"
-           on-previous-page="pageConfig.previousPage()"
-           on-next-page="pageConfig.nextPage()"
-           on-last-page="pageConfig.lastPage()">
-</rfc-pager>
-
-<div class="container-fluid">
-    <div class="blog-tiles row">
-        @foreach (var blog in Model.BlogsForCurrentPage)
-                        {
-            @(await Html.PartialAsync("_BlogTile", blog))
-        }
-    </div>
-</div>
-
-<rfc-pager page-no="@Model.PageNo"
-           pages="@Model.Pages"
-           on-first-page="pageConfig.firstPage()"
-           on-previous-page="pageConfig.previousPage()"
-           on-next-page="pageConfig.nextPage()"
-           on-last-page="pageConfig.lastPage()">
-</rfc-pager>
+@Html.Partial("_PagedBlogGrid", Model)
 
 @section Scripts
                         {

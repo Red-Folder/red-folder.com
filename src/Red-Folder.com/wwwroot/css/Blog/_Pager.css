@@ -1,0 +1,12 @@
+﻿.pager {
+    text-align: center;
+}
+
+    .pager a:link, .pager a:visited {
+        color: white;
+    }
+
+    .pager .page-no {
+        display: inline;
+    }
+

@@ -1,0 +1,40 @@
+﻿.blog-tile {
+    padding: 5px;
+    text-align: center;
+}
+
+    .blog-tile a,
+    .blog-tile a:visited,
+    .blog-tile a:active {
+        color: #4C4C4C;
+        -moz-transition: color 1.5s;
+        -o-transition: color 1.5s;
+        -webkit-transition: color 1.5s;
+        transition: color 1.5s;
+    }
+
+        .blog-tile a:hover,
+        .blog-tile a:focus {
+            text-decoration: none;
+            color: #e74c3c;
+        }
+
+    .blog-tile h2 {
+        font-size: 20px;
+    }
+
+    .blog-tile .blog-tile-date {
+        font-size: 12px;
+    }
+
+    .blog-tile .blog-tile-image img {
+        max-height: 150px;
+    }
+
+    .blog-tile .blog-tile-keywords ul {
+        padding: 0px;
+    }
+
+    .blog-tile .show-more-icon {
+        font-size: 36px;
+    }

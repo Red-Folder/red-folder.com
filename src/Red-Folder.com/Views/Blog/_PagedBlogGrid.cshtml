@@ -1,0 +1,32 @@
+﻿@model RedFolder.ViewModels.BlogCollection
+
+<rfc-inline-style css-file="Blog/_PagedBlogGrid.css"></rfc-inline-style>
+<rfc-inline-style css-file="Blog/_Pager.css"></rfc-inline-style>
+
+<!-- Include here to load just once -->
+<rfc-inline-style css-file="Blog/_BlogTile.css"></rfc-inline-style>
+
+<rfc-pager page-no="@Model.PageNo"
+           pages="@Model.Pages"
+           on-first-page="pageConfig.firstPage()"
+           on-previous-page="pageConfig.previousPage()"
+           on-next-page="pageConfig.nextPage()"
+           on-last-page="pageConfig.lastPage()">
+</rfc-pager>
+
+<div class="container-fluid">
+    <div class="blog-tiles row">
+        @foreach (var blog in Model.BlogsForCurrentPage)
+        {
+            @(await Html.PartialAsync("_BlogTile", blog))
+        }
+    </div>
+</div>
+
+<rfc-pager page-no="@Model.PageNo"
+           pages="@Model.Pages"
+           on-first-page="pageConfig.firstPage()"
+           on-previous-page="pageConfig.previousPage()"
+           on-next-page="pageConfig.nextPage()"
+           on-last-page="pageConfig.lastPage()">
+</rfc-pager>
