@@ -1,17 +1,17 @@
 ﻿@model CodeHollow.FeedReader.Feed
 
 @{
-    ViewBag.Title = "Better ROI from Software Development Podcast";
-    Layout = "~/Views/Shared/_Layout.cshtml";
-    ViewBag.BodyCssClass = "new2-css";
-    ViewBag.DropContainerFluid = true;
+    ViewBag.Title = "Red Folder Consultancy Ltd";
+    Layout = "~/Views/Shared/_LayoutWithoutLess.cshtml";
 }
 
-<div class="rfc-header home-page">
+<rfc-inline-style css-file="Podcasts/Index.css"></rfc-inline-style>
+
+<div class="hero-banner">
     <h1>Better ROI from Software Development Podcast</h1>
 </div>
 
-<div class="site-intro">
+<div class="welcome">
     <div class="container">
         <p>Providing advice on how to get the best Return On Investment from your Software Development.</p>
         <p>This series is targeted at those that fund software development in improving their return on investment.</p>
@@ -22,33 +22,7 @@
     </div>
 </div>
 
-<div class="podcast-episodes container">
-    <div class="intro">
-        <h2 class="text-center">Episodes</h2>
-    </div>
-    <div class="row">
-
-        @if (Model != null && Model.Items != null && Model.Items.Count > 0)
-        {
-            foreach (var item in Model.Items)
-            {
-                <div class="blog-tile col-xs-12">
-                    <a href="/podcasts/@RedFolder.Utils.SafeUrl.MakeSafe(item.Title)">
-                        <hr />
-                        <h3>@item.Title</h3>
-                        <hr />
-                        <p class="blog-tile-date">Published: @item.PublishingDateString</p>
-                        <p>@Html.Raw(item.Description)</p>
-
-                        <p>
-                            Listen now&nbsp;&nbsp;<i class="fa fa-chevron-circle-right"></i>
-                        </p>
-                    </a>
-                </div>
-            }
-        }
-    </div>
-</div>
+@Html.Partial("_PodcastEpisodes", Model)
 
 @section metas
     {
