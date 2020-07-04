@@ -1,10 +1,11 @@
 @{
     ViewBag.Title = "404 - Not found";
-    Layout = "~/Views/Shared/_Layout.cshtml";
-    ViewBag.BodyCssClass = "new2-css";
-    ViewBag.DropContainerFluid = true;
+    Layout = "~/Views/Shared/_LayoutWithoutLess.cshtml";
 }
-<div class="rfc-header recent-projects-page">
+
+<rfc-inline-style css-file="Errors/Common.css"></rfc-inline-style>
+
+<div class="hero-banner">
     <span>Ohhh ... so close, but not quite</span><br />
 </div>
 
