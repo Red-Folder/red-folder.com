@@ -2,21 +2,20 @@
 
 @{
     ViewBag.Title = Model.Meta.Title;
-    Layout = "~/Views/Shared/_Layout.cshtml";
-    ViewBag.BodyCssClass = "new2-css";
-    ViewBag.DropContainerFluid = true;
+    Layout = "~/Views/Shared/_LayoutWithoutLess.cshtml";
 }
 
-<div class="rfc-header home-page">
+<rfc-inline-style css-file="Blog/Blog.css"></rfc-inline-style>
+
+<div class="hero-banner">
     <h1>@Model.Meta.Title</h1>
 </div>
-
 
 <div class="blog-text container">
     @Html.Raw(Model.Content)
 </div>
 
-<div class="author reverse">
+<div class="author">
     <div class="container">
         <div>
             <p>
@@ -64,7 +63,7 @@
 </div>
 
 @section metas
-{
+    {
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="@@RedFolderMark" />
     <meta property="og:title" name="twitter:title" content="@Model.Meta.Title" />
@@ -73,38 +72,38 @@
 }
 
 @section Scripts
-{
+    {
     <script type="application/ld+json">
-        { 
-            "@@context": "http://schema.org",
-            "@@type": "BlogPosting",
-            "headline": "@Model.Meta.Title",
-            "image": {
-                "@@type": "ImageObject",
-                "url": "@Model.Meta.Image",
-                "height": "150", 
-                "width": " 280"
-            },
-            "publisher": {
-                "@@type": "Organization",
-                "name": "Red Folder Consultancy Ltd",
-                "logo": {
-                    "@@type": "ImageObject",
-                    "url": "https://www.red-folder.com/media/RFCLogo.png"
-                }
-            },
-            "url": "https://www.red-folder.com/blog/@Model.Meta.Url",
-            "datePublished": "@Model.Meta.Published.ToString("yyyy-MM-dd")",
-            "dateCreated": "@Model.Meta.Published.ToString("yyyy-MM-dd")",
-            "dateModified": "@Model.Meta.Modified.ToString("yyyy-MM-dd")",
-            "description": "@Model.Meta.Description",
-            "author": {
-                "@@type": "Person",
-                "name": "Mark Taylor"
-            },
-            "mainEntityOfPage": {
-                "@@type": "WebPage"
-            }
+        {
+        "@@context": "http://schema.org",
+        "@@type": "BlogPosting",
+        "headline": "@Model.Meta.Title",
+        "image": {
+        "@@type": "ImageObject",
+        "url": "@Model.Meta.Image",
+        "height": "150",
+        "width": " 280"
+        },
+        "publisher": {
+        "@@type": "Organization",
+        "name": "Red Folder Consultancy Ltd",
+        "logo": {
+        "@@type": "ImageObject",
+        "url": "https://www.red-folder.com/media/RFCLogo.png"
+        }
+        },
+        "url": "https://www.red-folder.com/blog/@Model.Meta.Url",
+        "datePublished": "@Model.Meta.Published.ToString("yyyy-MM-dd")",
+        "dateCreated": "@Model.Meta.Published.ToString("yyyy-MM-dd")",
+        "dateModified": "@Model.Meta.Modified.ToString("yyyy-MM-dd")",
+        "description": "@Model.Meta.Description",
+        "author": {
+        "@@type": "Person",
+        "name": "Mark Taylor"
+        },
+        "mainEntityOfPage": {
+        "@@type": "WebPage"
+        }
         }
     </script>
 }
