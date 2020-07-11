@@ -1,33 +1,32 @@
-﻿@model List<RedFolder.ViewModels.SummaryTile>
+﻿@model List<RedFolder.ViewModels.RecentProject>
 
 <rfc-inline-style css-file="Projects/_ProjectList.css"></rfc-inline-style>
 
 <div class="project-list">
-    <div class="container">
-        <div class="row project">
-
-            @if (Model != null && Model.Count > 0)
-            {
-                foreach (var tile in Model)
+    @foreach (var project in Model)
+    {
+        <div class="project">
+            <div class="title">
+                <h2>@project.Title</h2>
+            </div>
+            <div class="description">
+                @foreach (var description in project.Description)
                 {
-
-                    <div class="col-md-6 col-xs-12 item">
-                        <a asp-controller="@tile.Controller" asp-action="@tile.Action">
-                            <div class="box">
-                                <h3>@tile.Title</h3>
-                                @foreach (var paragraph in tile.Description)
-                                {
-                                    <p class="description">@paragraph</p>
-
-                                }
-                                <p></p>
-                                <p></p>
-                                <p class="read-more">Read more <i class="fa fa-chevron-circle-right"></i> </p>
-                            </div>
-                        </a>
-                    </div>
+                    <p>@description</p>
                 }
-            }
+            </div>
+
+            <div>
+                @Html.Partial("_DiciplineGraph", project.Diciplines)
+            </div>
+            <div class="technologies">
+                <ul>
+                    @foreach (var technology in project.Technologies)
+                    {
+                        <li>@technology</li>
+                    }
+                </ul>
+            </div>
         </div>
-    </div>
+    }
 </div>

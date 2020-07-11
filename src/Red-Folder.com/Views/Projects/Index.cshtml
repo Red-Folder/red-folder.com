@@ -1,4 +1,4 @@
-﻿@model List<RedFolder.ViewModels.SummaryTile>
+﻿@model List<RedFolder.ViewModels.RecentProject>
 
 @{
     ViewBag.Title = "Projects";
@@ -10,12 +10,19 @@
     <h1>Recent Projects</h1>
 </div>
 
-<div class="welcome">
-    <div class="container">
-        <p>
-            This page is a collection of projects I've been working on.  If nothing else they provide a place for me to put all my random experiments.
-        </p>
-    </div>
-</div>
-
 @Html.Partial("_ProjectList", Model)
+
+@section Scripts {
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"></script>
+
+    <script>
+        window.onload = function () {
+            if (window.graphs) {
+                Object.keys(window.graphs).forEach(key => {
+                    var graph = window.graphs[key];
+                    graph.chart = new Chart(document.getElementById(graph.elementId), graph.config);
+                });
+            }
+        }
+    </script>
+}

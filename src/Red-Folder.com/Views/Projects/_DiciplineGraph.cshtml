@@ -1,0 +1,49 @@
+﻿@model RedFolder.ViewModels.Diciplines
+
+@{
+    var id = Guid.NewGuid().ToString();
+}
+
+<canvas id="@id"></canvas>
+<script>
+    window.graphs = window.graphs || {};
+
+    window.graphs['@id'] = {
+        elementId: '@id',
+        config: {
+            type: 'pie',
+            data: {
+                labels: [
+                    'Leadership',
+                    'Architecture',
+                    'DevOps',
+                    'Development'
+                ],
+                datasets: [{
+                    backgroundColor: [
+                        'rgba(44, 160, 44, 1)',
+                        'rgba(255, 127, 14, 1)',
+                        'rgba(31, 119, 180, 1)',
+                        'rgba(255, 51, 204, 1)',
+                    ],
+                    data: [
+                        @Model.Leadership,
+                        @Model.Architecture,
+                        @Model.DevOps,
+                        @Model.Development
+                    ]
+                }]
+            },
+            options: {
+                title: {
+                    display: false
+                },
+                responsive: true,
+                legend: {
+                    display: true,
+                    position: 'bottom'
+                }
+            }
+        }
+    };
+</script>

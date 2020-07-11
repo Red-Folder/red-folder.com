@@ -1,30 +1,65 @@
-﻿.project-list .project {
-    padding: 50px 0 20px;
+﻿.project-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
 }
 
-.project-list .item {
-    margin-bottom: 32px;
+.project {
+    display: grid;
+
+    grid-template-columns: 50% 50%;
+    
+    justify-items: center;
+
+    padding: 15px;
 }
 
-.project-list .box {
-    padding: 30px;
-    position: relative;
-}
+    .project .title {
+        color: var(--accent2-colour);
+        background-color: var(--main-colour);
+        
+        padding: 5px 10px 5px 10px;
+        grid-column: span 2;
 
-    .project-list .box .description {
-        font-size: 15px;
-        margin-bottom: 0;
+        width: 100%;
+        text-align: center;     
+        line-height: 100%;
     }
 
-.project-list a {
-    color: var(--accent1-colour);
-    text-decoration-line: none;
-}
-
-    .project-list a:visited {
-        color: var(--accent1-colour);
+    .project .title h2 {
+        margin: 0px;
     }
 
-    .project-list a:hover {
-        color: var(--main-colour) !important;
+    .project .description {
+        grid-column: span 2;
+
+        list-style: none;
+        margin-left: 0px;
+        padding-left: 0px;
+
+        text-align: center;
+    }
+
+        .project .description li {
+            list-style: none;
+            margin-left: 0px;
+            padding-left: 0px;
+        }
+
+        .project .technologies {
+            align-self: center;
+        }
+
+    .project .technologies ul {
+        margin-left: 0px;
+        padding-left: 0px;
+
+        text-align: center;
+    }
+
+    .project .technologies li {
+        margin: 2px;
+        color: var(--accent2-colour);
+        display: inline-block;
+        background-color: var(--accent1-colour);
+        padding: 5px 10px 5px 10px;
     }
