@@ -1,24 +1,76 @@
-﻿.project-list {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+﻿@media (min-width: 0px) and (max-width: 767px) {
+    .project .title {
+        padding: 5px 10px 5px 10px;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+    .project {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 40px auto auto;
+        padding-bottom: 0px;
+    }
+
+        .project .title {
+            padding: 0px 10px 0px 10px;
+        }
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+    .project-list {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        justify-content: space-around;
+        grid-gap: 15px;
+    }
+
+    .project {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 40px auto auto;
+        padding-bottom: 0px;
+    }
+
+        .project .title {
+            padding: 0px 10px 0px 10px;
+        }
+}
+
+@media (min-width: 1200px) {
+    .project-list {
+        display: grid;
+        grid-template-columns: 600px 600px;
+        justify-content: space-around;
+        grid-gap: 15px;
+    }
+
+    .project {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 40px auto auto;
+        padding-bottom: 0px;
+    }
+
+        .project .title {
+            padding: 0px 10px 0px 10px;
+        }
+}
+
+.project-list {
+    padding: 15px;
 }
 
 .project {
-    display: grid;
-
-    grid-template-columns: 50% 50%;
-    
     justify-items: center;
-
-    padding: 15px;
+    padding-bottom: 15px;
 }
 
     .project .title {
         color: var(--accent2-colour);
         background-color: var(--main-colour);
         
-        padding: 5px 10px 5px 10px;
-        grid-column: span 2;
+        grid-column: span 3;
 
         width: 100%;
         text-align: center;     
@@ -30,13 +82,16 @@
     }
 
     .project .description {
-        grid-column: span 2;
+        grid-column: span 3;
 
         list-style: none;
         margin-left: 0px;
         padding-left: 0px;
 
         text-align: center;
+        
+        padding-top: 5px;
+        padding-bottom: 5px;
     }
 
         .project .description li {
@@ -49,10 +104,13 @@
             align-self: center;
         }
 
+    .project .diciplines {
+        grid-column: span 2;
+    }
+
     .project .technologies ul {
         margin-left: 0px;
         padding-left: 0px;
-
         text-align: center;
     }
 

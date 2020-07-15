@@ -19,7 +19,8 @@ namespace RedFolder.Controllers.Web
                     Title = "Sunsetting",
                     Description = new List<string>
                     {
-                        "Various complex legacy systems needed to functional while heavy investment into new platform.  Legacy platform consisting of a variety of systems"
+                        "Complex legacy platform needed to continue operating while heavy investment was being into a new platform.",
+                        "Legacy platform consisting of a variety of systems and technologies that required maintenance, continual development and provide 'source of truth' for new platform."
                     },
                     Diciplines = new Diciplines
                     {
@@ -41,11 +42,12 @@ namespace RedFolder.Controllers.Web
 
                 new RecentProject
                 {
-                    Title = "Enhanced security using Multi-Factor Authentication",
+                    Title = "Multi-Factor Authentication",
                     Description = new List<string>
                     {
-                        "To enhance security for customers to implement Multi-Factor Authentication into legacy platform with minimal impact to customer journey or technical change.",
-                        "Assessed various MFA solutions - including simple One-Time-Password systems like Google Authenticator through to complex feature right Authentication Platforms such as Twilio Authy, Auth0, and AWS Cognito.  Produced POC and implementation guidelines on how to integrate into legacy platform with minimal technical change"
+                        "To provide enhance security for customers, I was asked how to implement Multi-Factor Authentication into a complex legacy platform - with minimal impact to customer journey or technical change.",
+                        "Assessed various MFA solutions - including simple One-Time-Password systems like Google Authenticator through to complex feature rich Authentication Platforms such as Twilio Authy, Auth0, and AWS Cognito.",
+                        "Produced POC and implementation guidelines on how to integrate into the legacy platform with minimal technical change."
                     },
                     Diciplines = new Diciplines
                     {
@@ -65,9 +67,9 @@ namespace RedFolder.Controllers.Web
                     Title = "Division for Sale",
                     Description = new List<string>
                     {
-                        "Stalling project - struggling team",
-                        "To sell off a division",
-                        "Needed a complex customer facing application to make 'sellable'"
+                        "Asked to step in to run a a struggling team with a stalled project.",
+                        "To allow the sale of a division, a complex customer facing application was required - its 'flag ship' product.",
+                        "The existing team was struggling with turning a shopping list of requirements into a Minimum Viable Product."
                     },
                     Diciplines = new Diciplines
                     {
@@ -110,11 +112,11 @@ namespace RedFolder.Controllers.Web
 
                 new RecentProject
                 {
-                    Title = "Keeping the lights on during acquisition",
+                    Title = "Keeping the lights on",
                     Description = new List<string>
                     {
-                        "Managing of a legacy team and associated e-commerce systems during acquisition.",
-                        "During the process, they had lost the previous management team and needs a stable pair of hands to keep the ship afloat - and implement a number of tactical technical changes."
+                        "Management of a legacy team and associated e-commerce systems during acquisition.",
+                        "During the acquisition, they had lost the previous management team and needs a stable pair of hands to keep the ship afloat - and implement a number of tactical technical changes."
                     },
                     Diciplines = new Diciplines
                     {
@@ -137,9 +139,9 @@ namespace RedFolder.Controllers.Web
                     Title = "Feasibility study",
                     Description = new List<string>
                     {
-                        "Client asked for a feasibility study to implement a change being requested by their partner.",
-                        "Partner suggested the work was trivial",
-                        "I assessed the impact on the client throughout their legacy platform - producing both a high level summary of the work a heatmap of impacted systems - highlighting the considerable effort and risk in the change."
+                        "A client asked for a feasibility study to implement a change being requested by their partner.",
+                        "Their partner had suggested the work was trivial",
+                        "I assessed the impact on the client throughout their legacy platform - producing both a high level summary of the work as a heatmap of impacted systems - highlighting the considerable effort and risk in the change."
                     },
                     Diciplines = new Diciplines
                     {
