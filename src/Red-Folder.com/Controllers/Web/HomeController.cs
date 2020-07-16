@@ -1,18 +1,24 @@
 ﻿using RedFolder.ViewModels;
-using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
 using RedFolder.Services;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace RedFolder.Controllers.Web
 {
     public class HomeController : Controller
     {
+        private readonly IEmail _emailClient;
+
+        public HomeController(IEmail emailClient)
+        {
+            _emailClient = emailClient;
+        }
+
         public ActionResult Index()
         {
             var model = new HomePage();
-            model.Content = GetTiles();
-            model.Contact = new ContactRequest();
+            model.ContactForm = new ContactForm();
             return View(model);
         }
 
@@ -36,72 +42,32 @@ namespace RedFolder.Controllers.Web
             throw new System.Exception("I'm not a real action");
         }
 
-        //[HttpPost]
-        //public ActionResult Index(HomePage request)
-        //{
-        //    var model = new HomePage();
-        //    model.Content = GetTiles();
-
-        //    model.Contact = request.Contact;
-        //    return View(model);
-        //}
-
-        private List<SummaryTile> GetTiles()
-        {
-            return new List<SummaryTile>()
-            {
-                new SummaryTile(
-                        "Key Services",
-                        new Paragraphs()
-                        {
-                            "Consultancy & Coaching on getting better ROI",
-                            "Interim team leadership",
-                            "Cyber Security",
-                            "Software Development"
-                        },
-                        "Index",
-                        "Services",
-                        "Find out more >>>",
-                        "shopping-cart"
-                    ),
-
-                new SummaryTile(
-                        "My Bio",
-                        new Paragraphs()
-                        {
-                            "15+ years senior IT management",
-                            "20+ years software development life cycle",
-                            "Microsoft Certified Professional",
-                            "Scrum Master Certified",
-                            "Specialist in legacy systems & teams"
-                        },
-                        "Index",
-                        "MyBio",
-                        "Find out more >>>",
-                        "user"
-                    ),
-
-                new SummaryTile(
-                        "Recent Projects",
-                        new Paragraphs()
-                        {
-                            "Return On Investment",
-                            "Asp.Net Core Migration",
-                            "Microservices",
-                            "Cordova/ Phonegap"
-                        },
-                        "Index",
-                        "Projects",
-                        "Find out more >>>",
-                        "gears"
-                    )
-            };
-
-        }
-
         public ActionResult Repo()
         {
             return View();
+        }
+
+        [HttpGet]
+        public ActionResult Contact()
+        {
+            return View(new ContactForm());
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken()]
+        public async Task<ActionResult> Contact(ContactForm contactForm)
+        {
+            if (ModelState.IsValid)
+            {
+                if (await _emailClient.SendContactThankYou(contactForm))
+                {
+                    return View("ThankYou", contactForm);
+                }
+
+                ViewBag.ErrorMessage = "You request has failed to send.  Please check your email address is correct.  Or contact me directly at mark@red-folder.com";
+            }
+
+            return View(contactForm);
         }
     }
 }

@@ -12,6 +12,7 @@ using Microsoft.Extensions.FileProviders;
 using System.IO;
 using Microsoft.AspNetCore.Http;
 using Red_Folder.com.Services;
+using RedFolder.Models;
 
 namespace RedFolder
 {
@@ -58,6 +59,14 @@ namespace RedFolder
             services.AddSingleton<ISiteMapRepository>(siteMapRepo);
 
             services.AddTransient<RepoContextSeedData>();
+
+            var sendGridConfiguration = new SendGridConfiguration
+            {
+                ApiKey = _config["SendGridApiKey"],
+                From = _config["SendGridFromEmailAddress"]
+            };
+            services.AddSingleton(sendGridConfiguration);
+            services.AddTransient<IEmail, SendGridEmail>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

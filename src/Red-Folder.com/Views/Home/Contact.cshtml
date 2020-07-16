@@ -1,0 +1,13 @@
+﻿@model RedFolder.ViewModels.ContactForm
+
+@{
+    ViewBag.Title = "Red Folder Consultancy Ltd";
+}
+
+<rfc-inline-style css-file="Home/Contact.css"></rfc-inline-style>
+
+<div class="hero-banner">
+    <h1>Contact Red Folder Consultancy Ltd</h1>
+</div>
+
+@Html.Partial("_ContactForm", Model)

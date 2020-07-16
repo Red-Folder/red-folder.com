@@ -1,0 +1,11 @@
+﻿.contact-form {
+    display: grid;
+    grid-template-columns: minmax(250px, 600px);
+    justify-content: space-around;
+
+    padding: 15px 5px 15px 5px;
+}
+
+.contact-form button {
+    width: 100%;
+}

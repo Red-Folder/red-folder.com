@@ -1,0 +1,28 @@
+﻿@model RedFolder.ViewModels.ContactForm
+
+@{
+    ViewBag.Title = "Red Folder Consultancy Ltd";
+}
+
+<rfc-inline-style css-file="Home/ThankYou.css"></rfc-inline-style>
+
+<div class="hero-banner">
+    <h1>Thank you for reaching out</h1>
+</div>
+
+<div class="thank-you">
+    <h2>An email should be on the way to @Model.EmailAddress</h2>
+    <p>If not received in the next few minutes, please try again or reach out to me directly at <a href="mailto:mark@red-folder.com">mark@red-folder.com</a></p>
+    <p>Otherwise I will endevour to get back to you within 48 hours.</p>
+</div>
+
+@section Scripts
+{
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            dataLayer.push({
+                event: "contact.thankyou"
+            });
+        });
+    </script>
+}
