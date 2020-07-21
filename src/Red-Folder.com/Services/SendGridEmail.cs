@@ -24,8 +24,8 @@ namespace RedFolder.Services
             try
             {
                 var client = new SendGridClient(_configuration.ApiKey);
-                var from = new EmailAddress(contactForm.EmailAddress);
-                var to = new EmailAddress(_configuration.From);
+                var from = new EmailAddress(_configuration.From);
+                var to = new EmailAddress(contactForm.EmailAddress);
 
                 var msg = MailHelper.CreateSingleTemplateEmail(from, to, CONTACT_THANK_YOU_TEMPLATE, new
                 {
