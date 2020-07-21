@@ -7,11 +7,32 @@
 <rfc-inline-style css-file="Home/Index.css"></rfc-inline-style>
 
 <div class="hero-banner">
-    <h1>Better ROI from Software Development</h1>
+    <span>An Independent Consultancy</span><br />
+    <span>helping you to achieve</span><br />
+    <span>Better ROI from Software Development</span>
 </div>
 
 @Html.Partial("_Welcome")
 
-@Html.Partial("_WhoAreRedFolderConsultancy")
+@if (Model?.LatestPodcast != null)
+{
+    @Html.Partial("_PodcastPromotion", Model.LatestPodcast)
+}
 
 @Html.Partial("_Testimonials")
+
+<div class="contact">
+    <div class="title">
+        <h2>Contact</h2>
+    </div>
+    <div class="body">
+        <p>
+            I can help your Development Team with
+            <strong>Team Leadership</strong>,
+            <strong>Solution Architecture</strong>,
+            <strong>DevOps automation</strong>,
+            or <strong>hands-on Development</strong>
+        </p>
+        @Html.Partial("_ContactForm", Model.ContactForm)
+    </div>
+</div>

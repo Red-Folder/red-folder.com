@@ -1,0 +1,45 @@
+﻿.podcast-promotion .title {
+    text-align: center;
+    color: var(--accent2-colour);
+    background-color: var(--main-colour);
+    width: 100%;
+    line-height: 100%;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+    .podcast-promotion .title h2 {
+        margin-top: 0px;
+    }
+    .podcast-promotion .title p {
+        margin-bottom: 0px;
+    }
+
+.podcast-promotion .body {
+    padding: 15px;
+
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+    grid-column-gap: 30px;
+
+    justify-content: space-around;
+    align-items: center;
+}
+
+    .podcast-promotion .body .podcast-logo {
+        text-align: center;
+    }
+
+    .podcast-promotion .body .podcast-logo img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        max-width: 400px;
+    }
+
+.podcast-promotion .latest-podcast a {
+    font-size: x-large;
+    margin-bottom: 10.5px;
+    width: 100%;
+    text-align: center;
+}

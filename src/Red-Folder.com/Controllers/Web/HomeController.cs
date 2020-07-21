@@ -9,16 +9,19 @@ namespace RedFolder.Controllers.Web
     public class HomeController : Controller
     {
         private readonly IEmail _emailClient;
+        private readonly IPodcastRespository _podcastRespository;
 
-        public HomeController(IEmail emailClient)
+        public HomeController(IEmail emailClient, IPodcastRespository podcastRespository)
         {
             _emailClient = emailClient;
+            _podcastRespository = podcastRespository;
         }
 
-        public ActionResult Index()
+        public async Task<ActionResult> Index()
         {
             var model = new HomePage();
             model.ContactForm = new ContactForm();
+            model.LatestPodcast = await _podcastRespository.LatestPodcast();
             return View(model);
         }
 

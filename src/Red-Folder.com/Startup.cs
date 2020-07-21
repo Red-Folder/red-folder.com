@@ -13,6 +13,7 @@ using System.IO;
 using Microsoft.AspNetCore.Http;
 using Red_Folder.com.Services;
 using RedFolder.Models;
+using System.Net.Http;
 
 namespace RedFolder
 {
@@ -67,6 +68,9 @@ namespace RedFolder
             };
             services.AddSingleton(sendGridConfiguration);
             services.AddTransient<IEmail, SendGridEmail>();
+
+            services.AddSingleton(new HttpClient());
+            services.AddTransient<IPodcastRespository, PodcastRespository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
