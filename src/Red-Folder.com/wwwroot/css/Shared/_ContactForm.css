@@ -1,6 +1,6 @@
 ﻿.contact-form {
     display: grid;
-    grid-template-columns: minmax(250px, 600px);
+    grid-template-columns: minmax(250px, 900px);
     justify-content: space-around;
 
     padding: 15px 5px 15px 5px;
