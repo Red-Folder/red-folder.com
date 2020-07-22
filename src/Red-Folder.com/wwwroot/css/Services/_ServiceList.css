@@ -1,0 +1,39 @@
+﻿.service-list .title {
+    text-align: center;
+    color: var(--accent2-colour);
+    background-color: var(--main-colour);
+    width: 100%;
+    line-height: 100%;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+    .service-list .title h2 {
+        margin-top: 0px;
+    }
+
+.service-list .body {
+    margin: auto;
+    max-width: 900px;
+    padding: 15px;
+
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+    grid-column-gap: 30px;
+}
+
+.service-list .body .service .title {
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.service-list .body .service .title h3 {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.service-list .body .service .description {
+    text-align: center;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
