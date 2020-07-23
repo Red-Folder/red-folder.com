@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.AspNetCore.Mvc;
+using System.ComponentModel.DataAnnotations;
 
 namespace RedFolder.ViewModels
 {
@@ -15,5 +16,7 @@ namespace RedFolder.ViewModels
         [Display(Name = "And what problem do you want help with?")]
         [Required(ErrorMessage = "Help me to help you by telling me a little about your problem")]
         public string HowCanIHelp { get; set; }
+
+       public string RecaptureToken { get; set; }
     }
 }

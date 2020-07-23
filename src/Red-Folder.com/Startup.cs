@@ -71,6 +71,13 @@ namespace RedFolder
 
             services.AddSingleton(new HttpClient());
             services.AddTransient<IPodcastRespository, PodcastRespository>();
+
+            var reCaptchaConfiguration = new ReCaptchaConfiguration
+            {
+                SecretKey = _config["ReCaptchaSecretKey"]
+            };
+            services.AddSingleton(reCaptchaConfiguration);
+            services.AddTransient<ITokenVerification, ReCaptchaTokenVerification>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

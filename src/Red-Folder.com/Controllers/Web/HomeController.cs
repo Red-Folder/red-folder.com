@@ -10,11 +10,15 @@ namespace RedFolder.Controllers.Web
     {
         private readonly IEmail _emailClient;
         private readonly IPodcastRespository _podcastRespository;
+        private readonly ITokenVerification _tokenVerification;
 
-        public HomeController(IEmail emailClient, IPodcastRespository podcastRespository)
+        public HomeController(IEmail emailClient, 
+                              IPodcastRespository podcastRespository,
+                              ITokenVerification tokenVerification)
         {
             _emailClient = emailClient;
             _podcastRespository = podcastRespository;
+            _tokenVerification = tokenVerification;
         }
 
         public async Task<ActionResult> Index()
@@ -62,9 +66,12 @@ namespace RedFolder.Controllers.Web
         {
             if (ModelState.IsValid)
             {
-                if (await _emailClient.SendContactThankYou(contactForm))
+                if (await _tokenVerification.Valid(contactForm.RecaptureToken))
                 {
-                    return View("ThankYou", contactForm);
+                    if (await _emailClient.SendContactThankYou(contactForm))
+                    {
+                        return View("ThankYou", contactForm);
+                    }
                 }
 
                 ViewBag.ErrorMessage = "You request has failed to send.  Please check your email address is correct.  Or contact me directly at mark@red-folder.com";
