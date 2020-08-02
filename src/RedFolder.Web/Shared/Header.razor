@@ -1,0 +1,203 @@
+﻿<style>
+@@media (max-width: 767px) {
+.navigation-clean {
+    padding-top: 0;
+    padding-bottom: 0;
+}
+    
+    .navigation-clean .navbar-nav .open .dropdown-menu {
+        box-shadow: none;
+    }
+
+        .navigation-clean .navbar-nav .open .dropdown-menu > li > a {
+            color: #37434d;
+            padding-top: 12px;
+            padding-bottom: 12px;
+            line-height: 1;
+        }
+
+    .navigation-clean.navbar-inverse .navbar-nav .open .dropdown-menu > li > a {
+        color: #fff;
+    }
+}
+
+.navigation-clean {
+    background: #fff;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    color: #333;
+    border-radius: 0;
+    box-shadow: none;
+    border: none;
+    margin-bottom: 0;
+}
+
+    .navigation-clean #rfc-logo {
+        height: 58px;
+        margin-top: -20px;
+    }
+
+    .navigation-clean .navbar-brand {
+        font-weight: bold;
+        color: inherit;
+    }
+
+        .navigation-clean .navbar-brand:hover {
+            color: #222;
+        }
+
+        .navigation-clean .navbar-brand img {
+            height: 100%;
+            display: inline-block;
+            margin-right: 10px;
+            width: auto;
+        }
+
+    .navigation-clean .navbar-toggle {
+        border-color: #ddd;
+    }
+
+        .navigation-clean .navbar-toggle:hover,
+        .navigation-clean .navbar-toggle:focus {
+            background: none;
+        }
+
+        .navigation-clean .navbar-toggle .icon-bar {
+            background-color: #888;
+        }
+
+    .navigation-clean .navbar-collapse,
+    .navigation-clean .navbar-form {
+        border-top-color: #ddd;
+    }
+
+    .navigation-clean .navbar-nav > li > .dropdown-menu {
+        margin-top: -5px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        background-color: #fff;
+        border-radius: 2px;
+    }
+
+    .navigation-clean .navbar-nav > li > a {
+        padding-left: 18px;
+        padding-right: 18px;
+    }
+
+    .navigation-clean .navbar-nav > .active > a,
+    .navigation-clean .navbar-nav > .open > a {
+        background: none;
+        box-shadow: none;
+    }
+
+    .navigation-clean .navbar-default .navbar-nav > li > a {
+        color: #465765;
+    }
+
+    .navigation-clean .navbar-default .navbar-nav > .active > a,
+    .navigation-clean .navbar-default .navbar-nav .navbar-default .navbar-nav > .active > a:focus,
+    .navigation-clean .navbar-default .navbar-nav .navbar-default .navbar-nav > .active > a:hover {
+        color: #363739;
+        box-shadow: none;
+        background: none;
+        pointer-events: none;
+    }
+
+    .navigation-clean .dropdown-menu > li > a {
+        line-height: 2;
+        font-size: 14px;
+        color: #37434d;
+    }
+
+        .navigation-clean .dropdown-menu > li > a:focus,
+        .navigation-clean .dropdown-menu > li > a:hover {
+            background: #eee;
+            color: inherit;
+        }
+
+    .navigation-clean.navbar-inverse {
+        background-color: var(--main-colour);
+        color: #fff;
+    }
+
+        .navigation-clean.navbar-inverse .navbar-brand:hover {
+            color: #f0f0f0;
+        }
+
+        .navigation-clean.navbar-inverse .navbar-toggle {
+            border-color: var(--accent2-colour);
+        }
+
+            .navigation-clean.navbar-inverse .navbar-toggle .icon-bar {
+                background-color: var(--accent2-colour);
+            }
+
+        .navigation-clean.navbar-inverse .navbar-collapse,
+        .navigation-clean.navbar-inverse .navbar-form {
+            border-top-color: #333;
+        }
+
+        .navigation-clean.navbar-inverse .navbar-nav > li > a {
+            color: #ffffff;
+        }
+
+            .navigation-clean.navbar-inverse .navbar-nav > li > a:focus,
+            .navigation-clean.navbar-inverse .navbar-nav > li > a:hover {
+                color: #1f2021 !important;
+                background-color: transparent;
+            }
+
+        .navigation-clean.navbar-inverse .navbar-nav > li .dropdown-menu {
+            background-color: #1f2021;
+        }
+
+        .navigation-clean.navbar-inverse .navbar-nav > .active > a,
+        .navigation-clean.navbar-inverse .navbar-nav > .active > a:focus,
+        .navigation-clean.navbar-inverse .navbar-nav > .active > a:hover {
+            color: #1f2021;
+            box-shadow: none;
+            background: none;
+            pointer-events: none;
+        }
+
+        .navigation-clean.navbar-inverse .navbar-nav .dropdown-menu > li > a:focus,
+        .navigation-clean.navbar-inverse .navbar-nav .dropdown-menu > li > a {
+            color: #f2f5f8;
+        }
+
+            .navigation-clean.navbar-inverse .navbar-nav .dropdown-menu > li > a:focus:focus,
+            .navigation-clean.navbar-inverse .navbar-nav .dropdown-menu > li > a:focus,
+            .navigation-clean.navbar-inverse .navbar-nav .dropdown-menu > li > a:focus:hover,
+            .navigation-clean.navbar-inverse .navbar-nav .dropdown-menu > li > a:hover {
+                background: #363739;
+            }
+</style>
+
+<header>
+    <div>
+        <nav class="navbar navbar-inverse navbar-fixed-top navigation-clean">
+            <div class="container">
+                <div class="navbar-header">
+                    <a class="navbar-brand navbar-link" rel="home" href="/">
+                        <img src="/images/RFCLogo48.png" id="rfc-logo">
+                    </a>
+                    <button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navcol-1">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+                <div class="collapse navbar-collapse" id="navcol-1">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="/Services">Services</a></li>
+                        <li><a href="/Blog">Blog</a></li>
+                        <li><a href="/Podcasts">Podcasts</a></li>
+                        <li><a href="/Projects">Projects</a></li>
+                        <li><a href="/MyBio">My Bio</a></li>
+                        <li><a href="/Home/Contact">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+</header>
