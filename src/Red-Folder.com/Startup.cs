@@ -163,6 +163,12 @@ namespace RedFolder
                 );
 
                 config.MapRoute(
+                    name: "Newsletter Archive",
+                    template: "NewsletterArchive",
+                    defaults: new { controller = "Blog", action = "Index", filterBy = "Newsletter" }
+                );
+
+                config.MapRoute(
                     name: "Default",
                     template: "{controller}/{action}/{id?}",
                     defaults: new { controller = "Home", action = "Index" }
