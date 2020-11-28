@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 using CodeHollow.FeedReader;
 using RedFolder.com.ViewModels;
 
@@ -9,5 +10,7 @@ namespace RedFolder.Services
         Task<Feed> GetFeed();
         Task<Podcast> GetPodcast(string id);
         Task<Podcast> LatestPodcast();
+        Task<int> NumberOfPodcasts();
+        Task<TimeSpan> TotalPodcastLength();
     }
 }

@@ -1,4 +1,5 @@
-﻿using CodeHollow.FeedReader;
+﻿using System;
+using CodeHollow.FeedReader;
 using RedFolder.com.ViewModels;
 using RedFolder.Utils;
 using System.Linq;
@@ -72,6 +73,24 @@ namespace RedFolder.Services
             {
                 return "";
             }
+        }
+
+        public async Task<int> NumberOfPodcasts()
+        {
+            var feed = await GetFeed();
+
+            return feed.Items.Count;
+        }
+
+        public async Task<System.TimeSpan> TotalPodcastLength()
+        {
+            var feed = await GetFeed();
+
+            var durationElements = feed.Items.Select(x => x.SpecificItem.Element.Descendants().FirstOrDefault(y => y.Name.LocalName == "duration"));
+            var durations = durationElements.Where(x => x != null && x.Value != null).Select(x => Int32.Parse(x.Value));
+            var totalSeconds = durations.Sum();
+
+            return System.TimeSpan.FromSeconds(totalSeconds);
         }
     }
 }
