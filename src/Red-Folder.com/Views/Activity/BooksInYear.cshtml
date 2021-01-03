@@ -1,0 +1,16 @@
+﻿@model List<Red_Folder.com.Models.Activity.Book>
+
+@{
+    ViewBag.Title = "Red Folder Consultancy Ltd";
+}
+
+<rfc-inline-style css-file="Activity/BooksInYear.css"></rfc-inline-style>
+
+<div class="books-in-year">
+    @foreach (var book in Model)
+    {
+        <div>
+            <img src="@book.ImageUrl" />
+        </div>
+    }
+</div>

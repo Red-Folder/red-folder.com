@@ -1,0 +1,19 @@
+﻿@model List<Red_Folder.com.Models.Activity.Skill>
+
+@{
+    ViewBag.Title = "Red Folder Consultancy Ltd";
+}
+
+<div id="skills-cloud" style="margin: 15px;">
+</div>
+
+<script type="text/javascript" src="https://d3js.org/d3.v3.min.js" /></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3-cloud/1.2.5/d3.layout.cloud.min.js"></script>
+
+@Html.Partial("_SkillsCloud", Model)
+
+<script>
+    (function () {
+        drawCloud(1000, 1024, 1024);
+    })();
+</script>

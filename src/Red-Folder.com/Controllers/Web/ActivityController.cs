@@ -111,5 +111,19 @@ namespace Red_Folder.com.Controllers.Web
             // Subtract 3 days from Thursday to get Monday, which is the first weekday in ISO8601
             return result.AddDays(-3);
         }
+
+        //[HttpGet("Activity/Books/{year}")]
+        //public async Task<IActionResult> BooksInYear([FromServices] IActivityRepository repository, string year)
+        //{
+        //    var books = await repository.BooksInYear(year);
+        //    return View(books);
+        //}
+
+        //[HttpGet("Activity/Skills/{year}")]
+        //public async Task<IActionResult> SkillsInYear([FromServices] IActivityRepository repository, string year)
+        //{
+        //    var skills = await repository.SkillsInYear(year);
+        //    return View(skills);
+        //}
     }
 }

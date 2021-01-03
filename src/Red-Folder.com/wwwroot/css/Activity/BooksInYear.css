@@ -1,0 +1,22 @@
+﻿.books-in-year {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-items: center;
+    align-items: center;
+
+    grid-gap: 15px;
+
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.books-in-year div {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.books-in-year img {
+    height: auto;
+    max-width: 100%;
+}
+

@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json;
 using Red_Folder.com.Models.Activity;
 using System.Net.Http;
+using System.Threading.Tasks;
 
 namespace Red_Folder.com.Services
 {
@@ -16,12 +17,25 @@ namespace Red_Folder.com.Services
             _activityCode = activityCode;
         }
 
-        public Weekly Weekly(string year, string weekNumber)
+        public async Task<Weekly> Weekly(string year, string weekNumber)
         {
             var url = $"{_activityUrl}/weeklyactivity/{year}/{weekNumber}?code={_activityCode}";
-            var rawResponse = _httpClient.GetStringAsync(url).Result;
+            var response = await _httpClient.GetAsync(url);
 
-            return JsonConvert.DeserializeObject<Weekly>(rawResponse);
+            if (response.IsSuccessStatusCode)
+            {
+                try
+                {
+                    var json = await response.Content.ReadAsStringAsync();
+                    return JsonConvert.DeserializeObject<Weekly>(json);
+                }
+                catch
+                {
+                    return null;
+                }
+            }
+
+            return null;
         }
     }
 }
