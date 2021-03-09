@@ -33,7 +33,7 @@ namespace RedFolder.Podcast
 
             if (includeShowNotes && item.ShowNotes == null)
             {
-                item.ShowNotes = await GetShowNotes(item.SafeUrl);
+                await AddShowNotes(item);
             }
 
             return item;
@@ -48,19 +48,30 @@ namespace RedFolder.Podcast
 
             if (includeShowNotes && item.ShowNotes == null)
             {
-                item.ShowNotes = await GetShowNotes(item.SafeUrl);
+                await AddShowNotes(item);
             }
 
             return item;
         }
 
-        private async Task<string> GetShowNotes(string key)
+        private async Task<string> AddShowNotes(Models.Podcast podcast)
         {
             try
             {
-                var response = await _httpClient.GetAsync($"https://content.red-folder.com/podcasts/{key}.md");
+                var response = await _httpClient.GetAsync($"https://content.red-folder.com/podcasts/{podcast.SafeUrl}.md");
+                if (!response.IsSuccessStatusCode)
+                {
+                    if (response.StatusCode == System.Net.HttpStatusCode.NotFound)
+                    {
+                        // Fall back to the number notation i.e. 4.md
+                        response = await _httpClient.GetAsync($"https://content.red-folder.com/podcasts/{podcast.EpisodeNumber}.md");
 
-                if (!response.IsSuccessStatusCode) return "";
+                        if (!response.IsSuccessStatusCode)
+                        {
+                            return "";
+                        }
+                    }
+                }
 
                 var markdown = await response.Content.ReadAsStringAsync();
 

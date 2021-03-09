@@ -6,6 +6,7 @@ namespace RedFolder.Podcast.Models
 {
     public class Podcast
     {
+        public int EpisodeNumber { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }
         public DateTime? PublishingDate { get; set; }
@@ -28,10 +29,13 @@ namespace RedFolder.Podcast.Models
 
             var rssItem = item.SpecificItem as CodeHollow.FeedReader.Feeds.Rss20FeedItem;
 
-            var duration = Int32.Parse(item.SpecificItem.Element.Descendants().FirstOrDefault(y => y.Name.LocalName == "duration").Value);
+            var elements = item.SpecificItem.Element.Descendants().ToList();
+            var episodeNumber = Int32.Parse(elements.FirstOrDefault(y => y.Name.LocalName == "episode")?.Value ?? "-1");
+            var duration = Int32.Parse(elements.FirstOrDefault(y => y.Name.LocalName == "duration").Value);
 
             return new Podcast
             {
+                EpisodeNumber = episodeNumber,
                 Title = item.Title,
                 Description = item.Description,
                 PublishingDate = item.PublishingDate,
