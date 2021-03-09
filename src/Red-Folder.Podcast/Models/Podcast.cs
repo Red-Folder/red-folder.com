@@ -37,7 +37,7 @@ namespace RedFolder.Podcast.Models
             {
                 EpisodeNumber = episodeNumber,
                 Title = item.Title,
-                Description = item.Description,
+                Description = item.Description.Split(new string[] { "-----" }, StringSplitOptions.None).First(),
                 PublishingDate = item.PublishingDate,
                 PublishingDateString = item.PublishingDateString,
                 AudioUrl = rssItem?.Enclosure?.Url,
