@@ -1,11 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using CodeHollow.FeedReader;
+using RedFolder.Podcast;
 using System.Threading.Tasks;
-using System.Linq;
-using RedFolder.Utils;
-using System.Net.Http;
-using RedFolder.com.ViewModels;
-using RedFolder.Services;
 
 namespace RedFolder.Controllers.Web
 {
@@ -18,11 +13,16 @@ namespace RedFolder.Controllers.Web
             _podcastRepository = podcastRespository;
         }
 
-        public async Task<ActionResult> Index(string id = null)
+        public async Task<ActionResult> Index(string id = null, bool reload = false)
         {
+            if (reload)
+            {
+                _podcastRepository.Clear();
+            }
+
             if (string.IsNullOrEmpty(id))
             {
-                var feed = await _podcastRepository.GetFeed();
+                var feed = await _podcastRepository.GetPodcasts();
                 return View(feed);
             }
 
@@ -31,7 +31,7 @@ namespace RedFolder.Controllers.Web
 
         private async Task<ActionResult> Details(string id)
         {
-            var podcast = await _podcastRepository.GetPodcast(id);
+            var podcast = await _podcastRepository.GetPodcast(id, true);
 
             if (podcast == null)
             {
@@ -39,6 +39,11 @@ namespace RedFolder.Controllers.Web
             }
 
             return View("Details", podcast);
+        }
+
+        public ActionResult Roadmap()
+        {
+            return Redirect("https://podcast-roadmap.red-folder.com/");
         }
     }
 }

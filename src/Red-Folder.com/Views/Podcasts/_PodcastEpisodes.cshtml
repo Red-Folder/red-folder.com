@@ -1,28 +1,26 @@
-﻿@model CodeHollow.FeedReader.Feed
+﻿@model List<RedFolder.Podcast.Models.Podcast>
 
 <rfc-inline-style css-file="Podcasts/_PodcastEpisodes.css"></rfc-inline-style>
 
-<div class="podcast-episodes container">
-    <div class="intro">
-        <h2 class="text-center">Episodes</h2>
+<div class="podcast-episodes">
+    <div class="title">
+        <h2>Past Episodes</h2>
     </div>
-    <div class="row">
+    <div class="body">
 
-        @if (Model != null && Model.Items != null && Model.Items.Count > 0)
+        @if (Model != null && Model.Count > 0)
         {
-            foreach (var item in Model.Items)
+            foreach (var item in Model)
             {
-                <div class="blog-tile col-xs-12">
-                    <a href="/podcasts/@RedFolder.Utils.SafeUrl.MakeSafe(item.Title)">
-                        <hr />
-                        <h3>@item.Title</h3>
-                        <hr />
-                        <p class="blog-tile-date">Published: @item.PublishingDateString</p>
-                        <p>@Html.Raw(item.Description)</p>
+                <div>
+                    <hr />
+                    <h3>@item.Title</h3>
+                    <hr />
+                    <p class="blog-tile-date">Published: @item.PublishingDateString</p>
+                    <p>@Html.Raw(item.Description)</p>
 
-                        <p>
-                            Listen now&nbsp;&nbsp;<i class="fa fa-chevron-circle-right"></i>
-                        </p>
+                    <a class="btn btn-primary" href="/podcasts/@item.SafeUrl">
+                        <i class="fa fa-play-circle" aria-hidden="true"></i>&nbsp;Listen now
                     </a>
                 </div>
             }

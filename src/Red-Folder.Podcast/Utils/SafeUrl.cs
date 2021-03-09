@@ -1,6 +1,6 @@
 ﻿using System.Text.RegularExpressions;
 
-namespace RedFolder.Utils
+namespace RedFolder.Podcast.Utils
 {
     public static class SafeUrl
     {

@@ -1,0 +1,14 @@
+﻿@model RedFolder.Podcast.Models.Podcast
+
+<rfc-inline-style css-file="Shared/_PodcastPromotions.css"></rfc-inline-style>
+
+<div class="podcast-promotion">
+    <div class="title">
+        <h2>Podcast</h2>
+        <p>Home of the</p>
+        <p><strong>Better&nbsp;ROI&nbsp;from&nbsp;Software&nbsp;Development</strong></p>
+        <p>Podcast</p>
+    </div>
+
+    @Html.Partial("_LatestPodcastBody", Model)
+</div>

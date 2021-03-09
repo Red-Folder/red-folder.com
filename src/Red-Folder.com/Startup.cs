@@ -14,6 +14,7 @@ using Microsoft.AspNetCore.Http;
 using Red_Folder.com.Services;
 using RedFolder.Models;
 using System.Net.Http;
+using RedFolder.Podcast;
 
 namespace RedFolder
 {
@@ -70,7 +71,7 @@ namespace RedFolder
             services.AddTransient<IEmail, SendGridEmail>();
 
             services.AddSingleton(new HttpClient());
-            services.AddTransient<IPodcastRespository, PodcastRespository>();
+            services.AddSingleton<IPodcastRespository, PodcastRespository>();
 
             var reCaptchaConfiguration = new ReCaptchaConfiguration
             {
@@ -132,6 +133,12 @@ namespace RedFolder
 
             app.UseMvc(config =>
             {
+                config.MapRoute(
+                    name: "Podcasts Roadmap",
+                    template: "Podcasts/Roadmap",
+                    defaults: new { controller = "Podcasts", action = "Roadmap" }
+                );
+
                 config.MapRoute(
                     name: "Podcasts",
                     template: "Podcasts/{id}",

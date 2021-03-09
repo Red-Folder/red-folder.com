@@ -1,0 +1,19 @@
+﻿@model RedFolder.Podcast.Models.Podcast
+
+<div class="body">
+    <div class="podcast-logo">
+        <img src="~/images/PodcastLogo.png" />
+    </div>
+    <div class="latest-podcast">
+        <h3>Latest episode:</h3>
+        <p>@Model.Title</p>
+        <p>Published: @Model.PublishingDateString</p>
+        <a class="btn btn-primary" href="/podcasts/@Model.SafeUrl">
+            <i class="fa fa-play-circle" aria-hidden="true"></i>&nbsp;Listen now
+        </a>
+        <p>Or on your favourite podcast app:</p>
+        <p>
+            @Html.Partial("_PodcastersList")
+        </p>
+    </div>
+</div>

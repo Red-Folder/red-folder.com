@@ -1,4 +1,4 @@
-﻿.podcast-episodes .title {
+﻿.podcast-roadmap .title {
     text-align: center;
     color: var(--accent2-colour);
     background-color: var(--main-colour);
@@ -8,21 +8,24 @@
     padding-bottom: 15px;
 }
 
-    .podcast-episodes .title h2 {
+    .podcast-roadmap .title h2 {
         margin-top: 0px;
     }
-
-    .podcast-episodes .title p {
+    .podcast-roadmap .title p {
         margin-bottom: 0px;
     }
 
-.podcast-episodes .body {
+.podcast-roadmap .body {
     margin: auto;
     max-width: 900px;
     padding: 15px;
+
+    text-align: center;
 }
 
-    .podcast-episodes .body hr {
-        border-top: 1px solid var(--main-colour);
-    }
-
+.podcast-roadmap a {
+    font-size: x-large;
+    margin-bottom: 10.5px;
+    width: 100%;
+    text-align: center;
+}

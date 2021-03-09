@@ -1,56 +1,50 @@
-﻿@model RedFolder.com.ViewModels.Podcast
+﻿@model RedFolder.Podcast.Models.Podcast
 
 @{
-    ViewBag.Title = Model.Item.Title;
+    ViewBag.Title = Model.Title;
 }
 
 <rfc-inline-style css-file="Podcasts/Details.css"></rfc-inline-style>
 
 <div class="hero-banner">
-    <h1>@Model.Item.Title</h1>
+    <h1>@Model.Title</h1>
 </div>
 
 <div class="podcast-episodes container">
     <div class="row">
         <div class="col-xs-12">
-            <p><strong>@Html.Raw(Model.Item.Description)</strong></p>
+            <p><strong>@Html.Raw(Model.Description)</strong></p>
 
             @{
-                var rssItem = Model.Item.SpecificItem as CodeHollow.FeedReader.Feeds.Rss20FeedItem;
-                if (rssItem != null)
+                if (!string.IsNullOrEmpty(Model.AudioUrl))
                 {
-                    var url = RedFolder.Utils.SafeUrl.MakeSafe(Model.Item.Title);
-
-                    if (!string.IsNullOrEmpty(rssItem?.Enclosure?.Url))
-                    {
-                        <p class="read-more">
-                            <audio id="podcast-player"
-                                   class="podcast-player"
-                                   controls="controls"
-                                   src="@rssItem.Enclosure.Url"
-                                   preload="metadata">
-                                <a href="@Model.Item.Link">
-                                    Listen now&nbsp;&nbsp;<i class="fa fa-chevron-circle-right"></i>
-                                </a>
-                            </audio>
-                        </p>
-                        <p>Or listen at:</p>
-                        <p>
-                            @Html.Partial("_PodcastersList")
-                        </p>
-                    }
-                    else
-                    {
-                        <p class="read-more">
-                            <a href="@Model.Item.Link">
+                    <p class="read-more">
+                        <audio id="podcast-player"
+                               class="podcast-player"
+                               controls="controls"
+                               src="@Model.AudioUrl"
+                               preload="metadata">
+                            <a href="@Model.AnchorUrl">
                                 Listen now&nbsp;&nbsp;<i class="fa fa-chevron-circle-right"></i>
                             </a>
-                        </p>
-                    }
+                        </audio>
+                    </p>
+                    <p>Or listen at:</p>
+                    <p>
+                        @Html.Partial("_PodcastersList")
+                    </p>
+                }
+                else
+                {
+                    <p class="read-more">
+                        <a href="@Model.AnchorUrl">
+                            Listen now&nbsp;&nbsp;<i class="fa fa-chevron-circle-right"></i>
+                        </a>
+                    </p>
                 }
             }
 
-            <p><i>Published: @Model.Item.PublishingDateString</i></p>
+            <p><i>Published: @Model.PublishingDateString</i></p>
 
             @if (!string.IsNullOrEmpty(Model.ShowNotes))
             {
@@ -64,8 +58,8 @@
     {
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="@@RedFolderMark" />
-    <meta property="og:title" name="twitter:title" content="@Model.Item.Title" />
-    <meta property="og:description" name="twitter:description" content="@Model.Item.Description" />
+    <meta property="og:title" name="twitter:title" content="@Model.Title" />
+    <meta property="og:description" name="twitter:description" content="@Model.Description" />
     <meta property="og:image" name="twitter:image" content="https://red-folder.com/images/PodcastLogo.png" />
 }
 
@@ -75,17 +69,17 @@
         {
         "@@context": "http://schema.org/",
         "@@type": "PodcastEpisode",
-        "url": "https://www.red-folder.com/podcasts/@RedFolder.Utils.SafeUrl.MakeSafe(Model.Item.Title)",
-        "name": "@Model.Item.Title",
+        "url": "https://www.red-folder.com/podcasts/@Model.SafeUrl",
+        "name": "@Model.Title",
 
-        "datePublished": "@Model.Item.PublishingDate?.ToString("yyyy-MM-dd")",
-        "dateCreated": "@Model.Item.PublishingDate?.ToString("yyyy-MM-dd")",
-        "dateModified": "@Model.Item.PublishingDate?.ToString("yyyy-MM-dd")",
-        "description": "@Model.Item.Description",
+        "datePublished": "@Model.PublishingDate?.ToString("yyyy-MM-dd")",
+        "dateCreated": "@Model.PublishingDate?.ToString("yyyy-MM-dd")",
+        "dateModified": "@Model.PublishingDate?.ToString("yyyy-MM-dd")",
+        "description": "@Model.Description",
 
         "associatedMedia": {
         "@@type": "MediaObject",
-        "contentUrl": "@((Model.Item.SpecificItem as CodeHollow.FeedReader.Feeds.Rss20FeedItem).Enclosure.Url)"
+        "contentUrl": "@Model.AudioUrl"
         },
 
         "partOfSeries": {
@@ -122,7 +116,7 @@
             document.getElementById("podcast-player").onplay = function () {
                 dataLayer.push({
                     event: "podcast.play",
-                    podcastEpisode: "@Model.Item.Title"
+                    podcastEpisode: "@Model.Title"
                 });
             };
         });

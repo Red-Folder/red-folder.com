@@ -1,10 +1,8 @@
-﻿using RedFolder.com.ViewModels;
-
-namespace RedFolder.ViewModels
+﻿namespace RedFolder.ViewModels
 {
     public class HomePage
     {
         public ContactForm ContactForm { get; set; }
-        public Podcast LatestPodcast { get; set; }
+        public Podcast.Models.Podcast LatestPodcast { get; set; }
     }
 }
