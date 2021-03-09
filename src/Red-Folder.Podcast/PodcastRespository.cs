@@ -39,6 +39,21 @@ namespace RedFolder.Podcast
             return item;
         }
 
+        public async Task<Models.Podcast> GetPodcast(int episodeNumber, bool includeShowNotes = false)
+        {
+            var feed = await GetOrLoadPodcasts();
+            if (feed == null) return null;
+
+            var item = feed.SingleOrDefault(x => x.EpisodeNumber == episodeNumber);
+
+            if (includeShowNotes && item.ShowNotes == null)
+            {
+                await AddShowNotes(item);
+            }
+
+            return item;
+        }
+
         public async Task<Models.Podcast> LatestPodcast(bool includeShowNotes = false)
         {
             var feed = await GetOrLoadPodcasts();
@@ -54,7 +69,7 @@ namespace RedFolder.Podcast
             return item;
         }
 
-        private async Task<string> AddShowNotes(Models.Podcast podcast)
+        private async Task AddShowNotes(Models.Podcast podcast)
         {
             try
             {
@@ -68,7 +83,7 @@ namespace RedFolder.Podcast
 
                         if (!response.IsSuccessStatusCode)
                         {
-                            return "";
+                            return;
                         }
                     }
                 }
@@ -77,11 +92,10 @@ namespace RedFolder.Podcast
 
                 HeyRed.MarkdownSharp.Markdown processor = new HeyRed.MarkdownSharp.Markdown();
 
-                return processor.Transform(markdown);
+                podcast.ShowNotes = processor.Transform(markdown);
             }
             catch
             {
-                return "";
             }
         }
 

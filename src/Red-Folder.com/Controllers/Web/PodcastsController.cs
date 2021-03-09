@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using RedFolder.Podcast;
+using System;
 using System.Threading.Tasks;
 
 namespace RedFolder.Controllers.Web
@@ -31,7 +32,15 @@ namespace RedFolder.Controllers.Web
 
         private async Task<ActionResult> Details(string id)
         {
-            var podcast = await _podcastRepository.GetPodcast(id, true);
+            Podcast.Models.Podcast podcast = null;
+            if (Int32.TryParse(id, out var episodeNumber))
+            {
+                podcast = await _podcastRepository.GetPodcast(episodeNumber, true);
+            }
+            else
+            {
+                podcast = await _podcastRepository.GetPodcast(id, true);
+            }
 
             if (podcast == null)
             {
