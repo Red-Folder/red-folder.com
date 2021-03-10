@@ -10,54 +10,6 @@
                 <h3>@course.Title</h3>
                 <p>@course.ShortDescription</p>
             </div>
-            <div class="course-completion">
-                <span>@(course.PercentageComplete + HtmlEncoder.Encode("%"))</span>
-                <canvas id="@course.CourseId" width="50px" height="50px" style="display:inline;"></canvas>
-            </div>
-
-            <script>
-                    window.graphs = window.graphs || {};
-
-                    window.graphs.pluralsight@(course.CourseId.Replace("-", "")) = {
-                        elementId: '@course.CourseId',
-                        config: {
-                            type: 'doughnut',
-                            data: {
-                                labels: [
-                                    '',
-                                    ''
-                                ],
-                                datasets: [{
-                                    backgroundColor: [
-                                        'rgba(44, 160, 44, 1)',
-                                        'rgba(255, 255, 255, 1)'
-                                    ],
-                                    data: [
-                                        @course.PercentageComplete,
-                                        100 - @course.PercentageComplete
-                                    ]
-    }]
-                            },
-                            options: {
-                                legend: {
-                                    display: false
-                                },
-                                title: {
-                                    display: false
-                                },
-                                responsive: false,
-                                plugins: {
-                                    labels: {
-                                        // render 'label', 'value', 'percentage', 'image' or custom function, default is 'percentage'
-                                        render: () => {
-                                            return '';
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    };
-            </script>
         </div>
     }
 </div>
