@@ -33,11 +33,16 @@ namespace RedFolder.Podcast.Models
             var episodeNumber = Int32.Parse(elements.FirstOrDefault(y => y.Name.LocalName == "episode")?.Value ?? "-1");
             var duration = Int32.Parse(elements.FirstOrDefault(y => y.Name.LocalName == "duration").Value);
 
+            var description = item.Description
+                                        ?.Split(new string[] { "-----" }, StringSplitOptions.None)
+                                        .First()
+                                        ?.Replace("&nbsp;", " ");
+
             return new Podcast
             {
                 EpisodeNumber = episodeNumber,
                 Title = item.Title,
-                Description = item.Description.Split(new string[] { "-----" }, StringSplitOptions.None).First(),
+                Description = description,
                 PublishingDate = item.PublishingDate,
                 PublishingDateString = item.PublishingDateString,
                 AudioUrl = rssItem?.Enclosure?.Url,
