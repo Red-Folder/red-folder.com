@@ -1,5 +1,22 @@
 ﻿@model Red_Folder.com.ViewModels.Activity.ActivityLayout<Red_Folder.com.Models.Activity.PluralsightActivity>
 
+@{ 
+    if (Model.Activity.Courses.Count > 4)
+    {
+        var coursesToSummarise = Model.Activity.Courses.Skip(3).ToList();
+
+        var summarisingCourse = new Red_Folder.com.Models.Activity.Course
+        {
+            CourseImageUrl = "/images/icons/plus.png",
+            Title = $"And {coursesToSummarise.Count} more",
+            ShortDescription = string.Join(", ", coursesToSummarise.Select(x => x.Title).ToArray())
+        };
+
+        coursesToSummarise.ForEach(x => Model.Activity.Courses.Remove(x));
+        Model.Activity.Courses.Add(summarisingCourse);
+    }
+}
+
 <div id="@Model.LayoutId" class="pluralsight-section">
     <h2>Pluralsight courses watched ...</h2>
     @foreach (var course in Model.Activity.Courses)
