@@ -33,7 +33,7 @@ stages:
           displayName: Build
           inputs:
             command: 'build'
-            projects: 'RedFolder.WebCrawl/RedFolder.WebCrawl.csproj'
+            projects: '**/*.csproj'
             arguments: ---configuration Release
 
         - task: DotNetCoreCLI@2
