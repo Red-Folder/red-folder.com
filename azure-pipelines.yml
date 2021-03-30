@@ -21,7 +21,7 @@ stages:
           displayName: 'Use .NET Core sdk'
           inputs:
             packageType: sdk
-            version: 3.x
+            version: 2.0
 
         - task: DotNetCoreCLI@2
           displayName: Restore
