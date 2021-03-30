@@ -5,7 +5,7 @@ variables:
   buildPlatform: 'Any CPU'
   buildConfiguration: 'Release'
   vmImageName: 'windows-latest'
-  azureSubscription: '20366cfc-092d-46d6-a630-a687d3a04992'
+  azureSubscription: 'Red Folder Production (20366cfc-092d-46d6-a630-a687d3a04992)'
 
 stages:
 - stage: Build
