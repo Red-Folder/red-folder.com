@@ -1,19 +1,24 @@
 ﻿using Red_Folder.Tests.Acceptance.Helpers;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Net;
-using System.Threading.Tasks;
 using Xunit;
 
 namespace Red_Folder.Tests.Acceptance
 {
     public class PageTests
     {
+        private readonly string _host;
+
+        public PageTests()
+        {
+            _host = Environment.GetEnvironmentVariable("Red-Folder_Tests_Acceptance_Host");
+        }
+
         [Fact]
         public void Going_to_the_homepage_is_valid()
         {
-            var client = new WebClientBuilder(Config.Host, "/")
+            var client = new WebClientBuilder(_host, "/")
                             .Build();
 
             client.Get();
@@ -24,7 +29,7 @@ namespace Red_Folder.Tests.Acceptance
         [Fact]
         public void Going_to_the_services_page_is_valid()
         {
-            var client = new WebClientBuilder(Config.Host, "/services")
+            var client = new WebClientBuilder(_host, "/services")
                             .Build();
 
             client.Get();
@@ -35,7 +40,7 @@ namespace Red_Folder.Tests.Acceptance
         [Fact]
         public void Going_to_the_projects_page_is_valid()
         {
-            var client = new WebClientBuilder(Config.Host, "/projects")
+            var client = new WebClientBuilder(_host, "/projects")
                             .Build();
 
             client.Get();
@@ -46,7 +51,7 @@ namespace Red_Folder.Tests.Acceptance
         [Fact]
         public void Going_to_the_roi_page_is_valid()
         {
-            var client = new WebClientBuilder(Config.Host, "/projects/roi")
+            var client = new WebClientBuilder(_host, "/projects/roi")
                             .Build();
 
             client.Get();
@@ -57,7 +62,7 @@ namespace Red_Folder.Tests.Acceptance
         [Fact]
         public void Going_to_the_my_bio_page_is_valid()
         {
-            var client = new WebClientBuilder(Config.Host, "/mybio")
+            var client = new WebClientBuilder(_host, "/mybio")
                             .Build();
 
             client.Get();
@@ -68,7 +73,7 @@ namespace Red_Folder.Tests.Acceptance
         [Fact]
         public void Going_to_the_legacy_recent_projects_page_should_return_redirect()
         {
-            var client = new WebClientBuilder(Config.Host, "/home/recentprojects")
+            var client = new WebClientBuilder(_host, "/home/recentprojects")
                             .Build();
 
             client.Get();
@@ -80,7 +85,7 @@ namespace Red_Folder.Tests.Acceptance
         [Fact]
         public void Going_to_the_exception_page_should_return_error()
         {
-            var client = new WebClientBuilder(Config.Host, "/home/throw")
+            var client = new WebClientBuilder(_host, "/home/throw")
                             .Build();
 
             client.Get();
@@ -91,14 +96,12 @@ namespace Red_Folder.Tests.Acceptance
         [Fact]
         public void Going_to_a_non_existent_page_should_return_not_found()
         {
-            var client = new WebClientBuilder(Config.Host, "/home/idontexist")
+            var client = new WebClientBuilder(_host, "/home/idontexist")
                             .Build();
 
             client.Get();
 
             Assert.Equal(HttpStatusCode.NotFound, client.LastHttpStatusCode);
         }
-
-
     }
 }
