@@ -1,0 +1,74 @@
+# ASP.NET Core (.NET Framework)
+# Build and test ASP.NET Core projects targeting the full .NET Framework.
+# Add steps that publish symbols, save build artifacts, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/languages/dotnet-core
+
+trigger:
+- master
+
+variables:
+  solution: '**/*.sln'
+  buildPlatform: 'Any CPU'
+  buildConfiguration: 'Release'
+  vmImage: 'windows-latest'
+
+stages:
+- stage: Build
+  displayName: 'Test, Build & Publish'
+
+  jobs:
+    - job: Build
+      displayName: 'Test, Build & Publish'
+      pool:
+        vmImage: $(vmImageName)
+
+      steps:
+        - task: UseDotNet@2
+          displayName: 'Use .NET Core sdk'
+          inputs:
+            packageType: sdk
+            version: 3.x
+
+        - task: DotNetCoreCLI@2
+          displayName: Restore
+          inputs:
+            command: 'restore'
+            projects: '**/*.csproj'
+
+        - task: DotNetCoreCLI@2
+          displayName: Build
+          inputs:
+            command: 'build'
+            projects: 'RedFolder.WebCrawl/RedFolder.WebCrawl.csproj'
+            arguments: ---configuration Release
+
+        - task: DotNetCoreCLI@2
+          displayName: 'Test: Red-Folder.Blog.Markdown.Tests.Unit'
+          inputs:
+            command: test
+            projects: 'tests/Red-Folder.Blog.Markdown.Tests.Unit/Red-Folder.Blog.Markdown.Tests.Unit.csproj'
+
+        - task: DotNetCoreCLI@2
+          displayName: 'Publish: Red-Folder.com'
+          inputs:
+            command: publish
+            publishWebProjects: false
+            projects: src/Red-Folder.com/Red-Folder.com.csproj
+            arguments: '--configuration $(BuildConfiguration) --output $(Build.ArtifactStagingDirectory)/website'
+
+        - publish: $(Build.ArtifactStagingDirectory)/website
+          displayName: 'Publish Website'
+          artifact: website
+
+        - task: DotNetCoreCLI@2
+          displayName: 'Publish: Acceptance Tests'
+          inputs:
+            command: publish
+            publishWebProjects: false
+            projects: tests/Red-Folder.Tests.Acceptance/Red-Folder.Tests.Acceptance.csproj
+            arguments: '--configuration $(BuildConfiguration) --output $(Build.ArtifactStagingDirectory)/acceptance_tests'
+
+        - publish: $(Build.ArtifactStagingDirectory)/acceptance_tests
+          displayName: 'Publish Acceptance Tests'
+          artifact: acceptance_tests
+
