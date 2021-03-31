@@ -99,6 +99,8 @@ stages:
     - deployment: Verify
       displayName: 'VerifyStaging'
       environment: 'staging'
+      variables:
+      - group: 'Red-Folder-WebCrawl-$(Environment.Name)'
       pool:
         vmImage: $(vmImageName)
 
