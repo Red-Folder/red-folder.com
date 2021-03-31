@@ -70,62 +70,74 @@ stages:
 - stage: DeployToStaging
   displayName: 'Deploy To Staging'
   dependsOn: Build
+  condition: succeeded()
   jobs:
-    - job: Deploy
+    - deployment: Deploy
       displayName: 'Deploy To Staging'
+      environment: 'staging'
       pool:
         vmImage: $(vmImageName)
 
-      steps:
-      - task: AzureRmWebAppDeployment@3
-        displayName: 'Deploy to Staging'
-        inputs:
-          azureSubscription: '$(azureSubscription)'
-          appType: app
-          WebAppName: 'RFC-Website-Staging'
-          Package: '$(Pipeline.Workspace)/website/Red-Folder.com.zip'
-          TakeAppOfflineFlag: true
+      strategy:
+        runOnce:
+          deploy:
+            steps:
+            - task: AzureRmWebAppDeployment@3
+              displayName: 'Deploy to Staging'
+              inputs:
+                azureSubscription: '$(azureSubscription)'
+                appType: app
+                WebAppName: 'RFC-Website-Staging'
+                Package: '$(Pipeline.Workspace)/website/Red-Folder.com.zip'
+                TakeAppOfflineFlag: true
 
 - stage: VerifyStaging
   displayName: 'Verify Staging'
   dependsOn: DeployToStaging
+  condition: succeeded()
   jobs:
-    - job: Verify
+    - deployment: Verify
       displayName: 'VerifyStaging'
+      environment: 'staging'
       pool:
         vmImage: $(vmImageName)
 
-      steps:
-      - task: UseDotNet@2
-        displayName: 'Use .NET Core sdk'
-        inputs:
-          packageType: sdk
-          version: 2.x
+      strategy:
+        runOnce:
+          deploy:
+            steps:
+            - task: UseDotNet@2
+              displayName: 'Use .NET Core sdk'
+              inputs:
+                packageType: sdk
+                version: 2.x
 
-      - task: jessehouwing.jessehouwing-vsts-variable-tasks.vsts-variable-set.VariableSetTask@1
-        displayName: 'Set variable: Red-Folder.Tests.Acceptance.Host'
-        inputs:
-          VariableName: 'Red-Folder.Tests.Acceptance.Host'
-          Value: '$(Red-Folder.Test.Acceptance.Host)'
-      - task: jessehouwing.jessehouwing-vsts-variable-tasks.vsts-variable-set.VariableSetTask@1
-        displayName: 'Set variable: Red-Folder.Tests.Acceptance.Host_Synonyms'
-        inputs:
-          VariableName: 'Red-Folder.Tests.Acceptance.Host_Synonyms'
-          Value: '$(Red-Folder.Test.Acceptance.Host_Synonyms)'
-      - task: jessehouwing.jessehouwing-vsts-variable-tasks.vsts-variable-set.VariableSetTask@1
-        displayName: 'Set variable: Red-Folder_Tests_Acceptance_CrawlWrapper_StartKey'
-        inputs:
-          VariableName: 'Red-Folder_Tests_Acceptance_CrawlWrapper_StartKey'
-          Value: '$(Red-Folder_Tests_Acceptance_CrawlWrapper_StartKey)' 
-      - task: ExtractFiles@1
-        displayName: 'Extract files '
-        inputs:
-          archiveFilePatterns: '$(Pipeline.Workspace)/acceptance_test/Red-Folder.com.zip'
-          destinationFolder: '$(System.DefaultWorkingDirectory)/Red-Folder.Tests.Acceptance'
-      - task: VSTest@2
-        displayName: 'Run Acceptance Tests'
-        inputs:
-          testAssemblyVer2: '**\Red-Folder.Tests.Acceptance.dll'
-          searchFolder: '$(System.DefaultWorkingDirectory)/Red-Folder.Tests.Acceptance'
-          otherConsoleOptions: '/Framework:".NETCoreApp,Version=v2.0"'
-          diagnosticsEnabled: True        
+            - task: jessehouwing.jessehouwing-vsts-variable-tasks.vsts-variable-set.VariableSetTask@1
+              displayName: 'Set variable: Red-Folder.Tests.Acceptance.Host'
+              inputs:
+                VariableName: 'Red-Folder.Tests.Acceptance.Host'
+                Value: '$(Red-Folder.Test.Acceptance.Host)'
+            - task: jessehouwing.jessehouwing-vsts-variable-tasks.vsts-variable-set.VariableSetTask@1
+              displayName: 'Set variable: Red-Folder.Tests.Acceptance.Host_Synonyms'
+              inputs:
+                VariableName: 'Red-Folder.Tests.Acceptance.Host_Synonyms'
+                Value: '$(Red-Folder.Test.Acceptance.Host_Synonyms)'
+            - task: jessehouwing.jessehouwing-vsts-variable-tasks.vsts-variable-set.VariableSetTask@1
+              displayName: 'Set variable: Red-Folder_Tests_Acceptance_CrawlWrapper_StartKey'
+              inputs:
+                VariableName: 'Red-Folder_Tests_Acceptance_CrawlWrapper_StartKey'
+                Value: '$(Red-Folder_Tests_Acceptance_CrawlWrapper_StartKey)' 
+      
+            - task: ExtractFiles@1
+              displayName: 'Extract files '
+              inputs:
+                archiveFilePatterns: '$(Pipeline.Workspace)/acceptance_test/Red-Folder.com.zip'
+                destinationFolder: '$(System.DefaultWorkingDirectory)/Red-Folder.Tests.Acceptance'
+
+            - task: VSTest@2
+              displayName: 'Run Acceptance Tests'
+              inputs:
+                testAssemblyVer2: '**\Red-Folder.Tests.Acceptance.dll'
+                searchFolder: '$(System.DefaultWorkingDirectory)/Red-Folder.Tests.Acceptance'
+                otherConsoleOptions: '/Framework:".NETCoreApp,Version=v2.0"'
+                diagnosticsEnabled: True        
