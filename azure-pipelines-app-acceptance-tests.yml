@@ -33,15 +33,6 @@ stages:
                 archiveFilePatterns: '$(Pipeline.Workspace)/acceptance_tests/Red-Folder.Tests.Acceptance.zip'
                 destinationFolder: '$(System.DefaultWorkingDirectory)/Red-Folder.Tests.Acceptance'
 
-            - task: PowerShell@2
-              inputs:
-                targetType: 'inline'
-                script: 'dir env:'
-              env:
-                Red-Folder_Tests_Acceptance_CrawlWrapper_StartKey: $(AcceptanceTest.StartKey)
-                Red-Folder_Tests_Acceptance_Host: $(AcceptanceTest.Host)
-                Red-Folder_Tests_Acceptance_Host_Synonyms: $(AcceptanceTest.Host_Synonyms)     
-
             - task: VSTest@2
               displayName: 'Run Acceptance Tests'
               inputs:
