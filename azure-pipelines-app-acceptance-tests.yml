@@ -6,14 +6,14 @@ parameters:
     type: string
 
 stages:
-- stage: Verify_${{ parameters.stageName }}
+- stage: Verify${{ parameters.stageName }}
   displayName: 'Verify ${{ parameters.stageName }}'
   variables:
     - group: 'Red-Folder-WebCrawl-${{ parameters.stageName }}'
   jobs:
     - deployment: Verify
       displayName: 'Verify ${{ parameters.stageName }}'
-      environment: $stageName
+      environment: ${{ parameters.stageName }}
       pool:
         vmImage: ${{ parameters.vmImageName }}
 

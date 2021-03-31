@@ -69,25 +69,25 @@ stages:
 
 - template: 'azure-pipelines-app-deployment.yml'
   parameters:
-    stageName: 'staging'
+    stageName: 'Staging'
     vmImageName: $(vmImageName)
     azureSubscription: $(azureSubscription)
     appName: 'RFC-Website-Staging'
 
 - template: 'azure-pipelines-app-acceptance-tests.yml'
   parameters:
-    stageName: 'staging'
+    stageName: 'Staging'
     vmImageName: $(vmImageName)
 
 - template: 'azure-pipelines-app-deployment.yml'
   parameters:
-    stageName: 'production'
+    stageName: 'Production'
     vmImageName: $(vmImageName)
     azureSubscription: $(azureSubscription)
     appName: 'RFC-Website'
   
 - template: 'azure-pipelines-app-acceptance-tests.yml'
   parameters:
-    stageName: 'production'
+    stageName: 'Production'
     vmImageName: $(vmImageName)
   
