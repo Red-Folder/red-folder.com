@@ -132,7 +132,7 @@ stages:
               displayName: 'Extract files '
               inputs:
                 archiveFilePatterns: '$(Pipeline.Workspace)/acceptance_test/Red-Folder.Tests.Acceptance.zip'
-                destinationFolder: '$(System.DefaultWorkingDirectory)/Red-Folder.Tests.Acceptance
+                destinationFolder: '$(System.DefaultWorkingDirectory)/Red-Folder.Tests.Acceptance'
 
             - task: VSTest@2
               displayName: 'Run Acceptance Tests'
