@@ -112,27 +112,20 @@ stages:
                 packageType: sdk
                 version: 2.x
 
-            - task: jessehouwing.jessehouwing-vsts-variable-tasks.vsts-variable-set.VariableSetTask@1
-              displayName: 'Set variable: Red-Folder.Tests.Acceptance.Host'
-              inputs:
-                VariableName: 'Red-Folder.Tests.Acceptance.Host'
-                Value: '$(Red-Folder.Test.Acceptance.Host)'
-            - task: jessehouwing.jessehouwing-vsts-variable-tasks.vsts-variable-set.VariableSetTask@1
-              displayName: 'Set variable: Red-Folder.Tests.Acceptance.Host_Synonyms'
-              inputs:
-                VariableName: 'Red-Folder.Tests.Acceptance.Host_Synonyms'
-                Value: '$(Red-Folder.Test.Acceptance.Host_Synonyms)'
-            - task: jessehouwing.jessehouwing-vsts-variable-tasks.vsts-variable-set.VariableSetTask@1
-              displayName: 'Set variable: Red-Folder_Tests_Acceptance_CrawlWrapper_StartKey'
-              inputs:
-                VariableName: 'Red-Folder_Tests_Acceptance_CrawlWrapper_StartKey'
-                Value: '$(Red-Folder_Tests_Acceptance_CrawlWrapper_StartKey)' 
-      
             - task: ExtractFiles@1
               displayName: 'Extract files '
               inputs:
                 archiveFilePatterns: '$(Pipeline.Workspace)/acceptance_tests/Red-Folder.Tests.Acceptance.zip'
                 destinationFolder: '$(System.DefaultWorkingDirectory)/Red-Folder.Tests.Acceptance'
+
+            - task: PowerShell@2
+              inputs:
+                targetType: 'inline'
+                script: 'dir env:'
+              env:
+                Red-Folder_Tests_Acceptance_CrawlWrapper_StartKey: $(AcceptanceTest.StartKey)
+                Red-Folder_Tests_Acceptance_Host: $(AcceptanceTest.Host)
+                Red-Folder_Tests_Acceptance_Host_Synonyms: $(AcceptanceTest.Host_Synonyms)     
 
             - task: VSTest@2
               displayName: 'Run Acceptance Tests'
@@ -140,4 +133,8 @@ stages:
                 testAssemblyVer2: '**\Red-Folder.Tests.Acceptance.dll'
                 searchFolder: '$(System.DefaultWorkingDirectory)/Red-Folder.Tests.Acceptance'
                 otherConsoleOptions: '/Framework:".NETCoreApp,Version=v2.0"'
-                diagnosticsEnabled: True        
+                diagnosticsEnabled: True
+              env:
+                Red-Folder_Tests_Acceptance_CrawlWrapper_StartKey: $(AcceptanceTest.StartKey)
+                Red-Folder_Tests_Acceptance_Host: $(AcceptanceTest.Host)
+                Red-Folder_Tests_Acceptance_Host_Synonyms: $(AcceptanceTest.Host_Synonyms)     
