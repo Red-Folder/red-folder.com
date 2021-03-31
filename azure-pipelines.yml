@@ -67,76 +67,14 @@ stages:
           displayName: 'Publish Acceptance Tests'
           artifact: acceptance_tests
 
-- stage: DeployToStaging
-  displayName: 'Deploy To Staging'
-  dependsOn: Build
-  condition: succeeded()
-  jobs:
-    - deployment: Deploy
-      displayName: 'Deploy To Staging'
-      environment: 'staging'
-      pool:
-        vmImage: $(vmImageName)
+- template: 'azure-pipelines-app-deployment.yml'
+  parameters:
+    stageName: 'staging'
+    vmImageName: $(vmImageName)
+    azureSubscription: $(azureSubscription)
+    appName: 'RFC-Website-Staging'
 
-      strategy:
-        runOnce:
-          deploy:
-            steps:
-            - task: AzureRmWebAppDeployment@3
-              displayName: 'Deploy to Staging'
-              inputs:
-                azureSubscription: '$(azureSubscription)'
-                appType: app
-                WebAppName: 'RFC-Website-Staging'
-                Package: '$(Pipeline.Workspace)/website/Red-Folder.com.zip'
-                TakeAppOfflineFlag: true
-
-- stage: VerifyStaging
-  displayName: 'Verify Staging'
-  dependsOn: DeployToStaging
-  condition: succeeded()
-  jobs:
-    - deployment: Verify
-      displayName: 'VerifyStaging'
-      environment: 'staging'
-      variables:
-      - group: 'Red-Folder-WebCrawl-$(Environment.Name)'
-      pool:
-        vmImage: $(vmImageName)
-
-      strategy:
-        runOnce:
-          deploy:
-            steps:
-            - task: UseDotNet@2
-              displayName: 'Use .NET Core sdk'
-              inputs:
-                packageType: sdk
-                version: 2.x
-
-            - task: ExtractFiles@1
-              displayName: 'Extract files '
-              inputs:
-                archiveFilePatterns: '$(Pipeline.Workspace)/acceptance_tests/Red-Folder.Tests.Acceptance.zip'
-                destinationFolder: '$(System.DefaultWorkingDirectory)/Red-Folder.Tests.Acceptance'
-
-            - task: PowerShell@2
-              inputs:
-                targetType: 'inline'
-                script: 'dir env:'
-              env:
-                Red-Folder_Tests_Acceptance_CrawlWrapper_StartKey: $(AcceptanceTest.StartKey)
-                Red-Folder_Tests_Acceptance_Host: $(AcceptanceTest.Host)
-                Red-Folder_Tests_Acceptance_Host_Synonyms: $(AcceptanceTest.Host_Synonyms)     
-
-            - task: VSTest@2
-              displayName: 'Run Acceptance Tests'
-              inputs:
-                testAssemblyVer2: '**\Red-Folder.Tests.Acceptance.dll'
-                searchFolder: '$(System.DefaultWorkingDirectory)/Red-Folder.Tests.Acceptance'
-                otherConsoleOptions: '/Framework:".NETCoreApp,Version=v2.0"'
-                diagnosticsEnabled: True
-              env:
-                Red-Folder_Tests_Acceptance_CrawlWrapper_StartKey: $(AcceptanceTest.StartKey)
-                Red-Folder_Tests_Acceptance_Host: $(AcceptanceTest.Host)
-                Red-Folder_Tests_Acceptance_Host_Synonyms: $(AcceptanceTest.Host_Synonyms)     
+- template: 'azure-pipelines-app-deployment.yml'
+  parameters:
+    stageName: 'staging'
+    vmImageName: $(vmImageName)

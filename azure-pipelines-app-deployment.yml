@@ -1,0 +1,35 @@
+parameters:
+- name: stageName
+  type: string
+  
+- name: vmImageName
+  type: string
+
+- name: azureSubscription
+  type: string
+
+- name: appName
+  type: string
+
+stages:
+- stage: Deploy
+  displayName: 'Deploy To ${{ parameters.stageName }}'
+  jobs:
+    - deployment: Deploy
+      displayName: 'Deploy To ${{ parameters.stageName }}'
+      environment: ${{ parameters.stageName }}
+      pool:
+        vmImage: ${{ parameters.vmImageName }}
+
+      strategy:
+        runOnce:
+          deploy:
+            steps:
+            - task: AzureRmWebAppDeployment@3
+              displayName: 'Deploy to ${{ parameters.stageName }}'
+              inputs:
+                azureSubscription: ${{ parameters.azureSubscription }}
+                appType: app
+                WebAppName: ${{ parameters.appName }}
+                Package: '$(Pipeline.Workspace)/website/Red-Folder.com.zip'
+                TakeAppOfflineFlag: true
