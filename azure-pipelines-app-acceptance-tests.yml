@@ -6,7 +6,7 @@ parameters:
     type: string
 
 stages:
-- stage: Verify
+- stage: Verify-${{ parameters.stageName }}
   displayName: 'Verify ${{ parameters.stageName }}'
   variables:
     - group: 'Red-Folder-WebCrawl-${{ parameters.stageName }}'

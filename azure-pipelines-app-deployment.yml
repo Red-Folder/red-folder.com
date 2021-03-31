@@ -12,7 +12,7 @@ parameters:
   type: string
 
 stages:
-- stage: Deploy
+- stage: Deploy-${{ parameters.stageName }}
   displayName: 'Deploy To ${{ parameters.stageName }}'
   jobs:
     - deployment: Deploy
