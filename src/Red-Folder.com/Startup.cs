@@ -47,7 +47,7 @@ namespace RedFolder
 
             services.AddMvc()
                     .AddXmlSerializerFormatters()
-                    .SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+                    .SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
             services.AddLogging();
 
