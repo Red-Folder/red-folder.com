@@ -145,14 +145,14 @@
         }
 
         .event-section .event-image {
-            grid-area "event-image";
+            grid-area: event-image;
             padding-left: 15px;
             padding-right: 15px;
             padding-top: 25px;
         }
 
         .event-section .event-content {
-            grid-area "event-content";
+            grid-area: event-content;
             font-size: 20px;
         }
 
@@ -164,7 +164,7 @@
 
     </style>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"></script>
-    <script type="text/javascript" src="https://d3js.org/d3.v3.min.js" /></script>
+    <script type="text/javascript" src="https://d3js.org/d3.v3.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-cloud/1.2.5/d3.layout.cloud.min.js"></script>
     <script src="~/lib//chartjs-plugin-labels//build/chartjs-plugin-labels.min.js"></script>
 </head>
@@ -182,42 +182,42 @@
 
     @if (Model.PodCasts != null && Model.PodCasts.Display)
     {
-        Html.RenderPartial("_PodcastSummaryActivity", Model.PodCasts);
+        <partial name="_PodcastSummaryActivity" model=Model.PodCasts />
     }
 
     @if (Model.Skills != null && Model.Skills.Display)
     {
-        Html.RenderPartial("_SkillsActivity", Model.Skills);
+        <partial name="_SkillsActivity" model=Model.Skills />
     }
 
     @if (Model.Pluralsight != null && Model.Pluralsight.Display)
     {
-        Html.RenderPartial("_PluralsightActivity", Model.Pluralsight);
+        <partial name="_PluralsightActivity" model=Model.Pluralsight />
     }
 
     @if (Model.Focus != null && Model.Focus.Display)
     {
-        Html.RenderPartial("_FocusActivity", Model.Focus);
+        <partial name="_FocusActivity" model=Model.Focus />
     }
 
     @if (Model.Clients != null && Model.Clients.Display)
     {
-        Html.RenderPartial("_ClientsActivity", Model.Clients);
+        <partial name="_ClientsActivity" model=Model.Clients />
     }
 
     @if (Model.Blogs != null && Model.Blogs.Display)
     {
-        Html.RenderPartial("_BlogActivity", Model.Blogs);
+        <partial name="_BlogActivity" model=Model.Blogs />
     }
 
     @if (Model.Events != null && Model.Events.Display)
     {
-        Html.RenderPartial("_EventActivity", Model.Events);
+        <partial name="_EventActivity" model=Model.Events />
     }
 
     @if (Model.Books != null && Model.Books.Display)
     {
-        Html.RenderPartial("_BookActivity", Model.Books);
+        <partial name="_BookActivity" model=Model.Books />
     }
 
     <div id="footer">

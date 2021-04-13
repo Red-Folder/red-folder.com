@@ -10,7 +10,7 @@
            on-last-page="pageConfig.lastPage()">
 </rfc-pager>
 
-@Html.Partial("_BlogTiles", Model)
+<partial name="_BlogTiles" model=Model />
 
 <rfc-pager page-no="@Model.PageNo"
            pages="@Model.Pages"

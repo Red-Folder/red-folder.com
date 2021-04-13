@@ -4,11 +4,6 @@
         padding-bottom: 0;
     }
 
-        .navigation-clean .navbar-header {
-            padding-top: 10px;
-            padding-bottom: 10px;
-        }
-
         .navigation-clean .navbar-nav .open .dropdown-menu {
             box-shadow: none;
         }
@@ -174,3 +169,7 @@
             .navigation-clean.navbar-inverse .navbar-nav .dropdown-menu > li > a:hover {
                 background: #363739;
             }
+
+#fake-header {
+    height: 80px;
+}

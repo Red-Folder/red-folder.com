@@ -1,0 +1,25 @@
+﻿@using Microsoft.AspNetCore.Http.Features
+
+@{
+    var consentFeature = Context.Features.Get<ITrackingConsentFeature>();
+    var showBanner = !consentFeature?.CanTrack ?? false;
+    var cookieString = consentFeature?.CreateConsentCookie();
+}
+
+@if (showBanner)
+{
+    <rfc-inline-style css-file="Shared/_CookieConsentPartial.css"></rfc-inline-style>
+
+    <div id="cookie-consent-container">
+        <div id="cookie-consent-content">
+            We use cookies to ensure that we give you the best experience of our website.  <a href="/cookiepolicy">Click here</a> for more.
+            <a id="cookie-consent-acceptance" onclick="handleCookieConsent('@cookieString')">Got&nbsp;it</a>
+        </div>
+    </div>
+    <script>
+        function handleCookieConsent(cookieString) {
+            document.cookie = cookieString;
+            document.getElementById("cookie-consent-container").style.display = "none";
+        }
+    </script>
+}

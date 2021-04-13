@@ -1,0 +1,97 @@
+﻿@{
+    ViewData["Title"] = "Cookie Policy";
+}
+<rfc-inline-style css-file="Home/CookiePolicy.css"></rfc-inline-style>
+
+<div class="hero-banner">
+    <h1>@ViewData["Title"]</h1>
+</div>
+
+<div class="cookie-policy">
+    <div class="cookie-policy-content">
+        <p>
+            Please read this cookie policy (“cookie policy”, "policy") carefully before using the Red Folder website
+            (“website”, "service") operated by Red Folder Consultancy Ltd ("us", 'we", "our").
+        </p>
+    </div>
+
+    <h2>What are cookies?</h2>
+    <div class="cookie-policy-content">
+        <p>
+            Cookies are simple text files that are stored on your computer or mobile device by a website’s
+            server. Each cookie is unique to your web browser. It will contain some anonymous information
+            such as a unique identifier, website’s domain name, and some digits and numbers.
+        </p>
+    </div>
+
+    <h2>What types of cookies do we use?</h2>
+
+    <h3>Google Analytical cookies</h3>
+    <div class="cookie-policy-content">
+        <p>
+            These cookies enable us and third-party services to collect aggregated data for statistical
+            purposes on how our visitors use the website. These cookies do not contain personal
+            information such as names and email addresses and are used to help us improve your user
+            experience of the website.
+        </p>
+    </div>
+
+    <h3>Google Tag Manager cookies</h3>
+    <div class="cookie-policy-content">
+        <p>
+            These cookies enable us and third-party services to provide focused functionality.
+        </p>
+    </div>
+
+    <h3>Google Ad cookies</h3>
+    <div class="cookie-policy-content">
+        <p>
+            These cookies enable us and third-party services to evaluate the use of Google Ad marketing spend.
+        </p>
+    </div>
+
+    <h3>Cloudflare cookies</h3>
+    <div class="cookie-policy-content">
+        <p>
+            These cookies allow <a href="https://www.cloudflare.com">cloudflare.com</a> to efficently manage traffic and availability if the wesbite.
+        </p>
+    </div>
+
+    <h3>ASP.Net cookies</h3>
+    <div class="cookie-policy-content">
+        <p>
+            These cookies allow the website to provide functionality.  For example, a cookie will be stored when you consent
+            to the cookie policy - this will save you from repeatidly seeing the notifications.
+        </p>
+    </div>
+
+    <h3>YouTube cookies</h3>
+    <div class="cookie-policy-content">
+        <p>
+            These cookies are used by <a href="https://youtube.com">youtube.com</a> to operate thier services (used on the home page to provide the welcome video).
+        </p>
+    </div>
+
+    <h2>How to delete cookies?</h2>
+    <div class="cookie-policy-content">
+        <p>
+            If you want to restrict or block the cookies that are set by our website, you can do so through
+            your browser setting. Alternatively, you can visit <a href="https://www.internetcookies.org">www.internetcookies.org</a>, which contains
+            comprehensive information on how to do this on a wide variety of browsers and devices. You
+            will find general information about cookies and details on how to delete cookies from your
+            device.
+        </p>
+    </div>
+</div>
+
+<div class="contact">
+    <div class="title">
+        <h2>Contacting us</h2>
+    </div>
+    <div class="body">
+        <p>
+            If you have any questions about this policy or our use of cookies, please complete the below form:
+        </p>
+        <partial name="_ContactForm" model=@(new RedFolder.ViewModels.ContactForm()) />
+    </div>
+</div>

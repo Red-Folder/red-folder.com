@@ -12,14 +12,14 @@
     <span>Better ROI from Software Development</span>
 </div>
 
-@Html.Partial("_Welcome")
+<partial name="_Welcome" />
 
 @if (Model?.LatestPodcast != null)
 {
-    @Html.Partial("_PodcastPromotion", Model.LatestPodcast)
+    <partial name="_PodcastPromotion" model=Model.LatestPodcast />
 }
 
-@Html.Partial("_Testimonials")
+<partial name="_Testimonials" />
 
 <div class="contact">
     <div class="title">
@@ -33,6 +33,6 @@
             <strong>DevOps automation</strong>,
             or <strong>hands-on Development</strong>
         </p>
-        @Html.Partial("_ContactForm", Model.ContactForm)
+        <partial name="_ContactForm" model=Model.ContactForm />
     </div>
 </div>

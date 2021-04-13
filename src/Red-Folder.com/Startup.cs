@@ -1,20 +1,17 @@
 ﻿using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 using RedFolder.Services;
-using Newtonsoft.Json.Serialization;
 using RedFolder.Data;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using Microsoft.AspNetCore.Builder;
-using Microsoft.EntityFrameworkCore;
-using System.Threading.Tasks;
 using Microsoft.Extensions.FileProviders;
-using System.IO;
 using Microsoft.AspNetCore.Http;
 using Red_Folder.com.Services;
 using RedFolder.Models;
 using System.Net.Http;
 using RedFolder.Podcast;
+using Microsoft.AspNetCore.Mvc;
 
 namespace RedFolder
 {
@@ -38,11 +35,19 @@ namespace RedFolder
 
             services.AddApplicationInsightsTelemetry(_config);
 
+            services.Configure<CookiePolicyOptions>(options =>
+            {
+                // This lambda determines whether user consent for non-essential cookies is needed for a given request.
+                options.CheckConsentNeeded = context => true;
+                options.MinimumSameSitePolicy = SameSiteMode.None;
+            });
+
             services.AddSingleton(_config);
             services.AddDbContext<RepoContext>();
 
             services.AddMvc()
-                    .AddXmlSerializerFormatters();
+                    .AddXmlSerializerFormatters()
+                    .SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
             services.AddLogging();
 
@@ -84,8 +89,6 @@ namespace RedFolder
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
         {
-            app.UseStaticFiles();
-
             if (env.IsDevelopment())
             {
                 app.UseStaticFiles(new StaticFileOptions()
@@ -96,7 +99,6 @@ namespace RedFolder
 
                 app.UseDeveloperExceptionPage();
                 app.UseDatabaseErrorPage();
-                app.UseBrowserLink();
                 loggerFactory.AddConsole(_config.GetSection("Logging"));
                 loggerFactory.AddDebug();
             }
@@ -110,26 +112,12 @@ namespace RedFolder
 
                 app.UseExceptionHandler("/Errors/Status/500");
                 app.UseStatusCodePagesWithReExecute("/Errors/Status/{0}");
+                app.UseHsts();
             }
 
-            // Add CSP
-            //app.Use(async (context, next) =>
-            //{
-            //    var key = "Content-Security-Policy-Report-Only";
-
-            //    // Don't add if already exists - otherwise you'll get 500's
-            //    if (!context.Response.Headers.ContainsKey(key))
-            //    {
-            //        context.Response.Headers.Add(
-            //            key,
-            //            "default-src 'none'; " +
-            //            "form-action 'none'; " +
-            //            "frame-ancestors 'none'; " +
-            //            "report-uri https://redfolder.report-uri.com/r/d/csp/wizard");
-            //    }
-
-            //    await next();
-            //});
+            app.UseHttpsRedirection();
+            app.UseStaticFiles();
+            app.UseCookiePolicy();
 
             app.UseMvc(config =>
             {
@@ -176,25 +164,17 @@ namespace RedFolder
                 );
 
                 config.MapRoute(
+                    name: "CookiePolicy",
+                    template: "cookiepolicy",
+                    defaults: new { controller = "Home", action = "CookiePolicy" }
+                );
+
+                config.MapRoute(
                     name: "Default",
                     template: "{controller}/{action}/{id?}",
                     defaults: new { controller = "Home", action = "Index" }
                 );
-
-                //config.MapRoute(
-                //    name: "CatchAll",
-                //    template: "{url}",
-                //    defaults: new { controller = "Error", action = "NotFound" }
-                //);
-
             });
-
-            //app.Run(context =>
-            //{
-            //    context.Response.StatusCode = 404;
-            //    return Task.FromResult(0);
-            //});
-
         }
     }
 }

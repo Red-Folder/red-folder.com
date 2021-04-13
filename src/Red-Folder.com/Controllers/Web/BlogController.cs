@@ -12,7 +12,12 @@ namespace RedFolder.Controllers.Web
 {
     public class BlogController : Controller
     {
-        private TelemetryClient telemetry = new TelemetryClient();
+        private readonly TelemetryClient _telemetry;
+
+        public BlogController(TelemetryClient telemetry)
+        {
+            _telemetry = telemetry;
+        }
 
         // GET: /<controller>/
         public IActionResult Index([FromServices] IBlogRepository repository, 
@@ -47,17 +52,17 @@ namespace RedFolder.Controllers.Web
             }
             catch (BlogNotFoundException ex)
             {
-                telemetry.TrackException(ex);
+                _telemetry.TrackException(ex);
                 return new RedirectResult("/errors/status/404");
             }
             catch (BlogNotEnabledException ex)
             {
-                telemetry.TrackException(ex);
+                _telemetry.TrackException(ex);
                 return new RedirectResult("/errors/status/404");
             }
             catch (Exception ex)
             {
-                telemetry.TrackException(ex);
+                _telemetry.TrackException(ex);
                 return new RedirectResult("/errors/status/500");
             }
         }

@@ -10,9 +10,9 @@
     <h1>Blog</h1>
 </div>
 
-@Html.Partial("_BlogFilter", Model)
+<partial name="_BlogFilter" model=Model />
 
-@Html.Partial("_PagedBlogGrid", Model)
+<partial name="_PagedBlogGrid" model=Model />
 
 @section Scripts
                         {

@@ -32,7 +32,7 @@ namespace RedFolder.Blog.Markdown.Tests.Unit
             Assert.Equal(new DateTime(2016, 10, 17), result.Published);
             Assert.Equal(new DateTime(2016, 10, 17), result.Modified);
             Assert.Equal("RFC Weekly - 17th October 2016", result.Title);
-            Assert.Equal(true, result.Enabled);
+            Assert.True(result.Enabled);
 
             //Assert.Contains(markdown, result.Text);
         }
@@ -63,7 +63,7 @@ namespace RedFolder.Blog.Markdown.Tests.Unit
             Assert.Equal(new DateTime(2016, 10, 17), result.Published);
             Assert.Equal(new DateTime(2016, 10, 17), result.Modified);
             Assert.Equal("RFC Weekly - 17th October 2016", result.Title);
-            Assert.Equal(true, result.Enabled);
+            Assert.True(result.Enabled);
 
             //Assert.Contains("ABCDEF", result.Text);
         }

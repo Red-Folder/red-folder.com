@@ -1,0 +1,74 @@
+﻿.hero-banner {
+    background-size: cover;
+    padding: 50px 20px;
+    background-image: url(/images/moods/MoodMeeting.jpg);
+}
+
+    .hero-banner h1 {
+        color: white;
+        display: inline-block;
+        background: var(--main-colour);
+        padding: 5px 10px 5px 10px;
+    }
+
+.cookie-policy {
+    text-align: center;
+}
+
+    .cookie-policy h2 {
+        color: var(--accent2-colour);
+        background-color: var(--main-colour);
+        width: 100%;
+        line-height: 100%;
+        padding-top: 15px;
+        padding-bottom: 15px;
+    }
+
+    .cookie-policy .cookie-policy-content {
+        margin: auto;
+        max-width: 500px;
+        padding: 15px;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-column-gap: 30px;
+    }
+
+        .cookie-policy .cookie-policy-content a {
+            color: var(--main-colour);
+            text-decoration: none;
+        }
+
+        .cookie-policy .cookie-policy-content a:hover {
+            color: var(--main-colour);
+        }
+
+        .cookie-policy .cookie-policy-content a:visited {
+            color: var(--main-colour);
+        }
+
+.contact .title {
+    text-align: center;
+    color: var(--accent2-colour);
+    background-color: var(--main-colour);
+    width: 100%;
+    line-height: 100%;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+    .contact .title h2 {
+        margin-top: 0px;
+    }
+
+    .contact .title p {
+        margin-bottom: 0px;
+    }
+
+.contact .body {
+    padding: 15px;
+    text-align: center;
+}
+
+    .contact .body button {
+        font-size: x-large;
+    }

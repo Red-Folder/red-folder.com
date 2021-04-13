@@ -18,11 +18,11 @@
     </div>
 </div>
 
-@Html.Partial("_LatestPodcast", Model.First())
+<partial name="_LatestPodcast" model=Model.First() />
 
-@Html.Partial("_PodcastRoadmap")
+<partial name="_PodcastRoadmap" />
 
-@Html.Partial("_PodcastEpisodes", Model.Skip(1).ToList())
+<partial name="_PodcastEpisodes" model=Model.Skip(1).ToList() />
 
 @section metas
     {

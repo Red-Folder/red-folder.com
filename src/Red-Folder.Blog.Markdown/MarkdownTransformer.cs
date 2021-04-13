@@ -77,7 +77,7 @@ namespace RedFolder.Blog.Markdown
                     Series = (string)meta["series"]
                 };
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 // TODO - Need to add some logging
                 return null;

@@ -61,6 +61,12 @@ namespace RedFolder.Controllers.Web
             return View(new ContactForm());
         }
 
+        [HttpGet]
+        public IActionResult CookiePolicy()
+        {
+            return View();
+        }
+
         [HttpPost]
         [ValidateAntiForgeryToken()]
         public async Task<ActionResult> Contact(ContactForm contactForm)
