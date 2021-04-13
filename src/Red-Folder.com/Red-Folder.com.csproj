@@ -8,7 +8,6 @@
     <OutputType>Exe</OutputType>
     <PackageId>Red-Folder.com</PackageId>
     <AssetTargetFallback>$(AssetTargetFallback);dotnet5.6;dnxcore50;portable-net45+win8</AssetTargetFallback>
-    <AspNetCoreHostingModel>InProcess</AspNetCoreHostingModel>
   </PropertyGroup>
   
   <ItemGroup>
