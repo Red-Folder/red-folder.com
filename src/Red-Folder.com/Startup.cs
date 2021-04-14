@@ -92,7 +92,7 @@ namespace RedFolder
             var mediaRoot = _configuration["MediaRoot"];
             app.UseStaticFiles(new StaticFileOptions()
             {
-                FileProvider = new PhysicalFileProvider(@"C:\inetpub\mediaroot"),
+                FileProvider = new PhysicalFileProvider(mediaRoot),
                 RequestPath = new PathString("/media")
             });
 
