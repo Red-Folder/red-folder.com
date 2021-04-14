@@ -18,22 +18,22 @@ namespace RedFolder
     public class Startup
     {
 
-        private IConfiguration _config;
-        private IHostingEnvironment _env;
+        private readonly IConfiguration _configuration;
+        private readonly IHostingEnvironment _hostingEnvironment;
 
-        public Startup(IConfiguration configuration, IHostingEnvironment env)
+        public Startup(IConfiguration configuration, IHostingEnvironment hostingEnvironment)
         {
-            _config = configuration;
-            _env = env;
+            _configuration = configuration;
+            _hostingEnvironment = hostingEnvironment;
         }
 
         // This method gets called by the runtime. Use this method to add services to the container.
         // For more information on how to configure your application, visit http://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddSingleton<IHostingEnvironment>(_env);
+            services.AddSingleton(_hostingEnvironment);
 
-            services.AddApplicationInsightsTelemetry(_config);
+            services.AddApplicationInsightsTelemetry(_configuration);
 
             services.Configure<CookiePolicyOptions>(options =>
             {
@@ -42,26 +42,26 @@ namespace RedFolder
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
-            services.AddSingleton(_config);
+            services.AddSingleton(_configuration);
             services.AddDbContext<RepoContext>();
 
             services.AddMvc()
                     .AddXmlSerializerFormatters()
-                    .SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+                    .SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
             services.AddLogging();
 
             services.AddScoped<IRepoRepository, RepoRepository>();
             services.AddScoped<IArticleRepository, ArticleRepository>();
 
-            var blogRepo = new BlogRepository(_config["BlogUrl"]);
+            var blogRepo = new BlogRepository(_configuration["BlogUrl"]);
             services.AddSingleton<IBlogRepository>(blogRepo);
             services.AddSingleton<IRedirectRepository>(new RedirectRepository(new System.Collections.Generic.List<IRedirectRepository> { blogRepo }));
 
-            var activityRepo = new ActivityRepository(_config["ActivityUrl"], _config["ActivityCode"]);
+            var activityRepo = new ActivityRepository(_configuration["ActivityUrl"], _configuration["ActivityCode"]);
             services.AddSingleton<IActivityRepository>(activityRepo);
 
-            var siteMapRepo = new SiteMapRepository(_env);
+            var siteMapRepo = new SiteMapRepository(_hostingEnvironment);
             siteMapRepo.AddRepository(blogRepo);
             services.AddSingleton<ISiteMapRepository>(siteMapRepo);
 
@@ -69,8 +69,8 @@ namespace RedFolder
 
             var sendGridConfiguration = new SendGridConfiguration
             {
-                ApiKey = _config["SendGridApiKey"],
-                From = _config["SendGridFromEmailAddress"]
+                ApiKey = _configuration["SendGridApiKey"],
+                From = _configuration["SendGridFromEmailAddress"]
             };
             services.AddSingleton(sendGridConfiguration);
             services.AddTransient<IEmail, SendGridEmail>();
@@ -80,7 +80,7 @@ namespace RedFolder
 
             var reCaptchaConfiguration = new ReCaptchaConfiguration
             {
-                SecretKey = _config["ReCaptchaSecretKey"]
+                SecretKey = _configuration["ReCaptchaSecretKey"]
             };
             services.AddSingleton(reCaptchaConfiguration);
             services.AddTransient<ITokenVerification, ReCaptchaTokenVerification>();
@@ -89,27 +89,20 @@ namespace RedFolder
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
         {
+            var mediaRoot = _configuration["MediaRoot"];
+            app.UseStaticFiles(new StaticFileOptions()
+            {
+                FileProvider = new PhysicalFileProvider(@"C:\inetpub\mediaroot"),
+                RequestPath = new PathString("/media")
+            });
+
             if (env.IsDevelopment())
             {
-                app.UseStaticFiles(new StaticFileOptions()
-                {
-                    FileProvider = new PhysicalFileProvider(@"C:\inetpub\mediaroot"),
-                    RequestPath = new PathString("/media")
-                });
-
                 app.UseDeveloperExceptionPage();
                 app.UseDatabaseErrorPage();
-                loggerFactory.AddConsole(_config.GetSection("Logging"));
-                loggerFactory.AddDebug();
             }
             else
             {
-                app.UseStaticFiles(new StaticFileOptions()
-                {
-                    FileProvider = new PhysicalFileProvider(@"D:\home\site\mediaroot"),
-                    RequestPath = new PathString("/media")
-                });
-
                 app.UseExceptionHandler("/Errors/Status/500");
                 app.UseStatusCodePagesWithReExecute("/Errors/Status/{0}");
                 app.UseHsts();

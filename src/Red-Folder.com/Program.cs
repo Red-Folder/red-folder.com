@@ -12,7 +12,7 @@ namespace RedFolder
 
         public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
             WebHost
-                .CreateDefaultBuilder()
+                .CreateDefaultBuilder(args)
                 .UseStartup<Startup>();
     }
 }
