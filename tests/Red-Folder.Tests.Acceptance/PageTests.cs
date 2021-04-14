@@ -81,7 +81,7 @@ namespace Red_Folder.Tests.Acceptance
             Assert.Equal(HttpStatusCode.MovedPermanently, client.LastHttpStatusCode);
             Assert.Equal("/projects", 
                          client.LastHttpResponseHeaders.Where(x => x.Key.ToLower() == "location").FirstOrDefault().Value.FirstOrDefault(),
-                         ignoreCase: false);
+                         ignoreCase: true);
         }
 
         [Fact]
