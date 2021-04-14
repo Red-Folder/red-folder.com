@@ -5,9 +5,9 @@ namespace RedFolder.Data
 {
     public class RepoContext: DbContext
     {
-        private IConfigurationRoot _config;
+        private IConfiguration _config;
 
-        public RepoContext(IConfigurationRoot config, DbContextOptions options): base(options)
+        public RepoContext(IConfiguration config, DbContextOptions options): base(options)
         {
             _config = config;
             Database.Migrate();

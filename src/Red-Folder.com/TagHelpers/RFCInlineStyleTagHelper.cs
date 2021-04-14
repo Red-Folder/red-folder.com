@@ -10,7 +10,7 @@ namespace RedFolder.TagHelpers
     {
         private readonly string _wwwRootPath;
 
-        public RFCInlineStyleTagHelper(IHostingEnvironment environment)
+        public RFCInlineStyleTagHelper(IWebHostEnvironment environment)
         {
             _wwwRootPath = environment.WebRootPath;
         }

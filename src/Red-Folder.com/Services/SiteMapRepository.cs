@@ -1,9 +1,8 @@
 ﻿using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.Hosting;
 using RedFolder.ViewModels;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace RedFolder.Services
 {
@@ -12,7 +11,7 @@ namespace RedFolder.Services
         private List<ISiteMapUrlRepository> _innerRepositories = new List<ISiteMapUrlRepository>();
         private string _baseUrl;
 
-        public SiteMapRepository(IHostingEnvironment _env)
+        public SiteMapRepository(IWebHostEnvironment _env)
         {
             _baseUrl = "http://localhost:58352";
 

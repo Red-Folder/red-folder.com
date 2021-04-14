@@ -1,10 +1,4 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using RedFolder.ViewModels;
 using RedFolder.Services;
 
 namespace RedFolder.Controllers.Api
@@ -13,10 +7,10 @@ namespace RedFolder.Controllers.Api
     [Route("sitemap.xml")]
     public class SiteMapController : Controller
     {
-        public SiteMap Get([FromServices]ISiteMapRepository repo)
+        [HttpGet]
+        public IActionResult Get([FromServices]ISiteMapRepository repo)
         {
-            return repo.GetSiteMap();
+            return Ok(repo.GetSiteMap());
         }
-
     }
 }

@@ -3,7 +3,6 @@ using Microsoft.Extensions.DependencyInjection;
 using RedFolder.Services;
 using RedFolder.Data;
 using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.Logging;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.FileProviders;
 using Microsoft.AspNetCore.Http;
@@ -11,7 +10,7 @@ using Red_Folder.com.Services;
 using RedFolder.Models;
 using System.Net.Http;
 using RedFolder.Podcast;
-using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Hosting;
 
 namespace RedFolder
 {
@@ -19,9 +18,9 @@ namespace RedFolder
     {
 
         private readonly IConfiguration _configuration;
-        private readonly IHostingEnvironment _hostingEnvironment;
+        private readonly IWebHostEnvironment _hostingEnvironment;
 
-        public Startup(IConfiguration configuration, IHostingEnvironment hostingEnvironment)
+        public Startup(IConfiguration configuration, IWebHostEnvironment hostingEnvironment)
         {
             _configuration = configuration;
             _hostingEnvironment = hostingEnvironment;
@@ -31,6 +30,7 @@ namespace RedFolder
         // For more information on how to configure your application, visit http://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddSingleton(_configuration);
             services.AddSingleton(_hostingEnvironment);
 
             services.AddApplicationInsightsTelemetry(_configuration);
@@ -42,12 +42,11 @@ namespace RedFolder
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
-            services.AddSingleton(_configuration);
             services.AddDbContext<RepoContext>();
 
-            services.AddMvc()
-                    .AddXmlSerializerFormatters()
-                    .SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+            services.AddControllersWithViews()
+                    .AddRazorRuntimeCompilation()
+                    .AddXmlSerializerFormatters();
 
             services.AddLogging();
 
@@ -87,7 +86,7 @@ namespace RedFolder
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             var mediaRoot = _configuration["MediaRoot"];
             app.UseStaticFiles(new StaticFileOptions()
@@ -112,59 +111,63 @@ namespace RedFolder
             app.UseStaticFiles();
             app.UseCookiePolicy();
 
-            app.UseMvc(config =>
+            app.UseRouting();
+
+            app.UseEndpoints(endpoints =>
             {
-                config.MapRoute(
+                endpoints.MapControllers();
+
+                endpoints.MapControllerRoute(
                     name: "Podcasts Roadmap",
-                    template: "Podcasts/Roadmap",
+                    pattern: "Podcasts/Roadmap",
                     defaults: new { controller = "Podcasts", action = "Roadmap" }
                 );
 
-                config.MapRoute(
+                endpoints.MapControllerRoute(
                     name: "Podcasts",
-                    template: "Podcasts/{id}",
+                    pattern: "Podcasts/{id}",
                     defaults: new { controller = "Podcasts", action = "Index" }
                 );
 
-                config.MapRoute(
+                endpoints.MapControllerRoute(
                     name: "Blog",
-                    template: "Blog/{url}",
+                    pattern: "Blog/{url}",
                     defaults: new { controller = "Blog", action = "Index" }
                 );
 
-                config.MapRoute(
+                endpoints.MapControllerRoute(
                     name: "Projects - Cordova",
-                    template: "Projects/Cordova/{action}",
+                    pattern: "Projects/Cordova/{action}",
                     defaults: new { controller = "Cordova", action = "Index" }
                 );
 
-                config.MapRoute(
+                endpoints.MapControllerRoute(
                     name: "Projects - Microservices",
-                    template: "Projects/Microservices/{action}",
+                    pattern: "Projects/Microservices/{action}",
                     defaults: new { controller = "Microservice", action = "Index" }
                 );
 
-                config.MapRoute(
+                endpoints.MapControllerRoute(
                     name: "Redirect",
-                    template: "redirect",
+                    pattern: "redirect",
                     defaults: new { controller = "Home", action = "Redirect" }
                 );
 
-                config.MapRoute(
+                endpoints.MapControllerRoute(
                     name: "Newsletter Archive",
-                    template: "NewsletterArchive",
+                    pattern: "NewsletterArchive",
                     defaults: new { controller = "Blog", action = "Index", filterBy = "Newsletter" }
                 );
 
-                config.MapRoute(
+                endpoints.MapControllerRoute(
                     name: "CookiePolicy",
-                    template: "cookiepolicy",
+                    pattern: "cookiepolicy",
                     defaults: new { controller = "Home", action = "CookiePolicy" }
                 );
 
-                config.MapRoute(
+                endpoints.MapControllerRoute(
                     name: "Default",
-                    template: "{controller}/{action}/{id?}",
+                    pattern: "{controller}/{action}/{id?}",
                     defaults: new { controller = "Home", action = "Index" }
                 );
             });
