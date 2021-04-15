@@ -42,6 +42,7 @@ namespace RedFolder
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
+            services.AddDatabaseDeveloperPageExceptionFilter();
             services.AddDbContext<RepoContext>();
 
             services.AddControllersWithViews()
@@ -98,7 +99,7 @@ namespace RedFolder
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
-                app.UseDatabaseErrorPage();
+                app.UseMigrationsEndPoint();
             }
             else
             {
