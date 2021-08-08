@@ -1,0 +1,16 @@
+﻿@model RedFolder.Podcast.Models.PodcastMetrics
+
+<div class="podcast-metrics">
+    <div>
+        <h3 class="title">Number of episodes</h3>
+        <p class="metric">
+            @Model.NumberOfEpisodes
+        </p>
+    </div>
+    <div>
+        <h3 class="title">Total duration</h3>
+        <p class="metric">
+            @Model.TotalDuration.Hours Hours, @Model.TotalDuration.Minutes Minutes
+        </p>
+    </div>
+</div>

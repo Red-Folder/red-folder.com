@@ -26,7 +26,7 @@ namespace RedFolder.Controllers.Web
         {
             var model = new HomePage();
             model.ContactForm = new ContactForm();
-            model.LatestPodcast = await _podcastRespository.LatestPodcast();
+            model.PodcastPromotion = await _podcastRespository.PodcastPromotion();
             return View(model);
         }
 

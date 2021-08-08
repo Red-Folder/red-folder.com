@@ -99,20 +99,33 @@ namespace RedFolder.Podcast
             }
         }
 
-        public async Task<int> NumberOfPodcasts()
+        public async Task<Models.PodcastPromotion> PodcastPromotion()
+        {
+            return new Models.PodcastPromotion
+            {
+                LatestPodcast = await LatestPodcast(includeShowNotes: false),
+                Metrics = new Models.PodcastMetrics
+                {
+                    NumberOfEpisodes = await NumberOfEpisodes(),
+                    TotalDuration = await TotalPodcastDuration()
+                }
+            };
+        }
+
+        private async Task<int> NumberOfEpisodes()
         {
             var feed = await GetOrLoadPodcasts();
             if (feed == null) return 0;
 
-            return feed.Count;
+            return feed.Count(x => x.FullEpisode);
         }
 
-        public async Task<System.TimeSpan> TotalPodcastLength()
+        private async Task<TimeSpan> TotalPodcastDuration()
         {
             var feed = await GetOrLoadPodcasts();
             if (feed == null) return TimeSpan.MinValue;
 
-            var totalSeconds = feed.Sum(x => x.Duration);
+            var totalSeconds = feed.Where(x => x.FullEpisode).Sum(x => x.Duration);
             return TimeSpan.FromSeconds(totalSeconds);
         }
 

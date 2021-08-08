@@ -1,4 +1,4 @@
-﻿@model RedFolder.Podcast.Models.Podcast
+﻿@model RedFolder.Podcast.Models.PodcastPromotion
 
 <rfc-inline-style css-file="Shared/_PodcastPromotions.css"></rfc-inline-style>
 
@@ -10,5 +10,7 @@
         <p>Podcast</p>
     </div>
 
-    <partial name="_LatestPodcastBody" model=Model />
+    <partial name="_LatestPodcastBody" model=Model.LatestPodcast />
+
+    <partial name="_PodcastMetrics.cshtml" model=Model.Metrics />
 </div>

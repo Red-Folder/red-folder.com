@@ -18,6 +18,8 @@ namespace RedFolder.Podcast.Models
 
         public string ShowNotes { get; set; }
 
+        public bool FullEpisode => !Title.StartsWith("Episode 0 - Why I'm doing this podcast");
+
         public string SafeUrl => Utils.SafeUrl.MakeSafe(Title);
 
         public static implicit operator Podcast(FeedItem item)

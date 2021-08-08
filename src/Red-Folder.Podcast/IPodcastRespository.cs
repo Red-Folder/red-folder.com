@@ -10,9 +10,8 @@ namespace RedFolder.Podcast
         Task<Models.Podcast> GetPodcast(string id, bool includeShowNotes = false);
         Task<Models.Podcast> GetPodcast(int episodeNumber, bool includeShowNotes = false);
         Task<Models.Podcast> LatestPodcast(bool includeShowNotes = false);
-        Task<int> NumberOfPodcasts();
-        Task<TimeSpan> TotalPodcastLength();
-        
+        Task<Models.PodcastPromotion> PodcastPromotion();
+
         void Clear();
     }
 }
