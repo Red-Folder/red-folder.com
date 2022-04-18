@@ -15,7 +15,7 @@ namespace RedFolder.Controllers.Web
             {
                 new Employment(
                         "Sep 2016",
-                        "Present",
+                        "Apr 2022",
                         "Technical Consultant (Contract), Betfred",
                         "Providing technical implementation and troubleshooting services across all IT disciplines – architecture, software development, infrastructure, networking and third party engagement.",
                         new List<string>()
