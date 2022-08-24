@@ -33,7 +33,23 @@ namespace RedFolder.Podcast.Models
 
             var elements = item.SpecificItem.Element.Descendants().ToList();
             var episodeNumber = Int32.Parse(elements.FirstOrDefault(y => y.Name.LocalName == "episode")?.Value ?? "-1");
-            var duration = Int32.Parse(elements.FirstOrDefault(y => y.Name.LocalName == "duration").Value);
+
+            int duration = 0;
+            try
+            {
+                var durationValue = elements.FirstOrDefault(y => y.Name.LocalName == "duration").Value;
+                if (!Int32.TryParse(durationValue, out duration))
+                {
+                    var durationParts = durationValue.Split(':');
+                    var hours = Int32.Parse(durationParts[0]);
+                    var minutes = Int32.Parse(durationParts[1]);
+                    var seconds = Int32.Parse(durationParts[2]);
+                    duration = (hours * 60 * 60) + (minutes * 60) + seconds;
+                }
+            }
+            catch (Exception)
+            {
+            }
 
             var description = item.Description
                                         ?.Split(new string[] { "-----" }, StringSplitOptions.None)
