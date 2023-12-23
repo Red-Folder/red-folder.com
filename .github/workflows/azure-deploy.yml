@@ -56,7 +56,7 @@ jobs:
         run: dotnet build --configuration Release
 
       - name: Test with the dotnet CLI
-        run: dotnet test --logger trx --results-directory "TestResults"
+        run: dotnet test tests/Red-Folder.Blog.Markdown.Tests.Unit/Red-Folder.Blog.Markdown.Tests.Unit.csproj --logger trx --results-directory "TestResults"
 
       - name: Upload dotnet test results
         uses: actions/upload-artifact@v3
