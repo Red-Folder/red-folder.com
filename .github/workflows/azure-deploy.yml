@@ -72,8 +72,8 @@ jobs:
       - name: Generate coverage report
         run: reportgenerator "-reports:**/coverage.cobertura.xml" "-targetdir:coveragereport" "-reporttypes:HtmlInline_AzurePipelines;Cobertura"
 
-      - name: Upload coverage to Codecov
-        uses: codecov/codecov-action@v1
+      - name: Upload coverage
+        uses: codecov/codecov-action@v3
         with:
           file: ./coveragereport/Cobertura.xml
           flags: unittests
