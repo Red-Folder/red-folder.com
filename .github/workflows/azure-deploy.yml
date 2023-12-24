@@ -54,10 +54,7 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-nuget-
 
-      - name: Build with dotnet
-        run: dotnet build --configuration Release
-
-      - name: Test with the dotnet CLI
+      - name: Run Tests
         run: dotnet test tests/Red-Folder.Blog.Markdown.Tests.Unit/Red-Folder.Blog.Markdown.Tests.Unit.csproj --logger trx --results-directory "test-results"
 
       - name: Publish Test Results
@@ -65,6 +62,23 @@ jobs:
         if: ${{ always() }}
         with:
           files: test-results/**/*.trx
+
+      - name: Generate Coverage
+        run: dotnet test --no-build --verbosity normal --collect:"XPlat Code Coverage"
+
+      - name: Install ReportGenerator tool
+        run: dotnet tool install -g dotnet-reportgenerator-globaltool
+
+      - name: Generate coverage report
+        run: reportgenerator "-reports:**/coverage.cobertura.xml" "-targetdir:coveragereport" "-reporttypes:HtmlInline_AzurePipelines;Cobertura"
+
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v1
+        with:
+          file: ./coveragereport/Cobertura.xml
+          flags: unittests
+          name: codecov-umbrella
+          fail_ci_if_error: true
       
 #      - name: dotnet publish
 #        run: dotnet publish -c Release -o ${{env.DOTNET_ROOT}}/myapp

@@ -13,17 +13,6 @@ namespace RedFolder.Blog.Markdown
     {
         private ITransformer _innerTransformer;
 
-        public MarkdownTransformer()
-        {
-            var core = new CoreTransformer();
-            var code = new CodeTransformer(core);
-            var acclaim = new AcclaimTransformer(code);
-            var image = new ImageTransformer(acclaim);
-            var gist = new GistTransformer(image);
-            var roiArticle = new ROIArticleTransformer(gist);
-            _innerTransformer = roiArticle;
-        }
-
         public MarkdownTransformer(ITransformer innerTransformer)
         {
             _innerTransformer = innerTransformer;

@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using RedFolder.Website.Data;
 using Newtonsoft.Json.Linq;
 
 namespace RedFolder.Blog.Markdown
@@ -12,12 +8,6 @@ namespace RedFolder.Blog.Markdown
     {
         private IFileSystem _fileSystem;
         private IMarkdownTransformer _markdownTransformer;
-
-        public BlogLoader()
-        {
-            _fileSystem = new FileSystemWrapper();
-            _markdownTransformer = new MarkdownTransformer();
-        }
 
         public BlogLoader(IFileSystem fileSystem, IMarkdownTransformer markdownTransformer)
         {

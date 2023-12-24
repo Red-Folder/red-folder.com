@@ -8,12 +8,6 @@ namespace RedFolder.Blog.Markdown
         private IFileSystem _fileSystem;
         private IBlogLoader _blogLoader;
 
-        public MarkdownRepository()
-        {
-            _fileSystem = new FileSystemWrapper();
-            _blogLoader = new BlogLoader();
-        }
-
         public MarkdownRepository(IFileSystem fileSystem, IBlogLoader blogLoader)
         {
             _fileSystem = fileSystem;
