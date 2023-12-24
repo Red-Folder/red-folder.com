@@ -1,10 +1,7 @@
-﻿using System;
+﻿using RedFolder.Website.Data;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using RedFolder.Website.Data;
 
-namespace RedFolder.Services
+namespace RedFolder.Blog
 {
     public class RedirectRepository : IRedirectRepository
     {

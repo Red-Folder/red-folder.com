@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Hosting;
+using RedFolder.Blog;
 using RedFolder.ViewModels;
 using System.Collections.Generic;
 using System.Linq;

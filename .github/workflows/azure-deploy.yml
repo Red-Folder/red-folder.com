@@ -55,7 +55,7 @@ jobs:
             ${{ runner.os }}-nuget-
 
       - name: Run Tests
-        run: dotnet test tests/Red-Folder.Blog.Markdown.Tests.Unit/Red-Folder.Blog.Markdown.Tests.Unit.csproj --logger trx --results-directory "test-results"
+        run: dotnet test --logger trx --results-directory "test-results"
 
       - name: Publish Test Results
         uses: EnricoMi/publish-unit-test-result-action@v2

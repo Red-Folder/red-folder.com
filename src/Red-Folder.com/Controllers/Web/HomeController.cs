@@ -4,6 +4,7 @@ using RedFolder.Services;
 using System.Linq;
 using System.Threading.Tasks;
 using RedFolder.Podcast;
+using RedFolder.Blog;
 
 namespace RedFolder.Controllers.Web
 {

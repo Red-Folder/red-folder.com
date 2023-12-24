@@ -5,6 +5,7 @@ using RedFolder.ViewModels;
 using static RedFolder.ViewModels.BlogCollection;
 using Microsoft.ApplicationInsights;
 using RedFolder.com.ViewModels;
+using RedFolder.Blog;
 
 // For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
 

@@ -8,9 +8,9 @@
   </PropertyGroup>
   
   <ItemGroup>
-    <ProjectReference Include="..\Red-Folder.Blog.Markdown\Red-Folder.Blog.Markdown.csproj" />
     <ProjectReference Include="..\Red-Folder.Podcast\Red-Folder.Podcast.csproj" />
     <ProjectReference Include="..\Red-Folder.Website.Data\Red-Folder.Website.Data.csproj" />
+    <ProjectReference Include="..\RedFolder.Blog\RedFolder.Blog.csproj" />
   </ItemGroup>
 
   <ItemGroup>

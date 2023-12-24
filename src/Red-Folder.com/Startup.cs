@@ -11,6 +11,7 @@ using RedFolder.Models;
 using System.Net.Http;
 using RedFolder.Podcast;
 using Microsoft.Extensions.Hosting;
+using RedFolder.Blog;
 
 namespace RedFolder
 {

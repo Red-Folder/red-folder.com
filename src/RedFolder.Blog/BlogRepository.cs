@@ -1,14 +1,9 @@
-﻿using Microsoft.AspNetCore.Hosting;
+﻿using RedFolder.Website.Data;
 using System;
-using RedFolder.Website.Data;
-using System.IO;
-using Newtonsoft.Json.Linq;
 using System.Collections.Generic;
-using RedFolder.Blog.Markdown;
 using System.Linq;
-using RedFolder.ViewModels;
 
-namespace RedFolder.Services
+namespace RedFolder.Blog
 {
     public class BlogRepository : IBlogRepository, IRedirectRepository, ISiteMapUrlRepository
     {
@@ -71,7 +66,7 @@ namespace RedFolder.Services
             var query = Blogs
                     .Where(b => b.Enabled)
                     .Where(b => b.Redirects != null && b.Redirects.Count > 0)
-                    .Select(b => new KeyValuePair<string, List<Redirect>>(b.Url, b.Redirects ));
+                    .Select(b => new KeyValuePair<string, List<Redirect>>(b.Url, b.Redirects));
 
             var redirects = new Dictionary<string, List<Redirect>>();
             foreach (var redirect in query)

@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using RedFolder.ViewModels;
 using RedFolder.Services;
+using RedFolder.Blog;
 
 namespace RedFolder.Controllers.Web
 {
