@@ -75,6 +75,7 @@ jobs:
       - name: Upload coverage
         uses: codecov/codecov-action@v3
         with:
+          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
           file: ./coveragereport/Cobertura.xml
           flags: unittests
           name: codecov-umbrella
