@@ -228,3 +228,5 @@ appsettings.development.json
 
 
 /src/Red-Folder.com/report
+/tests/Red-Folder.Blog.Markdown.Tests.Unit/coveragereport
+/CombinedCoverageReport

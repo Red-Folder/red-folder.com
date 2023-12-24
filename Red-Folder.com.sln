@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.30320.27
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34330.188
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{8053AD3E-4A33-4F5D-BB27-0218C2DAAF28}"
 EndProject
@@ -13,13 +13,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Red-Folder.com", "src\Red-F
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Red-Folder.Blog.Markdown.Tests.Unit", "tests\Red-Folder.Blog.Markdown.Tests.Unit\Red-Folder.Blog.Markdown.Tests.Unit.csproj", "{0A33E74C-8D79-4C5C-B001-C4AB094B3EA6}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Red-Folder.Tests.Acceptance", "tests\Red-Folder.Tests.Acceptance\Red-Folder.Tests.Acceptance.csproj", "{FC65A1E3-80B0-4123-8F66-F0E0543162EB}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Red-Folder.Website.Data", "src\Red-Folder.Website.Data\Red-Folder.Website.Data.csproj", "{0E7D59A1-E902-4AF8-A832-EE99EF504F74}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Red-Folder.Blog.Markdown", "src\Red-Folder.Blog.Markdown\Red-Folder.Blog.Markdown.csproj", "{5E6BC0AF-A22A-4CDF-9173-5C9E87F9A263}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Red-Folder.Podcast", "src\Red-Folder.Podcast\Red-Folder.Podcast.csproj", "{A0AE2039-7B89-4B8D-9AE3-8787C5CB163F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Red-Folder.Podcast", "src\Red-Folder.Podcast\Red-Folder.Podcast.csproj", "{A0AE2039-7B89-4B8D-9AE3-8787C5CB163F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -35,10 +33,6 @@ Global
 		{0A33E74C-8D79-4C5C-B001-C4AB094B3EA6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0A33E74C-8D79-4C5C-B001-C4AB094B3EA6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0A33E74C-8D79-4C5C-B001-C4AB094B3EA6}.Release|Any CPU.Build.0 = Release|Any CPU
-		{FC65A1E3-80B0-4123-8F66-F0E0543162EB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{FC65A1E3-80B0-4123-8F66-F0E0543162EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{FC65A1E3-80B0-4123-8F66-F0E0543162EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{FC65A1E3-80B0-4123-8F66-F0E0543162EB}.Release|Any CPU.Build.0 = Release|Any CPU
 		{0E7D59A1-E902-4AF8-A832-EE99EF504F74}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{0E7D59A1-E902-4AF8-A832-EE99EF504F74}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0E7D59A1-E902-4AF8-A832-EE99EF504F74}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -58,7 +52,6 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{7D912A30-F359-4EC0-8E0A-6B38993D4BC8} = {8053AD3E-4A33-4F5D-BB27-0218C2DAAF28}
 		{0A33E74C-8D79-4C5C-B001-C4AB094B3EA6} = {6F66B00A-27DE-4700-8DA8-AEFFA7AE0BDC}
-		{FC65A1E3-80B0-4123-8F66-F0E0543162EB} = {6F66B00A-27DE-4700-8DA8-AEFFA7AE0BDC}
 		{0E7D59A1-E902-4AF8-A832-EE99EF504F74} = {8053AD3E-4A33-4F5D-BB27-0218C2DAAF28}
 		{5E6BC0AF-A22A-4CDF-9173-5C9E87F9A263} = {8053AD3E-4A33-4F5D-BB27-0218C2DAAF28}
 		{A0AE2039-7B89-4B8D-9AE3-8787C5CB163F} = {8053AD3E-4A33-4F5D-BB27-0218C2DAAF28}
