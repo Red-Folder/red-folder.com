@@ -29,6 +29,7 @@ namespace RedFolder.WebSite.Integration.Tests
                         {
                             var integrationConfiguration = new Dictionary<string, string>
                             {
+                                { "MediaRoot", null }
                             };
                             config.AddInMemoryCollection(integrationConfiguration);
                         })
