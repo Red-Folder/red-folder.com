@@ -91,12 +91,15 @@ namespace RedFolder
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             var mediaRoot = _configuration["MediaRoot"];
-            app.UseStaticFiles(new StaticFileOptions()
+            if (!string.IsNullOrEmpty(mediaRoot))
             {
-                FileProvider = new PhysicalFileProvider(mediaRoot),
-                RequestPath = new PathString("/media")
-            });
-
+                app.UseStaticFiles(new StaticFileOptions()
+                {
+                    FileProvider = new PhysicalFileProvider(mediaRoot),
+                    RequestPath = new PathString("/media")
+                });
+            } 
+            
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
