@@ -1,0 +1,12 @@
+{
+  "profiles": {
+    "RedFolder.WebSite.Integration.Tests": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      },
+      "applicationUrl": "https://localhost:51212;http://localhost:51213"
+    }
+  }
+}

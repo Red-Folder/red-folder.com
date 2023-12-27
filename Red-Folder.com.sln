@@ -22,6 +22,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RedFolder.Blog.Unit.Tests",
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RedFolder.Blog", "src\RedFolder.Blog\RedFolder.Blog.csproj", "{B2F9D9EA-4C4D-43E3-A669-EE3029F1D378}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RedFolder.WebSite.Integration.Tests", "tests\RedFolder.WebSite.Integration.Tests\RedFolder.WebSite.Integration.Tests.csproj", "{C9057542-CB7E-45E9-B7CF-72F2B7E9AE8A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -48,6 +50,10 @@ Global
 		{B2F9D9EA-4C4D-43E3-A669-EE3029F1D378}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B2F9D9EA-4C4D-43E3-A669-EE3029F1D378}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B2F9D9EA-4C4D-43E3-A669-EE3029F1D378}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C9057542-CB7E-45E9-B7CF-72F2B7E9AE8A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C9057542-CB7E-45E9-B7CF-72F2B7E9AE8A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C9057542-CB7E-45E9-B7CF-72F2B7E9AE8A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C9057542-CB7E-45E9-B7CF-72F2B7E9AE8A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -58,6 +64,7 @@ Global
 		{A0AE2039-7B89-4B8D-9AE3-8787C5CB163F} = {8053AD3E-4A33-4F5D-BB27-0218C2DAAF28}
 		{D249C7C3-BE3A-4A5B-8AEB-DBBC065948C3} = {6F66B00A-27DE-4700-8DA8-AEFFA7AE0BDC}
 		{B2F9D9EA-4C4D-43E3-A669-EE3029F1D378} = {8053AD3E-4A33-4F5D-BB27-0218C2DAAF28}
+		{C9057542-CB7E-45E9-B7CF-72F2B7E9AE8A} = {6F66B00A-27DE-4700-8DA8-AEFFA7AE0BDC}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {40220A60-6BD1-45A2-8EA2-C6A99051542F}
