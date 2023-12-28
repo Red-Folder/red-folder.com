@@ -1,9 +1,9 @@
 ﻿using System;
-using CodeHollow.FeedReader;
 using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
 using System.Collections.Generic;
+using Red_Folder.Podcast;
 
 namespace RedFolder.Podcast
 {
@@ -11,12 +11,14 @@ namespace RedFolder.Podcast
     {
         private const string RSS_URL = "https://anchor.fm/s/b669760/podcast/rss";
         private readonly HttpClient _httpClient;
+        private readonly IFeedReader _feedReader;
 
         private List<Models.Podcast> _cache;
 
-        public PodcastRespository(HttpClient httpClient)
+        public PodcastRespository(HttpClient httpClient, IFeedReader feedReader)
         {
             _httpClient = httpClient;
+            _feedReader = feedReader;
         }
 
         public async Task<List<Models.Podcast>> GetPodcasts()
@@ -140,7 +142,7 @@ namespace RedFolder.Podcast
             {
                 try
                 {
-                    var feed =  await FeedReader.ReadAsync(RSS_URL);
+                    var feed =  await _feedReader.Read(RSS_URL);
 
                     if (feed?.Items != null && feed.Items.Count > 0)
                     {

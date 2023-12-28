@@ -12,6 +12,7 @@ using System.Net.Http;
 using RedFolder.Podcast;
 using Microsoft.Extensions.Hosting;
 using RedFolder.Blog;
+using Red_Folder.Podcast;
 
 namespace RedFolder
 {
@@ -29,7 +30,7 @@ namespace RedFolder
 
         // This method gets called by the runtime. Use this method to add services to the container.
         // For more information on how to configure your application, visit http://go.microsoft.com/fwlink/?LinkID=398940
-        public void ConfigureServices(IServiceCollection services)
+        public virtual void ConfigureServices(IServiceCollection services)
         {
             services.AddSingleton(_configuration);
             services.AddSingleton(_hostingEnvironment);
@@ -77,6 +78,7 @@ namespace RedFolder
             services.AddTransient<IEmail, SendGridEmail>();
 
             services.AddSingleton(new HttpClient());
+            services.AddTransient<IFeedReader, CodeHollowFeedReader>();
             services.AddSingleton<IPodcastRespository, PodcastRespository>();
 
             var reCaptchaConfiguration = new ReCaptchaConfiguration

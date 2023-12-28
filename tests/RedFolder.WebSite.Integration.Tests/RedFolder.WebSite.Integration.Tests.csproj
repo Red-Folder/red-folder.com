@@ -7,6 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="CodeHollow.FeedReader" Version="1.2.1" />
     <PackageReference Include="HtmlAgilityPack" Version="1.11.57" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Testing" Version="5.0.17" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.5.0" />
@@ -24,6 +25,17 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\src\Red-Folder.com\Red-Folder.com.csproj" />
+    <ProjectReference Include="..\..\src\Red-Folder.Podcast\Red-Folder.Podcast.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Data\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Data\better-roi-from-software-development.rss">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 </Project>

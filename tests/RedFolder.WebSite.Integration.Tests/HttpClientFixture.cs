@@ -6,6 +6,7 @@ using System.Net.Http;
 using System.IO;
 using Microsoft.Extensions.Configuration;
 using System.Collections.Generic;
+using RedFolder.WebSite.Integration.Tests.Infrastructure;
 
 namespace RedFolder.WebSite.Integration.Tests
 {
