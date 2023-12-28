@@ -1,7 +1,9 @@
 ﻿using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.DependencyInjection.Extensions;
 using Red_Folder.Podcast;
+using System.Net.Http;
 
 namespace RedFolder.WebSite.Integration.Tests.Infrastructure
 {
@@ -16,6 +18,9 @@ namespace RedFolder.WebSite.Integration.Tests.Infrastructure
             base.ConfigureServices(services);
 
             services.AddTransient<IFeedReader, MockFeedReader>();
+
+            services.RemoveAll(typeof(IHttpClientFactory));
+            services.AddSingleton<IHttpClientFactory, MockHttpClientFactory>();
         }
     }
 }

@@ -15,9 +15,9 @@ namespace RedFolder.Podcast
 
         private List<Models.Podcast> _cache;
 
-        public PodcastRespository(HttpClient httpClient, IFeedReader feedReader)
+        public PodcastRespository(IHttpClientFactory httpClientFactory, IFeedReader feedReader)
         {
-            _httpClient = httpClient;
+            _httpClient = httpClientFactory.CreateClient("podcast");
             _feedReader = feedReader;
         }
 

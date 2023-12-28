@@ -32,6 +32,8 @@ namespace RedFolder
         // For more information on how to configure your application, visit http://go.microsoft.com/fwlink/?LinkID=398940
         public virtual void ConfigureServices(IServiceCollection services)
         {
+            services.AddHttpClient();
+
             services.AddSingleton(_configuration);
             services.AddSingleton(_hostingEnvironment);
 
@@ -77,7 +79,6 @@ namespace RedFolder
             services.AddSingleton(sendGridConfiguration);
             services.AddTransient<IEmail, SendGridEmail>();
 
-            services.AddSingleton(new HttpClient());
             services.AddTransient<IFeedReader, CodeHollowFeedReader>();
             services.AddSingleton<IPodcastRespository, PodcastRespository>();
 
