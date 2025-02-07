@@ -54,6 +54,9 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-nuget-
 
+      - name: Install libssl-dev
+        run: sudo apt-get install -y libssl-dev
+
       - name: Run Tests
         run: dotnet test --logger trx --results-directory "test-results"
 
