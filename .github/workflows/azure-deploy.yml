@@ -41,6 +41,22 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
+      - name: Install dependencies
+        run: sudo apt-get update && sudo apt-get install -y build-essential
+
+      - name: Download and extract OpenSSL
+        run: |
+          wget https://www.openssl.org/source/openssl-1.1.1c.tar.gz
+          tar -xzvf openssl-1.1.1c.tar.gz
+          cd openssl-1.1.1c
+          ./config
+          make
+          sudo make install
+
+      - name: Verify OpenSSL installation
+        run: |
+          /usr/local/bin/openssl version
+
       - name: Set up .NET Core
         uses: actions/setup-dotnet@v3
         with:
@@ -53,9 +69,6 @@ jobs:
           key: ${{ runner.os }}-nuget-${{ hashFiles('**/packages.lock.json') }}
           restore-keys: |
             ${{ runner.os }}-nuget-
-
-      - name: Install libssl-dev
-        run: sudo apt-get install -y libssl-dev
 
       - name: Run Tests
         run: dotnet test --logger trx --results-directory "test-results"
