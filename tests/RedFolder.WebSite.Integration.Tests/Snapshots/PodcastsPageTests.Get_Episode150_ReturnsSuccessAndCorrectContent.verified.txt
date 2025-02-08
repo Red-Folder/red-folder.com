@@ -558,7 +558,7 @@
         <li><a href="/MyBio">My Bio</a></li>
         <li><a href="/Home/Contact">Contact</a></li>
     </ul>
-    <p class="copyright">Red Folder Consultancy Limited &copy; 2023</p>
+    <p class="copyright">Red Folder Consultancy Limited &copy; 2025</p>
 </footer>
 
     

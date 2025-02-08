@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
 
-    <title>Red Folder Consultancy Ltd</title>
+    <title>You&#x27;ve found an error</title>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.7/flatly/bootstrap.css" integrity="sha512-pE1k7R3Z+7WZUysJtA0VVf8e5nrRl4JPmnaLvTwXFuQ08YBD1d0PfcWYIaQSJbqB1bTYx6AGBbFKfneMeJzh6Q==" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha512-SfTiTlX6kk+qitfevl/7LibUOeJWlt9rbyDn92a1DqWOw9vWG2MFoays0sgObmWazO5BQPiFucnnEAjpAB+/Sw==" crossorigin="anonymous">
@@ -249,382 +249,63 @@
 
     <div class="page-container">
         
-
 <rfc-inline-style><style>.hero-banner {
     background-size: cover;
     padding: 50px 20px;
-    background-image: url(/images/moods/MoodNoteTaking.jpg);
+    background-image: url(/images/moods/MoodProjects.jpg);
 }
 
-    .hero-banner span {
-        color: white;
+    .hero-banner span,
+    .hero-banner h1 {
+        color: var(--accent2-colour);
         display: inline-block;
         background: var(--main-colour);
         padding: 5px 10px 5px 10px;
-        font-size: x-large;
     }
 
-.contact .title {
+.site-intro {
     text-align: center;
-    color: var(--accent2-colour);
-    background-color: var(--main-colour);
-    width: 100%;
-    line-height: 100%;
-    padding-top: 15px;
-    padding-bottom: 15px;
+    padding-top: 30px;
+    padding-bottom: 30px;
 }
 
-    .contact .title h2 {
-        margin-top: 0px;
+    .site-intro h2 {
+        padding-bottom: 30px;
     }
 
-    .contact .title p {
-        margin-bottom: 0px;
-    }
-
-.contact .body {
-    padding: 15px;
-
-    text-align: center;
+a,
+a:visited,
+a:active {
+    color: var(--accent1-colour);
+    -moz-transition: color 1.5s;
+    -o-transition: color 1.5s;
+    -webkit-transition: color 1.5s;
+    transition: color 1.5s;
 }
 
-.contact .body button {
-    font-size: x-large;
-}</style></rfc-inline-style>
+    a:hover,
+    a:focus {
+        text-decoration: none;
+        color: var(--main-colour);
+    }</style></rfc-inline-style>
 
 <div class="hero-banner">
-    <span>An Independent Consultancy</span><br>
-    <span>helping you to achieve</span><br>
-    <span>Better ROI from Software Development</span>
+    <span>Well done.  You've found an error.</span><br>
 </div>
 
-<rfc-inline-style><style>.welcome .title {
-    text-align: center;
-    color: var(--accent2-colour);
-    background-color: var(--main-colour);
-    width: 100%;
-    line-height: 100%;
-    padding-top: 15px;
-    padding-bottom: 15px;
-}
-
-.welcome .title h2 {
-    margin: 0px;
-}
-
-.welcome .body {
-    margin: auto;
-    max-width: 900px;
-    padding: 15px;
-
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
-    align-items: center;
-}
-
-.welcome .advert {
-    position: relative;
-    padding-bottom: 56.25%;
-    height: 0px;
-}
-
-.welcome .advert iframe {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    width: 100%;
-    height: 100%;
-}
-</style></rfc-inline-style>
-
-<div class="welcome">
-    <div class="title">
-        <h2>Welcome </h2>
-    </div>
-    <div class="body">
-        <div class="message">
-            <p><strong>Red Folder Consultancy</strong> provides advice and services to help you get&nbsp;<strong>better Return On Investment from your Software Development investment</strong>. </p>
-            <p>Software Development is&nbsp;<strong>complex</strong>.</p>
-            <p>And traditional management techniques are&nbsp;<strong>counter-productive</strong>. </p>
-            <p><strong>Red Folder Consultancy</strong> can help. </p>
-        </div>
-        <div class="advert">
-            <!-- Setting taken from https://developers.google.com/youtube/player_parameters -->
-<iframe width="560" height="340" src="https://www.youtube.com/embed/qG_GPFywM4g?cc_load_policy=1&loop=1&rel=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
-
-        </div>
-    </div>
-</div>
-
-    
-<rfc-inline-style><style>.podcast-promotion .title {
-    text-align: center;
-    color: var(--accent2-colour);
-    background-color: var(--main-colour);
-    width: 100%;
-    line-height: 100%;
-    padding-top: 15px;
-    padding-bottom: 15px;
-}
-
-    .podcast-promotion .title h2 {
-        margin-top: 0px;
-    }
-
-    .podcast-promotion .title p {
-        margin-bottom: 0px;
-    }
-
-.podcast-promotion .body {
-    margin: auto;
-    max-width: 900px;
-    padding: 15px;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
-    grid-column-gap: 30px;
-    justify-content: space-around;
-    align-items: center;
-}
-
-    .podcast-promotion .body .podcast-logo {
-        text-align: center;
-    }
-
-        .podcast-promotion .body .podcast-logo img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            max-width: 400px;
-        }
-
-.podcast-promotion .latest-podcast a {
-    font-size: x-large;
-    margin-bottom: 10.5px;
-    width: 100%;
-    text-align: center;
-}
-
-.podcast-promotion .podcast-metrics {
-    margin: auto;
-    max-width: 900px;
-    padding: 15px;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
-    grid-column-gap: 30px;
-    justify-content: space-around;
-    align-items: center;
-}
-
-    .podcast-promotion .podcast-metrics .title {
-        text-align: center;
-    }
-
-    .podcast-promotion .podcast-metrics .metric {
-        text-align: center;
-        font-size: 32px;
-    }
-</style></rfc-inline-style>
-
-<div class="podcast-promotion">
-    <div class="title">
-        <h2>Podcast</h2>
-        <p>Home of the</p>
-        <p><strong>Better&nbsp;ROI&nbsp;from&nbsp;Software&nbsp;Development</strong></p>
-        <p>Podcast</p>
-    </div>
-
-    
-<div class="body">
-    <div class="podcast-logo">
-        <img src="/images/PodcastLogo.png">
-    </div>
-    <div class="latest-podcast">
-        <h3>Latest episode:</h3>
-        <p>#188: Bad for ROI - More Developers</p>
-        <p>Published: Wed, 22 Nov 2023 16:00:00 GMT</p>
-        <a class="btn btn-primary" href="/podcasts/188-Bad-for-ROI--More-Developers">
-            <i class="fa fa-play-circle" aria-hidden="true"></i>&nbsp;Listen now
-        </a>
-        <p>Or on your favourite podcast app:</p>
+<div class="site-intro">
+    <div class="container">
+        <img src="/images/Error.png" class="img-responsive center-block">
+        <h2>I'm sorry ... You've found an error</h2>
         <p>
-            <rfc-inline-style><style>.podcasters {
-    padding: 0px;
-}
-
-.podcasters li {
-    list-style: none;
-    display: inline-block;
-}
-</style></rfc-inline-style>
-
-<ul class="podcasters">
-    <li><a href="https://podcasts.apple.com/us/podcast/better-roi-from-software-development/id1469426122?uo=4"><img src="/images/icons/podcasters/apple.png" title="Apple Podcasts"></a></li>
-    <li><a href="https://open.spotify.com/show/4LQebT2Vx148qfHJ9o8gy3"><img src="/images/icons/podcasters/spotify.png" title="Spotify"></a></li>
-    <li><a href="https://www.breaker.audio/better-roi-from-software-development"><img src="/images/icons/podcasters/breaker.png" title="Breaker"></a></li>
-    <li><a href="https://www.google.com/podcasts?feed=aHR0cHM6Ly9hbmNob3IuZm0vcy9iNjY5NzYwL3BvZGNhc3QvcnNz"><img src="/images/icons/podcasters/google.png" title="Google Podcasts"></a></li>
-    <li><a href="https://overcast.fm/itunes1469426122/better-roi-from-software-development"><img src="/images/icons/podcasters/overcast.png" title="Overcast"></a></li>
-    <li><a href="https://pca.st/PK32"><img src="/images/icons/podcasters/pocket.png" title="Pocket Casts"></a></li>
-    <li><a href="https://radiopublic.com/better-roi-from-software-developm-69OjR2"><img src="/images/icons/podcasters/radiopublic.png" title="PublicRadio"></a></li>
-    <li><a href="https://www.stitcher.com/podcast/anchor-podcasts/better-roi-from-software-development"><img src="/images/icons/podcasters/stitcher.png" title="Stitcher"></a></li>
-</ul>
-
-        
-    </div>
-</div>
-
-
-    
-<div class="podcast-metrics">
-    <div>
-        <h3 class="title">Number of episodes</h3>
-        <p class="metric">
-            188
-        </p>
-    </div>
-    <div>
-        <h3 class="title">Total duration</h3>
-        <p class="metric">
-            41 Hours, 9 Minutes
-        </p>
-    </div>
-</div>
-</div>
-
-<rfc-inline-style><style>.testimonials .title {
-    text-align: center;
-    color: var(--accent2-colour);
-    background-color: var(--main-colour);
-    width: 100%;
-    line-height: 100%;
-    padding-top: 15px;
-    padding-bottom: 15px;
-}
-
-    .testimonials .title h2 {
-        margin-top: 0px;
-    }
-
-    .testimonials .title p {
-        margin-bottom: 0px;
-    }
-
-.testimonials .body {
-    margin: auto;
-    max-width: 900px;
-    padding: 15px;
-
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
-    grid-column-gap: 30px;
-}
-
-.testimonials .footer{
-    padding-left: 15px;
-    padding-right: 15px;
-    padding-bottom: 15px;
-    text-align: center;
-}
-
-.testimonials .footer a {
-    padding-left: 10px;
-    padding-right: 10px;
-    width: 100%;
-    max-width: 600px;
-    text-align: center;
-    font-size: x-large;
-}
-</style></rfc-inline-style>
-
-<div class="testimonials">
-    <div class="title">
-        <h2>Testimonials </h2>
-        <p>A consultant lives on his reputation.</p>
-        <p>Read what people say about me.</p>
-    </div>
-    <div class="body">
-        <p>
-            "I enjoyed working with him, especially in complex projects where Mark could prove his talent to quickly grasp complex matters and being able to translate challenges into well structured action plans."
-        </p>
-
-        <p>
-            "I have been very impressed with how quickly Mark got to grips with what can only be described as a complex environment. Part of this is Mark has the experience, knowledge and a strong natural ability to get technology and how
-            it works for the business. Mark is also a very easy person to work with due to his collaborative approach."
-        </p>
-
-        <p>
-            "I have always been impressed with Mark’s desire to improve his own management techniques and adapt to change which is such vital commodity in I.T. sector. He is a great motivational person to be around and this is picked up by
-            the team and helps us to achieve results."
+            Well I'm suprised.  I really wasn't expecting that.  I'm going to have to have a lay down in a darkened room.
         </p>
         <p>
-            "I would always heartily recommend Mark to any organisation who is looking for someone to come in and sort things out, fix things up, or just add strength to a team. A natural leader yet humanising peer in equal measure."
+            I can only appologise for any inconvience I've caused.  Rest assured that I shall not eat any more cakes until this is resolved.
         </p>
-    </div>
-    <div class="footer">
-        <a class="btn btn-primary" href="https://uk.linkedin.com/in/mark-taylor-1ab1385">
-            <i class="fa fa-linkedin-square"></i>&nbsp;Read more on LinkedIn
-        </a>
     </div>
 </div>
 
-
-<div class="contact">
-    <div class="title">
-        <h2>Contact</h2>
-    </div>
-    <div class="body">
-        <p>
-            I can help your Development Team with
-            <strong>Team Leadership</strong>,
-            <strong>Solution Architecture</strong>,
-            <strong>DevOps automation</strong>,
-            or <strong>hands-on Development</strong>
-        </p>
-        
-<rfc-inline-style><style>.contact-form {
-    display: grid;
-    grid-template-columns: minmax(250px, 900px);
-    justify-content: space-around;
-
-    padding: 15px 5px 15px 5px;
-}
-
-.contact-form button {
-    width: 100%;
-}</style></rfc-inline-style>
-
-<div class="contact-form">
-
-<form action="/home/contact" id="contact-form" method="post">        <div class="form-group">
-            <label for="Name">Your name</label>
-            <input class="form-control" data-val="true" data-val-required="I really could do with knowing who I&#x27;m talking to" id="Name" name="Name" type="text" value="">
-            <span class="field-validation-valid text-danger" data-valmsg-for="Name" data-valmsg-replace="true"></span>
-        </div>
-        <div class="form-group">
-            <label for="EmailAddress">Your email address</label>
-            <input class="form-control" data-val="true" data-val-required="Its how I contact you - it doesn&#x27;t get used for anything else" id="EmailAddress" name="EmailAddress" type="email" value="">
-            <span class="field-validation-valid text-danger" data-valmsg-for="EmailAddress" data-valmsg-replace="true"></span>
-        </div>
-        <div class="form-group">
-            <label for="HowCanIHelp">And what problem do you want help with?</label>
-            <textarea class="form-control" data-val="true" data-val-required="Help me to help you by telling me a little about your problem" id="HowCanIHelp" name="HowCanIHelp" rows="10">
-</textarea>
-            <span class="field-validation-valid text-danger" data-valmsg-for="HowCanIHelp" data-valmsg-replace="true"></span>
-        </div>
-<input id="RecaptureToken" name="RecaptureToken" type="hidden" value="">        <button class="btn btn-primary g-recaptcha" data-sitekey="6LdDJLUZAAAAAP1GIa8uj8kJ2JL4bw3maydYH_j7" data-callback='onSubmit' data-action='submit'>
-            Submit
-        </button>
-
-<script src="https://www.google.com/recaptcha/api.js"></script>
-<script>
-    function onSubmit(token) {
-        document.getElementById('RecaptureToken').value = token;
-        document.getElementById("contact-form").submit();
-    }
-</script>
-
-
-    </div>
-</div>
 
     </div>
 

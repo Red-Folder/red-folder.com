@@ -1,0 +1,953 @@
+﻿<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns#">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+
+    <title>Projects</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.7/flatly/bootstrap.css" integrity="sha512-pE1k7R3Z+7WZUysJtA0VVf8e5nrRl4JPmnaLvTwXFuQ08YBD1d0PfcWYIaQSJbqB1bTYx6AGBbFKfneMeJzh6Q==" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha512-SfTiTlX6kk+qitfevl/7LibUOeJWlt9rbyDn92a1DqWOw9vWG2MFoays0sgObmWazO5BQPiFucnnEAjpAB+/Sw==" crossorigin="anonymous">
+
+    <rfc-inline-style><style>:root {
+    --main-colour: #e74c3c;
+    --accent1-colour: #4C4C4C;
+    --accent2-colour: white;
+}
+</style></rfc-inline-style>
+
+    
+
+    <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-3.3.1.min.js" integrity="sha384-tsQFqpEReu7ZLhBV2VZlAu7zcOV+rXbYlF2cqB8txI/8aZajjp4Bqd+V6D5IgvKT" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+
+    <script>
+        dataLayer = [];
+    </script>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"></script>
+
+    <script>
+        window.onload = function () {
+            if (window.graphs) {
+                Object.keys(window.graphs).forEach(key => {
+                    graph.chart = new Chart(document.getElementById(graph.elementId), graph.config);
+                });
+            }
+        }
+    </script>
+
+</head>
+<body>
+    <!-- Google Tag Manager -->
+    <noscript>
+        <iframe src="//www.googletagmanager.com/ns.html?id=GTM-N69LS5" height="0" width="0" style="display:none;visibility:hidden"></iframe>
+    </noscript>
+    <script>
+        (function (w, d, s, l, i) { w[l] = w[l] || []; w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' }); var f = d.getElementsByTagName(s)[0], j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src = '//www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f); })(window, document, 'script', 'dataLayer', 'GTM-N69LS5');
+    </script>
+    <!-- End Google Tag Manager -->
+
+    <rfc-inline-style><style>@media (max-width: 767px) {
+    .navigation-clean {
+        padding-top: 0;
+        padding-bottom: 0;
+    }
+
+        .navigation-clean .navbar-nav .open .dropdown-menu {
+            box-shadow: none;
+        }
+
+            .navigation-clean .navbar-nav .open .dropdown-menu > li > a {
+                color: #37434d;
+                padding-top: 12px;
+                padding-bottom: 12px;
+                line-height: 1;
+            }
+
+        .navigation-clean.navbar-inverse .navbar-nav .open .dropdown-menu > li > a {
+            color: #fff;
+        }
+}
+
+.navigation-clean {
+    background: #fff;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    color: #333;
+    border-radius: 0;
+    box-shadow: none;
+    border: none;
+    margin-bottom: 0;
+}
+
+    .navigation-clean #rfc-logo {
+        height: 58px;
+        margin-top: -20px;
+    }
+
+    .navigation-clean .navbar-brand {
+        font-weight: bold;
+        color: inherit;
+    }
+
+        .navigation-clean .navbar-brand:hover {
+            color: #222;
+        }
+
+        .navigation-clean .navbar-brand img {
+            height: 100%;
+            display: inline-block;
+            margin-right: 10px;
+            width: auto;
+        }
+
+    .navigation-clean .navbar-toggle {
+        border-color: #ddd;
+    }
+
+        .navigation-clean .navbar-toggle:hover,
+        .navigation-clean .navbar-toggle:focus {
+            background: none;
+        }
+
+        .navigation-clean .navbar-toggle .icon-bar {
+            background-color: #888;
+        }
+
+    .navigation-clean .navbar-collapse,
+    .navigation-clean .navbar-form {
+        border-top-color: #ddd;
+    }
+
+    .navigation-clean .navbar-nav > li > .dropdown-menu {
+        margin-top: -5px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        background-color: #fff;
+        border-radius: 2px;
+    }
+
+    .navigation-clean .navbar-nav > li > a {
+        padding-left: 18px;
+        padding-right: 18px;
+    }
+
+    .navigation-clean .navbar-nav > .active > a,
+    .navigation-clean .navbar-nav > .open > a {
+        background: none;
+        box-shadow: none;
+    }
+
+    .navigation-clean .navbar-default .navbar-nav > li > a {
+        color: #465765;
+    }
+
+    .navigation-clean .navbar-default .navbar-nav > .active > a,
+    .navigation-clean .navbar-default .navbar-nav .navbar-default .navbar-nav > .active > a:focus,
+    .navigation-clean .navbar-default .navbar-nav .navbar-default .navbar-nav > .active > a:hover {
+        color: #363739;
+        box-shadow: none;
+        background: none;
+        pointer-events: none;
+    }
+
+    .navigation-clean .dropdown-menu > li > a {
+        line-height: 2;
+        font-size: 14px;
+        color: #37434d;
+    }
+
+        .navigation-clean .dropdown-menu > li > a:focus,
+        .navigation-clean .dropdown-menu > li > a:hover {
+            background: #eee;
+            color: inherit;
+        }
+
+    .navigation-clean.navbar-inverse {
+        background-color: var(--main-colour);
+        color: #fff;
+    }
+
+        .navigation-clean.navbar-inverse .navbar-brand:hover {
+            color: #f0f0f0;
+        }
+
+        .navigation-clean.navbar-inverse .navbar-toggle {
+            border-color: var(--accent2-colour);
+        }
+
+            .navigation-clean.navbar-inverse .navbar-toggle .icon-bar {
+                background-color: var(--accent2-colour);
+            }
+
+        .navigation-clean.navbar-inverse .navbar-collapse,
+        .navigation-clean.navbar-inverse .navbar-form {
+            border-top-color: #333;
+        }
+
+        .navigation-clean.navbar-inverse .navbar-nav > li > a {
+            color: #ffffff;
+        }
+
+            .navigation-clean.navbar-inverse .navbar-nav > li > a:focus,
+            .navigation-clean.navbar-inverse .navbar-nav > li > a:hover {
+                color: #1f2021 !important;
+                background-color: transparent;
+            }
+
+        .navigation-clean.navbar-inverse .navbar-nav > li .dropdown-menu {
+            background-color: #1f2021;
+        }
+
+        .navigation-clean.navbar-inverse .navbar-nav > .active > a,
+        .navigation-clean.navbar-inverse .navbar-nav > .active > a:focus,
+        .navigation-clean.navbar-inverse .navbar-nav > .active > a:hover {
+            color: #1f2021;
+            box-shadow: none;
+            background: none;
+            pointer-events: none;
+        }
+
+        .navigation-clean.navbar-inverse .navbar-nav .dropdown-menu > li > a:focus,
+        .navigation-clean.navbar-inverse .navbar-nav .dropdown-menu > li > a {
+            color: #f2f5f8;
+        }
+
+            .navigation-clean.navbar-inverse .navbar-nav .dropdown-menu > li > a:focus:focus,
+            .navigation-clean.navbar-inverse .navbar-nav .dropdown-menu > li > a:focus,
+            .navigation-clean.navbar-inverse .navbar-nav .dropdown-menu > li > a:focus:hover,
+            .navigation-clean.navbar-inverse .navbar-nav .dropdown-menu > li > a:hover {
+                background: #363739;
+            }
+
+#fake-header {
+    height: 80px;
+}</style></rfc-inline-style>
+
+<header>
+    <div>
+        <nav class="navbar navbar-inverse navbar-fixed-top navigation-clean">
+            <div class="container">
+                <div class="navbar-header">
+                    <a class="navbar-brand navbar-link" rel="home" href="/">
+                        <img src="/Images/RFCLogo48.png" id="rfc-logo">
+                    </a>
+                    <button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navcol-1">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+                <div class="collapse navbar-collapse" id="navcol-1">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="/Services">Services</a></li>
+                        <li><a href="/Blog">Blog</a></li>
+                        <li><a href="/Podcasts">Podcasts</a></li>
+                        <li><a href="/Projects">Projects</a></li>
+                        <li><a href="/MyBio">My Bio</a></li>
+                        <li><a href="/Home/Contact">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+</header>
+<div id="fake-header">
+    <!-- Used to set content below it now to show UNDER the header -->
+    &nbsp;&nbsp;&nbsp;
+</div>
+
+    <div class="page-container">
+        
+
+<rfc-inline-style><style>.hero-banner {
+    background-size: cover;
+    padding: 50px 20px;
+    background-image: url(/images/moods/MoodProjects.jpg);
+}
+
+    .hero-banner span, .hero-banner h1 {
+        color: white;
+        display: inline-block;
+        background: var(--main-colour);
+        padding: 5px 10px 5px 10px;
+    }
+
+.welcome {
+    text-align: center;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+    .welcome h2 {
+        padding-bottom: 30px;
+    }
+</style></rfc-inline-style>
+
+<div class="hero-banner">
+    <h1>Recent Projects</h1>
+</div>
+
+
+<rfc-inline-style><style>@media (min-width: 0px) and (max-width: 767px) {
+    .project .title {
+        padding: 5px 10px 5px 10px;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+    .project {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 40px auto auto;
+        padding-bottom: 0px;
+    }
+
+        .project .title {
+            padding: 0px 10px 0px 10px;
+        }
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+    .project-list {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        justify-content: space-around;
+        grid-gap: 15px;
+    }
+
+    .project {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 40px auto auto;
+        padding-bottom: 0px;
+    }
+
+        .project .title {
+            padding: 0px 10px 0px 10px;
+        }
+}
+
+@media (min-width: 1200px) {
+    .project-list {
+        display: grid;
+        grid-template-columns: 600px 600px;
+        justify-content: space-around;
+        grid-gap: 15px;
+    }
+
+    .project {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 40px auto auto;
+        padding-bottom: 0px;
+    }
+
+        .project .title {
+            padding: 0px 10px 0px 10px;
+        }
+}
+
+.project-list {
+    padding: 15px;
+}
+
+.project {
+    justify-items: center;
+    padding-bottom: 15px;
+}
+
+    .project .title {
+        color: var(--accent2-colour);
+        background-color: var(--main-colour);
+        
+        grid-column: span 3;
+
+        width: 100%;
+        text-align: center;     
+        line-height: 100%;
+    }
+
+    .project .title h2 {
+        margin: 0px;
+    }
+
+    .project .description {
+        grid-column: span 3;
+
+        list-style: none;
+        margin-left: 0px;
+        padding-left: 0px;
+
+        text-align: center;
+        
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+
+        .project .description li {
+            list-style: none;
+            margin-left: 0px;
+            padding-left: 0px;
+        }
+
+        .project .technologies {
+            align-self: center;
+        }
+
+    .project .diciplines {
+        grid-column: span 2;
+    }
+
+    .project .technologies ul {
+        margin-left: 0px;
+        padding-left: 0px;
+        text-align: center;
+    }
+
+    .project .technologies li {
+        margin: 2px;
+        color: var(--accent2-colour);
+        display: inline-block;
+        background-color: var(--accent1-colour);
+        padding: 5px 10px 5px 10px;
+    }
+</style></rfc-inline-style>
+
+<div class="project-list">
+        <div class="project">
+            <div class="title">
+                <h2>Sunsetting</h2>
+            </div>
+            <div class="description">
+                    <p>Complex legacy platform needed to continue operating while heavy investment was being into a new platform.</p>
+                    <p>Legacy platform consisting of a variety of systems and technologies that required maintenance, continual development and provide &#x27;source of truth&#x27; for new platform.</p>
+            </div>
+
+            <div class="diciplines">
+                
+
+<script>
+    window.graphs = window.graphs || {};
+
+        config: {
+            type: 'pie',
+            data: {
+                labels: [
+                    'Leadership',
+                    'Architecture',
+                    'DevOps',
+                    'Development'
+                ],
+                datasets: [{
+                    backgroundColor: [
+                        'rgba(44, 160, 44, 1)',
+                        'rgba(255, 127, 14, 1)',
+                        'rgba(31, 119, 180, 1)',
+                        'rgba(255, 51, 204, 1)',
+                    ],
+                    data: [
+                        0,
+                        20,
+                        50,
+                        30
+                    ]
+                }]
+            },
+            options: {
+                title: {
+                    display: false
+                },
+                responsive: true,
+                legend: {
+                    display: true,
+                    position: 'bottom'
+                }
+            }
+        }
+    };
+</script>
+
+            </div>
+            <div class="technologies">
+                <ul>
+                        <li>C#</li>
+                        <li>React</li>
+                        <li>ASP.Net MVC/ WebApi</li>
+                        <li>SQL Server</li>
+                        <li>Javascript/ Typescript</li>
+                        <li>AWS</li>
+                </ul>
+            </div>
+        </div>
+        <div class="project">
+            <div class="title">
+                <h2>Multi-Factor Authentication</h2>
+            </div>
+            <div class="description">
+                    <p>To provide enhance security for customers, I was asked how to implement Multi-Factor Authentication into a complex legacy platform - with minimal impact to customer journey or technical change.</p>
+                    <p>Assessed various MFA solutions - including simple One-Time-Password systems like Google Authenticator through to complex feature rich Authentication Platforms such as Twilio Authy, Auth0, and AWS Cognito.</p>
+                    <p>Produced POC and implementation guidelines on how to integrate into the legacy platform with minimal technical change.</p>
+            </div>
+
+            <div class="diciplines">
+                
+
+<script>
+    window.graphs = window.graphs || {};
+
+        config: {
+            type: 'pie',
+            data: {
+                labels: [
+                    'Leadership',
+                    'Architecture',
+                    'DevOps',
+                    'Development'
+                ],
+                datasets: [{
+                    backgroundColor: [
+                        'rgba(44, 160, 44, 1)',
+                        'rgba(255, 127, 14, 1)',
+                        'rgba(31, 119, 180, 1)',
+                        'rgba(255, 51, 204, 1)',
+                    ],
+                    data: [
+                        0,
+                        80,
+                        0,
+                        20
+                    ]
+                }]
+            },
+            options: {
+                title: {
+                    display: false
+                },
+                responsive: true,
+                legend: {
+                    display: true,
+                    position: 'bottom'
+                }
+            }
+        }
+    };
+</script>
+
+            </div>
+            <div class="technologies">
+                <ul>
+                        <li>C#</li>
+                </ul>
+            </div>
+        </div>
+        <div class="project">
+            <div class="title">
+                <h2>Division for Sale</h2>
+            </div>
+            <div class="description">
+                    <p>Asked to step in to run a a struggling team with a stalled project.</p>
+                    <p>To allow the sale of a division, a complex customer facing application was required - its &#x27;flag ship&#x27; product.</p>
+                    <p>The existing team was struggling with turning a shopping list of requirements into a Minimum Viable Product.</p>
+            </div>
+
+            <div class="diciplines">
+                
+
+<script>
+    window.graphs = window.graphs || {};
+
+        config: {
+            type: 'pie',
+            data: {
+                labels: [
+                    'Leadership',
+                    'Architecture',
+                    'DevOps',
+                    'Development'
+                ],
+                datasets: [{
+                    backgroundColor: [
+                        'rgba(44, 160, 44, 1)',
+                        'rgba(255, 127, 14, 1)',
+                        'rgba(31, 119, 180, 1)',
+                        'rgba(255, 51, 204, 1)',
+                    ],
+                    data: [
+                        50,
+                        20,
+                        20,
+                        10
+                    ]
+                }]
+            },
+            options: {
+                title: {
+                    display: false
+                },
+                responsive: true,
+                legend: {
+                    display: true,
+                    position: 'bottom'
+                }
+            }
+        }
+    };
+</script>
+
+            </div>
+            <div class="technologies">
+                <ul>
+                        <li>React</li>
+                        <li>Redux</li>
+                        <li>AWS</li>
+                </ul>
+            </div>
+        </div>
+        <div class="project">
+            <div class="title">
+                <h2>Customer Verification Checks</h2>
+            </div>
+            <div class="description">
+                    <p>Regulatory changes required my client to implement customer identify &amp; age checks at short notice.</p>
+                    <p>This requirement the design and development of a platform that would utilise traditional credit check agencies and automated document verification partners.</p>
+            </div>
+
+            <div class="diciplines">
+                
+
+<script>
+    window.graphs = window.graphs || {};
+
+        config: {
+            type: 'pie',
+            data: {
+                labels: [
+                    'Leadership',
+                    'Architecture',
+                    'DevOps',
+                    'Development'
+                ],
+                datasets: [{
+                    backgroundColor: [
+                        'rgba(44, 160, 44, 1)',
+                        'rgba(255, 127, 14, 1)',
+                        'rgba(31, 119, 180, 1)',
+                        'rgba(255, 51, 204, 1)',
+                    ],
+                    data: [
+                        0,
+                        40,
+                        30,
+                        30
+                    ]
+                }]
+            },
+            options: {
+                title: {
+                    display: false
+                },
+                responsive: true,
+                legend: {
+                    display: true,
+                    position: 'bottom'
+                }
+            }
+        }
+    };
+</script>
+
+            </div>
+            <div class="technologies">
+                <ul>
+                        <li>C#</li>
+                        <li>ASP.Net MVC/ WebApi</li>
+                        <li>SQL Server</li>
+                        <li>AWS</li>
+                </ul>
+            </div>
+        </div>
+        <div class="project">
+            <div class="title">
+                <h2>Keeping the lights on</h2>
+            </div>
+            <div class="description">
+                    <p>Management of a legacy team and associated e-commerce systems during acquisition.</p>
+                    <p>During the acquisition, they had lost the previous management team and needs a stable pair of hands to keep the ship afloat - and implement a number of tactical technical changes.</p>
+            </div>
+
+            <div class="diciplines">
+                
+
+<script>
+    window.graphs = window.graphs || {};
+
+        config: {
+            type: 'pie',
+            data: {
+                labels: [
+                    'Leadership',
+                    'Architecture',
+                    'DevOps',
+                    'Development'
+                ],
+                datasets: [{
+                    backgroundColor: [
+                        'rgba(44, 160, 44, 1)',
+                        'rgba(255, 127, 14, 1)',
+                        'rgba(31, 119, 180, 1)',
+                        'rgba(255, 51, 204, 1)',
+                    ],
+                    data: [
+                        70,
+                        20,
+                        0,
+                        10
+                    ]
+                }]
+            },
+            options: {
+                title: {
+                    display: false
+                },
+                responsive: true,
+                legend: {
+                    display: true,
+                    position: 'bottom'
+                }
+            }
+        }
+    };
+</script>
+
+            </div>
+            <div class="technologies">
+                <ul>
+                        <li>C#</li>
+                        <li>ASP.Net MVC/ WebApi</li>
+                        <li>SQL Server</li>
+                        <li>Javascript</li>
+                </ul>
+            </div>
+        </div>
+        <div class="project">
+            <div class="title">
+                <h2>Feasibility study</h2>
+            </div>
+            <div class="description">
+                    <p>A client asked for a feasibility study to implement a change being requested by their partner.</p>
+                    <p>Their partner had suggested the work was trivial</p>
+                    <p>I assessed the impact on the client throughout their legacy platform - producing both a high level summary of the work as a heatmap of impacted systems - highlighting the considerable effort and risk in the change.</p>
+            </div>
+
+            <div class="diciplines">
+                
+
+<script>
+    window.graphs = window.graphs || {};
+
+        config: {
+            type: 'pie',
+            data: {
+                labels: [
+                    'Leadership',
+                    'Architecture',
+                    'DevOps',
+                    'Development'
+                ],
+                datasets: [{
+                    backgroundColor: [
+                        'rgba(44, 160, 44, 1)',
+                        'rgba(255, 127, 14, 1)',
+                        'rgba(31, 119, 180, 1)',
+                        'rgba(255, 51, 204, 1)',
+                    ],
+                    data: [
+                        0,
+                        100,
+                        0,
+                        0
+                    ]
+                }]
+            },
+            options: {
+                title: {
+                    display: false
+                },
+                responsive: true,
+                legend: {
+                    display: true,
+                    position: 'bottom'
+                }
+            }
+        }
+    };
+</script>
+
+            </div>
+            <div class="technologies">
+                <ul>
+                </ul>
+            </div>
+        </div>
+</div>
+
+
+
+    </div>
+
+    <rfc-inline-style><style>footer {
+    padding: 0px 0 20px 0;
+    background-color: var(--main-colour);
+    color: var(--accent2-colour);
+}
+
+    footer ul {
+        padding: 0;
+        list-style: none;
+        text-align: center;
+        font-size: 18px;
+        line-height: 1.6;
+        margin-bottom: 0;
+    }
+
+        footer ul li {
+            padding: 0 10px;
+        }
+
+            footer ul li a {
+                color: inherit;
+                text-decoration: none !important;
+            }
+
+                footer ul li a:visited {
+                    color: var(--accent2-colour);
+                }
+
+                footer ul li a:hover {
+                    color: var(--accent1-colour);
+                }
+
+    footer .copyright {
+        color: var(--accent2-colour);
+        margin-top: 15px;
+        text-align: center;
+        font-size: 13px;
+        margin-bottom: 0;
+    }
+
+</style></rfc-inline-style>
+
+<footer>
+    <rfc-inline-style><style>.social-buttons {
+    padding-top: 25px;
+    text-align: center;
+    padding-bottom: 25px;
+}
+
+    .social-buttons > a {
+        border: 1px solid var(--accent2-colour);
+        opacity: 1;
+        font-size: 24px;
+        width: 40px;
+        height: 40px;
+        line-height: 40px;
+        display: inline-block;
+        text-align: center;
+        border-radius: 50%;
+        margin: 0 8px;
+        color: inherit;
+    }
+
+        .social-buttons > a:hover {
+            opacity: 1;
+            color: var(--accent1-colour);
+            border: 1px solid var(--accent1-colour);
+        }
+
+</style></rfc-inline-style>
+
+<div class="social-buttons">
+    <a href="https://github.com/Red-Folder"><i class="fa fa-github"></i></a>
+    <a href="skype:red-folder?chat"><i class="fa fa-skype"></i></a>
+    <a href="https://twitter.com/RedFolderMark"><i class="fa fa-twitter"></i></a>
+    <a href="https://www.linkedin.com/in/markbryantaylor/"><i class="fa fa-linkedin-square"></i></a>
+    <a href="mailto:mark@red-folder.com"><i class="fa fa-envelope"></i></a>
+</div>
+
+    <ul class="list-inline">
+        <li><a href="/">Home</a></li>
+        <li><a href="/Services">Services</a></li>
+        <li><a href="/Blog">Blog </a></li>
+        <li><a href="/Projects">Projects </a></li>
+        <li><a href="/MyBio">My Bio</a></li>
+        <li><a href="/Home/Contact">Contact</a></li>
+    </ul>
+    <p class="copyright">Red Folder Consultancy Limited &copy; 2025</p>
+</footer>
+
+    
+
+    <rfc-inline-style><style>#cookie-consent-container {
+    position: fixed;
+    bottom: 0px;
+    width: 100%;
+    padding: 16px 0px;
+    box-shadow: 0px 4px 13px 0px #82888c;
+    font-family: 'Jim Sans Regular', Arial;
+    text-align: center;
+    background-color: white;
+}
+
+#cookie-consent-content {
+    color: var(--accent1-colour);
+    font-size: 12px;
+    line-height: 28px;
+    margin: 0 10%;
+}
+    #cookie-consent-content a {
+        color: inherit;
+        text-decoration: none !important;
+        font-weight: bold;
+    }
+
+        #cookie-consent-content a:visited {
+            color: var(--accent1-colour);
+        }
+
+        #cookie-consent-content a:hover {
+            color: var(--accent1-colour);
+        }
+
+#cookie-consent-acceptance {
+    margin-left: 1.5%;
+    border-radius: 5px;
+    padding: 4px 17px;
+    font-size: 10px;
+    color: #82888c;
+    text-transform: uppercase;
+    transition: all 0.25s ease-in-out;
+    border: 1px solid #abb0b3;
+    text-decoration: none;
+    line-height: 14px;
+    font-family: 'Jim Sans Medium', Arial;
+    cursor: pointer;
+    outline: none;
+    background-color: transparent;
+}</style></rfc-inline-style>
+    <div id="cookie-consent-container">
+        <div id="cookie-consent-content">
+            We use cookies to ensure that we give you the best experience of our website.  <a href="/cookiepolicy">Click here</a> for more.
+        </div>
+    </div>
+    <script>
+        function handleCookieConsent(cookieString) {
+            document.cookie = cookieString;
+            document.getElementById("cookie-consent-container").style.display = "none";
+        }
+    </script>
+
+</body>
+</html>

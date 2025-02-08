@@ -4,8 +4,14 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@RedFolderMark">
+    <meta property="og:title" name="twitter:title" content="Developer laziness leads to productivity">
+    <meta property="og:description" name="twitter:description" content="Newsletter for 12th November 2020 - productivity, automation and the benefits of developer laziness">
+    <meta property="og:image" name="twitter:image" content="https://content.red-folder.com/blog/developer-laziness-leads-to-productivity/header.png">
 
-    <title>Red Folder Consultancy Ltd</title>
+
+    <title>Developer laziness leads to productivity</title>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.7/flatly/bootstrap.css" integrity="sha512-pE1k7R3Z+7WZUysJtA0VVf8e5nrRl4JPmnaLvTwXFuQ08YBD1d0PfcWYIaQSJbqB1bTYx6AGBbFKfneMeJzh6Q==" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha512-SfTiTlX6kk+qitfevl/7LibUOeJWlt9rbyDn92a1DqWOw9vWG2MFoays0sgObmWazO5BQPiFucnnEAjpAB+/Sw==" crossorigin="anonymous">
@@ -26,6 +32,40 @@
         dataLayer = [];
     </script>
     
+    <script type="application/ld+json">
+        {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Developer laziness leads to productivity",
+        "image": {
+        "@type": "ImageObject",
+        "url": "https://content.red-folder.com/blog/developer-laziness-leads-to-productivity/header.png",
+        "height": "150",
+        "width": " 280"
+        },
+        "publisher": {
+        "@type": "Organization",
+        "name": "Red Folder Consultancy Ltd",
+        "logo": {
+        "@type": "ImageObject",
+        "url": "https://www.red-folder.com/media/RFCLogo.png"
+        }
+        },
+        "url": "https://www.red-folder.com/blog/developer-laziness-leads-to-productivity",
+        "datePublished": "2020-11-12",
+        "dateCreated": "2020-11-12",
+        "dateModified": "2020-11-12",
+        "description": "Newsletter for 12th November 2020 - productivity, automation and the benefits of developer laziness",
+        "author": {
+        "@type": "Person",
+        "name": "Mark Taylor"
+        },
+        "mainEntityOfPage": {
+        "@type": "WebPage"
+        }
+        }
+    </script>
+
 </head>
 <body>
     <!-- Google Tag Manager -->
@@ -256,375 +296,208 @@
     background-image: url(/images/moods/MoodNoteTaking.jpg);
 }
 
-    .hero-banner span {
+    .hero-banner span, .hero-banner h1 {
         color: white;
         display: inline-block;
         background: var(--main-colour);
         padding: 5px 10px 5px 10px;
-        font-size: x-large;
     }
 
-.contact .title {
-    text-align: center;
-    color: var(--accent2-colour);
-    background-color: var(--main-colour);
-    width: 100%;
-    line-height: 100%;
+.blog-text, .author {
     padding-top: 15px;
     padding-bottom: 15px;
 }
 
-    .contact .title h2 {
-        margin-top: 0px;
-    }
 
-    .contact .title p {
-        margin-bottom: 0px;
-    }
-
-.contact .body {
-    padding: 15px;
-
+.author {
     text-align: center;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    color: var(--accent2-colour);
+    background-color: var(--main-colour);
 }
 
-.contact .body button {
-    font-size: x-large;
+    .author h2 {
+        padding-bottom: 30px;
+    }
+
+    .author a {
+        color: var(--accent2-colour);
+    }
+
+.social {
+    padding-top: 25px;
+    text-align: center;
+    padding-bottom: 25px;
+}
+
+    .social > a {
+        border: 1px solid var(--accent2-colour);
+        opacity: 1;
+        font-size: 24px;
+        width: 40px;
+        height: 40px;
+        line-height: 40px;
+        display: inline-block;
+        text-align: center;
+        border-radius: 50%;
+        margin: 0 8px;
+        color: inherit;
+    }
+
+        .social > a:hover {
+            opacity: 1;
+            color: var(--accent1-colour);
+            border: 1px solid var(--accent1-colour);
+        }
+
+.blog-text, .author {
+    padding-top: 15px;
+    padding-bottom: 15px;
 }</style></rfc-inline-style>
 
 <div class="hero-banner">
-    <span>An Independent Consultancy</span><br>
-    <span>helping you to achieve</span><br>
-    <span>Better ROI from Software Development</span>
+    <h1>Developer laziness leads to productivity</h1>
 </div>
 
-<rfc-inline-style><style>.welcome .title {
-    text-align: center;
-    color: var(--accent2-colour);
-    background-color: var(--main-colour);
-    width: 100%;
-    line-height: 100%;
-    padding-top: 15px;
-    padding-bottom: 15px;
-}
+<div class="blog-text container">
+    <p>I've recently been reminded of how important automation can be.</p>
 
-.welcome .title h2 {
-    margin: 0px;
-}
+<p>How important it can be to the productivity of an individual and organisation.</p>
 
-.welcome .body {
-    margin: auto;
-    max-width: 900px;
-    padding: 15px;
+<p>I was adding some automated tests to a product for a client of mine.</p>
 
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
-    align-items: center;
-}
+<p>The tests would, whenever the product was changes, automatically run through a number of validation tests.</p>
 
-.welcome .advert {
-    position: relative;
-    padding-bottom: 56.25%;
-    height: 0px;
-}
+<p>While obviously there was investment in my time to produce the tests, they could be used over and over again.</p>
 
-.welcome .advert iframe {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    width: 100%;
-    height: 100%;
-}
-</style></rfc-inline-style>
+<p>They provided a safety net to know if we'd unexpectedly changed something which then broken the system.</p>
 
-<div class="welcome">
-    <div class="title">
-        <h2>Welcome </h2>
-    </div>
-    <div class="body">
-        <div class="message">
-            <p><strong>Red Folder Consultancy</strong> provides advice and services to help you get&nbsp;<strong>better Return On Investment from your Software Development investment</strong>. </p>
-            <p>Software Development is&nbsp;<strong>complex</strong>.</p>
-            <p>And traditional management techniques are&nbsp;<strong>counter-productive</strong>. </p>
-            <p><strong>Red Folder Consultancy</strong> can help. </p>
+<p>For the investment in those tests, they could be run over and over again with very little further effort.</p>
+
+<p>And this speaks to the heart of a general developer philosophy of being lazy.</p>
+
+<p>I use the term lazy rather tongue in cheek as I actually mean it as a positive term.</p>
+
+<p>A lazy developer will not want to repeatably do the same task over and over again.</p>
+
+<p>They are problem solvers.</p>
+
+<p>They want new and exciting problems to solve.</p>
+
+<p>So if faced with the same problem over and over, the developer instinct will be to automated it.</p>
+
+<p>We touched on this during my podcast episodes 19-21 where I covered <a href="https://red-folder.com/podcasts/19-Continuous-Integration">Continuous Integration</a>, <a href="https://red-folder.com/podcasts/20-Continuous-Delivery">Deployment</a> and <a href="https://red-folder.com/podcasts/21-Continuous-Deployment">Delivery</a>.  </p>
+
+<p>These processes come out of developer frustration of having to do the same boring tasks over and over again.</p>
+
+<p>So rather than keep doing it; those chose to automate them.</p>
+
+<p>And while it saved those original developers from having to repeat those boring tasks, we now benefit from those first steps.</p>
+
+<p>Not just in saving our developers from doing many of those tasks.</p>
+
+<p>But from those tasks being more repeatable, more reliable - less human mistakes.</p>
+
+<p>We have auditable logs of those actions having taken place.  We can see the automated system has carried them out - along with the outcome.</p>
+
+<p>We aren't relying on a sleepy developer in the middle of the night correctly following a checklist AND correctly recording the steps they made for audit.</p>
+
+<p>And this same "lazy" attitude can be seen throughout the entirely of Software Development.</p>
+
+<p>Software Developers will seek to automate those problems away so they can get to the good problem solving.</p>
+
+<p>Be that automation of testing, deployment or countless other things.</p>
+
+<p>If you find your developers are repeatedly doing the same tasks over and over again, then encourage them to look how to automate it away.</p>
+
+<p>It will be better for productivity.</p>
+
+<hr>
+
+<h2>#62: Bad for ROI: The Gantt Chart</h2>
+
+<p>Gantt Charts are a popular tool for visualising dependencies for complex activities. </p>
+
+<p>In this episode I discuss why the use of Gantt Charts are bad for ROI in Software Development.</p>
+
+<p><a href="https://red-folder.com/podcasts/62-Bad-for-ROI-The-Gantt-Chart">Listen Here</a></p>
+
+<hr>
+
+<h2>Free Software Development Consultancy</h2>
+
+<p>I'd like to invite you to join the new <a href="https://www.linkedin.com/groups/8981583/">Better ROI from Software Development LinkedIn Group</a></p>
+
+<p>I've created the group because I believe;</p>
+
+<ol>
+<li>Every business today is a technology business</li>
+<li>At some point every business will rely on Software Development</li>
+<li>Software Development, when done well, will materially affect business outcomes</li>
+<li>Software Development can be a complex and expensive to do well</li>
+<li>There wasn't a forum for business leaders to get help</li>
+</ol>
+
+<p>And this is what the group is aiming to resolve.</p>
+
+<p>Whatever ROI means to you and your business, I want the group to provide advice to any and all questions you may have related to achieving it through Software Development.</p>
+
+<p>Anyone is welcome to join the group; but it is primarily aimed at those that invest in Software Development (C-level) and those that help them to achieve the best outcomes (IT Management).</p>
+
+<p>So whether your organisation has its own mobile apps, extensive line of business systems or just a simple promotional website - I look forward to your questions.</p>
+
+<p>Stay safe.</p>
+</div>
+
+<div class="author">
+    <div class="container">
+        <div>
+            <p>
+                <strong>About the author:</strong>
+            </p>
+            <p>
+                Mark Taylor is an experience IT Consultant passionate about helping his clients get better ROI from their Software Development.
+            </p>
+            <p>
+                He has over 20 years Software Development experience - over 15 of those leading teams.  He has experience in a wide variety of technologies and holds certification in Microsoft Development and Scrum.
+            </p>
+            <p>
+                He operates through <strong>Red Folder Consultancy Ltd</strong>.
+            </p>
         </div>
-        <div class="advert">
-            <!-- Setting taken from https://developers.google.com/youtube/player_parameters -->
-<iframe width="560" height="340" src="https://www.youtube.com/embed/qG_GPFywM4g?cc_load_policy=1&loop=1&rel=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
-
+        <div class="social">
+            <p>He can be contacted on:</p>
+            <a href="skype:red-folder?chat"><i class="fa fa-skype"></i></a>
+            <a href="https://twitter.com/RedFolderMark"><i class="fa fa-twitter"></i></a>
+            <a href="mailto:mark@red-folder.com"><i class="fa fa-envelope"></i></a>
         </div>
     </div>
 </div>
 
-    
-<rfc-inline-style><style>.podcast-promotion .title {
-    text-align: center;
-    color: var(--accent2-colour);
-    background-color: var(--main-colour);
-    width: 100%;
-    line-height: 100%;
-    padding-top: 15px;
-    padding-bottom: 15px;
-}
 
-    .podcast-promotion .title h2 {
-        margin-top: 0px;
-    }
+<div class="container">
+    <div id="disqus_thread"></div>
 
-    .podcast-promotion .title p {
-        margin-bottom: 0px;
-    }
+    <script type="text/javascript">
+        /**
+        *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+        *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+        var disqus_config = function () {
+            this.page.url = "https://www.red-folder.com/blog/developer-laziness-leads-to-productivity";
+            //this.page.identifier = "a44a6833-c0ed-4e68-83a5-6112fef5300c";
+        };
 
-.podcast-promotion .body {
-    margin: auto;
-    max-width: 900px;
-    padding: 15px;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
-    grid-column-gap: 30px;
-    justify-content: space-around;
-    align-items: center;
-}
-
-    .podcast-promotion .body .podcast-logo {
-        text-align: center;
-    }
-
-        .podcast-promotion .body .podcast-logo img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            max-width: 400px;
-        }
-
-.podcast-promotion .latest-podcast a {
-    font-size: x-large;
-    margin-bottom: 10.5px;
-    width: 100%;
-    text-align: center;
-}
-
-.podcast-promotion .podcast-metrics {
-    margin: auto;
-    max-width: 900px;
-    padding: 15px;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
-    grid-column-gap: 30px;
-    justify-content: space-around;
-    align-items: center;
-}
-
-    .podcast-promotion .podcast-metrics .title {
-        text-align: center;
-    }
-
-    .podcast-promotion .podcast-metrics .metric {
-        text-align: center;
-        font-size: 32px;
-    }
-</style></rfc-inline-style>
-
-<div class="podcast-promotion">
-    <div class="title">
-        <h2>Podcast</h2>
-        <p>Home of the</p>
-        <p><strong>Better&nbsp;ROI&nbsp;from&nbsp;Software&nbsp;Development</strong></p>
-        <p>Podcast</p>
-    </div>
-
-    
-<div class="body">
-    <div class="podcast-logo">
-        <img src="/images/PodcastLogo.png">
-    </div>
-    <div class="latest-podcast">
-        <h3>Latest episode:</h3>
-        <p>#188: Bad for ROI - More Developers</p>
-        <p>Published: Wed, 22 Nov 2023 16:00:00 GMT</p>
-        <a class="btn btn-primary" href="/podcasts/188-Bad-for-ROI--More-Developers">
-            <i class="fa fa-play-circle" aria-hidden="true"></i>&nbsp;Listen now
-        </a>
-        <p>Or on your favourite podcast app:</p>
-        <p>
-            <rfc-inline-style><style>.podcasters {
-    padding: 0px;
-}
-
-.podcasters li {
-    list-style: none;
-    display: inline-block;
-}
-</style></rfc-inline-style>
-
-<ul class="podcasters">
-    <li><a href="https://podcasts.apple.com/us/podcast/better-roi-from-software-development/id1469426122?uo=4"><img src="/images/icons/podcasters/apple.png" title="Apple Podcasts"></a></li>
-    <li><a href="https://open.spotify.com/show/4LQebT2Vx148qfHJ9o8gy3"><img src="/images/icons/podcasters/spotify.png" title="Spotify"></a></li>
-    <li><a href="https://www.breaker.audio/better-roi-from-software-development"><img src="/images/icons/podcasters/breaker.png" title="Breaker"></a></li>
-    <li><a href="https://www.google.com/podcasts?feed=aHR0cHM6Ly9hbmNob3IuZm0vcy9iNjY5NzYwL3BvZGNhc3QvcnNz"><img src="/images/icons/podcasters/google.png" title="Google Podcasts"></a></li>
-    <li><a href="https://overcast.fm/itunes1469426122/better-roi-from-software-development"><img src="/images/icons/podcasters/overcast.png" title="Overcast"></a></li>
-    <li><a href="https://pca.st/PK32"><img src="/images/icons/podcasters/pocket.png" title="Pocket Casts"></a></li>
-    <li><a href="https://radiopublic.com/better-roi-from-software-developm-69OjR2"><img src="/images/icons/podcasters/radiopublic.png" title="PublicRadio"></a></li>
-    <li><a href="https://www.stitcher.com/podcast/anchor-podcasts/better-roi-from-software-development"><img src="/images/icons/podcasters/stitcher.png" title="Stitcher"></a></li>
-</ul>
-
-        
-    </div>
+        (function () { // DON'T EDIT BELOW THIS LINE
+            var d = document, s = d.createElement('script');
+            s.src = '//red-folder.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+        })();
+    </script>
 </div>
 
 
-    
-<div class="podcast-metrics">
-    <div>
-        <h3 class="title">Number of episodes</h3>
-        <p class="metric">
-            188
-        </p>
-    </div>
-    <div>
-        <h3 class="title">Total duration</h3>
-        <p class="metric">
-            41 Hours, 9 Minutes
-        </p>
-    </div>
-</div>
-</div>
-
-<rfc-inline-style><style>.testimonials .title {
-    text-align: center;
-    color: var(--accent2-colour);
-    background-color: var(--main-colour);
-    width: 100%;
-    line-height: 100%;
-    padding-top: 15px;
-    padding-bottom: 15px;
-}
-
-    .testimonials .title h2 {
-        margin-top: 0px;
-    }
-
-    .testimonials .title p {
-        margin-bottom: 0px;
-    }
-
-.testimonials .body {
-    margin: auto;
-    max-width: 900px;
-    padding: 15px;
-
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
-    grid-column-gap: 30px;
-}
-
-.testimonials .footer{
-    padding-left: 15px;
-    padding-right: 15px;
-    padding-bottom: 15px;
-    text-align: center;
-}
-
-.testimonials .footer a {
-    padding-left: 10px;
-    padding-right: 10px;
-    width: 100%;
-    max-width: 600px;
-    text-align: center;
-    font-size: x-large;
-}
-</style></rfc-inline-style>
-
-<div class="testimonials">
-    <div class="title">
-        <h2>Testimonials </h2>
-        <p>A consultant lives on his reputation.</p>
-        <p>Read what people say about me.</p>
-    </div>
-    <div class="body">
-        <p>
-            "I enjoyed working with him, especially in complex projects where Mark could prove his talent to quickly grasp complex matters and being able to translate challenges into well structured action plans."
-        </p>
-
-        <p>
-            "I have been very impressed with how quickly Mark got to grips with what can only be described as a complex environment. Part of this is Mark has the experience, knowledge and a strong natural ability to get technology and how
-            it works for the business. Mark is also a very easy person to work with due to his collaborative approach."
-        </p>
-
-        <p>
-            "I have always been impressed with Mark’s desire to improve his own management techniques and adapt to change which is such vital commodity in I.T. sector. He is a great motivational person to be around and this is picked up by
-            the team and helps us to achieve results."
-        </p>
-        <p>
-            "I would always heartily recommend Mark to any organisation who is looking for someone to come in and sort things out, fix things up, or just add strength to a team. A natural leader yet humanising peer in equal measure."
-        </p>
-    </div>
-    <div class="footer">
-        <a class="btn btn-primary" href="https://uk.linkedin.com/in/mark-taylor-1ab1385">
-            <i class="fa fa-linkedin-square"></i>&nbsp;Read more on LinkedIn
-        </a>
-    </div>
-</div>
-
-
-<div class="contact">
-    <div class="title">
-        <h2>Contact</h2>
-    </div>
-    <div class="body">
-        <p>
-            I can help your Development Team with
-            <strong>Team Leadership</strong>,
-            <strong>Solution Architecture</strong>,
-            <strong>DevOps automation</strong>,
-            or <strong>hands-on Development</strong>
-        </p>
-        
-<rfc-inline-style><style>.contact-form {
-    display: grid;
-    grid-template-columns: minmax(250px, 900px);
-    justify-content: space-around;
-
-    padding: 15px 5px 15px 5px;
-}
-
-.contact-form button {
-    width: 100%;
-}</style></rfc-inline-style>
-
-<div class="contact-form">
-
-<form action="/home/contact" id="contact-form" method="post">        <div class="form-group">
-            <label for="Name">Your name</label>
-            <input class="form-control" data-val="true" data-val-required="I really could do with knowing who I&#x27;m talking to" id="Name" name="Name" type="text" value="">
-            <span class="field-validation-valid text-danger" data-valmsg-for="Name" data-valmsg-replace="true"></span>
-        </div>
-        <div class="form-group">
-            <label for="EmailAddress">Your email address</label>
-            <input class="form-control" data-val="true" data-val-required="Its how I contact you - it doesn&#x27;t get used for anything else" id="EmailAddress" name="EmailAddress" type="email" value="">
-            <span class="field-validation-valid text-danger" data-valmsg-for="EmailAddress" data-valmsg-replace="true"></span>
-        </div>
-        <div class="form-group">
-            <label for="HowCanIHelp">And what problem do you want help with?</label>
-            <textarea class="form-control" data-val="true" data-val-required="Help me to help you by telling me a little about your problem" id="HowCanIHelp" name="HowCanIHelp" rows="10">
-</textarea>
-            <span class="field-validation-valid text-danger" data-valmsg-for="HowCanIHelp" data-valmsg-replace="true"></span>
-        </div>
-<input id="RecaptureToken" name="RecaptureToken" type="hidden" value="">        <button class="btn btn-primary g-recaptcha" data-sitekey="6LdDJLUZAAAAAP1GIa8uj8kJ2JL4bw3maydYH_j7" data-callback='onSubmit' data-action='submit'>
-            Submit
-        </button>
-
-<script src="https://www.google.com/recaptcha/api.js"></script>
-<script>
-    function onSubmit(token) {
-        document.getElementById('RecaptureToken').value = token;
-        document.getElementById("contact-form").submit();
-    }
-</script>
-
-
-    </div>
-</div>
 
     </div>
 
