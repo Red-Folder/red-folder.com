@@ -61,7 +61,7 @@ jobs:
         run: dotnet build --no-restore --configuration Release
 
       - name: Run Tests
-        run: dotnet test --no-build --logger trx --results-directory "test-results"
+        run: dotnet test --no-build --configuration Release --logger trx --results-directory "test-results"
 
       - name: Publish Test Results
         uses: EnricoMi/publish-unit-test-result-action@v2
@@ -70,7 +70,7 @@ jobs:
           files: test-results/**/*.trx
 
       - name: Generate Coverage
-        run: dotnet test --no-build --verbosity normal --collect:"XPlat Code Coverage"
+        run: dotnet test --no-build --configuration Release --verbosity normal --collect:"XPlat Code Coverage"
 
       - name: Install ReportGenerator tool
         run: dotnet tool install -g dotnet-reportgenerator-globaltool
