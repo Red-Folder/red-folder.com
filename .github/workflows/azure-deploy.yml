@@ -39,10 +39,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
       - name: Set up .NET Core
-        uses: actions/setup-dotnet@v3
+        uses: actions/setup-dotnet@v4
         with:
           dotnet-version: ${{ env.DOTNET_VERSION }}
 
@@ -50,7 +50,7 @@ jobs:
         run: dotnet restore
 
       - name: Set up dependency caching for faster builds
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: ~/.nuget/packages
           key: ${{ runner.os }}-nuget-${{ hashFiles('**/packages.lock.json') }}
@@ -81,8 +81,8 @@ jobs:
       - name: Upload coverage
         uses: codecov/codecov-action@v3
         with:
-          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
-          file: ./coveragereport/Cobertura.xml
+          token: ${{ secrets.CODECOV_TOKEN }}
+          files: ./coveragereport/Cobertura.xml
           flags: unittests
           name: codecov-umbrella
           fail_ci_if_error: true
