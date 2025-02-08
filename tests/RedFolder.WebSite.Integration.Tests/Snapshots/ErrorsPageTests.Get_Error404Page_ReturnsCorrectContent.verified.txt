@@ -1,0 +1,470 @@
+﻿<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns#">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+
+    <title>404 - Not found</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.7/flatly/bootstrap.css" integrity="sha512-pE1k7R3Z+7WZUysJtA0VVf8e5nrRl4JPmnaLvTwXFuQ08YBD1d0PfcWYIaQSJbqB1bTYx6AGBbFKfneMeJzh6Q==" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha512-SfTiTlX6kk+qitfevl/7LibUOeJWlt9rbyDn92a1DqWOw9vWG2MFoays0sgObmWazO5BQPiFucnnEAjpAB+/Sw==" crossorigin="anonymous">
+
+    <rfc-inline-style><style>:root {
+    --main-colour: #e74c3c;
+    --accent1-colour: #4C4C4C;
+    --accent2-colour: white;
+}
+</style></rfc-inline-style>
+
+    
+
+    <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-3.3.1.min.js" integrity="sha384-tsQFqpEReu7ZLhBV2VZlAu7zcOV+rXbYlF2cqB8txI/8aZajjp4Bqd+V6D5IgvKT" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+
+    <script>
+        dataLayer = [];
+    </script>
+    
+</head>
+<body>
+    <!-- Google Tag Manager -->
+    <noscript>
+        <iframe src="//www.googletagmanager.com/ns.html?id=GTM-N69LS5" height="0" width="0" style="display:none;visibility:hidden"></iframe>
+    </noscript>
+    <script>
+        (function (w, d, s, l, i) { w[l] = w[l] || []; w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' }); var f = d.getElementsByTagName(s)[0], j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src = '//www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f); })(window, document, 'script', 'dataLayer', 'GTM-N69LS5');
+    </script>
+    <!-- End Google Tag Manager -->
+
+    <rfc-inline-style><style>@media (max-width: 767px) {
+    .navigation-clean {
+        padding-top: 0;
+        padding-bottom: 0;
+    }
+
+        .navigation-clean .navbar-nav .open .dropdown-menu {
+            box-shadow: none;
+        }
+
+            .navigation-clean .navbar-nav .open .dropdown-menu > li > a {
+                color: #37434d;
+                padding-top: 12px;
+                padding-bottom: 12px;
+                line-height: 1;
+            }
+
+        .navigation-clean.navbar-inverse .navbar-nav .open .dropdown-menu > li > a {
+            color: #fff;
+        }
+}
+
+.navigation-clean {
+    background: #fff;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    color: #333;
+    border-radius: 0;
+    box-shadow: none;
+    border: none;
+    margin-bottom: 0;
+}
+
+    .navigation-clean #rfc-logo {
+        height: 58px;
+        margin-top: -20px;
+    }
+
+    .navigation-clean .navbar-brand {
+        font-weight: bold;
+        color: inherit;
+    }
+
+        .navigation-clean .navbar-brand:hover {
+            color: #222;
+        }
+
+        .navigation-clean .navbar-brand img {
+            height: 100%;
+            display: inline-block;
+            margin-right: 10px;
+            width: auto;
+        }
+
+    .navigation-clean .navbar-toggle {
+        border-color: #ddd;
+    }
+
+        .navigation-clean .navbar-toggle:hover,
+        .navigation-clean .navbar-toggle:focus {
+            background: none;
+        }
+
+        .navigation-clean .navbar-toggle .icon-bar {
+            background-color: #888;
+        }
+
+    .navigation-clean .navbar-collapse,
+    .navigation-clean .navbar-form {
+        border-top-color: #ddd;
+    }
+
+    .navigation-clean .navbar-nav > li > .dropdown-menu {
+        margin-top: -5px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        background-color: #fff;
+        border-radius: 2px;
+    }
+
+    .navigation-clean .navbar-nav > li > a {
+        padding-left: 18px;
+        padding-right: 18px;
+    }
+
+    .navigation-clean .navbar-nav > .active > a,
+    .navigation-clean .navbar-nav > .open > a {
+        background: none;
+        box-shadow: none;
+    }
+
+    .navigation-clean .navbar-default .navbar-nav > li > a {
+        color: #465765;
+    }
+
+    .navigation-clean .navbar-default .navbar-nav > .active > a,
+    .navigation-clean .navbar-default .navbar-nav .navbar-default .navbar-nav > .active > a:focus,
+    .navigation-clean .navbar-default .navbar-nav .navbar-default .navbar-nav > .active > a:hover {
+        color: #363739;
+        box-shadow: none;
+        background: none;
+        pointer-events: none;
+    }
+
+    .navigation-clean .dropdown-menu > li > a {
+        line-height: 2;
+        font-size: 14px;
+        color: #37434d;
+    }
+
+        .navigation-clean .dropdown-menu > li > a:focus,
+        .navigation-clean .dropdown-menu > li > a:hover {
+            background: #eee;
+            color: inherit;
+        }
+
+    .navigation-clean.navbar-inverse {
+        background-color: var(--main-colour);
+        color: #fff;
+    }
+
+        .navigation-clean.navbar-inverse .navbar-brand:hover {
+            color: #f0f0f0;
+        }
+
+        .navigation-clean.navbar-inverse .navbar-toggle {
+            border-color: var(--accent2-colour);
+        }
+
+            .navigation-clean.navbar-inverse .navbar-toggle .icon-bar {
+                background-color: var(--accent2-colour);
+            }
+
+        .navigation-clean.navbar-inverse .navbar-collapse,
+        .navigation-clean.navbar-inverse .navbar-form {
+            border-top-color: #333;
+        }
+
+        .navigation-clean.navbar-inverse .navbar-nav > li > a {
+            color: #ffffff;
+        }
+
+            .navigation-clean.navbar-inverse .navbar-nav > li > a:focus,
+            .navigation-clean.navbar-inverse .navbar-nav > li > a:hover {
+                color: #1f2021 !important;
+                background-color: transparent;
+            }
+
+        .navigation-clean.navbar-inverse .navbar-nav > li .dropdown-menu {
+            background-color: #1f2021;
+        }
+
+        .navigation-clean.navbar-inverse .navbar-nav > .active > a,
+        .navigation-clean.navbar-inverse .navbar-nav > .active > a:focus,
+        .navigation-clean.navbar-inverse .navbar-nav > .active > a:hover {
+            color: #1f2021;
+            box-shadow: none;
+            background: none;
+            pointer-events: none;
+        }
+
+        .navigation-clean.navbar-inverse .navbar-nav .dropdown-menu > li > a:focus,
+        .navigation-clean.navbar-inverse .navbar-nav .dropdown-menu > li > a {
+            color: #f2f5f8;
+        }
+
+            .navigation-clean.navbar-inverse .navbar-nav .dropdown-menu > li > a:focus:focus,
+            .navigation-clean.navbar-inverse .navbar-nav .dropdown-menu > li > a:focus,
+            .navigation-clean.navbar-inverse .navbar-nav .dropdown-menu > li > a:focus:hover,
+            .navigation-clean.navbar-inverse .navbar-nav .dropdown-menu > li > a:hover {
+                background: #363739;
+            }
+
+#fake-header {
+    height: 80px;
+}</style></rfc-inline-style>
+
+<header>
+    <div>
+        <nav class="navbar navbar-inverse navbar-fixed-top navigation-clean">
+            <div class="container">
+                <div class="navbar-header">
+                    <a class="navbar-brand navbar-link" rel="home" href="/">
+                        <img src="/Images/RFCLogo48.png" id="rfc-logo">
+                    </a>
+                    <button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navcol-1">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+                <div class="collapse navbar-collapse" id="navcol-1">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="/Services">Services</a></li>
+                        <li><a href="/Blog">Blog</a></li>
+                        <li><a href="/Podcasts">Podcasts</a></li>
+                        <li><a href="/Projects">Projects</a></li>
+                        <li><a href="/MyBio">My Bio</a></li>
+                        <li><a href="/Home/Contact">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+</header>
+<div id="fake-header">
+    <!-- Used to set content below it now to show UNDER the header -->
+    &nbsp;&nbsp;&nbsp;
+</div>
+
+    <div class="page-container">
+        
+<rfc-inline-style><style>.hero-banner {
+    background-size: cover;
+    padding: 50px 20px;
+    background-image: url(/images/moods/MoodProjects.jpg);
+}
+
+    .hero-banner span,
+    .hero-banner h1 {
+        color: var(--accent2-colour);
+        display: inline-block;
+        background: var(--main-colour);
+        padding: 5px 10px 5px 10px;
+    }
+
+.site-intro {
+    text-align: center;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+    .site-intro h2 {
+        padding-bottom: 30px;
+    }
+
+a,
+a:visited,
+a:active {
+    color: var(--accent1-colour);
+    -moz-transition: color 1.5s;
+    -o-transition: color 1.5s;
+    -webkit-transition: color 1.5s;
+    transition: color 1.5s;
+}
+
+    a:hover,
+    a:focus {
+        text-decoration: none;
+        color: var(--main-colour);
+    }</style></rfc-inline-style>
+
+<div class="hero-banner">
+    <span>Ohhh ... so close, but not quite</span><br>
+</div>
+
+<div class="site-intro">
+    <div class="container">
+        <img src="/images/NotFound.png" class="img-responsive center-block">
+        <h2>I'm sorry ... </h2>
+        <p>
+            I cannot find the page you are looking for.  Try one of the below, they are fairly great.
+        </p>
+        <p>
+            <a href="/Services"><strong>Services:</strong> The services I provide.</a>
+        </p>
+        <p>
+            <a href="/Projects"><strong>Projects:</strong> The projects I host here.</a>
+        </p>
+        <p>
+            <a href="/MyBio"><strong>My Bio:</strong> All about me.</a>
+        </p>
+    </div>
+</div>
+
+
+    </div>
+
+    <rfc-inline-style><style>footer {
+    padding: 0px 0 20px 0;
+    background-color: var(--main-colour);
+    color: var(--accent2-colour);
+}
+
+    footer ul {
+        padding: 0;
+        list-style: none;
+        text-align: center;
+        font-size: 18px;
+        line-height: 1.6;
+        margin-bottom: 0;
+    }
+
+        footer ul li {
+            padding: 0 10px;
+        }
+
+            footer ul li a {
+                color: inherit;
+                text-decoration: none !important;
+            }
+
+                footer ul li a:visited {
+                    color: var(--accent2-colour);
+                }
+
+                footer ul li a:hover {
+                    color: var(--accent1-colour);
+                }
+
+    footer .copyright {
+        color: var(--accent2-colour);
+        margin-top: 15px;
+        text-align: center;
+        font-size: 13px;
+        margin-bottom: 0;
+    }
+
+</style></rfc-inline-style>
+
+<footer>
+    <rfc-inline-style><style>.social-buttons {
+    padding-top: 25px;
+    text-align: center;
+    padding-bottom: 25px;
+}
+
+    .social-buttons > a {
+        border: 1px solid var(--accent2-colour);
+        opacity: 1;
+        font-size: 24px;
+        width: 40px;
+        height: 40px;
+        line-height: 40px;
+        display: inline-block;
+        text-align: center;
+        border-radius: 50%;
+        margin: 0 8px;
+        color: inherit;
+    }
+
+        .social-buttons > a:hover {
+            opacity: 1;
+            color: var(--accent1-colour);
+            border: 1px solid var(--accent1-colour);
+        }
+
+</style></rfc-inline-style>
+
+<div class="social-buttons">
+    <a href="https://github.com/Red-Folder"><i class="fa fa-github"></i></a>
+    <a href="skype:red-folder?chat"><i class="fa fa-skype"></i></a>
+    <a href="https://twitter.com/RedFolderMark"><i class="fa fa-twitter"></i></a>
+    <a href="https://www.linkedin.com/in/markbryantaylor/"><i class="fa fa-linkedin-square"></i></a>
+    <a href="mailto:mark@red-folder.com"><i class="fa fa-envelope"></i></a>
+</div>
+
+    <ul class="list-inline">
+        <li><a href="/">Home</a></li>
+        <li><a href="/Services">Services</a></li>
+        <li><a href="/Blog">Blog </a></li>
+        <li><a href="/Projects">Projects </a></li>
+        <li><a href="/MyBio">My Bio</a></li>
+        <li><a href="/Home/Contact">Contact</a></li>
+    </ul>
+    <p class="copyright">Red Folder Consultancy Limited &copy; 2025</p>
+</footer>
+
+    
+
+    <rfc-inline-style><style>#cookie-consent-container {
+    position: fixed;
+    bottom: 0px;
+    width: 100%;
+    padding: 16px 0px;
+    box-shadow: 0px 4px 13px 0px #82888c;
+    font-family: 'Jim Sans Regular', Arial;
+    text-align: center;
+    background-color: white;
+}
+
+#cookie-consent-content {
+    color: var(--accent1-colour);
+    font-size: 12px;
+    line-height: 28px;
+    margin: 0 10%;
+}
+    #cookie-consent-content a {
+        color: inherit;
+        text-decoration: none !important;
+        font-weight: bold;
+    }
+
+        #cookie-consent-content a:visited {
+            color: var(--accent1-colour);
+        }
+
+        #cookie-consent-content a:hover {
+            color: var(--accent1-colour);
+        }
+
+#cookie-consent-acceptance {
+    margin-left: 1.5%;
+    border-radius: 5px;
+    padding: 4px 17px;
+    font-size: 10px;
+    color: #82888c;
+    text-transform: uppercase;
+    transition: all 0.25s ease-in-out;
+    border: 1px solid #abb0b3;
+    text-decoration: none;
+    line-height: 14px;
+    font-family: 'Jim Sans Medium', Arial;
+    cursor: pointer;
+    outline: none;
+    background-color: transparent;
+}</style></rfc-inline-style>
+    <div id="cookie-consent-container">
+        <div id="cookie-consent-content">
+            We use cookies to ensure that we give you the best experience of our website.  <a href="/cookiepolicy">Click here</a> for more.
+        </div>
+    </div>
+    <script>
+        function handleCookieConsent(cookieString) {
+            document.cookie = cookieString;
+            document.getElementById("cookie-consent-container").style.display = "none";
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,617 @@
+﻿<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns#">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+
+    <title>Cookie Policy</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.7/flatly/bootstrap.css" integrity="sha512-pE1k7R3Z+7WZUysJtA0VVf8e5nrRl4JPmnaLvTwXFuQ08YBD1d0PfcWYIaQSJbqB1bTYx6AGBbFKfneMeJzh6Q==" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha512-SfTiTlX6kk+qitfevl/7LibUOeJWlt9rbyDn92a1DqWOw9vWG2MFoays0sgObmWazO5BQPiFucnnEAjpAB+/Sw==" crossorigin="anonymous">
+
+    <rfc-inline-style><style>:root {
+    --main-colour: #e74c3c;
+    --accent1-colour: #4C4C4C;
+    --accent2-colour: white;
+}
+</style></rfc-inline-style>
+
+    
+
+    <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-3.3.1.min.js" integrity="sha384-tsQFqpEReu7ZLhBV2VZlAu7zcOV+rXbYlF2cqB8txI/8aZajjp4Bqd+V6D5IgvKT" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+
+    <script>
+        dataLayer = [];
+    </script>
+    
+</head>
+<body>
+    <!-- Google Tag Manager -->
+    <noscript>
+        <iframe src="//www.googletagmanager.com/ns.html?id=GTM-N69LS5" height="0" width="0" style="display:none;visibility:hidden"></iframe>
+    </noscript>
+    <script>
+        (function (w, d, s, l, i) { w[l] = w[l] || []; w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' }); var f = d.getElementsByTagName(s)[0], j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src = '//www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f); })(window, document, 'script', 'dataLayer', 'GTM-N69LS5');
+    </script>
+    <!-- End Google Tag Manager -->
+
+    <rfc-inline-style><style>@media (max-width: 767px) {
+    .navigation-clean {
+        padding-top: 0;
+        padding-bottom: 0;
+    }
+
+        .navigation-clean .navbar-nav .open .dropdown-menu {
+            box-shadow: none;
+        }
+
+            .navigation-clean .navbar-nav .open .dropdown-menu > li > a {
+                color: #37434d;
+                padding-top: 12px;
+                padding-bottom: 12px;
+                line-height: 1;
+            }
+
+        .navigation-clean.navbar-inverse .navbar-nav .open .dropdown-menu > li > a {
+            color: #fff;
+        }
+}
+
+.navigation-clean {
+    background: #fff;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    color: #333;
+    border-radius: 0;
+    box-shadow: none;
+    border: none;
+    margin-bottom: 0;
+}
+
+    .navigation-clean #rfc-logo {
+        height: 58px;
+        margin-top: -20px;
+    }
+
+    .navigation-clean .navbar-brand {
+        font-weight: bold;
+        color: inherit;
+    }
+
+        .navigation-clean .navbar-brand:hover {
+            color: #222;
+        }
+
+        .navigation-clean .navbar-brand img {
+            height: 100%;
+            display: inline-block;
+            margin-right: 10px;
+            width: auto;
+        }
+
+    .navigation-clean .navbar-toggle {
+        border-color: #ddd;
+    }
+
+        .navigation-clean .navbar-toggle:hover,
+        .navigation-clean .navbar-toggle:focus {
+            background: none;
+        }
+
+        .navigation-clean .navbar-toggle .icon-bar {
+            background-color: #888;
+        }
+
+    .navigation-clean .navbar-collapse,
+    .navigation-clean .navbar-form {
+        border-top-color: #ddd;
+    }
+
+    .navigation-clean .navbar-nav > li > .dropdown-menu {
+        margin-top: -5px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        background-color: #fff;
+        border-radius: 2px;
+    }
+
+    .navigation-clean .navbar-nav > li > a {
+        padding-left: 18px;
+        padding-right: 18px;
+    }
+
+    .navigation-clean .navbar-nav > .active > a,
+    .navigation-clean .navbar-nav > .open > a {
+        background: none;
+        box-shadow: none;
+    }
+
+    .navigation-clean .navbar-default .navbar-nav > li > a {
+        color: #465765;
+    }
+
+    .navigation-clean .navbar-default .navbar-nav > .active > a,
+    .navigation-clean .navbar-default .navbar-nav .navbar-default .navbar-nav > .active > a:focus,
+    .navigation-clean .navbar-default .navbar-nav .navbar-default .navbar-nav > .active > a:hover {
+        color: #363739;
+        box-shadow: none;
+        background: none;
+        pointer-events: none;
+    }
+
+    .navigation-clean .dropdown-menu > li > a {
+        line-height: 2;
+        font-size: 14px;
+        color: #37434d;
+    }
+
+        .navigation-clean .dropdown-menu > li > a:focus,
+        .navigation-clean .dropdown-menu > li > a:hover {
+            background: #eee;
+            color: inherit;
+        }
+
+    .navigation-clean.navbar-inverse {
+        background-color: var(--main-colour);
+        color: #fff;
+    }
+
+        .navigation-clean.navbar-inverse .navbar-brand:hover {
+            color: #f0f0f0;
+        }
+
+        .navigation-clean.navbar-inverse .navbar-toggle {
+            border-color: var(--accent2-colour);
+        }
+
+            .navigation-clean.navbar-inverse .navbar-toggle .icon-bar {
+                background-color: var(--accent2-colour);
+            }
+
+        .navigation-clean.navbar-inverse .navbar-collapse,
+        .navigation-clean.navbar-inverse .navbar-form {
+            border-top-color: #333;
+        }
+
+        .navigation-clean.navbar-inverse .navbar-nav > li > a {
+            color: #ffffff;
+        }
+
+            .navigation-clean.navbar-inverse .navbar-nav > li > a:focus,
+            .navigation-clean.navbar-inverse .navbar-nav > li > a:hover {
+                color: #1f2021 !important;
+                background-color: transparent;
+            }
+
+        .navigation-clean.navbar-inverse .navbar-nav > li .dropdown-menu {
+            background-color: #1f2021;
+        }
+
+        .navigation-clean.navbar-inverse .navbar-nav > .active > a,
+        .navigation-clean.navbar-inverse .navbar-nav > .active > a:focus,
+        .navigation-clean.navbar-inverse .navbar-nav > .active > a:hover {
+            color: #1f2021;
+            box-shadow: none;
+            background: none;
+            pointer-events: none;
+        }
+
+        .navigation-clean.navbar-inverse .navbar-nav .dropdown-menu > li > a:focus,
+        .navigation-clean.navbar-inverse .navbar-nav .dropdown-menu > li > a {
+            color: #f2f5f8;
+        }
+
+            .navigation-clean.navbar-inverse .navbar-nav .dropdown-menu > li > a:focus:focus,
+            .navigation-clean.navbar-inverse .navbar-nav .dropdown-menu > li > a:focus,
+            .navigation-clean.navbar-inverse .navbar-nav .dropdown-menu > li > a:focus:hover,
+            .navigation-clean.navbar-inverse .navbar-nav .dropdown-menu > li > a:hover {
+                background: #363739;
+            }
+
+#fake-header {
+    height: 80px;
+}</style></rfc-inline-style>
+
+<header>
+    <div>
+        <nav class="navbar navbar-inverse navbar-fixed-top navigation-clean">
+            <div class="container">
+                <div class="navbar-header">
+                    <a class="navbar-brand navbar-link" rel="home" href="/">
+                        <img src="/Images/RFCLogo48.png" id="rfc-logo">
+                    </a>
+                    <button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navcol-1">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+                <div class="collapse navbar-collapse" id="navcol-1">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="/Services">Services</a></li>
+                        <li><a href="/Blog">Blog</a></li>
+                        <li><a href="/Podcasts">Podcasts</a></li>
+                        <li><a href="/Projects">Projects</a></li>
+                        <li><a href="/MyBio">My Bio</a></li>
+                        <li><a href="/Home/Contact">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+</header>
+<div id="fake-header">
+    <!-- Used to set content below it now to show UNDER the header -->
+    &nbsp;&nbsp;&nbsp;
+</div>
+
+    <div class="page-container">
+        <rfc-inline-style><style>.hero-banner {
+    background-size: cover;
+    padding: 50px 20px;
+    background-image: url(/images/moods/MoodMeeting.jpg);
+}
+
+    .hero-banner h1 {
+        color: white;
+        display: inline-block;
+        background: var(--main-colour);
+        padding: 5px 10px 5px 10px;
+    }
+
+.cookie-policy {
+    text-align: center;
+}
+
+    .cookie-policy h2 {
+        color: var(--accent2-colour);
+        background-color: var(--main-colour);
+        width: 100%;
+        line-height: 100%;
+        padding-top: 15px;
+        padding-bottom: 15px;
+    }
+
+    .cookie-policy .cookie-policy-content {
+        margin: auto;
+        max-width: 500px;
+        padding: 15px;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-column-gap: 30px;
+    }
+
+        .cookie-policy .cookie-policy-content a {
+            color: var(--main-colour);
+            text-decoration: none;
+        }
+
+        .cookie-policy .cookie-policy-content a:hover {
+            color: var(--main-colour);
+        }
+
+        .cookie-policy .cookie-policy-content a:visited {
+            color: var(--main-colour);
+        }
+
+.contact .title {
+    text-align: center;
+    color: var(--accent2-colour);
+    background-color: var(--main-colour);
+    width: 100%;
+    line-height: 100%;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+    .contact .title h2 {
+        margin-top: 0px;
+    }
+
+    .contact .title p {
+        margin-bottom: 0px;
+    }
+
+.contact .body {
+    padding: 15px;
+    text-align: center;
+}
+
+    .contact .body button {
+        font-size: x-large;
+    }
+</style></rfc-inline-style>
+
+<div class="hero-banner">
+    <h1>Cookie Policy</h1>
+</div>
+
+<div class="cookie-policy">
+    <div class="cookie-policy-content">
+        <p>
+            Please read this cookie policy (“cookie policy”, "policy") carefully before using the Red Folder website
+            (“website”, "service") operated by Red Folder Consultancy Ltd ("us", 'we", "our").
+        </p>
+    </div>
+
+    <h2>What are cookies?</h2>
+    <div class="cookie-policy-content">
+        <p>
+            Cookies are simple text files that are stored on your computer or mobile device by a website’s
+            server. Each cookie is unique to your web browser. It will contain some anonymous information
+            such as a unique identifier, website’s domain name, and some digits and numbers.
+        </p>
+    </div>
+
+    <h2>What types of cookies do we use?</h2>
+
+    <h3>Google Analytical cookies</h3>
+    <div class="cookie-policy-content">
+        <p>
+            These cookies enable us and third-party services to collect aggregated data for statistical
+            purposes on how our visitors use the website. These cookies do not contain personal
+            information such as names and email addresses and are used to help us improve your user
+            experience of the website.
+        </p>
+    </div>
+
+    <h3>Google Tag Manager cookies</h3>
+    <div class="cookie-policy-content">
+        <p>
+            These cookies enable us and third-party services to provide focused functionality.
+        </p>
+    </div>
+
+    <h3>Google Ad cookies</h3>
+    <div class="cookie-policy-content">
+        <p>
+            These cookies enable us and third-party services to evaluate the use of Google Ad marketing spend.
+        </p>
+    </div>
+
+    <h3>Cloudflare cookies</h3>
+    <div class="cookie-policy-content">
+        <p>
+            These cookies allow <a href="https://www.cloudflare.com">cloudflare.com</a> to efficently manage traffic and availability if the wesbite.
+        </p>
+    </div>
+
+    <h3>ASP.Net cookies</h3>
+    <div class="cookie-policy-content">
+        <p>
+            These cookies allow the website to provide functionality.  For example, a cookie will be stored when you consent
+            to the cookie policy - this will save you from repeatidly seeing the notifications.
+        </p>
+    </div>
+
+    <h3>YouTube cookies</h3>
+    <div class="cookie-policy-content">
+        <p>
+            These cookies are used by <a href="https://youtube.com">youtube.com</a> to operate thier services (used on the home page to provide the welcome video).
+        </p>
+    </div>
+
+    <h2>How to delete cookies?</h2>
+    <div class="cookie-policy-content">
+        <p>
+            If you want to restrict or block the cookies that are set by our website, you can do so through
+            your browser setting. Alternatively, you can visit <a href="https://www.internetcookies.org">www.internetcookies.org</a>, which contains
+            comprehensive information on how to do this on a wide variety of browsers and devices. You
+            will find general information about cookies and details on how to delete cookies from your
+            device.
+        </p>
+    </div>
+</div>
+
+<div class="contact">
+    <div class="title">
+        <h2>Contacting us</h2>
+    </div>
+    <div class="body">
+        <p>
+            If you have any questions about this policy or our use of cookies, please complete the below form:
+        </p>
+        
+<rfc-inline-style><style>.contact-form {
+    display: grid;
+    grid-template-columns: minmax(250px, 900px);
+    justify-content: space-around;
+
+    padding: 15px 5px 15px 5px;
+}
+
+.contact-form button {
+    width: 100%;
+}</style></rfc-inline-style>
+
+<div class="contact-form">
+
+<form action="/home/contact" id="contact-form" method="post">        <div class="form-group">
+            <label for="Name">Your name</label>
+            <input class="form-control" data-val="true" data-val-required="I really could do with knowing who I&#x27;m talking to" id="Name" name="Name" type="text" value="">
+            <span class="field-validation-valid text-danger" data-valmsg-for="Name" data-valmsg-replace="true"></span>
+        </div>
+        <div class="form-group">
+            <label for="EmailAddress">Your email address</label>
+            <input class="form-control" data-val="true" data-val-required="Its how I contact you - it doesn&#x27;t get used for anything else" id="EmailAddress" name="EmailAddress" type="email" value="">
+            <span class="field-validation-valid text-danger" data-valmsg-for="EmailAddress" data-valmsg-replace="true"></span>
+        </div>
+        <div class="form-group">
+            <label for="HowCanIHelp">And what problem do you want help with?</label>
+            <textarea class="form-control" data-val="true" data-val-required="Help me to help you by telling me a little about your problem" id="HowCanIHelp" name="HowCanIHelp" rows="10">
+</textarea>
+            <span class="field-validation-valid text-danger" data-valmsg-for="HowCanIHelp" data-valmsg-replace="true"></span>
+        </div>
+<input id="RecaptureToken" name="RecaptureToken" type="hidden" value="">        <button class="btn btn-primary g-recaptcha" data-sitekey="6LdDJLUZAAAAAP1GIa8uj8kJ2JL4bw3maydYH_j7" data-callback='onSubmit' data-action='submit'>
+            Submit
+        </button>
+
+<script src="https://www.google.com/recaptcha/api.js"></script>
+<script>
+    function onSubmit(token) {
+        document.getElementById('RecaptureToken').value = token;
+        document.getElementById("contact-form").submit();
+    }
+</script>
+
+
+    </div>
+</div>
+
+    </div>
+
+    <rfc-inline-style><style>footer {
+    padding: 0px 0 20px 0;
+    background-color: var(--main-colour);
+    color: var(--accent2-colour);
+}
+
+    footer ul {
+        padding: 0;
+        list-style: none;
+        text-align: center;
+        font-size: 18px;
+        line-height: 1.6;
+        margin-bottom: 0;
+    }
+
+        footer ul li {
+            padding: 0 10px;
+        }
+
+            footer ul li a {
+                color: inherit;
+                text-decoration: none !important;
+            }
+
+                footer ul li a:visited {
+                    color: var(--accent2-colour);
+                }
+
+                footer ul li a:hover {
+                    color: var(--accent1-colour);
+                }
+
+    footer .copyright {
+        color: var(--accent2-colour);
+        margin-top: 15px;
+        text-align: center;
+        font-size: 13px;
+        margin-bottom: 0;
+    }
+
+</style></rfc-inline-style>
+
+<footer>
+    <rfc-inline-style><style>.social-buttons {
+    padding-top: 25px;
+    text-align: center;
+    padding-bottom: 25px;
+}
+
+    .social-buttons > a {
+        border: 1px solid var(--accent2-colour);
+        opacity: 1;
+        font-size: 24px;
+        width: 40px;
+        height: 40px;
+        line-height: 40px;
+        display: inline-block;
+        text-align: center;
+        border-radius: 50%;
+        margin: 0 8px;
+        color: inherit;
+    }
+
+        .social-buttons > a:hover {
+            opacity: 1;
+            color: var(--accent1-colour);
+            border: 1px solid var(--accent1-colour);
+        }
+
+</style></rfc-inline-style>
+
+<div class="social-buttons">
+    <a href="https://github.com/Red-Folder"><i class="fa fa-github"></i></a>
+    <a href="skype:red-folder?chat"><i class="fa fa-skype"></i></a>
+    <a href="https://twitter.com/RedFolderMark"><i class="fa fa-twitter"></i></a>
+    <a href="https://www.linkedin.com/in/markbryantaylor/"><i class="fa fa-linkedin-square"></i></a>
+    <a href="mailto:mark@red-folder.com"><i class="fa fa-envelope"></i></a>
+</div>
+
+    <ul class="list-inline">
+        <li><a href="/">Home</a></li>
+        <li><a href="/Services">Services</a></li>
+        <li><a href="/Blog">Blog </a></li>
+        <li><a href="/Projects">Projects </a></li>
+        <li><a href="/MyBio">My Bio</a></li>
+        <li><a href="/Home/Contact">Contact</a></li>
+    </ul>
+    <p class="copyright">Red Folder Consultancy Limited &copy; 2025</p>
+</footer>
+
+    
+
+    <rfc-inline-style><style>#cookie-consent-container {
+    position: fixed;
+    bottom: 0px;
+    width: 100%;
+    padding: 16px 0px;
+    box-shadow: 0px 4px 13px 0px #82888c;
+    font-family: 'Jim Sans Regular', Arial;
+    text-align: center;
+    background-color: white;
+}
+
+#cookie-consent-content {
+    color: var(--accent1-colour);
+    font-size: 12px;
+    line-height: 28px;
+    margin: 0 10%;
+}
+    #cookie-consent-content a {
+        color: inherit;
+        text-decoration: none !important;
+        font-weight: bold;
+    }
+
+        #cookie-consent-content a:visited {
+            color: var(--accent1-colour);
+        }
+
+        #cookie-consent-content a:hover {
+            color: var(--accent1-colour);
+        }
+
+#cookie-consent-acceptance {
+    margin-left: 1.5%;
+    border-radius: 5px;
+    padding: 4px 17px;
+    font-size: 10px;
+    color: #82888c;
+    text-transform: uppercase;
+    transition: all 0.25s ease-in-out;
+    border: 1px solid #abb0b3;
+    text-decoration: none;
+    line-height: 14px;
+    font-family: 'Jim Sans Medium', Arial;
+    cursor: pointer;
+    outline: none;
+    background-color: transparent;
+}</style></rfc-inline-style>
+    <div id="cookie-consent-container">
+        <div id="cookie-consent-content">
+            We use cookies to ensure that we give you the best experience of our website.  <a href="/cookiepolicy">Click here</a> for more.
+        </div>
+    </div>
+    <script>
+        function handleCookieConsent(cookieString) {
+            document.cookie = cookieString;
+            document.getElementById("cookie-consent-container").style.display = "none";
+        }
+    </script>
+
+</body>
+</html>

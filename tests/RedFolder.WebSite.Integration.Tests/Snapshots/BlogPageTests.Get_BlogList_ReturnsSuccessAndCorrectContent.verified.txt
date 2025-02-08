@@ -1,0 +1,1528 @@
+﻿<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns#">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+
+    <title>Blog</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.7/flatly/bootstrap.css" integrity="sha512-pE1k7R3Z+7WZUysJtA0VVf8e5nrRl4JPmnaLvTwXFuQ08YBD1d0PfcWYIaQSJbqB1bTYx6AGBbFKfneMeJzh6Q==" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha512-SfTiTlX6kk+qitfevl/7LibUOeJWlt9rbyDn92a1DqWOw9vWG2MFoays0sgObmWazO5BQPiFucnnEAjpAB+/Sw==" crossorigin="anonymous">
+
+    <rfc-inline-style><style>:root {
+    --main-colour: #e74c3c;
+    --accent1-colour: #4C4C4C;
+    --accent2-colour: white;
+}
+</style></rfc-inline-style>
+
+    
+
+    <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-3.3.1.min.js" integrity="sha384-tsQFqpEReu7ZLhBV2VZlAu7zcOV+rXbYlF2cqB8txI/8aZajjp4Bqd+V6D5IgvKT" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+
+    <script>
+        dataLayer = [];
+    </script>
+    
+
+    <script type="text/javascript">
+        var listConfig = function() {
+                                this.pageNo = 1;
+                                this.blogsPerPage = 12;
+                                this.filterBy = [
+            ];
+            this.orderBy = 'PublishedDescending';
+            this.pages = 18;
+
+            this.submit = function() {
+                var newUrl = '/blog' +
+                            '?pageNo=' + this.pageNo +
+                            '&blogsPerPage=' + this.blogsPerPage +
+                            '&filterBy=' + this.filterBy.join() +
+                            '&orderBy=' + this.orderBy;
+                document.location.href = newUrl;
+            };
+
+            this.toggleFeature = function(feature) {
+                var index = this.filterBy.indexOf(feature);
+                if (index < 0) {
+                    this.filterBy.push(feature);
+                } else {
+                    this.filterBy.splice(index, 1);
+                }
+                this.submit();
+            };
+
+            this.firstPage = function() {
+                this.pageNo = 1;
+                this.submit();
+            }
+
+            this.previousPage = function() {
+                if (this.pageNo > 1) {
+                    this.pageNo--;
+                    this.submit();
+                }
+            }
+
+            this.nextPage = function() {
+                if (this.pageNo < this.pages) {
+                    this.pageNo++;
+                    this.submit();
+                }
+            }
+
+            this.lastPage = function() {
+                this.pageNo = this.pages;
+                this.submit();
+            }
+
+        };
+
+        var pageConfig = new listConfig();
+ 
+    </script>
+
+</head>
+<body>
+    <!-- Google Tag Manager -->
+    <noscript>
+        <iframe src="//www.googletagmanager.com/ns.html?id=GTM-N69LS5" height="0" width="0" style="display:none;visibility:hidden"></iframe>
+    </noscript>
+    <script>
+        (function (w, d, s, l, i) { w[l] = w[l] || []; w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' }); var f = d.getElementsByTagName(s)[0], j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src = '//www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f); })(window, document, 'script', 'dataLayer', 'GTM-N69LS5');
+    </script>
+    <!-- End Google Tag Manager -->
+
+    <rfc-inline-style><style>@media (max-width: 767px) {
+    .navigation-clean {
+        padding-top: 0;
+        padding-bottom: 0;
+    }
+
+        .navigation-clean .navbar-nav .open .dropdown-menu {
+            box-shadow: none;
+        }
+
+            .navigation-clean .navbar-nav .open .dropdown-menu > li > a {
+                color: #37434d;
+                padding-top: 12px;
+                padding-bottom: 12px;
+                line-height: 1;
+            }
+
+        .navigation-clean.navbar-inverse .navbar-nav .open .dropdown-menu > li > a {
+            color: #fff;
+        }
+}
+
+.navigation-clean {
+    background: #fff;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    color: #333;
+    border-radius: 0;
+    box-shadow: none;
+    border: none;
+    margin-bottom: 0;
+}
+
+    .navigation-clean #rfc-logo {
+        height: 58px;
+        margin-top: -20px;
+    }
+
+    .navigation-clean .navbar-brand {
+        font-weight: bold;
+        color: inherit;
+    }
+
+        .navigation-clean .navbar-brand:hover {
+            color: #222;
+        }
+
+        .navigation-clean .navbar-brand img {
+            height: 100%;
+            display: inline-block;
+            margin-right: 10px;
+            width: auto;
+        }
+
+    .navigation-clean .navbar-toggle {
+        border-color: #ddd;
+    }
+
+        .navigation-clean .navbar-toggle:hover,
+        .navigation-clean .navbar-toggle:focus {
+            background: none;
+        }
+
+        .navigation-clean .navbar-toggle .icon-bar {
+            background-color: #888;
+        }
+
+    .navigation-clean .navbar-collapse,
+    .navigation-clean .navbar-form {
+        border-top-color: #ddd;
+    }
+
+    .navigation-clean .navbar-nav > li > .dropdown-menu {
+        margin-top: -5px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        background-color: #fff;
+        border-radius: 2px;
+    }
+
+    .navigation-clean .navbar-nav > li > a {
+        padding-left: 18px;
+        padding-right: 18px;
+    }
+
+    .navigation-clean .navbar-nav > .active > a,
+    .navigation-clean .navbar-nav > .open > a {
+        background: none;
+        box-shadow: none;
+    }
+
+    .navigation-clean .navbar-default .navbar-nav > li > a {
+        color: #465765;
+    }
+
+    .navigation-clean .navbar-default .navbar-nav > .active > a,
+    .navigation-clean .navbar-default .navbar-nav .navbar-default .navbar-nav > .active > a:focus,
+    .navigation-clean .navbar-default .navbar-nav .navbar-default .navbar-nav > .active > a:hover {
+        color: #363739;
+        box-shadow: none;
+        background: none;
+        pointer-events: none;
+    }
+
+    .navigation-clean .dropdown-menu > li > a {
+        line-height: 2;
+        font-size: 14px;
+        color: #37434d;
+    }
+
+        .navigation-clean .dropdown-menu > li > a:focus,
+        .navigation-clean .dropdown-menu > li > a:hover {
+            background: #eee;
+            color: inherit;
+        }
+
+    .navigation-clean.navbar-inverse {
+        background-color: var(--main-colour);
+        color: #fff;
+    }
+
+        .navigation-clean.navbar-inverse .navbar-brand:hover {
+            color: #f0f0f0;
+        }
+
+        .navigation-clean.navbar-inverse .navbar-toggle {
+            border-color: var(--accent2-colour);
+        }
+
+            .navigation-clean.navbar-inverse .navbar-toggle .icon-bar {
+                background-color: var(--accent2-colour);
+            }
+
+        .navigation-clean.navbar-inverse .navbar-collapse,
+        .navigation-clean.navbar-inverse .navbar-form {
+            border-top-color: #333;
+        }
+
+        .navigation-clean.navbar-inverse .navbar-nav > li > a {
+            color: #ffffff;
+        }
+
+            .navigation-clean.navbar-inverse .navbar-nav > li > a:focus,
+            .navigation-clean.navbar-inverse .navbar-nav > li > a:hover {
+                color: #1f2021 !important;
+                background-color: transparent;
+            }
+
+        .navigation-clean.navbar-inverse .navbar-nav > li .dropdown-menu {
+            background-color: #1f2021;
+        }
+
+        .navigation-clean.navbar-inverse .navbar-nav > .active > a,
+        .navigation-clean.navbar-inverse .navbar-nav > .active > a:focus,
+        .navigation-clean.navbar-inverse .navbar-nav > .active > a:hover {
+            color: #1f2021;
+            box-shadow: none;
+            background: none;
+            pointer-events: none;
+        }
+
+        .navigation-clean.navbar-inverse .navbar-nav .dropdown-menu > li > a:focus,
+        .navigation-clean.navbar-inverse .navbar-nav .dropdown-menu > li > a {
+            color: #f2f5f8;
+        }
+
+            .navigation-clean.navbar-inverse .navbar-nav .dropdown-menu > li > a:focus:focus,
+            .navigation-clean.navbar-inverse .navbar-nav .dropdown-menu > li > a:focus,
+            .navigation-clean.navbar-inverse .navbar-nav .dropdown-menu > li > a:focus:hover,
+            .navigation-clean.navbar-inverse .navbar-nav .dropdown-menu > li > a:hover {
+                background: #363739;
+            }
+
+#fake-header {
+    height: 80px;
+}</style></rfc-inline-style>
+
+<header>
+    <div>
+        <nav class="navbar navbar-inverse navbar-fixed-top navigation-clean">
+            <div class="container">
+                <div class="navbar-header">
+                    <a class="navbar-brand navbar-link" rel="home" href="/">
+                        <img src="/Images/RFCLogo48.png" id="rfc-logo">
+                    </a>
+                    <button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navcol-1">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+                <div class="collapse navbar-collapse" id="navcol-1">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="/Services">Services</a></li>
+                        <li><a href="/Blog">Blog</a></li>
+                        <li><a href="/Podcasts">Podcasts</a></li>
+                        <li><a href="/Projects">Projects</a></li>
+                        <li><a href="/MyBio">My Bio</a></li>
+                        <li><a href="/Home/Contact">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+</header>
+<div id="fake-header">
+    <!-- Used to set content below it now to show UNDER the header -->
+    &nbsp;&nbsp;&nbsp;
+</div>
+
+    <div class="page-container">
+        
+
+<rfc-inline-style><style>.hero-banner {
+    background-size: cover;
+    padding: 50px 20px;
+    background-image: url(/images/moods/MoodNoteTaking.jpg);
+}
+
+    .hero-banner span, .hero-banner h1 {
+        color: white;
+        display: inline-block;
+        background: var(--main-colour);
+        padding: 5px 10px 5px 10px;
+    }
+</style></rfc-inline-style>
+
+<div class="hero-banner">
+    <h1>Blog</h1>
+</div>
+
+
+<rfc-inline-style><style>.blog-filter {
+    background-color: var(--main-colour);
+}
+
+.filter-switch {
+    padding: 15px;
+}
+    .filter-switch a, .filter-switch a:visited, .filter-switch a:active {
+        color: var(--accent2-colour);
+        -moz-transition: color 1.5s;
+        -o-transition: color 1.5s;
+        -webkit-transition: color 1.5s;
+        transition: color 1.5s;
+    }
+
+        .filter-switch a:hover, .filter-switch a:focus {
+            text-decoration: none;
+            color: var(--accent2-colour);
+        }
+
+.filter-chooser {
+    padding-bottom: 15px;
+}
+
+.filter-chooser li .hide-on-hover {
+    display: inline;
+}
+
+    .filter-chooser li .show-on-hover {
+        display: none;
+    }
+
+    .filter-chooser li:hover .hide-on-hover {
+        display: none;
+    }
+
+    .filter-chooser li:hover .show-on-hover {
+        display: inline;
+    }
+
+    .filter-chooser li .fa-times {
+        color: red;
+    }
+
+    .filter-chooser li .fa-check {
+        color: lawngreen;
+    }
+
+.selectable {
+    cursor: pointer;
+}
+
+.keyword {
+    margin: 2px;
+    color: var(--accent2-colour);
+    display: inline-block;
+    background: var(--accent1-colour);
+    padding: 5px 10px 5px 10px;
+}
+    .keyword a, .keyword a:visited, .keyword a:active {
+        color: var(--accent2-colour);
+        -moz-transition: color 1.5s;
+        -o-transition: color 1.5s;
+        -webkit-transition: color 1.5s;
+        transition: color 1.5s;
+    }
+
+        .keyword a:hover, .keyword a:focus {
+            text-decoration: none;
+            color: var(--main-colour);
+        }
+</style></rfc-inline-style>
+<rfc-inline-script><script>function toggle(group, item) {
+    'use strict';
+    if (group !== null) {
+        var $group = $(group);
+
+        if ($group !== null) {
+            $group.each(function (index) {
+                if (!$(this).hasClass('hidden')) {
+                    $(this).addClass('hidden');
+                }
+            });
+        }
+    }
+
+    if (item !== null) {
+        var $item = $(item);
+
+        if ($item !== null) {
+            $item.each(function (index) {
+                if ($(this).hasClass('hidden')) {
+                    $(this).removeClass('hidden');
+                } else {
+                    $(this).addClass('hidden');
+                }
+            });
+        }
+    }
+}
+</script></rfc-inline-script>
+
+<div class="blog-filter">
+    <div class="filter-switch selectable">
+        <a onclick="toggle(null, '.filter-chooser, .filter-chevron');">
+            <strong>Filter: </strong>None &nbsp; <i class="filter-chevron fa fa-chevron-down"></i><i class="filter-chevron fa fa-chevron-up hidden"></i>
+        </a>
+    </div>
+    <div class="filter-chooser hidden">
+        <ul>
+                    <li class="selectable keyword " onclick="pageConfig.toggleFeature('Blazor Server')">
+                        Blazor Server (12)&nbsp;
+                            <i class="fa fa-check show-on-hover"></i>
+                    </li>
+                    <li class="selectable keyword " onclick="pageConfig.toggleFeature('Azure')">
+                        Azure (24)&nbsp;
+                            <i class="fa fa-check show-on-hover"></i>
+                    </li>
+                    <li class="selectable keyword " onclick="pageConfig.toggleFeature('Azure DevOps')">
+                        Azure DevOps (1)&nbsp;
+                            <i class="fa fa-check show-on-hover"></i>
+                    </li>
+                    <li class="selectable keyword " onclick="pageConfig.toggleFeature('Continuous Integration')">
+                        Continuous Integration (13)&nbsp;
+                            <i class="fa fa-check show-on-hover"></i>
+                    </li>
+                    <li class="selectable keyword " onclick="pageConfig.toggleFeature('Continuous Delivery')">
+                        Continuous Delivery (10)&nbsp;
+                            <i class="fa fa-check show-on-hover"></i>
+                    </li>
+                    <li class="selectable keyword " onclick="pageConfig.toggleFeature('Azure Bicep')">
+                        Azure Bicep (1)&nbsp;
+                            <i class="fa fa-check show-on-hover"></i>
+                    </li>
+                    <li class="selectable keyword " onclick="pageConfig.toggleFeature('Newsletter')">
+                        Newsletter (17)&nbsp;
+                            <i class="fa fa-check show-on-hover"></i>
+                    </li>
+                    <li class="selectable keyword " onclick="pageConfig.toggleFeature('SignalR')">
+                        SignalR (1)&nbsp;
+                            <i class="fa fa-check show-on-hover"></i>
+                    </li>
+                    <li class="selectable keyword " onclick="pageConfig.toggleFeature('Cosmos DB')">
+                        Cosmos DB (1)&nbsp;
+                            <i class="fa fa-check show-on-hover"></i>
+                    </li>
+                    <li class="selectable keyword " onclick="pageConfig.toggleFeature('Docker')">
+                        Docker (7)&nbsp;
+                            <i class="fa fa-check show-on-hover"></i>
+                    </li>
+                    <li class="selectable keyword " onclick="pageConfig.toggleFeature('ROI')">
+                        ROI (45)&nbsp;
+                            <i class="fa fa-check show-on-hover"></i>
+                    </li>
+                    <li class="selectable keyword " onclick="pageConfig.toggleFeature('IT Management')">
+                        IT Management (57)&nbsp;
+                            <i class="fa fa-check show-on-hover"></i>
+                    </li>
+                    <li class="selectable keyword " onclick="pageConfig.toggleFeature('Agile')">
+                        Agile (17)&nbsp;
+                            <i class="fa fa-check show-on-hover"></i>
+                    </li>
+                    <li class="selectable keyword " onclick="pageConfig.toggleFeature('Technical Debt')">
+                        Technical Debt (4)&nbsp;
+                            <i class="fa fa-check show-on-hover"></i>
+                    </li>
+                    <li class="selectable keyword " onclick="pageConfig.toggleFeature('AWS')">
+                        AWS (5)&nbsp;
+                            <i class="fa fa-check show-on-hover"></i>
+                    </li>
+                    <li class="selectable keyword " onclick="pageConfig.toggleFeature('MyGet.Org')">
+                        MyGet.Org (2)&nbsp;
+                            <i class="fa fa-check show-on-hover"></i>
+                    </li>
+                    <li class="selectable keyword " onclick="pageConfig.toggleFeature('Nuget')">
+                        Nuget (2)&nbsp;
+                            <i class="fa fa-check show-on-hover"></i>
+                    </li>
+                    <li class="selectable keyword " onclick="pageConfig.toggleFeature('Azure Functions')">
+                        Azure Functions (14)&nbsp;
+                            <i class="fa fa-check show-on-hover"></i>
+                    </li>
+                    <li class="selectable keyword " onclick="pageConfig.toggleFeature('Contracting')">
+                        Contracting (9)&nbsp;
+                            <i class="fa fa-check show-on-hover"></i>
+                    </li>
+                    <li class="selectable keyword " onclick="pageConfig.toggleFeature('IR35')">
+                        IR35 (2)&nbsp;
+                            <i class="fa fa-check show-on-hover"></i>
+                    </li>
+                    <li class="selectable keyword " onclick="pageConfig.toggleFeature('VSTS')">
+                        VSTS (9)&nbsp;
+                            <i class="fa fa-check show-on-hover"></i>
+                    </li>
+                    <li class="selectable keyword " onclick="pageConfig.toggleFeature('DevOps')">
+                        DevOps (6)&nbsp;
+                            <i class="fa fa-check show-on-hover"></i>
+                    </li>
+                    <li class="selectable keyword " onclick="pageConfig.toggleFeature('Octokit.net')">
+                        Octokit.net (2)&nbsp;
+                            <i class="fa fa-check show-on-hover"></i>
+                    </li>
+                    <li class="selectable keyword " onclick="pageConfig.toggleFeature('GitHub')">
+                        GitHub (4)&nbsp;
+                            <i class="fa fa-check show-on-hover"></i>
+                    </li>
+                    <li class="selectable keyword " onclick="pageConfig.toggleFeature('CSP')">
+                        CSP (1)&nbsp;
+                            <i class="fa fa-check show-on-hover"></i>
+                    </li>
+                    <li class="selectable keyword " onclick="pageConfig.toggleFeature('Kubernetes')">
+                        Kubernetes (1)&nbsp;
+                            <i class="fa fa-check show-on-hover"></i>
+                    </li>
+                    <li class="selectable keyword " onclick="pageConfig.toggleFeature('Containers')">
+                        Containers (1)&nbsp;
+                            <i class="fa fa-check show-on-hover"></i>
+                    </li>
+                    <li class="selectable keyword " onclick="pageConfig.toggleFeature('ASP.Net Core')">
+                        ASP.Net Core (17)&nbsp;
+                            <i class="fa fa-check show-on-hover"></i>
+                    </li>
+                    <li class="selectable keyword " onclick="pageConfig.toggleFeature('RFC Weekly')">
+                        RFC Weekly (61)&nbsp;
+                            <i class="fa fa-check show-on-hover"></i>
+                    </li>
+                    <li class="selectable keyword " onclick="pageConfig.toggleFeature('Security')">
+                        Security (12)&nbsp;
+                            <i class="fa fa-check show-on-hover"></i>
+                    </li>
+                    <li class="selectable keyword " onclick="pageConfig.toggleFeature('TeamCity')">
+                        TeamCity (3)&nbsp;
+                            <i class="fa fa-check show-on-hover"></i>
+                    </li>
+                    <li class="selectable keyword " onclick="pageConfig.toggleFeature('Powershell')">
+                        Powershell (1)&nbsp;
+                            <i class="fa fa-check show-on-hover"></i>
+                    </li>
+                    <li class="selectable keyword " onclick="pageConfig.toggleFeature('Legacy')">
+                        Legacy (1)&nbsp;
+                            <i class="fa fa-check show-on-hover"></i>
+                    </li>
+                    <li class="selectable keyword " onclick="pageConfig.toggleFeature('Graylog')">
+                        Graylog (1)&nbsp;
+                            <i class="fa fa-check show-on-hover"></i>
+                    </li>
+                    <li class="selectable keyword " onclick="pageConfig.toggleFeature('SRE')">
+                        SRE (1)&nbsp;
+                            <i class="fa fa-check show-on-hover"></i>
+                    </li>
+                    <li class="selectable keyword " onclick="pageConfig.toggleFeature('70-534')">
+                        70-534 (5)&nbsp;
+                            <i class="fa fa-check show-on-hover"></i>
+                    </li>
+                    <li class="selectable keyword " onclick="pageConfig.toggleFeature('PWA')">
+                        PWA (1)&nbsp;
+                            <i class="fa fa-check show-on-hover"></i>
+                    </li>
+                    <li class="selectable keyword " onclick="pageConfig.toggleFeature('Web Assembly')">
+                        Web Assembly (1)&nbsp;
+                            <i class="fa fa-check show-on-hover"></i>
+                    </li>
+                    <li class="selectable keyword " onclick="pageConfig.toggleFeature('.Net Standard')">
+                        .Net Standard (1)&nbsp;
+                            <i class="fa fa-check show-on-hover"></i>
+                    </li>
+                    <li class="selectable keyword " onclick="pageConfig.toggleFeature('Shadow IT')">
+                        Shadow IT (1)&nbsp;
+                            <i class="fa fa-check show-on-hover"></i>
+                    </li>
+                    <li class="selectable keyword " onclick="pageConfig.toggleFeature('GDPR')">
+                        GDPR (1)&nbsp;
+                            <i class="fa fa-check show-on-hover"></i>
+                    </li>
+                    <li class="selectable keyword " onclick="pageConfig.toggleFeature('TDD')">
+                        TDD (2)&nbsp;
+                            <i class="fa fa-check show-on-hover"></i>
+                    </li>
+                    <li class="selectable keyword " onclick="pageConfig.toggleFeature('BDD')">
+                        BDD (8)&nbsp;
+                            <i class="fa fa-check show-on-hover"></i>
+                    </li>
+                    <li class="selectable keyword " onclick="pageConfig.toggleFeature('Feature Slice')">
+                        Feature Slice (2)&nbsp;
+                            <i class="fa fa-check show-on-hover"></i>
+                    </li>
+                    <li class="selectable keyword " onclick="pageConfig.toggleFeature('SpecFlow')">
+                        SpecFlow (4)&nbsp;
+                            <i class="fa fa-check show-on-hover"></i>
+                    </li>
+                    <li class="selectable keyword " onclick="pageConfig.toggleFeature('NuGet')">
+                        NuGet (1)&nbsp;
+                            <i class="fa fa-check show-on-hover"></i>
+                    </li>
+                    <li class="selectable keyword " onclick="pageConfig.toggleFeature('MVP')">
+                        MVP (1)&nbsp;
+                            <i class="fa fa-check show-on-hover"></i>
+                    </li>
+                    <li class="selectable keyword " onclick="pageConfig.toggleFeature('Scrum')">
+                        Scrum (10)&nbsp;
+                            <i class="fa fa-check show-on-hover"></i>
+                    </li>
+                    <li class="selectable keyword " onclick="pageConfig.toggleFeature('MicroServices')">
+                        MicroServices (9)&nbsp;
+                            <i class="fa fa-check show-on-hover"></i>
+                    </li>
+                    <li class="selectable keyword " onclick="pageConfig.toggleFeature('Stoke-On-Tech')">
+                        Stoke-On-Tech (1)&nbsp;
+                            <i class="fa fa-check show-on-hover"></i>
+                    </li>
+                    <li class="selectable keyword " onclick="pageConfig.toggleFeature('OpenCover')">
+                        OpenCover (2)&nbsp;
+                            <i class="fa fa-check show-on-hover"></i>
+                    </li>
+                    <li class="selectable keyword " onclick="pageConfig.toggleFeature('TypeScript')">
+                        TypeScript (6)&nbsp;
+                            <i class="fa fa-check show-on-hover"></i>
+                    </li>
+                    <li class="selectable keyword " onclick="pageConfig.toggleFeature('CSS')">
+                        CSS (7)&nbsp;
+                            <i class="fa fa-check show-on-hover"></i>
+                    </li>
+                    <li class="selectable keyword " onclick="pageConfig.toggleFeature('Akka.Net')">
+                        Akka.Net (1)&nbsp;
+                            <i class="fa fa-check show-on-hover"></i>
+                    </li>
+                    <li class="selectable keyword " onclick="pageConfig.toggleFeature('Proto.Actor')">
+                        Proto.Actor (1)&nbsp;
+                            <i class="fa fa-check show-on-hover"></i>
+                    </li>
+                    <li class="selectable keyword " onclick="pageConfig.toggleFeature('Orleans')">
+                        Orleans (1)&nbsp;
+                            <i class="fa fa-check show-on-hover"></i>
+                    </li>
+                    <li class="selectable keyword " onclick="pageConfig.toggleFeature('Design')">
+                        Design (2)&nbsp;
+                            <i class="fa fa-check show-on-hover"></i>
+                    </li>
+                    <li class="selectable keyword " onclick="pageConfig.toggleFeature('Ethical Hacking')">
+                        Ethical Hacking (10)&nbsp;
+                            <i class="fa fa-check show-on-hover"></i>
+                    </li>
+                    <li class="selectable keyword " onclick="pageConfig.toggleFeature('Bootstrap')">
+                        Bootstrap (4)&nbsp;
+                            <i class="fa fa-check show-on-hover"></i>
+                    </li>
+                    <li class="selectable keyword " onclick="pageConfig.toggleFeature('EF Core')">
+                        EF Core (3)&nbsp;
+                            <i class="fa fa-check show-on-hover"></i>
+                    </li>
+                    <li class="selectable keyword " onclick="pageConfig.toggleFeature('Cordova')">
+                        Cordova (23)&nbsp;
+                            <i class="fa fa-check show-on-hover"></i>
+                    </li>
+                    <li class="selectable keyword " onclick="pageConfig.toggleFeature('Background Service')">
+                        Background Service (20)&nbsp;
+                            <i class="fa fa-check show-on-hover"></i>
+                    </li>
+                    <li class="selectable keyword " onclick="pageConfig.toggleFeature('Octopus Deploy')">
+                        Octopus Deploy (2)&nbsp;
+                            <i class="fa fa-check show-on-hover"></i>
+                    </li>
+                    <li class="selectable keyword " onclick="pageConfig.toggleFeature('Selenium')">
+                        Selenium (1)&nbsp;
+                            <i class="fa fa-check show-on-hover"></i>
+                    </li>
+                    <li class="selectable keyword " onclick="pageConfig.toggleFeature('Service Fabric')">
+                        Service Fabric (1)&nbsp;
+                            <i class="fa fa-check show-on-hover"></i>
+                    </li>
+                    <li class="selectable keyword " onclick="pageConfig.toggleFeature('React')">
+                        React (4)&nbsp;
+                            <i class="fa fa-check show-on-hover"></i>
+                    </li>
+                    <li class="selectable keyword " onclick="pageConfig.toggleFeature('WebPack')">
+                        WebPack (3)&nbsp;
+                            <i class="fa fa-check show-on-hover"></i>
+                    </li>
+                    <li class="selectable keyword " onclick="pageConfig.toggleFeature('Babel')">
+                        Babel (2)&nbsp;
+                            <i class="fa fa-check show-on-hover"></i>
+                    </li>
+                    <li class="selectable keyword " onclick="pageConfig.toggleFeature('Jest')">
+                        Jest (3)&nbsp;
+                            <i class="fa fa-check show-on-hover"></i>
+                    </li>
+                    <li class="selectable keyword " onclick="pageConfig.toggleFeature('xUnit')">
+                        xUnit (1)&nbsp;
+                            <i class="fa fa-check show-on-hover"></i>
+                    </li>
+                    <li class="selectable keyword " onclick="pageConfig.toggleFeature('DocumentDB')">
+                        DocumentDB (1)&nbsp;
+                            <i class="fa fa-check show-on-hover"></i>
+                    </li>
+                    <li class="selectable keyword " onclick="pageConfig.toggleFeature('Bot Framework')">
+                        Bot Framework (2)&nbsp;
+                            <i class="fa fa-check show-on-hover"></i>
+                    </li>
+                    <li class="selectable keyword " onclick="pageConfig.toggleFeature('DotNetNorth')">
+                        DotNetNorth (3)&nbsp;
+                            <i class="fa fa-check show-on-hover"></i>
+                    </li>
+                    <li class="selectable keyword " onclick="pageConfig.toggleFeature('Certification')">
+                        Certification (3)&nbsp;
+                            <i class="fa fa-check show-on-hover"></i>
+                    </li>
+                    <li class="selectable keyword " onclick="pageConfig.toggleFeature('Innovation Time')">
+                        Innovation Time (3)&nbsp;
+                            <i class="fa fa-check show-on-hover"></i>
+                    </li>
+                    <li class="selectable keyword " onclick="pageConfig.toggleFeature('C#')">
+                        C# (6)&nbsp;
+                            <i class="fa fa-check show-on-hover"></i>
+                    </li>
+                    <li class="selectable keyword " onclick="pageConfig.toggleFeature('Windows Containers')">
+                        Windows Containers (2)&nbsp;
+                            <i class="fa fa-check show-on-hover"></i>
+                    </li>
+                    <li class="selectable keyword " onclick="pageConfig.toggleFeature('HTML')">
+                        HTML (1)&nbsp;
+                            <i class="fa fa-check show-on-hover"></i>
+                    </li>
+                    <li class="selectable keyword " onclick="pageConfig.toggleFeature('HTTP2')">
+                        HTTP2 (2)&nbsp;
+                            <i class="fa fa-check show-on-hover"></i>
+                    </li>
+                    <li class="selectable keyword " onclick="pageConfig.toggleFeature('PluralSight')">
+                        PluralSight (2)&nbsp;
+                            <i class="fa fa-check show-on-hover"></i>
+                    </li>
+                    <li class="selectable keyword " onclick="pageConfig.toggleFeature('Learning')">
+                        Learning (2)&nbsp;
+                            <i class="fa fa-check show-on-hover"></i>
+                    </li>
+                    <li class="selectable keyword " onclick="pageConfig.toggleFeature('DDD')">
+                        DDD (1)&nbsp;
+                            <i class="fa fa-check show-on-hover"></i>
+                    </li>
+                    <li class="selectable keyword " onclick="pageConfig.toggleFeature('.netstandard')">
+                        .netstandard (1)&nbsp;
+                            <i class="fa fa-check show-on-hover"></i>
+                    </li>
+                    <li class="selectable keyword " onclick="pageConfig.toggleFeature('MVC 6')">
+                        MVC 6 (8)&nbsp;
+                            <i class="fa fa-check show-on-hover"></i>
+                    </li>
+                    <li class="selectable keyword " onclick="pageConfig.toggleFeature('Angular')">
+                        Angular (5)&nbsp;
+                            <i class="fa fa-check show-on-hover"></i>
+                    </li>
+                    <li class="selectable keyword " onclick="pageConfig.toggleFeature('JavaScript')">
+                        JavaScript (9)&nbsp;
+                            <i class="fa fa-check show-on-hover"></i>
+                    </li>
+                    <li class="selectable keyword " onclick="pageConfig.toggleFeature('Entity Framework')">
+                        Entity Framework (2)&nbsp;
+                            <i class="fa fa-check show-on-hover"></i>
+                    </li>
+                    <li class="selectable keyword " onclick="pageConfig.toggleFeature('WebAPI')">
+                        WebAPI (4)&nbsp;
+                            <i class="fa fa-check show-on-hover"></i>
+                    </li>
+                    <li class="selectable keyword " onclick="pageConfig.toggleFeature('Gulp')">
+                        Gulp (3)&nbsp;
+                            <i class="fa fa-check show-on-hover"></i>
+                    </li>
+                    <li class="selectable keyword " onclick="pageConfig.toggleFeature('Xamarin')">
+                        Xamarin (2)&nbsp;
+                            <i class="fa fa-check show-on-hover"></i>
+                    </li>
+                    <li class="selectable keyword " onclick="pageConfig.toggleFeature('Grunt')">
+                        Grunt (1)&nbsp;
+                            <i class="fa fa-check show-on-hover"></i>
+                    </li>
+                    <li class="selectable keyword " onclick="pageConfig.toggleFeature('ASP.Net')">
+                        ASP.Net (1)&nbsp;
+                            <i class="fa fa-check show-on-hover"></i>
+                    </li>
+                    <li class="selectable keyword " onclick="pageConfig.toggleFeature('Zeigarnik Effect')">
+                        Zeigarnik Effect (1)&nbsp;
+                            <i class="fa fa-check show-on-hover"></i>
+                    </li>
+                    <li class="selectable keyword " onclick="pageConfig.toggleFeature('Event Sourcing')">
+                        Event Sourcing (1)&nbsp;
+                            <i class="fa fa-check show-on-hover"></i>
+                    </li>
+                    <li class="selectable keyword " onclick="pageConfig.toggleFeature('CQRS')">
+                        CQRS (1)&nbsp;
+                            <i class="fa fa-check show-on-hover"></i>
+                    </li>
+                    <li class="selectable keyword " onclick="pageConfig.toggleFeature('Polyglot')">
+                        Polyglot (1)&nbsp;
+                            <i class="fa fa-check show-on-hover"></i>
+                    </li>
+                    <li class="selectable keyword " onclick="pageConfig.toggleFeature('RESTful')">
+                        RESTful (1)&nbsp;
+                            <i class="fa fa-check show-on-hover"></i>
+                    </li>
+                    <li class="selectable keyword " onclick="pageConfig.toggleFeature('Development Planning')">
+                        Development Planning (1)&nbsp;
+                            <i class="fa fa-check show-on-hover"></i>
+                    </li>
+                    <li class="selectable keyword " onclick="pageConfig.toggleFeature('Phonegap')">
+                        Phonegap (16)&nbsp;
+                            <i class="fa fa-check show-on-hover"></i>
+                    </li>
+                    <li class="selectable keyword " onclick="pageConfig.toggleFeature('PHP')">
+                        PHP (1)&nbsp;
+                            <i class="fa fa-check show-on-hover"></i>
+                    </li>
+                    <li class="selectable keyword " onclick="pageConfig.toggleFeature('SQL Server')">
+                        SQL Server (2)&nbsp;
+                            <i class="fa fa-check show-on-hover"></i>
+                    </li>
+                    <li class="selectable keyword " onclick="pageConfig.toggleFeature('Jenkins')">
+                        Jenkins (7)&nbsp;
+                            <i class="fa fa-check show-on-hover"></i>
+                    </li>
+                    <li class="selectable keyword " onclick="pageConfig.toggleFeature('Visual Studio')">
+                        Visual Studio (2)&nbsp;
+                            <i class="fa fa-check show-on-hover"></i>
+                    </li>
+                    <li class="selectable keyword " onclick="pageConfig.toggleFeature('Extensions')">
+                        Extensions (2)&nbsp;
+                            <i class="fa fa-check show-on-hover"></i>
+                    </li>
+                    <li class="selectable keyword " onclick="pageConfig.toggleFeature('Why wouldn&#x27;t you')">
+                        Why wouldn&#x27;t you (1)&nbsp;
+                            <i class="fa fa-check show-on-hover"></i>
+                    </li>
+                    <li class="selectable keyword " onclick="pageConfig.toggleFeature('Threading')">
+                        Threading (1)&nbsp;
+                            <i class="fa fa-check show-on-hover"></i>
+                    </li>
+                    <li class="selectable keyword " onclick="pageConfig.toggleFeature('Android')">
+                        Android (14)&nbsp;
+                            <i class="fa fa-check show-on-hover"></i>
+                    </li>
+                    <li class="selectable keyword " onclick="pageConfig.toggleFeature('Scheduler')">
+                        Scheduler (1)&nbsp;
+                            <i class="fa fa-check show-on-hover"></i>
+                    </li>
+                    <li class="selectable keyword " onclick="pageConfig.toggleFeature('Plugin')">
+                        Plugin (14)&nbsp;
+                            <i class="fa fa-check show-on-hover"></i>
+                    </li>
+                    <li class="selectable keyword " onclick="pageConfig.toggleFeature('Jasmine')">
+                        Jasmine (4)&nbsp;
+                            <i class="fa fa-check show-on-hover"></i>
+                    </li>
+                    <li class="selectable keyword " onclick="pageConfig.toggleFeature('MVC')">
+                        MVC (2)&nbsp;
+                            <i class="fa fa-check show-on-hover"></i>
+                    </li>
+                    <li class="selectable keyword " onclick="pageConfig.toggleFeature('70-486')">
+                        70-486 (2)&nbsp;
+                            <i class="fa fa-check show-on-hover"></i>
+                    </li>
+                    <li class="selectable keyword " onclick="pageConfig.toggleFeature('MCSD: Web Applications')">
+                        MCSD: Web Applications (4)&nbsp;
+                            <i class="fa fa-check show-on-hover"></i>
+                    </li>
+                    <li class="selectable keyword " onclick="pageConfig.toggleFeature('Website Maintenance')">
+                        Website Maintenance (1)&nbsp;
+                            <i class="fa fa-check show-on-hover"></i>
+                    </li>
+                    <li class="selectable keyword " onclick="pageConfig.toggleFeature('70-480')">
+                        70-480 (3)&nbsp;
+                            <i class="fa fa-check show-on-hover"></i>
+                    </li>
+                    <li class="selectable keyword " onclick="pageConfig.toggleFeature('70-487')">
+                        70-487 (1)&nbsp;
+                            <i class="fa fa-check show-on-hover"></i>
+                    </li>
+                    <li class="selectable keyword " onclick="pageConfig.toggleFeature('Google 20%')">
+                        Google 20% (2)&nbsp;
+                            <i class="fa fa-check show-on-hover"></i>
+                    </li>
+                    <li class="selectable keyword " onclick="pageConfig.toggleFeature('Windows Authentication')">
+                        Windows Authentication (1)&nbsp;
+                            <i class="fa fa-check show-on-hover"></i>
+                    </li>
+        </ul>
+    </div>
+</div>
+
+
+
+<rfc-inline-style><style>.pager {
+    text-align: center;
+}
+
+    .pager a:link, .pager a:visited {
+        color: white;
+    }
+
+    .pager .page-no {
+        display: inline;
+    }
+
+</style></rfc-inline-style>
+
+<rfc-pager>
+                <div class="row pager">
+                    <div class="btn btn-default btn-xs disabled">
+                        First
+                    </div>
+
+                    <div class="btn btn-default btn-xs disabled">
+                        Previous
+                    </div>
+
+                    <div class="page-no">
+                        1 of 18
+                    </div>
+
+                    <div class="btn btn-default btn-xs selectable" onclick="pageConfig.nextPage()">
+                        Next
+                    </div>
+
+                    <div class="btn btn-default btn-xs selectable" onclick="pageConfig.lastPage()">
+                        Last
+                    </div>
+                </div>
+            </rfc-pager>
+
+
+<rfc-inline-style><style>@media (min-width: 0px) and (max-width: 767px) {
+    .blog-tiles .col-xs-12:nth-child(1n+1) {
+        clear: both;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+    .blog-tiles .col-sm-6:nth-child(2n+1) {
+        clear: both;
+    }
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+    .blog-tiles .col-md-4:nth-child(3n+1) {
+        clear: both;
+    }
+}
+
+@media (min-width: 1200px) {
+    .blog-tiles .col-lg-3:nth-child(4n+1) {
+        clear: both;
+    }
+}
+</style></rfc-inline-style>
+
+<!-- Include here to load just once -->
+<rfc-inline-style><style>.blog-tile {
+    padding: 5px;
+    text-align: center;
+}
+
+    .blog-tile a,
+    .blog-tile a:visited,
+    .blog-tile a:active {
+        color: #4C4C4C;
+        -moz-transition: color 1.5s;
+        -o-transition: color 1.5s;
+        -webkit-transition: color 1.5s;
+        transition: color 1.5s;
+    }
+
+        .blog-tile a:hover,
+        .blog-tile a:focus {
+            text-decoration: none;
+            color: #e74c3c;
+        }
+
+    .blog-tile h2 {
+        font-size: 20px;
+    }
+
+    .blog-tile .blog-tile-date {
+        font-size: 12px;
+    }
+
+    .blog-tile .blog-tile-image img {
+        max-height: 150px;
+    }
+
+    .blog-tile .blog-tile-keywords ul {
+        padding: 0px;
+    }
+
+    .blog-tile .show-more-icon {
+        font-size: 36px;
+    }
+
+.keyword {
+    margin: 2px;
+    color: var(--accent2-colour);
+    display: inline-block;
+    background: var(--accent1-colour);
+    padding: 5px 10px 5px 10px;
+}</style></rfc-inline-style>
+
+<div class="container-fluid">
+    <div class="blog-tiles row">
+
+<div class="blog-tile col-xs-12 col-sm-6 col-md-4 col-lg-3">
+    <a href="/blog/building-a-software-survey-using-blazor-part-12-putting-it-all-together">
+        <div>
+                <div class="blog-tile-image">
+                    <img class="image-responsive" src="https://content.red-folder.com/blog/building-a-software-survey-using-blazor-part-12-putting-it-all-together/header.png">
+                </div>
+            <h2>Building a Software Survey using Blazor - Part 12 - Putting it all together</h2>
+            <p class="blog-tile-date">
+                Published: 21-Dec-2020
+            </p>
+            <p>
+                Part 12 of building a Software Survey using Blazor.  In this article I pull together all the previous articles into how the Software Survey app comes together.
+            </p>
+                <div class="blog-tile-keywords">
+                    <ul>
+                            <li class="keyword">Blazor Server</li>
+                    </ul>
+                </div>
+            <div class="show-more-icon">
+                <i class="fa fa-chevron-circle-right"></i>
+            </div>
+        </div>
+    </a>
+</div>
+
+<div class="blog-tile col-xs-12 col-sm-6 col-md-4 col-lg-3">
+    <a href="/blog/building-a-software-survey-using-blazor-part-11-azure-devops">
+        <div>
+                <div class="blog-tile-image">
+                    <img class="image-responsive" src="https://content.red-folder.com/blog/building-a-software-survey-using-blazor-part-11-azure-devops/header.png">
+                </div>
+            <h2>Building a Software Survey using Blazor - Part 11 - Azure DevOps</h2>
+            <p class="blog-tile-date">
+                Published: 14-Dec-2020
+            </p>
+            <p>
+                Part 11 of building a Software Survey using Blazor.  In this article I talk using Azure DevOps to automate the integration, delivery and deployment.
+            </p>
+                <div class="blog-tile-keywords">
+                    <ul>
+                            <li class="keyword">Blazor Server</li>
+                            <li class="keyword">Azure</li>
+                            <li class="keyword">Azure DevOps</li>
+                            <li class="keyword">Continuous Integration</li>
+                            <li class="keyword">Continuous Delivery</li>
+                    </ul>
+                </div>
+            <div class="show-more-icon">
+                <i class="fa fa-chevron-circle-right"></i>
+            </div>
+        </div>
+    </a>
+</div>
+
+<div class="blog-tile col-xs-12 col-sm-6 col-md-4 col-lg-3">
+    <a href="/blog/building-a-software-survey-using-blazor-part-10-bicep">
+        <div>
+                <div class="blog-tile-image">
+                    <img class="image-responsive" src="https://content.red-folder.com/blog/building-a-software-survey-using-blazor-part-10-bicep/header.png">
+                </div>
+            <h2>Building a Software Survey using Blazor - Part 10 - Bicep</h2>
+            <p class="blog-tile-date">
+                Published: 07-Dec-2020
+            </p>
+            <p>
+                Part 10 of building a Software Survey using Blazor.  In this article I talk about infrastructure as code using Azure Bicep.
+            </p>
+                <div class="blog-tile-keywords">
+                    <ul>
+                            <li class="keyword">Blazor Server</li>
+                            <li class="keyword">Azure Bicep</li>
+                    </ul>
+                </div>
+            <div class="show-more-icon">
+                <i class="fa fa-chevron-circle-right"></i>
+            </div>
+        </div>
+    </a>
+</div>
+
+<div class="blog-tile col-xs-12 col-sm-6 col-md-4 col-lg-3">
+    <a href="/blog/building-a-software-survey-using-blazor-part-9-end-to-end-tests">
+        <div>
+                <div class="blog-tile-image">
+                    <img class="image-responsive" src="https://content.red-folder.com/blog/building-a-software-survey-using-blazor-part-9-end-to-end-tests/header.png">
+                </div>
+            <h2>Building a Software Survey using Blazor - Part 9 - End to End tests</h2>
+            <p class="blog-tile-date">
+                Published: 30-Nov-2020
+            </p>
+            <p>
+                Part 9 of building a Software Survey using Blazor.  In this article I talk about end to end testing.
+            </p>
+                <div class="blog-tile-keywords">
+                    <ul>
+                            <li class="keyword">Blazor Server</li>
+                    </ul>
+                </div>
+            <div class="show-more-icon">
+                <i class="fa fa-chevron-circle-right"></i>
+            </div>
+        </div>
+    </a>
+</div>
+
+<div class="blog-tile col-xs-12 col-sm-6 col-md-4 col-lg-3">
+    <a href="/blog/building-a-software-survey-using-blazor-part-8-bunit">
+        <div>
+                <div class="blog-tile-image">
+                    <img class="image-responsive" src="https://content.red-folder.com/blog/building-a-software-survey-using-blazor-part-8-bunit/header.png">
+                </div>
+            <h2>Building a Software Survey using Blazor - Part 8 - bUnit</h2>
+            <p class="blog-tile-date">
+                Published: 23-Nov-2020
+            </p>
+            <p>
+                Part 8 of building a Software Survey using Blazor.  In this article I talk about unit testing Blazor using bUnit.
+            </p>
+                <div class="blog-tile-keywords">
+                    <ul>
+                            <li class="keyword">Blazor Server</li>
+                    </ul>
+                </div>
+            <div class="show-more-icon">
+                <i class="fa fa-chevron-circle-right"></i>
+            </div>
+        </div>
+    </a>
+</div>
+
+<div class="blog-tile col-xs-12 col-sm-6 col-md-4 col-lg-3">
+    <a href="/blog/thinking-about-true-innovation">
+        <div>
+                <div class="blog-tile-image">
+                    <img class="image-responsive" src="https://content.red-folder.com/blog/thinking-about-true-innovation/header.png">
+                </div>
+            <h2>Thinking about true innovation</h2>
+            <p class="blog-tile-date">
+                Published: 19-Nov-2020
+            </p>
+            <p>
+                Newsletter for 19th November 2020 - what does true innovation look like in your industry?
+            </p>
+                <div class="blog-tile-keywords">
+                    <ul>
+                            <li class="keyword">Newsletter</li>
+                    </ul>
+                </div>
+            <div class="show-more-icon">
+                <i class="fa fa-chevron-circle-right"></i>
+            </div>
+        </div>
+    </a>
+</div>
+
+<div class="blog-tile col-xs-12 col-sm-6 col-md-4 col-lg-3">
+    <a href="/blog/building-a-software-survey-using-blazor-part-7-azure-signalr-service">
+        <div>
+                <div class="blog-tile-image">
+                    <img class="image-responsive" src="https://content.red-folder.com/blog/building-a-software-survey-using-blazor-part-7-azure-signalr-service/header.png">
+                </div>
+            <h2>Building a Software Survey using Blazor - Part 7 - Azure SignalR Service</h2>
+            <p class="blog-tile-date">
+                Published: 16-Nov-2020
+            </p>
+            <p>
+                Part 7 of building a Software Survey using Blazor.  In this article I talk about the choice of using the Azure SignalR service
+            </p>
+                <div class="blog-tile-keywords">
+                    <ul>
+                            <li class="keyword">Blazor Server</li>
+                            <li class="keyword">Azure</li>
+                            <li class="keyword">SignalR</li>
+                    </ul>
+                </div>
+            <div class="show-more-icon">
+                <i class="fa fa-chevron-circle-right"></i>
+            </div>
+        </div>
+    </a>
+</div>
+
+<div class="blog-tile col-xs-12 col-sm-6 col-md-4 col-lg-3">
+    <a href="/blog/developer-laziness-leads-to-productivity">
+        <div>
+                <div class="blog-tile-image">
+                    <img class="image-responsive" src="https://content.red-folder.com/blog/developer-laziness-leads-to-productivity/header.png">
+                </div>
+            <h2>Developer laziness leads to productivity</h2>
+            <p class="blog-tile-date">
+                Published: 12-Nov-2020
+            </p>
+            <p>
+                Newsletter for 12th November 2020 - productivity, automation and the benefits of developer laziness
+            </p>
+                <div class="blog-tile-keywords">
+                    <ul>
+                            <li class="keyword">Newsletter</li>
+                    </ul>
+                </div>
+            <div class="show-more-icon">
+                <i class="fa fa-chevron-circle-right"></i>
+            </div>
+        </div>
+    </a>
+</div>
+
+<div class="blog-tile col-xs-12 col-sm-6 col-md-4 col-lg-3">
+    <a href="/blog/building-a-software-survey-using-blazor-part-6-azure-cosmos-db">
+        <div>
+                <div class="blog-tile-image">
+                    <img class="image-responsive" src="https://content.red-folder.com/blog/building-a-software-survey-using-blazor-part-6-azure-cosmos-db/header.png">
+                </div>
+            <h2>Building a Software Survey using Blazor - Part 6 - Azure CosmosDB</h2>
+            <p class="blog-tile-date">
+                Published: 09-Nov-2020
+            </p>
+            <p>
+                Part 6 of building a Software Survey using Blazor.  In this article I talk about the choice of using Azure Cosmos DB to store the response.
+            </p>
+                <div class="blog-tile-keywords">
+                    <ul>
+                            <li class="keyword">Blazor Server</li>
+                            <li class="keyword">Azure</li>
+                            <li class="keyword">Cosmos DB</li>
+                    </ul>
+                </div>
+            <div class="show-more-icon">
+                <i class="fa fa-chevron-circle-right"></i>
+            </div>
+        </div>
+    </a>
+</div>
+
+<div class="blog-tile col-xs-12 col-sm-6 col-md-4 col-lg-3">
+    <a href="/blog/its-never-going-to-happen">
+        <div>
+                <div class="blog-tile-image">
+                    <img class="image-responsive" src="https://content.red-folder.com/blog/its-never-going-to-happen/header.png">
+                </div>
+            <h2>It&#x27;s never going to happen</h2>
+            <p class="blog-tile-date">
+                Published: 05-Nov-2020
+            </p>
+            <p>
+                Newsletter for 5th November 2020 - the short sighted mentality of &#x27;It&#x27;s never going to happen&#x27;
+            </p>
+                <div class="blog-tile-keywords">
+                    <ul>
+                            <li class="keyword">Newsletter</li>
+                    </ul>
+                </div>
+            <div class="show-more-icon">
+                <i class="fa fa-chevron-circle-right"></i>
+            </div>
+        </div>
+    </a>
+</div>
+
+<div class="blog-tile col-xs-12 col-sm-6 col-md-4 col-lg-3">
+    <a href="/blog/the-post-covid-future-work-location">
+        <div>
+                <div class="blog-tile-image">
+                    <img class="image-responsive" src="https://content.red-folder.com/blog/the-post-covid-future-work-location/header.png">
+                </div>
+            <h2>The post-Covid future work location</h2>
+            <p class="blog-tile-date">
+                Published: 15-Oct-2020
+            </p>
+            <p>
+                Newsletter for 15th October 2020. With so many polls asking how you want to work post-Covid, I ask if that&#x27;s a valid question at the moment.
+            </p>
+                <div class="blog-tile-keywords">
+                    <ul>
+                            <li class="keyword">Newsletter</li>
+                    </ul>
+                </div>
+            <div class="show-more-icon">
+                <i class="fa fa-chevron-circle-right"></i>
+            </div>
+        </div>
+    </a>
+</div>
+
+<div class="blog-tile col-xs-12 col-sm-6 col-md-4 col-lg-3">
+    <a href="/blog/building-a-software-survey-using-blazor-part-5-client-ip">
+        <div>
+                <div class="blog-tile-image">
+                    <img class="image-responsive" src="https://content.red-folder.com/blog/building-a-software-survey-using-blazor-part-5-client-ip/header.png">
+                </div>
+            <h2>Building a Software Survey using Blazor - Part 5 - Client IP</h2>
+            <p class="blog-tile-date">
+                Published: 12-Oct-2020
+            </p>
+            <p>
+                Part 5 of building a Software Survey using Blazor.  I take a look at how to record the client&#x27;s IP address.
+            </p>
+                <div class="blog-tile-keywords">
+                    <ul>
+                            <li class="keyword">Blazor Server</li>
+                    </ul>
+                </div>
+            <div class="show-more-icon">
+                <i class="fa fa-chevron-circle-right"></i>
+            </div>
+        </div>
+    </a>
+</div>
+    </div>
+</div>
+
+
+<rfc-pager>
+                <div class="row pager">
+                    <div class="btn btn-default btn-xs disabled">
+                        First
+                    </div>
+
+                    <div class="btn btn-default btn-xs disabled">
+                        Previous
+                    </div>
+
+                    <div class="page-no">
+                        1 of 18
+                    </div>
+
+                    <div class="btn btn-default btn-xs selectable" onclick="pageConfig.nextPage()">
+                        Next
+                    </div>
+
+                    <div class="btn btn-default btn-xs selectable" onclick="pageConfig.lastPage()">
+                        Last
+                    </div>
+                </div>
+            </rfc-pager>
+
+
+
+    </div>
+
+    <rfc-inline-style><style>footer {
+    padding: 0px 0 20px 0;
+    background-color: var(--main-colour);
+    color: var(--accent2-colour);
+}
+
+    footer ul {
+        padding: 0;
+        list-style: none;
+        text-align: center;
+        font-size: 18px;
+        line-height: 1.6;
+        margin-bottom: 0;
+    }
+
+        footer ul li {
+            padding: 0 10px;
+        }
+
+            footer ul li a {
+                color: inherit;
+                text-decoration: none !important;
+            }
+
+                footer ul li a:visited {
+                    color: var(--accent2-colour);
+                }
+
+                footer ul li a:hover {
+                    color: var(--accent1-colour);
+                }
+
+    footer .copyright {
+        color: var(--accent2-colour);
+        margin-top: 15px;
+        text-align: center;
+        font-size: 13px;
+        margin-bottom: 0;
+    }
+
+</style></rfc-inline-style>
+
+<footer>
+    <rfc-inline-style><style>.social-buttons {
+    padding-top: 25px;
+    text-align: center;
+    padding-bottom: 25px;
+}
+
+    .social-buttons > a {
+        border: 1px solid var(--accent2-colour);
+        opacity: 1;
+        font-size: 24px;
+        width: 40px;
+        height: 40px;
+        line-height: 40px;
+        display: inline-block;
+        text-align: center;
+        border-radius: 50%;
+        margin: 0 8px;
+        color: inherit;
+    }
+
+        .social-buttons > a:hover {
+            opacity: 1;
+            color: var(--accent1-colour);
+            border: 1px solid var(--accent1-colour);
+        }
+
+</style></rfc-inline-style>
+
+<div class="social-buttons">
+    <a href="https://github.com/Red-Folder"><i class="fa fa-github"></i></a>
+    <a href="skype:red-folder?chat"><i class="fa fa-skype"></i></a>
+    <a href="https://twitter.com/RedFolderMark"><i class="fa fa-twitter"></i></a>
+    <a href="https://www.linkedin.com/in/markbryantaylor/"><i class="fa fa-linkedin-square"></i></a>
+    <a href="mailto:mark@red-folder.com"><i class="fa fa-envelope"></i></a>
+</div>
+
+    <ul class="list-inline">
+        <li><a href="/">Home</a></li>
+        <li><a href="/Services">Services</a></li>
+        <li><a href="/Blog">Blog </a></li>
+        <li><a href="/Projects">Projects </a></li>
+        <li><a href="/MyBio">My Bio</a></li>
+        <li><a href="/Home/Contact">Contact</a></li>
+    </ul>
+    <p class="copyright">Red Folder Consultancy Limited &copy; 2025</p>
+</footer>
+
+    
+
+    <rfc-inline-style><style>#cookie-consent-container {
+    position: fixed;
+    bottom: 0px;
+    width: 100%;
+    padding: 16px 0px;
+    box-shadow: 0px 4px 13px 0px #82888c;
+    font-family: 'Jim Sans Regular', Arial;
+    text-align: center;
+    background-color: white;
+}
+
+#cookie-consent-content {
+    color: var(--accent1-colour);
+    font-size: 12px;
+    line-height: 28px;
+    margin: 0 10%;
+}
+    #cookie-consent-content a {
+        color: inherit;
+        text-decoration: none !important;
+        font-weight: bold;
+    }
+
+        #cookie-consent-content a:visited {
+            color: var(--accent1-colour);
+        }
+
+        #cookie-consent-content a:hover {
+            color: var(--accent1-colour);
+        }
+
+#cookie-consent-acceptance {
+    margin-left: 1.5%;
+    border-radius: 5px;
+    padding: 4px 17px;
+    font-size: 10px;
+    color: #82888c;
+    text-transform: uppercase;
+    transition: all 0.25s ease-in-out;
+    border: 1px solid #abb0b3;
+    text-decoration: none;
+    line-height: 14px;
+    font-family: 'Jim Sans Medium', Arial;
+    cursor: pointer;
+    outline: none;
+    background-color: transparent;
+}</style></rfc-inline-style>
+    <div id="cookie-consent-container">
+        <div id="cookie-consent-content">
+            We use cookies to ensure that we give you the best experience of our website.  <a href="/cookiepolicy">Click here</a> for more.
+        </div>
+    </div>
+    <script>
+        function handleCookieConsent(cookieString) {
+            document.cookie = cookieString;
+            document.getElementById("cookie-consent-container").style.display = "none";
+        }
+    </script>
+
+</body>
+</html>
