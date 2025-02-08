@@ -232,3 +232,5 @@ appsettings.development.json
 /CombinedCoverageReport
 
 *.received.*
+
+test-results/*.trx
