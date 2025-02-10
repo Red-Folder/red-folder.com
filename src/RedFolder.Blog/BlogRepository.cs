@@ -1,7 +1,9 @@
-﻿using RedFolder.Website.Data;
+﻿using RedFolder.Blog.Models;
+using RedFolder.Website.Data;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 
 namespace RedFolder.Blog
 {
@@ -9,11 +11,12 @@ namespace RedFolder.Blog
     {
         private BlogClient _client;
 
-        private IList<RedFolder.Website.Data.Blog> _blogs;
+        private IList<Website.Data.Blog> _blogs;
 
-        public BlogRepository(string blogUrl)
+        // TODO - pass in the IHttpClientFactory
+        public BlogRepository(HttpClient httpClient, BlogConfiguration configuration)
         {
-            _client = new BlogClient(blogUrl);
+            _client = new BlogClient(httpClient, configuration.BlogUrl);
         }
 
         private IList<RedFolder.Website.Data.Blog> Blogs

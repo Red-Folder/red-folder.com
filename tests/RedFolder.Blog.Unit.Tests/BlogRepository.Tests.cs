@@ -1,4 +1,6 @@
-﻿using Xunit;
+﻿using RedFolder.Blog.Models;
+using System.Net.Http;
+using Xunit;
 
 namespace RedFolder.Blog.Unit.Tests
 {
@@ -7,7 +9,7 @@ namespace RedFolder.Blog.Unit.Tests
         [Fact]
         public void CanInstanciate()
         {
-            var sut = new BlogRepository("https://example.com");
+            var sut = new BlogRepository(new HttpClient(), new BlogConfiguration { BlogUrl = "https://example.com" });
             Assert.NotNull(sut);
         }
     }

@@ -6,11 +6,14 @@ namespace RedFolder.Blog
 {
     public class BlogClient
     {
-        private static HttpClient _httpClient = new HttpClient();
+        private readonly HttpClient _httpClient;
         private string _blogUrl;
 
-        public BlogClient(string blogUrl)
+        // TODO - pass in the IHttpClientFactory
+        public BlogClient(HttpClient httpClient, string blogUrl)
         {
+            //_httpClient = httpClientFactory.CreateClient("blog");
+            _httpClient = httpClient;
             _blogUrl = blogUrl;
         }
 

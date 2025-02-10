@@ -20,6 +20,7 @@ namespace RedFolder.WebSite.Integration.Tests.Infrastructure
                 case "podcast": return CreatePodcastClient();
             }
 
+            // TODO - should throw an error if not set
             return _default;
         }
 

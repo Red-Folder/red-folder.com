@@ -8,11 +8,11 @@ using Microsoft.Extensions.FileProviders;
 using Microsoft.AspNetCore.Http;
 using Red_Folder.com.Services;
 using RedFolder.Models;
-using System.Net.Http;
 using RedFolder.Podcast;
 using Microsoft.Extensions.Hosting;
 using RedFolder.Blog;
 using Red_Folder.Podcast;
+using RedFolder.Blog.Models;
 
 namespace RedFolder
 {
@@ -32,6 +32,7 @@ namespace RedFolder
         // For more information on how to configure your application, visit http://go.microsoft.com/fwlink/?LinkID=398940
         public virtual void ConfigureServices(IServiceCollection services)
         {
+            // Should be able to remove in favour of the IHttpFactoryClient?
             services.AddHttpClient();
 
             services.AddSingleton(_configuration);
@@ -58,35 +59,43 @@ namespace RedFolder
             services.AddScoped<IRepoRepository, RepoRepository>();
             services.AddScoped<IArticleRepository, ArticleRepository>();
 
-            var blogRepo = new BlogRepository(_configuration["BlogUrl"]);
-            services.AddSingleton<IBlogRepository>(blogRepo);
-            services.AddSingleton<IRedirectRepository>(new RedirectRepository(new System.Collections.Generic.List<IRedirectRepository> { blogRepo }));
+            services.AddSingleton(new BlogConfiguration
+            {
+                BlogUrl = _configuration["BlogUrl"]
+            });
+            services.AddSingleton<BlogRepository>();
+            services.AddSingleton<IBlogRepository>(provider => provider.GetService<BlogRepository>());
+            services.AddSingleton<ISiteMapUrlRepository>(provider => provider.GetService<BlogRepository>());
+            services.AddSingleton<IRedirectRepository>(provider => {
+                return new RedirectRepository(new System.Collections.Generic.List<IRedirectRepository> { provider.GetService<BlogRepository>() });
+            });
 
-            var activityRepo = new ActivityRepository(_configuration["ActivityUrl"], _configuration["ActivityCode"]);
-            services.AddSingleton<IActivityRepository>(activityRepo);
+            services.AddSingleton(new ActivityConfiguration
+            {
+                ActivityUrl = _configuration["ActivityUrl"],
+                ActivityCode = _configuration["ActivityCode"]
+            });
+            services.AddSingleton<ActivityClient>();
+            services.AddSingleton<IActivityRepository, ActivityRepository>();
 
-            var siteMapRepo = new SiteMapRepository(_hostingEnvironment);
-            siteMapRepo.AddRepository(blogRepo);
-            services.AddSingleton<ISiteMapRepository>(siteMapRepo);
+            services.AddSingleton<ISiteMapRepository, SiteMapRepository>();
 
             services.AddTransient<RepoContextSeedData>();
 
-            var sendGridConfiguration = new SendGridConfiguration
+            services.AddSingleton(new SendGridConfiguration
             {
                 ApiKey = _configuration["SendGridApiKey"],
                 From = _configuration["SendGridFromEmailAddress"]
-            };
-            services.AddSingleton(sendGridConfiguration);
+            });
             services.AddTransient<IEmail, SendGridEmail>();
 
             services.AddTransient<IFeedReader, CodeHollowFeedReader>();
             services.AddSingleton<IPodcastRespository, PodcastRespository>();
 
-            var reCaptchaConfiguration = new ReCaptchaConfiguration
+            services.AddSingleton(new ReCaptchaConfiguration
             {
                 SecretKey = _configuration["ReCaptchaSecretKey"]
-            };
-            services.AddSingleton(reCaptchaConfiguration);
+            });
             services.AddTransient<ITokenVerification, ReCaptchaTokenVerification>();
         }
 

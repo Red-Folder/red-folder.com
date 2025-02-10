@@ -9,10 +9,10 @@ namespace RedFolder.Services
 {
     public class SiteMapRepository : ISiteMapRepository
     {
-        private List<ISiteMapUrlRepository> _innerRepositories = new List<ISiteMapUrlRepository>();
+        private List<ISiteMapUrlRepository> _innerRepositories;
         private string _baseUrl;
 
-        public SiteMapRepository(IWebHostEnvironment _env)
+        public SiteMapRepository(IWebHostEnvironment _env, IEnumerable<ISiteMapUrlRepository> innerRepositories)
         {
             _baseUrl = "http://localhost:58352";
 
@@ -25,6 +25,8 @@ namespace RedFolder.Services
             {
                 _baseUrl = "http://rfc-website-staging.azurewebsites.net";
             }
+
+            _innerRepositories = innerRepositories.ToList();
         }
 
         public void AddRepository(ISiteMapUrlRepository inner)

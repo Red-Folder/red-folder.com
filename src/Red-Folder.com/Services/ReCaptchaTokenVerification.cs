@@ -13,6 +13,7 @@ namespace RedFolder.Services
         private readonly HttpClient _httpClient;
         private readonly ReCaptchaConfiguration _configuration;
 
+        // TODO - pass in the IHttpClientFactory
         public ReCaptchaTokenVerification(HttpClient httpClient, ReCaptchaConfiguration configuration)
         {
             _httpClient = httpClient;
