@@ -36,7 +36,7 @@ namespace RedFolder.WebSite.Integration.Tests
                         })
                         .UseWebRoot(webRootPath)
                         .UseStartup<IntegrationTestsStartup>()
-                        .UseEnvironment("Development");
+                        .UseEnvironment("Integration");
                 })
                 .Start();
 
