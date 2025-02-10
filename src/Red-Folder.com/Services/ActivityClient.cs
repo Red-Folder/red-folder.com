@@ -8,12 +8,12 @@ namespace Red_Folder.com.Services
 {
     public class ActivityClient
     {
-        private static HttpClient _httpClient = new HttpClient();
+        private readonly HttpClient _httpClient;
         private readonly ActivityConfiguration _configuration; 
 
-        // TODO - pass in the IHttpClientFactory
-        public ActivityClient(ActivityConfiguration configuration)
+        public ActivityClient(IHttpClientFactory httpClientFactory, ActivityConfiguration configuration)
         {
+            _httpClient = httpClientFactory.CreateClient("activity");
             _configuration = configuration;
         }
 

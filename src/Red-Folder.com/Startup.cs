@@ -63,6 +63,7 @@ namespace RedFolder
             {
                 BlogUrl = _configuration["BlogUrl"]
             });
+            services.AddSingleton<IBlogClient, BlogClient>();
             services.AddSingleton<BlogRepository>();
             services.AddSingleton<IBlogRepository>(provider => provider.GetService<BlogRepository>());
             services.AddSingleton<ISiteMapUrlRepository>(provider => provider.GetService<BlogRepository>());

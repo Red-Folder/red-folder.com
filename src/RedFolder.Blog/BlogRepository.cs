@@ -3,20 +3,18 @@ using RedFolder.Website.Data;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Net.Http;
 
 namespace RedFolder.Blog
 {
     public class BlogRepository : IBlogRepository, IRedirectRepository, ISiteMapUrlRepository
     {
-        private BlogClient _client;
+        private IBlogClient _client;
 
         private IList<Website.Data.Blog> _blogs;
 
-        // TODO - pass in the IHttpClientFactory
-        public BlogRepository(HttpClient httpClient, BlogConfiguration configuration)
+        public BlogRepository(IBlogClient blogClient)
         {
-            _client = new BlogClient(httpClient, configuration.BlogUrl);
+            _client = blogClient;
         }
 
         private IList<RedFolder.Website.Data.Blog> Blogs
