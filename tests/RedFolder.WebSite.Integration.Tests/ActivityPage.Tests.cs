@@ -16,7 +16,7 @@ namespace RedFolder.WebSite.Integration.Tests
             _httpClientFixture = httpClientFixture;
         }
 
-        [Fact(Skip = "resolving CI issue")]
+        [Fact]
         public async Task Get_Weekly_eturnsSuccessAndCorrectContent()
         {
             var response = await _httpClientFixture.Client.GetAsync("/Activity/Weekly/2022/01");
