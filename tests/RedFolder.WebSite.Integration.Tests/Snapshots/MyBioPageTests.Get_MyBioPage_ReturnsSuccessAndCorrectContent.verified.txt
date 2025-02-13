@@ -737,7 +737,7 @@
                         <a href="https://www.youracclaim.com/badges/e2c276ef-e5ed-4b70-b52d-312ea8595aff/public_url">
                             <img class="img-responsive center-block" style="min-height:125px;" src="/images/acclaim/mcsd-app-builder-certified-2018.png">
                         </a>
-                        <h3>MCSD: App Builder &#x2014; Certified 2018</h3>
+                        <h3>MCSD: App Builder - Certified 2018</h3>
                         <p><small>July 2018</small></p>
                         <p class="description">Earners of the MCSD: App Builder certification have demonstrated the skills required to build modern mobile and/or web applications and services. Earning this certification qualifies an individual for a position as an application developer.</p>
                     </div>
@@ -767,7 +767,7 @@
                         <a href="https://www.youracclaim.com/badges/7dcebf78-4de1-4c5f-b783-7dfa9fd9dc12/public_url">
                             <img class="img-responsive center-block" style="min-height:125px;" src="/images/acclaim/mcsd-app-builder-certified-2017.png">
                         </a>
-                        <h3>MCSD: App Builder &#x2014; Certified 2017</h3>
+                        <h3>MCSD: App Builder - Certified 2017</h3>
                         <p><small>August 2017</small></p>
                         <p class="description">Earners of the MCSD: App Builder certification have demonstrated the skills required to build modern mobile and/or web applications and services. Earning this certification qualifies an individual for a position as an application developer.</p>
                     </div>
@@ -787,7 +787,7 @@
                         <a href="https://www.youracclaim.com/badges/f57a78d2-31ae-42d5-a39d-48eaa1bd06cd/public_url">
                             <img class="img-responsive center-block" style="min-height:125px;" src="/images/acclaim/mcsd-app-builder-certified-2016.png">
                         </a>
-                        <h3>MCSD: App Builder &#x2014; Certified 2016</h3>
+                        <h3>MCSD: App Builder - Certified 2016</h3>
                         <p><small>September 2016</small></p>
                         <p class="description">Earners of the MCSD: App Builder certification have demonstrated the skills required to build modern mobile and/or web applications and services. Earning this certification qualifies an individual for a position as an application developer.</p>
                     </div>

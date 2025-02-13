@@ -26,4 +26,16 @@
     <PackageReference Include="SendGrid" Version="9.29.1" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="Data\services.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Data\employment.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Data\certifications.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>
