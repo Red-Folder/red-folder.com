@@ -1,4 +1,5 @@
-﻿using Xunit;
+﻿using Moq;
+using Xunit;
 
 namespace RedFolder.Blog.Unit.Tests
 {
@@ -7,7 +8,8 @@ namespace RedFolder.Blog.Unit.Tests
         [Fact]
         public void CanInstanciate()
         {
-            var sut = new BlogRepository("https://example.com");
+            var mockBlogClient = new Mock<IBlogClient>();
+            var sut = new BlogRepository(mockBlogClient.Object);
             Assert.NotNull(sut);
         }
     }

@@ -1,17 +1,19 @@
 ﻿using Newtonsoft.Json;
+using RedFolder.Blog.Models;
 using System.Collections.Generic;
 using System.Net.Http;
 
 namespace RedFolder.Blog
 {
-    public class BlogClient
+    public class BlogClient : IBlogClient
     {
-        private static HttpClient _httpClient = new HttpClient();
+        private readonly HttpClient _httpClient;
         private string _blogUrl;
 
-        public BlogClient(string blogUrl)
+        public BlogClient(IHttpClientFactory httpClientFactory, BlogConfiguration configuration)
         {
-            _blogUrl = blogUrl;
+            _httpClient = httpClientFactory.CreateClient("blog");
+            _blogUrl = configuration.BlogUrl;
         }
 
         public IList<RedFolder.Website.Data.Blog> GetAll()

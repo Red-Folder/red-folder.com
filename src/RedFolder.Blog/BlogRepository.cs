@@ -1,4 +1,5 @@
-﻿using RedFolder.Website.Data;
+﻿using RedFolder.Blog.Models;
+using RedFolder.Website.Data;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,13 +8,13 @@ namespace RedFolder.Blog
 {
     public class BlogRepository : IBlogRepository, IRedirectRepository, ISiteMapUrlRepository
     {
-        private BlogClient _client;
+        private IBlogClient _client;
 
-        private IList<RedFolder.Website.Data.Blog> _blogs;
+        private IList<Website.Data.Blog> _blogs;
 
-        public BlogRepository(string blogUrl)
+        public BlogRepository(IBlogClient blogClient)
         {
-            _client = new BlogClient(blogUrl);
+            _client = blogClient;
         }
 
         private IList<RedFolder.Website.Data.Blog> Blogs

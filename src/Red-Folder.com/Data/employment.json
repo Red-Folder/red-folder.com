@@ -1,0 +1,102 @@
+[
+  {
+    "From": "Sep 2016",
+    "To": "Apr 2022",
+    "Title": "Technical Consultant (Contract), Betfred",
+    "Summary": "Providing technical implementation and troubleshooting services across all IT disciplines – architecture, software development, infrastructure, networking and third party engagement.",
+    "Technologies": [
+      "C#",
+      "ASP.Net Core",
+      "React",
+      "Redux",
+      "Team City",
+      "Octopus",
+      "AWS",
+      "AWS - CloudFormation",
+      "AWS - Lambda",
+      "Jest",
+      "xUnit",
+      "SpecFlow"
+    ]
+  },
+  {
+    "From": "Oct 2015",
+    "To": "Aug 2016",
+    "Title": "Lead Developer (Contract), Travelbag/ dnata Travel",
+    "Summary": "Providing interim leadership to a cross-functional development team responsible for the Travelbag eCommerce websites.",
+    "Technologies": [
+      "C#",
+      "ASP.Net MVC/ Web Forms/ WebAPI",
+      "SQL Server",
+      "HTML/ CSS/ JavaScript/ AJAX/ jQuery"
+    ]
+  },
+  {
+    "From": "Jul 2012",
+    "To": "Aug 2015",
+    "Title": "Head of IT, Eazyfone Ltd/ Head of IT (Acting), Redeem Group",
+    "Summary": "Responsible for the internal software products to operate the Redeem Group business of processing second hand mobile phone through testing, payment, warehousing and bulk sales.",
+    "Technologies": [
+      "C#",
+      "ASP.Net MVC/ Web Forms/ WebAPI",
+      "SQL Server",
+      "HTML/ CSS/ JavaScript/ AJAX/ jQuery"
+    ]
+  },
+  {
+    "From": "Jun 2012",
+    "To": "Jul 2012",
+    "Title": "Senior .Net Developer (Contract), Ipes",
+    "Summary": "Responsible for maintenance and development of a bespoke fund management system.",
+    "Technologies": [
+      "C#",
+      "ASP.Net Web Forms",
+      "SQL Server",
+      "SharePoint"
+    ]
+  },
+  {
+    "From": "Sep 2000",
+    "To": "Mar 2012",
+    "Title": "Head of IT, The Alternative Parcels Company Ltd",
+    "Summary": "Responsible for the internal software products to operate the APC’s nationwide overnight courier network through its 120 partner depots.  Oversaw the activities of 13 staff and responsible for a £1m annual budget.",
+    "Technologies": [
+      "C#",
+      "WCF",
+      "SQL Server",
+      "MySQL",
+      "PHP"
+    ]
+  },
+  {
+    "From": "Jun 2000",
+    "To": "Aug 2008",
+    "Title": "IT Manager to Head of Development (Acting), Caudwell Group/ Pipex/ Tiscali",
+    "Summary": "Responsible for various development teams & software products during series of acquisitions and mergers.",
+    "Technologies": [
+      "C#",
+      "ASP.Net Web Forms",
+      "SQL Server",
+      "Oracle",
+      "MySQL",
+      "PHP",
+      "VB.Net",
+      "Informix 4gl"
+    ]
+  },
+  {
+    "From": "Jun 1999",
+    "To": "Jun 2000",
+    "Title": "IT Infrastructure, George S. Hall Ltd."
+  },
+  {
+    "From": "Nov 1995",
+    "To": "Jun 1999",
+    "Title": "Analyst & Developer, Caudwell Group."
+  },
+  {
+    "From": "Aug 1993",
+    "To": "Nov 1995",
+    "Title": "Developer, PFS Computer Consultancy (Sussex) Ltd."
+  }
+]

@@ -140,18 +140,19 @@ namespace RedFolder.Podcast
         {
             if (_cache == null)
             {
-                try
-                {
+                // TODO - Throw the exception for now. Prior code just hid it
+                //try
+                //{
                     var feed =  await _feedReader.Read(RSS_URL);
 
                     if (feed?.Items != null && feed.Items.Count > 0)
                     {
                         _cache = feed.Items.Select(x => (Models.Podcast)x).ToList();
                     }
-                } catch (Exception)
-                {
+                //} catch (Exception)
+                //{
 
-                }
+                //}
             }
 
             return _cache;

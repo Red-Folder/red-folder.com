@@ -432,11 +432,11 @@
 <p>I've created the group because I believe;</p>
 
 <ol>
-<li>Every business today is a technology business</li>
-<li>At some point every business will rely on Software Development</li>
-<li>Software Development, when done well, will materially affect business outcomes</li>
-<li>Software Development can be a complex and expensive to do well</li>
-<li>There wasn't a forum for business leaders to get help</li>
+    <li>Every business today is a technology business</li>
+    <li>At some point every business will rely on Software Development</li>
+    <li>Software Development, when done well, will materially affect business outcomes</li>
+    <li>Software Development can be a complex and expensive to do well</li>
+    <li>There wasn't a forum for business leaders to get help</li>
 </ol>
 
 <p>And this is what the group is aiming to resolve.</p>

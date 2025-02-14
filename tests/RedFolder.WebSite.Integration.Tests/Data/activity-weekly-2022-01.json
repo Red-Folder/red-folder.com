@@ -1,0 +1,489 @@
+{
+  "year": 2022,
+  "weekNumber": 1,
+  "start": "2022-01-03T00:00:00",
+  "end": "2022-01-09T23:59:59.999",
+  "podCasts": {
+    "categories": [
+      {
+        "name": "Security",
+        "podCasts": [
+          {
+            "created": "2022-01-04T09:18:35+00:00",
+            "feedName": "SANS Internet Storm Center Daily Network Cyber Security and Information Security Podcast",
+            "feedUrl": "http://isc.sans.edu/dailypodcast.xml",
+            "episodeName": "ISC StormCast for Monday, December 27th, 2021",
+            "episodeUrl": "https://isc.sans.edu/podcastdetail.html?id=7810",
+            "episodeSummary": "Log4j/Log4Shell and Cloud Internal Meta Data Services  https://isc.sans.edu/forums/diary/log4shell+and+cloud+provider+internal+meta+data+services+IMDS/28168/  https://isc.sans.edu/forums/diary/Defending+Cloud+IMDS+Against+log4shell+and+more/28170/ Log4j/Log4Shell Pushing Crypto Miner  https://isc.sans.edu/forums/diary/Example+of+how+attackers+are+trying+to+push+crypto+miners+via+Log4Shell/28172/ Microsoft Vulnerable and Malicious Driver Reporting Center  https://www.microsoft.com/security/blog/2",
+            "episodeDuration": 346,
+            "category": "Security"
+          },
+          {
+            "created": "2022-01-04T09:23:26+00:00",
+            "feedName": "SANS Internet Storm Center Daily Network Cyber Security and Information Security Podcast",
+            "feedUrl": "http://isc.sans.edu/dailypodcast.xml",
+            "episodeName": "ISC StormCast for Wednesday, December 29th, 2021",
+            "episodeUrl": "https://isc.sans.edu/podcastdetail.html?id=7814",
+            "episodeSummary": "Log4j Vulnerablity CVE-2021-44832  https://logging.apache.org/log4j/2.x/security.html#CVE-2021-44832 LotL Classifiers  https://isc.sans.edu/forums/diary/LotL+Classifier+tests+for+shells+exfil+and+miners/28184/ LastPass Credential Stuffing  https://www.bleepingcomputer.com/news/security/lastpass-users-warned-their-master-passwords-are-compromised/",
+            "episodeDuration": 294,
+            "category": "Security"
+          },
+          {
+            "created": "2022-01-04T09:20:54+00:00",
+            "feedName": "SANS Internet Storm Center Daily Network Cyber Security and Information Security Podcast",
+            "feedUrl": "http://isc.sans.edu/dailypodcast.xml",
+            "episodeName": "ISC StormCast for Tuesday, December 28th, 2021",
+            "episodeUrl": "https://isc.sans.edu/podcastdetail.html?id=7812",
+            "episodeSummary": "Attackers are Abusing MSBuild to Evade Defenses and Implant Cobalt Strike Beacons  https://isc.sans.edu/forums/diary/Attackers+are+abusing+MSBuild+to+evade+defenses+and+implant+Cobalt+Strike+beacons/28180/ Bypassing File Quarantine, Gatekeeper and Notarization Requirements  https://objective-see.com/blog/blog_0x6A.html Spider-Miner: Trojanized Version of Spiderman No Way Home  https://blog.reasonlabs.com/2021/12/23/spider-miner-with-great-power-comes-great-problems/",
+            "episodeDuration": 281,
+            "category": "Security"
+          },
+          {
+            "created": "2022-01-04T09:25:34+00:00",
+            "feedName": "SANS Internet Storm Center Daily Network Cyber Security and Information Security Podcast",
+            "feedUrl": "http://isc.sans.edu/dailypodcast.xml",
+            "episodeName": "ISC StormCast for Thursday, December 30th, 2021",
+            "episodeUrl": "https://isc.sans.edu/podcastdetail.html?id=7816",
+            "episodeSummary": "Log4j 2 Security Vulnerabilities Update Guide  https://isc.sans.edu/forums/diary/Log4j+2+Security+Vulnerabilities+Update+Guide/28188/ Microsoft Defender Log4j False Positives  https://www.bleepingcomputer.com/news/microsoft/microsoft-defender-log4j-scanner-triggers-false-positive-alerts/ T-Mobile SIM Swapping Alerts  https://www.bleepingcomputer.com/news/security/t-mobile-says-new-data-breach-caused-by-sim-swap-attacks/ Fisher Price Bluetooth Phone Privcy Flaw  https://www.pentestpartners.com/se",
+            "episodeDuration": 250,
+            "category": "Security"
+          },
+          {
+            "created": "2022-01-04T09:29:11+00:00",
+            "feedName": "SANS Internet Storm Center Daily Network Cyber Security and Information Security Podcast",
+            "feedUrl": "http://isc.sans.edu/dailypodcast.xml",
+            "episodeName": "ISC StormCast for Monday, January 3rd, 2022",
+            "episodeUrl": "https://isc.sans.edu/podcastdetail.html?id=7818",
+            "episodeSummary": "Exchange Server Year 2022 Bug  https://isc.sans.edu/forums/diary/Exchange+Server+Email+Trapped+in+Transport+Queues/28204/  https://techcommunity.microsoft.com/t5/exchange-team-blog/email-stuck-in-exchange-on-premises-transport-queues/ba-p/3049447 Agent Tesla Updates  https://isc.sans.edu/forums/diary/Agent+Tesla+Updates+SMTP+Data+Exfiltration+Technique/28190/  https://isc.sans.edu/forums/diary/Do+you+want+your+Agent+Tesla+in+the+300+MB+or+8+kB+package/28202/ Forensics Issues and Techniques to Im",
+            "episodeDuration": 455,
+            "category": "Security"
+          },
+          {
+            "created": "2022-01-04T09:32:15+00:00",
+            "feedName": "SANS Internet Storm Center Daily Network Cyber Security and Information Security Podcast",
+            "feedUrl": "http://isc.sans.edu/dailypodcast.xml",
+            "episodeName": "ISC StormCast for Tuesday, January 4th, 2022",
+            "episodeUrl": "https://isc.sans.edu/podcastdetail.html?id=7820",
+            "episodeSummary": "McAfee Phishing Campaign with a Nice Fake Scan  https://isc.sans.edu/forums/diary/McAfee+Phishing+Campaign+with+a+Nice+Fake+Scan/28208/ Trend Micro Apex One Patch  https://success.trendmicro.com/solution/000289996 E-commerce Bots Using Cheap Domain Registration Services  https://threatpost.com/ecommerce-bots-domain-registration-account-fraud/177305/ iOS Homekit DoS Vulnerability  https://trevorspiniolas.com/doorlock/doorlock.html",
+            "episodeDuration": 337,
+            "category": "Security"
+          },
+          {
+            "created": "2022-01-04T10:41:08+00:00",
+            "feedName": "Troy Hunt's Weekly Update Podcast",
+            "feedUrl": "http://www.omnycontent.com/d/playlist/1439345f-6152-486d-a9c2-a6bf0067f2b7/3ba9af7f-3bfb-48fd-aae7-a6bf00689c10/fde26e49-9fb8-457d-8f16-a6bf00696676/podcast.rss",
+            "episodeName": "Weekly Update 275",
+            "episodeUrl": "https://omny.fm/shows/troy-hunt-weekly-update/weekly-update-275",
+            "episodeSummary": "Open Source Pwned Passwords with Added FBI and NCA Goodness is Now Live; Tropical Life at Qualia on Hamilton Island; Sponsored by Kolide https://www.troyhunt.com/weekly-update-275/See omnystudio.com/listener for privacy information.",
+            "episodeDuration": 2415,
+            "category": "Security"
+          },
+          {
+            "created": "2022-01-04T11:11:26+00:00",
+            "feedName": "Troy Hunt's Weekly Update Podcast",
+            "feedUrl": "http://www.omnycontent.com/d/playlist/1439345f-6152-486d-a9c2-a6bf0067f2b7/3ba9af7f-3bfb-48fd-aae7-a6bf00689c10/fde26e49-9fb8-457d-8f16-a6bf00696676/podcast.rss",
+            "episodeName": "Weekly Update 276",
+            "episodeUrl": "https://omny.fm/shows/troy-hunt-weekly-update/weekly-update-276",
+            "episodeSummary": "Home Again; Double-Vaxed & Boosted; Dildo Malware; The LastPass Incident; New Breaches; Favourite Companies of 2021; Sponsored by Kolide https://www.troyhunt.com/weekly-update-276/See omnystudio.com/listener for privacy information.",
+            "episodeDuration": 3694,
+            "category": "Security"
+          },
+          {
+            "created": "2022-01-05T09:38:00+00:00",
+            "feedName": "SANS Internet Storm Center Daily Network Cyber Security and Information Security Podcast",
+            "feedUrl": "http://isc.sans.edu/dailypodcast.xml",
+            "episodeName": "ISC StormCast for Wednesday, January 5th, 2022",
+            "episodeUrl": "https://isc.sans.edu/podcastdetail.html?id=7822",
+            "episodeSummary": "A Simple Batch File That Blocks People  https://isc.sans.edu/forums/diary/A+Simple+Batch+File+That+Blocks+People/28212/ Windows Server Remote Desktop Emergency Update  https://docs.microsoft.com/en-us/windows/release-health/windows-message-center#2772 Malicious Telegram Installer Includes Purple Fox Rootkit  https://blog.minerva-labs.com/malicious-telegram-installer-drops-purple-fox-rootkit Web Skimmer Campaign Targets Real Estate Websites  https://unit42.paloaltonetworks.com/web-skimmer-video-d",
+            "episodeDuration": 320,
+            "category": "Security"
+          },
+          {
+            "created": "2022-01-05T10:56:16+00:00",
+            "feedName": "Risky Business",
+            "feedUrl": "http://risky.biz/feeds/risky-business",
+            "episodeName": "Risky Business #649 -- Java being a fiddly mess saves the day",
+            "episodeUrl": "https://risky.biz/RB649",
+            "episodeSummary": "On this week’s show Patrick Gray and Adam Boileau discuss the week’s security news, including:  The log4j bug wrapThe ransomware wrapThe human rights and surveillance industry wrapResearch and carnage wrap   This week’s show is brought to you by Airlock Digital. They make allowlisting software that has mostly been used in Windows environments, but as you’re about to hear they’ve now got a very, very nice solution for the bigger Linux distros, and their Mac agent is going to be launched in a few",
+            "episodeDuration": 3840,
+            "category": "Security"
+          },
+          {
+            "created": "2022-01-06T08:33:24+00:00",
+            "feedName": "SANS Internet Storm Center Daily Network Cyber Security and Information Security Podcast",
+            "feedUrl": "http://isc.sans.edu/dailypodcast.xml",
+            "episodeName": "ISC StormCast for Thursday, January 6th, 2022",
+            "episodeUrl": "https://isc.sans.edu/podcastdetail.html?id=7824",
+            "episodeSummary": "Code Reuse in the Malware Landscape  https://isc.sans.edu/forums/diary/Code+Reuse+In+the+Malware+Landscape/28216/ ZLoader Campaign Exploiting Signature Verification Bug  https://research.checkpoint.com/2022/can-you-trust-a-files-digital-signature-new-zloader-campaign-exploits-microsofts-signature-verification-putting-users-at-risk/ VMWare Virtual CD-Rom Vulnerability  https://www.vmware.com/security/advisories/VMSA-2022-0001.html Honda Y2k22 Bug  https://www.bleepingcomputer.com/news/technology/",
+            "episodeDuration": 328,
+            "category": "Security"
+          }
+        ]
+      },
+      {
+        "name": "Other",
+        "podCasts": [
+          {
+            "created": "2022-01-04T09:49:47+00:00",
+            "feedName": "Security This Week",
+            "feedUrl": "https://feeds.redcircle.com/8be9257d-5d22-4a8f-85a5-de55c5fcf621",
+            "episodeName": "Happy Christmahaunukwanzadan!",
+            "episodeUrl": "https://stream.redcircle.com/episodes/a75cda7a-1e5c-4e52-9827-c3947d8bddcc/stream.mp3",
+            "episodeSummary": "More Log4j developments, more career advice for criminals, and more reasons to not click on email links.",
+            "episodeDuration": 2053,
+            "category": "Other"
+          },
+          {
+            "created": "2022-01-04T16:34:17+00:00",
+            "feedName": "GameDev.tv Community Podcast",
+            "feedUrl": "https://feeds.buzzsprout.com/469906.rss",
+            "episodeName": "155: Being a CEO with Erwin van der Vlist",
+            "episodeUrl": "https://www.buzzsprout.com/469906/9683259-155-being-a-ceo-with-erwin-van-der-vlist.mp3",
+            "episodeSummary": "This is the hundred and fifty-fourth episode of the GameDev.tv Community Podcast.  Erwin van der Vlist is CEO and Founder Speakap on. He is a passionate entrepreneur who is supporting companies to improve their frontline employee communications. Speakap’s award-winning technology is used by more than 450 companies in 27 countries and integrates seamlessly with tools like Kronos, Workday, ADP, and Salesforce. Market leaders including IKEA l, G-Star, Rituals, Bosch, Siemens, Nike and McDonald’s re",
+            "episodeDuration": 3319,
+            "category": "Other"
+          },
+          {
+            "created": "2022-01-04T16:59:58+00:00",
+            "feedName": "Tech Pro Unicorn Podcast",
+            "feedUrl": "https://feeds.buzzsprout.com/924418.rss",
+            "episodeName": "Leave A Legacy To Your Kids and Family Leveraging A Great App",
+            "episodeUrl": "https://pdcn.co/e/www.buzzsprout.com/924418/9638816-leave-a-legacy-to-your-kids-and-family-leveraging-a-great-app.mp3",
+            "episodeSummary": "Ken Wimberly is a successful business owner of 5 different businesses but he is currently in the process of building his passion project in technology. He started this app in honor of his daughter grace and has decided to share this amazing connection with other parents.Michael and Ken focus their conversation exploring the Legacy Journal app available on all platforms. Why would a successful entrepreneur deviate from his business and pursue this as a passion project?The importance of a tool suc",
+            "episodeDuration": 2962,
+            "category": "Other"
+          },
+          {
+            "created": "2022-01-05T15:50:58+00:00",
+            "feedName": "Tech Pro Unicorn Podcast",
+            "feedUrl": "https://feeds.buzzsprout.com/924418.rss",
+            "episodeName": "The Latest In Cloud and How To Sell Technology Successfully - Ian Moyse",
+            "episodeUrl": "https://pdcn.co/e/www.buzzsprout.com/924418/9651231-the-latest-in-cloud-and-how-to-sell-technology-successfully-ian-moyse.mp3",
+            "episodeSummary": "Ian Moyse, Technology Sales Leader, is also an industry cloud social influencer and is widely published on matters of Cloud and Sales Leadership. Ian is called upon to blog and social influence by many cloud vendors and was rated #1 cloud influencer by Onalytica. He has sat on the boards of a number of related industry bodies; FAST (Federation Against Software Theft), CIF (Cloud Industry Forum) and Eurocloud. He was awarded the accolade of UK Sales Director of the year by BESMA (British Excellen",
+            "episodeDuration": 3381,
+            "category": "Other"
+          },
+          {
+            "created": "2022-01-05T16:14:00+00:00",
+            "feedName": "Tech Pro Unicorn Podcast",
+            "feedUrl": "https://feeds.buzzsprout.com/924418.rss",
+            "episodeName": "From The Battlefield To Business - Be Nimble - Skills That Transfer - With Marty Strong",
+            "episodeUrl": "https://pdcn.co/e/www.buzzsprout.com/924418/9651047-from-the-battlefield-to-business-be-nimble-skills-that-transfer-with-marty-strong.mp3",
+            "episodeSummary": "Marty Strong is a retired Navy SEAL officer and combat veteran, novelist (mlstrongauthor.com), CEO and Chief Strategy Officer, and speaker/consultant with one new business leadership book set for release on January 1st Be Nimble: How the Creative Navy SEAL Mindset Wins on the Battlefield and in Business (martystrongbenimble.com) and a second business strategy book due for release in late Summer 2022. He’s traveled to over 40 countries, been shot at, survived cancer twice, and experienced the los",
+            "episodeDuration": 2672,
+            "category": "Other"
+          },
+          {
+            "created": "2022-01-06T11:53:07+00:00",
+            "feedName": "Tech Pro Unicorn Podcast",
+            "feedUrl": "https://feeds.buzzsprout.com/924418.rss",
+            "episodeName": "How To Manage Conflict And Have Difficult Conversations With Jerry Fu",
+            "episodeUrl": "https://pdcn.co/e/www.buzzsprout.com/924418/9659671-how-to-manage-conflict-and-have-difficult-conversations-with-jerry-fu.mp3",
+            "episodeSummary": "Jerry is a conflict resolution coach for Asian American leaders.  He has been fired, dealt with bounced paychecks, got displaced to another city for work, had to fire people and evict a roomate. Also a pharmacist and salsa dancer, Jerry keeps quite busy.Michael and Jerry discuss his 5 C's and quick tips on how to deal with these subjects personally, professionally and for a variety of situations. Jerry offers very concise information and shares his story to showcase, he has been there and done t",
+            "episodeDuration": 2908,
+            "category": "Other"
+          },
+          {
+            "created": "2022-01-06T16:57:30+00:00",
+            "feedName": "Product by Design",
+            "feedUrl": "https://feeds.transistor.fm/product-by-design",
+            "episodeName": "Hiring and Interviewing Tips for Managers and Candidates",
+            "episodeUrl": "https://media.transistor.fm/e523b91f/d07fb38f.mp3",
+            "episodeSummary": "In this episode, we discuss interviewing tips for hiring managers and candidates, including how to handle take-home assignments, cultural fit interviews, making a game plan before the interview, and giving feedback. It was a great discussion with tons of excellent nuggets. And our farewell to Eva (and 2021). More by Kyle:Follow Product by Design and Kyle on TwitterKyle's writing on MediumProduct by Design on MediumSign up for Kyle's Product Thinking Newsletter for more updates.Like our podcast,",
+            "episodeDuration": 5388,
+            "category": "Other"
+          }
+        ]
+      },
+      {
+        "name": "Leadership",
+        "podCasts": [
+          {
+            "created": "2022-01-04T11:16:30+00:00",
+            "feedName": "2000 Books for Ambitious Entrepreneurs - Author Interviews and Book Summaries",
+            "feedUrl": "https://2000books.libsyn.com/rss",
+            "episodeName": "327[Mental Toughness] How to Liberate yourself from Sadness | Feeling Good - Dr. David Burns",
+            "episodeUrl": "http://2000books.libsyn.com/327mental-toughness-how-to-liberate-yourself-from-sadness-feeling-good-dr-david-burns",
+            "episodeSummary": "Double Your Work Output in 60 mins: https://focusblocks.io 7 Day FREE Trial to “The Entrepreneur's Book Club”: https://2000books.com Get my Coaching & Mentorship on scaling your Online Business: https://www.2000books.com/grow  ",
+            "episodeDuration": 136,
+            "category": "Leadership"
+          },
+          {
+            "created": "2022-01-04T11:17:15+00:00",
+            "feedName": "2000 Books for Ambitious Entrepreneurs - Author Interviews and Book Summaries",
+            "feedUrl": "https://2000books.libsyn.com/rss",
+            "episodeName": "326[Productivity] 1 Key to Discipline your Mind | No BS Time Management for Entrepreneurs - Dan Kennedy",
+            "episodeUrl": "http://2000books.libsyn.com/326productivity-1-key-to-discipline-your-mind-no-bs-time-management-for-entrepreneurs-dan-kennedy",
+            "episodeSummary": "Double Your Work Output in 60 mins: https://focusblocks.io 7 Day FREE Trial to “The Entrepreneur's Book Club”: https://2000books.com Get my Coaching & Mentorship on scaling your Online Business: https://www.2000books.com/grow  ",
+            "episodeDuration": 82,
+            "category": "Leadership"
+          },
+          {
+            "created": "2022-01-06T08:46:13+00:00",
+            "feedName": "Better ROI from Software Development",
+            "feedUrl": "https://anchor.fm/s/b669760/podcast/rss",
+            "episodeName": "#115: Build vs Buy",
+            "episodeUrl": "https://red-folder.com/podcasts/115-Build-vs-Buy",
+            "episodeSummary": "Should you build or buy your software? I touched on this subject during the Tech Pro Unicorn episode (#114), but had a lot more notes than could be covered - thus in this episode, I take a deeper dive. ----- Find this episodes show notes at: https://red-folder.com/podcasts/115 Have an idea for an episode topic, or want to see what is coming up: https://red-folder.com/podcasts/roadmap",
+            "episodeDuration": 1676,
+            "category": "Leadership"
+          }
+        ]
+      },
+      {
+        "name": "Azure & AWS",
+        "podCasts": [
+          {
+            "created": "2022-01-04T11:43:40+00:00",
+            "feedName": "AWS Podcast",
+            "feedUrl": "https://d3gih7jbfe3jlq.cloudfront.net/aws-podcast.rss",
+            "episodeName": "#498: [African Stories #2] EXPLORE Data Science Academy",
+            "episodeUrl": "https://aws.amazon.com/podcasts/aws-podcast/#498",
+            "episodeSummary": "The EXPLORE Data Science Academy (EDSA) is a premier data science academy in South Africa that offers students an intensive one-year training course and provides a fundamental understanding of software development and cloud computing technologies. In this episode, Simon speaks with Clive Charlton (Head of Solution Architecture at AWS) and Shaun Dippnall (CEO & Co-founder of EDSA) about how the academy gives students a competitive edge, and teaches them how to solve real-world problems using the",
+            "episodeDuration": 872,
+            "category": "Azure & AWS"
+          },
+          {
+            "created": "2022-01-04T11:35:29+00:00",
+            "feedName": "AWS Podcast",
+            "feedUrl": "https://d3gih7jbfe3jlq.cloudfront.net/aws-podcast.rss",
+            "episodeName": "#497: Enabling Business Through Security",
+            "episodeUrl": "https://aws.amazon.com/podcasts/aws-podcast/#497",
+            "episodeSummary": "How does building in the cloud make it easier to achieve positive security outcomes? What role does security culture play and how can the department of no become the department of yes? In this episode, Simon speaks with Paul Hawkins from the Office of the CISO at AWS, to answer these questions and share how customers can apply these principles to their own organizations.  Read the blog - https://go.aws/3Epu6UL  Watch the video - https://bit.ly/3HbZE27  AWS Security Blog - https://go.aws/3Eql8XB",
+            "episodeDuration": 1821,
+            "category": "Azure & AWS"
+          },
+          {
+            "created": "2022-01-05T14:55:27+00:00",
+            "feedName": "Azure DevOps Podcast",
+            "feedUrl": "http://azuredevopspodcast.clear-measure.com/rss",
+            "episodeName": "Aaron Stannard on the Actor Model with Akka.NET | Part 2 - Episode 173",
+            "episodeUrl": "http://azuredevopspodcast.clear-measure.com/aaron-stannard-on-the-actor-model-with-akkanet-part-2-episode-173",
+            "episodeSummary": "In this episode, Jeffrey is rejoined by Aaron Stannard for the second half of their two part interview! Be sure to turn into last week’s episode, “Aaron Stannard on the Actor Model with Akka.NET | Part 1” to learn all about Aaron’s career history and the creation of Akka.NET.   Aaron is the founder and CEO of Petabridge and Sdkbin, building open source tools for .NET developers to build concurrent and distributed applications. He’s also the founder of MarkedUp Analytics, a real-time in-app marke",
+            "episodeDuration": 2341,
+            "category": "Azure & AWS"
+          },
+          {
+            "created": "2022-01-06T16:10:42+00:00",
+            "feedName": "Azure DevOps Podcast",
+            "feedUrl": "http://azuredevopspodcast.clear-measure.com/rss",
+            "episodeName": "Jimmy Engström on Blazor - Episode 174",
+            "episodeUrl": "http://azuredevopspodcast.clear-measure.com/jimmy-engstrm-on-blazor-episode-174",
+            "episodeSummary": "This week, Jeffrey is joined by Jimmy Engström, a Senior Developer, author, and speaker.   Since he was 7 years old and got his first computer, Jimmy has been on the cutting edge of technology, always developing, and trying new things. When he got wind of Blazor, he immediately realized the potential and adopted it when it was only in beta. Since then, he has been running Blazor in production since it was launched by Microsoft.   Jimmy’s passion for the .NET industry and community has taken him",
+            "episodeDuration": 2223,
+            "category": "Azure & AWS"
+          }
+        ]
+      },
+      {
+        "name": "General Development",
+        "podCasts": [
+          {
+            "created": "2022-01-04T12:09:59+00:00",
+            "feedName": "Hanselminutes",
+            "feedUrl": "http://feeds.podtrac.com/9dPm65vdpLL1",
+            "episodeName": "Multi-Platform Apps with Uno Platform's Jérôme Laban",
+            "episodeUrl": "https://www.hanselminutes.com/",
+            "episodeSummary": "Uno Platform is an open source cross-platform graphical user interface that allows WinUI and Universal Windows Platform (UWP)-based code to run on iOS, macOS, Linux, Android, and WebAssembly. Scott talks to Jérôme Laban about the importance - and the flexibility - of this Uno Platform and what it can do for you.https://platform.uno/",
+            "episodeDuration": 2132,
+            "category": "General Development"
+          },
+          {
+            "created": "2022-01-04T12:31:42+00:00",
+            "feedName": "Hanselminutes",
+            "feedUrl": "http://feeds.podtrac.com/9dPm65vdpLL1",
+            "episodeName": "Quitting your Job to Build a Game Studio with Bria Sullivan",
+            "episodeUrl": "https://www.hanselminutes.com/",
+            "episodeSummary": "Bria Sullivan is the CTO and Founder of Honey B Games. She took the leap and quit her job at Google to chase her dream full-time! Since then she's created a number of successful mobile games including Milk Tea Mania and Boba Barista Idle. She talks to Scott about taking that leap, how she did it, and how she plans to grow in 2022.https://www.bubbleteagame.com/",
+            "episodeDuration": 2103,
+            "category": "General Development"
+          },
+          {
+            "created": "2022-01-05T12:27:15+00:00",
+            "feedName": "The 6 Figure Developer Podcast",
+            "feedUrl": "http://6figuredev.com/feed/podcast",
+            "episodeName": "226 – Mary & Tom Poppendieck: Software Engineering",
+            "episodeUrl": "https://6figuredev.com/podcast/226-mary-tom-poppendieck-software-engineering/",
+            "episodeSummary": "  Mary and Tom Poppendieck join us to talk about Software Engineering: Then, Now, and Next. Mary started her career as a process control programmer, moved on to manage the IT department of a manufacturing plant, and then ended up in product development, where she was both a product champion and department manager.  Tom is an enterprise analyst and architect, and an agile process mentor. He focuses on identifying real business value and enabling product teams to realize that value.   Links http:/",
+            "episodeDuration": 4143,
+            "category": "General Development"
+          },
+          {
+            "created": "2022-01-05T16:54:48+00:00",
+            "feedName": "Legacy Code Rocks",
+            "feedUrl": "http://legacycoderocks.libsyn.com/rss",
+            "episodeName": "Betterer with Craig Spence",
+            "episodeUrl": "https://legacycoderocks.libsyn.com/betterer-with-craig-spence",
+            "episodeSummary": "Making widespread changes to a codebase can be hard! Your team starts a long-lived branch that is difficult to maintain and often impossible to merge; you and your team-mates agree to improve the code slowly over time, but you all forget this agreement, and the improvement never happens. But what if there were a tool that keeps you on track to steadily improve your code without making you feel like losing control over these improvements? Today we talk with Craig Spence, a senior engineer at Spot",
+            "episodeDuration": 2939,
+            "category": "General Development"
+          }
+        ]
+      },
+      {
+        "name": ".Net & C#",
+        "podCasts": [
+          {
+            "created": "2022-01-04T14:59:01+00:00",
+            "feedName": "NET Rocks",
+            "feedUrl": "http://feeds.feedburner.com/netRocksFullMp3Downloads",
+            "episodeName": "Space Geek Out 2021",
+            "episodeUrl": "http://www.dotnetrocks.com/default.aspx?ShowNum=1772",
+            "episodeSummary": "It's the end of the year and time for a Geek Out - actually, three! With so much geeky goodness to explore, this is the first of three Geek Outs to come out in rapid succession, starting with SPACE! Richard talks about how amazing 2021 was for spaceflight - with a record-setting number of space flights from China and the US. China had a huge year in space, including landing a rover on the Moon and launching a space station. Then there are all the amazing science missions including DART, Persever",
+            "episodeDuration": 5097,
+            "category": ".Net & C#"
+          },
+          {
+            "created": "2022-01-05T14:34:34+00:00",
+            "feedName": "NET Rocks",
+            "feedUrl": "http://feeds.feedburner.com/netRocksFullMp3Downloads",
+            "episodeName": "Pandemic Geek Out 2021",
+            "episodeUrl": "http://www.dotnetrocks.com/default.aspx?ShowNum=1773",
+            "episodeSummary": "Part Two of the Geek Outs - all about the Pandemic. The conversation starts out talking about the Omicron variant and how the pandemic has changed since the 2020 Geek Out. The biggest thing that has happened is having 3.8 billion people vaccinated - not quite half the population, and not enough for herd immunity yet. But progress is being made, and there's more to come. Richard also dives into the power of the innovation that mRNA vaccines represent - a new tool for humanity to fight all sorts o",
+            "episodeDuration": 3739,
+            "category": ".Net & C#"
+          }
+        ]
+      },
+      {
+        "name": "DevOps",
+        "podCasts": [
+          {
+            "created": "2022-01-05T11:33:48+00:00",
+            "feedName": "RunAs Radio",
+            "feedUrl": "https://feeds.simplecast.com/cRTTfxcT",
+            "episodeName": "DevSecOps in 2022 with Jess Dodson",
+            "episodeUrl": "https://runasradio.com/Shows/Show/809",
+            "episodeSummary": "2021 was a tough year for security - how can we do better in 2022? Richard chats with Jess Dodson about working to get better at information security in your organization. Jess talks about the log4j exploit as a great example of \"what don't we know\" - and the need for a software bill of materials as part of your configuration management database. Having a list of the libraries that internal applications depend on helps you respond in a time of crisis, being able to answer the question \"where are",
+            "episodeDuration": 2391,
+            "category": "DevOps"
+          },
+          {
+            "created": "2022-01-05T16:31:05+00:00",
+            "feedName": "RunAs Radio",
+            "feedUrl": "https://feeds.simplecast.com/cRTTfxcT",
+            "episodeName": "IT in 2022",
+            "episodeUrl": "https://runasradio.com/Shows/Show/808",
+            "episodeSummary": "Happy holidays! Another year, another set of predictions around the life of IT Pros – now in 2022! The pandemic continues to evolve, with new variants appearing and vaccination levels getting high. Will the pandemic still be a significant factor next year? What about back-to-work plans? Or is working-from-home the new normal? The past year was tough on the security side of things with notable ransomware and business-email-compromise attacks – are you prepared? What will we be doing differently i",
+            "episodeDuration": 1988,
+            "category": "DevOps"
+          }
+        ]
+      },
+      {
+        "name": "Fun",
+        "podCasts": [
+          {
+            "created": "2022-01-05T15:01:29+00:00",
+            "feedName": "More or Less: Behind the Stats",
+            "feedUrl": "https://podcasts.files.bbci.co.uk/p02nrss1.rss",
+            "episodeName": "Numbers of 2021",
+            "episodeUrl": "http://www.bbc.co.uk/programmes/p0bcjt8x",
+            "episodeSummary": "A guide to the most concerning, striking and downright extraordinary numbers of 2021. Tim Harford asks three More or Less interviewees about their most significant and memorable figure over the past year. From the excess death toll of Covid-19; to declining total fertility rates, and a spike in the concentration of carbon dioxide in the atmosphere, we showcase the numbers that tell us something about the year gone by.During this programme, we speak to Hannah Ritchie, head of research at Our Worl",
+            "episodeDuration": 538,
+            "category": "Fun"
+          },
+          {
+            "created": "2022-01-05T15:21:15+00:00",
+            "feedName": "Friday Night Comedy from BBC Radio 4",
+            "feedUrl": "https://podcasts.files.bbci.co.uk/p02pc9pj.rss",
+            "episodeName": "Dead Ringers - Christmas Specials 2021 - The Multiverse Special",
+            "episodeUrl": "http://www.bbc.co.uk/programmes/p0bcjz1g",
+            "episodeSummary": "A \"Today programme\" special which takes a satirical look back at recent events in alternative earths around the multiverse. There are worlds in which England attempts to break free from the yoke of Scottish rule, the most serious pandemic is Man Flu, Love Island is an important world power, Ronnie Corbett is worshipped as a god and TV series Succession is also wildly popular - but not as you would know it.  Performed by Jon Culshaw, Lewis Macleod, Jan Ravens, Debra Stephenson and Duncan Wisbey.",
+            "episodeDuration": 2576,
+            "category": "Fun"
+          },
+          {
+            "created": "2022-01-06T16:16:43+00:00",
+            "feedName": "More or Less: Behind the Stats",
+            "feedUrl": "https://podcasts.files.bbci.co.uk/p02nrss1.rss",
+            "episodeName": "Will the population of Nigeria be larger than Europe’s?",
+            "episodeUrl": "http://www.bbc.co.uk/programmes/p0bck1pn",
+            "episodeSummary": "In recent years population growth has slowed rapidly. Experts believe that the global population will stabilise somewhere around 11 billion people. But just because global population is stabilising doesn’t mean each country is following the global trend. Some projections estimate that the population of Nigeria will increase rapidly to the point that there will be more people living in Nigeria than the whole of Europe combined. We look at the methods behind this claim.",
+            "episodeDuration": 538,
+            "category": "Fun"
+          },
+          {
+            "created": "2022-01-06T17:14:27+00:00",
+            "feedName": "Friday Night Comedy from BBC Radio 4",
+            "feedUrl": "https://podcasts.files.bbci.co.uk/p02pc9pj.rss",
+            "episodeName": "News Quiz Best of 2021 TX 31st Dec 2021",
+            "episodeUrl": "http://www.bbc.co.uk/programmes/p0bbrh0n",
+            "episodeSummary": "Andy Zaltzman raids the 2021 archive to remember amongst other things, a man in a horned helmet running around the Capitol Building, the leader of the opposition not being allowed into a pub and Britain's favourite alpaca.  Producer: Richard Morris Production co-ordinator: Katie Baum  A BBC Studios Production",
+            "episodeDuration": 1656,
+            "category": "Fun"
+          }
+        ]
+      }
+    ]
+  },
+  "skills": {
+    "skills": [
+      {
+        "name": "C#",
+        "totalDuration": 8222
+      },
+      {
+        "name": "WebAPI",
+        "totalDuration": 8222
+      },
+      {
+        "name": "SQL Server",
+        "totalDuration": 883
+      },
+      {
+        "name": "Teamcity",
+        "totalDuration": 874
+      },
+      {
+        "name": "Instana",
+        "totalDuration": 6349
+      }
+    ]
+  },
+  "focus": {
+    "focus": [
+      {
+        "name": "Development",
+        "totalDuration": 9105
+      },
+      {
+        "name": "Architect",
+        "totalDuration": 18025
+      },
+      {
+        "name": "DevOps",
+        "totalDuration": 36944
+      }
+    ]
+  },
+  "pluralsight": { "courses": [] },
+  "clients": {
+    "clients": [
+      {
+        "name": "Client A",
+        "totalDuration": 89837
+      }
+    ]
+  },
+  "blogs": { "blogs": [] },
+  "events": {
+    "events": [
+      {
+        "imageUrl": "/images/icons/Podcast.png",
+        "title": "#115: Build vs Buy",
+        "description": "Should you build or buy your software? I touched on this subject during the Tech Pro Unicorn episode (#114), but had a lot more notes than could be covered - thus in this episode, I take a deeper dive."
+      }
+    ]
+  },
+  "books": {
+    "books": [
+      {
+        "title": "Site Reliability Engineering",
+        "author": "Niall Richard Murphy, Betsy Beyer, Chris Jones, Jennifer Petoff",
+        "imageUrl": "https://m.media-amazon.com/images/I/51XswOmuLqL.jpg",
+        "description": "How Google Runs Production Systems"
+      }
+    ]
+  }
+}

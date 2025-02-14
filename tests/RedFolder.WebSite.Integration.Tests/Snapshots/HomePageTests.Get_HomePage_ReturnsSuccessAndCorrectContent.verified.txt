@@ -597,18 +597,18 @@
 <form action="/home/contact" id="contact-form" method="post">        <div class="form-group">
             <label for="Name">Your name</label>
             <input class="form-control" data-val="true" data-val-required="I really could do with knowing who I&#x27;m talking to" id="Name" name="Name" type="text" value="">
-            <span class="field-validation-valid text-danger" data-valmsg-for="Name" data-valmsg-replace="true"></span>
+            <span class="text-danger field-validation-valid" data-valmsg-for="Name" data-valmsg-replace="true"></span>
         </div>
         <div class="form-group">
             <label for="EmailAddress">Your email address</label>
             <input class="form-control" data-val="true" data-val-required="Its how I contact you - it doesn&#x27;t get used for anything else" id="EmailAddress" name="EmailAddress" type="email" value="">
-            <span class="field-validation-valid text-danger" data-valmsg-for="EmailAddress" data-valmsg-replace="true"></span>
+            <span class="text-danger field-validation-valid" data-valmsg-for="EmailAddress" data-valmsg-replace="true"></span>
         </div>
         <div class="form-group">
             <label for="HowCanIHelp">And what problem do you want help with?</label>
             <textarea class="form-control" data-val="true" data-val-required="Help me to help you by telling me a little about your problem" id="HowCanIHelp" name="HowCanIHelp" rows="10">
 </textarea>
-            <span class="field-validation-valid text-danger" data-valmsg-for="HowCanIHelp" data-valmsg-replace="true"></span>
+            <span class="text-danger field-validation-valid" data-valmsg-for="HowCanIHelp" data-valmsg-replace="true"></span>
         </div>
 <input id="RecaptureToken" name="RecaptureToken" type="hidden" value="">        <button class="btn btn-primary g-recaptcha" data-sitekey="6LdDJLUZAAAAAP1GIa8uj8kJ2JL4bw3maydYH_j7" data-callback='onSubmit' data-action='submit'>
             Submit

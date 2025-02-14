@@ -1,0 +1,467 @@
+﻿
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Weekly Activity - Week 1 of 2022</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <style>
+        body {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-areas: "focus skills ""title title ""events events ""footer footer ""podcasts books ";
+        }
+
+        #focus {
+grid-area: focus;
+}
+#skills {
+grid-area: skills;
+}
+#title {
+grid-area: title;
+}
+#title {
+grid-area: title;
+}
+#events {
+grid-area: events;
+}
+#events {
+grid-area: events;
+}
+#footer {
+grid-area: footer;
+}
+#footer {
+grid-area: footer;
+}
+#podcasts {
+grid-area: podcasts;
+}
+#books {
+grid-area: books;
+}
+
+
+            .pluralsight-section > div {
+                margin: 15px;
+                display: grid;
+                grid-template-columns: 180px 1fr;
+                grid-template-areas: "course-logo course-description";
+            }
+
+            .pluralsight-section div .course-logo {
+                grid-area: course-logo;
+                align-self: center;
+                justify-self: center;
+            }
+
+            .pluralsight-section div .course-description {
+                grid-area: course-description;
+            }
+
+                .pluralsight-section div .course-description h3 {
+                    margin-top: 0px;
+                    padding-left: 15px;
+                }
+
+                .pluralsight-section div .course-description p {
+                    padding-left: 15px;
+                }
+
+            .blog-section > div {
+                margin: 15px;
+                display: grid;
+                grid-template-columns: 180px 1fr;
+                grid-template-areas: "blog-logo blog-description";
+            }
+
+                .blog-section div .blog-description h3 {
+                    margin-top: 0px;
+                    padding-left: 15px;
+                }
+
+                .blog-section div .blog-description p {
+                    padding-left: 15px;
+                }
+
+        .book-section img {
+            display: block;
+            margin-top: 15px;
+            margin-left: 75px;
+        }
+
+
+        h1 {
+            font-size: 45px;
+            margin-top: 0px;
+            margin-bottom: 0px;
+        }
+
+        h2 {
+            background-color: #e74c3c;
+            color: white;
+            padding-left: 5px;
+            padding-right: 5px;
+            display: inline;
+        }
+
+        #title {
+            color: white;
+            font-family: Tahoma, Verdana, sans-serif;
+            background-color: #e74c3c;
+            text-align: center;
+            margin: 0px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            padding-top: 5px;
+            padding-bottom: 5px;
+        }
+
+        #title p {
+            margin-bottom: 0px;
+            margin-top: 0px;
+        }
+
+        p {
+            margin-top: 5px;
+            padding-left: 15px;
+        }
+
+        #podcastChart {
+            margin-top: 15px;
+            margin-bottom: 15px;
+        }
+
+
+
+        #footer {
+            grid-area: footer;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-areas: "footer-left footer-middle footer-right";
+        }
+
+        .footer {
+            background-color: #e74c3c;
+            color: white;
+            font-size: 25px;
+            padding: 0px;
+            text-align: center;
+            margin-top: 15px;
+            margin-bottom: 15px;
+        }
+
+        #footer-left, #footer-right {
+            padding: 12px;
+        }
+
+        #footer-middle > img {
+            height: 50px;
+        }
+
+        .event-section {
+            padding-left: 150px;
+            padding-right: 150px;
+        }
+
+        .event-section .event-image {
+            grid-area: event-image;
+            padding-left: 15px;
+            padding-right: 15px;
+            padding-top: 25px;
+        }
+
+        .event-section .event-content {
+            grid-area: event-content;
+            font-size: 20px;
+        }
+
+        .event-item {
+            display: grid;
+            grid-template-columns: 155px auto;
+            grid-template-areas: "event-image event-content";
+        }
+
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"></script>
+    <script type="text/javascript" src="https://d3js.org/d3.v3.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-cloud/1.2.5/d3.layout.cloud.min.js"></script>
+    <script src="/lib//chartjs-plugin-labels//build/chartjs-plugin-labels.min.js"></script>
+</head>
+
+<body>
+    <div id="title">
+        <h1>The weekly retro ...</h1>
+        <p>
+            My shameless self-promotion of what I've been upto over the last week
+        </p>
+        <p>
+            Week 1 (03/01/2022 - 09/01/2022)
+        </p>
+    </div>
+
+        
+<div id="podcasts">
+    <h2>
+        <time-period>20 hours and 37 minutes</time-period> of Podcasts ...
+    </h2>
+
+    <canvas id="podcastChart" width="500px" height="400px"></canvas>
+</div>
+
+<script>
+        window.graphs = window.graphs || {};
+
+        window.graphs.podcast = {
+            elementId: 'podcastChart',
+            config: {
+                type: 'radar',
+                data: {
+                    labels: [
+                            '.Net & C#',
+                            'Azure & AWS',
+                            'DevOps',
+                            'Fun',
+                            'General Development',
+                            'Leadership',
+                            'Other',
+                            'Security',
+                    ],
+                    datasets: [{
+                        label: 'Podcast breakdown',
+                        backgroundColor: 'rgba(152, 223, 138, 0.3)',
+                        borderColor: 'rgba(44, 160, 44, 1)',
+                        pointBackgroundColor: 'rgba(44, 160, 44, 1)',
+                        data: [
+                                '2.454444444444445',
+                                '2.0158333333333336',
+                                '1.216388888888889',
+                                '1.4744444444444444',
+                                '3.1436111111111114',
+                                '0.5261111111111111',
+                                '6.300833333333333',
+                                '3.488888888888889',
+                        ]
+                    }]
+                },
+                options: {
+                    legend: {
+                        display: false
+                    },
+                    title: {
+                        display: false
+                    },
+                    scale: {
+                        ticks: {
+                            beginAtZero: true
+                        },
+                        pointLabels: {
+                            fontSize: 20
+                        }
+                    },
+                    responsive: false
+                }
+            }
+        };
+</script>
+
+
+        
+<div id="skills">
+    <h2>The skills I've used ...</h2>
+    <div id="skills-cloud">
+    </div>
+</div>
+
+
+<script>
+    window.clouds = window.clouds || {};
+
+    var skillList = [
+            { text: 'C#', size: 100 },
+            { text: 'WebAPI', size: 100 },
+            { text: 'SQL Server', size: 19.665531 },
+            { text: 'Teamcity', size: 19.567015 },
+            { text: 'Instana', size: 79.49769 },
+    ];
+
+    function drawCloud(range_max, width, height) {
+        var words = JSON.parse(JSON.stringify(skillList));
+
+        var maxSize = d3.max(words, function (d) { return d.size; });
+        var minSize = d3.min(words, function (d) { return d.size; });
+
+        var fontScale = d3.scale.linear()
+            .domain([minSize, maxSize])
+            .range([20, range_max]);
+
+        layout = d3.layout
+            .cloud()
+            .size([width, height])
+            .words(words)
+            .padding(5)
+            .rotate(function () { return 0; })
+            .font("Impact")
+            .fontSize(function (d) { return fontScale(d.size) })
+            .on("end", function (output) {
+                // Based on https://github.com/jasondavies/d3-cloud/issues/36#issuecomment-148908032
+                if (words.length !== output.length) {   // compare between input ant output
+                    drawCloud(range_max - 5, width, height);           // call the function recursively
+                    return undefined;
+                }
+                else { draw(output, width, height); }                  // when all words are included, start rendering
+            })
+            .start();
+    }
+
+    var fill = d3.scale.category20();
+
+    function draw(words, width, height) {
+        d3.select("#skills-cloud")
+            .append("svg")
+                .attr("width", width)
+                .attr("height", height)
+            .append("g")
+                .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")")
+            .selectAll("text")
+                .data(words)
+            .enter().append("text")
+                .style("font-size", function (d) { return d.size + "px"; })
+                .style("font-family", "Impact")
+                .style("fill", function (d, i) { return fill(i); })
+                .attr("text-anchor", "middle")
+                .attr("transform", function (d) {
+                    return "translate(" + [d.x, d.y] + ")rotate(" + d.rotate + ")";
+                })
+                .text(function (d) { return d.text; });
+    };
+</script>
+
+
+<script>
+    (function () {
+        drawCloud(100, 500, 400);
+    })();
+</script>
+
+
+
+
+        
+<div id="focus">
+    <h2>The hats I've been wearing ...</h2>
+    <canvas id="focusChart" width="500px" height="400px"></canvas>
+    <script>
+            window.graphs = window.graphs || {};
+
+            window.graphs.focusChart = {
+                elementId: 'focusChart',
+                config: {
+                    type: 'pie',
+                    data: {
+                        labels: [
+
+                                'Development',
+                                'Architect',
+                                'DevOps',
+                        ],
+                        datasets: [{
+                            backgroundColor: [
+                                'rgba(44, 160, 44, 1)',
+                                'rgba(255, 127, 14, 1)',
+                                'rgba(31, 119, 180, 1)',
+                                'rgba(255, 51, 204, 1)',
+                            ],
+                            data: [
+                                    9105,
+                                    18025,
+                                    36944,
+                            ]
+                        }]
+                    },
+                    options: {
+                        title: {
+                            display: false
+                        },
+                        responsive: false,
+                        plugins: {
+                            labels: {
+                                // render 'label', 'value', 'percentage', 'image' or custom function, default is 'percentage'
+                                render: () => {
+                                    return '';
+                                }
+                            }
+                        },
+                        legend: {
+                            display: true,
+                            position: 'bottom',
+                            labels: {
+                                fontSize: 25
+                            }
+                        }
+                    }
+                }
+            };
+    </script>
+</div>
+
+
+
+        
+<div id="events" class="event-section">
+    <h2>Key events ...</h2>
+        <div class="event-item">
+            <img class="event-image" src="/images/icons/Podcast.png">
+            <div class="event-content">
+                <h3 class="event-title">#115: Build vs Buy</h3>
+                <p class="event-description">Should you build or buy your software? I touched on this subject during the Tech Pro Unicorn episode (#114), but had a lot more notes than could be covered - thus in this episode, I take a deeper dive.</p>
+            </div>
+        </div>
+</div>
+
+
+        
+<div id="books" class="book-section">
+    <h2>What I'm currently reading ...</h2>
+    <img src="https://m.media-amazon.com/images/I/51XswOmuLqL.jpg" height="400px;">
+</div>
+
+
+    <div id="footer">
+        <div id="footer-left" class="footer">
+            @redfoldermark
+        </div>
+        <div id="footer-middle" class="footer">
+            <img src="/images/RFCLogo128.png">
+        </div>
+        <div id="footer-right" class="footer">
+            https://red-folder.com
+        </div>
+    </div>
+
+    <script>
+        window.onload = function () {
+            if (window.graphs) {
+                Object.keys(window.graphs).forEach(key => {
+                    var graph = window.graphs[key];
+                    graph.chart = new Chart(document.getElementById(graph.elementId), graph.config);
+                });
+            }
+            if (window.clouds) {
+                Object.keys(window.clouds).forEach(key => {
+                    var cloud = window.clouds[key];
+                    cloud.start();
+                })
+            }
+        }
+    </script>
+
+</body>
+
+</html>

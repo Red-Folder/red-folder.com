@@ -9,9 +9,9 @@ namespace Red_Folder.com.Services
     {
         private ActivityClient _client;
 
-        public ActivityRepository(string activityUrl, string activityCode)
+        public ActivityRepository(ActivityClient client)
         {
-            _client = new ActivityClient(activityUrl, activityCode);
+            _client = client;
         }
 
         public Weekly Weekly(string year, string weekNumber)
