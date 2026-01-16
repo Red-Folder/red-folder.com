@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;
 using RedFolder.Models;
 using System.IO;
 using System.Text.Json;
@@ -12,10 +13,12 @@ namespace RedFolder.Controllers.Api
     public class VersionController : ControllerBase
     {
         private readonly IHostEnvironment _environment;
+        private readonly ILogger<VersionController> _logger;
 
-        public VersionController(IHostEnvironment environment)
+        public VersionController(IHostEnvironment environment, ILogger<VersionController> logger)
         {
             _environment = environment;
+            _logger = logger;
         }
 
         /// <summary>
@@ -42,8 +45,14 @@ namespace RedFolder.Controllers.Api
                 
                 return Ok(versionInfo);
             }
-            catch
+            catch (JsonException ex)
             {
+                _logger.LogError(ex, "Error deserializing version.json");
+                return StatusCode(500, new { message = "Error reading version information" });
+            }
+            catch (IOException ex)
+            {
+                _logger.LogError(ex, "Error reading version.json file");
                 return StatusCode(500, new { message = "Error reading version information" });
             }
         }

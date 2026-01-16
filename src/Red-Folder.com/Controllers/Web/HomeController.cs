@@ -9,6 +9,7 @@ using Microsoft.Extensions.Hosting;
 using System.IO;
 using System.Text.Json;
 using RedFolder.Models;
+using Microsoft.Extensions.Logging;
 
 namespace RedFolder.Controllers.Web
 {
@@ -18,16 +19,19 @@ namespace RedFolder.Controllers.Web
         private readonly IPodcastRespository _podcastRespository;
         private readonly ITokenVerification _tokenVerification;
         private readonly IHostEnvironment _environment;
+        private readonly ILogger<HomeController> _logger;
 
         public HomeController(IEmail emailClient, 
                               IPodcastRespository podcastRespository,
                               ITokenVerification tokenVerification,
-                              IHostEnvironment environment)
+                              IHostEnvironment environment,
+                              ILogger<HomeController> logger)
         {
             _emailClient = emailClient;
             _podcastRespository = podcastRespository;
             _tokenVerification = tokenVerification;
             _environment = environment;
+            _logger = logger;
         }
 
         public async Task<ActionResult> Index()
@@ -96,8 +100,15 @@ namespace RedFolder.Controllers.Web
                 
                 return View(versionInfo);
             }
-            catch
+            catch (JsonException ex)
             {
+                _logger.LogError(ex, "Error deserializing version.json");
+                ViewBag.Message = "Error reading version information.";
+                return View((VersionInfo)null);
+            }
+            catch (IOException ex)
+            {
+                _logger.LogError(ex, "Error reading version.json file");
                 ViewBag.Message = "Error reading version information.";
                 return View((VersionInfo)null);
             }
