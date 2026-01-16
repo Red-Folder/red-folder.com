@@ -96,10 +96,21 @@ dotnet run --project src/Red-Folder.com/Red-Folder.com.csproj
 
 ## Deployment
 
-- All branches trigger CI build and test via GitHub Actions
-- Only `master` branch deploys to Azure Web App (RFC-Website)
+- PR validation runs on pull requests to master/main branches via GitHub Actions
+- Only `master` branch triggers build with coverage and deployment to Azure Web App (RFC-Website)
 - Deployment uses Azure Web Apps Deploy action with publish profile
 - Application Insights is configured for monitoring
+- For CI/CD pipeline changes, use the @devops-specialist custom agent
+
+## Custom Agents
+
+This repository includes specialized custom agents for specific tasks:
+- **@test-writer** - Expert in writing xUnit tests
+- **@razor-specialist** - Specialist in Razor views and front-end
+- **@api-developer** - Expert in API development and services
+- **@security-auditor** - Security vulnerability specialist
+- **@database-expert** - Entity Framework Core and database expert
+- **@devops-specialist** - Expert in GitHub Actions, CI/CD, and Azure deployments
 
 ## Additional Notes
 

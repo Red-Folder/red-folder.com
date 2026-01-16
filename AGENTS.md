@@ -77,11 +77,12 @@ tests/
 
 ### CI/CD Pipeline
 
-* **GitHub Actions** handles CI/CD (see `.github/workflows/azure-deploy.yml`)
-* **All branches** trigger build and test
-* **Only `master` branch** deploys to Azure Web App
+* **GitHub Actions** handles CI/CD (see `.github/workflows/`)
+* **PR validation** runs on pull requests to master/main branches
+* **Only `master` branch** triggers build with coverage and deployment to Azure Web App
 * Tests must pass before deployment
-* Code coverage is uploaded to Codecov
+* Code coverage is uploaded to Codecov (on master branch deployments)
+* **For CI/CD changes**, use the **@devops-specialist** custom agent who has expertise in GitHub Actions workflows, Azure deployments, and pipeline optimization
 
 ## 5. Coding Standards
 
