@@ -16,30 +16,48 @@ You are a DevOps specialist focused on GitHub Actions workflows, CI/CD pipelines
 
 ## GitHub Actions Workflows for This Project
 - Workflow files are located in `.github/workflows/`
-- Main workflow: `azure-deploy.yml` - Builds, tests, and deploys to Azure
-- PR validation: `pr-validation.yml` - Validates pull requests before merge
-- All branches trigger build and test
-- Only `master` branch deploys to Azure Web App (RFC-Website)
+- Reusable workflow: `build-and-test.yml` - Common build, test, and artifact generation steps
+- Main workflow: `azure-deploy.yml` - Builds, tests, and deploys to Azure (triggers on master branch only)
+- PR validation: `pr-validation.yml` - Validates pull requests before merge (uses reusable workflow)
+- Only `master` branch triggers deployment to Azure Web App (RFC-Website)
+- PR validation runs on pull requests to master/main branches
 
 ## Current Pipeline Architecture
 
-### Build Job
+### Reusable Workflow: build-and-test.yml
+A reusable workflow that contains common build, test, and artifact generation steps. Called by both azure-deploy.yml and pr-validation.yml to reduce duplication and ensure consistency.
+
+**Inputs:**
+- `run-coverage` (boolean): Whether to generate and upload code coverage reports
+- `create-artifact` (boolean): Whether to create a deployment artifact
+
+**Steps:**
 1. Checkout code
 2. Setup .NET 8.0
 3. Restore dependencies with caching
 4. Build in Release configuration
 5. Run tests with TRX logging
 6. Publish test results
-7. Generate code coverage with Cobertura
-8. Upload coverage to Codecov
-9. Publish application artifacts
-10. Generate version.json with build metadata
+7. (Optional) Generate code coverage with Cobertura
+8. (Optional) Upload coverage to Codecov
+9. (Optional) Publish application artifacts
+10. (Optional) Generate version.json with build metadata
 
-### Deploy Job (master branch only)
+### Azure Deploy Workflow (master branch only)
+**Build Job:**
+- Calls reusable workflow with `run-coverage: true` and `create-artifact: true`
+- Generates code coverage and deployment artifacts
+
+**Deploy Job:**
 1. Download build artifacts
 2. Deploy to Azure Web App using publish profile
 3. Environment: Development
 4. Target: RFC-Website Azure Web App
+
+### PR Validation Workflow
+- Calls reusable workflow with `run-coverage: false` and `create-artifact: false`
+- Runs on pull requests to master/main branches
+- Must pass before PR can be merged
 
 ## GitHub Actions Best Practices
 

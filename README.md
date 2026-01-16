@@ -122,11 +122,12 @@ This configuration works with:
 
 The project uses GitHub Actions for continuous integration and deployment:
 
-- **All branches**: Build, test, and generate code coverage
-- **Master branch**: Deploy to Azure Web App (RFC-Website)
-- **Coverage**: Results uploaded to Codecov
+- **Pull Requests**: Automated validation runs build and tests (no coverage)
+- **Master branch**: Build with code coverage, test, and deploy to Azure Web App (RFC-Website)
+- **Coverage**: Results uploaded to Codecov on master branch deployments
+- **Reusable workflow**: `build-and-test.yml` provides common build/test steps used by both PR validation and deployment
 
-See `.github/workflows/azure-deploy.yml` for the complete workflow.
+See `.github/workflows/` directory for all workflows.
 
 ### Version Tracking
 

@@ -275,6 +275,54 @@ environment:
 - Set environment URLs for easy access
 - Monitor deployments
 
+### Reusable Workflows
+Reusable workflows allow you to eliminate duplication across multiple workflows by extracting common steps into a shared workflow.
+
+```yaml
+# Reusable workflow (build-and-test.yml)
+name: Build and Test
+
+on:
+  workflow_call:
+    inputs:
+      run-coverage:
+        required: false
+        type: boolean
+        default: false
+    secrets:
+      CODECOV_TOKEN:
+        required: false
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      # ... more steps
+```
+
+```yaml
+# Calling the reusable workflow
+jobs:
+  build:
+    uses: ./.github/workflows/build-and-test.yml
+    with:
+      run-coverage: true
+    secrets:
+      CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
+```
+
+**Benefits:**
+- Reduces duplication and maintenance burden
+- Ensures consistency across workflows
+- Makes testing and updates easier
+- Allows parameterization with inputs and secrets
+
+**This Project Uses:**
+- `build-and-test.yml` - Reusable workflow for building and testing
+- Called by both `azure-deploy.yml` (with coverage) and `pr-validation.yml` (without coverage)
+
 ## Error Handling
 
 ### Fail Fast vs. Continue on Error
@@ -429,6 +477,7 @@ Before committing workflow changes:
 - [.NET Actions](https://github.com/actions/setup-dotnet)
 
 ### Project Specific
+- Reusable workflow: `.github/workflows/build-and-test.yml`
 - Main workflow: `.github/workflows/azure-deploy.yml`
 - PR validation: `.github/workflows/pr-validation.yml`
 - DevOps agent: `.github/agents/devops-specialist.agent.md`
