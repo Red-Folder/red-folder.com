@@ -82,6 +82,7 @@ tests/
 * **Only `master` branch** deploys to Azure Web App
 * Tests must pass before deployment
 * Code coverage is uploaded to Codecov
+* **For CI/CD changes**, use the **@devops-specialist** custom agent who has expertise in GitHub Actions workflows, Azure deployments, and pipeline optimization
 
 ## 5. Coding Standards
 

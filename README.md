@@ -79,12 +79,14 @@ This repository is configured for use with GitHub Copilot and other AI coding ag
   - `api-developer.agent.md` - Expert in API development and services
   - `security-auditor.agent.md` - Security vulnerability specialist
   - `database-expert.agent.md` - Entity Framework Core and database expert
+  - `devops-specialist.agent.md` - Expert in GitHub Actions, CI/CD, and Azure deployments
 - **`.github/instructions/`** - Path-specific instructions for different file types:
   - `csharp.instructions.md` - C# coding standards
   - `tests.instructions.md` - Testing guidelines
   - `config.instructions.md` - Configuration file standards
   - `razor.instructions.md` - Razor view conventions
   - `web-assets.instructions.md` - JavaScript/CSS/HTML guidelines
+  - `workflows.instructions.md` - GitHub Actions workflow guidelines
   - `coding-agent.instructions.md` - Coding agent specific workflow
 
 ### Using AI Coding Agents
@@ -101,6 +103,7 @@ GitHub Copilot and compatible AI agents will automatically use these instruction
 - Use **@api-developer** for controllers and services
 - Use **@security-auditor** for security reviews
 - Use **@database-expert** for database and EF Core work
+- Use **@devops-specialist** for CI/CD pipelines, GitHub Actions workflows, and Azure deployments
 
 For best results:
 1. Keep the instruction files up-to-date with project conventions

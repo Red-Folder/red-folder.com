@@ -64,6 +64,11 @@ Custom agents are specialized versions of GitHub Copilot coding agent tailored t
 - **Tools**: read, edit, create, search
 - **Expertise**: EF Core, migrations, query optimization, repository patterns, async data access, SQL Server
 
+#### `devops-specialist.agent.md`
+- **Purpose**: Manage GitHub Actions workflows, CI/CD pipelines, and Azure deployments
+- **Tools**: read, edit, create, search
+- **Expertise**: GitHub Actions, CI/CD pipelines, Azure Web Apps, workflow optimization, deployment strategies, build automation, secrets management
+
 **Used by**: GitHub Copilot coding agent, available in the agents dropdown in supported IDEs and on GitHub.com
 
 ### 4. Path-Specific Instructions
@@ -90,6 +95,10 @@ These files provide targeted guidance for specific file types:
 #### `web-assets.instructions.md`
 - **Applies to**: `.js`, `.css`, `.html` files
 - **Content**: JavaScript best practices, CSS structure and conventions, HTML semantics, accessibility, performance, browser compatibility
+
+#### `workflows.instructions.md`
+- **Applies to**: `.github/workflows/**/*.yml`, `.github/workflows/**/*.yaml` files
+- **Content**: GitHub Actions workflow structure, YAML syntax, job configuration, actions and steps, environment variables, secrets management, caching, .NET patterns, deployment, security, performance optimization
 
 #### `coding-agent.instructions.md`
 - **Applies to**: All files (but only for coding agents, not code review)
@@ -119,7 +128,7 @@ Enhanced documentation includes:
 2. Follows workflow guidelines from `AGENTS.md`
 3. Uses `coding-agent.instructions.md` for task execution guidance
 4. Applies path-specific rules when editing different file types
-5. **Can be invoked as specialized custom agents** from `.github/agents/` for specific tasks like writing tests, creating views, building APIs, security audits, or database work
+5. **Can be invoked as specialized custom agents** from `.github/agents/` for specific tasks like writing tests, creating views, building APIs, security audits, database work, or CI/CD pipeline management
 
 ### GitHub Copilot Custom Agents
 1. Available in the agents dropdown in GitHub.com, VS Code, JetBrains IDEs, Eclipse, and Xcode
@@ -130,6 +139,7 @@ Enhanced documentation includes:
    - **@api-developer** for controller and API development
    - **@security-auditor** for security reviews
    - **@database-expert** for EF Core and database tasks
+   - **@devops-specialist** for GitHub Actions workflows, CI/CD pipelines, and Azure deployments
 
 ### GitHub Copilot Code Review
 1. Reads repository-wide and path-specific instructions
