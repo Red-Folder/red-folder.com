@@ -118,13 +118,6 @@ This configuration works with:
 - GitHub Copilot CLI
 - Other AI coding agents that support AGENTS.md or similar formats
 
-### Model Context Protocol (MCP)
-
-For enhanced DevOps capabilities, see `.github/MCP_RECOMMENDATIONS.md` for:
-- Recommended MCP servers for GitHub Actions and Azure integration
-- Setup instructions and security considerations
-- Implementation roadmap
-
 ## CI/CD Pipeline
 
 The project uses GitHub Actions for continuous integration and deployment:
