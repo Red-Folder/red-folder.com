@@ -205,12 +205,13 @@ Enhanced documentation includes:
 - **Custom Instructions Guide**: https://docs.github.com/en/copilot/customizing-copilot/adding-custom-instructions-for-github-copilot
 - **AGENTS.md Standard**: https://agents.md
 - **MCP (Model Context Protocol)**: https://modelcontextprotocol.io
+- **MCP Recommendations for This Project**: `.github/MCP_RECOMMENDATIONS.md`
 
 ## Future Enhancements
 
 Potential additions to consider:
-- Custom agents for specific tasks (e.g., database migrations, test generation)
-- MCP server configuration for external tool integration
+- ~~Custom agents for specific tasks~~ ✅ Completed: Added 6 specialized agents
+- MCP server configuration for external tool integration (see MCP_RECOMMENDATIONS.md)
 - Additional path-specific instructions for other file types
 - Repository-specific skills or capabilities
 - Integration with project-specific tools and workflows
