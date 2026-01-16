@@ -1,4 +1,4 @@
-# This workflow will build and push a .NET Core app to an Azure Web App when a commit is pushed to your default branch.
+# This workflow will build and push a .NET Core app to an Azure Web App when a commit is pushed to the master branch.
 #
 # This workflow assumes you have already created the target Azure App Service web app.
 # For instructions see https://docs.microsoft.com/en-us/azure/app-service/quickstart-dotnetcore?tabs=net60&pivots=development-environment-vscode
@@ -22,11 +22,10 @@ name: Build and deploy ASP.Net Core app to an Azure Web App
 env:
   AZURE_WEBAPP_NAME: RFC-Website      # set this to the name of your Azure Web App
   AZURE_WEBAPP_PACKAGE_PATH: '.'      # set this to the path to your web app project, defaults to the repository root
-  DOTNET_VERSION: '8.0.x'             # set this to the .NET Core version to use
 
 on:
   push:
-    branches: [ "*" ]  # Trigger on push to any branch
+    branches: ["master"]  # Only trigger on push to master branch
   workflow_dispatch:
 
 permissions:
@@ -36,79 +35,13 @@ permissions:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
-
-    steps:
-      - uses: actions/checkout@v4
-
-      - name: Set up .NET Core
-        uses: actions/setup-dotnet@v4
-        with:
-          dotnet-version: ${{ env.DOTNET_VERSION }}
-
-      - name: Restore dependencies
-        run: dotnet restore
-
-      - name: Set up dependency caching for faster builds
-        uses: actions/cache@v4
-        with:
-          path: ~/.nuget/packages
-          key: ${{ runner.os }}-nuget-${{ hashFiles('**/packages.lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-nuget-
-
-      - name: Build
-        run: dotnet build --no-restore --configuration Release
-
-      - name: Run Tests
-        run: dotnet test --no-build --configuration Release --logger trx --results-directory "test-results"
-
-      - name: Publish Test Results
-        uses: EnricoMi/publish-unit-test-result-action@v2
-        if: ${{ always() }}
-        with:
-          files: test-results/**/*.trx
-
-      - name: Generate Coverage
-        run: dotnet test --no-build --configuration Release --verbosity normal --collect:"XPlat Code Coverage"
-
-      - name: Install ReportGenerator tool
-        run: dotnet tool install -g dotnet-reportgenerator-globaltool
-
-      - name: Generate coverage report
-        run: reportgenerator "-reports:**/coverage.cobertura.xml" "-targetdir:coveragereport" "-reporttypes:HtmlInline_AzurePipelines;Cobertura"
-
-      - name: Upload coverage
-        uses: codecov/codecov-action@v3
-        with:
-          token: ${{ secrets.CODECOV_TOKEN }}
-          files: ./coveragereport/Cobertura.xml
-          flags: unittests
-          name: codecov-umbrella
-          fail_ci_if_error: true
-      
-      - name: dotnet publish
-        run: dotnet publish src/Red-Folder.com/Red-Folder.com.csproj -c Release -o ${{env.DOTNET_ROOT}}/myapp 
-
-      - name: Generate version.json
-        run: |
-          cat > ${{env.DOTNET_ROOT}}/myapp/version.json << EOF
-          {
-            "commitSha": "${{ github.sha }}",
-            "shortCommitSha": "${GITHUB_SHA:0:7}",
-            "branchName": "${{ github.ref_name }}",
-            "buildTime": "$(date -u +'%Y-%m-%dT%H:%M:%SZ')",
-            "buildNumber": "${{ github.run_number }}",
-            "commitUrl": "https://github.com/${{ github.repository }}/commit/${{ github.sha }}"
-          }
-          EOF
-
-      - name: Upload artifact for deployment job
-        if: github.ref == 'refs/heads/master'
-        uses: actions/upload-artifact@v4
-        with:
-          name: .net-app
-          path: ${{env.DOTNET_ROOT}}/myapp
+    name: Build with Coverage
+    uses: ./.github/workflows/build-and-test.yml
+    with:
+      run-coverage: true
+      create-artifact: true
+    secrets:
+      CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
 
   deploy:
     if: github.ref == 'refs/heads/master'
