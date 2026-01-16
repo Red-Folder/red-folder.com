@@ -121,7 +121,9 @@ See `.github/workflows/azure-deploy.yml` for the complete workflow.
 
 ## License
 
-[Add license information here]
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+Copyright (c) 2016 Mark Taylor
 
 ## Contact
 
