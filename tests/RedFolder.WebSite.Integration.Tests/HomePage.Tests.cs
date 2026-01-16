@@ -62,6 +62,13 @@ namespace RedFolder.WebSite.Integration.Tests
         }
 
         [Fact]
+        public async Task Get_VersionPage_ReturnsSuccess()
+        {
+            var response = await _httpClientFixture.Client.GetAsync("/home/version");
+            response.EnsureSuccessStatusCode();
+        }
+
+        [Fact]
         public async Task Get_Redirect_RedirectsForKnownRoutes()
         {
             var response = await _httpClientFixture.Client.GetAsync("/redirect?url=http://blog.red-folder.com/2016/09/rfc-weekly-12th-september-2016.html");

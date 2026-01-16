@@ -5,6 +5,11 @@ using System.Linq;
 using System.Threading.Tasks;
 using RedFolder.Podcast;
 using RedFolder.Blog;
+using Microsoft.Extensions.Hosting;
+using System.IO;
+using System.Text.Json;
+using RedFolder.Models;
+using Microsoft.Extensions.Logging;
 
 namespace RedFolder.Controllers.Web
 {
@@ -13,14 +18,20 @@ namespace RedFolder.Controllers.Web
         private readonly IEmail _emailClient;
         private readonly IPodcastRespository _podcastRespository;
         private readonly ITokenVerification _tokenVerification;
+        private readonly IHostEnvironment _environment;
+        private readonly ILogger<HomeController> _logger;
 
         public HomeController(IEmail emailClient, 
                               IPodcastRespository podcastRespository,
-                              ITokenVerification tokenVerification)
+                              ITokenVerification tokenVerification,
+                              IHostEnvironment environment,
+                              ILogger<HomeController> logger)
         {
             _emailClient = emailClient;
             _podcastRespository = podcastRespository;
             _tokenVerification = tokenVerification;
+            _environment = environment;
+            _logger = logger;
         }
 
         public async Task<ActionResult> Index()
@@ -66,6 +77,41 @@ namespace RedFolder.Controllers.Web
         public IActionResult CookiePolicy()
         {
             return View();
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> Version()
+        {
+            var versionFilePath = Path.Combine(_environment.ContentRootPath, "version.json");
+            
+            if (!System.IO.File.Exists(versionFilePath))
+            {
+                ViewBag.Message = "Version information is not available in this environment.";
+                return View((VersionInfo)null);
+            }
+
+            try
+            {
+                var json = await System.IO.File.ReadAllTextAsync(versionFilePath);
+                var versionInfo = JsonSerializer.Deserialize<VersionInfo>(json, new JsonSerializerOptions 
+                { 
+                    PropertyNameCaseInsensitive = true 
+                });
+                
+                return View(versionInfo);
+            }
+            catch (JsonException ex)
+            {
+                _logger.LogError(ex, "Error deserializing version.json");
+                ViewBag.Message = "Error reading version information.";
+                return View((VersionInfo)null);
+            }
+            catch (IOException ex)
+            {
+                _logger.LogError(ex, "Error reading version.json file");
+                ViewBag.Message = "Error reading version information.";
+                return View((VersionInfo)null);
+            }
         }
 
         [HttpPost]

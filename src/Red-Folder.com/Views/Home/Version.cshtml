@@ -1,0 +1,78 @@
+@model RedFolder.Models.VersionInfo
+@{
+    ViewData["Title"] = "Version Information";
+}
+
+<div class="hero-banner">
+    <h1>@ViewData["Title"]</h1>
+</div>
+
+<div class="version-info">
+    @if (Model != null)
+    {
+        <div class="version-details">
+            <h2>Deployed Version</h2>
+            
+            <table class="table table-striped">
+                <tbody>
+                    <tr>
+                        <th>Commit SHA</th>
+                        <td>
+                            @if (!string.IsNullOrEmpty(Model.CommitUrl))
+                            {
+                                <a href="@Model.CommitUrl" target="_blank" rel="noopener noreferrer">
+                                    @Model.CommitSha
+                                </a>
+                            }
+                            else
+                            {
+                                @Model.CommitSha
+                            }
+                        </td>
+                    </tr>
+                    @if (!string.IsNullOrEmpty(Model.ShortCommitSha))
+                    {
+                        <tr>
+                            <th>Short SHA</th>
+                            <td><code>@Model.ShortCommitSha</code></td>
+                        </tr>
+                    }
+                    @if (!string.IsNullOrEmpty(Model.BranchName))
+                    {
+                        <tr>
+                            <th>Branch</th>
+                            <td>@Model.BranchName</td>
+                        </tr>
+                    }
+                    @if (!string.IsNullOrEmpty(Model.BuildTime))
+                    {
+                        <tr>
+                            <th>Build Time</th>
+                            <td>@Model.BuildTime</td>
+                        </tr>
+                    }
+                    @if (!string.IsNullOrEmpty(Model.BuildNumber))
+                    {
+                        <tr>
+                            <th>Build Number</th>
+                            <td>@Model.BuildNumber</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+
+        <div class="api-info">
+            <h3>API Access</h3>
+            <p>You can also access version information programmatically:</p>
+            <pre><code>GET /api/version</code></pre>
+        </div>
+    }
+    else
+    {
+        <div class="alert alert-info">
+            <h3>@ViewBag.Message</h3>
+            <p>Version information is typically available in production deployments.</p>
+        </div>
+    }
+</div>
