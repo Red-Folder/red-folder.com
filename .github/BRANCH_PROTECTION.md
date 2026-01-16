@@ -5,7 +5,7 @@ This document describes how to configure branch protection rules to ensure all t
 ## Overview
 
 The repository has two GitHub Actions workflows:
-1. **Build and deploy ASP.Net Core app to an Azure Web App** (`azure-deploy.yml`) - Runs on all branches
+1. **Build and deploy ASP.Net Core app to an Azure Web App** (`azure-deploy.yml`) - Builds and tests on all branches, but **deploys only from master**
 2. **PR Validation** (`pr-validation.yml`) - Runs specifically on pull requests
 
 ## Setting Up Branch Protection Rules
@@ -88,7 +88,10 @@ Consider enabling these additional protections:
 
 ## Notes
 
-- The `azure-deploy.yml` workflow runs on all branches and deploys only from `master`
+- The `azure-deploy.yml` workflow:
+  - **Build/Test jobs**: Run on all branches for continuous integration
+  - **Deployment job**: Only runs on `master` branch (controlled by `if: github.ref == 'refs/heads/master'`)
+  - This ensures all branches are tested, but only master deploys to Azure
 - The `pr-validation.yml` workflow is specifically designed for PR validation
 - Test failures will be visible in the PR checks section
 - Test results are published as comments on the PR for easy visibility
