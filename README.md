@@ -125,6 +125,36 @@ The project uses GitHub Actions for continuous integration and deployment:
 
 See `.github/workflows/azure-deploy.yml` for the complete workflow.
 
+### Version Tracking
+
+The deployed application includes version tracking to verify which code is running in production:
+
+**Browser Access:**
+- Visit `https://red-folder.com/home/version` to view version information in a user-friendly format
+
+**API Access:**
+- `GET https://red-folder.com/api/version` returns JSON with build metadata
+
+**Version Information Includes:**
+- Git commit SHA (with link to GitHub)
+- Build timestamp
+- Branch name
+- Build number
+
+During the deployment process, the GitHub Actions workflow generates a `version.json` file containing:
+```json
+{
+  "commitSha": "abc123...",
+  "shortCommitSha": "abc123d",
+  "branchName": "master",
+  "buildTime": "2026-01-16T14:30:00Z",
+  "buildNumber": "42",
+  "commitUrl": "https://github.com/Red-Folder/red-folder.com/commit/abc123..."
+}
+```
+
+This allows easy verification of deployments and tracing production issues back to source code.
+
 ## Contributing
 
 1. Create a feature branch from `master`
