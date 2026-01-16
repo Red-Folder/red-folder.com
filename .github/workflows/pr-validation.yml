@@ -8,7 +8,7 @@ env:
 
 on:
   pull_request:
-    branches: [ "master", "main" ]
+    branches: ["master", "main"]
   workflow_dispatch:
 
 permissions:
