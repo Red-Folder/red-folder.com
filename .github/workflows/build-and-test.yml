@@ -1,0 +1,116 @@
+# Reusable workflow for building and testing the .NET application
+# This workflow is called by both PR validation and deployment workflows
+
+name: Build and Test
+
+on:
+  workflow_call:
+    inputs:
+      run-coverage:
+        description: 'Whether to generate and upload code coverage reports'
+        required: false
+        type: boolean
+        default: false
+      create-artifact:
+        description: 'Whether to create a deployment artifact'
+        required: false
+        type: boolean
+        default: false
+    secrets:
+      CODECOV_TOKEN:
+        description: 'Token for uploading to Codecov'
+        required: false
+
+env:
+  DOTNET_VERSION: '8.0.x'
+
+permissions:
+  contents: read
+  checks: write
+  pull-requests: write
+
+jobs:
+  build-and-test:
+    name: Build and Test
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up .NET Core
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: ${{ env.DOTNET_VERSION }}
+
+      - name: Set up dependency caching
+        uses: actions/cache@v4
+        with:
+          path: ~/.nuget/packages
+          key: ${{ runner.os }}-nuget-${{ hashFiles('**/packages.lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-nuget-
+
+      - name: Restore dependencies
+        run: dotnet restore
+
+      - name: Build
+        run: dotnet build --no-restore --configuration Release
+
+      - name: Run Tests
+        run: dotnet test --no-build --configuration Release --logger trx --results-directory "test-results"
+
+      - name: Publish Test Results
+        uses: EnricoMi/publish-unit-test-result-action@v2
+        if: always()
+        with:
+          files: test-results/**/*.trx
+          check_name: "Test Results"
+          comment_mode: always
+
+      - name: Generate Coverage
+        if: inputs.run-coverage
+        run: dotnet test --no-build --configuration Release --verbosity normal --collect:"XPlat Code Coverage"
+
+      - name: Install ReportGenerator tool
+        if: inputs.run-coverage
+        run: dotnet tool install -g dotnet-reportgenerator-globaltool
+
+      - name: Generate coverage report
+        if: inputs.run-coverage
+        run: reportgenerator "-reports:**/coverage.cobertura.xml" "-targetdir:coveragereport" "-reporttypes:HtmlInline_AzurePipelines;Cobertura"
+
+      - name: Upload coverage
+        if: inputs.run-coverage
+        uses: codecov/codecov-action@v3
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+          files: ./coveragereport/Cobertura.xml
+          flags: unittests
+          name: codecov-umbrella
+          fail_ci_if_error: true
+
+      - name: Publish application
+        if: inputs.create-artifact
+        run: dotnet publish src/Red-Folder.com/Red-Folder.com.csproj -c Release -o ${{env.DOTNET_ROOT}}/myapp
+
+      - name: Generate version.json
+        if: inputs.create-artifact
+        run: |
+          cat > ${{env.DOTNET_ROOT}}/myapp/version.json << EOF
+          {
+            "commitSha": "${{ github.sha }}",
+            "shortCommitSha": "${GITHUB_SHA:0:7}",
+            "branchName": "${{ github.ref_name }}",
+            "buildTime": "$(date -u +'%Y-%m-%dT%H:%M:%SZ')",
+            "buildNumber": "${{ github.run_number }}",
+            "commitUrl": "https://github.com/${{ github.repository }}/commit/${{ github.sha }}"
+          }
+          EOF
+
+      - name: Upload artifact for deployment job
+        if: inputs.create-artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: .net-app
+          path: ${{env.DOTNET_ROOT}}/myapp
