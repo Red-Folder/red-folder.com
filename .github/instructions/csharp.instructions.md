@@ -6,7 +6,10 @@ applyTo: "**/*.cs"
 
 ## Coding Style
 
-- Use C# 12 features where appropriate (file-scoped namespaces, global usings, nullable reference types)
+- Use modern C# features appropriate for the target framework:
+  - .NET 8.0 projects: Use C# 12 features (file-scoped namespaces, global usings, nullable reference types)
+  - .NET Standard 2.0 projects: Use C# 7.3 compatible syntax
+  - .NET Standard 1.6 projects: Use C# 7.0 compatible syntax
 - Follow Microsoft C# coding conventions
 - Use meaningful names that reflect the purpose of the code
 - Keep methods focused and small (ideally under 20-30 lines)
