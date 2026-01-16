@@ -34,7 +34,39 @@ Following the AGENTS.md standard (https://agents.md), this file provides:
 
 **Used by**: AI agents that support the AGENTS.md format, GitHub Copilot coding agents
 
-### 3. Path-Specific Instructions
+### 3. Custom Agents
+**Directory**: `.github/agents/`
+
+Custom agents are specialized versions of GitHub Copilot coding agent tailored to specific development tasks. This project includes:
+
+#### `test-writer.agent.md`
+- **Purpose**: Write and maintain xUnit tests for the ASP.NET Core application
+- **Tools**: read, edit, create, search
+- **Expertise**: Unit testing, integration testing, AAA pattern, test organization, Moq, code coverage
+
+#### `razor-specialist.agent.md`
+- **Purpose**: Create and maintain Razor views and front-end components
+- **Tools**: read, edit, create, search
+- **Expertise**: Razor syntax, Tag Helpers, MVC patterns, accessibility, security, HTML/CSS
+
+#### `api-developer.agent.md`
+- **Purpose**: Build ASP.NET Core controllers, services, and API endpoints
+- **Tools**: read, edit, create, search
+- **Expertise**: MVC controllers, service layer, dependency injection, error handling, async/await, RESTful APIs
+
+#### `security-auditor.agent.md`
+- **Purpose**: Identify and fix security vulnerabilities
+- **Tools**: read, search, edit
+- **Expertise**: OWASP guidelines, XSS prevention, CSRF protection, input validation, authentication, dependency vulnerabilities
+
+#### `database-expert.agent.md`
+- **Purpose**: Work with Entity Framework Core and database design
+- **Tools**: read, edit, create, search
+- **Expertise**: EF Core, migrations, query optimization, repository patterns, async data access, SQL Server
+
+**Used by**: GitHub Copilot coding agent, available in the agents dropdown in supported IDEs and on GitHub.com
+
+### 4. Path-Specific Instructions
 **Directory**: `.github/instructions/`
 
 These files provide targeted guidance for specific file types:
@@ -87,6 +119,17 @@ Enhanced documentation includes:
 2. Follows workflow guidelines from `AGENTS.md`
 3. Uses `coding-agent.instructions.md` for task execution guidance
 4. Applies path-specific rules when editing different file types
+5. **Can be invoked as specialized custom agents** from `.github/agents/` for specific tasks like writing tests, creating views, building APIs, security audits, or database work
+
+### GitHub Copilot Custom Agents
+1. Available in the agents dropdown in GitHub.com, VS Code, JetBrains IDEs, Eclipse, and Xcode
+2. Each custom agent has specialized knowledge and tools for specific tasks
+3. Invoke specific agents for focused work:
+   - **@test-writer** for creating or improving tests
+   - **@razor-specialist** for front-end and view work
+   - **@api-developer** for controller and API development
+   - **@security-auditor** for security reviews
+   - **@database-expert** for EF Core and database tasks
 
 ### GitHub Copilot Code Review
 1. Reads repository-wide and path-specific instructions

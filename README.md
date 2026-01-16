@@ -73,6 +73,12 @@ This repository is configured for use with GitHub Copilot and other AI coding ag
 
 - **`.github/copilot-instructions.md`** - Repository-wide instructions for GitHub Copilot
 - **`AGENTS.md`** - General development guidelines for AI agents
+- **`.github/agents/`** - Custom specialized agents for specific tasks:
+  - `test-writer.agent.md` - Expert in writing xUnit tests
+  - `razor-specialist.agent.md` - Specialist in Razor views and front-end
+  - `api-developer.agent.md` - Expert in API development and services
+  - `security-auditor.agent.md` - Security vulnerability specialist
+  - `database-expert.agent.md` - Entity Framework Core and database expert
 - **`.github/instructions/`** - Path-specific instructions for different file types:
   - `csharp.instructions.md` - C# coding standards
   - `tests.instructions.md` - Testing guidelines
@@ -89,10 +95,18 @@ GitHub Copilot and compatible AI agents will automatically use these instruction
 - Making changes via coding agent mode
 - Reviewing pull requests
 
+**Custom Agents** can be invoked for specialized tasks:
+- Use **@test-writer** when working on tests
+- Use **@razor-specialist** for views and front-end work
+- Use **@api-developer** for controllers and services
+- Use **@security-auditor** for security reviews
+- Use **@database-expert** for database and EF Core work
+
 For best results:
 1. Keep the instruction files up-to-date with project conventions
 2. Refer to `AGENTS.md` for development workflow guidelines
-3. Review AI-generated code to ensure it follows project standards
+3. Use custom agents for specialized tasks
+4. Review AI-generated code to ensure it follows project standards
 
 ### Supported AI Tools
 
