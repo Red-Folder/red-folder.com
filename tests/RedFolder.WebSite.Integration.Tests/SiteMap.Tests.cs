@@ -23,10 +23,21 @@ namespace RedFolder.WebSite.Integration.Tests
             response.EnsureSuccessStatusCode();
 
             var raw = await response.Content.ReadAsStringAsync();
-            var formatted = Utils.XmlFormatter.FormatXml (raw);
+            var formatted = Utils.XmlFormatter.FormatXml(raw);
 
             var settings = new VerifySettings();
             await Verifier.Verify(formatted, settings).UseDirectory("Snapshots");
+        }
+
+        [Fact]
+        public async Task Get_SiteMap_ReturnsXmlContentType()
+        {
+            var response = await _httpClientFixture.Client.GetAsync("/sitemap.xml");
+            response.EnsureSuccessStatusCode();
+
+            // Verify Content-Type is XML
+            Assert.NotNull(response.Content.Headers.ContentType);
+            Assert.Contains("xml", response.Content.Headers.ContentType.MediaType.ToLower());
         }
     }
 }

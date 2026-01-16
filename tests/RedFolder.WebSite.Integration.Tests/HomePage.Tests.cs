@@ -69,6 +69,20 @@ namespace RedFolder.WebSite.Integration.Tests
         }
 
         [Fact]
+        public async Task Get_RepoPage_ReturnsSuccess()
+        {
+            var response = await _httpClientFixture.Client.GetAsync("/home/repo");
+            response.EnsureSuccessStatusCode();
+        }
+
+        [Fact]
+        public async Task Get_CookiePolicyDirectUrl_ReturnsSuccess()
+        {
+            var response = await _httpClientFixture.Client.GetAsync("/cookiepolicy");
+            response.EnsureSuccessStatusCode();
+        }
+
+        [Fact]
         public async Task Get_Redirect_RedirectsForKnownRoutes()
         {
             var response = await _httpClientFixture.Client.GetAsync("/redirect?url=http://blog.red-folder.com/2016/09/rfc-weekly-12th-september-2016.html");
@@ -84,6 +98,22 @@ namespace RedFolder.WebSite.Integration.Tests
 
             Assert.Equal(System.Net.HttpStatusCode.Found, response.StatusCode);
             Assert.Contains("/errors/status/404", response.Headers.Location.ToString());
+        }
+
+        [Fact]
+        public async Task Get_Throw_ThrowsException()
+        {
+            // The /home/throw endpoint intentionally throws an exception
+            // In production, this should be caught by the exception handler
+            var response = await _httpClientFixture.Client.GetAsync("/home/throw");
+            
+            // Should redirect to error page or return 500
+            Assert.True(
+                response.StatusCode == System.Net.HttpStatusCode.InternalServerError ||
+                response.StatusCode == System.Net.HttpStatusCode.Redirect ||
+                response.Headers.Location?.ToString().Contains("/errors/status/500") == true,
+                $"Expected error handling for /home/throw but got {response.StatusCode}"
+            );
         }
     }
 }

@@ -17,6 +17,20 @@ namespace RedFolder.WebSite.Integration.Tests
         }
 
         [Fact]
+        public async Task Get_PodcastsList_ReturnsSuccessAndCorrectContent()
+        {
+            var response = await _httpClientFixture.Client.GetAsync("/podcasts");
+            response.EnsureSuccessStatusCode();
+
+            var raw = await response.Content.ReadAsStringAsync();
+            var formatted = Utils.HtmlFromatter.FormatHtml(raw);
+
+            var settings = new VerifySettings();
+            settings.ScrubLinesContaining("<a id=\"cookie-consent-acceptance\"");
+            await Verifier.Verify(formatted, settings).UseDirectory("Snapshots");
+        }
+
+        [Fact]
         public async Task Get_Episode150_ReturnsSuccessAndCorrectContent()
         {
             var response = await _httpClientFixture.Client.GetAsync("/podcasts/150");
@@ -28,6 +42,24 @@ namespace RedFolder.WebSite.Integration.Tests
             var settings = new VerifySettings();
             settings.ScrubLinesContaining("<a id=\"cookie-consent-acceptance\"");
             await Verifier.Verify(formatted, settings).UseDirectory("Snapshots");
+        }
+
+        [Fact]
+        public async Task Get_PodcastRoadmap_RedirectsToExternalUrl()
+        {
+            var response = await _httpClientFixture.Client.GetAsync("/podcasts/roadmap");
+            
+            Assert.Equal(System.Net.HttpStatusCode.Redirect, response.StatusCode);
+            Assert.Contains("podcast-roadmap.red-folder.com", response.Headers.Location.ToString());
+        }
+
+        [Fact]
+        public async Task Get_InvalidEpisode_RedirectsTo404()
+        {
+            var response = await _httpClientFixture.Client.GetAsync("/podcasts/999999");
+            
+            Assert.Equal(System.Net.HttpStatusCode.Redirect, response.StatusCode);
+            Assert.Contains("/errors/status/404", response.Headers.Location.ToString());
         }
     }
 }
