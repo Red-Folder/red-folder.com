@@ -5,6 +5,10 @@ using System.Linq;
 using System.Threading.Tasks;
 using RedFolder.Podcast;
 using RedFolder.Blog;
+using Microsoft.Extensions.Hosting;
+using System.IO;
+using System.Text.Json;
+using RedFolder.Models;
 
 namespace RedFolder.Controllers.Web
 {
@@ -13,14 +17,17 @@ namespace RedFolder.Controllers.Web
         private readonly IEmail _emailClient;
         private readonly IPodcastRespository _podcastRespository;
         private readonly ITokenVerification _tokenVerification;
+        private readonly IHostEnvironment _environment;
 
         public HomeController(IEmail emailClient, 
                               IPodcastRespository podcastRespository,
-                              ITokenVerification tokenVerification)
+                              ITokenVerification tokenVerification,
+                              IHostEnvironment environment)
         {
             _emailClient = emailClient;
             _podcastRespository = podcastRespository;
             _tokenVerification = tokenVerification;
+            _environment = environment;
         }
 
         public async Task<ActionResult> Index()
@@ -66,6 +73,34 @@ namespace RedFolder.Controllers.Web
         public IActionResult CookiePolicy()
         {
             return View();
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> Version()
+        {
+            var versionFilePath = Path.Combine(_environment.ContentRootPath, "version.json");
+            
+            if (!System.IO.File.Exists(versionFilePath))
+            {
+                ViewBag.Message = "Version information is not available in this environment.";
+                return View((VersionInfo)null);
+            }
+
+            try
+            {
+                var json = await System.IO.File.ReadAllTextAsync(versionFilePath);
+                var versionInfo = JsonSerializer.Deserialize<VersionInfo>(json, new JsonSerializerOptions 
+                { 
+                    PropertyNameCaseInsensitive = true 
+                });
+                
+                return View(versionInfo);
+            }
+            catch
+            {
+                ViewBag.Message = "Error reading version information.";
+                return View((VersionInfo)null);
+            }
         }
 
         [HttpPost]
