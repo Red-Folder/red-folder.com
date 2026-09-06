@@ -1,155 +1,66 @@
-# Branch Protection Rules Configuration
+# Master CI Merge Gate
 
-This document describes how to configure branch protection rules to ensure all tests pass before merging pull requests.
+## Verified configuration
 
-## Overview
+Inspected on 2026-09-06 for [issue #30](https://github.com/Red-Folder/red-folder.com/issues/30), using an account with repository administration access. Protection is implemented by the active repository ruleset [PR merge only for master](https://github.com/Red-Folder/red-folder.com/rules/3696335) (ID `3696335`). Its target is `~DEFAULT_BRANCH`, currently `master`; changing the default branch changes this rule's target.
 
-The repository has three GitHub Actions workflows:
+| Control | Effective setting |
+| --- | --- |
+| Pull request required | Yes; zero approving reviews required |
+| Required status check | `Validate PR / Build and Test` |
+| Check source | GitHub Actions, integration ID `15368` |
+| Branch must be up to date | Yes (`strict_required_status_checks_policy: true`) |
+| Bypass actors | None; current administrator reports `current_user_can_bypass: never` |
+| Direct pushes | Blocked by the pull request requirement, with no bypass actors |
+| Force pushes | Blocked (`non_fast_forward`) |
+| Linear history | Required; use squash or rebase merging |
 
-1. **PR Validation** (`pr-validation.yml`) - Runs on pull requests to master/main branches
-   - Builds and tests the code
-   - Validates code quality before merge
-   - Must pass before PR can be merged
+The exact required context was confirmed from actual GitHub check runs. `Test Results` is a separate reporting check, not the required merge gate. No protection settings were changed or weakened during verification.
 
-2. **Build and Test** (`build-and-test.yml`) - Reusable workflow
-   - Contains common build, test, and artifact generation steps
-   - Called by both PR validation and deployment workflows
-   - Reduces duplication and ensures consistency
+The repository administrator confirmed that no classic branch protections are configured. The CLI token returned HTTP 403 when reading the classic protection endpoint, so the absence of classic rules is administrator-confirmed rather than independently API-verified. The active ruleset, effective branch rules, and empty bypass list were read successfully through the API.
 
-3. **Build and deploy ASP.Net Core app to an Azure Web App** (`azure-deploy.yml`) - Runs only on master branch
-   - Builds and tests with code coverage
-   - Generates deployment artifact
-   - Deploys to Azure Web App (RFC-Website)
+## Enforcement evidence
 
-## Workflow Triggers
+Temporary [PR #50](https://github.com/Red-Folder/red-folder.com/pull/50) targets `master` from `codex/issue-30-merge-gate-verification`, based on master commit `7ebfc9e941c114c3462007c38618f6af295eb3e4`.
 
-- **PR Validation**: Triggered on pull requests to `master` or `main` branches
-- **Azure Deploy**: Triggered only on pushes to `master` branch
-- **Both workflows** support manual triggering via `workflow_dispatch`
+The PR was opened as a draft, then marked ready for review with the repository owner's approval: drafts are inherently unmergeable and cannot demonstrate that checks control merge eligibility. No merge was attempted.
 
-## Setting Up Branch Protection Rules
+| Phase | Commit | Required check and merge state |
+| --- | --- | --- |
+| Deliberately failing test | `ca0c98557e0079676fff52ff8a649c177bdb97bd` | [Run 34038697927](https://github.com/Red-Folder/red-folder.com/actions/runs/34038697927): build succeeded, Run Tests failed, required check failed; non-draft PR reported `BLOCKED` |
+| Repaired test | `8e355481c5b09948356e30c852633635c3bf2522` | [Run 34038817910](https://github.com/Red-Folder/red-folder.com/actions/runs/34038817910): required check succeeded; non-draft PR reported `CLEAN` and `MERGEABLE` |
 
-To require tests to pass before merging to the `master` branch, follow these steps:
+The failed run identified `MergeGateVerificationTests.MergeGate_DeliberateFailure_BlocksMerge` as the deliberate failure: one blog test failed, one passed, and all 18 integration tests passed. The repaired commit replaces that assertion with a passing assertion, preserving a PR diff for the mergeability check. This temporary test is not part of the documentation change.
 
-### Steps to Configure
+After both runs, the Azure workflow runs endpoint filtered to the temporary branch returned `total_count: 0`. PR #50 was closed without merging and its remote branch deleted. Master remained at the original commit above. Direct and force pushes were verified from the enforced rules and absence of bypass actors; no destructive push was attempted.
 
-1. **Navigate to Repository Settings**
-   - Go to your repository on GitHub
-   - Click on **Settings**
-   - Click on **Branches** in the left sidebar
+Local validation of the final documentation branch: dependency restore and Release build succeeded; all 19 existing tests passed. Existing dependency vulnerability and legacy target-framework warnings remain outside this issue's scope.
 
-2. **Add Branch Protection Rule**
-   - Click **Add rule** (or **Add branch protection rule**)
-   - In the "Branch name pattern" field, enter: `master`
+## Workflow and deployment behavior
 
-3. **Configure Protection Settings**
-   
-   Enable the following options:
+- `pr-validation.yml` runs for pull requests targeting `master` or `main`, and supports manual dispatch. It calls `build-and-test.yml` with coverage and deployment artifact creation disabled.
+- The reusable workflow restores, builds, and tests the solution. Test failure fails the required `Validate PR / Build and Test` job. Test reporting runs even after a failure.
+- `azure-deploy.yml` triggers automatically only on pushes to `master`. It also supports manual dispatch, which can start a build on another branch.
+- The Azure deployment job requires a successful build and `github.ref == 'refs/heads/master'`. A manually dispatched feature-branch build cannot deploy through that job.
 
-   - ✅ **Require a pull request before merging**
-     - This ensures all changes go through a PR process
-     - Optional: Enable "Require approvals" if you want code reviews
-   
-   - ✅ **Require status checks to pass before merging**
-     - Check this box to enable status checks
-     - In the search box that appears, search for and select:
-       - `Validate PR / Build and Test` (from pr-validation.yml)
-     - ✅ Check "Require branches to be up to date before merging"
-   
-   - ✅ **Do not allow bypassing the above settings** (recommended)
-     - This ensures even administrators must follow the rules
+## Repeatable verification
 
-4. **Save Changes**
-   - Click **Create** or **Save changes** at the bottom
+1. Read the effective branch rules and ruleset details with an administrator account. Confirm the exact check context and GitHub Actions integration against a recent PR check run. Inspect classic branch protection separately; record access limitations rather than interpreting HTTP 403 as absence.
+2. Create an isolated branch from current `master` and add a clearly identified, deliberately failing unit test. Open a temporary draft PR.
+3. Mark the PR ready for review before assessing merge eligibility. Wait for the required check to finish and record its run URL, head SHA, test failure, and `mergeStateStatus: BLOCKED`. Do not attempt a merge or weaken protection.
+4. Repair the assertion and push. Wait for the required check to succeed and for GitHub to recompute merge eligibility. Record the new SHA, run URL, and merge state. Resolve any unrelated blockers before claiming the gate cleared.
+5. Query Azure workflow runs filtered to the temporary branch and verify that none ran. Do not manually dispatch deployment as part of this test.
+6. Close the PR without merging and remove the temporary remote branch. Keep the PR and run links as evidence; exclude the temporary test from the final change.
 
-## What This Accomplishes
+Useful read-only commands (substitute the current PR number, ruleset ID, and branch):
 
-With these settings enabled:
-
-- ✅ All code changes must go through a pull request
-- ✅ All tests must pass before the PR can be merged
-- ✅ The branch must be up-to-date with master before merging
-- ✅ Failed tests will block the merge, preventing broken code from reaching master
-- ✅ Deployment workflow only runs on master, never on feature branches
-- ✅ No duplicate builds - PR validation runs on PRs, deployment runs on master
-
-## Status Checks
-
-The following status check will be required:
-
-**Validate PR / Build and Test** - From the `pr-validation.yml` workflow
-- Builds the solution
-- Runs all unit and integration tests
-- Validates the code compiles successfully
-- Must pass before PR can be merged to master
-
-## Deployment Process
-
-After a PR is merged to master:
-
-1. The `azure-deploy.yml` workflow automatically triggers
-2. Code is built and tested with coverage
-3. Code coverage is uploaded to Codecov
-4. Deployment artifact is created with version information
-5. Application is deployed to Azure Web App (RFC-Website)
-
-## Testing the Configuration
-
-To verify the branch protection is working:
-
-1. Create a new branch
-2. Make a change that breaks a test
-3. Create a pull request
-4. Observe that:
-   - Tests run automatically via PR Validation workflow
-   - The merge button is disabled until tests pass
-   - You cannot merge until the test is fixed
-   - Azure deployment workflow does NOT run on the PR branch
-
-## Additional Recommendations
-
-Consider enabling these additional protections:
-
-- **Require linear history** - Prevents merge commits, keeping history clean
-- **Include administrators** - Applies rules to repository administrators too
-- **Restrict who can push to matching branches** - Limits direct pushes to master
-
-## Workflow Architecture
-
-```
-Pull Request → pr-validation.yml → build-and-test.yml (run-coverage: false)
-                                    ├── Build
-                                    ├── Test
-                                    └── Publish Test Results
-
-Master Push  → azure-deploy.yml   → build-and-test.yml (run-coverage: true)
-                                    ├── Build
-                                    ├── Test
-                                    ├── Coverage Report
-                                    ├── Create Artifact
-                                    └── Deploy to Azure
+```powershell
+ gh api repos/Red-Folder/red-folder.com/rules/branches/master
+ gh api repos/Red-Folder/red-folder.com/rulesets/3696335
+ gh api repos/Red-Folder/red-folder.com/branches/master/protection
+ gh pr checks 50 --repo Red-Folder/red-folder.com --required
+ gh pr view 50 --repo Red-Folder/red-folder.com --json isDraft,headRefOid,mergeStateStatus,statusCheckRollup
+ gh api 'repos/Red-Folder/red-folder.com/actions/workflows/azure-deploy.yml/runs?branch=codex%2Fissue-30-merge-gate-verification'
 ```
 
-## Notes
-
-- The reusable `build-and-test.yml` workflow eliminates duplication
-- PR validation runs faster (no coverage generation)
-- Master builds include full coverage reporting
-- Deployment is completely isolated to master branch only
-- Version tracking is included in deployed artifacts
-- Test results are published as comments on PRs for easy visibility
-
-## Troubleshooting
-
-If status checks don't appear:
-
-1. Make sure the workflows have run at least once on a PR
-2. Refresh the branch protection settings page
-3. The status check names must match exactly as they appear in GitHub Actions
-4. Verify workflows are enabled in the repository settings
-5. Check that the reusable workflow file (`build-and-test.yml`) exists
-
-For more information, see:
-- [GitHub Branch Protection Documentation](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches)
-- [GitHub Required Status Checks](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches#require-status-checks-before-merging)
-- [GitHub Reusable Workflows](https://docs.github.com/en/actions/using-workflows/reusing-workflows)
+Do not store tokens, secrets, or unfiltered settings exports in repository evidence.
