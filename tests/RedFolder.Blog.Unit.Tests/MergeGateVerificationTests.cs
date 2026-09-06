@@ -6,8 +6,8 @@ namespace RedFolder.Blog.Unit.Tests;
 public class MergeGateVerificationTests
 {
     [Fact]
-    public void MergeGate_DeliberateFailure_BlocksMerge()
+    public void MergeGate_RepairedTest_Passes()
     {
-        Assert.True(false, "Intentional failure to verify the master CI merge gate (issue #30).");
+        Assert.True(true);
     }
 }
