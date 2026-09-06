@@ -28,6 +28,12 @@ on:
     branches: ["master"]  # Only trigger on push to master branch
   workflow_dispatch:
 
+# Serialize production builds too, so a slower old build cannot replace a newer release.
+# Finish the active run; newly arriving runs replace the pending run.
+concurrency:
+  group: ${{ github.ref == 'refs/heads/master' && 'azure-rfc-website-production' || format('azure-rfc-website-nonproduction-{0}', github.ref) }}
+  cancel-in-progress: false
+
 permissions:
   contents: read
   checks: write
@@ -49,10 +55,6 @@ jobs:
       contents: read
     runs-on: ubuntu-latest
     needs: build
-    # Finish an active deployment; newer waiting jobs replace older pending jobs.
-    concurrency:
-      group: azure-rfc-website-production
-      cancel-in-progress: false
     environment:
       name: 'Production'
       url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
@@ -63,7 +65,7 @@ jobs:
         with:
           name: .net-app
 
-      # Builds can finish out of order, and old runs can be retried.
+      # A newer commit can arrive during this run, and old runs can be retried.
       - name: Check deployment is still current
         id: deployment-current
         shell: bash

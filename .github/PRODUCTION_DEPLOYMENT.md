@@ -4,9 +4,11 @@
 
 For issue #31, the repository owner selected completion of an active deployment with replacement of older pending deployments, and approved the `Production` environment restricted to `master`.
 
-The deploy job holds the fixed repository concurrency group `azure-rfc-website-production` with `cancel-in-progress: false`. One job runs and at most one waits; another arriving job replaces the pending job. Builds run independently. Every workflow deploying RFC-Website must share this group. Do not add workflow-level cancellation that could interrupt an active deployment.
+The production workflow holds the fixed repository concurrency group `azure-rfc-website-production` with `cancel-in-progress: false` throughout build and deployment. One run proceeds and at most one waits; another arriving run replaces the pending run. Serializing production builds prevents an older, slower build from replacing a newer pending deployment. PR validation runs independently, and manual non-production runs use separate groups per ref. Every workflow deploying RFC-Website must share the production group. Do not add cancellation that could interrupt an active deployment, or repeat the same lock at job level inside a workflow already holding it.
 
 Queue arrival order is not commit order. Immediately before calling Azure, the job reads the current `master` SHA and skips a superseded commit, recording the reason in the run summary. A failed lookup fails the job before deployment. A new merge after this check does not interrupt the active deployment; its successor waits. Skipped jobs are not evidence of a release: check the Azure step and `/api/version`.
+
+Pending replacement follows run arrival, so retrying an obsolete revision can still replace the pending current-master run. Avoid obsolete retries; if this happens, dispatch the workflow on current `master` again to restore the pending release.
 
 Pushes to `master` and authorized manual dispatches on `master` can deploy, after the build and tests succeed. Manual feature-branch runs cannot enter this deployment job. GitHub requires repository write access to dispatch; Production's branch policy must additionally permit only the branch `master`, with no tag rules.
 
@@ -29,8 +31,8 @@ After environment setup and successful PR validation:
 
 1. Ensure earlier workflow revisions have no active deployment runs before merging; historical revisions do not contain the concurrency lock. Do not rerun pre-lock revisions.
 2. Merge through the protected PR process. Confirm the deployment uses Production and the displayed environment URL reaches RFC-Website. Confirm `/api/version` matches the deployed SHA.
-3. Dispatch safe runs on the same tested master SHA close together. Observe one deploy job holding the concurrency group and another pending. For replacement evidence, submit a third while the second is still pending. If timing prevents overlap, repeat using the same good SHA; do not introduce broken code or weaken protections.
-4. Record run URLs, SHAs, Azure step start/end times, the pending and replaced job states, and the final endpoint SHA. Verify the active Azure deployment completed and Azure step intervals did not overlap. Two successful runs alone do not prove pending replacement.
+3. Dispatch safe runs on the same tested master SHA close together. Observe one workflow run holding the concurrency group and another pending. For replacement evidence, submit a third while the second is still pending. If timing prevents overlap, repeat using the same good SHA; do not introduce broken code or weaken protections.
+4. Record run URLs, SHAs, Azure step start/end times, the pending and replaced run states, and the final endpoint SHA. Verify the active run completed and Azure step intervals did not overlap. Two successful runs alone do not prove pending replacement.
 5. Dispatch the unchanged workflow on its feature branch and confirm the deploy job is skipped. Inspect Production's exact master-only branch rule independently; retain both pieces of evidence.
 6. Add observed results here before closing #31. Local checks do not prove GitHub concurrency or live environment behavior.
 
@@ -43,7 +45,7 @@ Local validation on 2026-09-06: restore and Release build passed, all 19 tests p
 - Failed build: repair through a PR; no deployment runs until tests pass.
 - Failed deployment: inspect the Azure step and current site version. Retry the current master workflow after resolving the cause. Superseded runs skip deployment.
 - Bad release: create a revert PR, pass required checks, and merge. The new master SHA deploys the restored code. Rerunning an old SHA is deliberately not a rollback path.
-- Unexpected queue state: inspect all runs sharing the group; cancel obsolete pending runs if needed. Do not cancel an active Azure operation merely to free the lock. If an operator cancels a run, confirm the Azure operation has actually stopped before starting recovery.
+- Unexpected queue state: inspect all runs sharing the group; cancel obsolete pending runs if needed. If an obsolete retry replaced the current-master pending run, dispatch current master again. Do not cancel an active Azure operation merely to free the lock. If an operator cancels a run, confirm the Azure operation has actually stopped before starting recovery.
 - Environment rejection or missing credentials: repair Production's configuration without removing branch restrictions or approval rules, then retry current master.
 
 References: [GitHub concurrency](https://docs.github.com/en/actions/how-tos/write-workflows/choose-when-workflows-run/control-workflow-concurrency), [deployment environments](https://docs.github.com/en/actions/how-tos/deploy/configure-and-manage-deployments/manage-environments).
