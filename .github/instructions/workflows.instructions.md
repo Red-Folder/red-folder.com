@@ -264,7 +264,7 @@ jobs:
 ### Environment Configuration
 ```yaml
 environment:
-  name: 'Development'
+  name: 'Production'
   url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
 ```
 

@@ -42,6 +42,7 @@ Local validation of the final documentation branch: dependency restore and Relea
 - The reusable workflow restores, builds, and tests the solution. Test failure fails the required `Validate PR / Build and Test` job. Test reporting runs even after a failure.
 - `azure-deploy.yml` triggers automatically only on pushes to `master`. It also supports manual dispatch, which can start a build on another branch.
 - The Azure deployment job requires a successful build and `github.ref == 'refs/heads/master'`. A manually dispatched feature-branch build cannot deploy through that job.
+- The issue #31 workflow change serializes production deployment jobs and skips superseded commits. The approved Production environment must restrict deployments to the `master` branch. See [production deployment](PRODUCTION_DEPLOYMENT.md) for migration prerequisites, live verification status, and recovery; environment setup is not yet verified.
 
 ## Repeatable verification
 

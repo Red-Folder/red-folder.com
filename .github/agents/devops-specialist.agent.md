@@ -51,7 +51,7 @@ A reusable workflow that contains common build, test, and artifact generation st
 **Deploy Job:**
 1. Download build artifacts
 2. Deploy to Azure Web App using publish profile
-3. Environment: Development
+3. Environment: Production
 4. Target: RFC-Website Azure Web App
 
 ### PR Validation Workflow
@@ -106,7 +106,7 @@ A reusable workflow that contains common build, test, and artifact generation st
 - Authentication: Publish profile stored in GitHub Secrets
 - Package path: Points to published application
 - App name: `RFC-Website` (set in environment variable)
-- Environment: Development
+- Environment: Production
 
 ### Version Tracking
 - Generate `version.json` during build with:
