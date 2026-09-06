@@ -65,6 +65,10 @@ tests/
 └── RedFolder.WebSite.Integration.Tests/ # Integration tests
 ```
 
+## Production deployment
+
+Production deployment runs after successful builds on `master`. Production build-and-deploy runs are serialized, active deployments finish, and superseded commits are skipped. See the [deployment runbook](.github/PRODUCTION_DEPLOYMENT.md) for Production environment setup, verification status, and recovery, and [branch protection](.github/BRANCH_PROTECTION.md) for the merge gate.
+
 ## AI Coding Agent Configuration
 
 This repository is configured for use with GitHub Copilot and other AI coding agents. The configuration helps AI agents understand the project structure, coding conventions, and development workflows.
