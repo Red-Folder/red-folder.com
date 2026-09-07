@@ -65,6 +65,18 @@ jobs:
         with:
           name: .net-app
 
+      - name: Download smoke executable
+        uses: actions/download-artifact@v4
+        with:
+          name: production-smoke
+          # The deployment package is the workspace; download tools outside it.
+          path: ${{ runner.temp }}/production-smoke
+
+      - name: Set up .NET for smoke verification
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.0.x'
+
       # A newer commit can arrive during this run, and old runs can be retried.
       - name: Check deployment is still current
         id: deployment-current
@@ -89,3 +101,19 @@ jobs:
           app-name: ${{ env.AZURE_WEBAPP_NAME }}
           publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
           package: ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}
+
+      - name: Verify production deployment
+        id: production-smoke
+        if: steps.deploy-to-webapp.outcome == 'success'
+        timeout-minutes: 5
+        shell: bash
+        run: |
+          dotnet "$RUNNER_TEMP/production-smoke/RedFolder.Smoke.dll" "https://www.red-folder.com" "$GITHUB_SHA" 15
+          echo "Production smoke checks passed for commit \`$GITHUB_SHA\` at https://www.red-folder.com." >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Report production verification failure
+        if: failure() && steps.production-smoke.outcome == 'failure'
+        shell: bash
+        run: |
+          echo "::error::Production deployment verification failed. Review the smoke check diagnostics; no automatic rollback was performed."
+          echo "Production was deployed, but smoke verification failed for commit \`$GITHUB_SHA\`. Review the smoke check diagnostics and investigate production. No automatic rollback was performed." >> "$GITHUB_STEP_SUMMARY"
