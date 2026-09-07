@@ -69,6 +69,8 @@ tests/
 
 Production deployment runs after successful builds on `master`. Production build-and-deploy runs are serialized, active deployments finish, and superseded commits are skipped. See the [deployment runbook](.github/PRODUCTION_DEPLOYMENT.md) for Production environment setup, verification status, and recovery, and [branch protection](.github/BRANCH_PROTECTION.md) for the merge gate.
 
+The application exposes a minimal `/health` readiness endpoint. See [health and smoke checks](tools/RedFolder.Smoke/README.md) for the read-only deployment verification command, selected health/retired-route policy, timeout limits and local/GitHub Actions usage.
+
 ## AI Coding Agent Configuration
 
 This repository is configured for use with GitHub Copilot and other AI coding agents. The configuration helps AI agents understand the project structure, coding conventions, and development workflows.

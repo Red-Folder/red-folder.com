@@ -27,6 +27,7 @@
   <ItemGroup>
     <ProjectReference Include="..\..\src\Red-Folder.com\Red-Folder.com.csproj" />
     <ProjectReference Include="..\..\src\Red-Folder.Podcast\Red-Folder.Podcast.csproj" />
+    <ProjectReference Include="..\..\tools\RedFolder.Smoke\RedFolder.Smoke.csproj" />
   </ItemGroup>
 
   <ItemGroup>
