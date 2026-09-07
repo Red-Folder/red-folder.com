@@ -133,6 +133,8 @@ The project uses GitHub Actions for continuous integration and deployment:
 - **Coverage**: Results uploaded to Codecov on master branch deployments
 - **Reusable workflow**: `build-and-test.yml` provides common build/test steps used by both PR validation and deployment
 
+Tests run once per build, with coverage collected during that invocation on master. Codecov is optional and non-blocking; downloadable TRX and coverage artifacts provide the reporting record. See [CI tooling and reporting](.github/CI_REPORTING.md) for pins, maintenance, retention and failure policy.
+
 See `.github/workflows/` directory for all workflows.
 
 ### Version Tracking

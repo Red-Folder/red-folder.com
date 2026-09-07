@@ -4,6 +4,8 @@ applyTo: ".github/workflows/**/*.yml,.github/workflows/**/*.yaml"
 
 # GitHub Actions Workflow Instructions
 
+Current repository policy is defined in [CI reporting](../CI_REPORTING.md): pin every external action to a reviewed full SHA, use read-only build permissions, retain TRX instead of privileged check/comment publishing, and collect coverage during the single test invocation. Examples below illustrate syntax only; do not copy mutable action tags or write permissions into repository workflows.
+
 These instructions apply specifically to GitHub Actions workflow files in `.github/workflows/`.
 
 ## Workflow Structure
@@ -89,8 +91,8 @@ jobs:
 
 ### Action Versions
 - **Always pin action versions** for security and stability
-- Use major version tags: `@v4` (gets latest v4.x.x)
-- For critical actions, pin to commit SHA
+- Use reviewed full commit SHAs with release-version comments for every external action
+- Review downloaded tool versions as well as action SHAs
 - Keep actions up-to-date with security patches
 - Document why specific versions are used
 

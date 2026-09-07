@@ -26,8 +26,6 @@ env:
 
 permissions:
   contents: read
-  checks: write
-  pull-requests: write
 
 jobs:
   build-and-test:
@@ -36,15 +34,15 @@ jobs:
     
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
 
       - name: Set up .NET Core
-        uses: actions/setup-dotnet@v4
+        uses: actions/setup-dotnet@67a3573c9a986a3f9c594539f4ab511d57bb3ce9 # v4.3.1
         with:
           dotnet-version: ${{ env.DOTNET_VERSION }}
 
       - name: Set up dependency caching
-        uses: actions/cache@v4
+        uses: actions/cache@0057852bfaa89a56745cba8c7296529d2fc39830 # v4.3.0
         with:
           path: ~/.nuget/packages
           key: ${{ runner.os }}-nuget-${{ hashFiles('**/packages.lock.json') }}
@@ -58,37 +56,102 @@ jobs:
         run: dotnet build --no-restore --configuration Release
 
       - name: Run Tests
-        run: dotnet test --no-build --configuration Release --logger trx --results-directory "test-results"
+        id: tests
+        shell: bash
+        env:
+          RUN_COVERAGE: ${{ inputs.run-coverage }}
+        run: |
+          coverage_args=()
+          if [ "$RUN_COVERAGE" = "true" ]; then
+            coverage_args+=(--collect:"XPlat Code Coverage")
+          fi
+          dotnet test --no-build --configuration Release --logger trx --results-directory test-results "${coverage_args[@]}"
 
-      - name: Publish Test Results
-        uses: EnricoMi/publish-unit-test-result-action@v2
-        if: always()
+      # Diagnostics must not obscure the original build or test result.
+      - name: Retain test results
+        id: test-results
+        if: always() && steps.tests.outcome != 'skipped'
+        continue-on-error: true
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
         with:
-          files: test-results/**/*.trx
-          check_name: "Test Results"
-          comment_mode: always
+          name: test-results
+          path: test-results/**/*.trx
+          retention-days: 14
+          if-no-files-found: warn
 
-      - name: Generate Coverage
-        if: inputs.run-coverage
-        run: dotnet test --no-build --configuration Release --verbosity normal --collect:"XPlat Code Coverage"
+      - name: Retain raw coverage diagnostics
+        id: raw-coverage
+        if: always() && inputs.run-coverage && steps.tests.outcome != 'skipped'
+        continue-on-error: true
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: raw-coverage
+          path: test-results/**/coverage.cobertura.xml
+          retention-days: 14
+          if-no-files-found: warn
 
-      - name: Install ReportGenerator tool
+      - name: Report diagnostic upload failure
+        if: always() && (steps.test-results.outcome == 'failure' || steps.raw-coverage.outcome == 'failure')
+        shell: bash
+        run: |
+          echo "::warning::Diagnostic artifact upload failed. Review the build and test logs for the authoritative result."
+          echo "Warning: diagnostic artifacts could not all be retained; review the build and test logs." >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Summarize test run
+        if: always()
+        shell: bash
+        env:
+          TEST_OUTCOME: ${{ steps.tests.outcome }}
+        run: |
+          echo "Release test suite: $TEST_OUTCOME. See Run Tests for counts and diagnostics, and the test-results artifact for TRX files." >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Restore ReportGenerator tool
         if: inputs.run-coverage
-        run: dotnet tool install -g dotnet-reportgenerator-globaltool
+        run: dotnet tool restore
 
       - name: Generate coverage report
         if: inputs.run-coverage
-        run: reportgenerator "-reports:**/coverage.cobertura.xml" "-targetdir:coveragereport" "-reporttypes:HtmlInline_AzurePipelines;Cobertura"
+        shell: bash
+        run: |
+          if ! find test-results -name coverage.cobertura.xml -type f -size +0c -print -quit | grep -q .; then
+            echo "::error::Coverage was requested but no nonempty Cobertura report was produced."
+            exit 1
+          fi
+          dotnet tool run reportgenerator "-reports:test-results/**/coverage.cobertura.xml" "-targetdir:coveragereport" "-reporttypes:HtmlInline_AzurePipelines;Cobertura"
+          test -s coveragereport/Cobertura.xml
+          test -s coveragereport/index.html
+
+      - name: Retain generated coverage report
+        if: inputs.run-coverage
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: coverage-report
+          path: coveragereport/
+          retention-days: 14
+          if-no-files-found: error
 
       - name: Upload coverage
+        id: codecov
         if: inputs.run-coverage
-        uses: codecov/codecov-action@v3
+        continue-on-error: true
+        timeout-minutes: 3
+        uses: codecov/codecov-action@fb8b3582c8e4def4969c97caa2f19720cb33a72f # v7.0.0
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
           files: ./coveragereport/Cobertura.xml
+          disable_search: true
           flags: unittests
           name: codecov-umbrella
+          version: v11.3.1
+          # Expose upload errors so the next step can warn without blocking deployment.
           fail_ci_if_error: true
+
+      - name: Report optional Codecov upload failure
+        if: always() && steps.codecov.outcome == 'failure'
+        shell: bash
+        run: |
+          echo "::warning::Optional Codecov upload failed. The retained coverage-report artifact is available for review."
+          echo "Warning: Codecov upload failed. Coverage remains available in the coverage-report artifact; the test result is unchanged." >> "$GITHUB_STEP_SUMMARY"
 
       - name: Publish application
         if: inputs.create-artifact
@@ -110,16 +173,19 @@ jobs:
 
       - name: Upload artifact for deployment job
         if: inputs.create-artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
         with:
           name: .net-app
           path: ${{env.DOTNET_ROOT}}/myapp
+          retention-days: 30
+          if-no-files-found: error
 
       # Reuse the tested build output; keep verification tooling out of the web app.
       - name: Upload smoke executable for deployment verification
         if: inputs.create-artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
         with:
           name: production-smoke
           path: tools/RedFolder.Smoke/bin/Release/net8.0/
+          retention-days: 30
           if-no-files-found: error

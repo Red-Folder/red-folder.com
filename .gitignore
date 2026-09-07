@@ -234,3 +234,5 @@ appsettings.development.json
 *.received.*
 
 test-results/*.trx
+/test-results/
+/coveragereport/
