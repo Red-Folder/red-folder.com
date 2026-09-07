@@ -1,0 +1,159 @@
+name: Recover or rehearse a verified release
+
+on:
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: 'rehearsal restores a known-good baseline in Staging; recover changes Production'
+        type: choice
+        options: [rehearsal, recover]
+        required: true
+        default: rehearsal
+      source_run_id:
+        description: 'Successful production-verified azure-deploy run containing the baseline artifact'
+        type: string
+        required: true
+      expected_sha:
+        description: 'Full 40-character baseline commit SHA'
+        type: string
+        required: true
+
+concurrency:
+  group: ${{ github.ref == 'refs/heads/master' && 'azure-rfc-website-production' || format('azure-rfc-website-nonproduction-{0}', github.ref) }}
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    if: github.ref == 'refs/heads/master'
+    name: Build trusted smoke and rehearsal candidate
+    uses: ./.github/workflows/build-and-test.yml
+    with:
+      run-coverage: false
+      create-artifact: true
+
+  recovery:
+    if: github.ref == 'refs/heads/master'
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      actions: read
+    environment:
+      name: ${{ inputs.mode == 'rehearsal' && 'Staging' || 'Production' }}
+    env:
+      GH_TOKEN: ${{ github.token }}
+      MODE: ${{ inputs.mode }}
+      SOURCE_RUN: ${{ inputs.source_run_id }}
+      EXPECTED_SHA: ${{ inputs.expected_sha }}
+      TARGET_URL: ${{ inputs.mode == 'recover' && 'https://www.red-folder.com' || vars.STAGING_URL }}
+    steps:
+      - name: Checkout trusted deployment tooling
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
+      - name: Download candidate
+        uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4.3.0
+        with:
+          name: .net-app
+          path: ${{ runner.temp }}/candidate
+      - name: Download smoke executable
+        uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4.3.0
+        with:
+          name: production-smoke
+          path: ${{ runner.temp }}/production-smoke
+      - name: Set up .NET for smoke verification
+        uses: actions/setup-dotnet@67a3573c9a986a3f9c594539f4ab511d57bb3ce9 # v4.3.1
+        with:
+          dotnet-version: '8.0.x'
+      - name: Require current trusted master and configuration
+        env:
+          STAGING_PROFILE: ${{ secrets.AZURE_STAGING_PUBLISH_PROFILE }}
+        run: |
+          python3 tools/deployment/release.py current --strict
+          case "$MODE" in rehearsal|recover) ;; *) exit 1 ;; esac
+          python3 tools/deployment/release.py origin "$TARGET_URL"
+          if [ "$MODE" = rehearsal ]; then
+            test -n "$STAGING_PROFILE" && test -n "$TARGET_URL"
+            test "$EXPECTED_SHA" != "$GITHUB_SHA" || { echo "::error::Rehearsal requires distinct baseline and candidate SHAs."; exit 1; }
+          fi
+      - name: Validate candidate identity
+        run: python3 tools/deployment/release.py candidate "$RUNNER_TEMP/candidate"
+      - name: Prepare verified baseline
+        id: baseline
+        run: python3 tools/deployment/release.py prepare --run-id "$SOURCE_RUN" --sha "$EXPECTED_SHA" --destination "$RUNNER_TEMP/previous"
+      - name: Establish staging baseline
+        if: inputs.mode == 'rehearsal'
+        uses: azure/webapps-deploy@5cfb776471c748b351e1ebf5770e208a54ace016 # v2.2.19
+        with:
+          app-name: RFC-Website-Staging
+          publish-profile: ${{ secrets.AZURE_STAGING_PUBLISH_PROFILE }}
+          package: ${{ runner.temp }}/previous
+      - name: Verify staging baseline
+        if: inputs.mode == 'rehearsal'
+        timeout-minutes: 8
+        run: |
+          python3 tools/deployment/release.py ready "$TARGET_URL" "$EXPECTED_SHA"
+          dotnet "$RUNNER_TEMP/production-smoke/RedFolder.Smoke.dll" "$TARGET_URL" "$EXPECTED_SHA" 15
+      - name: Deploy rehearsal candidate
+        id: candidate
+        if: inputs.mode == 'rehearsal'
+        uses: azure/webapps-deploy@5cfb776471c748b351e1ebf5770e208a54ace016 # v2.2.19
+        with:
+          app-name: RFC-Website-Staging
+          publish-profile: ${{ secrets.AZURE_STAGING_PUBLISH_PROFILE }}
+          package: ${{ runner.temp }}/candidate
+      - name: Verify rehearsal candidate
+        id: candidate-smoke
+        if: inputs.mode == 'rehearsal' && steps.candidate.outcome == 'success'
+        timeout-minutes: 8
+        run: |
+          python3 tools/deployment/release.py ready "$TARGET_URL" "$GITHUB_SHA"
+          dotnet "$RUNNER_TEMP/production-smoke/RedFolder.Smoke.dll" "$TARGET_URL" "$GITHUB_SHA" 15
+      - name: Inject rehearsal verification failure
+        id: injected-failure
+        if: inputs.mode == 'rehearsal' && steps.candidate-smoke.outcome == 'success'
+        run: |
+          echo "::error::Intentional staging-only verification failure exercises artifact restoration."
+          exit 1
+      - name: Restore staging baseline after failure
+        id: rehearsal-restore
+        if: failure() && !cancelled() && inputs.mode == 'rehearsal' && steps.baseline.outcome == 'success' && steps.candidate.outcome == 'success' && (steps.candidate-smoke.outcome == 'failure' || steps.injected-failure.outcome == 'failure')
+        uses: azure/webapps-deploy@5cfb776471c748b351e1ebf5770e208a54ace016 # v2.2.19
+        with:
+          app-name: RFC-Website-Staging
+          publish-profile: ${{ secrets.AZURE_STAGING_PUBLISH_PROFILE }}
+          package: ${{ runner.temp }}/previous
+      - name: Recheck recovery dispatch is still current
+        if: inputs.mode == 'recover'
+        run: python3 tools/deployment/release.py current --strict
+      - name: Restore production baseline
+        id: production-restore
+        if: inputs.mode == 'recover'
+        uses: azure/webapps-deploy@5cfb776471c748b351e1ebf5770e208a54ace016 # v2.2.19
+        with:
+          app-name: RFC-Website
+          publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
+          package: ${{ runner.temp }}/previous
+      - name: Verify restored baseline
+        id: restored-smoke
+        if: always() && !cancelled() && (steps.rehearsal-restore.outcome == 'success' || steps.production-restore.outcome == 'success')
+        timeout-minutes: 8
+        run: |
+          python3 tools/deployment/release.py ready "$TARGET_URL" "$EXPECTED_SHA"
+          dotnet "$RUNNER_TEMP/production-smoke/RedFolder.Smoke.dll" "$TARGET_URL" "$EXPECTED_SHA" 15
+      - name: Report recovery evidence
+        if: always()
+        env:
+          RESTORED: ${{ steps.restored-smoke.outcome }}
+          INJECTED: ${{ steps.injected-failure.outcome }}
+        run: |
+          if [ "$MODE" = rehearsal ] && [ "$INJECTED" = failure ] && [ "$RESTORED" = success ]; then
+            echo "REHEARSAL VERIFIED: candidate $GITHUB_SHA passed smoke, injected failure triggered restoration, baseline $EXPECTED_SHA from run $SOURCE_RUN passed smoke. The workflow remains failed intentionally; record this step and the restoration evidence before enabling automatic rollback." >> "$GITHUB_STEP_SUMMARY"
+          elif [ "$MODE" = recover ] && [ "$RESTORED" = success ]; then
+            echo "PRODUCTION RECOVERY VERIFIED: restored $EXPECTED_SHA from source run $SOURCE_RUN. Reconcile master through a revert/fix PR before another deployment." >> "$GITHUB_STEP_SUMMARY"
+          else
+            echo "::error::Recovery/rehearsal is unverified. Inspect Azure operation state and live version before another mutation."
+            echo "Recovery/rehearsal unverified. Inspect Azure and live version; do not enable automatic rollback from this run." >> "$GITHUB_STEP_SUMMARY"
+            exit 1
+          fi
