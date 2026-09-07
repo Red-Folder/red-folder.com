@@ -42,7 +42,12 @@ Local validation on 2026-09-06: restore and Release build passed, all 19 tests p
 
 ## Recovery
 
+Production deployment now includes a post-deployment smoke check against `https://www.red-folder.com`, using the same `GITHUB_SHA` written into the application's version metadata. The smoke executable comes from a separate artifact built and tested in the same workflow run. It checks readiness, retained public pages, the deployed commit and retired Activity routes with explicit request and step timeouts. A superseded release skips both deployment and smoke verification. See the [smoke contract](../tools/RedFolder.Smoke/README.md) for exact assertions and limitations.
+
+The workflow succeeds only if deployment and smoke verification succeed. A failed post-deployment check reports failure but leaves the deployed release in place; there is no automatic rollback. Live verification of this new step requires a merged production run. Staging, gated promotion and tested rollback remain in #33.
+
 - Failed build: repair through a PR; no deployment runs until tests pass.
+- Failed smoke verification: inspect the fixed route diagnostics in the smoke step and its workflow summary, then check application telemetry and the deployed version. The deployment may already be serving traffic. Repair through a new PR or use the bad-release recovery below; do not treat a successful Azure upload as successful verification.
 - Failed deployment: inspect the Azure step and current site version. Retry the current master workflow after resolving the cause. Superseded runs skip deployment.
 - Bad release: create a revert PR, pass required checks, and merge. The new master SHA deploys the restored code. Rerunning an old SHA is deliberately not a rollback path.
 - Unexpected queue state: inspect all runs sharing the group; cancel obsolete pending runs if needed. If an obsolete retry replaced the current-master pending run, dispatch current master again. Do not cancel an active Azure operation merely to free the lock. If an operator cancels a run, confirm the Azure operation has actually stopped before starting recovery.

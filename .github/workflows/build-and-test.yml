@@ -114,3 +114,12 @@ jobs:
         with:
           name: .net-app
           path: ${{env.DOTNET_ROOT}}/myapp
+
+      # Reuse the tested build output; keep verification tooling out of the web app.
+      - name: Upload smoke executable for deployment verification
+        if: inputs.create-artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: production-smoke
+          path: tools/RedFolder.Smoke/bin/Release/net8.0/
+          if-no-files-found: error

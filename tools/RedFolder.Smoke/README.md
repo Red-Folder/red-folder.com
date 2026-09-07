@@ -23,6 +23,9 @@ Blog content and podcast feed dependencies are exercised only as part of renderi
 
 Start the application with `dotnet run --project src/Red-Folder.com` and supply its listening base URL and local version file's SHA to the command above. Existing blog/podcast configuration must be available for those public pages to pass. Development HTTPS certificates must be trusted; the command does not disable certificate validation.
 
-The same command can run in GitHub Actions after checkout and .NET 8 setup. Pass the deployment's recorded SHA, such as `GITHUB_SHA` when that is the artifact's source commit, and let the process exit code fail the step. Use a job/step timeout as an additional outer bound. This issue supplies the command; deployment gating/staged promotion wiring is deferred to #33.
+The production workflow runs the compiled smoke executable after a successful Azure deployment against `https://www.red-folder.com`, using `GITHUB_SHA` as the expected artifact commit. The build uploads the smoke executable separately from the website, and the deployment job downloads it outside the website package. Superseded deployments skip verification. Each request has a 15-second timeout, with an additional five-minute workflow step timeout.
+
+A failed check fails the deployment job and records a verification failure in the workflow summary. The new release may already be live: failure does not automatically roll back the deployment. Inspect the failed route diagnostics and follow the [production recovery runbook](../../.github/PRODUCTION_DEPLOYMENT.md#recovery). Staging, promotion gates and tested rollback remain for #33; production smoke verification is included in #32.
 
 Regression tests are included in the solution's normal `dotnet test --configuration Release` run, with no network calls. They cover readiness lifecycle responses, retired routes, and smoke success/failure for unexpected statuses, redirects, timeout, transport failure, malformed/missing metadata, incorrect commit, missing Blog markers and degraded readiness.
+
