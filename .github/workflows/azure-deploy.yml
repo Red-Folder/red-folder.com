@@ -1,35 +1,11 @@
-# This workflow will build and push a .NET Core app to an Azure Web App when a commit is pushed to the master branch.
-#
-# This workflow assumes you have already created the target Azure App Service web app.
-# For instructions see https://docs.microsoft.com/en-us/azure/app-service/quickstart-dotnetcore?tabs=net60&pivots=development-environment-vscode
-#
-# To configure this workflow:
-#
-# 1. Download the Publish Profile for your Azure Web App. You can download this file from the Overview page of your Web App in the Azure Portal.
-#    For more information: https://docs.microsoft.com/en-us/azure/app-service/deploy-github-actions?tabs=applevel#generate-deployment-credentials
-#
-# 2. Create a secret in your repository named AZURE_WEBAPP_PUBLISH_PROFILE, paste the publish profile contents as the value of the secret.
-#    For instructions on obtaining the publish profile see: https://docs.microsoft.com/azure/app-service/deploy-github-actions#configure-the-github-secret
-#
-# 3. Change the value for the AZURE_WEBAPP_NAME. Optionally, change the AZURE_WEBAPP_PACKAGE_PATH and DOTNET_VERSION environment variables below.
-#
-# For more information on GitHub Actions for Azure: https://github.com/Azure/Actions
-# For more information on the Azure Web Apps Deploy action: https://github.com/Azure/webapps-deploy
-# For more samples to get started with GitHub Action workflows to deploy to Azure: https://github.com/Azure/actions-workflow-samples
-
+# Build once; hold the release lock through staging, approval and recovery.
 name: Build and deploy ASP.Net Core app to an Azure Web App
-
-env:
-  AZURE_WEBAPP_NAME: RFC-Website      # set this to the name of your Azure Web App
-  AZURE_WEBAPP_PACKAGE_PATH: '.'      # set this to the path to your web app project, defaults to the repository root
 
 on:
   push:
-    branches: ["master"]  # Only trigger on push to master branch
+    branches: ["master"]
   workflow_dispatch:
 
-# Serialize production builds too, so a slower old build cannot replace a newer release.
-# Finish the active run; newly arriving runs replace the pending run.
 concurrency:
   group: ${{ github.ref == 'refs/heads/master' && 'azure-rfc-website-production' || format('azure-rfc-website-nonproduction-{0}', github.ref) }}
   cancel-in-progress: false
@@ -47,71 +23,172 @@ jobs:
     secrets:
       CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
 
-  deploy:
+  staging:
+    name: Verify staging
     if: github.ref == 'refs/heads/master'
-    permissions:
-      contents: read
-    runs-on: ubuntu-latest
     needs: build
+    runs-on: ubuntu-latest
     environment:
-      name: 'Production'
-      url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
-
+      name: Staging
+      url: ${{ vars.STAGING_URL }}
+    outputs:
+      verified: ${{ steps.verified.outputs.value }}
+      package-digest: ${{ steps.package.outputs.digest }}
+      staging-url: ${{ steps.verified.outputs.url }}
+    env:
+      STAGING_URL: ${{ vars.STAGING_URL }}
+      GH_TOKEN: ${{ github.token }}
     steps:
-      - name: Download artifact from build job
+      - name: Checkout trusted deployment tooling
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
+      - name: Download candidate
         uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4.3.0
         with:
           name: .net-app
-
+          path: ${{ runner.temp }}/candidate
       - name: Download smoke executable
         uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4.3.0
         with:
           name: production-smoke
-          # The deployment package is the workspace; download tools outside it.
           path: ${{ runner.temp }}/production-smoke
-
       - name: Set up .NET for smoke verification
         uses: actions/setup-dotnet@67a3573c9a986a3f9c594539f4ab511d57bb3ce9 # v4.3.1
         with:
           dotnet-version: '8.0.x'
-
-      # A newer commit can arrive during this run, and old runs can be retried.
-      - name: Check deployment is still current
-        id: deployment-current
-        shell: bash
+      - name: Check candidate is still current
+        id: current
+        run: python3 tools/deployment/release.py current
+      - name: Require staging configuration
+        if: steps.current.outputs.deploy == 'true'
         env:
-          GH_TOKEN: ${{ github.token }}
+          STAGING_PROFILE: ${{ secrets.AZURE_STAGING_PUBLISH_PROFILE }}
         run: |
-          latest_sha=$(gh api "repos/$GITHUB_REPOSITORY/git/ref/heads/master" --jq '.object.sha')
-          if [ "$GITHUB_SHA" = "$latest_sha" ]; then
-            echo "deploy=true" >> "$GITHUB_OUTPUT"
-          else
-            echo "deploy=false" >> "$GITHUB_OUTPUT"
-            echo "::notice::Skipping superseded deployment: $GITHUB_SHA is no longer the master head ($latest_sha)."
-            echo "Deployment skipped: commit \`$GITHUB_SHA\` has been superseded by master head \`$latest_sha\`." >> "$GITHUB_STEP_SUMMARY"
-          fi
-
-      - name: Deploy to Azure Web App
-        id: deploy-to-webapp
-        if: steps.deployment-current.outputs.deploy == 'true'
+          test -n "$STAGING_PROFILE" || { echo "::error::Set Staging secret AZURE_STAGING_PUBLISH_PROFILE."; exit 1; }
+          test -n "$STAGING_URL" || { echo "::error::Set Staging variable STAGING_URL."; exit 1; }
+          python3 tools/deployment/release.py origin "$STAGING_URL"
+      - name: Validate candidate identity
+        id: package
+        if: steps.current.outputs.deploy == 'true'
+        run: python3 tools/deployment/release.py candidate "$RUNNER_TEMP/candidate"
+      - name: Deploy staging candidate
+        if: steps.current.outputs.deploy == 'true'
         uses: azure/webapps-deploy@5cfb776471c748b351e1ebf5770e208a54ace016 # v2.2.19
         with:
-          app-name: ${{ env.AZURE_WEBAPP_NAME }}
-          publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
-          package: ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}
+          app-name: RFC-Website-Staging
+          publish-profile: ${{ secrets.AZURE_STAGING_PUBLISH_PROFILE }}
+          package: ${{ runner.temp }}/candidate
+      - name: Verify staging deployment
+        if: steps.current.outputs.deploy == 'true'
+        timeout-minutes: 8
+        run: |
+          python3 tools/deployment/release.py ready "$STAGING_URL" "$GITHUB_SHA"
+          dotnet "$RUNNER_TEMP/production-smoke/RedFolder.Smoke.dll" "$STAGING_URL" "$GITHUB_SHA" 15
+      - name: Record staging verification
+        id: verified
+        if: steps.current.outputs.deploy == 'true'
+        run: |
+          echo "value=true" >> "$GITHUB_OUTPUT"
+          echo "url=$STAGING_URL" >> "$GITHUB_OUTPUT"
+          echo "Staging smoke passed for candidate $GITHUB_SHA. Awaiting Production approval." >> "$GITHUB_STEP_SUMMARY"
 
+  deploy:
+    name: Promote to production
+    if: github.ref == 'refs/heads/master' && needs.staging.outputs.verified == 'true'
+    needs: [build, staging]
+    permissions:
+      contents: read
+      actions: read
+    runs-on: ubuntu-latest
+    # Required reviewers must be configured in GitHub before merging.
+    environment:
+      name: Production
+      url: https://www.red-folder.com
+    env:
+      GH_TOKEN: ${{ github.token }}
+      AUTOMATIC_ROLLBACK: ${{ vars.ENABLE_AUTOMATIC_ROLLBACK }}
+    steps:
+      - name: Checkout trusted deployment tooling
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
+      - name: Download candidate
+        uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4.3.0
+        with:
+          name: .net-app
+          path: ${{ runner.temp }}/candidate
+      - name: Download smoke executable
+        uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4.3.0
+        with:
+          name: production-smoke
+          path: ${{ runner.temp }}/production-smoke
+      - name: Set up .NET for smoke verification
+        uses: actions/setup-dotnet@67a3573c9a986a3f9c594539f4ab511d57bb3ce9 # v4.3.1
+        with:
+          dotnet-version: '8.0.x'
+      - name: Check deployment is still current
+        id: current
+        run: python3 tools/deployment/release.py current
+      - name: Confirm approved package and staging version
+        if: steps.current.outputs.deploy == 'true'
+        timeout-minutes: 8
+        env:
+          VERIFIED_DIGEST: ${{ needs.staging.outputs.package-digest }}
+          STAGING_URL: ${{ needs.staging.outputs.staging-url }}
+        run: |
+          python3 tools/deployment/release.py candidate "$RUNNER_TEMP/candidate" --expected-digest "$VERIFIED_DIGEST"
+          python3 tools/deployment/release.py ready "$STAGING_URL" "$GITHUB_SHA"
+          dotnet "$RUNNER_TEMP/production-smoke/RedFolder.Smoke.dll" "$STAGING_URL" "$GITHUB_SHA" 15
+      - name: Capture and verify previous production artifact
+        id: previous
+        if: steps.current.outputs.deploy == 'true'
+        run: python3 tools/deployment/release.py prepare --url https://www.red-folder.com --destination "$RUNNER_TEMP/previous"
+      # Retrieval takes time; recheck directly before production mutation.
+      - name: Recheck deployment is still current
+        id: promotion-current
+        if: steps.current.outputs.deploy == 'true'
+        run: python3 tools/deployment/release.py current
+      - name: Deploy to Azure Web App
+        id: deploy-to-webapp
+        if: steps.promotion-current.outputs.deploy == 'true'
+        uses: azure/webapps-deploy@5cfb776471c748b351e1ebf5770e208a54ace016 # v2.2.19
+        with:
+          app-name: RFC-Website
+          publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
+          package: ${{ runner.temp }}/candidate
       - name: Verify production deployment
         id: production-smoke
         if: steps.deploy-to-webapp.outcome == 'success'
-        timeout-minutes: 5
-        shell: bash
+        timeout-minutes: 8
         run: |
-          dotnet "$RUNNER_TEMP/production-smoke/RedFolder.Smoke.dll" "https://www.red-folder.com" "$GITHUB_SHA" 15
-          echo "Production smoke checks passed for commit \`$GITHUB_SHA\` at https://www.red-folder.com." >> "$GITHUB_STEP_SUMMARY"
-
-      - name: Report production verification failure
-        if: failure() && steps.production-smoke.outcome == 'failure'
-        shell: bash
+          python3 tools/deployment/release.py ready https://www.red-folder.com "$GITHUB_SHA"
+          dotnet "$RUNNER_TEMP/production-smoke/RedFolder.Smoke.dll" https://www.red-folder.com "$GITHUB_SHA" 15
+          echo "Production smoke passed for candidate $GITHUB_SHA." >> "$GITHUB_STEP_SUMMARY"
+      # Upload failure/cancellation can leave an Azure operation running: inspect manually.
+      - name: Restore previous production artifact
+        id: rollback
+        if: failure() && !cancelled() && vars.ENABLE_AUTOMATIC_ROLLBACK == 'true' && steps.previous.outcome == 'success' && steps.deploy-to-webapp.outcome == 'success' && steps.production-smoke.outcome == 'failure'
+        uses: azure/webapps-deploy@5cfb776471c748b351e1ebf5770e208a54ace016 # v2.2.19
+        with:
+          app-name: RFC-Website
+          publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
+          package: ${{ runner.temp }}/previous
+      - name: Verify restored production
+        id: rollback-smoke
+        if: failure() && !cancelled() && steps.rollback.outcome == 'success'
+        timeout-minutes: 8
+        env:
+          PREVIOUS_SHA: ${{ steps.previous.outputs.sha }}
         run: |
-          echo "::error::Production deployment verification failed. Review the smoke check diagnostics; no automatic rollback was performed."
-          echo "Production was deployed, but smoke verification failed for commit \`$GITHUB_SHA\`. Review the smoke check diagnostics and investigate production. No automatic rollback was performed." >> "$GITHUB_STEP_SUMMARY"
+          python3 tools/deployment/release.py ready https://www.red-folder.com "$PREVIOUS_SHA"
+          dotnet "$RUNNER_TEMP/production-smoke/RedFolder.Smoke.dll" https://www.red-folder.com "$PREVIOUS_SHA" 15
+      - name: Report failed release and recovery
+        if: failure() && (steps.deploy-to-webapp.outcome == 'failure' || steps.production-smoke.outcome == 'failure')
+        env:
+          RECOVERY_OUTCOME: ${{ steps.rollback-smoke.outcome }}
+          PREVIOUS_SHA: ${{ steps.previous.outputs.sha }}
+          SOURCE_RUN: ${{ steps.previous.outputs.run_id }}
+        run: |
+          if [ "$RECOVERY_OUTCOME" = success ]; then
+            echo "Release failed; recovery verified previous commit $PREVIOUS_SHA. This run remains failed." >> "$GITHUB_STEP_SUMMARY"
+          else
+            echo "::error::Release failed and recovery is unverified. Inspect Azure operations and production before manual recovery."
+            echo "Automatic rollback enabled: '$AUTOMATIC_ROLLBACK'; recovery outcome: '$RECOVERY_OUTCOME'. Inspect Azure operations and live version, then dispatch recovery on current master with source run $SOURCE_RUN and SHA $PREVIOUS_SHA. Do not cancel an active Azure operation or retry an obsolete workflow." >> "$GITHUB_STEP_SUMMARY"
+          fi

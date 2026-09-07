@@ -1,5 +1,7 @@
 # Production deployment
 
+> Issue #33 extends this workflow with staging, gated promotion and artifact recovery. Follow [staging and rollback](STAGING_AND_ROLLBACK.md) for the current release/recovery procedure and required manual setup. The #31/#32 verification notes below are historical evidence; the recovery policy below is superseded by that runbook.
+
 ## Agreed policy
 
 For issue #31, the repository owner selected completion of an active deployment with replacement of older pending deployments, and approved the `Production` environment restricted to `master`.
