@@ -3,12 +3,14 @@
 Run from the repository root with the .NET 8 SDK (or a newer SDK that can target .NET 8) and .NET 8 runtime:
 
 ```sh
-dotnet run --project tools/RedFolder.Smoke --configuration Release -- https://www.red-folder.com FULL_40_CHARACTER_COMMIT_SHA 15
+dotnet run --project tools/RedFolder.Smoke --configuration Release -- https://www.red-folder.com FULL_40_CHARACTER_COMMIT_SHA 15 120
 ```
 
-Supply the canonical base URL, without a path, query, credentials or fragment, and the exact full commit SHA that was deployed. The optional per-request timeout defaults to 15 seconds and accepts 1–120 seconds. Redirects are failures, including HTTP-to-HTTPS and alternate hostname redirects: use the final HTTPS hostname in production. Requests are sequential, with no retries, and the default ten-request HTTP budget is approximately 150 seconds. DNS resolution can exceed very short timeouts on some platforms.
+Supply the canonical base URL, without a path, query, credentials or fragment, and the exact full commit SHA that was deployed. The optional per-request timeout defaults to 15 seconds and accepts 1–120 seconds. Redirects are failures, including HTTP-to-HTTPS and alternate hostname redirects: use the final HTTPS hostname in production. Within the full smoke suite, requests are sequential, with no retries, and the default ten-request HTTP budget is approximately 150 seconds. DNS resolution can exceed very short timeouts on some platforms.
 
 Exit codes: **0** all checks passed; **1** deployment check failed; **2** invalid arguments. Only fixed route names, statuses and diagnostic categories are printed. Response bodies, exception details and the supplied host/commit are never printed by the checks. No credentials are required and only GET requests are sent.
+
+The optional fourth argument enables a startup wait, in seconds (1–300). Omit it to run the existing immediate smoke checks. With `120`, poll only `/health` and `/api/version` for up to two minutes until the app is Healthy and the expected commit is serving. Each request is bounded by the remaining startup budget as well as the per-request timeout; retries pause up to five seconds. If readiness never converges, exit 1. After readiness succeeds, run the complete ten-route smoke suite once, with the original assertions and request timeout. Startup retries never turn a subsequent failed route check into a pass. Redirects and invalid metadata do not establish readiness.
 
 ## Policy and coverage
 
@@ -23,9 +25,8 @@ Blog content and podcast feed dependencies are exercised only as part of renderi
 
 Start the application with `dotnet run --project src/Red-Folder.com` and supply its listening base URL and local version file's SHA to the command above. Existing blog/podcast configuration must be available for those public pages to pass. Development HTTPS certificates must be trusted; the command does not disable certificate validation.
 
-The production workflow runs the compiled smoke executable after a successful Azure deployment against `https://www.red-folder.com`, using `GITHUB_SHA` as the expected artifact commit. The build uploads the smoke executable separately from the website, and the deployment job downloads it outside the website package. Superseded deployments skip verification. Each request has a 15-second timeout, with an additional five-minute workflow step timeout.
+The production workflow runs the compiled smoke executable after a successful Azure deployment against `https://www.red-folder.com`, using `GITHUB_SHA` as the expected artifact commit. The build uploads the smoke executable separately from the website, and the deployment job downloads it outside the website package. Superseded deployments skip verification. A readiness wait of up to 120 seconds precedes the full smoke suite; each request retains its 15-second timeout. The workflow step has an eight-minute outer timeout to cover startup, the full smoke suite and runtime overhead.
 
 A failed check fails the deployment job and records a verification failure in the workflow summary. The new release may already be live: failure does not automatically roll back the deployment. Inspect the failed route diagnostics and follow the [production recovery runbook](../../.github/PRODUCTION_DEPLOYMENT.md#recovery). Staging, promotion gates and tested rollback remain for #33; production smoke verification is included in #32.
 
 Regression tests are included in the solution's normal `dotnet test --configuration Release` run, with no network calls. They cover readiness lifecycle responses, retired routes, and smoke success/failure for unexpected statuses, redirects, timeout, transport failure, malformed/missing metadata, incorrect commit, missing Blog markers and degraded readiness.
-
