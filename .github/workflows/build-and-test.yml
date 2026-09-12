@@ -52,6 +52,9 @@ jobs:
       - name: Restore dependencies
         run: dotnet restore
 
+      - name: Test deployment artifact safeguards
+        run: python3 -m unittest discover -s tools/deployment -p 'test_*.py' -v
+
       - name: Build
         run: dotnet build --no-restore --configuration Release
 

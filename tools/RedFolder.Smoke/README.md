@@ -1,5 +1,7 @@
 # Health and production smoke checks
 
+The deployment pipeline also uses this contract for staging and recovery. See [staging and rollback](../../.github/STAGING_AND_ROLLBACK.md) for approval, warm-up, recovery enablement and required setup. References below to the absence of rollback describe the original #32 integration; #33 adds opt-in recovery after rehearsal.
+
 Run from the repository root with the .NET 8 SDK (or a newer SDK that can target .NET 8) and .NET 8 runtime:
 
 ```sh

@@ -34,4 +34,4 @@ Action/tool pins do not freeze GitHub-hosted runner images, the .NET 8 servicing
 4. In an isolated verification branch, induce a failing test and a diagnostic publishing failure; verify the test step and required check fail. Then restore passing tests and induce a Codecov upload failure; verify a warning and successful build. Never change the production guard or expose secret values for these tests.
 5. Verify a missing coverage report or required artifact fails the build. Record hosted run links in the PR and distinguish exercised cases from untested ones.
 
-Deployment serialization, superseded-commit checks, Production environment and smoke verification remain unchanged. See [branch protection](BRANCH_PROTECTION.md) and [production deployment](PRODUCTION_DEPLOYMENT.md).
+Deployment serialization and superseded-commit checks continue across staging, Production approval, promotion and recovery. See [branch protection](BRANCH_PROTECTION.md), [production deployment](PRODUCTION_DEPLOYMENT.md), and the mandatory [staging and rollback setup](STAGING_AND_ROLLBACK.md). Deployment artifacts retain the existing 30-day limit; missing recovery artifacts block promotion.

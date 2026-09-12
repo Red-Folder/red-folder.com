@@ -236,3 +236,7 @@ appsettings.development.json
 test-results/*.trx
 /test-results/
 /coveragereport/
+
+# Deployment helper test caches
+__pycache__/
+*.pyc

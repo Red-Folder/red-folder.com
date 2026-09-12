@@ -69,6 +69,8 @@ tests/
 
 Production deployment runs after successful builds on `master`. Production build-and-deploy runs are serialized, active deployments finish, and superseded commits are skipped. See the [deployment runbook](.github/PRODUCTION_DEPLOYMENT.md) for Production environment setup, verification status, and recovery, and [branch protection](.github/BRANCH_PROTECTION.md) for the merge gate.
 
+Releases deploy first to the existing staging App Service and must pass smoke checks before Production approval and promotion of the same artifact. A verified previous artifact is required before production changes. See [staging and rollback](.github/STAGING_AND_ROLLBACK.md) for mandatory manual setup, rehearsal, artifact retention limits and cost implications. Automatic rollback remains disabled until its staging rehearsal has been reviewed.
+
 The application exposes a minimal `/health` readiness endpoint. After each successful production deployment, automated smoke checks verify the public pages and deployed commit; failed checks fail the workflow. See [health and smoke checks](tools/RedFolder.Smoke/README.md) for the command, selected health/retired-route policy, timeout limits and local/GitHub Actions usage.
 
 ## AI Coding Agent Configuration
