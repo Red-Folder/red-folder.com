@@ -5,6 +5,69 @@ namespace RedFolder.Smoke;
 /// <summary>Read-only public deployment checks with deliberately limited diagnostics.</summary>
 public static class SmokeChecks
 {
+    /// <summary>
+    /// Waits only for host readiness and the expected deployment version. The overall
+    /// deadline also bounds each request and response body read. Full smoke checks
+    /// must still run once after this succeeds. Redirects must be disabled by the caller.
+    /// </summary>
+    public static async Task<bool> WaitForReadinessAsync(HttpClient client, string expectedCommit,
+        TextWriter output, TimeSpan startupWait, CancellationToken cancellationToken = default,
+        TimeProvider? timeProvider = null)
+    {
+        if (startupWait <= TimeSpan.Zero || startupWait > TimeSpan.FromSeconds(300))
+            throw new ArgumentOutOfRangeException(nameof(startupWait));
+
+        var clock = timeProvider ?? TimeProvider.System;
+        var started = clock.GetTimestamp();
+        using var deadline = new CancellationTokenSource(startupWait, clock);
+        using var cancellation = CancellationTokenSource.CreateLinkedTokenSource(cancellationToken, deadline.Token);
+        var token = cancellation.Token;
+
+        try
+        {
+            while (!token.IsCancellationRequested && clock.GetElapsedTime(started) < startupWait)
+            {
+                if (await HasExpectedValueAsync(client, "/health", "status", "Healthy", token) &&
+                    await HasExpectedValueAsync(client, "/api/version", "commitSha", expectedCommit, token) &&
+                    !token.IsCancellationRequested && clock.GetElapsedTime(started) < startupWait)
+                {
+                    await output.WriteLineAsync("PASS startup: readiness and deployed commit confirmed");
+                    return true;
+                }
+
+                var remaining = startupWait - clock.GetElapsedTime(started);
+                if (remaining <= TimeSpan.Zero) break;
+                await Task.Delay(remaining < TimeSpan.FromSeconds(5) ? remaining : TimeSpan.FromSeconds(5), clock, token);
+            }
+        }
+        catch (OperationCanceledException) { }
+
+        await output.WriteLineAsync(cancellationToken.IsCancellationRequested
+            ? "FAIL startup: readiness wait cancelled"
+            : "FAIL startup: readiness or expected deployed commit not confirmed before deadline");
+        return false;
+    }
+
+    private static async Task<bool> HasExpectedValueAsync(HttpClient client, string path,
+        string key, string expected, CancellationToken cancellationToken)
+    {
+        try
+        {
+            using var request = new HttpRequestMessage(HttpMethod.Get, path);
+            request.Headers.CacheControl = new() { NoCache = true };
+            using var response = await client.SendAsync(request, cancellationToken);
+            if (response.StatusCode != System.Net.HttpStatusCode.OK) return false;
+            using var json = JsonDocument.Parse(await response.Content.ReadAsStringAsync(cancellationToken));
+            return json.RootElement.ValueKind == JsonValueKind.Object &&
+                json.RootElement.TryGetProperty(key, out var value) &&
+                value.ValueKind == JsonValueKind.String &&
+                string.Equals(value.GetString(), expected, StringComparison.OrdinalIgnoreCase);
+        }
+        catch (HttpRequestException) { return false; }
+        catch (JsonException) { return false; }
+        catch (OperationCanceledException) when (!cancellationToken.IsCancellationRequested) { return false; }
+    }
+
     private static readonly (string Path, int Status)[] Routes =
     [
         ("/health", 200), ("/", 200), ("/Blog", 200), ("/Podcasts", 200),

@@ -103,10 +103,10 @@ jobs:
       - name: Verify production deployment
         id: production-smoke
         if: steps.deploy-to-webapp.outcome == 'success'
-        timeout-minutes: 5
+        timeout-minutes: 8
         shell: bash
         run: |
-          dotnet "$RUNNER_TEMP/production-smoke/RedFolder.Smoke.dll" "https://www.red-folder.com" "$GITHUB_SHA" 15
+          dotnet "$RUNNER_TEMP/production-smoke/RedFolder.Smoke.dll" "https://www.red-folder.com" "$GITHUB_SHA" 15 120
           echo "Production smoke checks passed for commit \`$GITHUB_SHA\` at https://www.red-folder.com." >> "$GITHUB_STEP_SUMMARY"
 
       - name: Report production verification failure
