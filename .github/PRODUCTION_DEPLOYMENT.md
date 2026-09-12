@@ -44,6 +44,16 @@ Local validation on 2026-09-06: restore and Release build passed, all 19 tests p
 
 ## Recovery
 
+### Startup wait and the #33 baseline prerequisite
+
+[Run 34702157530](https://github.com/Red-Folder/red-folder.com/actions/runs/34702157530) completed its Azure upload at 15:28:27 UTC on 2026-09-12. Immediate `/health`, `/` and `/Blog` requests each timed out after 15 seconds; later routes passed from 15:29:18. A subsequent read-only smoke run passed all ten routes. This is consistent with startup delay, although it does not establish the underlying cause of the slow startup.
+
+The smoke command now accepts an optional fourth startup-wait argument. Production uses `15 120`: wait up to 120 seconds for Healthy readiness and the expected commit, then run the original full smoke suite once with a 15-second request timeout. The overall step timeout is eight minutes. Failure to become ready or failure of any subsequent smoke assertion still fails deployment. No fixed sleep, hosting upgrade, paid service or weakening of route checks is required.
+
+Merge this prerequisite before the staging/rollback PR #60. Its normal master deployment must complete successfully, including **Verify production deployment**, and retain `.net-app`. Record that successful run ID and full commit SHA as the known-good baseline for #33. Do not retry the earlier workflow revision: it lacks the readiness wait. If the new run still fails, inspect startup/dependency behavior rather than increasing the wait without evidence. A successful local smoke run alone does not substitute for the successful hosted release evidence required by #60.
+
+### Failure handling
+
 Production deployment now includes a post-deployment smoke check against `https://www.red-folder.com`, using the same `GITHUB_SHA` written into the application's version metadata. The smoke executable comes from a separate artifact built and tested in the same workflow run. It checks readiness, retained public pages, the deployed commit and retired Activity routes with explicit request and step timeouts. A superseded release skips both deployment and smoke verification. See the [smoke contract](../tools/RedFolder.Smoke/README.md) for exact assertions and limitations.
 
 The workflow succeeds only if deployment and smoke verification succeed. A failed post-deployment check reports failure but leaves the deployed release in place; there is no automatic rollback. Live verification of this new step requires a merged production run. Staging, gated promotion and tested rollback remain in #33.

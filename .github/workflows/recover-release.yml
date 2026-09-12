@@ -93,8 +93,7 @@ jobs:
         if: inputs.mode == 'rehearsal'
         timeout-minutes: 8
         run: |
-          python3 tools/deployment/release.py ready "$TARGET_URL" "$EXPECTED_SHA"
-          dotnet "$RUNNER_TEMP/production-smoke/RedFolder.Smoke.dll" "$TARGET_URL" "$EXPECTED_SHA" 15
+          dotnet "$RUNNER_TEMP/production-smoke/RedFolder.Smoke.dll" "$TARGET_URL" "$EXPECTED_SHA" 15 120
       - name: Deploy rehearsal candidate
         id: candidate
         if: inputs.mode == 'rehearsal'
@@ -108,8 +107,7 @@ jobs:
         if: inputs.mode == 'rehearsal' && steps.candidate.outcome == 'success'
         timeout-minutes: 8
         run: |
-          python3 tools/deployment/release.py ready "$TARGET_URL" "$GITHUB_SHA"
-          dotnet "$RUNNER_TEMP/production-smoke/RedFolder.Smoke.dll" "$TARGET_URL" "$GITHUB_SHA" 15
+          dotnet "$RUNNER_TEMP/production-smoke/RedFolder.Smoke.dll" "$TARGET_URL" "$GITHUB_SHA" 15 120
       - name: Inject rehearsal verification failure
         id: injected-failure
         if: inputs.mode == 'rehearsal' && steps.candidate-smoke.outcome == 'success'
@@ -140,8 +138,7 @@ jobs:
         if: always() && !cancelled() && (steps.rehearsal-restore.outcome == 'success' || steps.production-restore.outcome == 'success')
         timeout-minutes: 8
         run: |
-          python3 tools/deployment/release.py ready "$TARGET_URL" "$EXPECTED_SHA"
-          dotnet "$RUNNER_TEMP/production-smoke/RedFolder.Smoke.dll" "$TARGET_URL" "$EXPECTED_SHA" 15
+          dotnet "$RUNNER_TEMP/production-smoke/RedFolder.Smoke.dll" "$TARGET_URL" "$EXPECTED_SHA" 15 120
       - name: Report recovery evidence
         if: always()
         env:

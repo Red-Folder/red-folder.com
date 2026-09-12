@@ -1,4 +1,4 @@
-"""Fail-closed artifact selection and bounded readiness for GitHub deployment jobs.
+"""Fail-closed artifact selection for GitHub deployment jobs.
 
 Only this checked-out script is executed; historical artifacts are deployment data.
 Uses Python's standard library and the runner's authenticated GitHub CLI.
@@ -12,7 +12,6 @@ from pathlib import Path, PurePosixPath
 import re
 import subprocess
 import sys
-import time
 import urllib.request
 from urllib.parse import urlsplit
 import zipfile
@@ -160,21 +159,6 @@ def prepare(destination, expected=None, run_id=None, url=None):
     summary(f"Prepared recovery artifact: commit `{expected}`, run `{run['id']}`, artifact `{artifact['id']}`, digest `{digest}`.")
 
 
-def ready(url, expected):
-    validate_origin(url)
-    require(SHA.fullmatch(expected) is not None, "Invalid readiness SHA.")
-    # Retry startup/version readiness only; the substantive smoke suite runs once afterwards.
-    deadline = time.monotonic() + 120
-    while time.monotonic() < deadline:
-        try:
-            if read_json(url.rstrip("/") + "/health").get("status") == "Healthy" and live_sha(url) == expected:
-                return
-        except (ValueError, OSError):
-            pass
-        time.sleep(5)
-    raise ValueError("Readiness/version did not converge within the bounded warm-up period.")
-
-
 def candidate(directory, expected_digest=None):
     root = Path(directory)
     metadata = json.loads((root / "version.json").read_text(encoding="utf-8"))
@@ -205,9 +189,6 @@ def main():
     previous.add_argument("--sha")
     previous.add_argument("--run-id")
     previous.add_argument("--url")
-    readiness = sub.add_parser("ready")
-    readiness.add_argument("url")
-    readiness.add_argument("sha")
     package = sub.add_parser("candidate")
     package.add_argument("directory")
     package.add_argument("--expected-digest")
@@ -221,8 +202,6 @@ def main():
         prepare(args.destination, args.sha, args.run_id, args.url)
     elif args.command == "candidate":
         candidate(args.directory, args.expected_digest)
-    else:
-        ready(args.url, args.sha)
 
 
 if __name__ == "__main__":

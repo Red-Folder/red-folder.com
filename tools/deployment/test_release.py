@@ -171,13 +171,6 @@ class ReleaseTests(unittest.TestCase):
             self.prepare_with(download=b"tampered archive")
         self.assertFalse(self.destination.exists())
 
-    def test_readiness_retries_startup_but_requires_exact_version(self):
-        with patch.object(release, "read_json", return_value={"status": "Healthy"}), \
-                patch.object(release, "live_sha", side_effect=["b" * 40, COMMIT]), \
-                patch.object(release.time, "sleep") as sleep:
-            release.ready("https://example.com", COMMIT)
-            sleep.assert_called_once_with(5)
-
 
 if __name__ == "__main__":
     unittest.main()

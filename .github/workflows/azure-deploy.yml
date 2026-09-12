@@ -81,8 +81,7 @@ jobs:
         if: steps.current.outputs.deploy == 'true'
         timeout-minutes: 8
         run: |
-          python3 tools/deployment/release.py ready "$STAGING_URL" "$GITHUB_SHA"
-          dotnet "$RUNNER_TEMP/production-smoke/RedFolder.Smoke.dll" "$STAGING_URL" "$GITHUB_SHA" 15
+          dotnet "$RUNNER_TEMP/production-smoke/RedFolder.Smoke.dll" "$STAGING_URL" "$GITHUB_SHA" 15 120
       - name: Record staging verification
         id: verified
         if: steps.current.outputs.deploy == 'true'
@@ -134,8 +133,7 @@ jobs:
           STAGING_URL: ${{ needs.staging.outputs.staging-url }}
         run: |
           python3 tools/deployment/release.py candidate "$RUNNER_TEMP/candidate" --expected-digest "$VERIFIED_DIGEST"
-          python3 tools/deployment/release.py ready "$STAGING_URL" "$GITHUB_SHA"
-          dotnet "$RUNNER_TEMP/production-smoke/RedFolder.Smoke.dll" "$STAGING_URL" "$GITHUB_SHA" 15
+          dotnet "$RUNNER_TEMP/production-smoke/RedFolder.Smoke.dll" "$STAGING_URL" "$GITHUB_SHA" 15 120
       - name: Capture and verify previous production artifact
         id: previous
         if: steps.current.outputs.deploy == 'true'
@@ -158,8 +156,7 @@ jobs:
         if: steps.deploy-to-webapp.outcome == 'success'
         timeout-minutes: 8
         run: |
-          python3 tools/deployment/release.py ready https://www.red-folder.com "$GITHUB_SHA"
-          dotnet "$RUNNER_TEMP/production-smoke/RedFolder.Smoke.dll" https://www.red-folder.com "$GITHUB_SHA" 15
+          dotnet "$RUNNER_TEMP/production-smoke/RedFolder.Smoke.dll" https://www.red-folder.com "$GITHUB_SHA" 15 120
           echo "Production smoke passed for candidate $GITHUB_SHA." >> "$GITHUB_STEP_SUMMARY"
       # Upload failure/cancellation can leave an Azure operation running: inspect manually.
       - name: Restore previous production artifact
@@ -177,8 +174,7 @@ jobs:
         env:
           PREVIOUS_SHA: ${{ steps.previous.outputs.sha }}
         run: |
-          python3 tools/deployment/release.py ready https://www.red-folder.com "$PREVIOUS_SHA"
-          dotnet "$RUNNER_TEMP/production-smoke/RedFolder.Smoke.dll" https://www.red-folder.com "$PREVIOUS_SHA" 15
+          dotnet "$RUNNER_TEMP/production-smoke/RedFolder.Smoke.dll" https://www.red-folder.com "$PREVIOUS_SHA" 15 120
       - name: Report failed release and recovery
         if: failure() && (steps.deploy-to-webapp.outcome == 'failure' || steps.production-smoke.outcome == 'failure')
         env:
