@@ -5,7 +5,7 @@ import os
 from pathlib import Path
 import tempfile
 import unittest
-from unittest.mock import patch
+from unittest.mock import patch, MagicMock
 import zipfile
 
 import release
@@ -170,6 +170,66 @@ class ReleaseTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "digest mismatch"):
             self.prepare_with(download=b"tampered archive")
         self.assertFalse(self.destination.exists())
+
+
+class VersionClientTests(unittest.TestCase):
+    def response(self, content):
+        response = io.BytesIO(content)
+        response.status = 200
+        opener = MagicMock()
+        opener.open.return_value = response
+        return opener
+
+    def test_live_lookup_identifies_client_and_preserves_transport_guards(self):
+        opener = self.response(json.dumps({"commitSha": COMMIT}).encode())
+        with patch.object(release.urllib.request, "build_opener", return_value=opener) as build:
+            self.assertEqual(COMMIT, release.live_sha("https://example.test"))
+        build.assert_called_once_with(release.NoRedirect)
+        request = opener.open.call_args.args[0]
+        self.assertEqual("https://example.test/api/version", request.full_url)
+        self.assertEqual("RedFolder.Deployment/1.0", request.get_header("User-agent"))
+        self.assertEqual("no-cache", request.get_header("Cache-control"))
+        self.assertEqual("GET", request.get_method())
+        self.assertEqual(15, opener.open.call_args.kwargs["timeout"])
+
+    def test_http_error_includes_status_without_sensitive_details(self):
+        for status in (301, 403, 503):
+            error = release.urllib.error.HTTPError("https://SECRET", status, "SECRET", {}, io.BytesIO(b"SECRET"))
+            opener = MagicMock()
+            opener.open.side_effect = error
+            with self.subTest(status=status), patch.object(release.urllib.request, "build_opener", return_value=opener):
+                with self.assertRaisesRegex(ValueError, f"HTTP {status}") as caught:
+                    release.live_sha("https://example.test")
+                self.assertNotIn("SECRET", str(caught.exception))
+            error.close()
+
+    def test_network_and_timeout_errors_are_sanitized(self):
+        for error, expected in ((release.urllib.error.URLError("SECRET"), "connectivity"),
+                                (TimeoutError("SECRET"), "timed out")):
+            opener = MagicMock()
+            opener.open.side_effect = error
+            with self.subTest(error=type(error).__name__), patch.object(release.urllib.request, "build_opener", return_value=opener):
+                with self.assertRaisesRegex(ValueError, expected) as caught:
+                    release.live_sha("https://example.test")
+                self.assertNotIn("SECRET", str(caught.exception))
+
+    def test_invalid_version_responses_fail_closed(self):
+        for body, message in ((b"SECRET", "invalid JSON"), (b"\xff", "invalid JSON"),
+                              (b"[]", "JSON object"), (b"null", "JSON object"),
+                              (b"{}", "full commit SHA"), (b'{"commitSha": 1}', "full commit SHA")):
+            with self.subTest(body=body), patch.object(release.urllib.request, "build_opener", return_value=self.response(body)):
+                with self.assertRaisesRegex(ValueError, message) as caught:
+                    release.live_sha("https://example.test")
+                self.assertNotIn("SECRET", str(caught.exception))
+
+    def test_failed_live_lookup_stops_before_artifact_discovery(self):
+        with patch.object(release, "read_json", side_effect=ValueError("HTTP 403")), patch.object(release, "api") as api:
+            with self.assertRaises(ValueError):
+                release.prepare("unused", url="https://example.test")
+            api.assert_not_called()
+
+    def test_redirect_handler_does_not_follow(self):
+        self.assertIsNone(release.NoRedirect().redirect_request(None, None, 302, "redirect", {}, "https://other.test"))
 
 
 if __name__ == "__main__":
