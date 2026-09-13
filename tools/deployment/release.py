@@ -12,6 +12,7 @@ from pathlib import Path, PurePosixPath
 import re
 import subprocess
 import sys
+import urllib.error
 import urllib.request
 from urllib.parse import urlsplit
 import zipfile
@@ -42,10 +43,22 @@ class NoRedirect(urllib.request.HTTPRedirectHandler):
 
 def read_json(url):
     require(url.startswith("https://"), "Deployment checks require HTTPS.")
-    request = urllib.request.Request(url, headers={"Cache-Control": "no-cache"})
-    with urllib.request.build_opener(NoRedirect).open(request, timeout=15) as response:
-        require(response.status == 200, "Endpoint did not return HTTP 200.")
-        return json.load(response)
+    # Identify this deployment client explicitly; the generic Python identity is
+    # rejected by the live endpoint. This is not authentication or a browser identity.
+    request = urllib.request.Request(url, headers={
+        "Cache-Control": "no-cache", "User-Agent": "RedFolder.Deployment/1.0"})
+    try:
+        with urllib.request.build_opener(NoRedirect).open(request, timeout=15) as response:
+            require(response.status == 200, f"Live version request returned HTTP {response.status}; production was not changed.")
+            return json.load(response)
+    except urllib.error.HTTPError as error:
+        raise ValueError(f"Live version request returned HTTP {error.code}; check endpoint access before retrying.") from None
+    except TimeoutError:
+        raise ValueError("Live version request timed out; check endpoint availability before retrying.") from None
+    except urllib.error.URLError:
+        raise ValueError("Live version request failed; check endpoint connectivity and TLS configuration.") from None
+    except (json.JSONDecodeError, UnicodeDecodeError):
+        raise ValueError("Live version response contains invalid JSON; recovery verification stopped.") from None
 
 
 def validate_origin(url):
@@ -57,7 +70,9 @@ def validate_origin(url):
 
 def live_sha(url):
     validate_origin(url)
-    value = read_json(url.rstrip("/") + "/api/version").get("commitSha", "")
+    metadata = read_json(url.rstrip("/") + "/api/version")
+    require(isinstance(metadata, dict), "Live version response must be a JSON object.")
+    value = metadata.get("commitSha", "")
     require(isinstance(value, str) and SHA.fullmatch(value), "Live version is missing a full commit SHA.")
     return value
 
